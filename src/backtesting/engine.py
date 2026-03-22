@@ -60,8 +60,10 @@ class BacktestEngine:
         # Regime detector
         self._regime_detector = RegimeDetector()
 
-        # Trailing stop
-        self._trailing_mgr = TrailingStopManager(atr_multiplier=1.5, activation_pct=0.5)
+        # Trailing stop (use config values if available)
+        ts_mult = config.trailing_stop.atr_multiplier if config else 1.5
+        ts_act = config.trailing_stop.activation_pct if config else 0.5
+        self._trailing_mgr = TrailingStopManager(atr_multiplier=ts_mult, activation_pct=ts_act)
 
     def run(
         self,

@@ -21,6 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.backtesting.data_loader import load_from_csv, load_or_download, resample_m15_to_h1
 from src.backtesting.engine import BacktestEngine
+from src.config.loader import load_config
 
 logging.basicConfig(
     level=logging.INFO,
@@ -86,6 +87,16 @@ def main() -> None:
 
     logger.info("Data loaded: %d M15 bars, %d H1 bars", len(m15_data), len(h1_data))
 
+    # Load config from base.yaml
+    config = load_config()
+    logger.info(
+        "Config: risk=%.1f%%, SL=%.1fx ATR, TP=%.1fx ATR, trailing_act=%.0f%%",
+        config.account.risk_per_trade_pct,
+        config.strategies.ema_pullback.atr_sl_multiplier,
+        config.strategies.ema_pullback.atr_tp_multiplier,
+        config.trailing_stop.activation_pct * 100,
+    )
+
     # Run backtest
     engine = BacktestEngine(
         symbol=args.symbol,
@@ -93,6 +104,7 @@ def main() -> None:
         initial_capital=args.initial_capital,
         volume=args.volume,
         point_size=args.point_size,
+        config=config,
     )
 
     result = engine.run(m15_data, h1_data)

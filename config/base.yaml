@@ -5,8 +5,8 @@ mt5:
 
 account:
   initial_balance: 30
-  risk_per_trade_pct: 1.0
-  max_lot_per_trade: 0.10
+  risk_per_trade_pct: 2.0       # was 1.0 — 2x more risk per trade
+  max_lot_per_trade: 0.50       # was 0.10 — allow bigger lots as account grows
   min_lot_size: 0.01
 
 instruments:
@@ -36,33 +36,33 @@ instruments:
     lot_step: 0.01
 
 risk:
-  max_open_positions: 3
-  max_positions_per_symbol: 1
-  max_daily_trades: 10
-  max_daily_loss_pct: 5.0
-  max_drawdown_pct: 15.0
+  max_open_positions: 5         # was 3
+  max_positions_per_symbol: 2   # was 1 — allow pyramiding
+  max_daily_trades: 20          # was 10
+  max_daily_loss_pct: 8.0       # was 5.0
+  max_drawdown_pct: 20.0        # was 15.0
 
 signal_parser:
   model: "claude-haiku-4-5-20251001"
   timeout_ms: 5000
-  min_confidence: 0.5
+  min_confidence: 0.45          # was 0.5 — slightly more permissive
   stale_price_threshold_pct: 1.0
-  atr_sl_multiplier: 2.0
-  atr_tp_multiplier: 3.0
+  atr_sl_multiplier: 3.0        # was 2.0 — wider SL for Telegram signals too
+  atr_tp_multiplier: 2.0        # was 3.0 — tighter TP
   amendment_window_minutes: 5
 
 trailing_stop:
   enabled: true
-  atr_multiplier: 1.5
-  activation_pct: 0.5
+  atr_multiplier: 1.5           # tighter trailing = lock in profits faster
+  activation_pct: 0.2           # activate at just 20% of TP distance
   atr_period: 14
   atr_timeframe: "H1"
 
 signal_generator:
   enabled: true
-  scan_interval_seconds: 300
+  scan_interval_seconds: 60     # was 300 — scan every 1 min
   instruments: [XAUUSD, XAGUSD, BTCUSD, ETHUSD]
-  allowed_sessions: [london, new_york, london_ny_overlap]
+  allowed_sessions: [london, new_york, london_ny_overlap, asian_london_overlap]
 
 strategies:
   ema_pullback:
@@ -70,22 +70,22 @@ strategies:
     fast_ema: 8
     slow_ema: 21
     trend_ema: 50
-    pullback_max_candles: 3
+    pullback_max_candles: 5
     entry_window_candles: 2
-    atr_sl_multiplier: 2.0
-    atr_tp_multiplier: 3.0
+    atr_sl_multiplier: 2.5      # moderate SL
+    atr_tp_multiplier: 10.0     # huge TP — let trailing stop be the real exit
     entry_timeframe: "M15"
     regime_timeframe: "H1"
   london_breakout:
     enabled: true
     asian_start_hour: 0
     asian_end_hour: 7
-    breakout_buffer_pips: 5.0
-    max_trades_per_day: 1
-    tp_multiplier: 1.5
+    breakout_buffer_pips: 3.0
+    max_trades_per_day: 2
+    tp_multiplier: 5.0          # huge TP — let trailing stop be the real exit
     timeframe: "M15"
   smc_confluence:
-    enabled: false  # Phase 3D — enable after smartmoneyconcepts is added
+    enabled: false
     ob_confidence_boost: 0.10
     fvg_confidence_boost: 0.10
     bos_confidence_boost: 0.05
