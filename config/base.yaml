@@ -72,8 +72,8 @@ strategies:
     trend_ema: 50
     pullback_max_candles: 5
     entry_window_candles: 2
-    atr_sl_multiplier: 2.5      # moderate SL
-    atr_tp_multiplier: 10.0     # huge TP — let trailing stop be the real exit
+    atr_sl_multiplier: 3.5      # WINNER: wide SL survives Gold's intrabar noise
+    atr_tp_multiplier: 10.0     # trailing stop is the real exit
     entry_timeframe: "M15"
     regime_timeframe: "H1"
   london_breakout:

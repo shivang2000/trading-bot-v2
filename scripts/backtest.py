@@ -48,6 +48,13 @@ def main() -> None:
     parser.add_argument("--mt5-host", default="localhost", help="MT5 RPyC host")
     parser.add_argument("--mt5-port", type=int, default=8001, help="MT5 RPyC port")
     parser.add_argument("--point-size", type=float, default=0.01, help="Symbol point size")
+    # Strategy parameter overrides (override base.yaml values)
+    parser.add_argument("--risk-pct", type=float, default=None, help="Risk %% per trade override")
+    parser.add_argument("--sl-atr", type=float, default=None, help="SL ATR multiplier override")
+    parser.add_argument("--tp-atr", type=float, default=None, help="TP ATR multiplier override")
+    parser.add_argument("--trail-act", type=float, default=None, help="Trailing activation %% override")
+    parser.add_argument("--trail-atr", type=float, default=None, help="Trailing ATR multiplier override")
+    parser.add_argument("--label", default="", help="Label for this config (e.g. 'A-conservative')")
 
     args = parser.parse_args()
 
@@ -87,14 +94,28 @@ def main() -> None:
 
     logger.info("Data loaded: %d M15 bars, %d H1 bars", len(m15_data), len(h1_data))
 
-    # Load config from base.yaml
+    # Load config from base.yaml and apply CLI overrides
     config = load_config()
+    if args.risk_pct is not None:
+        config.account.risk_per_trade_pct = args.risk_pct
+    if args.sl_atr is not None:
+        config.strategies.ema_pullback.atr_sl_multiplier = args.sl_atr
+    if args.tp_atr is not None:
+        config.strategies.ema_pullback.atr_tp_multiplier = args.tp_atr
+    if args.trail_act is not None:
+        config.trailing_stop.activation_pct = args.trail_act
+    if args.trail_atr is not None:
+        config.trailing_stop.atr_multiplier = args.trail_atr
+
+    label = args.label or "default"
     logger.info(
-        "Config: risk=%.1f%%, SL=%.1fx ATR, TP=%.1fx ATR, trailing_act=%.0f%%",
+        "Config [%s]: risk=%.1f%%, SL=%.1fx ATR, TP=%.1fx ATR, trail_act=%.0f%%, trail_atr=%.1fx",
+        label,
         config.account.risk_per_trade_pct,
         config.strategies.ema_pullback.atr_sl_multiplier,
         config.strategies.ema_pullback.atr_tp_multiplier,
         config.trailing_stop.activation_pct * 100,
+        config.trailing_stop.atr_multiplier,
     )
 
     # Run backtest
@@ -117,7 +138,7 @@ def main() -> None:
     results_dir.mkdir(parents=True, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    result_file = results_dir / f"{args.symbol}_{args.strategy}_{timestamp}.json"
+    result_file = results_dir / f"{args.symbol}_{label}_{timestamp}.json"
 
     result_data = {
         "strategy": result.strategy_name,
