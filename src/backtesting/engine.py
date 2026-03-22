@@ -48,6 +48,8 @@ class BacktestEngine:
         self._initial_capital = initial_capital
         self._volume = volume
         self._point_size = point_size
+        self._risk_pct = config.account.risk_per_trade_pct if config else 2.0
+        self._max_lot = config.account.max_lot_per_trade if config else 0.50
 
         # Config
         ema_cfg = config.strategies.ema_pullback if config else EmaPullbackConfig()
@@ -114,10 +116,16 @@ class BacktestEngine:
 
                     if signal is not None:
                         side = OrderSide.BUY if signal.action == "BUY" else OrderSide.SELL
+
+                        # Dynamic position sizing: risk% of equity / SL distance
+                        volume = self._calculate_volume(
+                            account, signal.entry_price, signal.stop_loss
+                        )
+
                         account.open_position(
                             symbol=self._symbol,
                             side=side,
-                            volume=self._volume,
+                            volume=volume,
                             entry_price=signal.entry_price,
                             stop_loss=signal.stop_loss,
                             take_profit=signal.take_profit,
@@ -267,6 +275,39 @@ class BacktestEngine:
             )
             if new_sl is not None:
                 pos.stop_loss = round(new_sl, 5)
+
+    def _calculate_volume(
+        self, account: BacktestAccountManager, entry: float, sl: float,
+    ) -> float:
+        """Calculate lot size based on risk % of equity and SL distance.
+
+        For XAUUSD: 0.01 lot = $1 per point (where point = 0.01).
+        Risk$ = equity * risk_pct / 100
+        SL distance in points = abs(entry - sl) / point_size
+        Volume = Risk$ / (SL_points * tick_value_per_lot)
+        """
+        equity = account._get_equity()
+        risk_pct = self._risk_pct
+        risk_dollars = equity * risk_pct / 100.0
+
+        sl_distance = abs(entry - sl)
+        if sl_distance <= 0:
+            return self._volume  # fallback to fixed
+
+        # For Gold: each 0.01 move on 1.0 lot = $1.00
+        # So per 0.01 lot, each 0.01 move = $0.01
+        # tick_value per 1 lot per point = 100 (since PnL = diff * vol * 100)
+        sl_points = sl_distance / self._point_size if self._point_size > 0 else sl_distance
+        dollar_per_point_per_lot = self._point_size * 100  # 0.01 * 100 = 1.0 for Gold
+
+        volume = risk_dollars / (sl_points * dollar_per_point_per_lot)
+
+        # Clamp to min/max
+        volume = max(0.01, min(volume, self._max_lot))
+        # Round to 2 decimals (lot step 0.01)
+        volume = round(volume, 2)
+
+        return volume
 
     def _empty_result(self, m15_data: pd.DataFrame) -> BacktestResult:
         """Return an empty result when insufficient data."""
