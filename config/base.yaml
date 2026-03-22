@@ -1,0 +1,74 @@
+mt5:
+  rpyc_host: "${MT5_HOST:localhost}"
+  rpyc_port: "${MT5_PORT:8001}"
+  connection_timeout: 30
+
+account:
+  initial_balance: 30
+  risk_per_trade_pct: 1.0
+  max_lot_per_trade: 0.10
+  min_lot_size: 0.01
+
+instruments:
+  - symbol: XAUUSD
+    point_size: 0.01
+    tick_value: 0.01
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: XAGUSD
+    point_size: 0.001
+    tick_value: 0.05
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: BTCUSD
+    point_size: 1.0
+    tick_value: 1.0
+    min_lot: 0.01
+    max_lot: 10.0
+    lot_step: 0.01
+  - symbol: ETHUSD
+    point_size: 0.01
+    tick_value: 0.01
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+
+risk:
+  max_open_positions: 3
+  max_positions_per_symbol: 1
+  max_daily_trades: 10
+  max_daily_loss_pct: 5.0
+  max_drawdown_pct: 15.0
+
+signal_parser:
+  model: "claude-haiku-4-5-20251001"
+  timeout_ms: 5000
+  stale_price_threshold_pct: 1.0
+  atr_sl_multiplier: 2.0
+  atr_tp_multiplier: 3.0
+  amendment_window_minutes: 5
+
+position_monitor:
+  poll_interval_seconds: 30
+
+monitoring:
+  log_level: INFO
+  log_file: logs/trading.log
+  telegram:
+    enabled: false
+    bot_token: "${TELEGRAM_BOT_TOKEN:}"
+    chat_id: "${TELEGRAM_CHAT_ID:}"
+  slack:
+    enabled: true
+    webhook_url: "${SLACK_WEBHOOK_URL:}"
+
+telegram_listener:
+  api_id: "${TELEGRAM_API_ID:}"
+  api_hash: "${TELEGRAM_API_HASH:}"
+  phone: "${TELEGRAM_PHONE:}"
+  session_path: "data/telegram_session"
+
+database:
+  path: "data/trading_bot_v2.db"

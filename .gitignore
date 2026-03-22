@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.venv/
+venv/
+
+# Environment
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# Data & logs (keep structure, ignore contents)
+data/*.db
+data/*.session
+logs/*.log
+
+# Docker
+.docker/
+
+# Telethon session files
+*.session
+*.session-journal
+
+# EC2 keys — NEVER commit
+*.pem
+
+# Claude Code local tooling
+.claude/
+.claude-flow/
+.mcp.json

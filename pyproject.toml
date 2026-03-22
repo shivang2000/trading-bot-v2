@@ -1,0 +1,70 @@
+[project]
+name = "trading-bot-v2"
+version = "0.1.0"
+description = "Telegram signal execution bot for MT5"
+requires-python = ">=3.12"
+dependencies = [
+    # MT5 connection via RPyC
+    "rpyc>=5.0,<6.0",
+    # Telegram channel reading (user account API)
+    "telethon>=1.36",
+    # Telegram bot notifications
+    "python-telegram-bot>=20.7",
+    # Claude AI signal parsing
+    "anthropic>=0.40",
+    # Async HTTP client
+    "httpx>=0.27",
+    # Data handling (for ATR calculation)
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "pandas-ta>=0.3.14b0",
+    # Configuration
+    "pyyaml>=6.0",
+    "pydantic>=2.5",
+    # Database
+    "aiosqlite>=0.19",
+    # Logging
+    "structlog>=24.1",
+    # CLI
+    "click>=8.1",
+    "rich>=13.7",
+    # Slack notifications
+    "aiohttp>=3.9",
+    # Env file loading
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=4.1",
+    "ruff>=0.2",
+    "mypy>=1.8",
+    "pandas-stubs",
+]
+
+[project.scripts]
+trading-bot-v2 = "src.main:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true

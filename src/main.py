@@ -1,0 +1,403 @@
+"""Trading Bot V2 — Telegram Signal Execution Bot.
+
+Entry point that wires all components together and runs the main loop.
+
+Pipeline:
+  Telegram Channel → Listener → Parser (Claude AI) → EventBus
+  → RiskManager → OrderExecutor → MT5 → Notifications
+"""
+
+from __future__ import annotations
+
+import asyncio
+import logging
+import signal
+import sys
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+from src.config.loader import load_config
+from src.config.schema import AppConfig
+from src.core.events import EventBus, Event, FillEvent, PositionClosedEvent
+from src.execution.executor import OrderExecutor
+from src.logging_.daily_summary import DailySummary
+from src.logging_.journal import TradeJournal
+from src.monitoring.notifier import TelegramNotifier
+from src.monitoring.position_monitor import PositionMonitor
+from src.monitoring.slack import SlackNotifier
+from src.mt5.client import AsyncMT5Client
+from src.risk.manager import RiskManager
+from src.safety.emergency import EmergencyStop
+from src.telegram.channel_config import ChannelRegistry
+from src.telegram.listener import TelegramListener
+from src.telegram.parser import SignalParser
+from src.tracking.database import TrackingDB
+
+logger = logging.getLogger(__name__)
+
+
+def _setup_logging(config: AppConfig) -> None:
+    """Configure logging based on config."""
+    log_level = getattr(logging, config.monitoring.log_level.upper(), logging.INFO)
+    log_file = config.monitoring.log_file
+
+    Path(log_file).parent.mkdir(parents=True, exist_ok=True)
+
+    logging.basicConfig(
+        level=log_level,
+        format="%(asctime)s [%(levelname)-8s] %(name)-30s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+        handlers=[
+            logging.StreamHandler(sys.stdout),
+            logging.FileHandler(log_file),
+        ],
+    )
+    # Quiet noisy libraries
+    logging.getLogger("telethon").setLevel(logging.WARNING)
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("rpyc").setLevel(logging.WARNING)
+
+
+class TradingBot:
+    """Main application — composes and manages all components."""
+
+    def __init__(self, config: AppConfig) -> None:
+        self._config = config
+        self._shutdown_event = asyncio.Event()
+
+        # Core
+        self._event_bus = EventBus()
+
+        # MT5
+        self._mt5 = AsyncMT5Client(
+            host=config.mt5.rpyc_host,
+            port=config.mt5.rpyc_port,
+        )
+
+        # Database
+        self._db = TrackingDB(db_path=config.database.path)
+
+        # Channel registry
+        self._registry = ChannelRegistry(config.channels)
+
+        # Notifications
+        self._telegram_notifier = TelegramNotifier(config.monitoring.telegram)
+        self._slack_notifier = SlackNotifier(config.monitoring.slack)
+
+        # Signal parser
+        self._parser = SignalParser(
+            config=config.signal_parser,
+            event_bus=self._event_bus,
+            mt5_client=self._mt5,
+            channel_registry=self._registry,
+            tracking_db=self._db,
+        )
+
+        # Telegram listener
+        self._listener = TelegramListener(
+            api_id=config.telegram_listener.api_id,
+            api_hash=config.telegram_listener.api_hash,
+            phone=config.telegram_listener.phone,
+            session_path=config.telegram_listener.session_path,
+            channel_registry=self._registry,
+            signal_parser=self._parser,
+            tracking_db=self._db,
+        )
+
+        # Risk manager — uses callback functions for MT5 access
+        self._risk_manager = RiskManager(
+            config=config,
+            event_bus=self._event_bus,
+            symbol_info_func=self._sync_symbol_info,
+            account_state_func=self._sync_account_state,
+            positions_func=self._sync_positions,
+        )
+
+        # Executor
+        self._executor = OrderExecutor(
+            event_bus=self._event_bus,
+            mt5_client=self._mt5,
+        )
+
+        # Safety
+        self._emergency = EmergencyStop(
+            max_daily_loss_usd=config.account.initial_balance * config.risk.max_daily_loss_pct / 100,
+            max_drawdown_usd=config.account.initial_balance * config.risk.max_drawdown_pct / 100,
+        )
+
+        # Monitoring
+        self._position_monitor = PositionMonitor(
+            mt5_client=self._mt5,
+            event_bus=self._event_bus,
+            tracking_db=self._db,
+            poll_interval=config.position_monitor.poll_interval_seconds,
+        )
+
+        # Journal + Summary
+        self._journal = TradeJournal(
+            event_bus=self._event_bus,
+            tracking_db=self._db,
+        )
+        self._daily_summary = DailySummary(
+            tracking_db=self._db,
+            telegram_notifier=self._telegram_notifier,
+            slack_notifier=self._slack_notifier,
+            account_state_func=self._sync_account_state,
+        )
+
+    # ── Sync wrappers for callback-based interfaces ──
+
+    def _sync_symbol_info(self, symbol: str) -> dict:
+        """Sync wrapper for MT5 symbol_info (used by RiskManager)."""
+        if not self._mt5.is_connected:
+            return {}
+        loop = asyncio.get_event_loop()
+        future = asyncio.run_coroutine_threadsafe(
+            self._mt5.symbol_info(symbol), loop
+        )
+        return future.result(timeout=10)
+
+    def _sync_account_state(self):
+        """Sync wrapper for MT5 account_info (used by RiskManager)."""
+        if not self._mt5.is_connected:
+            from src.core.models import AccountState
+            from datetime import datetime
+            return AccountState(
+                balance=self._config.account.initial_balance,
+                equity=self._config.account.initial_balance,
+                margin=0, free_margin=self._config.account.initial_balance,
+                margin_level=0, profit=0, timestamp=datetime.now(),
+            )
+        loop = asyncio.get_event_loop()
+        future = asyncio.run_coroutine_threadsafe(
+            self._mt5.account_info(), loop
+        )
+        return future.result(timeout=10)
+
+    def _sync_positions(self, symbol: str | None = None):
+        """Sync wrapper for MT5 positions_get (used by RiskManager)."""
+        if not self._mt5.is_connected:
+            return []
+        loop = asyncio.get_event_loop()
+        future = asyncio.run_coroutine_threadsafe(
+            self._mt5.positions_get(symbol), loop
+        )
+        return future.result(timeout=10)
+
+    # ── Notification hooks ──
+
+    async def _on_fill_notify(self, event: Event) -> None:
+        """Send notifications when an order is filled."""
+        if not isinstance(event, FillEvent) or event.order is None:
+            return
+        order = event.order
+        source = order.comment or ""
+        await self._telegram_notifier.send_trade_opened(
+            symbol=order.symbol,
+            side=order.side.value,
+            volume=event.fill_volume,
+            price=event.fill_price,
+            stop_loss=order.stop_loss,
+            take_profit=order.take_profit,
+            source=source,
+        )
+        await self._slack_notifier.send_trade_opened(
+            symbol=order.symbol,
+            side=order.side.value,
+            volume=event.fill_volume,
+            price=event.fill_price,
+            stop_loss=order.stop_loss,
+            take_profit=order.take_profit,
+            source=source,
+        )
+
+    async def _on_position_closed_notify(self, event: Event) -> None:
+        """Send notifications when a position is closed."""
+        if not isinstance(event, PositionClosedEvent) or event.position is None:
+            return
+        pos = event.position
+        duration_h = 0.0
+        if pos.open_time:
+            from datetime import datetime, timezone
+            now = datetime.now(timezone.utc)
+            open_time = pos.open_time
+            if open_time.tzinfo is None:
+                open_time = open_time.replace(tzinfo=timezone.utc)
+            duration_h = (now - open_time).total_seconds() / 3600
+
+        await self._telegram_notifier.send_trade_closed(
+            symbol=pos.symbol,
+            side=pos.side.value,
+            volume=pos.volume,
+            close_price=event.close_price,
+            pnl=event.pnl,
+            duration_hours=duration_h,
+        )
+        await self._slack_notifier.send_trade_closed(
+            symbol=pos.symbol,
+            side=pos.side.value,
+            volume=pos.volume,
+            close_price=event.close_price,
+            pnl=event.pnl,
+            duration_hours=duration_h,
+        )
+
+    # ── Lifecycle ──
+
+    async def start(self) -> None:
+        """Initialize all components and start the bot."""
+        logger.info("=" * 60)
+        logger.info("Trading Bot V2 starting...")
+        logger.info("=" * 60)
+
+        # 1. Connect to database
+        await self._db.connect()
+
+        # 2. Connect to MT5 (retry — container may still be starting)
+        logger.info("Connecting to MT5 at %s:%d...", self._config.mt5.rpyc_host, self._config.mt5.rpyc_port)
+        mt5_connected = False
+        for attempt in range(1, 13):  # retry for up to ~2 minutes
+            try:
+                await self._mt5.connect()
+                mt5_connected = True
+                break
+            except Exception as e:
+                logger.warning("MT5 connect attempt %d/12 failed: %s", attempt, e)
+                await asyncio.sleep(10)
+
+        if not mt5_connected:
+            logger.error("Could not connect to MT5 — bot will start but cannot trade")
+            logger.error("Make sure the metatrader5 container is running and MT5 is logged in via VNC")
+
+        # 3. Initialize event-driven components
+        await self._risk_manager.initialize()
+        await self._executor.initialize()
+        await self._journal.initialize()
+
+        # 4. Register notification handlers
+        self._event_bus.subscribe("FILL", self._on_fill_notify)
+        self._event_bus.subscribe("POSITION_CLOSED", self._on_position_closed_notify)
+
+        # 5. Start background services (skip position monitor if MT5 not connected)
+        if mt5_connected:
+            await self._position_monitor.start()
+        else:
+            logger.warning("PositionMonitor skipped — MT5 not connected")
+        await self._daily_summary.start()
+
+        # 6. Start Telegram listener
+        logger.info("Starting Telegram listener...")
+        await self._listener.start()
+
+        # 7. Start event bus processing loop
+        event_bus_task = asyncio.create_task(self._event_bus.process())
+
+        # 8. Health gate — refuse to run as a zombie
+        n_channels = len(self._registry.channel_ids)
+        telegram_ok = self._listener._client is not None and self._listener._running
+        degraded_parts: list[str] = []
+
+        if not mt5_connected:
+            degraded_parts.append("MT5 disconnected")
+        if not telegram_ok or n_channels == 0:
+            degraded_parts.append(f"Telegram {'not authenticated' if not telegram_ok else 'has 0 channels'}")
+
+        if not mt5_connected and (not telegram_ok or n_channels == 0):
+            msg = (
+                "FATAL: Both MT5 and Telegram are down — bot cannot trade. "
+                "Fix: (1) start MT5 container (2) run telegram auth script. Exiting."
+            )
+            logger.critical(msg)
+            await self._slack_notifier.send(f"CRITICAL: {msg}")
+            await self._telegram_notifier.send(f"CRITICAL: {msg}")
+            self._shutdown_event.set()
+            self._event_bus.stop()
+            await event_bus_task
+            return
+
+        if degraded_parts:
+            degraded_msg = f"Trading Bot V2 started DEGRADED: {', '.join(degraded_parts)}"
+            logger.warning(degraded_msg)
+            await self._slack_notifier.send(f"WARNING: {degraded_msg}")
+            await self._telegram_notifier.send(f"WARNING: {degraded_msg}")
+
+        logger.info("=" * 60)
+        logger.info("Trading Bot V2 is LIVE")
+        logger.info("  MT5: %s", "connected" if mt5_connected else "DISCONNECTED")
+        logger.info("  Telegram: %s", "connected" if telegram_ok else "NOT AUTHENTICATED")
+        logger.info("  Channels: %d", n_channels)
+        logger.info("  Instruments: %s", [i.symbol for i in self._config.instruments])
+        logger.info("  Risk per trade: %.1f%%", self._config.account.risk_per_trade_pct)
+        logger.info("  Max lot: %.2f", self._config.account.max_lot_per_trade)
+        logger.info("=" * 60)
+
+        # Notify that we're live
+        await self._telegram_notifier.send("Trading Bot V2 started")
+        await self._slack_notifier.send("Trading Bot V2 started")
+
+        # Wait for shutdown signal
+        await self._shutdown_event.wait()
+
+        # Cleanup
+        self._event_bus.stop()
+        await event_bus_task
+
+    async def stop(self) -> None:
+        """Gracefully shutdown all components."""
+        logger.info("Shutting down Trading Bot V2...")
+
+        await self._daily_summary.stop()
+        await self._position_monitor.stop()
+        await self._listener.stop()
+        await self._mt5.disconnect()
+        await self._db.close()
+
+        await self._telegram_notifier.send("Trading Bot V2 stopped")
+        await self._slack_notifier.send("Trading Bot V2 stopped")
+
+        self._shutdown_event.set()
+        logger.info("Trading Bot V2 stopped")
+
+    def request_shutdown(self) -> None:
+        """Signal the bot to shut down (called from signal handlers)."""
+        self._shutdown_event.set()
+
+
+async def run() -> None:
+    """Main async entry point."""
+    # Load env vars
+    load_dotenv()
+
+    # Load config and set up logging FIRST so errors are captured
+    config = load_config()
+    _setup_logging(config)
+
+    try:
+        bot = TradingBot(config)
+    except Exception:
+        logger.critical("Failed to initialize TradingBot — check .env and config", exc_info=True)
+        return
+
+    # Handle OS signals for graceful shutdown
+    loop = asyncio.get_event_loop()
+    for sig in (signal.SIGINT, signal.SIGTERM):
+        loop.add_signal_handler(sig, bot.request_shutdown)
+
+    try:
+        await bot.start()
+    except KeyboardInterrupt:
+        pass
+    except Exception:
+        logger.critical("Unhandled exception in bot.start()", exc_info=True)
+    finally:
+        await bot.stop()
+
+
+def main() -> None:
+    """CLI entry point."""
+    asyncio.run(run())
+
+
+if __name__ == "__main__":
+    main()

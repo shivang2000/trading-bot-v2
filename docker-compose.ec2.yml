@@ -1,0 +1,68 @@
+# ─────────────────────────────────────────────────────────
+# Trading Bot V2 — EC2 Full Stack (Amazon Linux x86_64)
+#
+# Runs BOTH MT5 and the bot on the same EC2 instance.
+# MT5 works on EC2 because it's x86_64 native.
+#
+# First-time setup:
+#   docker compose -f docker-compose.ec2.yml up -d
+#   # Open http://<ec2-ip>:8080 in browser (noVNC)
+#   # Log into MT5: VantageInternational-Demo / 11836008
+#   # Enable AutoTrading
+#   docker compose -f docker-compose.ec2.yml restart trading-bot
+#
+# Normal run:
+#   docker compose -f docker-compose.ec2.yml up -d
+#
+# Logs:
+#   docker compose -f docker-compose.ec2.yml logs -f trading-bot
+# ─────────────────────────────────────────────────────────
+
+services:
+  metatrader5:
+    image: gmag11/metatrader5_vnc:latest
+    container_name: metatrader5
+    restart: unless-stopped
+    ports:
+      - "8001:8001"     # RPyC — MT5 API
+      - "5900:6900"     # VNC (container uses 6900)
+      - "8080:3000"     # noVNC web UI (container uses 3000 via nginx)
+    environment:
+      - VNC_PASSWORD=botpass
+      - CUSTOM_PORT=3000
+      - PUID=911
+      - PGID=911
+    volumes:
+      - ./mt5_data:/config/.wine
+      - ./scripts/start-mt5.sh:/Metatrader/start.sh:ro
+    deploy:
+      resources:
+        limits:
+          memory: 768M
+
+  trading-bot:
+    build: .
+    container_name: trading-bot-v2
+    restart: unless-stopped
+    depends_on:
+      - metatrader5
+    env_file:
+      - .env
+    environment:
+      - MT5_HOST=metatrader5
+      - MT5_PORT=8001
+    volumes:
+      - ./config:/app/config:ro
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./scripts/healthcheck.sh:/app/scripts/healthcheck.sh:ro
+    healthcheck:
+      test: ["CMD", "sh", "/app/scripts/healthcheck.sh"]
+      interval: 60s
+      timeout: 5s
+      retries: 3
+      start_period: 120s
+    deploy:
+      resources:
+        limits:
+          memory: 512M
