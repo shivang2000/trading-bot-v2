@@ -96,6 +96,15 @@ class RiskManager:
             )
 
             if not is_close:
+                # Confidence gate
+                min_conf = self._config.signal_parser.min_confidence
+                if signal.strength < min_conf:
+                    logger.warning(
+                        "Signal REJECTED [%s]: confidence %.2f < %.2f threshold",
+                        signal.source, signal.strength, min_conf,
+                    )
+                    return
+
                 self._validate_risk_limits(signal)
 
             if signal.action == SignalAction.CLOSE_ALL:

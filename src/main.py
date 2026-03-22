@@ -32,6 +32,7 @@ from src.safety.emergency import EmergencyStop
 from src.telegram.channel_config import ChannelRegistry
 from src.telegram.listener import TelegramListener
 from src.telegram.parser import SignalParser
+from src.analysis.signal_generator import SignalGenerator
 from src.tracking.database import TrackingDB
 
 logger = logging.getLogger(__name__)
@@ -132,6 +133,14 @@ class TradingBot:
             event_bus=self._event_bus,
             tracking_db=self._db,
             poll_interval=config.position_monitor.poll_interval_seconds,
+            trailing_stop_config=config.trailing_stop,
+        )
+
+        # Signal generator (own technical signals)
+        self._signal_generator = SignalGenerator(
+            config=config,
+            event_bus=self._event_bus,
+            mt5_client=self._mt5,
         )
 
         # Journal + Summary
@@ -279,11 +288,15 @@ class TradingBot:
         self._event_bus.subscribe("FILL", self._on_fill_notify)
         self._event_bus.subscribe("POSITION_CLOSED", self._on_position_closed_notify)
 
-        # 5. Start background services (skip position monitor if MT5 not connected)
+        # 5. Start background services (skip if MT5 not connected)
         if mt5_connected:
             await self._position_monitor.start()
+            if self._config.signal_generator.enabled:
+                await self._signal_generator.start()
+            else:
+                logger.info("SignalGenerator disabled in config")
         else:
-            logger.warning("PositionMonitor skipped — MT5 not connected")
+            logger.warning("PositionMonitor + SignalGenerator skipped — MT5 not connected")
         await self._daily_summary.start()
 
         # 6. Start Telegram listener
@@ -348,6 +361,7 @@ class TradingBot:
         logger.info("Shutting down Trading Bot V2...")
 
         await self._daily_summary.stop()
+        await self._signal_generator.stop()
         await self._position_monitor.stop()
         await self._listener.stop()
         await self._mt5.disconnect()

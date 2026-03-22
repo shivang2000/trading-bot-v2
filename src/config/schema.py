@@ -42,10 +42,19 @@ class RiskConfig(BaseModel):
 class SignalParserConfig(BaseModel):
     model: str = "claude-haiku-4-5-20251001"
     timeout_ms: int = 5000
+    min_confidence: float = 0.5
     stale_price_threshold_pct: float = 1.0
     atr_sl_multiplier: float = 2.0
     atr_tp_multiplier: float = 3.0
     amendment_window_minutes: int = 5
+
+
+class TrailingStopConfig(BaseModel):
+    enabled: bool = True
+    atr_multiplier: float = 1.5
+    activation_pct: float = 0.5
+    atr_period: int = 14
+    atr_timeframe: str = "H1"
 
 
 class PositionMonitorConfig(BaseModel):
@@ -95,6 +104,54 @@ class DatabaseConfig(BaseModel):
     path: str = "data/trading_bot_v2.db"
 
 
+class EmaPullbackConfig(BaseModel):
+    enabled: bool = True
+    fast_ema: int = 8
+    slow_ema: int = 21
+    trend_ema: int = 50
+    pullback_max_candles: int = 3
+    entry_window_candles: int = 2
+    atr_sl_multiplier: float = 2.0
+    atr_tp_multiplier: float = 3.0
+    entry_timeframe: str = "M15"
+    regime_timeframe: str = "H1"
+
+
+class LondonBreakoutConfig(BaseModel):
+    enabled: bool = True
+    asian_start_hour: int = 0
+    asian_end_hour: int = 7
+    breakout_buffer_pips: float = 5.0
+    max_trades_per_day: int = 1
+    tp_multiplier: float = 1.5
+    timeframe: str = "M15"
+
+
+class SmcConfluenceConfig(BaseModel):
+    enabled: bool = True
+    ob_confidence_boost: float = 0.10
+    fvg_confidence_boost: float = 0.10
+    bos_confidence_boost: float = 0.05
+    liquidity_sweep_boost: float = 0.10
+    opposing_ob_penalty: float = 0.15
+    lookback_bars: int = 100
+
+
+class StrategiesConfig(BaseModel):
+    ema_pullback: EmaPullbackConfig = Field(default_factory=EmaPullbackConfig)
+    london_breakout: LondonBreakoutConfig = Field(default_factory=LondonBreakoutConfig)
+    smc_confluence: SmcConfluenceConfig = Field(default_factory=SmcConfluenceConfig)
+
+
+class SignalGeneratorConfig(BaseModel):
+    enabled: bool = True
+    scan_interval_seconds: int = 300
+    instruments: list[str] = Field(default_factory=lambda: ["XAUUSD", "XAGUSD", "BTCUSD", "ETHUSD"])
+    allowed_sessions: list[str] = Field(
+        default_factory=lambda: ["london", "new_york", "london_ny_overlap"]
+    )
+
+
 class AppConfig(BaseModel):
     """Root configuration model. Everything rolls up here."""
 
@@ -103,9 +160,12 @@ class AppConfig(BaseModel):
     instruments: list[InstrumentConfig] = Field(default_factory=list)
     risk: RiskConfig = Field(default_factory=RiskConfig)
     signal_parser: SignalParserConfig = Field(default_factory=SignalParserConfig)
+    trailing_stop: TrailingStopConfig = Field(default_factory=TrailingStopConfig)
     position_monitor: PositionMonitorConfig = Field(
         default_factory=PositionMonitorConfig
     )
+    signal_generator: SignalGeneratorConfig = Field(default_factory=SignalGeneratorConfig)
+    strategies: StrategiesConfig = Field(default_factory=StrategiesConfig)
     monitoring: MonitoringConfig = Field(default_factory=MonitoringConfig)
     telegram_listener: TelegramListenerConfig = Field(
         default_factory=TelegramListenerConfig

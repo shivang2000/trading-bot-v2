@@ -45,10 +45,53 @@ risk:
 signal_parser:
   model: "claude-haiku-4-5-20251001"
   timeout_ms: 5000
+  min_confidence: 0.5
   stale_price_threshold_pct: 1.0
   atr_sl_multiplier: 2.0
   atr_tp_multiplier: 3.0
   amendment_window_minutes: 5
+
+trailing_stop:
+  enabled: true
+  atr_multiplier: 1.5
+  activation_pct: 0.5
+  atr_period: 14
+  atr_timeframe: "H1"
+
+signal_generator:
+  enabled: true
+  scan_interval_seconds: 300
+  instruments: [XAUUSD, XAGUSD, BTCUSD, ETHUSD]
+  allowed_sessions: [london, new_york, london_ny_overlap]
+
+strategies:
+  ema_pullback:
+    enabled: true
+    fast_ema: 8
+    slow_ema: 21
+    trend_ema: 50
+    pullback_max_candles: 3
+    entry_window_candles: 2
+    atr_sl_multiplier: 2.0
+    atr_tp_multiplier: 3.0
+    entry_timeframe: "M15"
+    regime_timeframe: "H1"
+  london_breakout:
+    enabled: true
+    asian_start_hour: 0
+    asian_end_hour: 7
+    breakout_buffer_pips: 5.0
+    max_trades_per_day: 1
+    tp_multiplier: 1.5
+    timeframe: "M15"
+  smc_confluence:
+    enabled: false  # Phase 3D — enable after smartmoneyconcepts is added
+    ob_confidence_boost: 0.10
+    fvg_confidence_boost: 0.10
+    bos_confidence_boost: 0.05
+    liquidity_sweep_boost: 0.10
+    opposing_ob_penalty: 0.15
+    lookback_bars: 100
 
 position_monitor:
   poll_interval_seconds: 30

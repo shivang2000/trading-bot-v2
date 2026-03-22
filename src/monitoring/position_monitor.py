@@ -14,10 +14,14 @@ import logging
 from datetime import datetime, timezone
 from typing import Any, Callable
 
+import pandas_ta as ta
+
+from src.config.schema import TrailingStopConfig
 from src.core.enums import OrderSide
-from src.core.events import EventBus, PositionClosedEvent
-from src.core.models import Position
+from src.core.events import EventBus, ModifyOrderEvent, PositionClosedEvent
+from src.core.models import ModifyOrder, Position
 from src.mt5.client import AsyncMT5Client
+from src.risk.trailing_stop import TrailingStopManager
 from src.tracking.database import TrackingDB
 
 logger = logging.getLogger(__name__)
@@ -33,6 +37,7 @@ class PositionMonitor:
         tracking_db: TrackingDB,
         poll_interval: int = 30,
         account_state_func: Callable[[], Any] | None = None,
+        trailing_stop_config: TrailingStopConfig | None = None,
     ) -> None:
         self._mt5 = mt5_client
         self._event_bus = event_bus
@@ -42,6 +47,17 @@ class PositionMonitor:
         self._known_tickets: dict[int, Position] = {}
         self._running = False
         self._task: asyncio.Task | None = None
+
+        # Trailing stop management
+        self._ts_config = trailing_stop_config
+        self._trailing_manager: TrailingStopManager | None = None
+        if trailing_stop_config and trailing_stop_config.enabled:
+            self._trailing_manager = TrailingStopManager(
+                atr_multiplier=trailing_stop_config.atr_multiplier,
+                activation_pct=trailing_stop_config.activation_pct,
+            )
+        # Cache ATR values per symbol to avoid recalculating every poll
+        self._atr_cache: dict[str, tuple[float, datetime]] = {}
 
     async def start(self) -> None:
         """Start the position monitoring loop."""
@@ -114,6 +130,10 @@ class PositionMonitor:
                     ticket, pos.side.value, pos.symbol, pos.volume, pos.open_price,
                 )
 
+        # Update trailing stops for open positions
+        if self._trailing_manager and current_tickets:
+            await self._update_trailing_stops(current_tickets)
+
         # Update known state
         self._known_tickets = current_tickets
 
@@ -167,3 +187,79 @@ class PositionMonitor:
                 close_reason="market",
             )
         )
+
+        # Clean up trailing stop tracking
+        if self._trailing_manager:
+            self._trailing_manager.remove(position.ticket)
+
+    async def _update_trailing_stops(
+        self, positions: dict[int, Position]
+    ) -> None:
+        """Update trailing stops for all open positions."""
+        for ticket, pos in positions.items():
+            try:
+                atr = await self._get_atr(pos.symbol)
+                if atr is None or atr <= 0:
+                    continue
+
+                new_sl = self._trailing_manager.update(
+                    ticket=ticket,
+                    side=pos.side,
+                    current_price=pos.current_price or pos.open_price,
+                    atr=atr,
+                    initial_sl=pos.stop_loss,
+                    take_profit=pos.take_profit,
+                    open_price=pos.open_price,
+                )
+
+                if new_sl is not None:
+                    # Publish modify order to move SL on MT5
+                    modify = ModifyOrder(
+                        ticket=ticket,
+                        symbol=pos.symbol,
+                        stop_loss=round(new_sl, 5),
+                        take_profit=pos.take_profit,
+                    )
+                    await self._event_bus.publish(
+                        ModifyOrderEvent(
+                            timestamp=datetime.now(timezone.utc),
+                            modify_order=modify,
+                        )
+                    )
+
+            except Exception:
+                logger.warning(
+                    "Trailing stop update failed for ticket %d", ticket,
+                    exc_info=True,
+                )
+
+    async def _get_atr(self, symbol: str) -> float | None:
+        """Get ATR for a symbol, cached for 5 minutes."""
+        now = datetime.now(timezone.utc)
+
+        # Check cache
+        if symbol in self._atr_cache:
+            cached_val, cached_time = self._atr_cache[symbol]
+            if (now - cached_time).total_seconds() < 300:
+                return cached_val
+
+        try:
+            cfg = self._ts_config
+            timeframe = cfg.atr_timeframe if cfg else "H1"
+            period = cfg.atr_period if cfg else 14
+
+            bars = await self._mt5.get_bars(symbol, timeframe, count=period + 5)
+            if bars is None or bars.empty or len(bars) < period:
+                return None
+
+            atr_series = ta.atr(bars["high"], bars["low"], bars["close"], length=period)
+            if atr_series is None or atr_series.empty:
+                return None
+
+            val = float(atr_series.iloc[-1])
+            self._atr_cache[symbol] = (val, now)
+            return val
+
+        except Exception:
+            logger.warning("ATR calculation failed for %s", symbol)
+            return None

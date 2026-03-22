@@ -1,0 +1,211 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1774212457006,
+  "projectRoot": "/Users/shivang/dev/advanced-trading-bot/trading-bot-v2",
+  "techStack": {
+    "languages": [
+      {
+        "name": "Python",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "pyproject.toml"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "pytest",
+        "version": null,
+        "category": "testing"
+      }
+    ],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": "pytest",
+    "lintCommand": "ruff check",
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "scripts",
+      "src",
+      "tests"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "config": {
+      "path": "config",
+      "purpose": "Configuration files",
+      "fileCount": 2,
+      "lastAccessed": 1774212456999,
+      "keyFiles": [
+        "base.yaml",
+        "channels.yaml"
+      ]
+    },
+    "data": {
+      "path": "data",
+      "purpose": "Data files",
+      "fileCount": 2,
+      "lastAccessed": 1774212456999,
+      "keyFiles": [
+        "telegram_session.session",
+        "trading_bot_v2.db"
+      ]
+    },
+    "logs": {
+      "path": "logs",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1774212457000,
+      "keyFiles": [
+        "trading.log"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 8,
+      "lastAccessed": 1774212457001,
+      "keyFiles": [
+        "deploy.sh",
+        "ec2-logs.sh",
+        "ec2-restart.sh",
+        "ec2-status.sh",
+        "healthcheck.sh"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 2,
+      "lastAccessed": 1774212457002,
+      "keyFiles": [
+        "__init__.py",
+        "main.py"
+      ]
+    },
+    "tests": {
+      "path": "tests",
+      "purpose": "Test files",
+      "fileCount": 1,
+      "lastAccessed": 1774212457002,
+      "keyFiles": [
+        "__init__.py"
+      ]
+    },
+    "src/config": {
+      "path": "src/config",
+      "purpose": "Configuration files",
+      "fileCount": 3,
+      "lastAccessed": 1774212457003,
+      "keyFiles": [
+        "__init__.py",
+        "loader.py",
+        "schema.py"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src/main.py",
+      "accessCount": 8,
+      "lastAccessed": 1774214612692,
+      "type": "file"
+    },
+    {
+      "path": "src/config/schema.py",
+      "accessCount": 6,
+      "lastAccessed": 1774214412579,
+      "type": "file"
+    },
+    {
+      "path": "src/monitoring/position_monitor.py",
+      "accessCount": 5,
+      "lastAccessed": 1774213112827,
+      "type": "file"
+    },
+    {
+      "path": "config/base.yaml",
+      "accessCount": 4,
+      "lastAccessed": 1774214633561,
+      "type": "file"
+    },
+    {
+      "path": "src/telegram/parser.py",
+      "accessCount": 3,
+      "lastAccessed": 1774212966646,
+      "type": "file"
+    },
+    {
+      "path": "src/risk/manager.py",
+      "accessCount": 2,
+      "lastAccessed": 1774213000022,
+      "type": "file"
+    },
+    {
+      "path": "src/risk/trailing_stop.py",
+      "accessCount": 1,
+      "lastAccessed": 1774213032933,
+      "type": "file"
+    },
+    {
+      "path": "src/analysis/__init__.py",
+      "accessCount": 1,
+      "lastAccessed": 1774214368799,
+      "type": "file"
+    },
+    {
+      "path": "src/analysis/strategies/__init__.py",
+      "accessCount": 1,
+      "lastAccessed": 1774214369542,
+      "type": "file"
+    },
+    {
+      "path": "src/analysis/strategies/ema_pullback.py",
+      "accessCount": 1,
+      "lastAccessed": 1774214457004,
+      "type": "file"
+    },
+    {
+      "path": "src/analysis/strategies/london_breakout.py",
+      "accessCount": 1,
+      "lastAccessed": 1774214493366,
+      "type": "file"
+    },
+    {
+      "path": "src/mt5/client.py",
+      "accessCount": 1,
+      "lastAccessed": 1774214508115,
+      "type": "directory"
+    },
+    {
+      "path": "src/analysis/signal_generator.py",
+      "accessCount": 1,
+      "lastAccessed": 1774214544170,
+      "type": "file"
+    },
+    {
+      "path": "src/core/models.py",
+      "accessCount": 1,
+      "lastAccessed": 1774214550969,
+      "type": "directory"
+    }
+  ],
+  "userDirectives": []
+}

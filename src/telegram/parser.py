@@ -10,6 +10,7 @@ from __future__ import annotations
 import base64
 import json
 import logging
+import re
 from datetime import datetime
 from typing import Any
 
@@ -75,6 +76,78 @@ class SignalParser:
         self._claude = anthropic.AsyncAnthropic()
         self._valid_symbols = {"XAUUSD", "XAGUSD", "BTCUSD", "ETHUSD"}
 
+    # ── Regex patterns for common Telegram signal formats ──
+
+    _SYMBOL_MAP = {
+        "gold": "XAUUSD", "xau": "XAUUSD", "xauusd": "XAUUSD",
+        "silver": "XAGUSD", "xag": "XAGUSD", "xagusd": "XAGUSD",
+        "btc": "BTCUSD", "bitcoin": "BTCUSD", "btcusd": "BTCUSD",
+        "eth": "ETHUSD", "ethereum": "ETHUSD", "ethusd": "ETHUSD",
+    }
+
+    _ACTION_RE = re.compile(r"\b(buy|sell|long|short)\b", re.IGNORECASE)
+    _SYMBOL_RE = re.compile(
+        r"\b(gold|xau(?:usd)?|silver|xag(?:usd)?|btc(?:usd)?|bitcoin|eth(?:usd)?|ethereum)\b",
+        re.IGNORECASE,
+    )
+    _PRICE_RE = re.compile(r"(?:@|price|entry|at)\s*[:=]?\s*(\d+\.?\d*)", re.IGNORECASE)
+    _SL_RE = re.compile(r"(?:sl|stop\s*loss|stop)\s*[:=]?\s*(\d+\.?\d*)", re.IGNORECASE)
+    _TP_RE = re.compile(r"(?:tp1?|take\s*profit|target)\s*[:=]?\s*(\d+\.?\d*)", re.IGNORECASE)
+
+    def _parse_with_regex(self, message_text: str) -> dict[str, Any] | None:
+        """Fallback regex parser for when Claude API is unavailable.
+
+        Matches common signal formats like:
+            BUY GOLD 2650 SL 2640 TP 2670
+            SELL XAUUSD @ 2650 sl=2660 tp=2630
+        Returns the same JSON structure as Claude for seamless integration.
+        """
+        action_match = self._ACTION_RE.search(message_text)
+        symbol_match = self._SYMBOL_RE.search(message_text)
+
+        if not action_match or not symbol_match:
+            return None
+
+        raw_action = action_match.group(1).upper()
+        action = "BUY" if raw_action in ("BUY", "LONG") else "SELL"
+
+        raw_symbol = symbol_match.group(1).lower()
+        symbol = self._SYMBOL_MAP.get(raw_symbol)
+        if symbol is None:
+            return None
+
+        price_match = self._PRICE_RE.search(message_text)
+        sl_match = self._SL_RE.search(message_text)
+        tp_match = self._TP_RE.search(message_text)
+
+        entry_price = float(price_match.group(1)) if price_match else None
+        stop_loss = float(sl_match.group(1)) if sl_match else None
+        take_profit = float(tp_match.group(1)) if tp_match else None
+
+        # If no explicit entry price, check for a standalone number near the action
+        if entry_price is None:
+            standalone = re.search(
+                r"\b(buy|sell|long|short)\b\s+\S+\s+(\d{2,}\.?\d*)",
+                message_text, re.IGNORECASE,
+            )
+            if standalone:
+                entry_price = float(standalone.group(2))
+
+        logger.info("Regex fallback parsed: %s %s entry=%s SL=%s TP=%s",
+                     action, symbol, entry_price, stop_loss, take_profit)
+
+        return {
+            "is_signal": True,
+            "is_amendment": False,
+            "action": action,
+            "symbol": symbol,
+            "entry_price": entry_price,
+            "stop_loss": stop_loss,
+            "take_profit": take_profit,
+            "confidence": 0.6,
+            "reason": "regex fallback (Claude unavailable)",
+        }
+
     async def process_message(
         self,
         raw_message_id: int,
@@ -84,9 +157,13 @@ class SignalParser:
     ) -> None:
         """Parse a Telegram message and publish signal events if applicable."""
         try:
+            # Try Claude first, fall back to regex
             parsed = await self._parse_with_claude(
                 channel_id, message_text, image_bytes
             )
+
+            if parsed is None and message_text:
+                parsed = self._parse_with_regex(message_text)
 
             if parsed is None:
                 await self._db.store_parsed_signal(
