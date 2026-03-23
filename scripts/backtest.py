@@ -48,6 +48,7 @@ def main() -> None:
     parser.add_argument("--mt5-host", default="localhost", help="MT5 RPyC host")
     parser.add_argument("--mt5-port", type=int, default=8001, help="MT5 RPyC port")
     parser.add_argument("--point-size", type=float, default=0.01, help="Symbol point size")
+    parser.add_argument("--tick-value", type=float, default=None, help="Tick value (auto from config if not set)")
     # Strategy parameter overrides (override base.yaml values)
     parser.add_argument("--risk-pct", type=float, default=None, help="Risk %% per trade override")
     parser.add_argument("--sl-atr", type=float, default=None, help="SL ATR multiplier override")

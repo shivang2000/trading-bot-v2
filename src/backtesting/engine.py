@@ -51,6 +51,15 @@ class BacktestEngine:
         self._risk_pct = config.account.risk_per_trade_pct if config else 2.0
         self._max_lot = config.account.max_lot_per_trade if config else 0.50
 
+        # Instrument specs for P&L calculation
+        self._tick_value = 0.01  # default for Gold
+        if config:
+            for inst in config.instruments:
+                if inst.symbol == symbol:
+                    self._tick_value = inst.tick_value
+                    self._point_size = inst.point_size
+                    break
+
         # Config
         ema_cfg = config.strategies.ema_pullback if config else EmaPullbackConfig()
         lb_cfg = config.strategies.london_breakout if config else LondonBreakoutConfig()
@@ -73,7 +82,11 @@ class BacktestEngine:
         h1_data: pd.DataFrame,
     ) -> BacktestResult:
         """Run backtest over provided data. Returns BacktestResult with all metrics."""
-        account = BacktestAccountManager(self._initial_capital)
+        account = BacktestAccountManager(
+            self._initial_capital,
+            tick_value=self._tick_value,
+            point_size=self._point_size,
+        )
 
         total_bars = len(m15_data)
         if total_bars < WARMUP_BARS + 10:
@@ -294,13 +307,14 @@ class BacktestEngine:
         if sl_distance <= 0:
             return self._volume  # fallback to fixed
 
-        # For Gold: each 0.01 move on 1.0 lot = $1.00
-        # So per 0.01 lot, each 0.01 move = $0.01
-        # tick_value per 1 lot per point = 100 (since PnL = diff * vol * 100)
+        # PnL per lot per point = tick_value / point_size * point_size = tick_value
+        # But our PnL formula is: (diff / point_size) * tick_value * volume
+        # So dollar risk = (sl_distance / point_size) * tick_value * volume
+        # Solving for volume: volume = risk_dollars / ((sl_distance / point_size) * tick_value)
         sl_points = sl_distance / self._point_size if self._point_size > 0 else sl_distance
-        dollar_per_point_per_lot = self._point_size * 100  # 0.01 * 100 = 1.0 for Gold
+        cost_per_lot = sl_points * self._tick_value
 
-        volume = risk_dollars / (sl_points * dollar_per_point_per_lot)
+        volume = risk_dollars / cost_per_lot if cost_per_lot > 0 else self._volume
 
         # Clamp to min/max
         volume = max(0.01, min(volume, self._max_lot))

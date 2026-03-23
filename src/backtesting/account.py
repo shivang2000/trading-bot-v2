@@ -24,9 +24,16 @@ logger = logging.getLogger(__name__)
 class BacktestAccountManager:
     """Simulated account for backtesting. Opens positions directly."""
 
-    def __init__(self, initial_capital: float) -> None:
+    def __init__(
+        self,
+        initial_capital: float,
+        tick_value: float = 0.01,
+        point_size: float = 0.01,
+    ) -> None:
         self._initial_capital = initial_capital
         self._balance = initial_capital
+        self._tick_value = tick_value
+        self._point_size = point_size
         self._positions: list[Position] = []
         self._trades: list[Trade] = []
         self._equity_snapshots: list[tuple[datetime, float]] = []
@@ -83,11 +90,13 @@ class BacktestAccountManager:
         if pos is None:
             return None
 
-        # Calculate realized P&L
+        # Calculate realized P&L using instrument specs
+        # Formula: (price_diff / point_size) * tick_value * volume
         if pos.side == OrderSide.BUY:
-            pnl = (close_price - pos.open_price) * pos.volume * 100
+            price_diff = close_price - pos.open_price
         else:
-            pnl = (pos.open_price - close_price) * pos.volume * 100
+            price_diff = pos.open_price - close_price
+        pnl = (price_diff / self._point_size) * self._tick_value * pos.volume
 
         trade = Trade(
             ticket=pos.ticket,
@@ -160,9 +169,10 @@ class BacktestAccountManager:
             if pos.symbol == symbol:
                 pos.current_price = price
                 if pos.side == OrderSide.BUY:
-                    pos.profit = (price - pos.open_price) * pos.volume * 100
+                    diff = price - pos.open_price
                 else:
-                    pos.profit = (pos.open_price - price) * pos.volume * 100
+                    diff = pos.open_price - price
+                pos.profit = (diff / self._point_size) * self._tick_value * pos.volume
 
         equity = self._get_equity()
         self._equity_snapshots.append((timestamp, equity))
