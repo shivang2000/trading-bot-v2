@@ -206,6 +206,14 @@ class RiskManager:
                 "free_margin", account.free_margin, account.equity * 0.2
             )
 
+        # 7. Spread check (prevent bad entries during high spread)
+        symbol_info = self._symbol_info_func(signal.symbol)
+        if symbol_info:
+            spread = symbol_info.get("spread", 0)
+            max_spread = symbol_info.get("max_spread", 100)
+            if spread > max_spread:
+                raise RiskLimitExceeded("spread", spread, max_spread)
+
     def _signal_to_order(self, signal: Signal) -> Order:
         """Convert an approved signal to an executable order."""
         symbol_info = self._symbol_info_func(signal.symbol)

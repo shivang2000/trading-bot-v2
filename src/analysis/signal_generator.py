@@ -123,6 +123,17 @@ class SignalGenerator:
 
     async def _run_scan(self) -> None:
         """Run one full scan across all instruments."""
+        # Weekend guard — forex markets closed Fri 22:00 → Sun 22:00 UTC
+        now = datetime.now(timezone.utc)
+        if now.weekday() == 5 or (now.weekday() == 6 and now.hour < 22):
+            # Saturday all day, or Sunday before 22:00
+            logger.debug("Signal scan skipped: weekend (markets closed)")
+            return
+        if now.weekday() == 4 and now.hour >= 22:
+            # Friday after 22:00
+            logger.debug("Signal scan skipped: weekend (Friday close)")
+            return
+
         # Check session first
         session = self._session_mgr.get_current_session()
         if not self._session_mgr.is_trading_allowed():
