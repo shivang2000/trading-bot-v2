@@ -1,0 +1,1077 @@
+2026-03-23 11:04:50 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/XAUUSD_M15_20250101_20260322.csv
+2026-03-23 11:04:50 [INFO    ] src.backtesting.data_loader    Loaded 28753 bars from data/backtest_cache/XAUUSD_M15_20250101_20260322.csv (2025-01-02 01:00:00+00:00 → 2026-03-20 23:45:00+00:00)
+2026-03-23 11:04:50 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/XAUUSD_H1_20250101_20260322.csv
+2026-03-23 11:04:50 [INFO    ] src.backtesting.data_loader    Loaded 7195 bars from data/backtest_cache/XAUUSD_H1_20250101_20260322.csv (2025-01-02 01:00:00+00:00 → 2026-03-20 23:00:00+00:00)
+2026-03-23 11:04:50 [INFO    ] backtest                       Data loaded: 28753 M15 bars, 7195 H1 bars
+2026-03-23 11:04:50 [INFO    ] backtest                       Config [XAUUSD-C-15mo]: risk=2.0%, SL=2.5x ATR, TP=10.0x ATR, trail_act=15%, trail_atr=1.0x
+2026-03-23 11:04:50 [INFO    ] src.backtesting.engine         Starting backtest: both on XAUUSD (28753 M15 bars, 7195 H1 bars)
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2651.52000 low=2645.31000 (621.0 pips)
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2653.49000 (Asian high=2651.52000, SL=2645.31000, TP=2684.54000)
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=1 sl=2657.07
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=1 2657.07 → 2659.12
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=1 2659.12 → 2659.65
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=1 2659.65 → 2662.10
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2663.19000 low=2655.52000 (767.0 pips)
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2664.08000 (Asian high=2663.19000, SL=2655.52000, TP=2702.43000)
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=2 sl=2667.74
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=2 2667.74 → 2668.48
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=2 2668.48 → 2669.06
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=2 2669.06 → 2669.73
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=2 2669.73 → 2670.90
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=2 2670.90 → 2671.63
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=2 2671.63 → 2673.83
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2671.08000)
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2674.77000 low=2668.39000 (638.0 pips)
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2675.30000 (Asian high=2674.77000, SL=2668.39000, TP=2707.20000)
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=3 sl=2678.20
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 2678.20 → 2678.45
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 2678.45 → 2678.80
+2026-03-23 11:04:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 2678.80 → 2679.23
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2693.41000 low=2679.37000 (1404.0 pips)
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2679.36000 low=2669.22000 (1014.0 pips)
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2681.66000 (Asian high=2679.36000, SL=2669.22000, TP=2732.36000)
+2026-03-23 11:04:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=2690.36
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2702.16000 low=2693.03000 (913.0 pips)
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2699.93000)
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 2701.23000 SL=2694.62767 TP=2727.63932 (ATR=2.64093, pullback confirmed)
+2026-03-23 11:04:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=5 sl=2702.50
+2026-03-23 11:04:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=5 2702.50 → 2704.99
+2026-03-23 11:04:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=5 2704.99 → 2706.25
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2717.05000)
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2717.35000 low=2709.86000 (749.0 pips)
+2026-03-23 11:04:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2706.29000 (Asian low=2709.86000, SL=2717.35000, TP=2668.84000)
+2026-03-23 11:04:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=6 sl=2702.83
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2727.91000 low=2702.81000 (2510.0 pips)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2728.07000 (Asian high=2727.91000, SL=2702.81000, TP=2853.57000)
+2026-03-23 11:04:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=7 sl=2746.35
+2026-03-23 11:04:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=7 2746.35 → 2746.56
+2026-03-23 11:04:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=7 2746.56 → 2746.98
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2752.87000 low=2740.64000 (1223.0 pips)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2753.74000 (Asian high=2752.87000, SL=2740.64000, TP=2814.89000)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2777.31000 low=2753.46000 (2385.0 pips)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2777.89000 (Asian high=2777.31000, SL=2753.46000, TP=2897.14000)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2772.60000 low=2753.88000 (1872.0 pips)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2753.01000 (Asian low=2753.88000, SL=2772.60000, TP=2659.41000)
+2026-03-23 11:04:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=2739.55
+2026-03-23 11:04:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 2739.55 → 2736.32
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2738.36000)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2745.22000 low=2737.84000 (738.0 pips)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2739.19000)
+2026-03-23 11:04:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2736.68000 (Asian low=2737.84000, SL=2745.22000, TP=2699.78000)
+2026-03-23 11:04:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2766.15000 low=2761.43000 (472.0 pips)
+2026-03-23 11:04:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2760.30000 (Asian low=2761.43000, SL=2766.15000, TP=2736.70000)
+2026-03-23 11:04:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=12 sl=2758.89
+2026-03-23 11:04:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 2758.89 → 2758.71
+2026-03-23 11:04:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2763.33000 low=2758.21000 (512.0 pips)
+2026-03-23 11:04:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2770.93000 (Asian high=2763.33000, SL=2758.21000, TP=2796.53000)
+2026-03-23 11:04:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=2773.74
+2026-03-23 11:04:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2799.41000 low=2792.27000 (714.0 pips)
+2026-03-23 11:04:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2799.97000 (Asian high=2799.41000, SL=2792.27000, TP=2835.67000)
+2026-03-23 11:04:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2807.85000)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2824.56000)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2824.56000 low=2812.69000 (1187.0 pips)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2807.57000 (Asian low=2812.69000, SL=2824.56000, TP=2748.22000)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2858.09000 low=2839.76000 (1833.0 pips)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2858.17000 (Asian high=2858.09000, SL=2839.76000, TP=2949.82000)
+2026-03-23 11:04:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=16 sl=2868.89
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2881.00000)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2873.34000 low=2862.87000 (1047.0 pips)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2871.24000)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2859.35000 (Asian low=2862.87000, SL=2873.34000, TP=2807.00000)
+2026-03-23 11:04:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=17 sl=2854.88
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2870.49000 low=2855.55000 (1494.0 pips)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2869.74000)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2877.86000)
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2879.61000 low=2854.73000 (2488.0 pips)
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2882.25000 (Asian high=2879.61000, SL=2854.73000, TP=3006.65000)
+2026-03-23 11:04:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=18 sl=2898.25
+2026-03-23 11:04:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 2898.25 → 2899.79
+2026-03-23 11:04:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 2899.79 → 2902.27
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2906.82000)
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2942.67000 low=2906.06000 (3661.0 pips)
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2900.70000 low=2883.56000 (1714.0 pips)
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2919.20000 low=2900.54000 (1866.0 pips)
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2919.91000 (Asian high=2919.20000, SL=2900.54000, TP=3013.21000)
+2026-03-23 11:04:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=19 sl=2933.82
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2933.83000 low=2923.29000 (1054.0 pips)
+2026-03-23 11:04:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2934.24000 (Asian high=2933.83000, SL=2923.29000, TP=2986.94000)
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2911.03000 low=2891.99000 (1904.0 pips)
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2914.01000 (Asian high=2911.03000, SL=2891.99000, TP=3009.21000)
+2026-03-23 11:04:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=2925.57
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2939.69000)
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2939.69000 low=2924.06000 (1563.0 pips)
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2935.84000)
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2945.91000 (Asian high=2939.69000, SL=2924.06000, TP=3024.06000)
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2944.01000 low=2933.28000 (1073.0 pips)
+2026-03-23 11:04:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2944.87000 (Asian high=2944.01000, SL=2933.28000, TP=2998.52000)
+2026-03-23 11:04:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=23 sl=2951.35
+2026-03-23 11:04:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 2951.35 → 2951.77
+2026-03-23 11:04:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2944.65000 low=2921.30000 (2335.0 pips)
+2026-03-23 11:04:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2945.24000 (Asian high=2944.65000, SL=2921.30000, TP=3061.99000)
+2026-03-23 11:04:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:04:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2913.41000)
+2026-03-23 11:04:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2930.16000 low=2912.55000 (1761.0 pips)
+2026-03-23 11:04:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2910.49000 (Asian low=2912.55000, SL=2930.16000, TP=2822.44000)
+2026-03-23 11:04:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=25 sl=2900.22
+2026-03-23 11:04:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 2900.22 → 2898.64
+2026-03-23 11:04:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2920.82000 low=2896.28000 (2454.0 pips)
+2026-03-23 11:04:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2895.94000 (Asian low=2896.28000, SL=2920.82000, TP=2773.24000)
+2026-03-23 11:04:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=26 sl=2878.39
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2873.31000)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2873.46000)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 2873.34000 SL=2882.88313 TP=2835.16750 (ATR=3.81725, pullback confirmed)
+2026-03-23 11:04:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=2867.45
+2026-03-23 11:04:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 2867.45 → 2864.04
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2885.07000 low=2856.93000 (2814.0 pips)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2855.39000 (Asian low=2856.93000, SL=2885.07000, TP=2714.69000)
+2026-03-23 11:04:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=28 sl=2838.98
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2876.79000 low=2855.57000 (2122.0 pips)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2895.21000)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2890.71000)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2892.73000)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2893.72000 low=2881.92000 (1180.0 pips)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2899.42000 (Asian high=2893.72000, SL=2881.92000, TP=2958.42000)
+2026-03-23 11:04:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=29 sl=2909.63
+2026-03-23 11:04:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 2909.63 → 2909.76
+2026-03-23 11:04:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 2909.76 → 2910.94
+2026-03-23 11:04:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 2910.94 → 2915.61
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2918.09000)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2918.62000)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2918.15000 low=2902.03000 (1612.0 pips)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2918.70000 (Asian high=2918.15000, SL=2902.03000, TP=2999.30000)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2924.79000)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 2925.53000 SL=2919.25737 TP=2950.62053 (ATR=2.50905, pullback confirmed)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2926.51000 low=2915.86000 (1065.0 pips)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2922.97000)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2913.48000 low=2896.78000 (1670.0 pips)
+2026-03-23 11:04:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 2922.21000 (Asian high=2913.48000, SL=2896.78000, TP=3005.71000)
+2026-03-23 11:05:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2917.66000)
+2026-03-23 11:05:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2947.07000 low=2933.42000 (1365.0 pips)
+2026-03-23 11:05:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2944.07000)
+2026-03-23 11:05:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 2946.02000 SL=2938.33257 TP=2976.76972 (ATR=3.07497, pullback confirmed)
+2026-03-23 11:05:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=33 sl=2947.93
+2026-03-23 11:05:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2992.93000 low=2981.63000 (1130.0 pips)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2992.76000)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 2992.92000 SL=2984.49839 TP=3026.60642 (ATR=3.36864, pullback confirmed)
+2026-03-23 11:05:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=2995.52
+2026-03-23 11:05:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 2995.52 → 2997.74
+2026-03-23 11:05:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 2997.74 → 2999.08
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=2994.11000 low=2983.05000 (1106.0 pips)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 2982.59000 (Asian low=2983.05000, SL=2994.11000, TP=2927.29000)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3000.52000)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3015.00000 low=2999.39000 (1561.0 pips)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3015.37000 (Asian high=3015.00000, SL=2999.39000, TP=3093.42000)
+2026-03-23 11:05:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=36 sl=3024.40
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3035.66000)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3036.27000 SL=3030.38529 TP=3059.80885 (ATR=2.35388, pullback confirmed)
+2026-03-23 11:05:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=37 sl=3038.79
+2026-03-23 11:05:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 3038.79 → 3041.80
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3038.97000 low=3027.37000 (1160.0 pips)
+2026-03-23 11:05:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3040.03000 (Asian high=3038.97000, SL=3027.37000, TP=3098.03000)
+2026-03-23 11:05:01 [INFO    ] src.backtesting.engine           Bar 5000/28753 (17%)
+2026-03-23 11:05:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3050.00000)
+2026-03-23 11:05:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3056.13000 low=3044.94000 (1119.0 pips)
+2026-03-23 11:05:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3053.45000 SL=3045.69536 TP=3084.46857 (ATR=3.10186, pullback confirmed)
+2026-03-23 11:05:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3016.10000)
+2026-03-23 11:05:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3026.31000 low=3013.70000 (1261.0 pips)
+2026-03-23 11:05:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3008.62000)
+2026-03-23 11:05:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3034.22000 low=3017.60000 (1662.0 pips)
+2026-03-23 11:05:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3035.06000 (Asian high=3034.22000, SL=3017.60000, TP=3118.16000)
+2026-03-23 11:05:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=40 sl=3048.38
+2026-03-23 11:05:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 3048.38 → 3048.39
+2026-03-23 11:05:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 3048.39 → 3049.31
+2026-03-23 11:05:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3077.56000 low=3054.19000 (2337.0 pips)
+2026-03-23 11:05:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3077.94000 (Asian high=3077.56000, SL=3054.19000, TP=3194.79000)
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=41 sl=3094.21
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3094.21 → 3098.48
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3098.48 → 3101.18
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3101.18 → 3103.30
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3103.30 → 3104.14
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3104.14 → 3105.59
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3105.59 → 3106.41
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3106.41 → 3108.11
+2026-03-23 11:05:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3111.78000 low=3076.77000 (3501.0 pips)
+2026-03-23 11:05:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3112.10000 (Asian high=3111.78000, SL=3076.77000, TP=3287.15000)
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=42 sl=3135.91
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3135.91 → 3138.80
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3138.80 → 3139.15
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3139.15 → 3141.50
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3141.50 → 3142.51
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3142.51 → 3142.86
+2026-03-23 11:05:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3147.37000 low=3120.05000 (2732.0 pips)
+2026-03-23 11:05:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3135.68000 low=3107.84000 (2784.0 pips)
+2026-03-23 11:05:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3167.64000 low=3123.97000 (4367.0 pips)
+2026-03-23 11:05:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3122.35000 (Asian low=3123.97000, SL=3167.64000, TP=2904.00000)
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=43 sl=3086.91
+2026-03-23 11:05:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 3086.91 → 3074.73
+2026-03-23 11:05:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3091.75000)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3116.69000 low=3086.97000 (2972.0 pips)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3092.89000)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3092.78000 SL=3107.26412 TP=3034.84353 (ATR=5.79365, pullback confirmed)
+2026-03-23 11:05:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=44 sl=3088.91
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3004.02000)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3004.88000 low=2978.57000 (2631.0 pips)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3011.78000 (Asian high=3004.88000, SL=2978.57000, TP=3143.33000)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3011.12000 low=2969.98000 (4114.0 pips)
+2026-03-23 11:05:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3020.36000 (Asian high=3011.12000, SL=2969.98000, TP=3226.06000)
+2026-03-23 11:05:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=46 sl=3051.97
+2026-03-23 11:05:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 3051.97 → 3054.79
+2026-03-23 11:05:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 3054.79 → 3058.18
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3131.72000 low=3071.39000 (6033.0 pips)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3121.39000)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3220.10000 low=3175.71000 (4439.0 pips)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3220.06000)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3243.48000)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3243.58000 SL=3225.25896 TP=3316.86417 (ATR=7.32842, pullback confirmed)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3245.72000 low=3210.18000 (3554.0 pips)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3236.05000)
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3211.92000)
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3212.70000 SL=3199.42651 TP=3265.79397 (ATR=5.30940, pullback confirmed)
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=48 sl=3219.82
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3229.10000 low=3210.02000 (1908.0 pips)
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3229.46000 (Asian high=3229.10000, SL=3210.02000, TP=3324.86000)
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=49 sl=3240.08
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 3240.08 → 3247.58
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 3247.58 → 3251.19
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 3251.19 → 3256.78
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 3256.78 → 3258.89
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 3258.89 → 3259.66
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 3259.66 → 3264.25
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3281.74000 low=3229.80000 (5194.0 pips)
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3283.74000 (Asian high=3281.74000, SL=3229.80000, TP=3543.44000)
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=50 sl=3317.09
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=50 3317.09 → 3318.16
+2026-03-23 11:05:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=50 3318.16 → 3324.02
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3357.71000 low=3320.73000 (3698.0 pips)
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3343.68000)
+2026-03-23 11:05:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3385.21000 low=3328.90000 (5631.0 pips)
+2026-03-23 11:05:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3385.53000 (Asian high=3385.21000, SL=3328.90000, TP=3667.08000)
+2026-03-23 11:05:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=51 sl=3420.96
+2026-03-23 11:05:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3494.67000 low=3412.31000 (8236.0 pips)
+2026-03-23 11:05:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3497.48000 (Asian high=3494.67000, SL=3412.31000, TP=3909.28000)
+2026-03-23 11:05:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3386.63000 low=3313.70000 (7293.0 pips)
+2026-03-23 11:05:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3312.82000 (Asian low=3313.70000, SL=3386.63000, TP=2948.17000)
+2026-03-23 11:05:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=53 sl=3256.39
+2026-03-23 11:05:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=53 3256.39 → 3255.22
+2026-03-23 11:05:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=53 3255.22 → 3253.15
+2026-03-23 11:05:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=53 3253.15 → 3248.31
+2026-03-23 11:05:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3290.16000 low=3228.87000 (6129.0 pips)
+2026-03-23 11:05:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3228.46000 (Asian low=3228.87000, SL=3290.16000, TP=2922.01000)
+2026-03-23 11:05:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3386.94000 low=3323.37000 (6357.0 pips)
+2026-03-23 11:05:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3397.27000)
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3414.76000 low=3364.84000 (4992.0 pips)
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3355.21000 (Asian low=3364.84000, SL=3414.76000, TP=3105.61000)
+2026-03-23 11:05:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=55 sl=3321.34
+2026-03-23 11:05:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 3321.34 → 3318.92
+2026-03-23 11:05:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 3318.92 → 3313.89
+2026-03-23 11:05:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 3313.89 → 3312.62
+2026-03-23 11:05:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 3312.62 → 3312.52
+2026-03-23 11:05:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 3312.52 → 3301.46
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3310.14000)
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3276.87000)
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3323.96000 low=3274.74000 (4922.0 pips)
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3324.61000 (Asian high=3323.96000, SL=3274.74000, TP=3570.71000)
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3314.28000 low=3258.88000 (5540.0 pips)
+2026-03-23 11:05:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3246.52000 (Asian low=3258.88000, SL=3314.28000, TP=2969.52000)
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=57 sl=3207.83
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=57 3207.83 → 3192.48
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=57 3192.48 → 3187.44
+2026-03-23 11:05:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3169.66000)
+2026-03-23 11:05:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3163.84000 SL=3179.28599 TP=3102.05606 (ATR=6.17839, pullback confirmed)
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=58 sl=3160.59
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 3160.59 → 3156.44
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 3156.44 → 3156.04
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 3156.04 → 3153.30
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 3153.30 → 3150.64
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 3150.64 → 3145.17
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 3145.17 → 3139.81
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 3139.81 → 3136.46
+2026-03-23 11:05:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 3136.46 → 3134.79
+2026-03-23 11:05:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3192.57000 low=3148.36000 (4421.0 pips)
+2026-03-23 11:05:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3140.27000 (Asian low=3148.36000, SL=3192.57000, TP=2919.22000)
+2026-03-23 11:05:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3249.74000 low=3206.52000 (4322.0 pips)
+2026-03-23 11:05:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3229.39000)
+2026-03-23 11:05:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3314.56000 low=3285.51000 (2905.0 pips)
+2026-03-23 11:05:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3316.33000 (Asian high=3314.56000, SL=3285.51000, TP=3461.58000)
+2026-03-23 11:05:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=60 sl=3332.94
+2026-03-23 11:05:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 3332.94 → 3337.27
+2026-03-23 11:05:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3345.40000 low=3315.33000 (3007.0 pips)
+2026-03-23 11:05:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3311.20000 (Asian low=3315.33000, SL=3345.40000, TP=3160.85000)
+2026-03-23 11:05:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=61 sl=3296.84
+2026-03-23 11:05:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3308.97000 low=3287.08000 (2189.0 pips)
+2026-03-23 11:05:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3317.93000 (Asian high=3308.97000, SL=3287.08000, TP=3427.38000)
+2026-03-23 11:05:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=62 sl=3329.51
+2026-03-23 11:05:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 3329.51 → 3341.84
+2026-03-23 11:05:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 3341.84 → 3343.20
+2026-03-23 11:05:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 3343.20 → 3350.96
+2026-03-23 11:05:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3356.77000 low=3331.49000 (2528.0 pips)
+2026-03-23 11:05:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3349.96000 low=3331.89000 (1807.0 pips)
+2026-03-23 11:05:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3308.87000 (Asian low=3331.89000, SL=3349.96000, TP=3218.52000)
+2026-03-23 11:05:15 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=63 sl=3302.49
+2026-03-23 11:05:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 3302.49 → 3301.05
+2026-03-23 11:05:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 3301.05 → 3300.95
+2026-03-23 11:05:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 3300.95 → 3297.62
+2026-03-23 11:05:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 3297.62 → 3295.63
+2026-03-23 11:05:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3300.34000)
+2026-03-23 11:05:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3315.81000 low=3291.57000 (2424.0 pips)
+2026-03-23 11:05:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3294.79000 low=3245.50000 (4929.0 pips)
+2026-03-23 11:05:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3316.61000 low=3295.92000 (2069.0 pips)
+2026-03-23 11:05:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3318.70000 (Asian high=3316.61000, SL=3295.92000, TP=3422.15000)
+2026-03-23 11:05:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=64 sl=3332.77
+2026-03-23 11:05:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=64 3332.77 → 3340.03
+2026-03-23 11:05:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3392.14000 low=3359.79000 (3235.0 pips)
+2026-03-23 11:05:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3359.09000 (Asian low=3359.79000, SL=3392.14000, TP=3197.34000)
+2026-03-23 11:05:17 [INFO    ] src.backtesting.engine           Bar 10000/28753 (35%)
+2026-03-23 11:05:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3321.06000 low=3293.32000 (2774.0 pips)
+2026-03-23 11:05:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3312.11000)
+2026-03-23 11:05:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3310.87000)
+2026-03-23 11:05:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3327.78000 low=3301.72000 (2606.0 pips)
+2026-03-23 11:05:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3329.25000 (Asian high=3327.78000, SL=3301.72000, TP=3459.55000)
+2026-03-23 11:05:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=66 sl=3348.04
+2026-03-23 11:05:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3377.78000 low=3356.32000 (2146.0 pips)
+2026-03-23 11:05:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3385.60000)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3384.91000)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3385.92000 SL=3372.77679 TP=3438.49284 (ATR=5.25728, pullback confirmed)
+2026-03-23 11:05:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=67 sl=3392.82
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3444.46000 low=3379.72000 (6474.0 pips)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3446.70000)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3432.73000)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3433.20000 SL=3418.41757 TP=3492.32971 (ATR=5.91297, pullback confirmed)
+2026-03-23 11:05:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=68 sl=3444.09
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3452.18000 low=3427.93000 (2425.0 pips)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3427.51000 (Asian low=3427.93000, SL=3452.18000, TP=3306.26000)
+2026-03-23 11:05:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=69 sl=3414.67
+2026-03-23 11:05:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 3414.67 → 3395.29
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3373.97000)
+2026-03-23 11:05:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3403.27000 low=3373.97000 (2930.0 pips)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3383.74000)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3373.59000)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3383.29000)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3370.58000)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3387.97000 low=3368.54000 (1943.0 pips)
+2026-03-23 11:05:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3364.61000 (Asian low=3368.54000, SL=3387.97000, TP=3267.46000)
+2026-03-23 11:05:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=70 sl=3351.44
+2026-03-23 11:05:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3370.48000 low=3344.73000 (2575.0 pips)
+2026-03-23 11:05:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3344.07000 (Asian low=3344.73000, SL=3370.48000, TP=3215.32000)
+2026-03-23 11:05:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3397.13000 low=3351.96000 (4517.0 pips)
+2026-03-23 11:05:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3369.82000 low=3333.22000 (3660.0 pips)
+2026-03-23 11:05:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3332.96000 (Asian low=3333.22000, SL=3369.82000, TP=3149.96000)
+2026-03-23 11:05:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=72 sl=3305.44
+2026-03-23 11:05:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3335.21000 low=3320.87000 (1434.0 pips)
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3328.15000 low=3292.56000 (3559.0 pips)
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3288.36000 (Asian low=3292.56000, SL=3328.15000, TP=3110.41000)
+2026-03-23 11:05:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=73 sl=3263.13
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3283.27000 low=3247.86000 (3541.0 pips)
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3285.65000 (Asian high=3283.27000, SL=3247.86000, TP=3462.70000)
+2026-03-23 11:05:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=74 sl=3309.32
+2026-03-23 11:05:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=74 3309.32 → 3311.65
+2026-03-23 11:05:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=74 3311.65 → 3315.50
+2026-03-23 11:05:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=74 3315.50 → 3317.14
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3322.57000 low=3302.35000 (2022.0 pips)
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3322.75000 (Asian high=3322.57000, SL=3302.35000, TP=3423.85000)
+2026-03-23 11:05:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=75 sl=3335.03
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3343.24000)
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3344.20000)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3344.96000 low=3328.55000 (1641.0 pips)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3341.40000)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3343.29000)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3365.71000 low=3341.95000 (2376.0 pips)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3353.35000)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3359.39000 SL=3351.71544 TP=3390.08825 (ATR=3.06982, pullback confirmed)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3325.86000)
+2026-03-23 11:05:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3342.69000 low=3306.08000 (3661.0 pips)
+2026-03-23 11:05:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3305.56000 (Asian low=3306.08000, SL=3342.69000, TP=3122.51000)
+2026-03-23 11:05:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3298.75000)
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3294.37000 SL=3304.55434 TP=3253.63264 (ATR=4.07374, pullback confirmed)
+2026-03-23 11:05:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=78 sl=3292.42
+2026-03-23 11:05:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=78 3292.42 → 3291.73
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3307.99000 low=3284.97000 (2302.0 pips)
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3284.93000)
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3326.29000 low=3313.64000 (1265.0 pips)
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3325.03000)
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3326.65000 (Asian high=3326.29000, SL=3313.64000, TP=3389.90000)
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3336.12000 low=3321.88000 (1424.0 pips)
+2026-03-23 11:05:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3340.25000 (Asian high=3336.12000, SL=3321.88000, TP=3411.45000)
+2026-03-23 11:05:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=80 sl=3347.90
+2026-03-23 11:05:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=80 3347.90 → 3350.69
+2026-03-23 11:05:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=80 3350.69 → 3352.05
+2026-03-23 11:05:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3373.99000 low=3353.87000 (2012.0 pips)
+2026-03-23 11:05:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3374.60000 (Asian high=3373.99000, SL=3353.87000, TP=3475.20000)
+2026-03-23 11:05:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3358.30000 low=3341.31000 (1699.0 pips)
+2026-03-23 11:05:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3362.68000 (Asian high=3358.30000, SL=3341.31000, TP=3447.63000)
+2026-03-23 11:05:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3325.92000)
+2026-03-23 11:05:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3352.18000 low=3336.34000 (1584.0 pips)
+2026-03-23 11:05:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3329.23000 (Asian low=3336.34000, SL=3352.18000, TP=3250.03000)
+2026-03-23 11:05:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=83 sl=3317.35
+2026-03-23 11:05:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3358.56000 low=3344.99000 (1357.0 pips)
+2026-03-23 11:05:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3362.83000 (Asian high=3358.56000, SL=3344.99000, TP=3430.68000)
+2026-03-23 11:05:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=84 sl=3370.67
+2026-03-23 11:05:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 3370.67 → 3370.97
+2026-03-23 11:05:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 3370.97 → 3372.60
+2026-03-23 11:05:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 3372.60 → 3373.22
+2026-03-23 11:05:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 3373.22 → 3378.57
+2026-03-23 11:05:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 3378.57 → 3382.75
+2026-03-23 11:05:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 3382.75 → 3383.94
+2026-03-23 11:05:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3402.62000 low=3385.11000 (1751.0 pips)
+2026-03-23 11:05:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3384.81000 (Asian low=3385.11000, SL=3402.62000, TP=3297.26000)
+2026-03-23 11:05:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3438.87000 low=3419.16000 (1971.0 pips)
+2026-03-23 11:05:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3417.92000 (Asian low=3419.16000, SL=3438.87000, TP=3319.37000)
+2026-03-23 11:05:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=86 sl=3403.64
+2026-03-23 11:05:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 3403.64 → 3394.06
+2026-03-23 11:05:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 3394.06 → 3390.08
+2026-03-23 11:05:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3393.36000 low=3374.71000 (1865.0 pips)
+2026-03-23 11:05:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3371.87000 (Asian low=3374.71000, SL=3393.36000, TP=3278.62000)
+2026-03-23 11:05:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=87 sl=3358.00
+2026-03-23 11:05:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3365.81000)
+2026-03-23 11:05:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3368.41000)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3366.12000 SL=3373.24887 TP=3337.60453 (ATR=2.85155, pullback confirmed)
+2026-03-23 11:05:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=88 sl=3363.84
+2026-03-23 11:05:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=88 3363.84 → 3363.30
+2026-03-23 11:05:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=88 3363.30 → 3361.77
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3373.46000 low=3358.78000 (1468.0 pips)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3358.46000 (Asian low=3358.78000, SL=3373.46000, TP=3285.06000)
+2026-03-23 11:05:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=89 sl=3349.13
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3323.86000)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3330.51000)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3343.24000 low=3317.16000 (2608.0 pips)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3343.32000 (Asian high=3343.24000, SL=3317.16000, TP=3473.72000)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3311.96000)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3320.90000 low=3308.03000 (1287.0 pips)
+2026-03-23 11:05:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3310.52000)
+2026-03-23 11:05:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3321.08000 (Asian high=3320.90000, SL=3308.03000, TP=3385.43000)
+2026-03-23 11:05:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=91 sl=3327.96
+2026-03-23 11:05:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3298.54000 low=3273.83000 (2471.0 pips)
+2026-03-23 11:05:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3304.09000 (Asian high=3298.54000, SL=3273.83000, TP=3427.64000)
+2026-03-23 11:05:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=92 sl=3332.95
+2026-03-23 11:05:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=92 3332.95 → 3334.93
+2026-03-23 11:05:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=92 3334.93 → 3344.25
+2026-03-23 11:05:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=92 3344.25 → 3345.22
+2026-03-23 11:05:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3369.18000 low=3345.06000 (2412.0 pips)
+2026-03-23 11:05:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3361.37000)
+2026-03-23 11:05:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3359.25000)
+2026-03-23 11:05:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3359.29000 SL=3350.56641 TP=3394.18437 (ATR=3.48944, pullback confirmed)
+2026-03-23 11:05:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=93 sl=3363.79
+2026-03-23 11:05:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 3363.79 → 3364.51
+2026-03-23 11:05:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 3364.51 → 3366.79
+2026-03-23 11:05:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3382.41000 low=3371.18000 (1123.0 pips)
+2026-03-23 11:05:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3371.10000 (Asian low=3371.18000, SL=3382.41000, TP=3314.95000)
+2026-03-23 11:05:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=94 sl=3363.03
+2026-03-23 11:05:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 3363.03 → 3360.42
+2026-03-23 11:05:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 3360.42 → 3360.08
+2026-03-23 11:05:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 3360.08 → 3356.94
+2026-03-23 11:05:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 3356.94 → 3355.77
+2026-03-23 11:05:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 3355.77 → 3354.94
+2026-03-23 11:05:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3383.95000 low=3365.35000 (1860.0 pips)
+2026-03-23 11:05:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3385.37000 (Asian high=3383.95000, SL=3365.35000, TP=3478.37000)
+2026-03-23 11:05:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=95 sl=3395.73
+2026-03-23 11:05:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=95 3395.73 → 3396.16
+2026-03-23 11:05:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=95 3396.16 → 3396.53
+2026-03-23 11:05:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=95 3396.53 → 3397.72
+2026-03-23 11:05:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3408.99000 low=3381.18000 (2781.0 pips)
+2026-03-23 11:05:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3405.20000 low=3367.72000 (3748.0 pips)
+2026-03-23 11:05:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3366.64000 (Asian low=3367.72000, SL=3405.20000, TP=3179.24000)
+2026-03-23 11:05:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=96 sl=3343.34
+2026-03-23 11:05:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=96 3343.34 → 3342.48
+2026-03-23 11:05:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:05:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3343.42000)
+2026-03-23 11:05:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3318.58000 low=3311.50000 (708.0 pips)
+2026-03-23 11:05:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3318.76000 (Asian high=3318.58000, SL=3311.50000, TP=3354.16000)
+2026-03-23 11:05:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=97 sl=3322.59
+2026-03-23 11:05:40 [INFO    ] src.backtesting.engine           Bar 15000/28753 (52%)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3367.62000)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3372.03000 low=3359.77000 (1226.0 pips)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3368.88000)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3368.89000 SL=3363.37109 TP=3390.96566 (ATR=2.20757, pullback confirmed)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3374.15000)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3374.33000 SL=3367.02867 TP=3403.53531 (ATR=2.92053, pullback confirmed)
+2026-03-23 11:05:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3386.52000 low=3351.27000 (3525.0 pips)
+2026-03-23 11:05:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3399.22000 low=3384.59000 (1463.0 pips)
+2026-03-23 11:05:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3400.67000 (Asian high=3399.22000, SL=3384.59000, TP=3473.82000)
+2026-03-23 11:05:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=100 sl=3407.38
+2026-03-23 11:05:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=100 3407.38 → 3407.94
+2026-03-23 11:05:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3417.80000)
+2026-03-23 11:05:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3418.34000 low=3407.90000 (1044.0 pips)
+2026-03-23 11:05:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3407.26000 (Asian low=3407.90000, SL=3418.34000, TP=3355.06000)
+2026-03-23 11:05:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3486.10000 low=3437.05000 (4905.0 pips)
+2026-03-23 11:05:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3487.91000 (Asian high=3486.10000, SL=3437.05000, TP=3733.16000)
+2026-03-23 11:05:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=102 sl=3518.57
+2026-03-23 11:05:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 3518.57 → 3520.34
+2026-03-23 11:05:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 3520.34 → 3520.77
+2026-03-23 11:05:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 3520.77 → 3522.62
+2026-03-23 11:05:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 3522.62 → 3523.00
+2026-03-23 11:05:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 3523.00 → 3524.00
+2026-03-23 11:05:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 3524.00 → 3530.19
+2026-03-23 11:05:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 3530.19 → 3531.24
+2026-03-23 11:05:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 3531.24 → 3533.93
+2026-03-23 11:05:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3546.81000 low=3526.40000 (2041.0 pips)
+2026-03-23 11:05:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3538.29000)
+2026-03-23 11:05:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3537.31000)
+2026-03-23 11:05:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3550.60000)
+2026-03-23 11:05:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3556.55000)
+2026-03-23 11:05:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3559.07000 low=3540.12000 (1895.0 pips)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3597.12000)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3597.12000 low=3578.02000 (1910.0 pips)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3597.58000 (Asian high=3597.12000, SL=3578.02000, TP=3693.08000)
+2026-03-23 11:05:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=103 sl=3608.51
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3613.18000)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3646.63000)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3650.92000 SL=3640.21952 TP=3693.72191 (ATR=4.28019, pullback confirmed)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3654.53000 low=3628.24000 (2629.0 pips)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3656.59000)
+2026-03-23 11:05:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3640.75000 low=3619.42000 (2133.0 pips)
+2026-03-23 11:05:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3647.04000 (Asian high=3640.75000, SL=3619.42000, TP=3753.69000)
+2026-03-23 11:05:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3653.23000 low=3630.49000 (2274.0 pips)
+2026-03-23 11:05:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3653.40000 (Asian high=3653.23000, SL=3630.49000, TP=3767.10000)
+2026-03-23 11:05:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3689.48000 low=3674.69000 (1479.0 pips)
+2026-03-23 11:05:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3689.86000 (Asian high=3689.48000, SL=3674.69000, TP=3763.81000)
+2026-03-23 11:05:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3672.03000 low=3651.86000 (2017.0 pips)
+2026-03-23 11:05:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3651.57000 (Asian low=3651.86000, SL=3672.03000, TP=3550.72000)
+2026-03-23 11:05:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3697.42000 low=3682.74000 (1468.0 pips)
+2026-03-23 11:05:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3698.37000 (Asian high=3697.42000, SL=3682.74000, TP=3771.77000)
+2026-03-23 11:05:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=109 sl=3712.45
+2026-03-23 11:05:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3759.15000 low=3736.70000 (2245.0 pips)
+2026-03-23 11:05:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3758.72000)
+2026-03-23 11:05:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3759.23000 (Asian high=3759.15000, SL=3736.70000, TP=3871.48000)
+2026-03-23 11:05:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=110 sl=3779.03
+2026-03-23 11:05:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=110 3779.03 → 3781.47
+2026-03-23 11:05:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3783.01000)
+2026-03-23 11:05:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3771.75000 low=3750.65000 (2110.0 pips)
+2026-03-23 11:05:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3773.20000 (Asian high=3771.75000, SL=3750.65000, TP=3878.70000)
+2026-03-23 11:05:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3751.47000 low=3729.57000 (2190.0 pips)
+2026-03-23 11:05:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3788.81000)
+2026-03-23 11:05:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3799.41000 low=3756.46000 (4295.0 pips)
+2026-03-23 11:05:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3799.66000 (Asian high=3799.41000, SL=3756.46000, TP=4014.41000)
+2026-03-23 11:05:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=112 sl=3830.20
+2026-03-23 11:05:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3867.16000 low=3825.60000 (4156.0 pips)
+2026-03-23 11:05:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3867.44000 (Asian high=3867.16000, SL=3825.60000, TP=4075.24000)
+2026-03-23 11:05:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3875.44000 low=3854.68000 (2076.0 pips)
+2026-03-23 11:05:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3874.00000)
+2026-03-23 11:05:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3879.17000 SL=3864.61133 TP=3937.40467 (ATR=5.82347, pullback confirmed)
+2026-03-23 11:05:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=114 sl=3881.91
+2026-03-23 11:05:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=114 3881.91 → 3885.52
+2026-03-23 11:05:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=114 3885.52 → 3885.57
+2026-03-23 11:05:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=114 3885.57 → 3887.00
+2026-03-23 11:05:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=114 3887.00 → 3887.99
+2026-03-23 11:05:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3870.43000 low=3852.84000 (1759.0 pips)
+2026-03-23 11:05:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3873.20000 (Asian high=3870.43000, SL=3852.84000, TP=3961.15000)
+2026-03-23 11:05:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=115 sl=3880.66
+2026-03-23 11:05:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3931.98000 low=3884.13000 (4785.0 pips)
+2026-03-23 11:05:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3933.75000 (Asian high=3931.98000, SL=3884.13000, TP=4173.00000)
+2026-03-23 11:05:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=116 sl=3965.30
+2026-03-23 11:05:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=116 3965.30 → 3968.20
+2026-03-23 11:05:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3966.92000)
+2026-03-23 11:05:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3967.77000 SL=3954.09571 TP=4022.46716 (ATR=5.46972, pullback confirmed)
+2026-03-23 11:05:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3977.43000 low=3955.90000 (2153.0 pips)
+2026-03-23 11:05:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3955.06000 (Asian low=3955.90000, SL=3977.43000, TP=3847.41000)
+2026-03-23 11:05:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4016.52000 low=3983.26000 (3326.0 pips)
+2026-03-23 11:05:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4019.65000 (Asian high=4016.52000, SL=3983.26000, TP=4185.95000)
+2026-03-23 11:05:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=119 sl=4043.07
+2026-03-23 11:05:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3994.38000 low=3958.61000 (3577.0 pips)
+2026-03-23 11:05:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3948.01000 (Asian low=3958.61000, SL=3994.38000, TP=3769.16000)
+2026-03-23 11:05:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4059.98000 low=3996.28000 (6370.0 pips)
+2026-03-23 11:05:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4063.03000 (Asian high=4059.98000, SL=3996.28000, TP=4381.53000)
+2026-03-23 11:05:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=121 sl=4108.16
+2026-03-23 11:05:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4166.33000 low=4106.64000 (5969.0 pips)
+2026-03-23 11:05:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4167.43000 (Asian high=4166.33000, SL=4106.64000, TP=4465.88000)
+2026-03-23 11:05:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4190.91000 low=4140.62000 (5029.0 pips)
+2026-03-23 11:05:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4192.78000 (Asian high=4190.91000, SL=4140.62000, TP=4444.23000)
+2026-03-23 11:05:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=123 sl=4223.15
+2026-03-23 11:05:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4242.00000 low=4199.63000 (4237.0 pips)
+2026-03-23 11:05:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:05:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4233.58000)
+2026-03-23 11:06:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4274.37000 low=4218.94000 (5543.0 pips)
+2026-03-23 11:06:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4375.35000 low=4332.72000 (4263.0 pips)
+2026-03-23 11:06:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4331.29000 (Asian low=4332.72000, SL=4375.35000, TP=4118.14000)
+2026-03-23 11:06:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=124 sl=4309.08
+2026-03-23 11:06:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=124 4309.08 → 4258.57
+2026-03-23 11:06:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4143.18000 low=4004.30000 (13888.0 pips)
+2026-03-23 11:06:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4159.39000 (Asian high=4143.18000, SL=4004.30000, TP=4853.79000)
+2026-03-23 11:06:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3983.25000)
+2026-03-23 11:06:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4019.66000 low=3973.17000 (4649.0 pips)
+2026-03-23 11:06:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 3971.50000 (Asian low=3973.17000, SL=4019.66000, TP=3739.05000)
+2026-03-23 11:06:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=126 sl=3942.66
+2026-03-23 11:06:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 3942.66 → 3942.51
+2026-03-23 11:06:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 3942.51 → 3933.09
+2026-03-23 11:06:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 3933.09 → 3926.34
+2026-03-23 11:06:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 3926.34 → 3917.53
+2026-03-23 11:06:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 3917.53 → 3909.76
+2026-03-23 11:06:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3927.76000)
+2026-03-23 11:06:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3982.33000 low=3918.55000 (6378.0 pips)
+2026-03-23 11:06:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3952.32000)
+2026-03-23 11:06:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3951.95000 SL=3977.08171 TP=3851.42317 (ATR=10.05268, pullback confirmed)
+2026-03-23 11:06:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3995.12000 (Asian high=3982.33000, SL=3918.55000, TP=4314.02000)
+2026-03-23 11:06:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4046.22000 low=3991.26000 (5496.0 pips)
+2026-03-23 11:06:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4036.24000)
+2026-03-23 11:06:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4015.30000 low=3962.46000 (5284.0 pips)
+2026-03-23 11:06:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4016.49000 (Asian high=4015.30000, SL=3962.46000, TP=4280.69000)
+2026-03-23 11:06:05 [INFO    ] src.backtesting.engine           Bar 20000/28753 (70%)
+2026-03-23 11:06:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3973.71000 low=3929.73000 (4398.0 pips)
+2026-03-23 11:06:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 3975.83000 (Asian high=3973.71000, SL=3929.73000, TP=4195.73000)
+2026-03-23 11:06:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=130 sl=4004.08
+2026-03-23 11:06:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 4004.08 → 4010.68
+2026-03-23 11:06:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=3990.38000 low=3964.46000 (2592.0 pips)
+2026-03-23 11:06:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4010.17000 (Asian high=3990.38000, SL=3964.46000, TP=4139.77000)
+2026-03-23 11:06:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=131 sl=4040.49
+2026-03-23 11:06:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=131 4040.49 → 4043.26
+2026-03-23 11:06:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4056.84000 low=3997.87000 (5897.0 pips)
+2026-03-23 11:06:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4063.07000 (Asian high=4056.84000, SL=3997.87000, TP=4357.92000)
+2026-03-23 11:06:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=132 sl=4106.89
+2026-03-23 11:06:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4148.90000 low=4114.64000 (3426.0 pips)
+2026-03-23 11:06:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4145.27000)
+2026-03-23 11:06:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4145.49000 low=4103.71000 (4178.0 pips)
+2026-03-23 11:06:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4219.45000 low=4180.03000 (3942.0 pips)
+2026-03-23 11:06:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4220.01000 (Asian high=4219.45000, SL=4180.03000, TP=4417.11000)
+2026-03-23 11:06:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4211.24000 low=4170.03000 (4121.0 pips)
+2026-03-23 11:06:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4075.73000)
+2026-03-23 11:06:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4106.64000 low=4070.07000 (3657.0 pips)
+2026-03-23 11:06:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4064.38000 (Asian low=4070.07000, SL=4106.64000, TP=3881.53000)
+2026-03-23 11:06:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=134 sl=4030.80
+2026-03-23 11:06:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=134 4030.80 → 4022.38
+2026-03-23 11:06:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4056.04000 low=4004.95000 (5109.0 pips)
+2026-03-23 11:06:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4002.34000 (Asian low=4004.95000, SL=4056.04000, TP=3746.89000)
+2026-03-23 11:06:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4080.63000 low=4055.61000 (2502.0 pips)
+2026-03-23 11:06:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4096.86000 (Asian high=4080.63000, SL=4055.61000, TP=4221.96000)
+2026-03-23 11:06:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=136 sl=4108.60
+2026-03-23 11:06:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=136 4108.60 → 4109.64
+2026-03-23 11:06:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=136 4109.64 → 4109.89
+2026-03-23 11:06:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4110.09000 low=4041.42000 (6867.0 pips)
+2026-03-23 11:06:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4088.74000 low=4047.91000 (4083.0 pips)
+2026-03-23 11:06:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4031.63000 (Asian low=4047.91000, SL=4088.74000, TP=3827.48000)
+2026-03-23 11:06:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4083.41000 low=4040.74000 (4267.0 pips)
+2026-03-23 11:06:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4155.79000 low=4122.65000 (3314.0 pips)
+2026-03-23 11:06:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4148.70000)
+2026-03-23 11:06:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4142.41000)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4142.79000 SL=4127.09973 TP=4205.55109 (ATR=6.27611, pullback confirmed)
+2026-03-23 11:06:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=138 sl=4156.22
+2026-03-23 11:06:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=138 4156.22 → 4159.13
+2026-03-23 11:06:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=138 4159.13 → 4159.96
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4169.29000 low=4129.69000 (3960.0 pips)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4167.14000)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4165.60000)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4164.98000)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4167.36000 SL=4147.31431 TP=4247.54277 (ATR=8.01828, pullback confirmed)
+2026-03-23 11:06:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4168.67000 low=4142.71000 (2596.0 pips)
+2026-03-23 11:06:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4193.07000 low=4156.22000 (3685.0 pips)
+2026-03-23 11:06:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4202.72000)
+2026-03-23 11:06:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4256.29000 low=4205.51000 (5078.0 pips)
+2026-03-23 11:06:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4221.48000 low=4187.55000 (3393.0 pips)
+2026-03-23 11:06:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4184.12000 (Asian low=4187.55000, SL=4221.48000, TP=4014.47000)
+2026-03-23 11:06:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4217.42000 low=4194.79000 (2263.0 pips)
+2026-03-23 11:06:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4225.51000 (Asian high=4217.42000, SL=4194.79000, TP=4338.66000)
+2026-03-23 11:06:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=141 sl=4242.04
+2026-03-23 11:06:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=141 4242.04 → 4246.74
+2026-03-23 11:06:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4187.28000)
+2026-03-23 11:06:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4198.74000 low=4184.67000 (1407.0 pips)
+2026-03-23 11:06:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4181.98000 (Asian low=4184.67000, SL=4198.74000, TP=4111.63000)
+2026-03-23 11:06:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4190.81000)
+2026-03-23 11:06:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4273.57000)
+2026-03-23 11:06:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4283.51000 low=4264.62000 (1889.0 pips)
+2026-03-23 11:06:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4280.71000)
+2026-03-23 11:06:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4281.11000 SL=4269.13052 TP=4329.02791 (ATR=4.79179, pullback confirmed)
+2026-03-23 11:06:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=143 sl=4289.05
+2026-03-23 11:06:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=143 4289.05 → 4290.10
+2026-03-23 11:06:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=143 4290.10 → 4299.26
+2026-03-23 11:06:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=143 4299.26 → 4303.18
+2026-03-23 11:06:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=143 4303.18 → 4311.54
+2026-03-23 11:06:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4311.90000 (Asian high=4283.51000, SL=4264.62000, TP=4406.35000)
+2026-03-23 11:06:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=144 sl=4321.69
+2026-03-23 11:06:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=144 4321.69 → 4323.51
+2026-03-23 11:06:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=144 4323.51 → 4328.97
+2026-03-23 11:06:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=144 4328.97 → 4329.51
+2026-03-23 11:06:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4330.02000 low=4295.62000 (3440.0 pips)
+2026-03-23 11:06:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4339.02000 (Asian high=4330.02000, SL=4295.62000, TP=4511.02000)
+2026-03-23 11:06:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4317.86000 low=4280.72000 (3714.0 pips)
+2026-03-23 11:06:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4279.58000 (Asian low=4280.72000, SL=4317.86000, TP=4093.88000)
+2026-03-23 11:06:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4331.59000 low=4301.51000 (3008.0 pips)
+2026-03-23 11:06:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4332.61000 (Asian high=4331.59000, SL=4301.51000, TP=4483.01000)
+2026-03-23 11:06:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=147 sl=4351.89
+2026-03-23 11:06:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=147 4351.89 → 4356.49
+2026-03-23 11:06:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4366.19000)
+2026-03-23 11:06:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4400.84000 low=4338.06000 (6278.0 pips)
+2026-03-23 11:06:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4401.16000 (Asian high=4400.84000, SL=4338.06000, TP=4715.06000)
+2026-03-23 11:06:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=148 sl=4449.61
+2026-03-23 11:06:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=148 4449.61 → 4453.64
+2026-03-23 11:06:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4497.73000 low=4444.89000 (5284.0 pips)
+2026-03-23 11:06:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4531.42000 low=4483.57000 (4785.0 pips)
+2026-03-23 11:06:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4533.45000)
+2026-03-23 11:06:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4535.68000)
+2026-03-23 11:06:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4549.78000 low=4472.15000 (7763.0 pips)
+2026-03-23 11:06:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4470.15000 (Asian low=4472.15000, SL=4549.78000, TP=4082.00000)
+2026-03-23 11:06:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=149 sl=4412.39
+2026-03-23 11:06:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=149 4412.39 → 4404.03
+2026-03-23 11:06:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=149 4404.03 → 4389.30
+2026-03-23 11:06:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=149 4389.30 → 4376.61
+2026-03-23 11:06:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=149 4376.61 → 4360.65
+2026-03-23 11:06:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=149 4360.65 → 4339.01
+2026-03-23 11:06:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4369.65000 low=4323.45000 (4620.0 pips)
+2026-03-23 11:06:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4372.36000 (Asian high=4369.65000, SL=4323.45000, TP=4603.36000)
+2026-03-23 11:06:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4373.28000 low=4328.72000 (4456.0 pips)
+2026-03-23 11:06:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4324.84000 (Asian low=4328.72000, SL=4373.28000, TP=4102.04000)
+2026-03-23 11:06:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=151 sl=4300.41
+2026-03-23 11:06:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4320.56000)
+2026-03-23 11:06:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4378.45000 low=4324.50000 (5395.0 pips)
+2026-03-23 11:06:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4378.50000 (Asian high=4378.45000, SL=4324.50000, TP=4648.25000)
+2026-03-23 11:06:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4421.34000 low=4345.68000 (7566.0 pips)
+2026-03-23 11:06:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4424.05000 (Asian high=4421.34000, SL=4345.68000, TP=4802.35000)
+2026-03-23 11:06:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=153 sl=4479.16
+2026-03-23 11:06:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4500.46000 low=4459.63000 (4083.0 pips)
+2026-03-23 11:06:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4452.43000 (Asian low=4459.63000, SL=4500.46000, TP=4248.28000)
+2026-03-23 11:06:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=154 sl=4425.75
+2026-03-23 11:06:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4466.39000 low=4430.20000 (3619.0 pips)
+2026-03-23 11:06:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4425.56000 (Asian low=4430.20000, SL=4466.39000, TP=4244.61000)
+2026-03-23 11:06:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4473.61000)
+2026-03-23 11:06:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4484.04000 low=4452.89000 (3115.0 pips)
+2026-03-23 11:06:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4470.98000)
+2026-03-23 11:06:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4473.61000 SL=4459.12556 TP=4531.54777 (ATR=5.79378, pullback confirmed)
+2026-03-23 11:06:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4488.82000)
+2026-03-23 11:06:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4489.19000 SL=4467.14621 TP=4577.36515 (ATR=8.81752, pullback confirmed)
+2026-03-23 11:06:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=157 sl=4494.84
+2026-03-23 11:06:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=157 4494.84 → 4503.58
+2026-03-23 11:06:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4601.19000 low=4512.89000 (8830.0 pips)
+2026-03-23 11:06:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4608.24000 low=4575.65000 (3259.0 pips)
+2026-03-23 11:06:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4606.38000)
+2026-03-23 11:06:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4617.88000 SL=4597.85054 TP=4697.99785 (ATR=8.01178, pullback confirmed)
+2026-03-23 11:06:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4610.70000)
+2026-03-23 11:06:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4615.49000 SL=4595.35569 TP=4696.02725 (ATR=8.05373, pullback confirmed)
+2026-03-23 11:06:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=159 sl=4621.61
+2026-03-23 11:06:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 4621.61 → 4621.91
+2026-03-23 11:06:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 4621.91 → 4623.23
+2026-03-23 11:06:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 4623.23 → 4627.67
+2026-03-23 11:06:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 4627.67 → 4628.13
+2026-03-23 11:06:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 4628.13 → 4630.14
+2026-03-23 11:06:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4630.41000 low=4587.20000 (4321.0 pips)
+2026-03-23 11:06:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4633.45000 (Asian high=4630.41000, SL=4587.20000, TP=4849.50000)
+2026-03-23 11:06:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4690.72000 low=4620.16000 (7056.0 pips)
+2026-03-23 11:06:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4673.52000)
+2026-03-23 11:06:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4674.19000)
+2026-03-23 11:06:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4697.10000 low=4659.50000 (3760.0 pips)
+2026-03-23 11:06:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4699.61000 (Asian high=4697.10000, SL=4659.50000, TP=4887.61000)
+2026-03-23 11:06:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=161 sl=4721.67
+2026-03-23 11:06:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4870.87000 low=4757.85000 (11302.0 pips)
+2026-03-23 11:06:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4871.08000 (Asian high=4870.87000, SL=4757.85000, TP=5436.18000)
+2026-03-23 11:06:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4846.81000)
+2026-03-23 11:06:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4854.01000 SL=4827.70922 TP=4959.21313 (ATR=10.52031, pullback confirmed)
+2026-03-23 11:06:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=163 sl=4861.14
+2026-03-23 11:06:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 4861.14 → 4863.23
+2026-03-23 11:06:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 4863.23 → 4865.45
+2026-03-23 11:06:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 4865.45 → 4870.11
+2026-03-23 11:06:34 [INFO    ] src.backtesting.engine           Bar 25000/28753 (87%)
+2026-03-23 11:06:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4967.28000 low=4930.82000 (3646.0 pips)
+2026-03-23 11:06:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5093.14000 low=5002.47000 (9067.0 pips)
+2026-03-23 11:06:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 5095.36000 (Asian high=5093.14000, SL=5002.47000, TP=5548.71000)
+2026-03-23 11:06:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5079.77000 low=5012.76000 (6701.0 pips)
+2026-03-23 11:06:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 5088.37000 (Asian high=5079.77000, SL=5012.76000, TP=5423.42000)
+2026-03-23 11:06:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=165 sl=5128.25
+2026-03-23 11:06:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=165 5128.25 → 5128.95
+2026-03-23 11:06:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=165 5128.95 → 5161.63
+2026-03-23 11:06:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=165 5161.63 → 5170.65
+2026-03-23 11:06:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5248.90000 low=5157.36000 (9154.0 pips)
+2026-03-23 11:06:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 5253.94000 (Asian high=5248.90000, SL=5157.36000, TP=5711.64000)
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=166 sl=5302.89
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 5302.89 → 5304.43
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 5304.43 → 5333.33
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 5333.33 → 5361.68
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 5361.68 → 5364.61
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 5364.61 → 5365.45
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 5365.45 → 5394.96
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 5394.96 → 5449.65
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 5449.65 → 5464.86
+2026-03-23 11:06:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 5464.86 → 5499.50
+2026-03-23 11:06:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5598.55000 low=5415.73000 (18282.0 pips)
+2026-03-23 11:06:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5542.33000)
+2026-03-23 11:06:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5545.39000)
+2026-03-23 11:06:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5450.90000 low=5112.22000 (33868.0 pips)
+2026-03-23 11:06:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 5096.45000 (Asian low=5112.22000, SL=5450.90000, TP=3403.05000)
+2026-03-23 11:06:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=167 sl=4867.81
+2026-03-23 11:06:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=167 4867.81 → 4807.15
+2026-03-23 11:06:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4884.43000 low=4591.64000 (29279.0 pips)
+2026-03-23 11:06:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4575.98000 (Asian low=4591.64000, SL=4884.43000, TP=3112.03000)
+2026-03-23 11:06:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4856.28000 low=4665.90000 (19038.0 pips)
+2026-03-23 11:06:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4891.48000 (Asian high=4856.28000, SL=4665.90000, TP=5843.38000)
+2026-03-23 11:06:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=169 sl=5021.79
+2026-03-23 11:06:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5081.12000 low=4910.72000 (17040.0 pips)
+2026-03-23 11:06:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 5082.93000 (Asian high=5081.12000, SL=4910.72000, TP=5934.93000)
+2026-03-23 11:06:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5023.75000 low=4789.39000 (23436.0 pips)
+2026-03-23 11:06:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4853.87000)
+2026-03-23 11:06:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4813.50000)
+2026-03-23 11:06:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 4812.79000 SL=4878.20343 TP=4551.13629 (ATR=26.16537, pullback confirmed)
+2026-03-23 11:06:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=171 sl=4789.27
+2026-03-23 11:06:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4846.45000 low=4655.13000 (19132.0 pips)
+2026-03-23 11:06:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4867.51000 (Asian high=4846.45000, SL=4655.13000, TP=5824.11000)
+2026-03-23 11:06:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=172 sl=5009.44
+2026-03-23 11:06:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=172 5009.44 → 5025.28
+2026-03-23 11:06:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5046.93000 low=4965.07000 (8186.0 pips)
+2026-03-23 11:06:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5035.51000)
+2026-03-23 11:06:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5042.18000)
+2026-03-23 11:06:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 5056.18000 SL=5018.02875 TP=5208.78501 (ATR=15.26050, pullback confirmed)
+2026-03-23 11:06:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=173 sl=5067.99
+2026-03-23 11:06:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=173 5067.99 → 5069.46
+2026-03-23 11:06:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=173 5069.46 → 5070.22
+2026-03-23 11:06:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5075.44000 low=4987.82000 (8762.0 pips)
+2026-03-23 11:06:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5060.84000 low=5025.02000 (3582.0 pips)
+2026-03-23 11:06:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 5062.38000 (Asian high=5060.84000, SL=5025.02000, TP=5241.48000)
+2026-03-23 11:06:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=174 sl=5089.10
+2026-03-23 11:06:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5097.34000)
+2026-03-23 11:06:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5099.92000 low=5045.19000 (5473.0 pips)
+2026-03-23 11:06:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4997.22000 low=4887.99000 (10923.0 pips)
+2026-03-23 11:06:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4950.95000)
+2026-03-23 11:06:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4939.48000)
+2026-03-23 11:06:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5030.77000)
+2026-03-23 11:06:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5000.82000 low=4922.92000 (7790.0 pips)
+2026-03-23 11:06:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4901.07000 (Asian low=4922.92000, SL=5000.82000, TP=4511.57000)
+2026-03-23 11:06:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4986.37000)
+2026-03-23 11:06:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4988.74000 low=4960.64000 (2810.0 pips)
+2026-03-23 11:06:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 4990.36000 (Asian high=4988.74000, SL=4960.64000, TP=5130.86000)
+2026-03-23 11:06:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=176 sl=5013.17
+2026-03-23 11:06:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5022.23000)
+2026-03-23 11:06:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5013.47000)
+2026-03-23 11:06:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5014.76000 low=4981.71000 (3305.0 pips)
+2026-03-23 11:06:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 5016.45000 (Asian high=5014.76000, SL=4981.71000, TP=5181.70000)
+2026-03-23 11:06:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=177 sl=5033.52
+2026-03-23 11:06:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=177 5033.52 → 5033.63
+2026-03-23 11:06:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=177 5033.63 → 5044.48
+2026-03-23 11:06:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=177 5044.48 → 5046.26
+2026-03-23 11:06:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5176.57000 low=5099.22000 (7735.0 pips)
+2026-03-23 11:06:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:06:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5157.71000)
+2026-03-23 11:06:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 5163.01000 SL=5138.47898 TP=5261.13408 (ATR=9.81241, pullback confirmed)
+2026-03-23 11:06:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=178 sl=5180.99
+2026-03-23 11:06:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=178 5180.99 → 5181.86
+2026-03-23 11:06:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5249.70000 low=5145.39000 (10431.0 pips)
+2026-03-23 11:06:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5193.86000 low=5121.39000 (7247.0 pips)
+2026-03-23 11:06:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 5203.03000 (Asian high=5193.86000, SL=5121.39000, TP=5565.38000)
+2026-03-23 11:06:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=179 sl=5249.27
+2026-03-23 11:06:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=179 5249.27 → 5252.61
+2026-03-23 11:06:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=179 5252.61 → 5265.76
+2026-03-23 11:06:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=179 5265.76 → 5271.28
+2026-03-23 11:06:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=179 5271.28 → 5332.57
+2026-03-23 11:06:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=179 5332.57 → 5339.97
+2026-03-23 11:06:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=179 5339.97 → 5365.18
+2026-03-23 11:06:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=179 5365.18 → 5370.59
+2026-03-23 11:06:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5393.37000 low=5302.13000 (9124.0 pips)
+2026-03-23 11:06:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 5406.48000 (Asian high=5393.37000, SL=5302.13000, TP=5862.68000)
+2026-03-23 11:06:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5379.84000 low=5324.30000 (5554.0 pips)
+2026-03-23 11:06:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 5289.76000 (Asian low=5324.30000, SL=5379.84000, TP=5012.06000)
+2026-03-23 11:06:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=181 sl=5264.68
+2026-03-23 11:06:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5190.68000 low=5084.69000 (10599.0 pips)
+2026-03-23 11:06:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5132.81000)
+2026-03-23 11:06:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5160.23000)
+2026-03-23 11:06:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 5144.37000 SL=5189.41982 TP=4964.17072 (ATR=18.01993, pullback confirmed)
+2026-03-23 11:06:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5194.89000 low=5144.86000 (5003.0 pips)
+2026-03-23 11:06:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 5133.17000 (Asian low=5144.86000, SL=5194.89000, TP=4883.02000)
+2026-03-23 11:06:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=183 sl=5104.22
+2026-03-23 11:06:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=183 5104.22 → 5100.44
+2026-03-23 11:06:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5143.84000 low=5066.59000 (7725.0 pips)
+2026-03-23 11:06:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5198.34000 low=5014.95000 (18339.0 pips)
+2026-03-23 11:06:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5186.94000 low=5117.75000 (6919.0 pips)
+2026-03-23 11:06:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: BUY breakout @ 5189.80000 (Asian high=5186.94000, SL=5117.75000, TP=5535.75000)
+2026-03-23 11:06:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5128.41000 low=5072.98000 (5543.0 pips)
+2026-03-23 11:06:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5102.62000)
+2026-03-23 11:06:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 5100.59000 SL=5119.76515 TP=5023.88941 (ATR=7.67006, pullback confirmed)
+2026-03-23 11:06:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=185 sl=5096.21
+2026-03-23 11:06:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=185 5096.21 → 5093.36
+2026-03-23 11:06:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=185 5093.36 → 5087.36
+2026-03-23 11:06:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=185 5087.36 → 5080.75
+2026-03-23 11:06:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5030.81000 low=4967.62000 (6319.0 pips)
+2026-03-23 11:06:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5002.01000)
+2026-03-23 11:06:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4998.16000)
+2026-03-23 11:06:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=5033.53000 low=4994.82000 (3871.0 pips)
+2026-03-23 11:06:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5006.30000)
+2026-03-23 11:06:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 4994.77000 SL=5023.85088 TP=4878.44648 (ATR=11.63235, pullback confirmed)
+2026-03-23 11:06:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=186 sl=4977.89
+2026-03-23 11:06:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=186 4977.89 → 4960.13
+2026-03-23 11:06:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4867.18000 low=4804.36000 (6282.0 pips)
+2026-03-23 11:06:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:06:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4827.05000)
+2026-03-23 11:06:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 4813.79000 SL=4841.77791 TP=4701.83836 (ATR=11.19516, pullback confirmed)
+2026-03-23 11:06:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=187 sl=4798.97
+2026-03-23 11:06:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=187 4798.97 → 4777.84
+2026-03-23 11:06:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: SELL breakout @ 4777.89000 (Asian low=4804.36000, SL=4867.18000, TP=4463.79000)
+2026-03-23 11:06:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=188 sl=4745.10
+2026-03-23 11:06:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=188 4745.10 → 4733.27
+2026-03-23 11:06:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [XAUUSD]: Asian range high=4735.69000 low=4634.18000 (10151.0 pips)
+2026-03-23 11:06:59 [INFO    ] src.backtesting.engine         Backtest complete: 188 trades, 2602.98% return, 69.71% max DD, 63.3% WR
+
+Backtest Results: both on XAUUSD
+  Period: 2025-01-03 → 2026-03-20
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $810.89 │
+│ Total Return              │       +2602.98% │
+│ Max Drawdown              │          69.71% │
+│ Total Trades              │             188 │
+│ Win Rate                  │           63.3% │
+│ Profit Factor             │            1.27 │
+│ Avg Trade P&L             │          $+4.15 │
+│ Sharpe Ratio              │            0.25 │
+│ Max Consecutive Losses    │               5 │
+│ Avg Trade Duration        │           15.6h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 11:06:59 [INFO    ] backtest                       Results saved to data/backtest_results/XAUUSD_XAUUSD-C-15mo_20260323_110659.json
+
+Backtest Results: both on XAUUSD
+  Period: 2025-01-03 → 2026-03-20
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $810.89 │
+│ Total Return              │       +2602.98% │
+│ Max Drawdown              │          69.71% │
+│ Total Trades              │             188 │
+│ Win Rate                  │           63.3% │
+│ Profit Factor             │            1.27 │
+│ Avg Trade P&L             │          $+4.15 │
+│ Sharpe Ratio              │            0.25 │
+│ Max Consecutive Losses    │               5 │
+│ Avg Trade Duration        │           15.6h │
+└───────────────────────────┴─────────────────┘
+

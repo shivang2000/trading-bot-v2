@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"KEY=\\\"/Users/shivang/dev/advanced-trading-bot/trading-bot-v2/south-mumbai-key-pair.pem\\\" && HOST=\\\"ec2-user@ec2-13-202-138-193.ap-south-1.compute.amazonaws.com\\\" && BASE=\\\"/Users/shivang/d...",
-  "error": "Exit code 1\n** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\n** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\nError response from daemon: mounted volume i...",
-  "timestamp": "2026-03-22T22:06:29.012Z",
+  "tool_input_preview": "{\"command\":\"python3 -c \\\"import pandas, pandas_ta, numpy, rich; print('All deps OK')\\\" 2>&1\",\"description\":\"Check if Python dependencies are available locally\"}",
+  "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas_ta/__init__.py\", line 6, in <module>\n    from pandas_ta.utils import *\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas_ta/utils/__init__.py\", line 4, in <module>\n    from ._math import *\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packag...",
+  "timestamp": "2026-03-23T05:32:59.849Z",
   "retry_count": 1
 }

@@ -1,0 +1,884 @@
+2026-03-23 11:09:49 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/BTCUSD_M15_20250601_20260301.csv
+2026-03-23 11:09:49 [INFO    ] src.backtesting.data_loader    Loaded 25621 bars from data/backtest_cache/BTCUSD_M15_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 11:09:49 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/BTCUSD_H1_20250601_20260301.csv
+2026-03-23 11:09:49 [INFO    ] src.backtesting.data_loader    Loaded 6406 bars from data/backtest_cache/BTCUSD_H1_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 11:09:49 [INFO    ] backtest                       Data loaded: 25621 M15 bars, 6406 H1 bars
+2026-03-23 11:09:49 [INFO    ] backtest                       Config [BTCUSD-E-9mo]: risk=5.0%, SL=2.0x ATR, TP=8.0x ATR, trail_act=15%, trail_atr=1.0x
+2026-03-23 11:09:49 [INFO    ] src.backtesting.engine         Starting backtest: both on BTCUSD (25621 M15 bars, 6406 H1 bars)
+2026-03-23 11:09:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106008.75000)
+2026-03-23 11:09:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 106076.52000 SL=105559.39736 TP=108145.01057 (ATR=258.56132, pullback confirmed)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=105241.07000 low=104543.04000 (69803.0 pips)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 104398.52000 (Asian low=104543.04000, SL=105241.07000, TP=100908.37000)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102514.82000 low=100423.80000 (209102.0 pips)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 102516.14000 (Asian high=102514.82000, SL=100423.80000, TP=112971.24000)
+2026-03-23 11:09:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=3 sl=104129.62
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=104920.65000 low=103869.95000 (105070.0 pips)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 105314.92000 (Asian high=104920.65000, SL=103869.95000, TP=110568.42000)
+2026-03-23 11:09:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=105954.70
+2026-03-23 11:09:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 105954.70 → 105984.70
+2026-03-23 11:09:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 105984.70 → 105988.18
+2026-03-23 11:09:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 105988.18 → 106091.69
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110609.49000 low=108685.87000 (192362.0 pips)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109415.90000)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 109434.19000 SL=109036.76802 TP=111023.87792 (ATR=198.71099, pullback confirmed)
+2026-03-23 11:09:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=5 sl=109523.73
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110299.34000 low=109403.74000 (89560.0 pips)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109819.23000)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109208.75000 low=107719.72000 (148903.0 pips)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 107604.01000 (Asian low=107719.72000, SL=109208.75000, TP=100158.86000)
+2026-03-23 11:09:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=6 sl=106877.21
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106422.08000 low=102666.21000 (375587.0 pips)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104105.91000)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106220.81000 low=105192.50000 (102831.0 pips)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 104928.10000 (Asian low=105192.50000, SL=106220.81000, TP=99786.55000)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=105966.44000 low=104487.49000 (147895.0 pips)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 106221.74000 (Asian high=105966.44000, SL=104487.49000, TP=113616.49000)
+2026-03-23 11:09:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=8 sl=107097.40
+2026-03-23 11:09:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 107097.40 → 107355.87
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=108968.54000 low=106114.03000 (285451.0 pips)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104362.19000)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=105242.71000 low=104197.29000 (104542.0 pips)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 105250.69000 (Asian high=105242.71000, SL=104197.29000, TP=110477.79000)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104330.26000)
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 104257.80000 SL=104969.35997 TP=101411.56013 (ATR=355.77998, pullback confirmed)
+2026-03-23 11:09:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=104099.81
+2026-03-23 11:09:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=105234.00000 low=104361.36000 (87264.0 pips)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=104899.26000 low=104215.62000 (68364.0 pips)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 106236.36000 (Asian high=104899.26000, SL=104215.62000, TP=109654.56000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=103727.71000 low=102960.35000 (76736.0 pips)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=103335.70000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=103384.78000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=103397.67000 low=100867.38000 (253029.0 pips)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=102370.79000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=102282.03000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 102192.64000 SL=102740.18591 TP=100002.45637 (ATR=273.77295, pullback confirmed)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=101597.80000 low=99000.71000 (259709.0 pips)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 101762.45000 (Asian high=101597.80000, SL=99000.71000, TP=114747.90000)
+2026-03-23 11:09:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=103160.24
+2026-03-23 11:09:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 103160.24 → 103306.42
+2026-03-23 11:09:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 103306.42 → 103361.94
+2026-03-23 11:09:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 103361.94 → 104741.19
+2026-03-23 11:09:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 104741.19 → 105395.88
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106048.59000 low=103617.93000 (243066.0 pips)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105457.05000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105382.71000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105657.49000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105629.23000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 105804.00000 SL=105197.34740 TP=108230.61040 (ATR=303.32630, pullback confirmed)
+2026-03-23 11:09:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=14 sl=106189.65
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106791.00000 low=105715.19000 (107581.0 pips)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106437.68000)
+2026-03-23 11:09:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 106613.46000 SL=106186.30045 TP=108322.09821 (ATR=213.57978, pullback confirmed)
+2026-03-23 11:09:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=15 sl=106881.42
+2026-03-23 11:09:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 106881.42 → 106895.52
+2026-03-23 11:09:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107523.74000)
+2026-03-23 11:09:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107877.02000)
+2026-03-23 11:09:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 107912.25000 SL=107412.24489 TP=109912.27043 (ATR=250.00255, pullback confirmed)
+2026-03-23 11:09:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107792.64000 low=106422.07000 (137057.0 pips)
+2026-03-23 11:09:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107491.67000 low=107152.34000 (33933.0 pips)
+2026-03-23 11:09:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 107672.53000 (Asian high=107491.67000, SL=107152.34000, TP=109369.18000)
+2026-03-23 11:09:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=17 sl=107851.49
+2026-03-23 11:09:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=108780.81000 low=107229.66000 (155115.0 pips)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107585.68000 low=106907.29000 (67839.0 pips)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 106874.76000 (Asian low=106907.29000, SL=107585.68000, TP=103482.81000)
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=18 sl=106511.84
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106206.47000 low=105093.24000 (111323.0 pips)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 106379.62000 (Asian high=106206.47000, SL=105093.24000, TP=111945.77000)
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=19 sl=107205.07
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 107205.07 → 107455.00
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 107455.00 → 107478.70
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109536.15000 low=108523.25000 (101290.0 pips)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109410.24000)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 109436.77000 SL=109055.24698 TP=110962.86209 (ATR=190.76151, pullback confirmed)
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=20 sl=109774.45
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 109774.45 → 110036.10
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109998.11000 low=109094.63000 (90348.0 pips)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 109067.44000 (Asian low=109094.63000, SL=109998.11000, TP=104550.04000)
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=108538.47
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 108538.47 → 108149.89
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 108149.89 → 107944.48
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107743.46000)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=108267.04000 low=107685.84000 (58120.0 pips)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 108371.95000 (Asian high=108267.04000, SL=107685.84000, TP=111277.95000)
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=108766.41
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=108833.42000)
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 108917.26000 SL=108556.96059 TP=110358.45763 (ATR=180.14970, pullback confirmed)
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=23 sl=109108.74
+2026-03-23 11:09:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 109108.74 → 109213.43
+2026-03-23 11:09:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109703.09000 low=108658.94000 (104415.0 pips)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=108515.73000 low=107426.39000 (108934.0 pips)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=108970.15000)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109445.15000)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111563.46000 low=110667.31000 (89615.0 pips)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111306.78000)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 111324.32000 SL=110793.63133 TP=113447.07468 (ATR=265.34433, pullback confirmed)
+2026-03-23 11:09:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=24 sl=112043.48
+2026-03-23 11:09:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 112043.48 → 112294.31
+2026-03-23 11:09:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 112294.31 → 112294.35
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117096.16000 low=113377.28000 (371888.0 pips)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 117195.43000 (Asian high=117096.16000, SL=113377.28000, TP=135789.83000)
+2026-03-23 11:09:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=25 sl=120743.54
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=121535.32000 low=118235.19000 (330013.0 pips)
+2026-03-23 11:09:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 122306.56000 (Asian high=121535.32000, SL=118235.19000, TP=138807.21000)
+2026-03-23 11:09:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=120310.18000 low=116830.66000 (347952.0 pips)
+2026-03-23 11:09:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 116721.43000 (Asian low=116830.66000, SL=120310.18000, TP=99323.83000)
+2026-03-23 11:09:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=120945.28000 low=119006.73000 (193855.0 pips)
+2026-03-23 11:09:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117268.61000)
+2026-03-23 11:09:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118607.48000 low=116462.67000 (214481.0 pips)
+2026-03-23 11:09:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 119365.95000 (Asian high=118607.48000, SL=116462.67000, TP=130090.00000)
+2026-03-23 11:09:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117937.80000 low=116103.84000 (183396.0 pips)
+2026-03-23 11:09:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=120233.23000 low=118515.14000 (171809.0 pips)
+2026-03-23 11:09:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117859.97000)
+2026-03-23 11:09:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 117601.01000 SL=118177.63688 TP=115294.50246 (ATR=288.31344, pullback confirmed)
+2026-03-23 11:09:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:09:57 [INFO    ] src.backtesting.engine           Bar 5000/25621 (20%)
+2026-03-23 11:09:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117315.87000)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=119257.92000 low=117372.04000 (188588.0 pips)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118784.58000 low=115315.71000 (346887.0 pips)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 115225.70000 (Asian low=115315.71000, SL=118784.58000, TP=97881.35000)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=119760.11000)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 119762.72000 SL=119327.24663 TP=121504.61350 (ATR=217.73669, pullback confirmed)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=119618.49000)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=119800.64000 low=118713.54000 (108710.0 pips)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:09:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=119602.64000)
+2026-03-23 11:09:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118794.56000 low=117450.10000 (134446.0 pips)
+2026-03-23 11:09:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 118829.26000 (Asian high=118794.56000, SL=117450.10000, TP=125551.56000)
+2026-03-23 11:09:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118601.08000 low=116938.00000 (166308.0 pips)
+2026-03-23 11:09:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 118679.95000 (Asian high=118601.08000, SL=116938.00000, TP=126995.35000)
+2026-03-23 11:09:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116890.08000 low=114306.39000 (258369.0 pips)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114089.22000 low=112723.60000 (136562.0 pips)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113532.57000)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113670.95000)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 113556.94000 SL=113924.56303 TP=112086.44787 (ATR=183.81152, pullback confirmed)
+2026-03-23 11:10:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=113444.90
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112272.38000)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113735.02000 low=111906.22000 (182880.0 pips)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 113775.31000 (Asian high=113735.02000, SL=111906.22000, TP=122919.31000)
+2026-03-23 11:10:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=35 sl=115006.28
+2026-03-23 11:10:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=35 115006.28 → 115182.58
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115258.10000)
+2026-03-23 11:10:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114225.80000 low=113287.56000 (93824.0 pips)
+2026-03-23 11:10:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 114237.13000 (Asian high=114225.80000, SL=113287.56000, TP=118928.33000)
+2026-03-23 11:10:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=36 sl=114835.29
+2026-03-23 11:10:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117644.48000 low=116685.67000 (95881.0 pips)
+2026-03-23 11:10:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 116535.53000 (Asian low=116685.67000, SL=117644.48000, TP=111741.48000)
+2026-03-23 11:10:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118496.65000 low=116372.64000 (212401.0 pips)
+2026-03-23 11:10:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 118705.52000 (Asian high=118496.65000, SL=116372.64000, TP=129325.57000)
+2026-03-23 11:10:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=38 sl=120924.88
+2026-03-23 11:10:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=122151.35000 low=118071.08000 (408027.0 pips)
+2026-03-23 11:10:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 122286.54000 (Asian high=122151.35000, SL=118071.08000, TP=142687.89000)
+2026-03-23 11:10:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=124492.34000 low=122289.16000 (220318.0 pips)
+2026-03-23 11:10:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 122129.41000 (Asian low=122289.16000, SL=124492.34000, TP=111113.51000)
+2026-03-23 11:10:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=40 sl=120065.56
+2026-03-23 11:10:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 120065.56 → 119433.68
+2026-03-23 11:10:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 119433.68 → 118885.38
+2026-03-23 11:10:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 118885.38 → 118693.84
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=119076.17000 low=117298.29000 (177788.0 pips)
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 119099.85000 (Asian high=119076.17000, SL=117298.29000, TP=127989.25000)
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117132.96000)
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117608.41000)
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117760.89000 low=117172.63000 (58826.0 pips)
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 117763.67000 (Asian high=117760.89000, SL=117172.63000, TP=120704.97000)
+2026-03-23 11:10:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=42 sl=118224.16
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117477.87000)
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 117403.99000 SL=117746.23051 TP=116035.02796 (ATR=171.12026, pullback confirmed)
+2026-03-23 11:10:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=43 sl=117329.54
+2026-03-23 11:10:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117995.92000 low=114992.68000 (300324.0 pips)
+2026-03-23 11:10:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116976.58000 low=114774.87000 (220171.0 pips)
+2026-03-23 11:10:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 114761.48000 (Asian low=114774.87000, SL=116976.58000, TP=103752.93000)
+2026-03-23 11:10:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=44 sl=113382.34
+2026-03-23 11:10:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 113382.34 → 113150.13
+2026-03-23 11:10:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113641.29000 low=112559.40000 (108189.0 pips)
+2026-03-23 11:10:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 113710.07000 (Asian high=113641.29000, SL=112559.40000, TP=119119.52000)
+2026-03-23 11:10:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114811.73000 low=113890.02000 (92171.0 pips)
+2026-03-23 11:10:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 113675.49000 (Asian low=113890.02000, SL=114811.73000, TP=109066.94000)
+2026-03-23 11:10:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=46 sl=113054.81
+2026-03-23 11:10:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113522.84000 low=112090.99000 (143185.0 pips)
+2026-03-23 11:10:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116871.05000 low=115446.16000 (142489.0 pips)
+2026-03-23 11:10:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115201.00000)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112092.59000)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113690.58000 low=112148.98000 (154160.0 pips)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 112044.61000 (Asian low=112148.98000, SL=113690.58000, TP=104336.61000)
+2026-03-23 11:10:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=47 sl=111179.95
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110592.24000 low=108677.13000 (191511.0 pips)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109755.27000)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109560.23000)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109576.63000)
+2026-03-23 11:10:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 109498.69000 SL=110287.44359 TP=106343.67565 (ATR=394.37679, pullback confirmed)
+2026-03-23 11:10:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112360.64000 low=110908.37000 (145227.0 pips)
+2026-03-23 11:10:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 110529.24000 (Asian low=110908.37000, SL=112360.64000, TP=103267.89000)
+2026-03-23 11:10:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112443.51000 low=110852.04000 (159147.0 pips)
+2026-03-23 11:10:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 112775.06000 (Asian high=112443.51000, SL=110852.04000, TP=120732.41000)
+2026-03-23 11:10:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112631.97000 low=111294.12000 (133785.0 pips)
+2026-03-23 11:10:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 110529.12000 (Asian low=111294.12000, SL=112631.97000, TP=103839.87000)
+2026-03-23 11:10:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=51 sl=109467.02
+2026-03-23 11:10:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109479.84000 low=108460.58000 (101926.0 pips)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107670.94000)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109226.34000 low=107385.04000 (184130.0 pips)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 107309.74000 (Asian low=107385.04000, SL=109226.34000, TP=98103.24000)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110611.75000 low=107447.00000 (316475.0 pips)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111367.26000)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111772.47000 low=110864.12000 (90835.0 pips)
+2026-03-23 11:10:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111272.54000)
+2026-03-23 11:10:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112244.94000 low=111118.59000 (112635.0 pips)
+2026-03-23 11:10:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 110914.26000 (Asian low=111118.59000, SL=112244.94000, TP=105282.51000)
+2026-03-23 11:10:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=53 sl=110106.96
+2026-03-23 11:10:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111749.96000 low=110306.12000 (144384.0 pips)
+2026-03-23 11:10:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 111903.85000 (Asian high=111749.96000, SL=110306.12000, TP=119123.05000)
+2026-03-23 11:10:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=54 sl=112879.33
+2026-03-23 11:10:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111698.58000 low=110351.10000 (134748.0 pips)
+2026-03-23 11:10:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111591.23000 low=110610.33000 (98090.0 pips)
+2026-03-23 11:10:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 111794.78000 (Asian high=111591.23000, SL=110610.33000, TP=116699.28000)
+2026-03-23 11:10:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=55 sl=112327.44
+2026-03-23 11:10:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 112327.44 → 112382.58
+2026-03-23 11:10:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 112382.58 → 112457.63
+2026-03-23 11:10:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 112457.63 → 112585.77
+2026-03-23 11:10:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112504.42000 low=111103.54000 (140088.0 pips)
+2026-03-23 11:10:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 112673.12000 (Asian high=112504.42000, SL=111103.54000, TP=119677.52000)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111145.44000)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 111003.50000 SL=111410.38704 TP=109375.95186 (ATR=203.44352, pullback confirmed)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111733.37000 low=110910.90000 (82247.0 pips)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 112789.54000 (Asian high=111733.37000, SL=110910.90000, TP=116901.89000)
+2026-03-23 11:10:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=58 sl=113126.06
+2026-03-23 11:10:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 113126.06 → 113434.87
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114427.66000 low=113515.02000 (91264.0 pips)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114502.81000)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114688.36000)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114507.30000)
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 114553.23000 SL=114229.67775 TP=115847.43902 (ATR=161.77613, pullback confirmed)
+2026-03-23 11:10:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=59 sl=114854.21
+2026-03-23 11:10:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 114854.21 → 114952.58
+2026-03-23 11:10:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 114952.58 → 115172.12
+2026-03-23 11:10:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 115172.12 → 115211.67
+2026-03-23 11:10:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 115211.67 → 115314.20
+2026-03-23 11:10:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 115314.20 → 115335.76
+2026-03-23 11:10:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116314.72000 low=114386.38000 (192834.0 pips)
+2026-03-23 11:10:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115290.07000)
+2026-03-23 11:10:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115239.43000)
+2026-03-23 11:10:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 115245.08000 SL=114766.24617 TP=117160.41530 (ATR=239.41691, pullback confirmed)
+2026-03-23 11:10:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=60 sl=115336.04
+2026-03-23 11:10:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 115336.04 → 115575.85
+2026-03-23 11:10:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 115575.85 → 115612.77
+2026-03-23 11:10:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 115612.77 → 115759.07
+2026-03-23 11:10:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 115759.07 → 115924.96
+2026-03-23 11:10:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 115924.96 → 116186.35
+2026-03-23 11:10:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 116186.35 → 116213.92
+2026-03-23 11:10:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 116213.92 → 116261.84
+2026-03-23 11:10:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 116261.84 → 116400.11
+2026-03-23 11:10:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116343.62000 low=115581.03000 (76259.0 pips)
+2026-03-23 11:10:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115993.23000)
+2026-03-23 11:10:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116104.78000 low=115639.19000 (46559.0 pips)
+2026-03-23 11:10:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116083.43000 low=114812.46000 (127097.0 pips)
+2026-03-23 11:10:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 116586.14000 (Asian high=116083.43000, SL=114812.46000, TP=122940.99000)
+2026-03-23 11:10:14 [INFO    ] src.backtesting.engine           Bar 10000/25621 (39%)
+2026-03-23 11:10:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115604.97000 low=114937.49000 (66748.0 pips)
+2026-03-23 11:10:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 115816.85000 (Asian high=115604.97000, SL=114937.49000, TP=119154.25000)
+2026-03-23 11:10:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117073.60000 low=116355.49000 (71811.0 pips)
+2026-03-23 11:10:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 117102.31000 (Asian high=117073.60000, SL=116355.49000, TP=120692.86000)
+2026-03-23 11:10:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=116408.12000)
+2026-03-23 11:10:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117887.63000 low=115306.26000 (258137.0 pips)
+2026-03-23 11:10:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117245.47000)
+2026-03-23 11:10:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 117376.08000 SL=117000.20574 TP=118879.57703 (ATR=187.93713, pullback confirmed)
+2026-03-23 11:10:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115483.00000)
+2026-03-23 11:10:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 115441.88000 SL=115643.80585 TP=114634.17659 (ATR=100.96293, pullback confirmed)
+2026-03-23 11:10:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115723.47000 low=115298.51000 (42496.0 pips)
+2026-03-23 11:10:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 115915.27000 (Asian high=115723.47000, SL=115298.51000, TP=118040.07000)
+2026-03-23 11:10:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115540.62000 low=114139.48000 (140114.0 pips)
+2026-03-23 11:10:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 113680.82000 (Asian low=114139.48000, SL=115540.62000, TP=106675.12000)
+2026-03-23 11:10:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=67 sl=112859.82
+2026-03-23 11:10:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 112859.82 → 112761.33
+2026-03-23 11:10:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 112761.33 → 112727.41
+2026-03-23 11:10:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 112727.41 → 112670.76
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112297.90000)
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 112244.91000 SL=112661.93699 TP=110576.80205 (ATR=208.51349, pullback confirmed)
+2026-03-23 11:10:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=68 sl=112004.15
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112972.61000 low=111473.26000 (149935.0 pips)
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 113081.66000 (Asian high=112972.61000, SL=111473.26000, TP=120578.41000)
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111742.24000)
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 111678.63000 SL=112149.36864 TP=109795.67542 (ATR=235.36932, pullback confirmed)
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112493.15000 low=111664.81000 (82834.0 pips)
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 112640.11000 (Asian high=112493.15000, SL=111664.81000, TP=116781.81000)
+2026-03-23 11:10:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=71 sl=113176.61
+2026-03-23 11:10:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=71 113176.61 → 113490.55
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113641.72000 low=112215.35000 (142637.0 pips)
+2026-03-23 11:10:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 111929.80000 (Asian low=112215.35000, SL=113641.72000, TP=104797.95000)
+2026-03-23 11:10:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=72 sl=111077.34
+2026-03-23 11:10:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109799.20000 low=108738.31000 (106089.0 pips)
+2026-03-23 11:10:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=108693.65000)
+2026-03-23 11:10:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109089.38000)
+2026-03-23 11:10:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109728.56000 low=109173.98000 (55458.0 pips)
+2026-03-23 11:10:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109781.89000 low=109324.21000 (45768.0 pips)
+2026-03-23 11:10:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 109270.83000 (Asian low=109324.21000, SL=109781.89000, TP=106982.43000)
+2026-03-23 11:10:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112342.09000 low=110625.67000 (171642.0 pips)
+2026-03-23 11:10:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111854.02000)
+2026-03-23 11:10:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112437.13000)
+2026-03-23 11:10:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114774.54000 low=114005.68000 (76886.0 pips)
+2026-03-23 11:10:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 113944.62000 (Asian low=114005.68000, SL=114774.54000, TP=110100.32000)
+2026-03-23 11:10:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=74 sl=113399.87
+2026-03-23 11:10:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=74 113399.87 → 113167.33
+2026-03-23 11:10:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=74 113167.33 → 112973.56
+2026-03-23 11:10:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114765.17000 low=113758.31000 (100686.0 pips)
+2026-03-23 11:10:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 115083.85000 (Asian high=114765.17000, SL=113758.31000, TP=120118.15000)
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=75 sl=115778.39
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 115778.39 → 115895.65
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 115895.65 → 115904.46
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 115904.46 → 116047.32
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 116047.32 → 116090.30
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 116090.30 → 116090.93
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 116090.93 → 116290.83
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 116290.83 → 116489.53
+2026-03-23 11:10:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=119442.66000 low=117327.59000 (211507.0 pips)
+2026-03-23 11:10:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118647.98000)
+2026-03-23 11:10:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118659.86000)
+2026-03-23 11:10:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 118667.48000 SL=118230.30421 TP=120416.18317 (ATR=218.58790, pullback confirmed)
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=76 sl=118894.56
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=76 118894.56 → 119003.49
+2026-03-23 11:10:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=76 119003.49 → 119191.20
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=120752.96000 low=119806.87000 (94609.0 pips)
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=120293.90000)
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 119625.34000 (Asian low=119806.87000, SL=120752.96000, TP=114894.89000)
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=122656.62000 low=121674.37000 (98225.0 pips)
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 122674.41000 (Asian high=122656.62000, SL=121674.37000, TP=127585.66000)
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=121958.28000)
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=124353.21000 low=121865.17000 (248804.0 pips)
+2026-03-23 11:10:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 125183.61000 (Asian high=124353.21000, SL=121865.17000, TP=137623.81000)
+2026-03-23 11:10:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=122289.77000 low=121211.20000 (107857.0 pips)
+2026-03-23 11:10:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=123522.15000 low=121458.43000 (206372.0 pips)
+2026-03-23 11:10:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 121179.42000 (Asian low=121458.43000, SL=123522.15000, TP=110860.82000)
+2026-03-23 11:10:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=120908.74000)
+2026-03-23 11:10:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=121877.05000 low=120902.55000 (97450.0 pips)
+2026-03-23 11:10:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=120913.22000)
+2026-03-23 11:10:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118484.44000)
+2026-03-23 11:10:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115113.24000 low=102212.07000 (1290117.0 pips)
+2026-03-23 11:10:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111775.63000)
+2026-03-23 11:10:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 111505.77000 SL=112213.43494 TP=108675.11024 (ATR=353.83247, pullback confirmed)
+2026-03-23 11:10:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=81 sl=111370.89
+2026-03-23 11:10:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 111370.89 → 111214.05
+2026-03-23 11:10:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 111214.05 → 110964.54
+2026-03-23 11:10:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 110964.54 → 110696.94
+2026-03-23 11:10:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111362.01000 low=109551.37000 (181064.0 pips)
+2026-03-23 11:10:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 111473.73000 (Asian high=111362.01000, SL=109551.37000, TP=120526.93000)
+2026-03-23 11:10:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=82 sl=112721.27
+2026-03-23 11:10:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115957.81000 low=114244.93000 (171288.0 pips)
+2026-03-23 11:10:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115546.40000)
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115469.42000)
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115829.06000 low=113265.42000 (256364.0 pips)
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 113160.31000 (Asian low=113265.42000, SL=115829.06000, TP=100342.11000)
+2026-03-23 11:10:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=83 sl=111379.87
+2026-03-23 11:10:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=83 111379.87 → 110805.29
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111054.35000)
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111807.45000)
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113608.18000 low=111807.45000 (180073.0 pips)
+2026-03-23 11:10:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111858.33000)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110576.66000)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111851.12000 low=110344.70000 (150642.0 pips)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111041.86000)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 110940.99000 SL=111679.74335 TP=107985.97661 (ATR=369.37667, pullback confirmed)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110713.47000)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 110570.14000 SL=111318.91271 TP=107575.04917 (ATR=374.38635, pullback confirmed)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109719.40000)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109228.27000 low=107576.55000 (165172.0 pips)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 107002.51000 (Asian low=107576.55000, SL=109228.27000, TP=98743.91000)
+2026-03-23 11:10:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=86 sl=106137.29
+2026-03-23 11:10:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 106137.29 → 106003.17
+2026-03-23 11:10:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 106003.17 → 105536.75
+2026-03-23 11:10:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104794.88000)
+2026-03-23 11:10:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107438.10000 low=106308.54000 (112956.0 pips)
+2026-03-23 11:10:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106742.11000)
+2026-03-23 11:10:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107359.04000 low=106724.73000 (63431.0 pips)
+2026-03-23 11:10:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 106691.14000 (Asian low=106724.73000, SL=107359.04000, TP=103519.59000)
+2026-03-23 11:10:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=87 sl=106371.20
+2026-03-23 11:10:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106148.43000)
+2026-03-23 11:10:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110418.50000 low=107408.96000 (300954.0 pips)
+2026-03-23 11:10:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 110420.88000 (Asian high=110418.50000, SL=107408.96000, TP=125468.58000)
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=88 sl=112210.75
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=88 112210.75 → 112569.15
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=88 112569.15 → 112671.48
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=88 112671.48 → 112811.57
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=88 112811.57 → 112965.98
+2026-03-23 11:10:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111115.48000 low=107829.85000 (328563.0 pips)
+2026-03-23 11:10:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 107606.92000 (Asian low=107829.85000, SL=111115.48000, TP=91178.77000)
+2026-03-23 11:10:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110430.76000)
+2026-03-23 11:10:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 110491.14000 SL=109906.68136 TP=112828.97458 (ATR=292.22932, pullback confirmed)
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=90 sl=110706.15
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 110706.15 → 110852.67
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 110852.67 → 110888.05
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 110888.05 → 110987.52
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 110987.52 → 111059.48
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 111059.48 → 111184.08
+2026-03-23 11:10:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 111184.08 → 111217.51
+2026-03-23 11:10:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110815.53000 low=109352.57000 (146296.0 pips)
+2026-03-23 11:10:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 111129.20000 (Asian high=110815.53000, SL=109352.57000, TP=118444.00000)
+2026-03-23 11:10:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=91 sl=112515.04
+2026-03-23 11:10:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114688.07000)
+2026-03-23 11:10:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115500.80000 low=112909.20000 (259160.0 pips)
+2026-03-23 11:10:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 115547.05000 (Asian high=115500.80000, SL=112909.20000, TP=128505.05000)
+2026-03-23 11:10:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113286.08000 low=112080.60000 (120548.0 pips)
+2026-03-23 11:10:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112856.37000)
+2026-03-23 11:10:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112237.72000)
+2026-03-23 11:10:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111794.93000 low=109719.40000 (207553.0 pips)
+2026-03-23 11:10:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 108380.71000 (Asian low=109719.40000, SL=111794.93000, TP=98003.06000)
+2026-03-23 11:10:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=93 sl=107197.25
+2026-03-23 11:10:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 107197.25 → 107002.42
+2026-03-23 11:10:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110030.75000 low=107387.54000 (264321.0 pips)
+2026-03-23 11:10:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 110069.41000 (Asian high=110030.75000, SL=107387.54000, TP=123285.46000)
+2026-03-23 11:10:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110751.92000 low=107471.30000 (328062.0 pips)
+2026-03-23 11:10:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 107336.83000 (Asian low=107471.30000, SL=110751.92000, TP=90933.73000)
+2026-03-23 11:10:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=95 sl=104675.12
+2026-03-23 11:10:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107286.18000 low=105799.85000 (148633.0 pips)
+2026-03-23 11:10:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 104878.44000 (Asian low=105799.85000, SL=107286.18000, TP=97446.79000)
+2026-03-23 11:10:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=96 sl=104167.42
+2026-03-23 11:10:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102264.28000 low=98955.57000 (330871.0 pips)
+2026-03-23 11:10:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101199.51000)
+2026-03-23 11:10:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101369.54000)
+2026-03-23 11:10:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=104195.00000 low=102710.18000 (148482.0 pips)
+2026-03-23 11:10:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101886.71000)
+2026-03-23 11:10:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 101787.30000 SL=102769.78259 TP=97857.36965 (ATR=491.24129, pullback confirmed)
+2026-03-23 11:10:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=97 sl=101158.55
+2026-03-23 11:10:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102327.98000 low=100735.77000 (159221.0 pips)
+2026-03-23 11:10:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 102417.28000 (Asian high=102327.98000, SL=100735.77000, TP=110378.33000)
+2026-03-23 11:10:34 [INFO    ] src.backtesting.engine           Bar 15000/25621 (59%)
+2026-03-23 11:10:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102834.47000 low=102397.60000 (43687.0 pips)
+2026-03-23 11:10:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102484.45000 low=101406.63000 (107782.0 pips)
+2026-03-23 11:10:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101669.24000)
+2026-03-23 11:10:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101506.31000)
+2026-03-23 11:10:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106661.94000 low=104072.87000 (258907.0 pips)
+2026-03-23 11:10:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106314.37000)
+2026-03-23 11:10:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106075.85000)
+2026-03-23 11:10:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=103455.85000 low=102498.85000 (95700.0 pips)
+2026-03-23 11:10:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 103540.28000 (Asian high=103455.85000, SL=102498.85000, TP=108325.28000)
+2026-03-23 11:10:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=99 sl=104511.98
+2026-03-23 11:10:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=102094.02000)
+2026-03-23 11:10:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 101833.93000 SL=102643.32461 TP=98596.35155 (ATR=404.69731, pullback confirmed)
+2026-03-23 11:10:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=100497.00000 low=96697.96000 (379904.0 pips)
+2026-03-23 11:10:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=96817.95000 low=94000.70000 (281725.0 pips)
+2026-03-23 11:10:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=95970.00000 low=94836.20000 (113380.0 pips)
+2026-03-23 11:10:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 96089.63000 (Asian high=95970.00000, SL=94836.20000, TP=101758.63000)
+2026-03-23 11:10:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=95569.79000 low=92963.50000 (260629.0 pips)
+2026-03-23 11:10:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 95743.41000 (Asian high=95569.79000, SL=92963.50000, TP=108774.86000)
+2026-03-23 11:10:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=92390.44000 low=89288.58000 (310186.0 pips)
+2026-03-23 11:10:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93414.11000 low=91156.03000 (225808.0 pips)
+2026-03-23 11:10:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 90898.23000 (Asian low=91156.03000, SL=93414.11000, TP=79607.83000)
+2026-03-23 11:10:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=103 sl=89616.42
+2026-03-23 11:10:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 89616.42 → 89474.61
+2026-03-23 11:10:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 89474.61 → 89265.67
+2026-03-23 11:10:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 89265.67 → 89249.61
+2026-03-23 11:10:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=92986.95000 low=90095.31000 (289164.0 pips)
+2026-03-23 11:10:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=88249.34000 low=85352.27000 (289707.0 pips)
+2026-03-23 11:10:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 85201.29000 (Asian low=85352.27000, SL=88249.34000, TP=70715.94000)
+2026-03-23 11:10:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=104 sl=83274.77
+2026-03-23 11:10:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 83274.77 → 82829.28
+2026-03-23 11:10:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 82829.28 → 82746.64
+2026-03-23 11:10:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 82746.64 → 82726.91
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=84278.11000)
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=85610.02000 low=83820.13000 (178989.0 pips)
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=83944.06000)
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 83939.53000 SL=84573.24083 TP=81404.68666 (ATR=316.85542, pullback confirmed)
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=86854.80000 low=84264.90000 (258990.0 pips)
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=86250.07000)
+2026-03-23 11:10:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 86443.87000 SL=85907.99080 TP=88587.38679 (ATR=267.93960, pullback confirmed)
+2026-03-23 11:10:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87792.30000)
+2026-03-23 11:10:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=88117.76000 low=85928.45000 (218931.0 pips)
+2026-03-23 11:10:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87644.46000)
+2026-03-23 11:10:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88329.91000)
+2026-03-23 11:10:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89080.91000 low=87453.36000 (162755.0 pips)
+2026-03-23 11:10:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 87004.05000 (Asian low=87453.36000, SL=89080.91000, TP=78866.30000)
+2026-03-23 11:10:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91874.02000 low=90081.78000 (179224.0 pips)
+2026-03-23 11:10:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91625.31000)
+2026-03-23 11:10:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91583.41000 low=90639.69000 (94372.0 pips)
+2026-03-23 11:10:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 91604.35000 (Asian high=91583.41000, SL=90639.69000, TP=96322.95000)
+2026-03-23 11:10:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=108 sl=92060.73
+2026-03-23 11:10:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=108 92060.73 → 92647.74
+2026-03-23 11:10:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91050.28000 low=90458.72000 (59156.0 pips)
+2026-03-23 11:10:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 91484.32000 (Asian high=91050.28000, SL=90458.72000, TP=94442.12000)
+2026-03-23 11:10:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91341.08000 low=85685.58000 (565550.0 pips)
+2026-03-23 11:10:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87341.76000 low=86176.81000 (116495.0 pips)
+2026-03-23 11:10:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93444.61000 low=90985.31000 (245930.0 pips)
+2026-03-23 11:10:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 93628.54000 (Asian high=93444.61000, SL=90985.31000, TP=105925.04000)
+2026-03-23 11:10:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=92683.51000 low=91799.41000 (88410.0 pips)
+2026-03-23 11:10:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 91338.56000 (Asian low=91799.41000, SL=92683.51000, TP=86918.06000)
+2026-03-23 11:10:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=111 sl=90716.12
+2026-03-23 11:10:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89208.72000)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89793.42000 low=88896.00000 (89742.0 pips)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89202.36000)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89476.35000)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89785.67000 low=88899.31000 (88636.0 pips)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89190.54000)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88865.62000)
+2026-03-23 11:10:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 88804.81000 SL=89209.02991 TP=87187.93037 (ATR=202.10995, pullback confirmed)
+2026-03-23 11:10:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=112 sl=88177.14
+2026-03-23 11:10:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91689.78000 low=88973.07000 (271671.0 pips)
+2026-03-23 11:10:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 92072.16000 (Asian high=91689.78000, SL=88973.07000, TP=105655.71000)
+2026-03-23 11:10:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=113 sl=93723.21
+2026-03-23 11:10:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=92687.46000 low=89387.73000 (329973.0 pips)
+2026-03-23 11:10:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93191.07000 low=91452.13000 (173894.0 pips)
+2026-03-23 11:10:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=92556.24000)
+2026-03-23 11:10:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=90461.35000 low=90104.36000 (35699.0 pips)
+2026-03-23 11:10:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90266.56000)
+2026-03-23 11:10:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90104.86000)
+2026-03-23 11:10:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 90088.31000 SL=90279.40151 TP=89323.94397 (ATR=95.54575, pullback confirmed)
+2026-03-23 11:10:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=114 sl=90044.06
+2026-03-23 11:10:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90122.02000)
+2026-03-23 11:10:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=90468.75000 low=89986.14000 (48261.0 pips)
+2026-03-23 11:10:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 90088.67000 SL=90287.53056 TP=89293.22776 (ATR=99.43028, pullback confirmed)
+2026-03-23 11:10:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=86512.59000 low=85256.28000 (125631.0 pips)
+2026-03-23 11:10:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87941.25000 low=86713.31000 (122794.0 pips)
+2026-03-23 11:10:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 86614.61000 (Asian low=86713.31000, SL=87941.25000, TP=80474.91000)
+2026-03-23 11:10:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=86890.80000 low=85849.25000 (104155.0 pips)
+2026-03-23 11:10:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 86935.03000 (Asian high=86890.80000, SL=85849.25000, TP=92142.78000)
+2026-03-23 11:10:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=117 sl=87648.84
+2026-03-23 11:10:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87559.78000 low=85103.95000 (245583.0 pips)
+2026-03-23 11:10:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 88138.10000 (Asian high=87559.78000, SL=85103.95000, TP=100417.25000)
+2026-03-23 11:10:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=118 sl=89801.60
+2026-03-23 11:10:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=118 89801.60 → 90036.44
+2026-03-23 11:10:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90069.56000)
+2026-03-23 11:10:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=88930.65000 low=87790.15000 (114050.0 pips)
+2026-03-23 11:10:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 87775.19000 (Asian low=87790.15000, SL=88930.65000, TP=82072.69000)
+2026-03-23 11:10:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=119 sl=87115.80
+2026-03-23 11:10:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87232.83000)
+2026-03-23 11:10:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87830.22000 low=86854.30000 (97592.0 pips)
+2026-03-23 11:10:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 86833.22000 (Asian low=86854.30000, SL=87830.22000, TP=81953.62000)
+2026-03-23 11:10:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89425.77000 low=86882.58000 (254319.0 pips)
+2026-03-23 11:10:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88865.69000)
+2026-03-23 11:10:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:10:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89038.26000)
+2026-03-23 11:10:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:10:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87330.62000)
+2026-03-23 11:11:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=90397.73000 low=87470.97000 (292676.0 pips)
+2026-03-23 11:11:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87486.38000 low=86819.83000 (66655.0 pips)
+2026-03-23 11:11:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 87513.96000 (Asian high=87486.38000, SL=86819.83000, TP=90846.71000)
+2026-03-23 11:11:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=121 sl=87962.17
+2026-03-23 11:11:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88449.19000)
+2026-03-23 11:11:02 [INFO    ] src.backtesting.engine           Bar 20000/25621 (78%)
+2026-03-23 11:11:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=88816.67000 low=88165.81000 (65086.0 pips)
+2026-03-23 11:11:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87553.09000)
+2026-03-23 11:11:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=88083.20000 low=87543.56000 (53964.0 pips)
+2026-03-23 11:11:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89113.86000 low=88370.81000 (74305.0 pips)
+2026-03-23 11:11:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 89169.77000 (Asian high=89113.86000, SL=88370.81000, TP=92885.02000)
+2026-03-23 11:11:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=122 sl=89661.07
+2026-03-23 11:11:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=90476.17000 low=89880.99000 (59518.0 pips)
+2026-03-23 11:11:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 89396.70000 (Asian low=89880.99000, SL=90476.17000, TP=86420.80000)
+2026-03-23 11:11:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91595.28000 low=90460.20000 (113508.0 pips)
+2026-03-23 11:11:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 91661.36000 (Asian high=91595.28000, SL=90460.20000, TP=97336.76000)
+2026-03-23 11:11:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=124 sl=92684.68
+2026-03-23 11:11:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=124 92684.68 → 92706.89
+2026-03-23 11:11:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=124 92706.89 → 92907.35
+2026-03-23 11:11:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93395.43000 low=91137.51000 (225792.0 pips)
+2026-03-23 11:11:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=92631.80000)
+2026-03-23 11:11:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=94398.71000 low=93534.58000 (86413.0 pips)
+2026-03-23 11:11:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 93391.68000 (Asian low=93534.58000, SL=94398.71000, TP=89071.03000)
+2026-03-23 11:11:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93786.30000 low=92235.41000 (155089.0 pips)
+2026-03-23 11:11:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 91947.69000 (Asian low=92235.41000, SL=93786.30000, TP=84193.24000)
+2026-03-23 11:11:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=126 sl=91164.33
+2026-03-23 11:11:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90746.05000)
+2026-03-23 11:11:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91666.88000 low=90608.16000 (105872.0 pips)
+2026-03-23 11:11:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 90504.62000 (Asian low=90608.16000, SL=91666.88000, TP=85211.02000)
+2026-03-23 11:11:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=127 sl=89877.66
+2026-03-23 11:11:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91624.80000 low=90842.63000 (78217.0 pips)
+2026-03-23 11:11:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 90675.96000 (Asian low=90842.63000, SL=91624.80000, TP=86765.11000)
+2026-03-23 11:11:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=128 sl=90229.87
+2026-03-23 11:11:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=92516.98000 low=90225.76000 (229122.0 pips)
+2026-03-23 11:11:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91640.85000 low=91038.15000 (60270.0 pips)
+2026-03-23 11:11:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 91737.03000 (Asian high=91640.85000, SL=91038.15000, TP=94750.53000)
+2026-03-23 11:11:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=129 sl=92216.55
+2026-03-23 11:11:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=129 92216.55 → 92324.60
+2026-03-23 11:11:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=96531.97000 low=94082.47000 (244950.0 pips)
+2026-03-23 11:11:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=95202.27000)
+2026-03-23 11:11:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 95474.39000 SL=95042.29333 TP=97202.77668 (ATR=216.04833, pullback confirmed)
+2026-03-23 11:11:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=130 sl=95593.92
+2026-03-23 11:11:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 95593.92 → 96171.52
+2026-03-23 11:11:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 96171.52 → 96589.79
+2026-03-23 11:11:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=97577.38000 low=95766.24000 (181114.0 pips)
+2026-03-23 11:11:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=95522.63000 low=91885.11000 (363752.0 pips)
+2026-03-23 11:11:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=92742.12000)
+2026-03-23 11:11:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93057.81000 low=91996.61000 (106120.0 pips)
+2026-03-23 11:11:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 91407.31000 (Asian low=91996.61000, SL=93057.81000, TP=86101.31000)
+2026-03-23 11:11:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=131 sl=90785.28
+2026-03-23 11:11:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=131 90785.28 → 90592.84
+2026-03-23 11:11:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89635.12000 low=87815.34000 (181978.0 pips)
+2026-03-23 11:11:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=90380.46000 low=89347.57000 (103289.0 pips)
+2026-03-23 11:11:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89410.87000)
+2026-03-23 11:11:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89133.40000)
+2026-03-23 11:11:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=90077.23000 low=89133.40000 (94383.0 pips)
+2026-03-23 11:11:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 89005.85000 (Asian low=89133.40000, SL=90077.23000, TP=84286.70000)
+2026-03-23 11:11:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89487.27000 low=88835.21000 (65206.0 pips)
+2026-03-23 11:11:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 88705.59000 (Asian low=88835.21000, SL=89487.27000, TP=85445.29000)
+2026-03-23 11:11:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=133 sl=88071.90
+2026-03-23 11:11:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87961.19000 low=86072.01000 (188918.0 pips)
+2026-03-23 11:11:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 88191.32000 (Asian high=87961.19000, SL=86072.01000, TP=97637.22000)
+2026-03-23 11:11:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=134 sl=89458.12
+2026-03-23 11:11:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=134 89458.12 → 89842.47
+2026-03-23 11:11:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90170.85000)
+2026-03-23 11:11:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89468.93000 low=87691.53000 (177740.0 pips)
+2026-03-23 11:11:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=85218.69000)
+2026-03-23 11:11:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 84610.15000 SL=85447.33426 TP=81261.41295 (ATR=418.59213, pullback confirmed)
+2026-03-23 11:11:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=84728.26000 low=81066.99000 (366127.0 pips)
+2026-03-23 11:11:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=82910.08000)
+2026-03-23 11:11:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=79413.57000 low=77989.28000 (142429.0 pips)
+2026-03-23 11:11:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=78677.00000)
+2026-03-23 11:11:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 78515.68000 SL=79126.41865 TP=76072.72540 (ATR=305.36933, pullback confirmed)
+2026-03-23 11:11:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=136 sl=78370.24
+2026-03-23 11:11:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=78271.10000)
+2026-03-23 11:11:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=76870.22000)
+2026-03-23 11:11:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 76680.22000 SL=77575.53126 TP=73098.97495 (ATR=447.65563, pullback confirmed)
+2026-03-23 11:11:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=78142.48000 low=74598.12000 (354436.0 pips)
+2026-03-23 11:11:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=79185.93000 low=77647.87000 (153806.0 pips)
+2026-03-23 11:11:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=78032.13000)
+2026-03-23 11:11:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=76967.05000 low=75402.64000 (156441.0 pips)
+2026-03-23 11:11:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=76058.12000)
+2026-03-23 11:11:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=73678.53000 low=70697.65000 (298088.0 pips)
+2026-03-23 11:11:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 70428.53000 (Asian low=70697.65000, SL=73678.53000, TP=55524.13000)
+2026-03-23 11:11:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=138 sl=68707.35
+2026-03-23 11:11:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=138 68707.35 → 67633.82
+2026-03-23 11:11:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=66001.35000 low=59991.86000 (600949.0 pips)
+2026-03-23 11:11:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 66395.67000 (Asian high=66001.35000, SL=59991.86000, TP=96443.12000)
+2026-03-23 11:11:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=139 sl=70250.43
+2026-03-23 11:11:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=139 70250.43 → 70382.45
+2026-03-23 11:11:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=70442.31000)
+2026-03-23 11:11:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 70730.98000 SL=69863.12798 TP=74202.38807 (ATR=433.92601, pullback confirmed)
+2026-03-23 11:11:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=71735.52000 low=69700.51000 (203501.0 pips)
+2026-03-23 11:11:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 68246.54000 (Asian low=69700.51000, SL=71735.52000, TP=58071.49000)
+2026-03-23 11:11:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=71492.49000)
+2026-03-23 11:11:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=71344.91000)
+2026-03-23 11:11:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=72260.72000 low=69991.08000 (226964.0 pips)
+2026-03-23 11:11:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 69799.70000 (Asian low=69991.08000, SL=72260.72000, TP=58451.50000)
+2026-03-23 11:11:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=142 sl=68297.39
+2026-03-23 11:11:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=142 68297.39 → 67894.84
+2026-03-23 11:11:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=142 67894.84 → 67788.35
+2026-03-23 11:11:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=69288.56000 low=67354.95000 (193361.0 pips)
+2026-03-23 11:11:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 66913.49000 (Asian low=67354.95000, SL=69288.56000, TP=57245.44000)
+2026-03-23 11:11:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=143 sl=65985.50
+2026-03-23 11:11:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=143 65985.50 → 65829.91
+2026-03-23 11:11:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=66796.86000 low=65635.19000 (116167.0 pips)
+2026-03-23 11:11:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 66797.03000 (Asian high=66796.86000, SL=65635.19000, TP=72605.38000)
+2026-03-23 11:11:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=144 sl=67522.77
+2026-03-23 11:11:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=144 67522.77 → 68044.79
+2026-03-23 11:11:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=144 68044.79 → 68557.09
+2026-03-23 11:11:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=69128.35000 low=68716.91000 (41144.0 pips)
+2026-03-23 11:11:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 69171.11000 (Asian high=69128.35000, SL=68716.91000, TP=71228.31000)
+2026-03-23 11:11:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=145 sl=69411.83
+2026-03-23 11:11:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=145 69411.83 → 69504.30
+2026-03-23 11:11:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=145 69504.30 → 69582.63
+2026-03-23 11:11:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=69756.24000)
+2026-03-23 11:11:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=69890.93000)
+2026-03-23 11:11:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=69921.95000)
+2026-03-23 11:11:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=70510.00000)
+2026-03-23 11:11:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=70510.00000 low=69241.38000 (126862.0 pips)
+2026-03-23 11:11:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 70664.19000 (Asian high=70510.00000, SL=69241.38000, TP=77007.29000)
+2026-03-23 11:11:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=69076.23000 low=68143.44000 (93279.0 pips)
+2026-03-23 11:11:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=68325.45000)
+2026-03-23 11:11:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=69227.58000 low=68277.64000 (94994.0 pips)
+2026-03-23 11:11:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 68044.44000 (Asian low=68277.64000, SL=69227.58000, TP=63294.74000)
+2026-03-23 11:11:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=147 sl=67371.28
+2026-03-23 11:11:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=147 67371.28 → 67176.93
+2026-03-23 11:11:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=67519.73000)
+2026-03-23 11:11:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=67891.61000 low=66881.09000 (101052.0 pips)
+2026-03-23 11:11:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 67905.48000 (Asian high=67891.61000, SL=66881.09000, TP=72958.08000)
+2026-03-23 11:11:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=66989.14000)
+2026-03-23 11:11:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=67065.17000 low=66225.33000 (83984.0 pips)
+2026-03-23 11:11:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 67174.11000 (Asian high=67065.17000, SL=66225.33000, TP=71373.31000)
+2026-03-23 11:11:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=67481.80000 low=66645.20000 (83660.0 pips)
+2026-03-23 11:11:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 67911.40000 (Asian high=67481.80000, SL=66645.20000, TP=72094.40000)
+2026-03-23 11:11:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=68229.28000 low=67527.78000 (70150.0 pips)
+2026-03-23 11:11:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=67913.36000)
+2026-03-23 11:11:36 [INFO    ] src.backtesting.engine           Bar 25000/25621 (98%)
+2026-03-23 11:11:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=64993.21000)
+2026-03-23 11:11:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 64414.03000 SL=65082.62362 TP=61739.65552 (ATR=334.29681, pullback confirmed)
+2026-03-23 11:11:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=67741.86000 low=64283.83000 (345803.0 pips)
+2026-03-23 11:11:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=65004.35000 low=62856.89000 (214746.0 pips)
+2026-03-23 11:11:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 62814.07000 (Asian low=62856.89000, SL=65004.35000, TP=52076.77000)
+2026-03-23 11:11:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=66301.80000 low=63839.07000 (246273.0 pips)
+2026-03-23 11:11:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=65559.40000)
+2026-03-23 11:11:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 65563.93000 SL=65128.71861 TP=67304.77558 (ATR=217.60570, pullback confirmed)
+2026-03-23 11:11:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=153 sl=65632.31
+2026-03-23 11:11:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 65632.31 → 65878.30
+2026-03-23 11:11:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 65878.30 → 65951.46
+2026-03-23 11:11:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 65951.46 → 66077.31
+2026-03-23 11:11:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 66077.31 → 66232.17
+2026-03-23 11:11:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 66232.17 → 66319.47
+2026-03-23 11:11:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=69170.28000 low=67593.62000 (157666.0 pips)
+2026-03-23 11:11:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=68711.74000)
+2026-03-23 11:11:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=68210.25000 low=66874.12000 (133613.0 pips)
+2026-03-23 11:11:41 [INFO    ] src.backtesting.engine         Backtest complete: 153 trades, -199.96% return, 189.71% max DD, 55.6% WR
+
+Backtest Results: both on BTCUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $-29.99 │
+│ Total Return              │        -199.96% │
+│ Max Drawdown              │         189.71% │
+│ Total Trades              │             153 │
+│ Win Rate                  │           55.6% │
+│ Profit Factor             │            0.94 │
+│ Avg Trade P&L             │          $-0.39 │
+│ Sharpe Ratio              │           -0.06 │
+│ Max Consecutive Losses    │               8 │
+│ Avg Trade Duration        │           12.7h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 11:11:41 [INFO    ] backtest                       Results saved to data/backtest_results/BTCUSD_BTCUSD-E-9mo_20260323_111141.json
+
+Backtest Results: both on BTCUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $-29.99 │
+│ Total Return              │        -199.96% │
+│ Max Drawdown              │         189.71% │
+│ Total Trades              │             153 │
+│ Win Rate                  │           55.6% │
+│ Profit Factor             │            0.94 │
+│ Avg Trade P&L             │          $-0.39 │
+│ Sharpe Ratio              │           -0.06 │
+│ Max Consecutive Losses    │               8 │
+│ Avg Trade Duration        │           12.7h │
+└───────────────────────────┴─────────────────┘
+

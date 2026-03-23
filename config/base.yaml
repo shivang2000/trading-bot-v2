@@ -45,10 +45,10 @@ risk:
 signal_parser:
   model: "claude-haiku-4-5-20251001"
   timeout_ms: 5000
-  min_confidence: 0.45          # was 0.5 — slightly more permissive
+  min_confidence: 0.45
   stale_price_threshold_pct: 1.0
-  atr_sl_multiplier: 3.0        # was 2.0 — wider SL for Telegram signals too
-  atr_tp_multiplier: 2.0        # was 3.0 — tighter TP
+  atr_sl_multiplier: 3.5        # match strategy Config D winner (was 3.0)
+  atr_tp_multiplier: 10.0       # match strategy — trailing stop exits (was 2.0)
   amendment_window_minutes: 5
 
 trailing_stop:

@@ -1,0 +1,1013 @@
+2026-03-23 11:11:42 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/ETHUSD_M15_20250601_20260301.csv
+2026-03-23 11:11:42 [INFO    ] src.backtesting.data_loader    Loaded 25621 bars from data/backtest_cache/ETHUSD_M15_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 11:11:42 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/ETHUSD_H1_20250601_20260301.csv
+2026-03-23 11:11:42 [INFO    ] src.backtesting.data_loader    Loaded 6406 bars from data/backtest_cache/ETHUSD_H1_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 11:11:42 [INFO    ] backtest                       Data loaded: 25621 M15 bars, 6406 H1 bars
+2026-03-23 11:11:42 [INFO    ] backtest                       Config [ETHUSD-C-9mo]: risk=2.0%, SL=2.5x ATR, TP=10.0x ATR, trail_act=15%, trail_atr=1.0x
+2026-03-23 11:11:42 [INFO    ] src.backtesting.engine         Starting backtest: both on ETHUSD (25621 M15 bars, 6406 H1 bars)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2648.40000 low=2538.13000 (11027.0 pips)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2616.97000)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2630.80000)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2631.27000 SL=2603.63033 TP=2741.82868 (ATR=11.05587, pullback confirmed)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2624.66000)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2639.33000 low=2575.81000 (6352.0 pips)
+2026-03-23 11:11:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2639.48000 (Asian high=2639.33000, SL=2575.81000, TP=2957.08000)
+2026-03-23 11:11:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2455.59000 low=2382.58000 (7301.0 pips)
+2026-03-23 11:11:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2457.43000 (Asian high=2455.59000, SL=2382.58000, TP=2822.48000)
+2026-03-23 11:11:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=3 sl=2504.62
+2026-03-23 11:11:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 2504.62 → 2504.77
+2026-03-23 11:11:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 2504.77 → 2510.72
+2026-03-23 11:11:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2484.21000)
+2026-03-23 11:11:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2498.46000 low=2455.51000 (4295.0 pips)
+2026-03-23 11:11:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2499.85000 (Asian high=2498.46000, SL=2455.51000, TP=2714.60000)
+2026-03-23 11:11:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=2527.63
+2026-03-23 11:11:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2547.38000 low=2480.74000 (6664.0 pips)
+2026-03-23 11:11:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2479.32000 (Asian low=2480.74000, SL=2547.38000, TP=2146.12000)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2725.03000 low=2587.65000 (13738.0 pips)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2833.17000 low=2734.62000 (9855.0 pips)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2797.05000)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2814.68000)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2815.48000 SL=2779.48841 TP=2959.44634 (ATR=14.39663, pullback confirmed)
+2026-03-23 11:11:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=6 sl=2825.19
+2026-03-23 11:11:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2825.19 → 2828.27
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2829.87000 low=2742.31000 (8756.0 pips)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2739.52000 (Asian low=2742.31000, SL=2829.87000, TP=2301.72000)
+2026-03-23 11:11:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=7 sl=2669.89
+2026-03-23 11:11:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=7 2669.89 → 2659.25
+2026-03-23 11:11:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=7 2659.25 → 2652.32
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2658.62000 low=2436.00000 (22262.0 pips)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2521.82000)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2513.48000)
+2026-03-23 11:11:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2577.96000 low=2545.62000 (3234.0 pips)
+2026-03-23 11:11:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2536.08000 (Asian low=2545.62000, SL=2577.96000, TP=2374.38000)
+2026-03-23 11:11:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=8 sl=2518.06
+2026-03-23 11:11:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2539.36000 low=2504.89000 (3447.0 pips)
+2026-03-23 11:11:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2542.09000 (Asian high=2539.36000, SL=2504.89000, TP=2714.44000)
+2026-03-23 11:11:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2577.61000 low=2496.17000 (8144.0 pips)
+2026-03-23 11:11:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2595.80000 (Asian high=2577.61000, SL=2496.17000, TP=3003.00000)
+2026-03-23 11:11:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=2651.88
+2026-03-23 11:11:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2670.07000 low=2523.18000 (14689.0 pips)
+2026-03-23 11:11:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2534.53000 low=2490.47000 (4406.0 pips)
+2026-03-23 11:11:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2536.56000 (Asian high=2534.53000, SL=2490.47000, TP=2756.86000)
+2026-03-23 11:11:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2489.24000)
+2026-03-23 11:11:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2545.49000 low=2505.90000 (3959.0 pips)
+2026-03-23 11:11:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2501.49000)
+2026-03-23 11:11:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2530.54000 low=2502.99000 (2755.0 pips)
+2026-03-23 11:11:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2564.10000 (Asian high=2530.54000, SL=2502.99000, TP=2701.85000)
+2026-03-23 11:11:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2431.27000 low=2381.01000 (5026.0 pips)
+2026-03-23 11:11:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2440.27000 (Asian high=2431.27000, SL=2381.01000, TP=2691.57000)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2404.16000 low=2214.91000 (18925.0 pips)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2258.37000 low=2172.36000 (8601.0 pips)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2260.28000 (Asian high=2258.37000, SL=2172.36000, TP=2690.33000)
+2026-03-23 11:11:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=14 sl=2309.25
+2026-03-23 11:11:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 2309.25 → 2333.40
+2026-03-23 11:11:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 2333.40 → 2377.26
+2026-03-23 11:11:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 2377.26 → 2398.67
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2436.78000 low=2333.41000 (10337.0 pips)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2433.29000)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2448.33000)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2454.35000)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2456.99000 SL=2428.32868 TP=2571.63529 (ATR=11.46453, pullback confirmed)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2467.17000 low=2429.09000 (3808.0 pips)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2448.06000)
+2026-03-23 11:11:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2428.99000 (Asian low=2429.09000, SL=2467.17000, TP=2238.59000)
+2026-03-23 11:11:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2518.90000 low=2406.39000 (11251.0 pips)
+2026-03-23 11:11:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2447.28000 low=2381.42000 (6586.0 pips)
+2026-03-23 11:11:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2447.44000 (Asian high=2447.28000, SL=2381.42000, TP=2776.74000)
+2026-03-23 11:11:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=17 sl=2489.33
+2026-03-23 11:11:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 2489.33 → 2493.35
+2026-03-23 11:11:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 2493.35 → 2501.78
+2026-03-23 11:11:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 2501.78 → 2504.12
+2026-03-23 11:11:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 2504.12 → 2504.48
+2026-03-23 11:11:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2523.60000 low=2410.84000 (11276.0 pips)
+2026-03-23 11:11:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2503.18000 low=2475.97000 (2721.0 pips)
+2026-03-23 11:11:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2459.59000 (Asian low=2475.97000, SL=2503.18000, TP=2323.54000)
+2026-03-23 11:11:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=18 sl=2445.06
+2026-03-23 11:11:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 2445.06 → 2443.01
+2026-03-23 11:11:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 2443.01 → 2442.93
+2026-03-23 11:11:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2431.11000 low=2372.82000 (5829.0 pips)
+2026-03-23 11:11:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2434.06000 (Asian high=2431.11000, SL=2372.82000, TP=2725.51000)
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=19 sl=2479.78
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2479.78 → 2480.88
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2480.88 → 2486.58
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2486.58 → 2520.01
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2520.01 → 2523.31
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2523.31 → 2528.17
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2528.17 → 2544.84
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2544.84 → 2548.26
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2548.26 → 2564.40
+2026-03-23 11:11:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2617.62000 low=2554.60000 (6302.0 pips)
+2026-03-23 11:11:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2602.13000 low=2570.08000 (3205.0 pips)
+2026-03-23 11:11:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2568.85000 (Asian low=2570.08000, SL=2602.13000, TP=2408.60000)
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=20 sl=2542.64
+2026-03-23 11:11:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 2542.64 → 2537.99
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2523.55000 low=2486.12000 (3743.0 pips)
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2523.60000 (Asian high=2523.55000, SL=2486.12000, TP=2710.75000)
+2026-03-23 11:11:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=2549.62
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2549.88000)
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2551.69000 SL=2533.47429 TP=2624.55285 (ATR=7.28628, pullback confirmed)
+2026-03-23 11:11:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=2556.05
+2026-03-23 11:11:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 2556.05 → 2584.44
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2603.78000 low=2543.80000 (5998.0 pips)
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2574.07000)
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2553.05000 low=2521.72000 (3133.0 pips)
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2558.57000 (Asian high=2553.05000, SL=2521.72000, TP=2715.22000)
+2026-03-23 11:11:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=23 sl=2578.89
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2617.27000)
+2026-03-23 11:11:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2625.54000 low=2588.71000 (3683.0 pips)
+2026-03-23 11:11:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2634.66000 (Asian high=2625.54000, SL=2588.71000, TP=2818.81000)
+2026-03-23 11:11:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=24 sl=2654.73
+2026-03-23 11:11:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2673.53000)
+2026-03-23 11:11:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2796.58000 low=2734.01000 (6257.0 pips)
+2026-03-23 11:11:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2816.01000 (Asian high=2796.58000, SL=2734.01000, TP=3128.86000)
+2026-03-23 11:11:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=25 sl=2883.17
+2026-03-23 11:11:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 2883.17 → 2929.62
+2026-03-23 11:11:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 2929.62 → 2945.21
+2026-03-23 11:11:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 2945.21 → 2946.53
+2026-03-23 11:11:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3000.30000 low=2815.63000 (18467.0 pips)
+2026-03-23 11:11:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3009.27000 (Asian high=3000.30000, SL=2815.63000, TP=3932.62000)
+2026-03-23 11:11:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=26 sl=3136.70
+2026-03-23 11:11:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 3136.70 → 3140.27
+2026-03-23 11:11:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 3140.27 → 3149.70
+2026-03-23 11:11:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 3149.70 → 3152.05
+2026-03-23 11:11:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 3152.05 → 3153.94
+2026-03-23 11:11:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 3153.94 → 3156.95
+2026-03-23 11:11:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3397.64000 low=3309.45000 (8819.0 pips)
+2026-03-23 11:11:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3423.23000 (Asian high=3397.64000, SL=3309.45000, TP=3864.18000)
+2026-03-23 11:11:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=3482.84
+2026-03-23 11:11:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3624.90000 low=3415.98000 (20892.0 pips)
+2026-03-23 11:11:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3628.85000 (Asian high=3624.90000, SL=3415.98000, TP=4673.45000)
+2026-03-23 11:11:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=28 sl=3769.02
+2026-03-23 11:11:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 3769.02 → 3788.65
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3771.96000)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3758.58000)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3761.71000 SL=3714.89512 TP=3948.96953 (ATR=18.72595, pullback confirmed)
+2026-03-23 11:11:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=29 sl=3785.12
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3771.65000 low=3680.75000 (9090.0 pips)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3784.24000 (Asian high=3771.65000, SL=3680.75000, TP=4238.74000)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3797.33000 low=3695.19000 (10214.0 pips)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3688.85000 (Asian low=3695.19000, SL=3797.33000, TP=3178.15000)
+2026-03-23 11:11:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=31 sl=3608.62
+2026-03-23 11:11:53 [INFO    ] src.backtesting.engine           Bar 5000/25621 (20%)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3663.85000 low=3526.31000 (13754.0 pips)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3574.80000)
+2026-03-23 11:11:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3555.10000 SL=3605.01342 TP=3355.44630 (ATR=19.96537, pullback confirmed)
+2026-03-23 11:11:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3741.62000 low=3572.34000 (16928.0 pips)
+2026-03-23 11:11:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3766.30000 low=3683.74000 (8256.0 pips)
+2026-03-23 11:11:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3748.96000)
+2026-03-23 11:11:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3749.07000 SL=3720.45938 TP=3863.51249 (ATR=11.44425, pullback confirmed)
+2026-03-23 11:11:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=33 sl=3753.07
+2026-03-23 11:11:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3792.64000 low=3729.21000 (6343.0 pips)
+2026-03-23 11:11:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3798.01000 (Asian high=3792.64000, SL=3729.21000, TP=4115.16000)
+2026-03-23 11:11:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=3843.42
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3859.14000)
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3872.76000 SL=3833.79653 TP=4028.61387 (ATR=15.58539, pullback confirmed)
+2026-03-23 11:11:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=35 sl=3879.42
+2026-03-23 11:11:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=35 3879.42 → 3883.89
+2026-03-23 11:11:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=35 3883.89 → 3902.43
+2026-03-23 11:11:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=35 3902.43 → 3920.24
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3905.56000 low=3814.70000 (9086.0 pips)
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3920.49000 (Asian high=3905.56000, SL=3814.70000, TP=4374.79000)
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3820.26000 low=3729.65000 (9061.0 pips)
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3827.15000 low=3752.41000 (7474.0 pips)
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3827.85000 (Asian high=3827.15000, SL=3752.41000, TP=4201.55000)
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3866.67000 low=3741.13000 (12554.0 pips)
+2026-03-23 11:11:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3869.66000 (Asian high=3866.67000, SL=3741.13000, TP=4497.36000)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3756.84000 low=3615.14000 (14170.0 pips)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3676.78000)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3612.32000 (Asian low=3615.14000, SL=3756.84000, TP=2903.82000)
+2026-03-23 11:11:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=39 sl=3530.11
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3551.48000 low=3430.05000 (12143.0 pips)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3453.76000)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3465.64000)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3450.75000 low=3353.81000 (9694.0 pips)
+2026-03-23 11:11:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3451.16000 (Asian high=3450.75000, SL=3353.81000, TP=3935.86000)
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=40 sl=3515.68
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 3515.68 → 3530.36
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3574.64000 low=3481.99000 (9265.0 pips)
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3545.40000)
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3546.74000 SL=3514.95809 TP=3673.86764 (ATR=12.71276, pullback confirmed)
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=41 sl=3557.48
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3557.48 → 3590.97
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3590.97 → 3604.73
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3604.73 → 3632.35
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3632.35 → 3637.43
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3735.54000 low=3646.85000 (8869.0 pips)
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3646.49000 (Asian low=3646.85000, SL=3735.54000, TP=3203.04000)
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=42 sl=3601.62
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3601.62 → 3592.33
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3622.96000 low=3544.74000 (7822.0 pips)
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3639.76000 (Asian high=3622.96000, SL=3544.74000, TP=4030.86000)
+2026-03-23 11:11:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=43 sl=3693.39
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3715.03000 low=3646.37000 (6866.0 pips)
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3700.96000)
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3725.69000 (Asian high=3715.03000, SL=3646.37000, TP=4068.99000)
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=44 sl=3778.61
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3778.61 → 3781.56
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3781.56 → 3793.81
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3793.81 → 3802.66
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3802.66 → 3802.95
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3802.95 → 3809.73
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3809.73 → 3815.81
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3815.81 → 3818.54
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3818.54 → 3825.19
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3825.19 → 3830.77
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3967.51000 low=3857.06000 (11045.0 pips)
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3916.53000)
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4032.53000)
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4033.54000 SL=4002.10342 TP=4159.28632 (ATR=12.57463, pullback confirmed)
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=45 sl=4043.78
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=45 4043.78 → 4049.75
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=45 4049.75 → 4065.25
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=45 4065.25 → 4065.75
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4057.85000 low=4005.33000 (5252.0 pips)
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4157.91000 (Asian high=4057.85000, SL=4005.33000, TP=4420.51000)
+2026-03-23 11:11:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=46 sl=4174.82
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4221.72000)
+2026-03-23 11:11:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4331.27000 low=4205.85000 (12542.0 pips)
+2026-03-23 11:11:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:11:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4251.77000)
+2026-03-23 11:11:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4340.35000 low=4185.11000 (15524.0 pips)
+2026-03-23 11:11:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4310.36000 low=4188.11000 (12225.0 pips)
+2026-03-23 11:11:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4311.64000 (Asian high=4310.36000, SL=4188.11000, TP=4922.89000)
+2026-03-23 11:11:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=47 sl=4379.90
+2026-03-23 11:11:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4654.98000 low=4562.44000 (9254.0 pips)
+2026-03-23 11:11:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4663.42000 (Asian high=4654.98000, SL=4562.44000, TP=5126.12000)
+2026-03-23 11:12:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=48 sl=4706.04
+2026-03-23 11:12:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4782.47000 low=4704.29000 (7818.0 pips)
+2026-03-23 11:12:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4772.98000)
+2026-03-23 11:12:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4764.75000)
+2026-03-23 11:12:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4648.65000 low=4452.14000 (19651.0 pips)
+2026-03-23 11:12:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4658.82000 (Asian high=4648.65000, SL=4452.14000, TP=5641.37000)
+2026-03-23 11:12:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4457.85000 low=4393.40000 (6445.0 pips)
+2026-03-23 11:12:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4471.19000 (Asian high=4457.85000, SL=4393.40000, TP=4793.44000)
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=50 sl=4516.81
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=50 4516.81 → 4526.21
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=50 4526.21 → 4527.25
+2026-03-23 11:12:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4463.08000)
+2026-03-23 11:12:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4447.38000 SL=4500.63143 TP=4234.37430 (ATR=21.30057, pullback confirmed)
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=51 sl=4434.13
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4434.13 → 4421.87
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4421.87 → 4419.25
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4419.25 → 4402.21
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4402.21 → 4392.07
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4392.07 → 4350.34
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4350.34 → 4349.81
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4349.81 → 4336.57
+2026-03-23 11:12:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4336.57 → 4335.92
+2026-03-23 11:12:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4533.19000 low=4277.53000 (25566.0 pips)
+2026-03-23 11:12:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4273.14000 (Asian low=4277.53000, SL=4533.19000, TP=2994.84000)
+2026-03-23 11:12:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=52 sl=4099.87
+2026-03-23 11:12:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4163.44000 low=4061.42000 (10202.0 pips)
+2026-03-23 11:12:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4164.07000 (Asian high=4163.44000, SL=4061.42000, TP=4674.17000)
+2026-03-23 11:12:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=53 sl=4229.13
+2026-03-23 11:12:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=53 4229.13 → 4259.92
+2026-03-23 11:12:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4208.72000)
+2026-03-23 11:12:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4313.76000 low=4208.65000 (10511.0 pips)
+2026-03-23 11:12:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4336.67000 (Asian high=4313.76000, SL=4208.65000, TP=4862.22000)
+2026-03-23 11:12:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4815.88000 low=4660.92000 (15496.0 pips)
+2026-03-23 11:12:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4756.45000)
+2026-03-23 11:12:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4816.21000 low=4735.82000 (8039.0 pips)
+2026-03-23 11:12:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4790.66000)
+2026-03-23 11:12:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4791.93000 SL=4750.21521 TP=4958.78915 (ATR=16.68591, pullback confirmed)
+2026-03-23 11:12:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4822.45000 low=4669.40000 (15305.0 pips)
+2026-03-23 11:12:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4651.88000 (Asian low=4669.40000, SL=4822.45000, TP=3886.63000)
+2026-03-23 11:12:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=56 sl=4550.09
+2026-03-23 11:12:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4550.09 → 4496.56
+2026-03-23 11:12:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4496.56 → 4451.18
+2026-03-23 11:12:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4451.18 → 4433.55
+2026-03-23 11:12:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4433.55 → 4409.24
+2026-03-23 11:12:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4409.24 → 4388.36
+2026-03-23 11:12:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4388.36 → 4387.16
+2026-03-23 11:12:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4450.48000 low=4309.60000 (14088.0 pips)
+2026-03-23 11:12:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4631.94000 low=4538.79000 (9315.0 pips)
+2026-03-23 11:12:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4635.36000)
+2026-03-23 11:12:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4636.00000 (Asian high=4631.94000, SL=4538.79000, TP=5101.75000)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4595.24000 low=4465.93000 (12931.0 pips)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4617.82000 (Asian high=4595.24000, SL=4465.93000, TP=5264.37000)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4447.30000)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4515.46000 low=4433.02000 (8244.0 pips)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4467.48000)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4463.85000 SL=4506.98005 TP=4291.32981 (ATR=17.25202, pullback confirmed)
+2026-03-23 11:12:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=59 sl=4414.16
+2026-03-23 11:12:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4414.16 → 4403.15
+2026-03-23 11:12:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4403.15 → 4402.65
+2026-03-23 11:12:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4402.65 → 4400.76
+2026-03-23 11:12:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4400.76 → 4394.12
+2026-03-23 11:12:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4394.12 → 4378.59
+2026-03-23 11:12:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4378.59 → 4376.49
+2026-03-23 11:12:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4376.49 → 4355.37
+2026-03-23 11:12:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4355.37 → 4348.69
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4267.67000)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4338.71000)
+2026-03-23 11:12:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4486.41000 low=4338.31000 (14810.0 pips)
+2026-03-23 11:12:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4476.52000)
+2026-03-23 11:12:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4476.98000)
+2026-03-23 11:12:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4485.41000 SL=4445.53554 TP=4644.90783 (ATR=15.94978, pullback confirmed)
+2026-03-23 11:12:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4476.37000 low=4359.86000 (11651.0 pips)
+2026-03-23 11:12:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4393.22000 low=4210.54000 (18268.0 pips)
+2026-03-23 11:12:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4284.50000)
+2026-03-23 11:12:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4353.90000 low=4281.84000 (7206.0 pips)
+2026-03-23 11:12:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4300.09000)
+2026-03-23 11:12:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4481.19000)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4469.45000)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4481.19000 low=4387.80000 (9339.0 pips)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4375.57000 (Asian low=4387.80000, SL=4481.19000, TP=3908.62000)
+2026-03-23 11:12:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=61 sl=4331.61
+2026-03-23 11:12:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=61 4331.61 → 4328.65
+2026-03-23 11:12:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=61 4328.65 → 4312.27
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4297.63000)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4299.00000)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4350.62000 low=4290.08000 (6054.0 pips)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4397.76000 (Asian high=4350.62000, SL=4290.08000, TP=4700.46000)
+2026-03-23 11:12:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=62 sl=4430.83
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4306.26000)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4337.67000 low=4284.87000 (5280.0 pips)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4289.93000)
+2026-03-23 11:12:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4303.00000 low=4266.60000 (3640.0 pips)
+2026-03-23 11:12:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4277.41000)
+2026-03-23 11:12:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4307.50000 (Asian high=4303.00000, SL=4266.60000, TP=4489.50000)
+2026-03-23 11:12:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=63 sl=4342.93
+2026-03-23 11:12:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4330.67000 low=4275.26000 (5541.0 pips)
+2026-03-23 11:12:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4340.96000 (Asian high=4330.67000, SL=4275.26000, TP=4618.01000)
+2026-03-23 11:12:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=64 sl=4368.50
+2026-03-23 11:12:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4407.68000 low=4326.94000 (8074.0 pips)
+2026-03-23 11:12:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4411.89000 (Asian high=4407.68000, SL=4326.94000, TP=4815.59000)
+2026-03-23 11:12:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=65 sl=4493.27
+2026-03-23 11:12:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4537.53000 low=4414.19000 (12334.0 pips)
+2026-03-23 11:12:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4556.38000 (Asian high=4537.53000, SL=4414.19000, TP=5173.08000)
+2026-03-23 11:12:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=66 sl=4637.82
+2026-03-23 11:12:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4766.05000 low=4642.77000 (12328.0 pips)
+2026-03-23 11:12:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4729.03000)
+2026-03-23 11:12:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4722.49000)
+2026-03-23 11:12:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4662.35000)
+2026-03-23 11:12:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4641.85000 low=4578.90000 (6295.0 pips)
+2026-03-23 11:12:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4648.64000 (Asian high=4641.85000, SL=4578.90000, TP=4963.39000)
+2026-03-23 11:12:12 [INFO    ] src.backtesting.engine           Bar 10000/25621 (39%)
+2026-03-23 11:12:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4536.64000 low=4503.07000 (3357.0 pips)
+2026-03-23 11:12:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4486.47000)
+2026-03-23 11:12:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4498.37000)
+2026-03-23 11:12:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4503.03000 (Asian low=4503.07000, SL=4536.64000, TP=4335.18000)
+2026-03-23 11:12:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=68 sl=4467.38
+2026-03-23 11:12:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4551.60000 low=4488.69000 (6291.0 pips)
+2026-03-23 11:12:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4475.82000 (Asian low=4488.69000, SL=4551.60000, TP=4161.27000)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4643.10000 low=4485.14000 (15796.0 pips)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4601.78000)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4612.24000)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4610.62000)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4615.30000 SL=4585.11641 TP=4736.03438 (ATR=12.07344, pullback confirmed)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4619.36000 low=4542.04000 (7732.0 pips)
+2026-03-23 11:12:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4532.23000 (Asian low=4542.04000, SL=4619.36000, TP=4145.63000)
+2026-03-23 11:12:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=71 sl=4477.39
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4445.20000)
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4453.09000)
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4477.28000 low=4445.20000 (3208.0 pips)
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4477.38000 (Asian high=4477.28000, SL=4445.20000, TP=4637.78000)
+2026-03-23 11:12:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=72 sl=4495.30
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4500.59000 low=4456.84000 (4375.0 pips)
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4465.38000)
+2026-03-23 11:12:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4464.56000 SL=4479.19639 TP=4406.01444 (ATR=5.85456, pullback confirmed)
+2026-03-23 11:12:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=73 sl=4461.00
+2026-03-23 11:12:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4477.02000 low=4261.90000 (21512.0 pips)
+2026-03-23 11:12:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4219.14000 (Asian low=4261.90000, SL=4477.02000, TP=3143.54000)
+2026-03-23 11:12:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=74 sl=4059.17
+2026-03-23 11:12:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4171.10000 low=4020.66000 (15044.0 pips)
+2026-03-23 11:12:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4000.68000 (Asian low=4020.66000, SL=4171.10000, TP=3248.48000)
+2026-03-23 11:12:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=75 sl=3897.92
+2026-03-23 11:12:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3897.92 → 3868.93
+2026-03-23 11:12:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3969.65000 low=3848.56000 (12109.0 pips)
+2026-03-23 11:12:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3917.26000)
+2026-03-23 11:12:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3908.36000 SL=3958.36667 TP=3708.33333 (ATR=20.00267, pullback confirmed)
+2026-03-23 11:12:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=76 sl=3894.96
+2026-03-23 11:12:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4038.34000 low=4003.39000 (3495.0 pips)
+2026-03-23 11:12:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4026.63000)
+2026-03-23 11:12:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4144.39000 low=4040.71000 (10368.0 pips)
+2026-03-23 11:12:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4135.03000)
+2026-03-23 11:12:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4243.61000 low=4187.13000 (5648.0 pips)
+2026-03-23 11:12:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4169.21000 (Asian low=4187.13000, SL=4243.61000, TP=3886.81000)
+2026-03-23 11:12:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=77 sl=4142.90
+2026-03-23 11:12:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4200.17000 low=4116.21000 (8396.0 pips)
+2026-03-23 11:12:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4270.01000 (Asian high=4200.17000, SL=4116.21000, TP=4689.81000)
+2026-03-23 11:12:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=78 sl=4317.87
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4319.74000)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4378.68000)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4397.85000 low=4286.62000 (11123.0 pips)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4400.46000 (Asian high=4397.85000, SL=4286.62000, TP=4956.61000)
+2026-03-23 11:12:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=79 sl=4458.97
+2026-03-23 11:12:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=79 4458.97 → 4460.88
+2026-03-23 11:12:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=79 4460.88 → 4487.65
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4482.80000)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4476.34000)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4491.82000 SL=4455.96706 TP=4635.23177 (ATR=14.34118, pullback confirmed)
+2026-03-23 11:12:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=80 sl=4512.40
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4558.38000 low=4456.38000 (10200.0 pips)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4452.41000 (Asian low=4456.38000, SL=4558.38000, TP=3942.41000)
+2026-03-23 11:12:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4536.29000 low=4462.64000 (7365.0 pips)
+2026-03-23 11:12:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4573.50000 low=4465.83000 (10767.0 pips)
+2026-03-23 11:12:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4575.92000 (Asian high=4573.50000, SL=4465.83000, TP=5114.27000)
+2026-03-23 11:12:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=82 sl=4639.44
+2026-03-23 11:12:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4689.89000)
+2026-03-23 11:12:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4705.82000 low=4662.58000 (4324.0 pips)
+2026-03-23 11:12:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4690.35000 SL=4654.42207 TP=4834.06172 (ATR=14.37117, pullback confirmed)
+2026-03-23 11:12:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=83 sl=4698.41
+2026-03-23 11:12:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=83 4698.41 → 4698.99
+2026-03-23 11:12:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=83 4698.99 → 4707.99
+2026-03-23 11:12:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4710.44000 (Asian high=4705.82000, SL=4662.58000, TP=4926.64000)
+2026-03-23 11:12:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4513.15000 low=4429.42000 (8373.0 pips)
+2026-03-23 11:12:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4428.53000 (Asian low=4429.42000, SL=4513.15000, TP=4009.88000)
+2026-03-23 11:12:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4537.65000 low=4400.86000 (13679.0 pips)
+2026-03-23 11:12:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4338.19000 (Asian low=4400.86000, SL=4537.65000, TP=3654.24000)
+2026-03-23 11:12:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=86 sl=4187.58
+2026-03-23 11:12:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 4187.58 → 4169.24
+2026-03-23 11:12:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 4169.24 → 4135.04
+2026-03-23 11:12:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3993.14000 low=3396.06000 (59708.0 pips)
+2026-03-23 11:12:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3797.68000)
+2026-03-23 11:12:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3809.23000)
+2026-03-23 11:12:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3783.33000 SL=3837.44864 TP=3566.85544 (ATR=21.64746, pullback confirmed)
+2026-03-23 11:12:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=87 sl=3769.23
+2026-03-23 11:12:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 3769.23 → 3742.69
+2026-03-23 11:12:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 3742.69 → 3716.32
+2026-03-23 11:12:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3817.50000 low=3641.40000 (17610.0 pips)
+2026-03-23 11:12:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3819.01000 (Asian high=3817.50000, SL=3641.40000, TP=4699.51000)
+2026-03-23 11:12:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=88 sl=3941.66
+2026-03-23 11:12:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=88 3941.66 → 3995.94
+2026-03-23 11:12:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=88 3995.94 → 4014.84
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4218.70000 low=4080.64000 (13806.0 pips)
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4196.86000)
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4290.15000 low=4135.96000 (15419.0 pips)
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4122.15000 (Asian low=4135.96000, SL=4290.15000, TP=3351.20000)
+2026-03-23 11:12:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=89 sl=4021.23
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4144.29000)
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4144.29000 low=4059.48000 (8481.0 pips)
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4127.76000)
+2026-03-23 11:12:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4172.37000 (Asian high=4144.29000, SL=4059.48000, TP=4596.42000)
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4035.39000 low=3925.99000 (10940.0 pips)
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4040.49000 (Asian high=4035.39000, SL=3925.99000, TP=4587.49000)
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3949.08000 low=3838.64000 (11044.0 pips)
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3889.16000)
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3864.97000 SL=3909.44609 TP=3687.06565 (ATR=17.79043, pullback confirmed)
+2026-03-23 11:12:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=92 sl=3846.05
+2026-03-23 11:12:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=92 3846.05 → 3837.45
+2026-03-23 11:12:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=92 3837.45 → 3799.28
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3783.56000 (Asian low=3838.64000, SL=3949.08000, TP=3231.36000)
+2026-03-23 11:12:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=93 sl=3717.27
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3756.59000)
+2026-03-23 11:12:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3752.86000 SL=3833.95276 TP=3428.48896 (ATR=32.43710, pullback confirmed)
+2026-03-23 11:12:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3882.28000 low=3817.51000 (6477.0 pips)
+2026-03-23 11:12:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3841.37000)
+2026-03-23 11:12:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3908.04000 (Asian high=3882.28000, SL=3817.51000, TP=4231.89000)
+2026-03-23 11:12:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=95 sl=3948.76
+2026-03-23 11:12:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=95 3948.76 → 3966.78
+2026-03-23 11:12:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4037.61000 low=3907.32000 (13029.0 pips)
+2026-03-23 11:12:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4039.44000 (Asian high=4037.61000, SL=3907.32000, TP=4690.89000)
+2026-03-23 11:12:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4002.01000 low=3917.80000 (8421.0 pips)
+2026-03-23 11:12:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3877.42000 (Asian low=3917.80000, SL=4002.01000, TP=3456.37000)
+2026-03-23 11:12:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3964.99000 low=3819.92000 (14507.0 pips)
+2026-03-23 11:12:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3778.61000)
+2026-03-23 11:12:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3834.40000 low=3707.61000 (12679.0 pips)
+2026-03-23 11:12:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3843.49000 (Asian high=3834.40000, SL=3707.61000, TP=4477.44000)
+2026-03-23 11:12:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=98 sl=3946.75
+2026-03-23 11:12:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=98 3946.75 → 3957.70
+2026-03-23 11:12:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3894.43000 low=3820.09000 (7434.0 pips)
+2026-03-23 11:12:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3968.19000 (Asian high=3894.43000, SL=3820.09000, TP=4339.89000)
+2026-03-23 11:12:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=99 sl=4026.86
+2026-03-23 11:12:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4224.08000 low=4053.79000 (17029.0 pips)
+2026-03-23 11:12:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4228.58000 (Asian high=4224.08000, SL=4053.79000, TP=5080.03000)
+2026-03-23 11:12:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4007.33000 low=3930.98000 (7635.0 pips)
+2026-03-23 11:12:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4009.29000 (Asian high=4007.33000, SL=3930.98000, TP=4391.04000)
+2026-03-23 11:12:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3962.74000 low=3872.43000 (9031.0 pips)
+2026-03-23 11:12:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3855.13000 (Asian low=3872.43000, SL=3962.74000, TP=3403.58000)
+2026-03-23 11:12:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=102 sl=3803.63
+2026-03-23 11:12:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 3803.63 → 3789.60
+2026-03-23 11:12:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3859.09000 low=3745.92000 (11317.0 pips)
+2026-03-23 11:12:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3862.43000 (Asian high=3859.09000, SL=3745.92000, TP=4428.28000)
+2026-03-23 11:12:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3914.94000 low=3714.05000 (20089.0 pips)
+2026-03-23 11:12:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3708.11000 (Asian low=3714.05000, SL=3914.94000, TP=2703.66000)
+2026-03-23 11:12:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=104 sl=3542.92
+2026-03-23 11:12:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 3542.92 → 3514.28
+2026-03-23 11:12:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3653.12000 low=3558.62000 (9450.0 pips)
+2026-03-23 11:12:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3519.24000 (Asian low=3558.62000, SL=3653.12000, TP=3046.74000)
+2026-03-23 11:12:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=105 sl=3457.91
+2026-03-23 11:12:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 3457.91 → 3414.73
+2026-03-23 11:12:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3347.60000 low=3165.47000 (18213.0 pips)
+2026-03-23 11:12:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3281.21000)
+2026-03-23 11:12:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3454.77000 low=3373.22000 (8155.0 pips)
+2026-03-23 11:12:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3370.71000 (Asian low=3373.22000, SL=3454.77000, TP=2962.96000)
+2026-03-23 11:12:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=106 sl=3323.53
+2026-03-23 11:12:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 3323.53 → 3318.32
+2026-03-23 11:12:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 3318.32 → 3287.19
+2026-03-23 11:12:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3303.82000)
+2026-03-23 11:12:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3290.90000 SL=3353.96922 TP=3038.62313 (ATR=25.22769, pullback confirmed)
+2026-03-23 11:12:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3364.04000 low=3274.75000 (8929.0 pips)
+2026-03-23 11:12:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3365.44000 (Asian high=3364.04000, SL=3274.75000, TP=3811.89000)
+2026-03-23 11:12:31 [INFO    ] src.backtesting.engine           Bar 15000/25621 (59%)
+2026-03-23 11:12:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3485.08000 low=3447.18000 (3790.0 pips)
+2026-03-23 11:12:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3445.61000 (Asian low=3447.18000, SL=3485.08000, TP=3256.11000)
+2026-03-23 11:12:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=109 sl=3425.32
+2026-03-23 11:12:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=109 3425.32 → 3412.97
+2026-03-23 11:12:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3398.73000)
+2026-03-23 11:12:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3401.30000 SL=3369.56295 TP=3528.24821 (ATR=12.69482, pullback confirmed)
+2026-03-23 11:12:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3413.61000 low=3357.23000 (5638.0 pips)
+2026-03-23 11:12:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3415.35000 (Asian high=3413.61000, SL=3357.23000, TP=3697.25000)
+2026-03-23 11:12:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=111 sl=3454.14
+2026-03-23 11:12:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=111 3454.14 → 3533.18
+2026-03-23 11:12:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3657.56000 low=3553.31000 (10425.0 pips)
+2026-03-23 11:12:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3626.59000)
+2026-03-23 11:12:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3614.24000)
+2026-03-23 11:12:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3646.86000 low=3527.77000 (11909.0 pips)
+2026-03-23 11:12:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3416.13000)
+2026-03-23 11:12:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3454.61000 low=3403.31000 (5130.0 pips)
+2026-03-23 11:12:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3426.98000)
+2026-03-23 11:12:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3486.20000 (Asian high=3454.61000, SL=3403.31000, TP=3742.70000)
+2026-03-23 11:12:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=112 sl=3513.11
+2026-03-23 11:12:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=112 3513.11 → 3517.39
+2026-03-23 11:12:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=112 3517.39 → 3540.79
+2026-03-23 11:12:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3489.79000 low=3375.80000 (11399.0 pips)
+2026-03-23 11:12:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3536.12000 (Asian high=3489.79000, SL=3375.80000, TP=4106.07000)
+2026-03-23 11:12:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3270.94000 low=3106.82000 (16412.0 pips)
+2026-03-23 11:12:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3192.75000 low=3088.27000 (10448.0 pips)
+2026-03-23 11:12:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3137.59000)
+2026-03-23 11:12:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3208.89000 low=3130.57000 (7832.0 pips)
+2026-03-23 11:12:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3213.53000 (Asian high=3208.89000, SL=3130.57000, TP=3605.13000)
+2026-03-23 11:12:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3192.95000 low=3002.94000 (19001.0 pips)
+2026-03-23 11:12:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3195.56000 (Asian high=3192.95000, SL=3002.94000, TP=4145.61000)
+2026-03-23 11:12:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2977.02000)
+2026-03-23 11:12:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3048.71000 low=2944.66000 (10405.0 pips)
+2026-03-23 11:12:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3057.10000 (Asian high=3048.71000, SL=2944.66000, TP=3577.35000)
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=116 sl=3127.87
+2026-03-23 11:12:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3128.19000 low=3045.64000 (8255.0 pips)
+2026-03-23 11:12:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3037.96000 (Asian low=3045.64000, SL=3128.19000, TP=2625.21000)
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=117 sl=2999.07
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=117 2999.07 → 2987.25
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=117 2987.25 → 2980.23
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=117 2980.23 → 2976.70
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=117 2976.70 → 2950.86
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=117 2950.86 → 2920.37
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=117 2920.37 → 2914.92
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=117 2914.92 → 2912.49
+2026-03-23 11:12:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=117 2912.49 → 2904.83
+2026-03-23 11:12:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3057.01000 low=2956.07000 (10094.0 pips)
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2820.92000)
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2810.13000 SL=2873.38293 TP=2557.11829 (ATR=25.30117, pullback confirmed)
+2026-03-23 11:12:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=118 sl=2779.65
+2026-03-23 11:12:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=118 2779.65 → 2761.16
+2026-03-23 11:12:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=118 2761.16 → 2748.46
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2904.33000 low=2772.51000 (13182.0 pips)
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2742.49000 (Asian low=2772.51000, SL=2904.33000, TP=2083.39000)
+2026-03-23 11:12:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=119 sl=2669.17
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2744.52000)
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2783.05000 low=2711.83000 (7122.0 pips)
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2717.22000)
+2026-03-23 11:12:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2738.26000)
+2026-03-23 11:12:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2851.17000 low=2740.41000 (11076.0 pips)
+2026-03-23 11:12:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2819.62000)
+2026-03-23 11:12:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2869.30000 low=2761.89000 (10741.0 pips)
+2026-03-23 11:12:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2878.71000 (Asian high=2869.30000, SL=2761.89000, TP=3415.76000)
+2026-03-23 11:12:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=120 sl=2946.60
+2026-03-23 11:12:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=120 2946.60 → 2948.34
+2026-03-23 11:12:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=120 2948.34 → 2952.92
+2026-03-23 11:12:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=120 2952.92 → 2955.35
+2026-03-23 11:12:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=120 2955.35 → 2955.42
+2026-03-23 11:12:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2979.02000 low=2903.19000 (7583.0 pips)
+2026-03-23 11:12:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2870.14000 (Asian low=2903.19000, SL=2979.02000, TP=2490.99000)
+2026-03-23 11:12:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2982.66000 low=2905.97000 (7669.0 pips)
+2026-03-23 11:12:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3070.03000 low=3005.89000 (6414.0 pips)
+2026-03-23 11:12:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3034.97000)
+2026-03-23 11:12:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3033.39000 low=2992.92000 (4047.0 pips)
+2026-03-23 11:12:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3064.08000 (Asian high=3033.39000, SL=2992.92000, TP=3266.43000)
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3015.87000)
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3051.47000 low=3016.40000 (3507.0 pips)
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3005.70000 (Asian low=3016.40000, SL=3051.47000, TP=2830.35000)
+2026-03-23 11:12:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=123 sl=2978.05
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2982.69000)
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2985.27000)
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3011.02000 low=2974.26000 (3676.0 pips)
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2984.78000)
+2026-03-23 11:12:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3035.13000 low=2805.40000 (22973.0 pips)
+2026-03-23 11:12:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2823.87000 low=2782.59000 (4128.0 pips)
+2026-03-23 11:12:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3058.21000 low=2984.31000 (7390.0 pips)
+2026-03-23 11:12:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3058.70000 (Asian high=3058.21000, SL=2984.31000, TP=3428.20000)
+2026-03-23 11:12:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=124 sl=3109.44
+2026-03-23 11:12:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3239.13000 low=3144.50000 (9463.0 pips)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3210.13000)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3197.06000)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3206.75000)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3215.41000)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3191.84000 low=3121.88000 (6996.0 pips)
+2026-03-23 11:12:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3112.95000 (Asian low=3121.88000, SL=3191.84000, TP=2763.15000)
+2026-03-23 11:12:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=125 sl=3084.35
+2026-03-23 11:12:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3084.35 → 3041.84
+2026-03-23 11:12:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3041.84 → 3041.69
+2026-03-23 11:12:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3041.69 → 3041.19
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3045.12000 low=3005.46000 (3966.0 pips)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3021.42000)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3014.21000 SL=3036.46994 TP=2925.17024 (ATR=8.90398, pullback confirmed)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3056.89000 low=3026.03000 (3086.0 pips)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3029.91000)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3027.91000 SL=3043.91789 TP=2963.87844 (ATR=6.40316, pullback confirmed)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3027.65000)
+2026-03-23 11:12:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3024.22000 SL=3045.00484 TP=2941.08065 (ATR=8.31394, pullback confirmed)
+2026-03-23 11:12:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3136.81000 low=3012.39000 (12442.0 pips)
+2026-03-23 11:12:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3142.63000 (Asian high=3136.81000, SL=3012.39000, TP=3764.73000)
+2026-03-23 11:12:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=129 sl=3221.31
+2026-03-23 11:12:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=129 3221.31 → 3265.88
+2026-03-23 11:12:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=129 3265.88 → 3315.39
+2026-03-23 11:12:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=129 3315.39 → 3335.07
+2026-03-23 11:12:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=129 3335.07 → 3359.07
+2026-03-23 11:12:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3341.23000 low=3287.06000 (5417.0 pips)
+2026-03-23 11:12:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3333.09000)
+2026-03-23 11:12:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3346.72000 (Asian high=3341.23000, SL=3287.06000, TP=3617.57000)
+2026-03-23 11:12:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=130 sl=3372.34
+2026-03-23 11:12:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3354.20000 low=3166.09000 (18811.0 pips)
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3264.66000 low=3184.37000 (8029.0 pips)
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3253.02000)
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3095.00000 low=3077.29000 (1771.0 pips)
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3084.96000)
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3118.26000 (Asian high=3095.00000, SL=3077.29000, TP=3206.81000)
+2026-03-23 11:12:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=131 sl=3124.46
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3100.67000)
+2026-03-23 11:12:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3100.48000 SL=3122.53764 TP=3012.24943 (ATR=8.82306, pullback confirmed)
+2026-03-23 11:12:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3128.25000 low=3101.04000 (2721.0 pips)
+2026-03-23 11:12:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3104.64000)
+2026-03-23 11:12:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3149.87000 low=3025.21000 (12466.0 pips)
+2026-03-23 11:12:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3152.48000 (Asian high=3149.87000, SL=3025.21000, TP=3775.78000)
+2026-03-23 11:12:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2977.35000 low=2878.29000 (9906.0 pips)
+2026-03-23 11:12:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2885.47000)
+2026-03-23 11:12:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2919.32000)
+2026-03-23 11:12:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2972.98000 low=2925.69000 (4729.0 pips)
+2026-03-23 11:12:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2922.51000 (Asian low=2925.69000, SL=2972.98000, TP=2686.06000)
+2026-03-23 11:12:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2821.48000)
+2026-03-23 11:12:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2846.78000 low=2812.32000 (3446.0 pips)
+2026-03-23 11:12:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2823.53000)
+2026-03-23 11:12:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2933.76000 low=2807.55000 (12621.0 pips)
+2026-03-23 11:12:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2946.77000 (Asian high=2933.76000, SL=2807.55000, TP=3577.82000)
+2026-03-23 11:12:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=135 sl=3032.89
+2026-03-23 11:12:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3058.68000 low=2970.34000 (8834.0 pips)
+2026-03-23 11:12:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:12:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3055.75000)
+2026-03-23 11:12:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3034.68000 low=2970.73000 (6395.0 pips)
+2026-03-23 11:12:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2967.81000 (Asian low=2970.73000, SL=3034.68000, TP=2648.06000)
+2026-03-23 11:12:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=136 sl=2928.90
+2026-03-23 11:12:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=136 2928.90 → 2926.39
+2026-03-23 11:12:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2979.21000 low=2920.10000 (5911.0 pips)
+2026-03-23 11:12:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2919.39000 (Asian low=2920.10000, SL=2979.21000, TP=2623.84000)
+2026-03-23 11:12:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2993.03000 low=2889.62000 (10341.0 pips)
+2026-03-23 11:12:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2923.02000)
+2026-03-23 11:12:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2922.49000 SL=2941.34012 TP=2847.08951 (ATR=7.54005, pullback confirmed)
+2026-03-23 11:12:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3056.23000 low=2934.01000 (12222.0 pips)
+2026-03-23 11:12:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:12:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2923.84000)
+2026-03-23 11:12:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2957.54000 low=2918.21000 (3933.0 pips)
+2026-03-23 11:12:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2976.84000 (Asian high=2957.54000, SL=2918.21000, TP=3173.49000)
+2026-03-23 11:12:59 [INFO    ] src.backtesting.engine           Bar 20000/25621 (78%)
+2026-03-23 11:12:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=139 sl=3006.05
+2026-03-23 11:13:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2989.81000)
+2026-03-23 11:13:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3004.74000)
+2026-03-23 11:13:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3033.84000 low=2986.38000 (4746.0 pips)
+2026-03-23 11:13:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3039.99000 (Asian high=3033.84000, SL=2986.38000, TP=3277.29000)
+2026-03-23 11:13:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=140 sl=3064.71
+2026-03-23 11:13:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3144.45000 low=3113.56000 (3089.0 pips)
+2026-03-23 11:13:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3113.25000 (Asian low=3113.56000, SL=3144.45000, TP=2958.80000)
+2026-03-23 11:13:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=141 sl=3088.91
+2026-03-23 11:13:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3106.76000)
+2026-03-23 11:13:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3165.62000 low=3112.33000 (5329.0 pips)
+2026-03-23 11:13:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3146.35000)
+2026-03-23 11:13:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3248.65000 low=3202.02000 (4663.0 pips)
+2026-03-23 11:13:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3251.49000)
+2026-03-23 11:13:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3229.12000)
+2026-03-23 11:13:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3236.59000 SL=3214.15484 TP=3326.33064 (ATR=8.97406, pullback confirmed)
+2026-03-23 11:13:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=142 sl=3263.94
+2026-03-23 11:13:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=142 3263.94 → 3292.89
+2026-03-23 11:13:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3300.72000 low=3238.04000 (6268.0 pips)
+2026-03-23 11:13:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3233.67000 (Asian low=3238.04000, SL=3300.72000, TP=2920.27000)
+2026-03-23 11:13:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=143 sl=3181.94
+2026-03-23 11:13:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=143 3181.94 → 3174.71
+2026-03-23 11:13:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3132.09000)
+2026-03-23 11:13:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3183.05000 low=3132.09000 (5096.0 pips)
+2026-03-23 11:13:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3130.89000 (Asian low=3132.09000, SL=3183.05000, TP=2876.09000)
+2026-03-23 11:13:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=144 sl=3104.03
+2026-03-23 11:13:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=144 3104.03 → 3091.48
+2026-03-23 11:13:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=144 3091.48 → 3071.85
+2026-03-23 11:13:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3093.95000)
+2026-03-23 11:13:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3104.03000)
+2026-03-23 11:13:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3104.00000 SL=3129.98379 TP=3000.06486 (ATR=10.39351, pullback confirmed)
+2026-03-23 11:13:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3146.76000 low=3080.51000 (6625.0 pips)
+2026-03-23 11:13:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3079.45000)
+2026-03-23 11:13:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3122.47000)
+2026-03-23 11:13:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3170.41000 low=3091.47000 (7894.0 pips)
+2026-03-23 11:13:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3092.00000)
+2026-03-23 11:13:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3122.33000 low=3087.39000 (3494.0 pips)
+2026-03-23 11:13:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3127.02000 (Asian high=3122.33000, SL=3087.39000, TP=3301.72000)
+2026-03-23 11:13:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=146 sl=3145.65
+2026-03-23 11:13:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=146 3145.65 → 3148.02
+2026-03-23 11:13:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3370.52000 low=3208.58000 (16194.0 pips)
+2026-03-23 11:13:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3373.31000 low=3276.07000 (9724.0 pips)
+2026-03-23 11:13:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3318.22000 low=3294.96000 (2326.0 pips)
+2026-03-23 11:13:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3321.25000 (Asian high=3318.22000, SL=3294.96000, TP=3437.55000)
+2026-03-23 11:13:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=147 sl=3336.06
+2026-03-23 11:13:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3355.19000 low=3176.65000 (17854.0 pips)
+2026-03-23 11:13:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3204.70000)
+2026-03-23 11:13:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3207.06000)
+2026-03-23 11:13:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3209.71000)
+2026-03-23 11:13:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3197.62000 SL=3216.95844 TP=3120.26623 (ATR=7.73538, pullback confirmed)
+2026-03-23 11:13:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=148 sl=3184.49
+2026-03-23 11:13:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3213.33000 low=3164.94000 (4839.0 pips)
+2026-03-23 11:13:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3155.82000 (Asian low=3164.94000, SL=3213.33000, TP=2913.87000)
+2026-03-23 11:13:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=149 sl=3128.49
+2026-03-23 11:13:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2997.88000 low=2911.01000 (8687.0 pips)
+2026-03-23 11:13:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2962.34000)
+2026-03-23 11:13:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2957.94000 SL=2983.69509 TP=2854.91964 (ATR=10.30204, pullback confirmed)
+2026-03-23 11:13:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=150 sl=2952.43
+2026-03-23 11:13:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=150 2952.43 → 2932.57
+2026-03-23 11:13:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=150 2932.57 → 2922.69
+2026-03-23 11:13:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3044.20000 low=2971.27000 (7293.0 pips)
+2026-03-23 11:13:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2946.12000)
+2026-03-23 11:13:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2983.59000 low=2939.33000 (4426.0 pips)
+2026-03-23 11:13:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2938.66000 (Asian low=2939.33000, SL=2983.59000, TP=2717.36000)
+2026-03-23 11:13:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2963.41000 low=2936.03000 (2738.0 pips)
+2026-03-23 11:13:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2935.82000 (Asian low=2936.03000, SL=2963.41000, TP=2798.92000)
+2026-03-23 11:13:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=152 sl=2910.44
+2026-03-23 11:13:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=152 2910.44 → 2900.01
+2026-03-23 11:13:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=152 2900.01 → 2893.83
+2026-03-23 11:13:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=152 2893.83 → 2893.39
+2026-03-23 11:13:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=152 2893.39 → 2883.08
+2026-03-23 11:13:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=152 2883.08 → 2868.88
+2026-03-23 11:13:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=152 2868.88 → 2852.47
+2026-03-23 11:13:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2897.43000 low=2785.84000 (11159.0 pips)
+2026-03-23 11:13:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2903.20000 (Asian high=2897.43000, SL=2785.84000, TP=3461.15000)
+2026-03-23 11:13:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=153 sl=2974.79
+2026-03-23 11:13:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3033.78000 low=2991.76000 (4202.0 pips)
+2026-03-23 11:13:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3014.19000)
+2026-03-23 11:13:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2988.91000 (Asian low=2991.76000, SL=3033.78000, TP=2778.81000)
+2026-03-23 11:13:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3032.06000)
+2026-03-23 11:13:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3026.18000 low=2936.46000 (8972.0 pips)
+2026-03-23 11:13:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2827.55000 low=2684.48000 (14307.0 pips)
+2026-03-23 11:13:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2728.25000)
+2026-03-23 11:13:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2474.69000 low=2405.19000 (6950.0 pips)
+2026-03-23 11:13:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2424.13000)
+2026-03-23 11:13:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2398.31000 (Asian low=2405.19000, SL=2474.69000, TP=2050.81000)
+2026-03-23 11:13:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=155 sl=2358.96
+2026-03-23 11:13:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=155 2358.96 → 2330.65
+2026-03-23 11:13:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=155 2330.65 → 2324.89
+2026-03-23 11:13:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2333.66000 low=2164.70000 (16896.0 pips)
+2026-03-23 11:13:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2320.76000)
+2026-03-23 11:13:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2317.00000 SL=2362.43436 TP=2135.26258 (ATR=18.17374, pullback confirmed)
+2026-03-23 11:13:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=156 sl=2298.49
+2026-03-23 11:13:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=156 2298.49 → 2290.10
+2026-03-23 11:13:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2358.36000 low=2283.48000 (7488.0 pips)
+2026-03-23 11:13:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2251.19000)
+2026-03-23 11:13:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2294.65000 low=2211.81000 (8284.0 pips)
+2026-03-23 11:13:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2172.98000 low=2077.89000 (9509.0 pips)
+2026-03-23 11:13:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2064.97000)
+2026-03-23 11:13:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=1946.45000 low=1743.30000 (20315.0 pips)
+2026-03-23 11:13:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 1957.40000 (Asian high=1946.45000, SL=1743.30000, TP=2973.15000)
+2026-03-23 11:13:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=157 sl=2103.55
+2026-03-23 11:13:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2106.40000 low=2065.44000 (4096.0 pips)
+2026-03-23 11:13:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2107.28000 (Asian high=2106.40000, SL=2065.44000, TP=2312.08000)
+2026-03-23 11:13:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2150.10000 low=2053.76000 (9634.0 pips)
+2026-03-23 11:13:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2051.86000 (Asian low=2053.76000, SL=2150.10000, TP=1570.16000)
+2026-03-23 11:13:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=159 sl=1982.77
+2026-03-23 11:13:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 1982.77 → 1981.83
+2026-03-23 11:13:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 1981.83 → 1964.57
+2026-03-23 11:13:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 1964.57 → 1964.43
+2026-03-23 11:13:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 1964.43 → 1959.77
+2026-03-23 11:13:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 1959.77 → 1956.04
+2026-03-23 11:13:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 1956.04 → 1955.47
+2026-03-23 11:13:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 1955.47 → 1949.34
+2026-03-23 11:13:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 1949.34 → 1947.13
+2026-03-23 11:13:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 1947.13 → 1946.96
+2026-03-23 11:13:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1907.43000)
+2026-03-23 11:13:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=1976.55000 low=1930.94000 (4561.0 pips)
+2026-03-23 11:13:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 1978.59000 (Asian high=1976.55000, SL=1930.94000, TP=2206.64000)
+2026-03-23 11:13:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=1957.11000 low=1919.12000 (3799.0 pips)
+2026-03-23 11:13:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 1957.96000 (Asian high=1957.11000, SL=1919.12000, TP=2147.91000)
+2026-03-23 11:13:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=161 sl=1982.16
+2026-03-23 11:13:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=161 1982.16 → 2006.16
+2026-03-23 11:13:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=161 2006.16 → 2026.73
+2026-03-23 11:13:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2058.13000 low=2041.10000 (1703.0 pips)
+2026-03-23 11:13:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2071.07000 (Asian high=2058.13000, SL=2041.10000, TP=2156.22000)
+2026-03-23 11:13:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=162 sl=2084.79
+2026-03-23 11:13:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=162 2084.79 → 2086.80
+2026-03-23 11:13:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=162 2086.80 → 2091.20
+2026-03-23 11:13:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2087.31000)
+2026-03-23 11:13:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2093.72000 low=2034.75000 (5897.0 pips)
+2026-03-23 11:13:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=1980.02000 low=1943.68000 (3634.0 pips)
+2026-03-23 11:13:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1954.49000)
+2026-03-23 11:13:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 1985.68000 (Asian high=1980.02000, SL=1943.68000, TP=2167.38000)
+2026-03-23 11:13:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2007.26000 low=1979.58000 (2768.0 pips)
+2026-03-23 11:13:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 1972.06000 (Asian low=1979.58000, SL=2007.26000, TP=1833.66000)
+2026-03-23 11:13:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=164 sl=1958.80
+2026-03-23 11:13:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2003.12000 low=1967.34000 (3578.0 pips)
+2026-03-23 11:13:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2003.68000 (Asian high=2003.12000, SL=1967.34000, TP=2182.58000)
+2026-03-23 11:13:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1935.71000)
+2026-03-23 11:13:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=1963.10000 low=1929.82000 (3328.0 pips)
+2026-03-23 11:13:33 [INFO    ] src.backtesting.engine           Bar 25000/25621 (98%)
+2026-03-23 11:13:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 11:13:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1850.01000)
+2026-03-23 11:13:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=1959.82000 low=1845.92000 (11390.0 pips)
+2026-03-23 11:13:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=1868.59000 low=1810.31000 (5828.0 pips)
+2026-03-23 11:13:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=1943.37000 low=1845.33000 (9804.0 pips)
+2026-03-23 11:13:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1915.34000)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2114.14000 low=2033.25000 (8089.0 pips)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2082.21000)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2069.34000)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2069.62000 SL=2047.63647 TP=2157.55414 (ATR=8.79341, pullback confirmed)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2028.52000)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2030.46000 SL=1998.24559 TP=2159.31763 (ATR=12.88576, pullback confirmed)
+2026-03-23 11:13:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=167 sl=2041.52
+2026-03-23 11:13:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=167 2041.52 → 2045.18
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2062.38000 low=1999.74000 (6264.0 pips)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 11:13:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2037.53000)
+2026-03-23 11:13:37 [INFO    ] src.backtesting.engine         Backtest complete: 167 trades, 166.65% return, 10.16% max DD, 65.9% WR
+
+Backtest Results: both on ETHUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $80.00 │
+│ Total Return              │        +166.65% │
+│ Max Drawdown              │          10.16% │
+│ Total Trades              │             167 │
+│ Win Rate                  │           65.9% │
+│ Profit Factor             │            1.74 │
+│ Avg Trade P&L             │          $+0.30 │
+│ Sharpe Ratio              │            0.32 │
+│ Max Consecutive Losses    │               3 │
+│ Avg Trade Duration        │           13.8h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 11:13:37 [INFO    ] backtest                       Results saved to data/backtest_results/ETHUSD_ETHUSD-C-9mo_20260323_111337.json
+
+Backtest Results: both on ETHUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $80.00 │
+│ Total Return              │        +166.65% │
+│ Max Drawdown              │          10.16% │
+│ Total Trades              │             167 │
+│ Win Rate                  │           65.9% │
+│ Profit Factor             │            1.74 │
+│ Avg Trade P&L             │          $+0.30 │
+│ Sharpe Ratio              │            0.32 │
+│ Max Consecutive Losses    │               3 │
+│ Avg Trade Duration        │           13.8h │
+└───────────────────────────┴─────────────────┘
+
