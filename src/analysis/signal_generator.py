@@ -32,6 +32,7 @@ from src.analysis.sessions import SessionManager, SessionName, SessionPriority
 from src.analysis.smc_confluence import adjust_confidence as smc_adjust
 from src.analysis.strategies.ema_pullback import EmaPullbackStrategy
 from src.analysis.strategies.london_breakout import LondonBreakoutStrategy
+from src.analysis.strategies.ny_momentum import NyMomentumStrategy, NyRangeBreakoutStrategy
 from src.config.schema import AppConfig
 from src.core.enums import SignalAction
 from src.core.events import EventBus, SignalEvent
@@ -68,6 +69,15 @@ class SignalGenerator:
         # Strategies
         self._ema_pullback = EmaPullbackStrategy(config.strategies.ema_pullback)
         self._london_breakout = LondonBreakoutStrategy(config.strategies.london_breakout)
+        ny_cfg = config.strategies.ny_momentum
+        self._ny_range_breakout = NyRangeBreakoutStrategy(
+            breakout_buffer_pips=ny_cfg.range_breakout_buffer_pips,
+            tp_multiplier=ny_cfg.range_tp_multiplier,
+            max_trades_per_day=ny_cfg.range_max_trades_per_day,
+        )
+        self._ny_momentum = NyMomentumStrategy(
+            max_trades_per_day=ny_cfg.momentum_max_trades_per_day,
+        )
 
         # Instrument point sizes for pip calculations
         self._point_sizes: dict[str, float] = {
@@ -84,6 +94,9 @@ class SignalGenerator:
             active_strategies.append("EMA Pullback")
         if self._config.strategies.london_breakout.enabled:
             active_strategies.append("London Breakout")
+        if self._config.strategies.ny_momentum.enabled:
+            active_strategies.append("NY Range Breakout")
+            active_strategies.append("NY Momentum")
 
         logger.info(
             "SignalGenerator started (%d strategies active: %s, scan every %ds)",
@@ -187,17 +200,22 @@ class SignalGenerator:
 
         logger.info("Regime for %s: %s", symbol, regime.value)
 
-        if regime == MarketRegime.CHOPPY:
-            logger.info("Skipping %s: regime=CHOPPY", symbol)
-            return
-
         # Map regime to strategy flags
-        # VOLATILE_TREND = strong trend + high volatility — let strategies run
-        # (they check EMA direction internally)
-        is_up = regime in (MarketRegime.TRENDING_UP, MarketRegime.VOLATILE_TREND)
-        is_down = regime in (MarketRegime.TRENDING_DOWN, MarketRegime.VOLATILE_TREND)
         is_choppy = regime == MarketRegime.CHOPPY
         is_ranging = regime == MarketRegime.RANGING
+
+        # Determine trend direction
+        if regime == MarketRegime.VOLATILE_TREND:
+            # Use H1 EMA(50) slope to determine direction
+            ema50 = h1_bars["close"].ewm(span=50).mean()
+            is_up = float(ema50.iloc[-1]) > float(ema50.iloc[-5])
+            is_down = not is_up
+        else:
+            is_up = regime == MarketRegime.TRENDING_UP
+            is_down = regime == MarketRegime.TRENDING_DOWN
+
+        # EMA Pullback and London Breakout skip CHOPPY — but NY strategies don't
+        skip_trend_strategies = is_choppy
 
         # Fetch M15 bars for entry strategies (with timeout)
         try:
@@ -216,8 +234,8 @@ class SignalGenerator:
 
         point_size = self._point_sizes.get(symbol, 0.01)
 
-        # Run EMA Pullback strategy
-        if self._config.strategies.ema_pullback.enabled:
+        # Run EMA Pullback strategy (skip in CHOPPY — needs trend)
+        if self._config.strategies.ema_pullback.enabled and not skip_trend_strategies:
             sig = await self._ema_pullback.scan(
                 symbol=symbol,
                 m15_bars=m15_bars,
@@ -232,8 +250,8 @@ class SignalGenerator:
                 )
                 await self._publish_signal(sig, "ema_pullback")
 
-        # Run London Breakout strategy
-        if self._config.strategies.london_breakout.enabled:
+        # Run London Breakout strategy (skip in CHOPPY — needs directional breakout)
+        if self._config.strategies.london_breakout.enabled and not skip_trend_strategies:
             sig = await self._london_breakout.scan(
                 symbol=symbol,
                 m15_bars=m15_bars,
@@ -247,6 +265,35 @@ class SignalGenerator:
                     self._config.strategies.smc_confluence,
                 )
                 await self._publish_signal(sig, "london_breakout")
+
+        # Run NY Range Breakout (works in ALL regimes except RANGING)
+        if self._config.strategies.ny_momentum.enabled:
+            sig = await self._ny_range_breakout.scan(
+                symbol=symbol,
+                m15_bars=m15_bars,
+                point_size=point_size,
+                regime_is_ranging=is_ranging,
+            )
+            if sig:
+                sig.confidence = smc_adjust(
+                    sig.action, symbol, m15_bars, sig.confidence,
+                    self._config.strategies.smc_confluence,
+                )
+                await self._publish_signal(sig, "ny_range_breakout")
+
+        # Run NY Momentum Continuation (works in ALL regimes except RANGING)
+        if self._config.strategies.ny_momentum.enabled:
+            sig = await self._ny_momentum.scan(
+                symbol=symbol,
+                m15_bars=m15_bars,
+                regime_is_ranging=is_ranging,
+            )
+            if sig:
+                sig.confidence = smc_adjust(
+                    sig.action, symbol, m15_bars, sig.confidence,
+                    self._config.strategies.smc_confluence,
+                )
+                await self._publish_signal(sig, "ny_momentum")
 
     async def _publish_signal(self, sig, strategy_name: str) -> None:
         """Convert a strategy signal to a SignalEvent and publish."""

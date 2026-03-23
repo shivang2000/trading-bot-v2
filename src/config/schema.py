@@ -127,6 +127,14 @@ class LondonBreakoutConfig(BaseModel):
     timeframe: str = "M15"
 
 
+class NyMomentumConfig(BaseModel):
+    enabled: bool = True
+    range_breakout_buffer_pips: float = 3.0
+    range_tp_multiplier: float = 2.0
+    range_max_trades_per_day: int = 1
+    momentum_max_trades_per_day: int = 1
+
+
 class SmcConfluenceConfig(BaseModel):
     enabled: bool = True
     ob_confidence_boost: float = 0.10
@@ -140,6 +148,7 @@ class SmcConfluenceConfig(BaseModel):
 class StrategiesConfig(BaseModel):
     ema_pullback: EmaPullbackConfig = Field(default_factory=EmaPullbackConfig)
     london_breakout: LondonBreakoutConfig = Field(default_factory=LondonBreakoutConfig)
+    ny_momentum: NyMomentumConfig = Field(default_factory=NyMomentumConfig)
     smc_confluence: SmcConfluenceConfig = Field(default_factory=SmcConfluenceConfig)
 
 
