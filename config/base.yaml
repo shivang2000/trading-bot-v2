@@ -11,26 +11,26 @@ account:
 
 instruments:
   - symbol: XAUUSD
-    point_size: 0.01
-    tick_value: 0.01
+    point_size: 0.01       # MT5: point=0.01
+    tick_value: 1.0        # MT5: trade_tick_value=1.0, contract_size=100
     min_lot: 0.01
     max_lot: 100.0
     lot_step: 0.01
   - symbol: XAGUSD
-    point_size: 0.001
-    tick_value: 0.05
+    point_size: 0.001      # MT5: point=0.001
+    tick_value: 5.0        # MT5: trade_tick_value=5.0, contract_size=5000
     min_lot: 0.01
     max_lot: 100.0
     lot_step: 0.01
   - symbol: BTCUSD
-    point_size: 1.0
-    tick_value: 1.0
+    point_size: 0.01       # MT5: point=0.01 (NOT 1.0!)
+    tick_value: 0.01       # MT5: trade_tick_value=0.01, contract_size=1
     min_lot: 0.01
     max_lot: 10.0
     lot_step: 0.01
   - symbol: ETHUSD
-    point_size: 0.01
-    tick_value: 0.01
+    point_size: 0.01       # MT5: point=0.01
+    tick_value: 0.01       # MT5: trade_tick_value=0.01, contract_size=1
     min_lot: 0.01
     max_lot: 100.0
     lot_step: 0.01
