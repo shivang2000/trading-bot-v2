@@ -1,0 +1,479 @@
+2026-03-23 21:56:24 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/BTCUSD_M15_20250601_20260301.csv
+2026-03-23 21:56:24 [INFO    ] src.backtesting.data_loader    Loaded 25621 bars from data/backtest_cache/BTCUSD_M15_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:56:24 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/BTCUSD_H1_20250601_20260301.csv
+2026-03-23 21:56:24 [INFO    ] src.backtesting.data_loader    Loaded 6406 bars from data/backtest_cache/BTCUSD_H1_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:56:24 [INFO    ] backtest                       Data loaded: 25621 M15 bars, 6406 H1 bars
+2026-03-23 21:56:24 [INFO    ] backtest                       Config [BTCUSD-S-london_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:56:24 [INFO    ] src.backtesting.engine         Starting backtest: london_breakout on BTCUSD (25621 M15 bars, 6406 H1 bars)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=105241.07000 low=104543.04000 (69803.0 pips)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 104398.52000 (Asian low=104543.04000, SL=105241.07000, TP=100908.37000)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102514.82000 low=100423.80000 (209102.0 pips)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 102516.14000 (Asian high=102514.82000, SL=100423.80000, TP=112971.24000)
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=2 sl=104364.04
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=2 104364.04 → 104711.69
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=104920.65000 low=103869.95000 (105070.0 pips)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 105314.92000 (Asian high=104920.65000, SL=103869.95000, TP=110568.42000)
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=3 sl=106358.96
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 106358.96 → 106846.82
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 106846.82 → 106867.81
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 106867.81 → 107075.24
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 107075.24 → 107344.03
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 107344.03 → 107367.63
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 107367.63 → 107501.53
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110609.49000 low=108685.87000 (192362.0 pips)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110299.34000 low=109403.74000 (89560.0 pips)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109208.75000 low=107719.72000 (148903.0 pips)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 107604.01000 (Asian low=107719.72000, SL=109208.75000, TP=100158.86000)
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=106688.98
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 106688.98 → 106637.89
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 106637.89 → 106519.74
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 106519.74 → 106444.08
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 106444.08 → 106277.36
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 106277.36 → 105074.53
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 105074.53 → 104540.61
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 104540.61 → 103810.25
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106422.08000 low=102666.21000 (375587.0 pips)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106220.81000 low=105192.50000 (102831.0 pips)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 104928.10000 (Asian low=105192.50000, SL=106220.81000, TP=99786.55000)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=105966.44000 low=104487.49000 (147895.0 pips)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 106221.74000 (Asian high=105966.44000, SL=104487.49000, TP=113616.49000)
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=6 sl=107286.66
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 107286.66 → 107330.96
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 107330.96 → 107441.25
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 107441.25 → 107492.38
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 107492.38 → 107613.24
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 107613.24 → 107624.87
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 107624.87 → 107784.64
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 107784.64 → 108134.94
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 108134.94 → 108287.06
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 108287.06 → 108317.31
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 108317.31 → 108364.84
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=108968.54000 low=106114.03000 (285451.0 pips)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=105242.71000 low=104197.29000 (104542.0 pips)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 105250.69000 (Asian high=105242.71000, SL=104197.29000, TP=110477.79000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=105234.00000 low=104361.36000 (87264.0 pips)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=104899.26000 low=104215.62000 (68364.0 pips)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 106236.36000 (Asian high=104899.26000, SL=104215.62000, TP=109654.56000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=103727.71000 low=102960.35000 (76736.0 pips)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=103397.67000 low=100867.38000 (253029.0 pips)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=101597.80000 low=99000.71000 (259709.0 pips)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 101762.45000 (Asian high=101597.80000, SL=99000.71000, TP=114747.90000)
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=9 sl=104455.03
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 104455.03 → 105104.71
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106048.59000 low=103617.93000 (243066.0 pips)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106791.00000 low=105715.19000 (107581.0 pips)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=108267.34000 low=107064.42000 (120292.0 pips)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107792.64000 low=106422.07000 (137057.0 pips)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107491.67000 low=107152.34000 (33933.0 pips)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 107672.53000 (Asian high=107491.67000, SL=107152.34000, TP=109369.18000)
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=108012.00
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=108780.81000 low=107229.66000 (155115.0 pips)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107585.68000 low=106907.29000 (67839.0 pips)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 106874.76000 (Asian low=106907.29000, SL=107585.68000, TP=103482.81000)
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=11 sl=106463.56
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 106463.56 → 106352.50
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 106352.50 → 106129.87
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106206.47000 low=105093.24000 (111323.0 pips)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 106379.62000 (Asian high=106206.47000, SL=105093.24000, TP=111945.77000)
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=12 sl=107367.92
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 107367.92 → 107391.21
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 107391.21 → 107452.71
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 107452.71 → 107474.01
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 107474.01 → 107543.03
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 107543.03 → 107590.05
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109536.15000 low=108523.25000 (101290.0 pips)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109998.11000 low=109094.63000 (90348.0 pips)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 109067.44000 (Asian low=109094.63000, SL=109998.11000, TP=104550.04000)
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=108239.95
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 108239.95 → 108043.72
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=108267.04000 low=107685.84000 (58120.0 pips)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 108371.95000 (Asian high=108267.04000, SL=107685.84000, TP=111277.95000)
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=14 sl=109012.73
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 109012.73 → 109105.51
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109703.09000 low=108658.94000 (104415.0 pips)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=108515.73000 low=107426.39000 (108934.0 pips)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111563.46000 low=110667.31000 (89615.0 pips)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117096.16000 low=113377.28000 (371888.0 pips)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 117195.43000 (Asian high=117096.16000, SL=113377.28000, TP=135789.83000)
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=15 sl=120530.43
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 120530.43 → 120578.85
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 120578.85 → 120754.43
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 120754.43 → 120847.41
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 120847.41 → 121592.78
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 121592.78 → 121731.74
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 121731.74 → 122130.61
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=120310.18000 low=116830.66000 (347952.0 pips)
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 116721.43000 (Asian low=116830.66000, SL=120310.18000, TP=99323.83000)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=120945.28000 low=119006.73000 (193855.0 pips)
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118607.48000 low=116462.67000 (214481.0 pips)
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 119365.95000 (Asian high=118607.48000, SL=116462.67000, TP=130090.00000)
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117937.80000 low=116103.84000 (183396.0 pips)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=120233.23000 low=118515.14000 (171809.0 pips)
+2026-03-23 21:56:35 [INFO    ] src.backtesting.engine           Bar 5000/25621 (20%)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=119257.92000 low=117372.04000 (188588.0 pips)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118784.58000 low=115315.71000 (346887.0 pips)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 115225.70000 (Asian low=115315.71000, SL=118784.58000, TP=97881.35000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=119800.64000 low=118713.54000 (108710.0 pips)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118794.56000 low=117450.10000 (134446.0 pips)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 118829.26000 (Asian high=118794.56000, SL=117450.10000, TP=125551.56000)
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118601.08000 low=116938.00000 (166308.0 pips)
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 118679.95000 (Asian high=118601.08000, SL=116938.00000, TP=126995.35000)
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116890.08000 low=114306.39000 (258369.0 pips)
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114089.22000 low=112723.60000 (136562.0 pips)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113735.02000 low=111906.22000 (182880.0 pips)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 113775.31000 (Asian high=113735.02000, SL=111906.22000, TP=122919.31000)
+2026-03-23 21:56:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=115192.55
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114225.80000 low=113287.56000 (93824.0 pips)
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 114237.13000 (Asian high=114225.80000, SL=113287.56000, TP=118928.33000)
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=114664.58
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 114664.58 → 114679.32
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 114679.32 → 114879.55
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 114879.55 → 114947.13
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 114947.13 → 115002.93
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 115002.93 → 115197.04
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117644.48000 low=116685.67000 (95881.0 pips)
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 116535.53000 (Asian low=116685.67000, SL=117644.48000, TP=111741.48000)
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=118496.65000 low=116372.64000 (212401.0 pips)
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 118705.52000 (Asian high=118496.65000, SL=116372.64000, TP=129325.57000)
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=24 sl=120749.22
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 120749.22 → 120901.15
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 120901.15 → 121139.79
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 121139.79 → 121287.55
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 121287.55 → 121420.57
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 121420.57 → 121481.95
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 121481.95 → 121694.82
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 121694.82 → 121749.32
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=122151.35000 low=118071.08000 (408027.0 pips)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=124492.34000 low=122289.16000 (220318.0 pips)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 122129.41000 (Asian low=122289.16000, SL=124492.34000, TP=111113.51000)
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=25 sl=120336.41
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 120336.41 → 119719.91
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 119719.91 → 119213.72
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 119213.72 → 119025.30
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=119076.17000 low=117298.29000 (177788.0 pips)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 119099.85000 (Asian high=119076.17000, SL=117298.29000, TP=127989.25000)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117760.89000 low=117172.63000 (58826.0 pips)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 117763.67000 (Asian high=117760.89000, SL=117172.63000, TP=120704.97000)
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=118157.03
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 118157.03 → 118193.41
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117995.92000 low=114992.68000 (300324.0 pips)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116976.58000 low=114774.87000 (220171.0 pips)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 114761.48000 (Asian low=114774.87000, SL=116976.58000, TP=103752.93000)
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=28 sl=112942.47
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 112942.47 → 112780.80
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 112780.80 → 112626.50
+2026-03-23 21:56:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113522.84000 low=112090.99000 (143185.0 pips)
+2026-03-23 21:56:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116871.05000 low=115446.16000 (142489.0 pips)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113690.58000 low=112148.98000 (154160.0 pips)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 112044.61000 (Asian low=112148.98000, SL=113690.58000, TP=104336.61000)
+2026-03-23 21:56:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=29 sl=110767.73
+2026-03-23 21:56:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 110767.73 → 110709.80
+2026-03-23 21:56:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 110709.80 → 110344.66
+2026-03-23 21:56:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 110344.66 → 110265.47
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110592.24000 low=108677.13000 (191511.0 pips)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112360.64000 low=110908.37000 (145227.0 pips)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 110529.24000 (Asian low=110908.37000, SL=112360.64000, TP=103267.89000)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112443.51000 low=110852.04000 (159147.0 pips)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 112775.06000 (Asian high=112443.51000, SL=110852.04000, TP=120732.41000)
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112631.97000 low=111294.12000 (133785.0 pips)
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 110529.12000 (Asian low=111294.12000, SL=112631.97000, TP=103839.87000)
+2026-03-23 21:56:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=32 sl=109653.77
+2026-03-23 21:56:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 109653.77 → 109377.65
+2026-03-23 21:56:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 109377.65 → 109279.17
+2026-03-23 21:56:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 109279.17 → 109198.88
+2026-03-23 21:56:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 109198.88 → 108865.07
+2026-03-23 21:56:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 108865.07 → 108782.65
+2026-03-23 21:56:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 108782.65 → 108776.70
+2026-03-23 21:56:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 108776.70 → 108718.74
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109479.84000 low=108460.58000 (101926.0 pips)
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109226.34000 low=107385.04000 (184130.0 pips)
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 107309.74000 (Asian low=107385.04000, SL=109226.34000, TP=98103.24000)
+2026-03-23 21:56:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110611.75000 low=107447.00000 (316475.0 pips)
+2026-03-23 21:56:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111772.47000 low=110864.12000 (90835.0 pips)
+2026-03-23 21:56:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112244.94000 low=111118.59000 (112635.0 pips)
+2026-03-23 21:56:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 110914.26000 (Asian low=111118.59000, SL=112244.94000, TP=105282.51000)
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=109960.01
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 109960.01 → 109945.30
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 109945.30 → 109872.10
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111749.96000 low=110306.12000 (144384.0 pips)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 111903.85000 (Asian high=111749.96000, SL=110306.12000, TP=119123.05000)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111698.58000 low=110351.10000 (134748.0 pips)
+2026-03-23 21:56:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111591.23000 low=110610.33000 (98090.0 pips)
+2026-03-23 21:56:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 111794.78000 (Asian high=111591.23000, SL=110610.33000, TP=116699.28000)
+2026-03-23 21:56:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=36 sl=112461.09
+2026-03-23 21:56:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112504.42000 low=111103.54000 (140088.0 pips)
+2026-03-23 21:56:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 112673.12000 (Asian high=112504.42000, SL=111103.54000, TP=119677.52000)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111733.37000 low=110910.90000 (82247.0 pips)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 112789.54000 (Asian high=111733.37000, SL=110910.90000, TP=116901.89000)
+2026-03-23 21:56:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=38 sl=113290.81
+2026-03-23 21:56:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 113290.81 → 113517.46
+2026-03-23 21:56:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 113517.46 → 113535.90
+2026-03-23 21:56:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 113535.90 → 113589.02
+2026-03-23 21:56:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 113589.02 → 113601.18
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114427.66000 low=113515.02000 (91264.0 pips)
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116314.72000 low=114386.38000 (192834.0 pips)
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116343.62000 low=115581.03000 (76259.0 pips)
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116104.78000 low=115639.19000 (46559.0 pips)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=116083.43000 low=114812.46000 (127097.0 pips)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 116586.14000 (Asian high=116083.43000, SL=114812.46000, TP=122940.99000)
+2026-03-23 21:56:53 [INFO    ] src.backtesting.engine           Bar 10000/25621 (39%)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115604.97000 low=114937.49000 (66748.0 pips)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 115816.85000 (Asian high=115604.97000, SL=114937.49000, TP=119154.25000)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117073.60000 low=116355.49000 (71811.0 pips)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 117102.31000 (Asian high=117073.60000, SL=116355.49000, TP=120692.86000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=117887.63000 low=115306.26000 (258137.0 pips)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115723.47000 low=115298.51000 (42496.0 pips)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 115915.27000 (Asian high=115723.47000, SL=115298.51000, TP=118040.07000)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115540.62000 low=114139.48000 (140114.0 pips)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 113680.82000 (Asian low=114139.48000, SL=115540.62000, TP=106675.12000)
+2026-03-23 21:56:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=43 sl=112378.28
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112972.61000 low=111473.26000 (149935.0 pips)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 113081.66000 (Asian high=112972.61000, SL=111473.26000, TP=120578.41000)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112493.15000 low=111664.81000 (82834.0 pips)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 111472.25000 (Asian low=111664.81000, SL=112493.15000, TP=107330.55000)
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113641.72000 low=112215.35000 (142637.0 pips)
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 111929.80000 (Asian low=112215.35000, SL=113641.72000, TP=104797.95000)
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=46 sl=110829.72
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 110829.72 → 110626.63
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 110626.63 → 110079.35
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 110079.35 → 109577.27
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109799.20000 low=108738.31000 (106089.0 pips)
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109728.56000 low=109173.98000 (55458.0 pips)
+2026-03-23 21:56:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109781.89000 low=109324.21000 (45768.0 pips)
+2026-03-23 21:56:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 109270.83000 (Asian low=109324.21000, SL=109781.89000, TP=106982.43000)
+2026-03-23 21:56:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=112342.09000 low=110625.67000 (171642.0 pips)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114774.54000 low=114005.68000 (76886.0 pips)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 113944.62000 (Asian low=114005.68000, SL=114774.54000, TP=110100.32000)
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=48 sl=113264.30
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=48 113264.30 → 113073.22
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=114765.17000 low=113758.31000 (100686.0 pips)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 115083.85000 (Asian high=114765.17000, SL=113758.31000, TP=120118.15000)
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=49 sl=115614.34
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 115614.34 → 115727.33
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 115727.33 → 115742.39
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 115742.39 → 115883.93
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 115883.93 → 115933.45
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 115933.45 → 115952.32
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 115952.32 → 116152.65
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 116152.65 → 116348.25
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=119442.66000 low=117327.59000 (211507.0 pips)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=120752.96000 low=119806.87000 (94609.0 pips)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 119625.34000 (Asian low=119806.87000, SL=120752.96000, TP=114894.89000)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=122656.62000 low=121674.37000 (98225.0 pips)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 122674.41000 (Asian high=122656.62000, SL=121674.37000, TP=127585.66000)
+2026-03-23 21:57:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=124353.21000 low=121865.17000 (248804.0 pips)
+2026-03-23 21:57:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 125183.61000 (Asian high=124353.21000, SL=121865.17000, TP=137623.81000)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=122289.77000 low=121211.20000 (107857.0 pips)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=123522.15000 low=121458.43000 (206372.0 pips)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 121179.42000 (Asian low=121458.43000, SL=123522.15000, TP=110860.82000)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=121877.05000 low=120902.55000 (97450.0 pips)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115113.24000 low=102212.07000 (1290117.0 pips)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111362.01000 low=109551.37000 (181064.0 pips)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 111473.73000 (Asian high=111362.01000, SL=109551.37000, TP=120526.93000)
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=54 sl=112997.69
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 112997.69 → 113321.97
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 113321.97 → 113358.79
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 113358.79 → 113439.19
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 113439.19 → 113747.80
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 113747.80 → 114392.75
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 114392.75 → 114533.38
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115957.81000 low=114244.93000 (171288.0 pips)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115829.06000 low=113265.42000 (256364.0 pips)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 113160.31000 (Asian low=113265.42000, SL=115829.06000, TP=100342.11000)
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=55 sl=111029.14
+2026-03-23 21:57:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113608.18000 low=111807.45000 (180073.0 pips)
+2026-03-23 21:57:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111851.12000 low=110344.70000 (150642.0 pips)
+2026-03-23 21:57:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=109228.27000 low=107576.55000 (165172.0 pips)
+2026-03-23 21:57:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 107002.51000 (Asian low=107576.55000, SL=109228.27000, TP=98743.91000)
+2026-03-23 21:57:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=56 sl=105737.13
+2026-03-23 21:57:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 105737.13 → 105600.20
+2026-03-23 21:57:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107438.10000 low=106308.54000 (112956.0 pips)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107359.04000 low=106724.73000 (63431.0 pips)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 106691.14000 (Asian low=106724.73000, SL=107359.04000, TP=103519.59000)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110418.50000 low=107408.96000 (300954.0 pips)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 110420.88000 (Asian high=110418.50000, SL=107408.96000, TP=125468.58000)
+2026-03-23 21:57:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=58 sl=112451.13
+2026-03-23 21:57:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 112451.13 → 112613.76
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111115.48000 low=107829.85000 (328563.0 pips)
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 107606.92000 (Asian low=107829.85000, SL=111115.48000, TP=91178.77000)
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=110815.53000 low=109352.57000 (146296.0 pips)
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 110954.68000 (Asian high=110815.53000, SL=109352.57000, TP=118269.48000)
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=60 sl=112437.45
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=115500.80000 low=112909.20000 (259160.0 pips)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 115547.05000 (Asian high=115500.80000, SL=112909.20000, TP=128505.05000)
+2026-03-23 21:57:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=113286.08000 low=112080.60000 (120548.0 pips)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=111794.93000 low=109719.40000 (207553.0 pips)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 108380.71000 (Asian low=109719.40000, SL=111794.93000, TP=98003.06000)
+2026-03-23 21:57:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=62 sl=106714.52
+2026-03-23 21:57:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 106714.52 → 106561.09
+2026-03-23 21:57:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=107286.18000 low=105799.85000 (148633.0 pips)
+2026-03-23 21:57:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 105658.26000 (Asian low=105799.85000, SL=107286.18000, TP=98226.61000)
+2026-03-23 21:57:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=63 sl=104569.86
+2026-03-23 21:57:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102264.28000 low=98955.57000 (330871.0 pips)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=104195.00000 low=102710.18000 (148482.0 pips)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102327.98000 low=100735.77000 (159221.0 pips)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 102417.28000 (Asian high=102327.98000, SL=100735.77000, TP=110378.33000)
+2026-03-23 21:57:16 [INFO    ] src.backtesting.engine           Bar 15000/25621 (59%)
+2026-03-23 21:57:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102834.47000 low=102397.60000 (43687.0 pips)
+2026-03-23 21:57:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=102484.45000 low=101406.63000 (107782.0 pips)
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=106661.94000 low=104072.87000 (258907.0 pips)
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=103455.85000 low=102498.85000 (95700.0 pips)
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 103540.28000 (Asian high=103455.85000, SL=102498.85000, TP=108325.28000)
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=65 sl=104373.15
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=65 104373.15 → 104398.07
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=65 104398.07 → 104473.06
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=65 104473.06 → 104638.27
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=65 104638.27 → 104671.40
+2026-03-23 21:57:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=100497.00000 low=96697.96000 (379904.0 pips)
+2026-03-23 21:57:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=96817.95000 low=94000.70000 (281725.0 pips)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=95970.00000 low=94836.20000 (113380.0 pips)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 96089.63000 (Asian high=95970.00000, SL=94836.20000, TP=101758.63000)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=95569.79000 low=92963.50000 (260629.0 pips)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 95743.41000 (Asian high=95569.79000, SL=92963.50000, TP=108774.86000)
+2026-03-23 21:57:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=92390.44000 low=89288.58000 (310186.0 pips)
+2026-03-23 21:57:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93414.11000 low=91156.03000 (225808.0 pips)
+2026-03-23 21:57:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 90898.23000 (Asian low=91156.03000, SL=93414.11000, TP=79607.83000)
+2026-03-23 21:57:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=68 sl=89172.46
+2026-03-23 21:57:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 89172.46 → 88890.82
+2026-03-23 21:57:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 88890.82 → 88131.93
+2026-03-23 21:57:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 88131.93 → 87899.65
+2026-03-23 21:57:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 87899.65 → 87648.43
+2026-03-23 21:57:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 87648.43 → 87569.07
+2026-03-23 21:57:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 87569.07 → 87429.04
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=88249.34000 low=85352.27000 (289707.0 pips)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 85201.29000 (Asian low=85352.27000, SL=88249.34000, TP=70715.94000)
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=69 sl=83141.92
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 83141.92 → 83069.96
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 83069.96 → 83064.37
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=85610.02000 low=83820.13000 (178989.0 pips)
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=86854.80000 low=84264.90000 (258990.0 pips)
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=88117.76000 low=85928.45000 (218931.0 pips)
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89080.91000 low=87453.36000 (162755.0 pips)
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 87004.05000 (Asian low=87453.36000, SL=89080.91000, TP=78866.30000)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91874.02000 low=90081.78000 (179224.0 pips)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91583.41000 low=90639.69000 (94372.0 pips)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 91604.35000 (Asian high=91583.41000, SL=90639.69000, TP=96322.95000)
+2026-03-23 21:57:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=71 sl=92494.15
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91050.28000 low=90458.72000 (59156.0 pips)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 91484.32000 (Asian high=91050.28000, SL=90458.72000, TP=94442.12000)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91341.08000 low=85685.58000 (565550.0 pips)
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87341.76000 low=86176.81000 (116495.0 pips)
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93444.61000 low=90985.31000 (245930.0 pips)
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 93628.54000 (Asian high=93444.61000, SL=90985.31000, TP=105925.04000)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=92683.51000 low=91799.41000 (88410.0 pips)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 91338.56000 (Asian low=91799.41000, SL=92683.51000, TP=86918.06000)
+2026-03-23 21:57:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=74 sl=90867.94
+2026-03-23 21:57:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=74 90867.94 → 90704.28
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89793.42000 low=88896.00000 (89742.0 pips)
+2026-03-23 21:57:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89785.67000 low=88899.31000 (88636.0 pips)
+2026-03-23 21:57:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91689.78000 low=88973.07000 (271671.0 pips)
+2026-03-23 21:57:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 92072.16000 (Asian high=91689.78000, SL=88973.07000, TP=105655.71000)
+2026-03-23 21:57:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=86512.59000 low=85256.28000 (125631.0 pips)
+2026-03-23 21:57:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87941.25000 low=86713.31000 (122794.0 pips)
+2026-03-23 21:57:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 86614.61000 (Asian low=86713.31000, SL=87941.25000, TP=80474.91000)
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=86890.80000 low=85849.25000 (104155.0 pips)
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 86935.03000 (Asian high=86890.80000, SL=85849.25000, TP=92142.78000)
+2026-03-23 21:57:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=77 sl=88292.28
+2026-03-23 21:57:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=77 88292.28 → 88334.87
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87559.78000 low=85103.95000 (245583.0 pips)
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 88138.10000 (Asian high=87559.78000, SL=85103.95000, TP=100417.25000)
+2026-03-23 21:57:47 [INFO    ] src.backtesting.engine           Bar 20000/25621 (78%)
+2026-03-23 21:57:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=78 sl=89929.74
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=90476.17000 low=89880.99000 (59518.0 pips)
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 89396.70000 (Asian low=89880.99000, SL=90476.17000, TP=86420.80000)
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91595.28000 low=90460.20000 (113508.0 pips)
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 91661.36000 (Asian high=91595.28000, SL=90460.20000, TP=97336.76000)
+2026-03-23 21:57:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=80 sl=92554.63
+2026-03-23 21:57:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=80 92554.63 → 92576.69
+2026-03-23 21:57:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=80 92576.69 → 92764.13
+2026-03-23 21:57:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93395.43000 low=91137.51000 (225792.0 pips)
+2026-03-23 21:57:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=94398.71000 low=93534.58000 (86413.0 pips)
+2026-03-23 21:57:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 93391.68000 (Asian low=93534.58000, SL=94398.71000, TP=89071.03000)
+2026-03-23 21:57:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93786.30000 low=92235.41000 (155089.0 pips)
+2026-03-23 21:57:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 91947.69000 (Asian low=92235.41000, SL=93786.30000, TP=84193.24000)
+2026-03-23 21:57:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=82 sl=90617.67
+2026-03-23 21:57:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=82 90617.67 → 90261.00
+2026-03-23 21:57:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91666.88000 low=90608.16000 (105872.0 pips)
+2026-03-23 21:57:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 90253.53000 (Asian low=90608.16000, SL=91666.88000, TP=84959.93000)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=92516.98000 low=90225.76000 (229122.0 pips)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=91640.85000 low=91038.15000 (60270.0 pips)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 91737.03000 (Asian high=91640.85000, SL=91038.15000, TP=94750.53000)
+2026-03-23 21:57:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=84 sl=92114.91
+2026-03-23 21:57:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 92114.91 → 92215.54
+2026-03-23 21:57:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=96531.97000 low=94082.47000 (244950.0 pips)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=97577.38000 low=95766.24000 (181114.0 pips)
+2026-03-23 21:58:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=95522.63000 low=91885.11000 (363752.0 pips)
+2026-03-23 21:58:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=93057.81000 low=91996.61000 (106120.0 pips)
+2026-03-23 21:58:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 91407.31000 (Asian low=91996.61000, SL=93057.81000, TP=86101.31000)
+2026-03-23 21:58:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=85 sl=90742.37
+2026-03-23 21:58:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89635.12000 low=87815.34000 (181978.0 pips)
+2026-03-23 21:58:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=90380.46000 low=89347.57000 (103289.0 pips)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=90077.23000 low=89133.40000 (94383.0 pips)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 89005.85000 (Asian low=89133.40000, SL=90077.23000, TP=84286.70000)
+2026-03-23 21:58:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89487.27000 low=88835.21000 (65206.0 pips)
+2026-03-23 21:58:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 88705.59000 (Asian low=88835.21000, SL=89487.27000, TP=85445.29000)
+2026-03-23 21:58:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=87 sl=88159.08
+2026-03-23 21:58:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 88159.08 → 88070.07
+2026-03-23 21:58:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 88070.07 → 87934.29
+2026-03-23 21:58:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 87934.29 → 87537.22
+2026-03-23 21:58:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 87537.22 → 87031.97
+2026-03-23 21:58:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 87031.97 → 86941.69
+2026-03-23 21:58:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=87961.19000 low=86072.01000 (188918.0 pips)
+2026-03-23 21:58:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 88191.32000 (Asian high=87961.19000, SL=86072.01000, TP=97637.22000)
+2026-03-23 21:58:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=88 sl=89804.98
+2026-03-23 21:58:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=88 89804.98 → 90013.54
+2026-03-23 21:58:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=89468.93000 low=87691.53000 (177740.0 pips)
+2026-03-23 21:58:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=84728.26000 low=81066.99000 (366127.0 pips)
+2026-03-23 21:58:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=79413.57000 low=77989.28000 (142429.0 pips)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=78142.48000 low=74598.12000 (354436.0 pips)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=79185.93000 low=77647.87000 (153806.0 pips)
+2026-03-23 21:58:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=76967.05000 low=75402.64000 (156441.0 pips)
+2026-03-23 21:58:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=73678.53000 low=70697.65000 (298088.0 pips)
+2026-03-23 21:58:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: SELL breakout @ 70428.53000 (Asian low=70697.65000, SL=73678.53000, TP=55524.13000)
+2026-03-23 21:58:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=89 sl=68035.45
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: Asian range high=66001.35000 low=59991.86000 (600949.0 pips)
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [BTCUSD]: BUY breakout @ 66395.67000 (Asian high=66001.35000, SL=59991.86000, TP=96443.12000)
+2026-03-23 21:58:24 [INFO    ] src.backtesting.engine           Bar 25000/25621 (98%)
+2026-03-23 21:58:29 [INFO    ] src.backtesting.engine         Backtest complete: 90 trades, 278.84% return, 89.69% max DD, 53.3% WR
+
+Backtest Results: london_breakout on BTCUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $113.65 │
+│ Total Return              │        +278.84% │
+│ Max Drawdown              │          89.69% │
+│ Total Trades              │              90 │
+│ Win Rate                  │           53.3% │
+│ Profit Factor             │            1.12 │
+│ Avg Trade P&L             │          $+0.93 │
+│ Sharpe Ratio              │            0.19 │
+│ Max Consecutive Losses    │               5 │
+│ Avg Trade Duration        │           30.2h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 21:58:29 [INFO    ] backtest                       Results saved to data/backtest_results/BTCUSD_BTCUSD-S-london_only_20260323_215829.json
+
+Backtest Results: london_breakout on BTCUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $113.65 │
+│ Total Return              │        +278.84% │
+│ Max Drawdown              │          89.69% │
+│ Total Trades              │              90 │
+│ Win Rate                  │           53.3% │
+│ Profit Factor             │            1.12 │
+│ Avg Trade P&L             │          $+0.93 │
+│ Sharpe Ratio              │            0.19 │
+│ Max Consecutive Losses    │               5 │
+│ Avg Trade Duration        │           30.2h │
+└───────────────────────────┴─────────────────┘
+

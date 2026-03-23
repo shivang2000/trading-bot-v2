@@ -1,0 +1,456 @@
+2026-03-23 21:53:33 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/XAUUSD_M15_20250601_20260301.csv
+2026-03-23 21:53:33 [INFO    ] src.backtesting.data_loader    Loaded 17653 bars from data/backtest_cache/XAUUSD_M15_20250601_20260301.csv (2025-06-02 01:00:00+00:00 → 2026-02-27 23:45:00+00:00)
+2026-03-23 21:53:33 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/XAUUSD_H1_20250601_20260301.csv
+2026-03-23 21:53:33 [INFO    ] src.backtesting.data_loader    Loaded 4418 bars from data/backtest_cache/XAUUSD_H1_20250601_20260301.csv (2025-06-02 01:00:00+00:00 → 2026-02-27 23:00:00+00:00)
+2026-03-23 21:53:33 [INFO    ] backtest                       Data loaded: 17653 M15 bars, 4418 H1 bars
+2026-03-23 21:53:33 [INFO    ] backtest                       Config [XAUUSD-S-ema_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:53:33 [INFO    ] src.backtesting.engine         Starting backtest: ema_pullback on XAUUSD (17653 M15 bars, 4418 H1 bars)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3312.11000)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3310.87000)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3385.60000)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3384.91000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3385.92000 SL=3367.51951 TP=3438.49284 (ATR=5.25728, pullback confirmed)
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=1 sl=3395.69
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=1 3395.69 → 3406.33
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3426.08000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3446.70000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3432.73000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3433.20000 SL=3412.50460 TP=3492.32971 (ATR=5.91297, pullback confirmed)
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=2 sl=3441.29
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3373.97000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3383.74000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3373.59000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3383.29000)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3370.58000)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3365.81000)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3362.88000 SL=3380.05899 TP=3313.79717 (ATR=4.90828, pullback confirmed)
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=3 sl=3359.20
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 3359.20 → 3353.85
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3345.74000)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3270.82000)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3343.24000)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3344.20000)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3341.40000)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3343.29000)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3353.35000)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3359.39000 SL=3348.64561 TP=3390.08825 (ATR=3.06982, pullback confirmed)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3325.86000)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3298.75000)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3294.37000 SL=3308.62808 TP=3253.63264 (ATR=4.07374, pullback confirmed)
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=5 sl=3292.04
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=5 3292.04 → 3291.20
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3284.93000)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3325.03000)
+2026-03-23 21:53:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3372.40000)
+2026-03-23 21:53:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3374.60000 SL=3359.30894 TP=3418.28873 (ATR=4.36887, pullback confirmed)
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3325.92000)
+2026-03-23 21:53:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3429.64000)
+2026-03-23 21:53:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3432.93000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3365.81000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3368.41000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3366.12000 SL=3376.10041 TP=3337.60453 (ATR=2.85155, pullback confirmed)
+2026-03-23 21:53:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=7 sl=3363.11
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3323.86000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3330.51000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3334.76000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3333.83000 SL=3346.84427 TP=3296.64636 (ATR=3.71836, pullback confirmed)
+2026-03-23 21:53:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=8 sl=3327.72
+2026-03-23 21:53:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 3327.72 → 3309.64
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3311.96000)
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3310.52000)
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3315.22000)
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3324.92000)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3285.36000)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3361.37000)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3359.25000)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3359.29000 SL=3347.07697 TP=3394.18437 (ATR=3.48944, pullback confirmed)
+2026-03-23 21:53:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=9 sl=3361.87
+2026-03-23 21:53:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 3361.87 → 3362.66
+2026-03-23 21:53:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 3362.66 → 3365.04
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3342.55000)
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3342.29000)
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3345.57000)
+2026-03-23 21:53:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3333.45000)
+2026-03-23 21:53:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:53:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3343.42000)
+2026-03-23 21:53:50 [INFO    ] src.backtesting.engine           Bar 5000/17653 (28%)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3369.66000)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3367.62000)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3368.88000)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3368.89000 SL=3361.16352 TP=3390.96566 (ATR=2.20757, pullback confirmed)
+2026-03-23 21:53:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=3369.47
+2026-03-23 21:53:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3417.80000)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3486.10000)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3478.74000)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3526.39000)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3527.82000 SL=3504.73302 TP=3593.78279 (ATR=6.59628, pullback confirmed)
+2026-03-23 21:53:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=11 sl=3535.15
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3550.60000)
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3556.55000)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3597.12000)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3613.18000)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3646.63000)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3650.92000 SL=3635.93933 TP=3693.72191 (ATR=4.28019, pullback confirmed)
+2026-03-23 21:53:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=12 sl=3652.60
+2026-03-23 21:53:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 3652.60 → 3655.35
+2026-03-23 21:53:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 3655.35 → 3657.91
+2026-03-23 21:53:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3655.25000)
+2026-03-23 21:53:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3652.52000)
+2026-03-23 21:53:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3652.70000 SL=3637.48006 TP=3696.18556 (ATR=4.34856, pullback confirmed)
+2026-03-23 21:53:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:53:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3703.15000)
+2026-03-23 21:53:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3670.92000)
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3758.72000)
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3782.04000)
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3772.88000)
+2026-03-23 21:54:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3788.81000)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3874.00000)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3879.17000 SL=3858.78787 TP=3937.40467 (ATR=5.82347, pullback confirmed)
+2026-03-23 21:54:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=14 sl=3882.41
+2026-03-23 21:54:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3882.41 → 3882.42
+2026-03-23 21:54:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3882.42 → 3884.03
+2026-03-23 21:54:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3884.03 → 3885.09
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3825.32000)
+2026-03-23 21:54:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3947.08000)
+2026-03-23 21:54:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3948.42000 SL=3921.30959 TP=4025.87831 (ATR=7.74583, pullback confirmed)
+2026-03-23 21:54:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=15 sl=3954.29
+2026-03-23 21:54:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 3954.29 → 3962.47
+2026-03-23 21:54:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 3962.47 → 3965.70
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3966.92000)
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3967.77000 SL=3948.62599 TP=4022.46716 (ATR=5.46972, pullback confirmed)
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3962.00000)
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 3965.93000 SL=3945.19648 TP=4025.16862 (ATR=5.92386, pullback confirmed)
+2026-03-23 21:54:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=17 sl=3969.93
+2026-03-23 21:54:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 3969.93 → 3973.94
+2026-03-23 21:54:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3973.22000)
+2026-03-23 21:54:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4211.85000)
+2026-03-23 21:54:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4199.67000)
+2026-03-23 21:54:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4233.58000)
+2026-03-23 21:54:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4220.93000)
+2026-03-23 21:54:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4057.01000)
+2026-03-23 21:54:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4108.97000)
+2026-03-23 21:54:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4066.61000)
+2026-03-23 21:54:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3983.25000)
+2026-03-23 21:54:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3927.76000)
+2026-03-23 21:54:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3952.32000)
+2026-03-23 21:54:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 3951.95000 SL=3987.13439 TP=3851.42317 (ATR=10.05268, pullback confirmed)
+2026-03-23 21:54:15 [INFO    ] src.backtesting.engine           Bar 10000/17653 (57%)
+2026-03-23 21:54:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4036.24000)
+2026-03-23 21:54:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4011.55000)
+2026-03-23 21:54:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4011.89000 SL=3988.29970 TP=4079.29086 (ATR=6.74009, pullback confirmed)
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=19 sl=4017.94
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 4017.94 → 4036.77
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 4036.77 → 4039.49
+2026-03-23 21:54:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4145.27000)
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4217.66000)
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4085.23000)
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 4083.19000 SL=4121.63295 TP=3973.35299 (ATR=10.98370, pullback confirmed)
+2026-03-23 21:54:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=20 sl=4070.42
+2026-03-23 21:54:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4064.52000)
+2026-03-23 21:54:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4076.02000)
+2026-03-23 21:54:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 4069.32000 SL=4102.58409 TP=3974.27974 (ATR=9.50403, pullback confirmed)
+2026-03-23 21:54:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=4036.47
+2026-03-23 21:54:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4036.47 → 4028.03
+2026-03-23 21:54:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4032.31000)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4148.70000)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4142.41000)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4142.79000 SL=4120.82362 TP=4205.55109 (ATR=6.27611, pullback confirmed)
+2026-03-23 21:54:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=4153.14
+2026-03-23 21:54:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 4153.14 → 4155.96
+2026-03-23 21:54:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 4155.96 → 4156.91
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4167.14000)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4165.60000)
+2026-03-23 21:54:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4164.98000)
+2026-03-23 21:54:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4167.36000 SL=4139.29603 TP=4247.54277 (ATR=8.01828, pullback confirmed)
+2026-03-23 21:54:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=23 sl=4180.42
+2026-03-23 21:54:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 4180.42 → 4180.91
+2026-03-23 21:54:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 4180.91 → 4185.64
+2026-03-23 21:54:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4202.72000)
+2026-03-23 21:54:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4187.28000)
+2026-03-23 21:54:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4173.94000)
+2026-03-23 21:54:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4274.73000)
+2026-03-23 21:54:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4280.71000)
+2026-03-23 21:54:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4281.11000 SL=4264.33873 TP=4329.02791 (ATR=4.79179, pullback confirmed)
+2026-03-23 21:54:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=24 sl=4286.86
+2026-03-23 21:54:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4286.86 → 4287.93
+2026-03-23 21:54:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4287.93 → 4296.91
+2026-03-23 21:54:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4296.91 → 4300.71
+2026-03-23 21:54:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4300.71 → 4308.86
+2026-03-23 21:54:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4345.98000)
+2026-03-23 21:54:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4366.19000)
+2026-03-23 21:54:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4533.45000)
+2026-03-23 21:54:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4535.68000)
+2026-03-23 21:54:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4334.96000)
+2026-03-23 21:54:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4360.81000)
+2026-03-23 21:54:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4329.39000)
+2026-03-23 21:54:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 4324.84000 SL=4364.37913 TP=4211.87105 (ATR=11.29689, pullback confirmed)
+2026-03-23 21:54:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=25 sl=4307.81
+2026-03-23 21:54:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4320.56000)
+2026-03-23 21:54:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4452.34000)
+2026-03-23 21:54:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4461.03000)
+2026-03-23 21:54:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4462.50000 SL=4432.22953 TP=4548.98707 (ATR=8.64871, pullback confirmed)
+2026-03-23 21:54:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=26 sl=4475.06
+2026-03-23 21:54:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4466.59000)
+2026-03-23 21:54:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4473.61000)
+2026-03-23 21:54:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4470.98000)
+2026-03-23 21:54:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4473.61000 SL=4453.33178 TP=4531.54777 (ATR=5.79378, pullback confirmed)
+2026-03-23 21:54:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=4474.78
+2026-03-23 21:54:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 4474.78 → 4476.26
+2026-03-23 21:54:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 4476.26 → 4481.23
+2026-03-23 21:54:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4606.38000)
+2026-03-23 21:54:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4617.88000 SL=4589.83875 TP=4697.99785 (ATR=8.01178, pullback confirmed)
+2026-03-23 21:54:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4610.70000)
+2026-03-23 21:54:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4615.49000 SL=4587.30196 TP=4696.02725 (ATR=8.05373, pullback confirmed)
+2026-03-23 21:54:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=29 sl=4624.47
+2026-03-23 21:54:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 4624.47 → 4625.09
+2026-03-23 21:54:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 4625.09 → 4627.06
+2026-03-23 21:54:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4640.05000)
+2026-03-23 21:54:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4673.52000)
+2026-03-23 21:54:44 [INFO    ] src.backtesting.engine           Bar 15000/17653 (85%)
+2026-03-23 21:54:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4674.19000)
+2026-03-23 21:54:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4846.81000)
+2026-03-23 21:54:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4854.01000 SL=4817.18890 TP=4959.21313 (ATR=10.52031, pullback confirmed)
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=30 sl=4860.17
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4860.17 → 4864.70
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4864.70 → 4871.97
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4871.97 → 4880.89
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4880.89 → 4886.17
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4886.17 → 4889.81
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4889.81 → 4892.07
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4892.07 → 4895.11
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4895.11 → 4898.92
+2026-03-23 21:54:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4898.92 → 4907.04
+2026-03-23 21:54:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5096.90000)
+2026-03-23 21:54:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5091.14000)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5099.44000)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5289.40000)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5298.24000)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5542.33000)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5545.39000)
+2026-03-23 21:54:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5139.56000)
+2026-03-23 21:54:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4956.68000)
+2026-03-23 21:54:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 4957.95000 SL=4860.63256 TP=5235.99984 (ATR=27.80498, pullback confirmed)
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=31 sl=4975.92
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4975.92 → 5007.02
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 5007.02 → 5018.24
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 5018.24 → 5021.31
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 5021.31 → 5023.66
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 5023.66 → 5032.22
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 5032.22 → 5035.45
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 5035.45 → 5038.30
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 5038.30 → 5048.26
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 5048.26 → 5051.56
+2026-03-23 21:54:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 5051.56 → 5052.18
+2026-03-23 21:54:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4853.87000)
+2026-03-23 21:54:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4813.50000)
+2026-03-23 21:54:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → SELL @ 4812.79000 SL=4904.36880 TP=4551.13629 (ATR=26.16537, pullback confirmed)
+2026-03-23 21:54:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=32 sl=4788.03
+2026-03-23 21:54:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 4788.03 → 4778.15
+2026-03-23 21:54:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 4778.15 → 4741.75
+2026-03-23 21:54:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 4741.75 → 4720.60
+2026-03-23 21:54:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5035.51000)
+2026-03-23 21:54:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5042.18000)
+2026-03-23 21:54:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 5056.18000 SL=5002.76825 TP=5208.78501 (ATR=15.26050, pullback confirmed)
+2026-03-23 21:54:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5097.34000)
+2026-03-23 21:54:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4950.95000)
+2026-03-23 21:54:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4939.48000)
+2026-03-23 21:54:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5030.77000)
+2026-03-23 21:54:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4913.41000)
+2026-03-23 21:54:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4842.15000)
+2026-03-23 21:54:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:54:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4873.93000)
+2026-03-23 21:54:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4986.37000)
+2026-03-23 21:54:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5022.23000)
+2026-03-23 21:54:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5013.47000)
+2026-03-23 21:54:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5157.71000)
+2026-03-23 21:54:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ENTRY → BUY @ 5163.01000 SL=5128.66657 TP=5261.13408 (ATR=9.81241, pullback confirmed)
+2026-03-23 21:54:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=5175.81
+2026-03-23 21:54:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 5175.81 → 5176.56
+2026-03-23 21:54:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 5176.56 → 5182.46
+2026-03-23 21:54:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 5182.46 → 5183.35
+2026-03-23 21:54:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5191.36000)
+2026-03-23 21:54:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAUUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=5195.68000)
+2026-03-23 21:54:57 [INFO    ] src.backtesting.engine         Backtest complete: 34 trades, 1310.33% return, 50.12% max DD, 79.4% WR
+
+Backtest Results: ema_pullback on XAUUSD
+  Period: 2025-06-03 → 2026-02-27
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $423.10 │
+│ Total Return              │       +1310.33% │
+│ Max Drawdown              │          50.12% │
+│ Total Trades              │              34 │
+│ Win Rate                  │           79.4% │
+│ Profit Factor             │            3.22 │
+│ Avg Trade P&L             │         $+11.56 │
+│ Sharpe Ratio              │            0.31 │
+│ Max Consecutive Losses    │               1 │
+│ Avg Trade Duration        │            9.7h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 21:54:57 [INFO    ] backtest                       Results saved to data/backtest_results/XAUUSD_XAUUSD-S-ema_only_20260323_215457.json
+
+Backtest Results: ema_pullback on XAUUSD
+  Period: 2025-06-03 → 2026-02-27
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $423.10 │
+│ Total Return              │       +1310.33% │
+│ Max Drawdown              │          50.12% │
+│ Total Trades              │              34 │
+│ Win Rate                  │           79.4% │
+│ Profit Factor             │            3.22 │
+│ Avg Trade P&L             │         $+11.56 │
+│ Sharpe Ratio              │            0.31 │
+│ Max Consecutive Losses    │               1 │
+│ Avg Trade Duration        │            9.7h │
+└───────────────────────────┴─────────────────┘
+

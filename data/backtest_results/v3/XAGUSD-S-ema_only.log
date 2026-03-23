@@ -1,0 +1,534 @@
+2026-03-23 21:54:58 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/XAGUSD_M15_20250601_20260301.csv
+2026-03-23 21:54:58 [INFO    ] src.backtesting.data_loader    Loaded 17662 bars from data/backtest_cache/XAGUSD_M15_20250601_20260301.csv (2025-06-02 01:00:00+00:00 → 2026-02-27 23:45:00+00:00)
+2026-03-23 21:54:58 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/XAGUSD_H1_20250601_20260301.csv
+2026-03-23 21:54:58 [INFO    ] src.backtesting.data_loader    Loaded 4419 bars from data/backtest_cache/XAGUSD_H1_20250601_20260301.csv (2025-06-02 01:00:00+00:00 → 2026-02-27 23:00:00+00:00)
+2026-03-23 21:54:58 [INFO    ] backtest                       Data loaded: 17662 M15 bars, 4419 H1 bars
+2026-03-23 21:54:58 [INFO    ] backtest                       Config [XAGUSD-S-ema_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:54:58 [INFO    ] src.backtesting.engine         Starting backtest: ema_pullback on XAGUSD (17662 M15 bars, 4419 H1 bars)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=34.59200)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 34.61100 SL=34.43597 TP=35.11107 (ATR=0.05001, pullback confirmed)
+2026-03-23 21:54:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=1 sl=34.70
+2026-03-23 21:54:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=1 34.70 → 34.75
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=35.66700)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 35.68100 SL=35.32520 TP=36.69756 (ATR=0.10166, pullback confirmed)
+2026-03-23 21:54:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=2 sl=35.84
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.25900)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.65100)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.30600)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 36.28400 SL=36.63072 TP=35.29338 (ATR=0.09906, pullback confirmed)
+2026-03-23 21:55:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=3 sl=35.96
+2026-03-23 21:55:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 35.96 → 35.90
+2026-03-23 21:55:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 35.90 → 35.88
+2026-03-23 21:55:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 35.88 → 35.86
+2026-03-23 21:55:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 35.86 → 35.83
+2026-03-23 21:55:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 35.83 → 35.75
+2026-03-23 21:55:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 35.75 → 35.73
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=35.86000)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=35.88200)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=35.90600)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=35.93300)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=35.66700)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=35.95600)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 35.93400 SL=36.20742 TP=35.15281 (ATR=0.07812, pullback confirmed)
+2026-03-23 21:55:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=35.59
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=35.86300)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.82900)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.87900)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.91900)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.80900)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.45400)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 36.42300 SL=36.66834 TP=35.72202 (ATR=0.07010, pullback confirmed)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.87400)
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.56000)
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=39.35700)
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=39.07600)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.98900)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.17300)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.17600)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.14300)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.02300)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.08900)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.07700)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.95500)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.01800)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.99600)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.91600)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.47400)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=36.49800)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 36.47200 SL=36.74516 TP=35.69154 (ATR=0.07805, pullback confirmed)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.33800)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.45800)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.43600)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 37.46400 SL=37.24534 TP=38.08874 (ATR=0.06247, pullback confirmed)
+2026-03-23 21:55:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=7 sl=37.58
+2026-03-23 21:55:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=7 37.58 → 37.70
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.85400)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.87300)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.88200)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.83100)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.90500)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.93700)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.37800)
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.39700)
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.12300)
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.56700)
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.53200)
+2026-03-23 21:55:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=37.96300)
+2026-03-23 21:55:16 [INFO    ] src.backtesting.engine           Bar 5000/17662 (28%)
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.15900)
+2026-03-23 21:55:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=39.04000)
+2026-03-23 21:55:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=38.95600)
+2026-03-23 21:55:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=39.09600)
+2026-03-23 21:55:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=39.00200)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=40.76600)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=40.75800)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 40.76400 SL=40.49099 TP=41.54403 (ATR=0.07800, pullback confirmed)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=40.29100)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=40.86100)
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=41.31600)
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=41.35700)
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=41.32100)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=41.32300)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=41.41300)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=41.45100)
+2026-03-23 21:55:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=42.08300)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=42.24100)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=42.26400)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 42.28000 SL=41.97762 TP=43.14393 (ATR=0.08639, pullback confirmed)
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=9 sl=42.38
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 42.38 → 42.46
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 42.46 → 42.51
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=42.70400)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 42.70500 SL=42.47566 TP=43.36026 (ATR=0.06553, pullback confirmed)
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=42.76
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=41.33200)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=41.48800)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=41.44400)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=42.79200)
+2026-03-23 21:55:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=43.85100)
+2026-03-23 21:55:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 43.89500 SL=43.53105 TP=44.93487 (ATR=0.10399, pullback confirmed)
+2026-03-23 21:55:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=11 sl=44.00
+2026-03-23 21:55:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 44.00 → 44.02
+2026-03-23 21:55:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 44.02 → 44.05
+2026-03-23 21:55:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 44.05 → 44.11
+2026-03-23 21:55:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 44.11 → 44.13
+2026-03-23 21:55:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 44.13 → 44.16
+2026-03-23 21:55:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 44.16 → 44.26
+2026-03-23 21:55:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=43.92900)
+2026-03-23 21:55:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 43.86400 SL=44.20212 TP=42.89794 (ATR=0.09661, pullback confirmed)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.42900)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.47700)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.48800)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.43900)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 47.46400 SL=47.07166 TP=48.58498 (ATR=0.11210, pullback confirmed)
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=47.56
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 47.56 → 47.64
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 47.64 → 47.72
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 47.72 → 47.80
+2026-03-23 21:55:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=46.07700)
+2026-03-23 21:55:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=48.69300)
+2026-03-23 21:55:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 48.72300 SL=48.11396 TP=50.46310 (ATR=0.17401, pullback confirmed)
+2026-03-23 21:55:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=49.82200)
+2026-03-23 21:55:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=51.57200)
+2026-03-23 21:55:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=52.08100)
+2026-03-23 21:55:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=52.83700)
+2026-03-23 21:55:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 52.89200 SL=52.12239 TP=55.09088 (ATR=0.21989, pullback confirmed)
+2026-03-23 21:55:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=15 sl=53.13
+2026-03-23 21:55:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 53.13 → 53.17
+2026-03-23 21:55:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 53.17 → 53.30
+2026-03-23 21:55:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 53.30 → 53.41
+2026-03-23 21:55:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 53.41 → 53.48
+2026-03-23 21:55:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 53.48 → 53.58
+2026-03-23 21:55:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 53.58 → 53.61
+2026-03-23 21:55:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 53.61 → 53.74
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=54.42100)
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=51.27000)
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=51.43200)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=51.56600)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=52.12800)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=51.56700)
+2026-03-23 21:55:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=48.24000)
+2026-03-23 21:55:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.90000)
+2026-03-23 21:55:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.99100)
+2026-03-23 21:55:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.91000)
+2026-03-23 21:55:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 47.65200 SL=48.21844 TP=46.03360 (ATR=0.16184, pullback confirmed)
+2026-03-23 21:55:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=16 sl=47.50
+2026-03-23 21:55:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 47.50 → 47.32
+2026-03-23 21:55:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 47.32 → 47.11
+2026-03-23 21:55:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 47.11 → 46.89
+2026-03-23 21:55:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 46.89 → 46.67
+2026-03-23 21:55:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 46.67 → 46.57
+2026-03-23 21:55:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=46.76000)
+2026-03-23 21:55:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=46.68300)
+2026-03-23 21:55:41 [INFO    ] src.backtesting.engine           Bar 10000/17662 (57%)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=49.30000)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=49.10400)
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=48.90900)
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.44800)
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.73300)
+2026-03-23 21:55:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.85500)
+2026-03-23 21:55:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=47.33200)
+2026-03-23 21:55:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 47.32500 SL=47.92263 TP=45.61748 (ATR=0.17075, pullback confirmed)
+2026-03-23 21:55:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=17 sl=47.06
+2026-03-23 21:55:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=50.99100)
+2026-03-23 21:55:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=51.73500)
+2026-03-23 21:55:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=53.30600)
+2026-03-23 21:55:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=53.42500)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=50.73400)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 50.60500 SL=51.24037 TP=48.78964 (ATR=0.18154, pullback confirmed)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=50.43000)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 49.82300 SL=50.66272 TP=47.42381 (ATR=0.23992, pullback confirmed)
+2026-03-23 21:55:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=50.85900)
+2026-03-23 21:55:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=52.34300)
+2026-03-23 21:55:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=50.20500)
+2026-03-23 21:55:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=50.20700)
+2026-03-23 21:55:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=51.44900)
+2026-03-23 21:55:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 51.57800 SL=50.97888 TP=53.28978 (ATR=0.17118, pullback confirmed)
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=53.05500)
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=53.85000)
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=53.45100)
+2026-03-23 21:55:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=57.30100)
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=56.43400)
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=56.96900)
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=56.89500)
+2026-03-23 21:55:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=58.57500)
+2026-03-23 21:55:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=61.84100)
+2026-03-23 21:55:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:55:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=62.55800)
+2026-03-23 21:55:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 62.07500 SL=63.67163 TP=57.51319 (ATR=0.45618, pullback confirmed)
+2026-03-23 21:55:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=61.92
+2026-03-23 21:55:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=64.14400)
+2026-03-23 21:55:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=66.06100)
+2026-03-23 21:55:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:55:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=66.48400)
+2026-03-23 21:55:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 66.49000 SL=65.26717 TP=69.98381 (ATR=0.34938, pullback confirmed)
+2026-03-23 21:56:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=66.42500)
+2026-03-23 21:56:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=69.56100)
+2026-03-23 21:56:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=71.05300)
+2026-03-23 21:56:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=72.39800)
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=75.12100)
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 75.28500 SL=73.49654 TP=80.39488 (ATR=0.51099, pullback confirmed)
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=23 sl=75.49
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 75.49 → 75.59
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 75.59 → 75.69
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 75.69 → 76.02
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 76.02 → 76.34
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 76.34 → 76.49
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 76.49 → 76.66
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 76.66 → 76.69
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 76.69 → 77.11
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 77.11 → 77.17
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 77.17 → 77.60
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 77.60 → 77.73
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 77.73 → 77.81
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 77.81 → 78.28
+2026-03-23 21:56:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 78.28 → 78.50
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=80.67800)
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=72.04000)
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 71.88400 SL=74.00116 TP=65.83497 (ATR=0.60490, pullback confirmed)
+2026-03-23 21:56:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=71.43600)
+2026-03-23 21:56:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 71.43500 SL=73.27106 TP=66.18911 (ATR=0.52459, pullback confirmed)
+2026-03-23 21:56:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=76.66500)
+2026-03-23 21:56:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 76.78100 SL=75.01037 TP=81.83995 (ATR=0.50590, pullback confirmed)
+2026-03-23 21:56:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=26 sl=77.52
+2026-03-23 21:56:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 77.52 → 77.99
+2026-03-23 21:56:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 77.99 → 78.08
+2026-03-23 21:56:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 78.08 → 78.17
+2026-03-23 21:56:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 78.17 → 78.36
+2026-03-23 21:56:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=78.48400)
+2026-03-23 21:56:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 78.48600 SL=77.38615 TP=81.62843 (ATR=0.31424, pullback confirmed)
+2026-03-23 21:56:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=79.04
+2026-03-23 21:56:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 79.04 → 79.74
+2026-03-23 21:56:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 79.74 → 79.92
+2026-03-23 21:56:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=77.33600)
+2026-03-23 21:56:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=75.65200)
+2026-03-23 21:56:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=85.52700)
+2026-03-23 21:56:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 85.60400 SL=84.14136 TP=89.78297 (ATR=0.41790, pullback confirmed)
+2026-03-23 21:56:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91.81800)
+2026-03-23 21:56:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 91.83900 SL=89.29614 TP=99.10432 (ATR=0.72653, pullback confirmed)
+2026-03-23 21:56:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=93.15400)
+2026-03-23 21:56:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=93.62500)
+2026-03-23 21:56:10 [INFO    ] src.backtesting.engine           Bar 15000/17662 (85%)
+2026-03-23 21:56:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=94.34900)
+2026-03-23 21:56:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 94.51800 SL=93.17342 TP=98.35965 (ATR=0.38417, pullback confirmed)
+2026-03-23 21:56:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=30 sl=94.76
+2026-03-23 21:56:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 94.76 → 94.76
+2026-03-23 21:56:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 94.76 → 94.86
+2026-03-23 21:56:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 94.86 → 95.17
+2026-03-23 21:56:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=98.95100)
+2026-03-23 21:56:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=119.86000)
+2026-03-23 21:56:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=108.02500)
+2026-03-23 21:56:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=77.66300)
+2026-03-23 21:56:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=77.63900)
+2026-03-23 21:56:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=75.15100)
+2026-03-23 21:56:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=75.70600)
+2026-03-23 21:56:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 74.68600 SL=79.39006 TP=61.24584 (ATR=1.34402, pullback confirmed)
+2026-03-23 21:56:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=31 sl=72.88
+2026-03-23 21:56:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 72.88 → 72.52
+2026-03-23 21:56:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 72.52 → 72.01
+2026-03-23 21:56:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 72.01 → 69.82
+2026-03-23 21:56:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 69.82 → 69.55
+2026-03-23 21:56:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 69.55 → 69.17
+2026-03-23 21:56:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 69.17 → 66.93
+2026-03-23 21:56:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=81.71500)
+2026-03-23 21:56:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 82.38800 SL=79.77295 TP=89.85956 (ATR=0.74716, pullback confirmed)
+2026-03-23 21:56:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=32 sl=83.36
+2026-03-23 21:56:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 83.36 → 84.10
+2026-03-23 21:56:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 84.10 → 84.13
+2026-03-23 21:56:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 84.13 → 84.67
+2026-03-23 21:56:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 84.67 → 84.86
+2026-03-23 21:56:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 84.86 → 85.26
+2026-03-23 21:56:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 85.26 → 85.40
+2026-03-23 21:56:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=84.72900)
+2026-03-23 21:56:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=76.29000)
+2026-03-23 21:56:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=76.89300)
+2026-03-23 21:56:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=77.02900)
+2026-03-23 21:56:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 76.89300 SL=78.93752 TP=71.05150 (ATR=0.58415, pullback confirmed)
+2026-03-23 21:56:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=33 sl=76.61
+2026-03-23 21:56:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=33 76.61 → 76.56
+2026-03-23 21:56:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=33 76.56 → 76.31
+2026-03-23 21:56:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=33 76.31 → 76.27
+2026-03-23 21:56:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=33 76.27 → 76.17
+2026-03-23 21:56:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=33 76.17 → 75.95
+2026-03-23 21:56:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=33 75.95 → 75.79
+2026-03-23 21:56:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=76.17700)
+2026-03-23 21:56:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 76.11500 SL=77.19267 TP=73.03593 (ATR=0.30791, pullback confirmed)
+2026-03-23 21:56:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=75.86
+2026-03-23 21:56:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 75.86 → 75.29
+2026-03-23 21:56:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=73.96900)
+2026-03-23 21:56:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 72.95900 SL=74.96131 TP=67.23810 (ATR=0.57209, pullback confirmed)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=76.67900)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 76.88100 SL=75.60960 TP=80.51357 (ATR=0.36326, pullback confirmed)
+2026-03-23 21:56:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=36 sl=77.03
+2026-03-23 21:56:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 77.03 → 77.52
+2026-03-23 21:56:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 77.52 → 77.57
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=77.60200)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=77.39000)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=78.92200)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=78.51200)
+2026-03-23 21:56:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → BUY @ 78.56100 SL=77.40591 TP=81.86125 (ATR=0.33003, pullback confirmed)
+2026-03-23 21:56:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=37 sl=78.98
+2026-03-23 21:56:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 78.98 → 79.43
+2026-03-23 21:56:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 79.43 → 80.53
+2026-03-23 21:56:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=86.99300)
+2026-03-23 21:56:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88.01600)
+2026-03-23 21:56:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88.23000)
+2026-03-23 21:56:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88.68400)
+2026-03-23 21:56:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90.84200)
+2026-03-23 21:56:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88.18800)
+2026-03-23 21:56:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ENTRY → SELL @ 88.04200 SL=90.00583 TP=82.43106 (ATR=0.56109, pullback confirmed)
+2026-03-23 21:56:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=38 sl=87.74
+2026-03-23 21:56:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90.10000)
+2026-03-23 21:56:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [XAGUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=92.48900)
+2026-03-23 21:56:23 [INFO    ] src.backtesting.engine         Backtest complete: 38 trades, 2426.38% return, 98.46% max DD, 63.2% WR
+
+Backtest Results: ema_pullback on XAGUSD
+  Period: 2025-06-03 → 2026-02-27
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $757.91 │
+│ Total Return              │       +2426.38% │
+│ Max Drawdown              │          98.46% │
+│ Total Trades              │              38 │
+│ Win Rate                  │           63.2% │
+│ Profit Factor             │            1.97 │
+│ Avg Trade P&L             │         $+19.16 │
+│ Sharpe Ratio              │            0.30 │
+│ Max Consecutive Losses    │               3 │
+│ Avg Trade Duration        │           14.1h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 21:56:23 [INFO    ] backtest                       Results saved to data/backtest_results/XAGUSD_XAGUSD-S-ema_only_20260323_215623.json
+
+Backtest Results: ema_pullback on XAGUSD
+  Period: 2025-06-03 → 2026-02-27
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $757.91 │
+│ Total Return              │       +2426.38% │
+│ Max Drawdown              │          98.46% │
+│ Total Trades              │              38 │
+│ Win Rate                  │           63.2% │
+│ Profit Factor             │            1.97 │
+│ Avg Trade P&L             │         $+19.16 │
+│ Sharpe Ratio              │            0.30 │
+│ Max Consecutive Losses    │               3 │
+│ Avg Trade Duration        │           14.1h │
+└───────────────────────────┴─────────────────┘
+

@@ -1,0 +1,806 @@
+2026-03-23 21:56:24 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/BTCUSD_M15_20250601_20260301.csv
+2026-03-23 21:56:24 [INFO    ] src.backtesting.data_loader    Loaded 25621 bars from data/backtest_cache/BTCUSD_M15_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:56:24 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/BTCUSD_H1_20250601_20260301.csv
+2026-03-23 21:56:24 [INFO    ] src.backtesting.data_loader    Loaded 6406 bars from data/backtest_cache/BTCUSD_H1_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:56:24 [INFO    ] backtest                       Data loaded: 25621 M15 bars, 6406 H1 bars
+2026-03-23 21:56:24 [INFO    ] backtest                       Config [BTCUSD-S-ema_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:56:24 [INFO    ] src.backtesting.engine         Starting backtest: ema_pullback on BTCUSD (25621 M15 bars, 6406 H1 bars)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106008.75000)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 106076.52000 SL=105171.55538 TP=108662.13321 (ATR=258.56132, pullback confirmed)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104500.95000)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109415.90000)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 109434.19000 SL=108738.70154 TP=111421.29990 (ATR=198.71099, pullback confirmed)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110393.76000)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109819.23000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106976.78000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106372.20000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 106007.61000 SL=107535.24658 TP=101642.93406 (ATR=436.46759, pullback confirmed)
+2026-03-23 21:56:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=3 sl=105074.53
+2026-03-23 21:56:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 105074.53 → 104540.61
+2026-03-23 21:56:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=3 104540.61 → 103810.25
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104105.91000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104322.98000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107222.31000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 107345.88000 SL=106448.60311 TP=109909.52825 (ATR=256.36483, pullback confirmed)
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=107441.25
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 107441.25 → 107492.38
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 107492.38 → 107613.24
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 107613.24 → 107624.87
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 107624.87 → 107784.64
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 107784.64 → 108134.94
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 108134.94 → 108287.06
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 108287.06 → 108317.31
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 108317.31 → 108364.84
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104242.23000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104216.28000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104362.19000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104858.08000)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104330.26000)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 104257.80000 SL=105503.02994 TP=100700.00016 (ATR=355.77998, pullback confirmed)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=103335.70000)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=103384.78000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=102122.61000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=102370.79000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=102282.03000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 102192.64000 SL=103150.84534 TP=99454.91047 (ATR=273.77295, pullback confirmed)
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=6 sl=101514.37
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 101514.37 → 100859.78
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=99626.05000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105457.05000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105382.71000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105657.49000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105629.23000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 105804.00000 SL=104742.35795 TP=108837.26300 (ATR=303.32630, pullback confirmed)
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=7 sl=106067.17
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106437.68000)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 106613.46000 SL=105865.93078 TP=108749.25777 (ATR=213.57978, pullback confirmed)
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=8 sl=106769.39
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 106769.39 → 106786.06
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 106786.06 → 106855.54
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 106855.54 → 106867.30
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 106867.30 → 106890.33
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 106890.33 → 107049.98
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 107049.98 → 107481.89
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107523.74000)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107877.02000)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 107912.25000 SL=107037.24106 TP=110412.27553 (ATR=250.00255, pullback confirmed)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105653.36000)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109410.24000)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 109436.77000 SL=108769.10471 TP=111344.38511 (ATR=190.76151, pullback confirmed)
+2026-03-23 21:56:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=109677.91
+2026-03-23 21:56:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 109677.91 → 109930.52
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110488.84000)
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107743.46000)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=108833.42000)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 108917.26000 SL=108286.73603 TP=110718.75704 (ATR=180.14970, pullback confirmed)
+2026-03-23 21:56:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=11 sl=109012.73
+2026-03-23 21:56:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 109012.73 → 109105.51
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109507.71000)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107426.39000)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=108970.15000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109445.15000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111286.00000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 111385.48000 SL=110801.24179 TP=113054.73202 (ATR=166.92520, pullback confirmed)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111306.78000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 111324.32000 SL=110395.61483 TP=113977.76334 (ATR=265.34433, pullback confirmed)
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=111878.07
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 111878.07 → 112125.85
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 112125.85 → 112856.65
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 112856.65 → 112870.52
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 112870.52 → 113033.92
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 113033.92 → 113124.06
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118046.65000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117958.57000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 118082.89000 SL=116844.04275 TP=121622.45356 (ATR=353.95636, pullback confirmed)
+2026-03-23 21:56:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=14 sl=118797.87
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=119414.89000)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115781.48000)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=116271.76000)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=119493.04000)
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117268.61000)
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=116680.35000)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117859.97000)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 117601.01000 SL=118610.10705 TP=114717.87558 (ATR=288.31344, pullback confirmed)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:41 [INFO    ] src.backtesting.engine           Bar 5000/25621 (20%)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117315.87000)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114899.68000)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118100.44000)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118197.56000)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118192.82000)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 118198.59000 SL=117787.75998 TP=119372.39006 (ATR=117.38001, pullback confirmed)
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=16 sl=118220.18
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 118220.18 → 118329.80
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 118329.80 → 118847.38
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 118847.38 → 119047.61
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=119760.11000)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 119762.72000 SL=119000.64159 TP=121940.08687 (ATR=217.73669, pullback confirmed)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=119618.49000)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=119602.64000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113923.51000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114656.95000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114490.29000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 114441.12000 SL=116167.13253 TP=109509.65563 (ATR=493.14644, pullback confirmed)
+2026-03-23 21:56:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=18 sl=114101.00
+2026-03-23 21:56:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 114101.00 → 113955.60
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113532.57000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113670.95000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 113556.94000 SL=114200.28031 TP=111718.82484 (ATR=183.81152, pullback confirmed)
+2026-03-23 21:56:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=19 sl=113280.03
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112272.38000)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114992.69000)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114780.44000)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115472.85000)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115258.10000)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118682.49000)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118976.67000)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 119046.14000 SL=118223.98267 TP=121395.16093 (ATR=234.90209, pullback confirmed)
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=20 sl=119322.72
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 119322.72 → 119551.04
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 119551.04 → 120749.22
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118700.45000)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118522.59000)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 118476.14000 SL=119347.42929 TP=115986.74202 (ATR=248.93980, pullback confirmed)
+2026-03-23 21:56:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=118186.64
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117132.96000)
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117608.41000)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117477.87000)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 117403.99000 SL=118002.91089 TP=115692.78745 (ATR=171.12026, pullback confirmed)
+2026-03-23 21:56:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=117050.07
+2026-03-23 21:56:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 117050.07 → 116803.43
+2026-03-23 21:56:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 116803.43 → 116662.80
+2026-03-23 21:56:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 116662.80 → 116403.75
+2026-03-23 21:56:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 116403.75 → 116206.82
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113623.71000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113117.29000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113238.12000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 113124.13000 SL=114058.47587 TP=110454.57037 (ATR=266.95596, pullback confirmed)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114290.92000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113461.36000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113027.40000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 112696.71000 SL=113950.40254 TP=109114.73132 (ATR=358.19787, pullback confirmed)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115201.00000)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112092.59000)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112600.66000)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 112553.88000 SL=113727.93502 TP=109199.43709 (ATR=335.44429, pullback confirmed)
+2026-03-23 21:56:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=25 sl=112270.71
+2026-03-23 21:56:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 112270.71 → 111958.14
+2026-03-23 21:56:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 111958.14 → 111883.53
+2026-03-23 21:56:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 111883.53 → 111829.33
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110052.39000)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 109935.72000 SL=111796.55254 TP=104619.05560 (ATR=531.66644, pullback confirmed)
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113184.97000)
+2026-03-23 21:56:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=108174.27000)
+2026-03-23 21:56:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107670.94000)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111367.26000)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111272.54000)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110531.66000)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112453.07000)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112924.69000)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111145.44000)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 111003.50000 SL=111715.55231 TP=108969.06482 (ATR=203.44352, pullback confirmed)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=113753.57000)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114502.81000)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114688.36000)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114507.30000)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 114553.23000 SL=113987.01356 TP=116170.99127 (ATR=161.77613, pullback confirmed)
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=28 sl=114768.35
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 114768.35 → 114863.62
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 114863.62 → 115077.67
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 115077.67 → 115129.71
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 115129.71 → 115235.28
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 115235.28 → 115253.62
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 115253.62 → 115494.44
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 115494.44 → 115703.85
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115290.07000)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115239.43000)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 115245.08000 SL=114407.12080 TP=117639.24913 (ATR=239.41691, pullback confirmed)
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=29 sl=115443.64
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 115443.64 → 115482.82
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 115482.82 → 115628.84
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 115628.84 → 115792.99
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 115792.99 → 116050.03
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 116050.03 → 116082.47
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 116082.47 → 116136.28
+2026-03-23 21:57:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 116136.28 → 116282.92
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115993.23000)
+2026-03-23 21:57:05 [INFO    ] src.backtesting.engine           Bar 10000/25621 (39%)
+2026-03-23 21:57:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117212.41000)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=117245.47000)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 117376.08000 SL=116718.30005 TP=119255.45129 (ATR=187.93713, pullback confirmed)
+2026-03-23 21:57:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=30 sl=117437.14
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115483.00000)
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 115441.88000 SL=115795.25024 TP=114432.25074 (ATR=100.96293, pullback confirmed)
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112589.74000)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112297.90000)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 112244.91000 SL=112974.70723 TP=110159.77506 (ATR=208.51349, pullback confirmed)
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=32 sl=112106.95
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112709.39000)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111742.24000)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 111678.63000 SL=112502.42263 TP=109324.93678 (ATR=235.36932, pullback confirmed)
+2026-03-23 21:57:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109307.54000)
+2026-03-23 21:57:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=108693.65000)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=108789.37000)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109089.38000)
+2026-03-23 21:57:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111854.02000)
+2026-03-23 21:57:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112437.13000)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118647.98000)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118659.86000)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 118667.48000 SL=117902.42236 TP=120853.35897 (ATR=218.58790, pullback confirmed)
+2026-03-23 21:57:15 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=118905.44
+2026-03-23 21:57:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 118905.44 → 119089.79
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=120293.90000)
+2026-03-23 21:57:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=122710.64000)
+2026-03-23 21:57:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=122445.49000)
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=124069.03000)
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=123943.95000)
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 123947.60000 SL=123089.69498 TP=126398.75720 (ATR=245.11572, pullback confirmed)
+2026-03-23 21:57:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=35 sl=124169.51
+2026-03-23 21:57:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=35 124169.51 → 124302.36
+2026-03-23 21:57:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=35 124302.36 → 124451.03
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=121335.42000)
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=121211.20000)
+2026-03-23 21:57:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=120908.74000)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=120913.22000)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=118484.44000)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111775.63000)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 111505.77000 SL=112744.18365 TP=107967.44530 (ATR=353.83247, pullback confirmed)
+2026-03-23 21:57:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=36 sl=111140.09
+2026-03-23 21:57:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 111140.09 → 110873.15
+2026-03-23 21:57:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 110873.15 → 110853.19
+2026-03-23 21:57:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 110853.19 → 110689.57
+2026-03-23 21:57:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115546.40000)
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115469.42000)
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111054.35000)
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111807.45000)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111858.33000)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110576.66000)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111041.86000)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 110940.99000 SL=112233.80836 TP=107247.22326 (ATR=369.37667, pullback confirmed)
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=37 sl=110848.30
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 110848.30 → 110093.83
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 110093.83 → 109462.17
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 109462.17 → 109133.14
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 109133.14 → 109080.87
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106144.93000)
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 105745.49000 SL=107202.28624 TP=101583.21504 (ATR=416.22750, pullback confirmed)
+2026-03-23 21:57:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=38 sl=105600.20
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106742.11000)
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106642.97000)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110463.53000)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111271.47000)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 111273.43000 SL=110257.76933 TP=114175.31764 (ATR=290.18876, pullback confirmed)
+2026-03-23 21:57:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107449.48000)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109548.85000)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110430.76000)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 110491.14000 SL=109468.33737 TP=113413.43322 (ATR=292.22932, pullback confirmed)
+2026-03-23 21:57:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=40 sl=110715.81
+2026-03-23 21:57:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 110715.81 → 110750.28
+2026-03-23 21:57:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 110750.28 → 110854.95
+2026-03-23 21:57:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 110854.95 → 110933.03
+2026-03-23 21:57:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 110933.03 → 111061.54
+2026-03-23 21:57:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 111061.54 → 111097.06
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111578.36000)
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=111609.82000)
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 111623.68000 SL=111218.33462 TP=112781.80966 (ATR=115.81297, pullback confirmed)
+2026-03-23 21:57:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=41 sl=112437.45
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=114688.07000)
+2026-03-23 21:57:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115513.88000)
+2026-03-23 21:57:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=115587.93000)
+2026-03-23 21:57:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 115623.66000 SL=114561.63846 TP=118658.00725 (ATR=303.43473, pullback confirmed)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112856.37000)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=112237.72000)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109910.22000)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=107934.34000)
+2026-03-23 21:57:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=109866.65000)
+2026-03-23 21:57:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=110561.17000)
+2026-03-23 21:57:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=105486.44000)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=104177.38000)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=100341.07000)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 99105.83000 SL=101466.05598 TP=92362.32720 (ATR=674.35028, pullback confirmed)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101199.51000)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101369.54000)
+2026-03-23 21:57:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101886.71000)
+2026-03-23 21:57:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 101787.30000 SL=103506.64453 TP=96874.88707 (ATR=491.24129, pullback confirmed)
+2026-03-23 21:57:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=44 sl=101448.44
+2026-03-23 21:57:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=100776.07000)
+2026-03-23 21:57:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 100658.48000 SL=101730.18032 TP=97596.47909 (ATR=306.20009, pullback confirmed)
+2026-03-23 21:57:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=45 sl=100404.45
+2026-03-23 21:57:37 [INFO    ] src.backtesting.engine           Bar 15000/25621 (59%)
+2026-03-23 21:57:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101669.24000)
+2026-03-23 21:57:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=101506.31000)
+2026-03-23 21:57:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106314.37000)
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=106075.85000)
+2026-03-23 21:57:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=100904.09000)
+2026-03-23 21:57:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=102094.02000)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 101833.93000 SL=103250.37057 TP=97786.95694 (ATR=404.69731, pullback confirmed)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=98779.76000)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=98788.27000)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=94782.98000)
+2026-03-23 21:57:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=95523.67000)
+2026-03-23 21:57:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91286.89000)
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91328.62000)
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91089.58000)
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89889.61000)
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 89685.04000 SL=91365.78396 TP=84882.91441 (ATR=480.21256, pullback confirmed)
+2026-03-23 21:57:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=47 sl=89542.49
+2026-03-23 21:57:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=47 89542.49 → 89517.49
+2026-03-23 21:57:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=86579.02000)
+2026-03-23 21:57:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=82556.68000)
+2026-03-23 21:57:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=84278.11000)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=83944.06000)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 83939.53000 SL=85048.52396 TP=80770.97583 (ATR=316.85542, pullback confirmed)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=86250.07000)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 86443.87000 SL=85506.08141 TP=89123.26598 (ATR=267.93960, pullback confirmed)
+2026-03-23 21:57:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=49 sl=86554.71
+2026-03-23 21:57:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 86554.71 → 86616.34
+2026-03-23 21:57:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 86616.34 → 86709.79
+2026-03-23 21:57:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 86709.79 → 86845.01
+2026-03-23 21:57:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87792.30000)
+2026-03-23 21:57:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87644.46000)
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88329.91000)
+2026-03-23 21:57:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=86957.74000)
+2026-03-23 21:57:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91625.31000)
+2026-03-23 21:57:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91838.05000)
+2026-03-23 21:57:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91554.58000)
+2026-03-23 21:57:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=85340.19000)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=93180.94000)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 93204.84000 SL=92201.00121 TP=96072.95082 (ATR=286.81108, pullback confirmed)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=93442.47000)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=93752.04000)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89208.72000)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89202.36000)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89476.35000)
+2026-03-23 21:57:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89190.54000)
+2026-03-23 21:57:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:57:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88865.62000)
+2026-03-23 21:57:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 88804.81000 SL=89512.19484 TP=86783.71046 (ATR=202.10995, pullback confirmed)
+2026-03-23 21:57:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=51 sl=88308.97
+2026-03-23 21:58:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=92556.24000)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90266.56000)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90104.86000)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 90088.31000 SL=90422.72014 TP=89132.85247 (ATR=95.54575, pullback confirmed)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90122.02000)
+2026-03-23 21:58:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 90088.67000 SL=90436.67598 TP=89094.36721 (ATR=99.43028, pullback confirmed)
+2026-03-23 21:58:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=53 sl=89950.29
+2026-03-23 21:58:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=85708.51000)
+2026-03-23 21:58:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=86454.58000)
+2026-03-23 21:58:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88080.21000)
+2026-03-23 21:58:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88144.84000)
+2026-03-23 21:58:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 88175.39000 SL=87766.19165 TP=89344.52813 (ATR=116.91381, pullback confirmed)
+2026-03-23 21:58:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=54 sl=88442.61
+2026-03-23 21:58:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 88442.61 → 88501.35
+2026-03-23 21:58:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 88501.35 → 88624.52
+2026-03-23 21:58:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 88624.52 → 88676.25
+2026-03-23 21:58:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88824.06000)
+2026-03-23 21:58:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90069.56000)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=86705.99000)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87152.99000)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87232.83000)
+2026-03-23 21:58:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=86827.43000)
+2026-03-23 21:58:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88865.69000)
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89038.26000)
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87330.62000)
+2026-03-23 21:58:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88449.19000)
+2026-03-23 21:58:15 [INFO    ] src.backtesting.engine           Bar 20000/25621 (78%)
+2026-03-23 21:58:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87553.09000)
+2026-03-23 21:58:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91403.33000)
+2026-03-23 21:58:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=91429.54000)
+2026-03-23 21:58:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 91526.08000 SL=90940.32880 TP=93199.65486 (ATR=167.35749, pullback confirmed)
+2026-03-23 21:58:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=55 sl=91578.03
+2026-03-23 21:58:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 91578.03 → 91722.72
+2026-03-23 21:58:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 91722.72 → 92056.69
+2026-03-23 21:58:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 92056.69 → 92554.63
+2026-03-23 21:58:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 92554.63 → 92576.69
+2026-03-23 21:58:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=92631.80000)
+2026-03-23 21:58:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=92942.29000)
+2026-03-23 21:58:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 93066.94000 SL=92371.85312 TP=95052.90252 (ATR=198.59625, pullback confirmed)
+2026-03-23 21:58:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=56 sl=93336.19
+2026-03-23 21:58:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 93336.19 → 93443.85
+2026-03-23 21:58:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=93827.95000)
+2026-03-23 21:58:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 93834.74000 SL=93268.38386 TP=95452.90039 (ATR=161.81604, pullback confirmed)
+2026-03-23 21:58:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=57 sl=94063.13
+2026-03-23 21:58:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90746.05000)
+2026-03-23 21:58:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=95202.27000)
+2026-03-23 21:58:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 95474.39000 SL=94718.22083 TP=97634.87335 (ATR=216.04833, pullback confirmed)
+2026-03-23 21:58:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=58 sl=96017.50
+2026-03-23 21:58:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 96017.50 → 96413.24
+2026-03-23 21:58:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=92128.68000)
+2026-03-23 21:58:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=92742.12000)
+2026-03-23 21:58:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89149.99000)
+2026-03-23 21:58:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 89026.09000 SL=89837.31436 TP=86708.30611 (ATR=231.77839, pullback confirmed)
+2026-03-23 21:58:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=59 sl=88746.36
+2026-03-23 21:58:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 88746.36 → 88724.22
+2026-03-23 21:58:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87247.69000)
+2026-03-23 21:58:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89410.87000)
+2026-03-23 21:58:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89133.40000)
+2026-03-23 21:58:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88553.68000)
+2026-03-23 21:58:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87552.58000)
+2026-03-23 21:58:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87682.80000)
+2026-03-23 21:58:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=88537.49000)
+2026-03-23 21:58:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=87646.44000)
+2026-03-23 21:58:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 87616.41000 SL=88484.98865 TP=85134.75673 (ATR=248.16533, pullback confirmed)
+2026-03-23 21:58:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89348.52000)
+2026-03-23 21:58:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=89700.11000)
+2026-03-23 21:58:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=90170.85000)
+2026-03-23 21:58:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=85218.69000)
+2026-03-23 21:58:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 84610.15000 SL=86075.22246 TP=80424.22869 (ATR=418.59213, pullback confirmed)
+2026-03-23 21:58:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=61 sl=84402.57
+2026-03-23 21:58:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=84254.62000)
+2026-03-23 21:58:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 84183.55000 SL=85146.89293 TP=81431.14163 (ATR=275.24084, pullback confirmed)
+2026-03-23 21:58:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=82177.17000)
+2026-03-23 21:58:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=82910.08000)
+2026-03-23 21:58:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=78677.00000)
+2026-03-23 21:58:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 78515.68000 SL=79584.47264 TP=75461.98675 (ATR=305.36933, pullback confirmed)
+2026-03-23 21:58:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=63 sl=78308.17
+2026-03-23 21:58:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=76870.22000)
+2026-03-23 21:58:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 76680.22000 SL=78247.01471 TP=72203.66369 (ATR=447.65563, pullback confirmed)
+2026-03-23 21:58:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=64 sl=76157.03
+2026-03-23 21:58:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=64 76157.03 → 75688.08
+2026-03-23 21:58:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=78032.13000)
+2026-03-23 21:58:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=75677.87000)
+2026-03-23 21:58:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 75458.92000 SL=77230.41848 TP=70397.49578 (ATR=506.14242, pullback confirmed)
+2026-03-23 21:58:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=65 sl=75004.21
+2026-03-23 21:58:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=69913.33000)
+2026-03-23 21:58:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=64702.21000)
+2026-03-23 21:58:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=70442.31000)
+2026-03-23 21:58:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 70730.98000 SL=69212.23897 TP=75070.24008 (ATR=433.92601, pullback confirmed)
+2026-03-23 21:58:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=71406.10000)
+2026-03-23 21:58:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=71492.49000)
+2026-03-23 21:58:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=71344.91000)
+2026-03-23 21:58:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=67902.65000)
+2026-03-23 21:58:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=68247.08000)
+2026-03-23 21:58:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 68177.85000 SL=69157.38804 TP=65379.16990 (ATR=279.86801, pullback confirmed)
+2026-03-23 21:58:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=67 sl=68040.69
+2026-03-23 21:58:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 68040.69 → 67937.37
+2026-03-23 21:58:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 67937.37 → 67859.50
+2026-03-23 21:58:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 67859.50 → 67834.11
+2026-03-23 21:58:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 67834.11 → 67379.35
+2026-03-23 21:58:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 67379.35 → 67338.55
+2026-03-23 21:58:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 67338.55 → 67293.54
+2026-03-23 21:58:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 67293.54 → 67245.83
+2026-03-23 21:58:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=65887.43000)
+2026-03-23 21:58:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=69640.72000)
+2026-03-23 21:58:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 69655.52000 SL=69086.60528 TP=71280.99063 (ATR=162.54706, pullback confirmed)
+2026-03-23 21:58:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=68 sl=69820.53
+2026-03-23 21:58:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 69820.53 → 69879.93
+2026-03-23 21:58:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 69879.93 → 69982.98
+2026-03-23 21:58:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 69982.98 → 70159.86
+2026-03-23 21:58:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=69890.93000)
+2026-03-23 21:58:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=69921.95000)
+2026-03-23 21:58:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=70510.00000)
+2026-03-23 21:58:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=68541.28000)
+2026-03-23 21:58:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=68565.82000)
+2026-03-23 21:58:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 68556.60000 SL=69442.70445 TP=66024.87301 (ATR=253.17270, pullback confirmed)
+2026-03-23 21:58:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=67519.73000)
+2026-03-23 21:58:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=67220.43000)
+2026-03-23 21:58:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=66989.14000)
+2026-03-23 21:58:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=67913.36000)
+2026-03-23 21:58:50 [INFO    ] src.backtesting.engine           Bar 25000/25621 (98%)
+2026-03-23 21:58:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=64993.21000)
+2026-03-23 21:58:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 64414.03000 SL=65584.06884 TP=61071.06190 (ATR=334.29681, pullback confirmed)
+2026-03-23 21:58:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=65606.87000)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=64515.39000)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=63423.08000)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=64057.10000)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → SELL @ 64054.97000 SL=64808.61068 TP=61901.71090 (ATR=215.32591, pullback confirmed)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=66272.79000)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=65559.40000)
+2026-03-23 21:58:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ENTRY → BUY @ 65563.93000 SL=64802.31006 TP=67739.98697 (ATR=217.60570, pullback confirmed)
+2026-03-23 21:58:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=72 sl=65775.74
+2026-03-23 21:58:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 65775.74 → 65844.04
+2026-03-23 21:58:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 65844.04 → 65968.92
+2026-03-23 21:58:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 65968.92 → 66116.81
+2026-03-23 21:58:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 66116.81 → 66206.51
+2026-03-23 21:58:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=68736.68000)
+2026-03-23 21:58:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [BTCUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=68711.74000)
+2026-03-23 21:58:53 [INFO    ] src.backtesting.engine         Backtest complete: 72 trades, 363.54% return, 69.26% max DD, 65.3% WR
+
+Backtest Results: ema_pullback on BTCUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $139.06 │
+│ Total Return              │        +363.54% │
+│ Max Drawdown              │          69.26% │
+│ Total Trades              │              72 │
+│ Win Rate                  │           65.3% │
+│ Profit Factor             │            1.43 │
+│ Avg Trade P&L             │          $+1.51 │
+│ Sharpe Ratio              │            0.17 │
+│ Max Consecutive Losses    │               3 │
+│ Avg Trade Duration        │            5.8h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 21:58:53 [INFO    ] backtest                       Results saved to data/backtest_results/BTCUSD_BTCUSD-S-ema_only_20260323_215853.json
+
+Backtest Results: ema_pullback on BTCUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $139.06 │
+│ Total Return              │        +363.54% │
+│ Max Drawdown              │          69.26% │
+│ Total Trades              │              72 │
+│ Win Rate                  │           65.3% │
+│ Profit Factor             │            1.43 │
+│ Avg Trade P&L             │          $+1.51 │
+│ Sharpe Ratio              │            0.17 │
+│ Max Consecutive Losses    │               3 │
+│ Avg Trade Duration        │            5.8h │
+└───────────────────────────┴─────────────────┘
+

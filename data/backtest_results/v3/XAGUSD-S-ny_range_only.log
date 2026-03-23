@@ -1,0 +1,652 @@
+2026-03-23 21:54:58 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/XAGUSD_M15_20250601_20260301.csv
+2026-03-23 21:54:58 [INFO    ] src.backtesting.data_loader    Loaded 17662 bars from data/backtest_cache/XAGUSD_M15_20250601_20260301.csv (2025-06-02 01:00:00+00:00 → 2026-02-27 23:45:00+00:00)
+2026-03-23 21:54:58 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/XAGUSD_H1_20250601_20260301.csv
+2026-03-23 21:54:58 [INFO    ] src.backtesting.data_loader    Loaded 4419 bars from data/backtest_cache/XAGUSD_H1_20250601_20260301.csv (2025-06-02 01:00:00+00:00 → 2026-02-27 23:00:00+00:00)
+2026-03-23 21:54:58 [INFO    ] backtest                       Data loaded: 17662 M15 bars, 4419 H1 bars
+2026-03-23 21:54:58 [INFO    ] backtest                       Config [XAGUSD-S-ny_range_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:54:58 [INFO    ] src.backtesting.engine         Starting backtest: ny_range_breakout on XAGUSD (17662 M15 bars, 4419 H1 bars)
+2026-03-23 21:54:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=34.28300 low=34.20700 (width=0.07600)
+2026-03-23 21:54:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 34.28900 (range high=34.28300)
+2026-03-23 21:54:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=34.55100 low=34.17400 (width=0.37700)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=35.83500 low=35.51000 (width=0.32500)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 35.90000 (range high=35.83500)
+2026-03-23 21:54:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=2 sl=35.78
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.23100 low=36.09400 (width=0.13700)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 36.08100 (range low=36.09400)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.30700 low=36.19300 (width=0.11400)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 36.32600 (range high=36.30700)
+2026-03-23 21:54:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=36.27
+2026-03-23 21:54:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 36.27 → 36.28
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.77500 low=36.56000 (width=0.21500)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 36.44700 (range low=36.56000)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.35200 low=36.17300 (width=0.17900)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 36.45000 (range high=36.35200)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.26200 low=35.91700 (width=0.34500)
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 36.27600 (range high=36.26200)
+2026-03-23 21:54:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=7 sl=36.36
+2026-03-23 21:54:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=7 36.36 → 36.44
+2026-03-23 21:54:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.40200 low=36.12000 (width=0.28200)
+2026-03-23 21:55:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.15300 low=36.54800 (width=0.60500)
+2026-03-23 21:55:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 37.16400 (range high=37.15300)
+2026-03-23 21:55:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.41900 low=36.32100 (width=0.09800)
+2026-03-23 21:55:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 36.28700 (range low=36.32100)
+2026-03-23 21:55:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=9 sl=36.37
+2026-03-23 21:55:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 36.37 → 36.35
+2026-03-23 21:55:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.15500 low=36.07100 (width=0.08400)
+2026-03-23 21:55:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 35.97300 (range low=36.07100)
+2026-03-23 21:55:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=36.06
+2026-03-23 21:55:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 36.06 → 36.05
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.16300 low=36.03700 (width=0.12600)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 35.91000 (range low=36.03700)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=35.81000 low=35.69700 (width=0.11300)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 35.83000 (range high=35.81000)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.67900 low=36.54100 (width=0.13800)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 36.45300 (range low=36.54100)
+2026-03-23 21:55:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=36.56
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.02600 low=35.89100 (width=0.13500)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 36.03600 (range high=36.02600)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.10100 low=36.00600 (width=0.09500)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 35.94600 (range low=36.00600)
+2026-03-23 21:55:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=15 sl=35.94
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.50900 low=36.39600 (width=0.11300)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 36.52000 (range high=36.50900)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.32700 low=36.18200 (width=0.14500)
+2026-03-23 21:55:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 36.33800 (range high=36.32700)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.95400 low=36.77200 (width=0.18200)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 36.95800 (range high=36.95400)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.89100 low=36.77700 (width=0.11400)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 36.89600 (range high=36.89100)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.61600 low=36.14600 (width=0.47000)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.84000 low=36.67200 (width=0.16800)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 36.47500 (range low=36.67200)
+2026-03-23 21:55:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=20 sl=36.52
+2026-03-23 21:55:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 36.52 → 36.47
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.63800 low=36.55100 (width=0.08700)
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 36.52900 (range low=36.55100)
+2026-03-23 21:55:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=36.58
+2026-03-23 21:55:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 36.58 → 36.53
+2026-03-23 21:55:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 36.53 → 36.50
+2026-03-23 21:55:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.80300 low=36.58400 (width=0.21900)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.61500 low=37.47400 (width=0.14100)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 37.63700 (range high=37.61500)
+2026-03-23 21:55:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=37.58
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=39.09400 low=39.00100 (width=0.09300)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.96500 (range low=39.00100)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.32100 low=38.27300 (width=0.04800)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.26700 (range low=38.27300)
+2026-03-23 21:55:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=24 sl=38.32
+2026-03-23 21:55:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 38.32 → 38.29
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.07900 low=37.92500 (width=0.15400)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 37.84900 (range low=37.92500)
+2026-03-23 21:55:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=25 sl=37.84
+2026-03-23 21:55:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 37.84 → 37.81
+2026-03-23 21:55:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 37.81 → 37.74
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.86100 low=37.75200 (width=0.10900)
+2026-03-23 21:55:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 37.87200 (range high=37.86100)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.41000 low=38.29200 (width=0.11800)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.53700 low=38.41600 (width=0.12100)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 38.54100 (range high=38.53700)
+2026-03-23 21:55:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=38.51
+2026-03-23 21:55:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 38.51 → 38.62
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.89800 low=38.81900 (width=0.07900)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 38.93100 (range high=38.89800)
+2026-03-23 21:55:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=28 sl=38.92
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=39.40900 low=39.32000 (width=0.08900)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 39.42500 (range high=39.40900)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=39.10500 low=39.02400 (width=0.08100)
+2026-03-23 21:55:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.94800 (range low=39.02400)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.79900 low=38.66900 (width=0.13000)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.66000 (range low=38.66900)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.16800 low=38.09200 (width=0.07600)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.05000 (range low=38.09200)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.17600 low=38.09800 (width=0.07800)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.08700 (range low=38.09800)
+2026-03-23 21:55:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=33 sl=38.13
+2026-03-23 21:55:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=33 38.13 → 38.11
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.08200 low=37.95600 (width=0.12600)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 37.83600 (range low=37.95600)
+2026-03-23 21:55:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.83500 low=36.23300 (width=0.60200)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=36.51300 low=36.40300 (width=0.11000)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 36.84600 (range high=36.51300)
+2026-03-23 21:55:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=35 sl=36.85
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.23600 low=37.12400 (width=0.11200)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 37.28000 (range high=37.23600)
+2026-03-23 21:55:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=36 sl=37.24
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.42100 low=37.29800 (width=0.12300)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 37.49900 (range high=37.42100)
+2026-03-23 21:55:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=37 sl=37.47
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.82300 low=37.64200 (width=0.18100)
+2026-03-23 21:55:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 37.83100 (range high=37.82300)
+2026-03-23 21:55:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.44400 low=38.22000 (width=0.22400)
+2026-03-23 21:55:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 38.46400 (range high=38.44400)
+2026-03-23 21:55:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.38600 low=38.24200 (width=0.14400)
+2026-03-23 21:55:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.23700 (range low=38.24200)
+2026-03-23 21:55:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.95100 low=37.75900 (width=0.19200)
+2026-03-23 21:55:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 37.71300 (range low=37.75900)
+2026-03-23 21:55:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=41 sl=37.77
+2026-03-23 21:55:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.76500 low=37.67000 (width=0.09500)
+2026-03-23 21:55:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 37.61700 (range low=37.67000)
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.59600 low=38.53200 (width=0.06400)
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.51400 (range low=38.53200)
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.41900 low=38.28200 (width=0.13700)
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 37.87300 (range low=38.28200)
+2026-03-23 21:55:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=44 sl=37.89
+2026-03-23 21:55:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 37.89 → 37.89
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.85600 low=37.78500 (width=0.07100)
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 37.76800 (range low=37.78500)
+2026-03-23 21:55:08 [INFO    ] src.backtesting.engine           Bar 5000/17662 (28%)
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.16100 low=38.08300 (width=0.07800)
+2026-03-23 21:55:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.05400 (range low=38.08300)
+2026-03-23 21:55:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=46 sl=38.11
+2026-03-23 21:55:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 38.11 → 38.11
+2026-03-23 21:55:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 38.11 → 38.10
+2026-03-23 21:55:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 38.10 → 38.07
+2026-03-23 21:55:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 38.07 → 38.06
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.10200 low=38.04200 (width=0.06000)
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 37.85700 (range low=38.04200)
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=47 sl=37.91
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.08600 low=36.97600 (width=0.11000)
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 37.09600 (range high=37.08600)
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=48 sl=37.09
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=37.76400 low=37.52600 (width=0.23800)
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 37.80200 (range high=37.76400)
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=49 sl=37.80
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 37.80 → 37.87
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 37.87 → 37.87
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 37.87 → 37.94
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 37.94 → 37.98
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 37.98 → 37.98
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 37.98 → 37.99
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 37.99 → 38.04
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 38.04 → 38.05
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 38.05 → 38.05
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 38.05 → 38.05
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 38.05 → 38.06
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 38.06 → 38.09
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 38.09 → 38.09
+2026-03-23 21:55:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 38.09 → 38.10
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.03100 low=37.93100 (width=0.10000)
+2026-03-23 21:55:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 38.47900 (range high=38.03100)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.77100 low=38.68700 (width=0.08400)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 38.81600 (range high=38.77100)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.54600 low=38.36500 (width=0.18100)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.28500 low=38.16000 (width=0.12500)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 38.32800 (range high=38.28500)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.98000 low=38.81500 (width=0.16500)
+2026-03-23 21:55:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 39.00900 (range high=38.98000)
+2026-03-23 21:55:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=53 sl=38.98
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=38.89300 low=38.80200 (width=0.09100)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 38.76000 (range low=38.80200)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=40.68200 low=40.50700 (width=0.17500)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 40.48100 (range low=40.50700)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=40.52800 low=40.34900 (width=0.17900)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 40.55400 (range high=40.52800)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=40.88600 low=40.76400 (width=0.12200)
+2026-03-23 21:55:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 40.90500 (range high=40.88600)
+2026-03-23 21:55:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=57 sl=40.85
+2026-03-23 21:55:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=57 40.85 → 40.88
+2026-03-23 21:55:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=57 40.88 → 40.96
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=40.81400 low=40.70400 (width=0.11000)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 40.69100 (range low=40.70400)
+2026-03-23 21:55:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=58 sl=40.74
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=41.34000 low=41.11400 (width=0.22600)
+2026-03-23 21:55:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 41.35800 (range high=41.34000)
+2026-03-23 21:55:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=59 sl=41.38
+2026-03-23 21:55:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 41.38 → 41.42
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=41.08100 low=40.97800 (width=0.10300)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 41.17600 (range high=41.08100)
+2026-03-23 21:55:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=60 sl=41.10
+2026-03-23 21:55:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 41.10 → 41.15
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=42.34500 low=42.21400 (width=0.13100)
+2026-03-23 21:55:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 42.20300 (range low=42.21400)
+2026-03-23 21:55:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=61 sl=42.19
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=42.24100 low=42.15200 (width=0.08900)
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 42.09800 (range low=42.15200)
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=42.73800 low=42.67200 (width=0.06600)
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 42.76600 (range high=42.73800)
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=63 sl=42.72
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 42.72 → 42.72
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 42.72 → 42.76
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=41.60100 low=41.13000 (width=0.47100)
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 41.62500 (range high=41.60100)
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=64 sl=41.71
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=64 41.71 → 41.76
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=64 41.76 → 41.83
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=64 41.83 → 41.87
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=64 41.87 → 41.87
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=64 41.87 → 41.88
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=64 41.88 → 41.89
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=41.90800 low=41.81200 (width=0.09600)
+2026-03-23 21:55:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 41.76800 (range low=41.81200)
+2026-03-23 21:55:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=65 sl=41.83
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=42.27800 low=42.20500 (width=0.07300)
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 42.18900 (range low=42.20500)
+2026-03-23 21:55:15 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=66 sl=42.24
+2026-03-23 21:55:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=66 42.24 → 42.20
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=43.78200 low=43.64500 (width=0.13700)
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 43.57400 (range low=43.64500)
+2026-03-23 21:55:15 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=67 sl=43.67
+2026-03-23 21:55:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 43.67 → 43.60
+2026-03-23 21:55:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=67 43.60 → 43.58
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=44.32200 low=44.17200 (width=0.15000)
+2026-03-23 21:55:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 44.41300 (range high=44.32200)
+2026-03-23 21:55:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=44.17100 low=43.82100 (width=0.35000)
+2026-03-23 21:55:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 44.20000 (range high=44.17100)
+2026-03-23 21:55:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=45.06700 low=44.84600 (width=0.22100)
+2026-03-23 21:55:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 44.78800 (range low=44.84600)
+2026-03-23 21:55:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=70 sl=44.92
+2026-03-23 21:55:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=70 44.92 → 44.80
+2026-03-23 21:55:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=70 44.80 → 44.76
+2026-03-23 21:55:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=45.14500 low=44.94500 (width=0.20000)
+2026-03-23 21:55:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 45.15800 (range high=45.14500)
+2026-03-23 21:55:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=71 sl=45.10
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=46.99100 low=46.83900 (width=0.15200)
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 47.01800 (range high=46.99100)
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=46.25400 low=45.90400 (width=0.35000)
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 46.50100 (range high=46.25400)
+2026-03-23 21:55:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=73 sl=46.43
+2026-03-23 21:55:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=73 46.43 → 46.50
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=47.35600 low=47.13200 (width=0.22400)
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 47.40400 (range high=47.35600)
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=47.50000 low=47.36000 (width=0.14000)
+2026-03-23 21:55:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 47.50800 (range high=47.50000)
+2026-03-23 21:55:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=75 sl=47.46
+2026-03-23 21:55:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 47.46 → 47.56
+2026-03-23 21:55:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=47.56400 low=47.32300 (width=0.24100)
+2026-03-23 21:55:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 47.63000 (range high=47.56400)
+2026-03-23 21:55:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=76 sl=47.59
+2026-03-23 21:55:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=76 47.59 → 47.64
+2026-03-23 21:55:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.64300 low=48.30800 (width=0.33500)
+2026-03-23 21:55:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 48.66000 (range high=48.64300)
+2026-03-23 21:55:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.52200 low=48.31800 (width=0.20400)
+2026-03-23 21:55:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 48.58100 (range high=48.52200)
+2026-03-23 21:55:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.98000 low=48.74300 (width=0.23700)
+2026-03-23 21:55:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 49.02700 (range high=48.98000)
+2026-03-23 21:55:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=79 sl=48.96
+2026-03-23 21:55:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=79 48.96 → 49.00
+2026-03-23 21:55:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=79 49.00 → 49.08
+2026-03-23 21:55:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=79 49.08 → 49.16
+2026-03-23 21:55:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=79 49.16 → 49.17
+2026-03-23 21:55:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=49.67700 low=49.60800 (width=0.06900)
+2026-03-23 21:55:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 49.72100 (range high=49.67700)
+2026-03-23 21:55:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=50.58600 low=49.68200 (width=0.90400)
+2026-03-23 21:55:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=51.25200 low=50.51900 (width=0.73300)
+2026-03-23 21:55:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 51.54300 (range high=51.25200)
+2026-03-23 21:55:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=81 sl=51.58
+2026-03-23 21:55:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 51.58 → 51.61
+2026-03-23 21:55:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 51.61 → 51.65
+2026-03-23 21:55:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 51.65 → 51.67
+2026-03-23 21:55:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=51.58700 low=51.01100 (width=0.57600)
+2026-03-23 21:55:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 50.82700 (range low=51.01100)
+2026-03-23 21:55:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=82 sl=51.03
+2026-03-23 21:55:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=82 51.03 → 51.01
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=52.84100 low=52.47000 (width=0.37100)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 52.85500 (range high=52.84100)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=53.01000 low=52.86100 (width=0.14900)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 53.05900 (range high=53.01000)
+2026-03-23 21:55:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=84 sl=53.00
+2026-03-23 21:55:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 53.00 → 53.01
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=54.10400 low=53.74800 (width=0.35600)
+2026-03-23 21:55:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 53.65100 (range low=53.74800)
+2026-03-23 21:55:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=85 sl=53.67
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=52.00800 low=51.56600 (width=0.44200)
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 52.01900 (range high=52.00800)
+2026-03-23 21:55:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=86 sl=51.94
+2026-03-23 21:55:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 51.94 → 52.12
+2026-03-23 21:55:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 52.12 → 52.36
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=50.37200 low=49.87100 (width=0.50100)
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 49.64600 (range low=49.87100)
+2026-03-23 21:55:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=87 sl=49.44
+2026-03-23 21:55:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 49.44 → 49.40
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.77000 low=47.89000 (width=0.88000)
+2026-03-23 21:55:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 47.81900 (range low=47.89000)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.25400 low=47.95100 (width=0.30300)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 48.89700 (range high=48.25400)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=47.89300 low=47.60300 (width=0.29000)
+2026-03-23 21:55:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 47.45900 (range low=47.60300)
+2026-03-23 21:55:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=90 sl=47.50
+2026-03-23 21:55:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 47.50 → 47.32
+2026-03-23 21:55:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=46.29700 low=45.85500 (width=0.44200)
+2026-03-23 21:55:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 46.48700 (range high=46.29700)
+2026-03-23 21:55:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=91 sl=46.41
+2026-03-23 21:55:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 46.41 → 46.43
+2026-03-23 21:55:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 46.43 → 46.62
+2026-03-23 21:55:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 46.62 → 46.62
+2026-03-23 21:55:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 46.62 → 46.74
+2026-03-23 21:55:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 46.74 → 46.76
+2026-03-23 21:55:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 46.76 → 46.86
+2026-03-23 21:55:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 46.86 → 46.92
+2026-03-23 21:55:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 46.92 → 46.95
+2026-03-23 21:55:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.35200 low=48.11900 (width=0.23300)
+2026-03-23 21:55:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 48.40900 (range high=48.35200)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.13600 low=47.81000 (width=0.32600)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 48.23200 (range high=48.13600)
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=93 sl=48.07
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 48.07 → 48.35
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 48.35 → 48.40
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 48.40 → 48.47
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 48.47 → 48.49
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 48.49 → 48.52
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 48.52 → 48.52
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 48.52 → 48.53
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 48.53 → 48.54
+2026-03-23 21:55:25 [INFO    ] src.backtesting.engine           Bar 10000/17662 (57%)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.91100 low=48.76400 (width=0.14700)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 48.96100 (range high=48.91100)
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=94 sl=48.82
+2026-03-23 21:55:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 48.82 → 48.85
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.76900 low=48.58800 (width=0.18100)
+2026-03-23 21:55:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 48.85100 (range high=48.76900)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=47.81200 low=47.66400 (width=0.14800)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 47.84100 (range high=47.81200)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=47.70100 low=47.52600 (width=0.17500)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.73500 low=48.51600 (width=0.21900)
+2026-03-23 21:55:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 48.49200 (range low=48.51600)
+2026-03-23 21:55:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=48.79800 low=48.35600 (width=0.44200)
+2026-03-23 21:55:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 48.26600 (range low=48.35600)
+2026-03-23 21:55:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=98 sl=48.35
+2026-03-23 21:55:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=49.95500 low=49.78100 (width=0.17400)
+2026-03-23 21:55:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 50.05900 (range high=49.95500)
+2026-03-23 21:55:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=51.17300 low=50.91800 (width=0.25500)
+2026-03-23 21:55:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 51.21000 (range high=51.17300)
+2026-03-23 21:55:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=51.80300 low=51.44200 (width=0.36100)
+2026-03-23 21:55:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 51.82300 (range high=51.80300)
+2026-03-23 21:55:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=101 sl=51.91
+2026-03-23 21:55:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 51.91 → 52.02
+2026-03-23 21:55:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 52.02 → 52.23
+2026-03-23 21:55:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=53.80600 low=53.39900 (width=0.40700)
+2026-03-23 21:55:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 53.84800 (range high=53.80600)
+2026-03-23 21:55:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=102 sl=53.72
+2026-03-23 21:55:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=52.60300 low=51.96700 (width=0.63600)
+2026-03-23 21:55:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 51.68400 (range low=51.96700)
+2026-03-23 21:55:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=103 sl=51.66
+2026-03-23 21:55:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 51.66 → 51.15
+2026-03-23 21:55:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 51.15 → 51.14
+2026-03-23 21:55:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=51.09400 low=50.71200 (width=0.38200)
+2026-03-23 21:55:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 50.64800 (range low=50.71200)
+2026-03-23 21:55:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=104 sl=50.78
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=50.56100 low=50.25800 (width=0.30300)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 50.15700 (range low=50.25800)
+2026-03-23 21:55:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=105 sl=50.16
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=52.27900 low=52.06000 (width=0.21900)
+2026-03-23 21:55:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 51.90300 (range low=52.06000)
+2026-03-23 21:55:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=106 sl=51.92
+2026-03-23 21:55:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=50.91400 low=50.56200 (width=0.35200)
+2026-03-23 21:55:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 51.00000 (range high=50.91400)
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=107 sl=50.84
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=107 50.84 → 50.90
+2026-03-23 21:55:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=49.15400 low=48.84600 (width=0.30800)
+2026-03-23 21:55:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 49.37700 (range high=49.15400)
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=108 sl=49.16
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=108 49.16 → 49.29
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=108 49.29 → 49.37
+2026-03-23 21:55:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=108 49.37 → 49.49
+2026-03-23 21:55:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=51.31100 low=51.09100 (width=0.22000)
+2026-03-23 21:55:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 51.42000 (range high=51.31100)
+2026-03-23 21:55:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=109 sl=51.30
+2026-03-23 21:55:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=109 51.30 → 51.34
+2026-03-23 21:55:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=52.60000 low=52.36500 (width=0.23500)
+2026-03-23 21:55:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 52.23100 (range low=52.36500)
+2026-03-23 21:55:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=110 sl=52.39
+2026-03-23 21:55:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=53.41000 low=53.16800 (width=0.24200)
+2026-03-23 21:55:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 53.42400 (range high=53.41000)
+2026-03-23 21:55:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=53.96200 low=53.78700 (width=0.17500)
+2026-03-23 21:55:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 54.19500 (range high=53.96200)
+2026-03-23 21:55:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=57.66900 low=57.32000 (width=0.34900)
+2026-03-23 21:55:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 57.29800 (range low=57.32000)
+2026-03-23 21:55:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=113 sl=57.42
+2026-03-23 21:55:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=57.41700 low=56.95300 (width=0.46400)
+2026-03-23 21:55:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 58.12200 (range high=57.41700)
+2026-03-23 21:55:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=114 sl=57.93
+2026-03-23 21:55:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=114 57.93 → 57.99
+2026-03-23 21:55:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=114 57.99 → 58.20
+2026-03-23 21:55:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=114 58.20 → 58.22
+2026-03-23 21:55:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=114 58.22 → 58.23
+2026-03-23 21:55:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=114 58.23 → 58.24
+2026-03-23 21:55:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=58.34600 low=57.97100 (width=0.37500)
+2026-03-23 21:55:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 58.48300 (range high=58.34600)
+2026-03-23 21:55:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=115 sl=58.43
+2026-03-23 21:55:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=115 58.43 → 58.52
+2026-03-23 21:55:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=115 58.52 → 58.64
+2026-03-23 21:55:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=57.60000 low=57.41900 (width=0.18100)
+2026-03-23 21:55:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 57.39200 (range low=57.41900)
+2026-03-23 21:55:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=116 sl=57.56
+2026-03-23 21:55:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=116 57.56 → 57.46
+2026-03-23 21:55:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=58.21400 low=57.98900 (width=0.22500)
+2026-03-23 21:55:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 57.96200 (range low=57.98900)
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=58.47900 low=58.32600 (width=0.15300)
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 58.50700 (range high=58.47900)
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=58.62900 low=58.43800 (width=0.19100)
+2026-03-23 21:55:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 58.68400 (range high=58.62900)
+2026-03-23 21:55:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=119 sl=58.57
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=61.13100 low=60.84200 (width=0.28900)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 61.15000 (range high=61.13100)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=62.45400 low=61.96500 (width=0.48900)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 62.69600 (range high=62.45400)
+2026-03-23 21:55:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=121 sl=62.79
+2026-03-23 21:55:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=121 62.79 → 62.86
+2026-03-23 21:55:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=121 62.86 → 63.00
+2026-03-23 21:55:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=121 63.00 → 63.00
+2026-03-23 21:55:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=121 63.00 → 63.12
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=64.56100 low=64.24600 (width=0.31500)
+2026-03-23 21:55:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 64.06700 (range low=64.24600)
+2026-03-23 21:55:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=63.86400 low=63.58200 (width=0.28200)
+2026-03-23 21:55:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 63.88800 (range high=63.86400)
+2026-03-23 21:55:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=123 sl=63.78
+2026-03-23 21:55:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=65.99600 low=65.76400 (width=0.23200)
+2026-03-23 21:55:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 66.00200 (range high=65.99600)
+2026-03-23 21:55:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=66.28400 low=66.06300 (width=0.22100)
+2026-03-23 21:55:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 66.04200 (range low=66.06300)
+2026-03-23 21:55:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=125 sl=66.14
+2026-03-23 21:55:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 66.14 → 66.12
+2026-03-23 21:55:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=66.07500 low=65.82400 (width=0.25100)
+2026-03-23 21:55:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 65.80200 (range low=65.82400)
+2026-03-23 21:55:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=69.15500 low=68.94800 (width=0.20700)
+2026-03-23 21:55:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 68.89900 (range low=68.94800)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=69.72900 low=69.53100 (width=0.19800)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 70.24900 (range high=69.72900)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=72.16800 low=71.90100 (width=0.26700)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 72.36400 (range high=72.16800)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=74.89900 low=73.56800 (width=1.33100)
+2026-03-23 21:55:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 75.28500 (range high=74.89900)
+2026-03-23 21:55:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=130 sl=75.13
+2026-03-23 21:55:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 75.13 → 75.27
+2026-03-23 21:55:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 75.27 → 75.42
+2026-03-23 21:55:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 75.42 → 75.49
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 75.49 → 75.59
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 75.59 → 75.69
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 75.69 → 76.02
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 76.02 → 76.34
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 76.34 → 76.49
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 76.49 → 76.66
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 76.66 → 76.69
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=130 76.69 → 77.11
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=75.80000 low=73.96600 (width=1.83400)
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 73.50800 (range low=73.96600)
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=131 sl=74.00
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=131 74.00 → 73.61
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=131 73.61 → 72.36
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=74.89500 low=74.52100 (width=0.37400)
+2026-03-23 21:55:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 75.27400 (range high=74.89500)
+2026-03-23 21:55:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=132 sl=75.02
+2026-03-23 21:55:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=72.30700 low=71.69500 (width=0.61200)
+2026-03-23 21:55:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 71.39700 (range low=71.69500)
+2026-03-23 21:55:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=74.54200 low=74.09200 (width=0.45000)
+2026-03-23 21:55:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 73.96000 (range low=74.09200)
+2026-03-23 21:55:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=134 sl=74.03
+2026-03-23 21:55:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=75.89900 low=74.72400 (width=1.17500)
+2026-03-23 21:55:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 76.60300 (range high=75.89900)
+2026-03-23 21:55:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=135 sl=76.26
+2026-03-23 21:55:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=78.36300 low=77.80300 (width=0.56000)
+2026-03-23 21:55:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 78.40500 (range high=78.36300)
+2026-03-23 21:55:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=136 sl=78.47
+2026-03-23 21:55:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=136 78.47 → 78.57
+2026-03-23 21:55:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=79.55800 low=78.84900 (width=0.70900)
+2026-03-23 21:55:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 78.62700 (range low=78.84900)
+2026-03-23 21:55:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=137 sl=78.45
+2026-03-23 21:55:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=76.00800 low=75.33200 (width=0.67600)
+2026-03-23 21:55:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 74.70300 (range low=75.33200)
+2026-03-23 21:55:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=138 sl=74.86
+2026-03-23 21:55:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=138 74.86 → 74.77
+2026-03-23 21:55:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=78.21400 low=77.57800 (width=0.63600)
+2026-03-23 21:55:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 78.27500 (range high=78.21400)
+2026-03-23 21:55:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=84.21100 low=83.55900 (width=0.65200)
+2026-03-23 21:55:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 85.25300 (range high=84.21100)
+2026-03-23 21:55:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=140 sl=85.03
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=85.81500 low=85.53100 (width=0.28400)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 85.90800 (range high=85.81500)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=90.75300 low=89.92700 (width=0.82600)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 91.36800 (range high=90.75300)
+2026-03-23 21:55:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=142 sl=91.28
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=91.46700 low=90.83800 (width=0.62900)
+2026-03-23 21:55:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 89.79600 (range low=90.83800)
+2026-03-23 21:55:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=143 sl=90.13
+2026-03-23 21:55:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=91.31300 low=90.00300 (width=1.31000)
+2026-03-23 21:55:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 89.20300 (range low=90.00300)
+2026-03-23 21:55:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=144 sl=89.54
+2026-03-23 21:55:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=93.62500 low=92.56300 (width=1.06200)
+2026-03-23 21:55:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 93.68200 (range high=93.62500)
+2026-03-23 21:55:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=145 sl=93.59
+2026-03-23 21:55:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=145 93.59 → 93.89
+2026-03-23 21:55:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=145 93.89 → 93.91
+2026-03-23 21:55:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=145 93.91 → 94.05
+2026-03-23 21:55:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=145 94.05 → 94.16
+2026-03-23 21:55:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=145 94.16 → 94.17
+2026-03-23 21:55:49 [INFO    ] src.backtesting.engine           Bar 15000/17662 (85%)
+2026-03-23 21:55:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=95.69000 low=95.11400 (width=0.57600)
+2026-03-23 21:55:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 94.99900 (range low=95.11400)
+2026-03-23 21:55:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=95.09700 low=94.42500 (width=0.67200)
+2026-03-23 21:55:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 94.17300 (range low=94.42500)
+2026-03-23 21:55:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=147 sl=94.44
+2026-03-23 21:55:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=93.99600 low=93.48800 (width=0.50800)
+2026-03-23 21:55:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 94.45100 (range high=93.99600)
+2026-03-23 21:55:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=148 sl=94.54
+2026-03-23 21:55:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=98.98700 low=98.44600 (width=0.54100)
+2026-03-23 21:55:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 99.08300 (range high=98.98700)
+2026-03-23 21:55:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=149 sl=99.05
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=109.38200 low=108.24400 (width=1.13800)
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 109.72700 (range high=109.38200)
+2026-03-23 21:55:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=150 sl=109.52
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=112.76400 low=110.84200 (width=1.92200)
+2026-03-23 21:55:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 112.91100 (range high=112.76400)
+2026-03-23 21:55:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=112.91200 low=111.22000 (width=1.69200)
+2026-03-23 21:55:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 114.97800 (range high=112.91200)
+2026-03-23 21:55:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=118.46700 low=116.23100 (width=2.23600)
+2026-03-23 21:55:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 118.90900 (range high=118.46700)
+2026-03-23 21:55:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=153 sl=119.62
+2026-03-23 21:55:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=103.40100 low=100.26700 (width=3.13400)
+2026-03-23 21:55:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 103.62000 (range high=103.40100)
+2026-03-23 21:55:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=84.04100 low=81.75300 (width=2.28800)
+2026-03-23 21:55:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 81.08300 (range low=81.75300)
+2026-03-23 21:55:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=155 sl=81.25
+2026-03-23 21:55:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=155 81.25 → 80.67
+2026-03-23 21:55:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=155 80.67 → 80.33
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=86.96800 low=85.19700 (width=1.77100)
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 87.32100 (range high=86.96800)
+2026-03-23 21:55:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=156 sl=86.70
+2026-03-23 21:55:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=156 86.70 → 87.20
+2026-03-23 21:55:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=156 87.20 → 87.50
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=90.57900 low=88.98000 (width=1.59900)
+2026-03-23 21:55:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 90.71400 (range high=90.57900)
+2026-03-23 21:55:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=157 sl=90.35
+2026-03-23 21:55:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=157 90.35 → 90.36
+2026-03-23 21:55:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=79.44000 low=78.03200 (width=1.40800)
+2026-03-23 21:55:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 77.37100 (range low=78.03200)
+2026-03-23 21:55:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=158 sl=77.73
+2026-03-23 21:55:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=158 77.73 → 77.69
+2026-03-23 21:55:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=75.01600 low=73.57600 (width=1.44000)
+2026-03-23 21:55:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 75.45300 (range high=75.01600)
+2026-03-23 21:55:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=159 sl=74.97
+2026-03-23 21:55:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 74.97 → 75.02
+2026-03-23 21:55:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 75.02 → 75.49
+2026-03-23 21:55:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=80.32800 low=78.99400 (width=1.33400)
+2026-03-23 21:55:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 81.51700 (range high=80.32800)
+2026-03-23 21:55:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=160 sl=81.25
+2026-03-23 21:55:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=160 81.25 → 81.51
+2026-03-23 21:55:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=160 81.51 → 81.57
+2026-03-23 21:55:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=160 81.57 → 81.98
+2026-03-23 21:55:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=160 81.98 → 82.37
+2026-03-23 21:55:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=160 82.37 → 82.49
+2026-03-23 21:55:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=82.32500 low=81.59300 (width=0.73200)
+2026-03-23 21:55:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 81.52800 (range low=81.59300)
+2026-03-23 21:55:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=86.22400 low=85.38200 (width=0.84200)
+2026-03-23 21:55:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 85.13800 (range low=85.38200)
+2026-03-23 21:55:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=83.59800 low=83.12100 (width=0.47700)
+2026-03-23 21:55:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 83.09400 (range low=83.12100)
+2026-03-23 21:55:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=163 sl=83.35
+2026-03-23 21:55:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 83.35 → 83.32
+2026-03-23 21:55:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=77.64800 low=76.59100 (width=1.05700)
+2026-03-23 21:55:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 77.85300 (range high=77.64800)
+2026-03-23 21:55:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=164 sl=77.88
+2026-03-23 21:55:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=164 77.88 → 78.03
+2026-03-23 21:55:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=77.16500 low=76.82500 (width=0.34000)
+2026-03-23 21:55:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 76.78500 (range low=76.82500)
+2026-03-23 21:55:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=165 sl=77.04
+2026-03-23 21:55:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=165 77.04 → 77.00
+2026-03-23 21:55:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=74.85300 low=73.98500 (width=0.86800)
+2026-03-23 21:55:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 74.97400 (range high=74.85300)
+2026-03-23 21:55:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=75.86400 low=75.31000 (width=0.55400)
+2026-03-23 21:55:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 75.95200 (range high=75.86400)
+2026-03-23 21:55:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=167 sl=75.86
+2026-03-23 21:55:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=167 75.86 → 76.14
+2026-03-23 21:55:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=167 76.14 → 76.14
+2026-03-23 21:55:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=167 76.14 → 76.34
+2026-03-23 21:56:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=78.63500 low=77.34800 (width=1.28700)
+2026-03-23 21:56:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 78.89700 (range high=78.63500)
+2026-03-23 21:56:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=80.96300 low=80.07600 (width=0.88700)
+2026-03-23 21:56:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 81.42600 (range high=80.96300)
+2026-03-23 21:56:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=86.99300 low=86.23200 (width=0.76100)
+2026-03-23 21:56:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 87.06000 (range high=86.99300)
+2026-03-23 21:56:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=88.29600 low=87.77800 (width=0.51800)
+2026-03-23 21:56:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 86.06100 (range low=87.77800)
+2026-03-23 21:56:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=171 sl=86.49
+2026-03-23 21:56:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=90.49300 low=89.45300 (width=1.04000)
+2026-03-23 21:56:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 90.53400 (range high=90.49300)
+2026-03-23 21:56:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=87.66200 low=86.85800 (width=0.80400)
+2026-03-23 21:56:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: SELL @ 86.31900 (range low=86.85800)
+2026-03-23 21:56:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=173 sl=86.81
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAGUSD]: high=90.03500 low=89.61000 (width=0.42500)
+2026-03-23 21:56:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAGUSD]: BUY @ 90.49100 (range high=90.03500)
+2026-03-23 21:56:03 [INFO    ] src.backtesting.engine         Backtest complete: 174 trades, 831.91% return, 172.06% max DD, 42.0% WR
+
+Backtest Results: ny_range_breakout on XAGUSD
+  Period: 2025-06-03 → 2026-02-27
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $279.57 │
+│ Total Return              │        +831.91% │
+│ Max Drawdown              │         172.06% │
+│ Total Trades              │             174 │
+│ Win Rate                  │           42.0% │
+│ Profit Factor             │            1.14 │
+│ Avg Trade P&L             │          $+1.43 │
+│ Sharpe Ratio              │           -0.04 │
+│ Max Consecutive Losses    │               9 │
+│ Avg Trade Duration        │            2.6h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 21:56:03 [INFO    ] backtest                       Results saved to data/backtest_results/XAGUSD_XAGUSD-S-ny_range_only_20260323_215603.json
+
+Backtest Results: ny_range_breakout on XAGUSD
+  Period: 2025-06-03 → 2026-02-27
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $279.57 │
+│ Total Return              │        +831.91% │
+│ Max Drawdown              │         172.06% │
+│ Total Trades              │             174 │
+│ Win Rate                  │           42.0% │
+│ Profit Factor             │            1.14 │
+│ Avg Trade P&L             │          $+1.43 │
+│ Sharpe Ratio              │           -0.04 │
+│ Max Consecutive Losses    │               9 │
+│ Avg Trade Duration        │            2.6h │
+└───────────────────────────┴─────────────────┘
+

@@ -1,0 +1,602 @@
+2026-03-23 21:58:54 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/ETHUSD_M15_20250601_20260301.csv
+2026-03-23 21:58:54 [INFO    ] src.backtesting.data_loader    Loaded 25621 bars from data/backtest_cache/ETHUSD_M15_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:58:54 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/ETHUSD_H1_20250601_20260301.csv
+2026-03-23 21:58:54 [INFO    ] src.backtesting.data_loader    Loaded 6406 bars from data/backtest_cache/ETHUSD_H1_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:58:54 [INFO    ] backtest                       Data loaded: 25621 M15 bars, 6406 H1 bars
+2026-03-23 21:58:54 [INFO    ] backtest                       Config [ETHUSD-S-london_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:58:54 [INFO    ] src.backtesting.engine         Starting backtest: london_breakout on ETHUSD (25621 M15 bars, 6406 H1 bars)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2648.40000 low=2538.13000 (11027.0 pips)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2639.33000 low=2575.81000 (6352.0 pips)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2639.48000 (Asian high=2639.33000, SL=2575.81000, TP=2957.08000)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2455.59000 low=2382.58000 (7301.0 pips)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2457.43000 (Asian high=2455.59000, SL=2382.58000, TP=2822.48000)
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=2 sl=2524.32
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2547.38000 low=2480.74000 (6664.0 pips)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2479.32000 (Asian low=2480.74000, SL=2547.38000, TP=2146.12000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2725.03000 low=2587.65000 (13738.0 pips)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2833.17000 low=2734.62000 (9855.0 pips)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2829.87000 low=2742.31000 (8756.0 pips)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2739.52000 (Asian low=2742.31000, SL=2829.87000, TP=2301.72000)
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=2679.68
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2679.68 → 2669.90
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2669.90 → 2662.38
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2662.38 → 2662.34
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2662.34 → 2603.93
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2603.93 → 2588.09
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2588.09 → 2577.96
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2577.96 → 2572.44
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2572.44 → 2522.29
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2522.29 → 2495.94
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2658.62000 low=2436.00000 (22262.0 pips)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2577.96000 low=2545.62000 (3234.0 pips)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2536.08000 (Asian low=2545.62000, SL=2577.96000, TP=2374.38000)
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=5 sl=2510.53
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2539.36000 low=2504.89000 (3447.0 pips)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2542.09000 (Asian high=2539.36000, SL=2504.89000, TP=2714.44000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2577.61000 low=2496.17000 (8144.0 pips)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2595.80000 (Asian high=2577.61000, SL=2496.17000, TP=3003.00000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2534.53000 low=2490.47000 (4406.0 pips)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2536.56000 (Asian high=2534.53000, SL=2490.47000, TP=2756.86000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2545.49000 low=2505.90000 (3959.0 pips)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2530.54000 low=2502.99000 (2755.0 pips)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2564.10000 (Asian high=2530.54000, SL=2502.99000, TP=2701.85000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2431.27000 low=2381.01000 (5026.0 pips)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2440.27000 (Asian high=2431.27000, SL=2381.01000, TP=2691.57000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2404.16000 low=2214.91000 (18925.0 pips)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2258.37000 low=2172.36000 (8601.0 pips)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2260.28000 (Asian high=2258.37000, SL=2172.36000, TP=2690.33000)
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=11 sl=2320.20
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 2320.20 → 2364.68
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 2364.68 → 2385.75
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2436.78000 low=2333.41000 (10337.0 pips)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2467.17000 low=2429.09000 (3808.0 pips)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2428.99000 (Asian low=2429.09000, SL=2467.17000, TP=2238.59000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2518.90000 low=2406.39000 (11251.0 pips)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2447.28000 low=2381.42000 (6586.0 pips)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2447.44000 (Asian high=2447.28000, SL=2381.42000, TP=2776.74000)
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=2495.55
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 2495.55 → 2497.74
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 2497.74 → 2498.09
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2523.60000 low=2410.84000 (11276.0 pips)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2503.18000 low=2475.97000 (2721.0 pips)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2459.59000 (Asian low=2475.97000, SL=2503.18000, TP=2323.54000)
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=14 sl=2444.27
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2431.11000 low=2372.82000 (5829.0 pips)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2434.06000 (Asian high=2431.11000, SL=2372.82000, TP=2725.51000)
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=15 sl=2481.19
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 2481.19 → 2513.34
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 2513.34 → 2516.45
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 2516.45 → 2521.30
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 2521.30 → 2537.69
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 2537.69 → 2541.07
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=15 2541.07 → 2556.67
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2617.62000 low=2554.60000 (6302.0 pips)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2602.13000 low=2570.08000 (3205.0 pips)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2568.85000 (Asian low=2570.08000, SL=2602.13000, TP=2408.60000)
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=16 sl=2547.09
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 2547.09 → 2542.53
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2523.55000 low=2486.12000 (3743.0 pips)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2523.60000 (Asian high=2523.55000, SL=2486.12000, TP=2710.75000)
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=17 sl=2552.11
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 2552.11 → 2579.40
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 2579.40 → 2581.77
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2603.78000 low=2543.80000 (5998.0 pips)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2553.05000 low=2521.72000 (3133.0 pips)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2558.57000 (Asian high=2553.05000, SL=2521.72000, TP=2715.22000)
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=18 sl=2593.10
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 2593.10 → 2593.86
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 2593.86 → 2595.98
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 2595.98 → 2597.88
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 2597.88 → 2603.31
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2625.54000 low=2588.71000 (3683.0 pips)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2634.66000 (Asian high=2625.54000, SL=2588.71000, TP=2818.81000)
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=19 sl=2691.25
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2691.25 → 2695.62
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2695.62 → 2701.68
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2701.68 → 2719.93
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2719.93 → 2738.66
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2796.58000 low=2734.01000 (6257.0 pips)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2816.01000 (Asian high=2796.58000, SL=2734.01000, TP=3128.86000)
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=20 sl=2872.45
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 2872.45 → 2916.87
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 2916.87 → 2931.07
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 2931.07 → 2933.66
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3000.30000 low=2815.63000 (18467.0 pips)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3009.27000 (Asian high=3000.30000, SL=2815.63000, TP=3932.62000)
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=3172.89
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3172.89 → 3206.83
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3206.83 → 3222.27
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3397.64000 low=3309.45000 (8819.0 pips)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3423.23000 (Asian high=3397.64000, SL=3309.45000, TP=3864.18000)
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=3470.41
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3470.41 → 3491.86
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3491.86 → 3526.42
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3526.42 → 3529.74
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3529.74 → 3553.60
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3553.60 → 3564.39
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3564.39 → 3564.99
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3564.99 → 3573.33
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3573.33 → 3581.75
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3581.75 → 3590.96
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3590.96 → 3602.86
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3602.86 → 3609.48
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3609.48 → 3630.91
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3624.90000 low=3415.98000 (20892.0 pips)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3638.65000 (Asian high=3624.90000, SL=3415.98000, TP=4683.25000)
+2026-03-23 21:59:03 [INFO    ] src.backtesting.engine           Bar 5000/25621 (20%)
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=23 sl=3835.41
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3905.56000 low=3814.70000 (9086.0 pips)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3919.72000 (Asian high=3905.56000, SL=3814.70000, TP=4374.02000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3820.26000 low=3729.65000 (9061.0 pips)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3827.15000 low=3752.41000 (7474.0 pips)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3827.85000 (Asian high=3827.15000, SL=3752.41000, TP=4201.55000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3866.67000 low=3741.13000 (12554.0 pips)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3869.66000 (Asian high=3866.67000, SL=3741.13000, TP=4497.36000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3756.84000 low=3615.14000 (14170.0 pips)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3612.32000 (Asian low=3615.14000, SL=3756.84000, TP=2903.82000)
+2026-03-23 21:59:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=3510.33
+2026-03-23 21:59:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 3510.33 → 3504.20
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3551.48000 low=3430.05000 (12143.0 pips)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3450.75000 low=3353.81000 (9694.0 pips)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3451.16000 (Asian high=3450.75000, SL=3353.81000, TP=3935.86000)
+2026-03-23 21:59:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=28 sl=3545.18
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3574.64000 low=3481.99000 (9265.0 pips)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3735.54000 low=3646.85000 (8869.0 pips)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3646.49000 (Asian low=3646.85000, SL=3735.54000, TP=3203.04000)
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3967.51000 low=3857.06000 (11045.0 pips)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4057.85000 low=4005.33000 (5252.0 pips)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4061.57000 (Asian high=4057.85000, SL=4005.33000, TP=4324.17000)
+2026-03-23 21:59:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=30 sl=4124.69
+2026-03-23 21:59:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4124.69 → 4144.27
+2026-03-23 21:59:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 4144.27 → 4145.58
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4331.27000 low=4205.85000 (12542.0 pips)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4340.35000 low=4185.11000 (15524.0 pips)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4310.36000 low=4188.11000 (12225.0 pips)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4311.64000 (Asian high=4310.36000, SL=4188.11000, TP=4922.89000)
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=31 sl=4395.52
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4395.52 → 4421.65
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4421.65 → 4434.10
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4434.10 → 4453.03
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4453.03 → 4457.36
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4457.36 → 4463.26
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4463.26 → 4478.36
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4478.36 → 4493.81
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4493.81 → 4557.61
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=31 4557.61 → 4573.94
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4654.98000 low=4562.44000 (9254.0 pips)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4663.42000 (Asian high=4654.98000, SL=4562.44000, TP=5126.12000)
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=32 sl=4709.17
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=32 4709.17 → 4719.39
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4782.47000 low=4704.29000 (7818.0 pips)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4648.65000 low=4452.14000 (19651.0 pips)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4658.82000 (Asian high=4648.65000, SL=4452.14000, TP=5641.37000)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4457.85000 low=4393.40000 (6445.0 pips)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4471.19000 (Asian high=4457.85000, SL=4393.40000, TP=4793.44000)
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=4517.33
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 4517.33 → 4518.28
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 4518.28 → 4526.17
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 4526.17 → 4540.13
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4533.19000 low=4277.53000 (25566.0 pips)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4273.14000 (Asian low=4277.53000, SL=4533.19000, TP=2994.84000)
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4815.88000 low=4660.92000 (15496.0 pips)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4816.21000 low=4735.82000 (8039.0 pips)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4822.45000 low=4669.40000 (15305.0 pips)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4651.88000 (Asian low=4669.40000, SL=4822.45000, TP=3886.63000)
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=36 sl=4511.90
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4511.90 → 4467.58
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4467.58 → 4451.27
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4451.27 → 4428.27
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4428.27 → 4407.67
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4407.67 → 4406.22
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4450.48000 low=4309.60000 (14088.0 pips)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4631.94000 low=4538.79000 (9315.0 pips)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4636.00000 (Asian high=4631.94000, SL=4538.79000, TP=5101.75000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4595.24000 low=4465.93000 (12931.0 pips)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4617.82000 (Asian high=4595.24000, SL=4465.93000, TP=5264.37000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4515.46000 low=4433.02000 (8244.0 pips)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4392.89000 (Asian low=4433.02000, SL=4515.46000, TP=3980.69000)
+2026-03-23 21:59:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=39 sl=4331.58
+2026-03-23 21:59:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=39 4331.58 → 4330.19
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4486.41000 low=4338.31000 (14810.0 pips)
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4476.37000 low=4359.86000 (11651.0 pips)
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4393.22000 low=4210.54000 (18268.0 pips)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4353.90000 low=4281.84000 (7206.0 pips)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4481.19000 low=4387.80000 (9339.0 pips)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4375.57000 (Asian low=4387.80000, SL=4481.19000, TP=3908.62000)
+2026-03-23 21:59:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=40 sl=4313.08
+2026-03-23 21:59:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 4313.08 → 4308.49
+2026-03-23 21:59:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 4308.49 → 4308.32
+2026-03-23 21:59:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 4308.32 → 4305.97
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4350.62000 low=4290.08000 (6054.0 pips)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4397.76000 (Asian high=4350.62000, SL=4290.08000, TP=4700.46000)
+2026-03-23 21:59:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=41 sl=4435.11
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4337.67000 low=4284.87000 (5280.0 pips)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4303.00000 low=4266.60000 (3640.0 pips)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4307.50000 (Asian high=4303.00000, SL=4266.60000, TP=4489.50000)
+2026-03-23 21:59:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=42 sl=4335.80
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4330.67000 low=4275.26000 (5541.0 pips)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4340.96000 (Asian high=4330.67000, SL=4275.26000, TP=4618.01000)
+2026-03-23 21:59:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=43 sl=4388.22
+2026-03-23 21:59:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 4388.22 → 4404.27
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4407.68000 low=4326.94000 (8074.0 pips)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4411.89000 (Asian high=4407.68000, SL=4326.94000, TP=4815.59000)
+2026-03-23 21:59:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=44 sl=4486.29
+2026-03-23 21:59:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 4486.29 → 4504.82
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4537.53000 low=4414.19000 (12334.0 pips)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4556.38000 (Asian high=4537.53000, SL=4414.19000, TP=5173.08000)
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=45 sl=4680.35
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4766.05000 low=4642.77000 (12328.0 pips)
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4641.85000 low=4578.90000 (6295.0 pips)
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4648.64000 (Asian high=4641.85000, SL=4578.90000, TP=4963.39000)
+2026-03-23 21:59:22 [INFO    ] src.backtesting.engine           Bar 10000/25621 (39%)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4536.64000 low=4503.07000 (3357.0 pips)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4503.03000 (Asian low=4503.07000, SL=4536.64000, TP=4335.18000)
+2026-03-23 21:59:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=47 sl=4474.10
+2026-03-23 21:59:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=47 4474.10 → 4459.95
+2026-03-23 21:59:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=47 4459.95 → 4458.40
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4551.60000 low=4488.69000 (6291.0 pips)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4475.82000 (Asian low=4488.69000, SL=4551.60000, TP=4161.27000)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4643.10000 low=4485.14000 (15796.0 pips)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4619.36000 low=4542.04000 (7732.0 pips)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4532.23000 (Asian low=4542.04000, SL=4619.36000, TP=4145.63000)
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=49 sl=4474.34
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 4474.34 → 4473.83
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 4473.83 → 4464.43
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4477.28000 low=4445.20000 (3208.0 pips)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4477.38000 (Asian high=4477.28000, SL=4445.20000, TP=4637.78000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4477.02000 low=4261.90000 (21512.0 pips)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4219.14000 (Asian low=4261.90000, SL=4477.02000, TP=3143.54000)
+2026-03-23 21:59:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=51 sl=4048.29
+2026-03-23 21:59:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4048.29 → 4045.55
+2026-03-23 21:59:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 4045.55 → 4041.04
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3969.65000 low=3848.56000 (12109.0 pips)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4038.34000 low=4003.39000 (3495.0 pips)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4144.39000 low=4040.71000 (10368.0 pips)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4243.61000 low=4187.13000 (5648.0 pips)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4169.21000 (Asian low=4187.13000, SL=4243.61000, TP=3886.81000)
+2026-03-23 21:59:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=52 sl=4134.45
+2026-03-23 21:59:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=52 4134.45 → 4126.26
+2026-03-23 21:59:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=52 4126.26 → 4124.61
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4200.17000 low=4116.21000 (8396.0 pips)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4270.01000 (Asian high=4200.17000, SL=4116.21000, TP=4689.81000)
+2026-03-23 21:59:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=53 sl=4353.57
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4397.85000 low=4286.62000 (11123.0 pips)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4400.46000 (Asian high=4397.85000, SL=4286.62000, TP=4956.61000)
+2026-03-23 21:59:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=54 sl=4474.83
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4558.38000 low=4456.38000 (10200.0 pips)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4452.41000 (Asian low=4456.38000, SL=4558.38000, TP=3942.41000)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4536.29000 low=4462.64000 (7365.0 pips)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4573.50000 low=4465.83000 (10767.0 pips)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4575.92000 (Asian high=4573.50000, SL=4465.83000, TP=5114.27000)
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=56 sl=4655.33
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4655.33 → 4658.08
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4658.08 → 4671.62
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4671.62 → 4674.99
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 4674.99 → 4687.45
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4705.82000 low=4662.58000 (4324.0 pips)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4712.14000 (Asian high=4705.82000, SL=4662.58000, TP=4928.34000)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4513.15000 low=4429.42000 (8373.0 pips)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4428.53000 (Asian low=4429.42000, SL=4513.15000, TP=4009.88000)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4537.65000 low=4400.86000 (13679.0 pips)
+2026-03-23 21:59:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4338.19000 (Asian low=4400.86000, SL=4537.65000, TP=3654.24000)
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=59 sl=4201.23
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4201.23 → 4185.12
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4185.12 → 4151.63
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4151.63 → 4141.83
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4141.83 → 4135.07
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4135.07 → 4126.22
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4126.22 → 4106.05
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4106.05 → 4084.55
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 4084.55 → 4013.02
+2026-03-23 21:59:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3993.14000 low=3396.06000 (59708.0 pips)
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3817.50000 low=3641.40000 (17610.0 pips)
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3819.01000 (Asian high=3817.50000, SL=3641.40000, TP=4699.51000)
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=60 sl=3978.49
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 3978.49 → 3997.02
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4218.70000 low=4080.64000 (13806.0 pips)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4290.15000 low=4135.96000 (15419.0 pips)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 4122.15000 (Asian low=4135.96000, SL=4290.15000, TP=3351.20000)
+2026-03-23 21:59:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=61 sl=4010.17
+2026-03-23 21:59:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=61 4010.17 → 3966.43
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4144.29000 low=4059.48000 (8481.0 pips)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4172.37000 (Asian high=4144.29000, SL=4059.48000, TP=4596.42000)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4035.39000 low=3925.99000 (10940.0 pips)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4040.49000 (Asian high=4035.39000, SL=3925.99000, TP=4587.49000)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3949.08000 low=3838.64000 (11044.0 pips)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3827.36000 (Asian low=3838.64000, SL=3949.08000, TP=3275.16000)
+2026-03-23 21:59:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=64 sl=3746.55
+2026-03-23 21:59:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3882.28000 low=3817.51000 (6477.0 pips)
+2026-03-23 21:59:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3908.04000 (Asian high=3882.28000, SL=3817.51000, TP=4231.89000)
+2026-03-23 21:59:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=65 sl=3954.97
+2026-03-23 21:59:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=65 3954.97 → 3955.34
+2026-03-23 21:59:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=65 3955.34 → 3958.28
+2026-03-23 21:59:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=65 3958.28 → 3981.58
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4037.61000 low=3907.32000 (13029.0 pips)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4039.44000 (Asian high=4037.61000, SL=3907.32000, TP=4690.89000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4002.01000 low=3917.80000 (8421.0 pips)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3877.42000 (Asian low=3917.80000, SL=4002.01000, TP=3456.37000)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3964.99000 low=3819.92000 (14507.0 pips)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3834.40000 low=3707.61000 (12679.0 pips)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3843.49000 (Asian high=3834.40000, SL=3707.61000, TP=4477.44000)
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=68 sl=3949.88
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 3949.88 → 3960.05
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3894.43000 low=3820.09000 (7434.0 pips)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3947.48000 (Asian high=3894.43000, SL=3820.09000, TP=4319.18000)
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=69 sl=4019.87
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 4019.87 → 4020.39
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 4020.39 → 4022.83
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 4022.83 → 4028.62
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 4028.62 → 4045.00
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 4045.00 → 4051.36
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 4051.36 → 4060.91
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4224.08000 low=4053.79000 (17029.0 pips)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4228.58000 (Asian high=4224.08000, SL=4053.79000, TP=5080.03000)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=4007.33000 low=3930.98000 (7635.0 pips)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 4009.29000 (Asian high=4007.33000, SL=3930.98000, TP=4391.04000)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3962.74000 low=3872.43000 (9031.0 pips)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3855.13000 (Asian low=3872.43000, SL=3962.74000, TP=3403.58000)
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=72 sl=3797.38
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 3797.38 → 3781.45
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 3781.45 → 3777.03
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 3777.03 → 3763.71
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 3763.71 → 3755.62
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 3755.62 → 3737.25
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 3737.25 → 3724.89
+2026-03-23 21:59:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3859.09000 low=3745.92000 (11317.0 pips)
+2026-03-23 21:59:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3862.43000 (Asian high=3859.09000, SL=3745.92000, TP=4428.28000)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3914.94000 low=3714.05000 (20089.0 pips)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3708.11000 (Asian low=3714.05000, SL=3914.94000, TP=2703.66000)
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=74 sl=3525.95
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3653.12000 low=3558.62000 (9450.0 pips)
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3532.20000 (Asian low=3558.62000, SL=3653.12000, TP=3059.70000)
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=75 sl=3472.69
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3472.69 → 3430.23
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3430.23 → 3421.78
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3421.78 → 3402.28
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3402.28 → 3372.56
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3372.56 → 3361.49
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3361.49 → 3351.26
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3351.26 → 3331.83
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3331.83 → 3290.01
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3290.01 → 3287.48
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3287.48 → 3250.03
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3250.03 → 3231.30
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3347.60000 low=3165.47000 (18213.0 pips)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3454.77000 low=3373.22000 (8155.0 pips)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3370.71000 (Asian low=3373.22000, SL=3454.77000, TP=2962.96000)
+2026-03-23 21:59:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=76 sl=3301.11
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3364.04000 low=3274.75000 (8929.0 pips)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3365.44000 (Asian high=3364.04000, SL=3274.75000, TP=3811.89000)
+2026-03-23 21:59:46 [INFO    ] src.backtesting.engine           Bar 15000/25621 (59%)
+2026-03-23 21:59:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3485.08000 low=3447.18000 (3790.0 pips)
+2026-03-23 21:59:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3445.61000 (Asian low=3447.18000, SL=3485.08000, TP=3256.11000)
+2026-03-23 21:59:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=78 sl=3420.08
+2026-03-23 21:59:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=78 3420.08 → 3416.31
+2026-03-23 21:59:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=78 3416.31 → 3401.04
+2026-03-23 21:59:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3413.61000 low=3357.23000 (5638.0 pips)
+2026-03-23 21:59:46 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3415.35000 (Asian high=3413.61000, SL=3357.23000, TP=3697.25000)
+2026-03-23 21:59:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=79 sl=3523.52
+2026-03-23 21:59:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3657.56000 low=3553.31000 (10425.0 pips)
+2026-03-23 21:59:47 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3646.86000 low=3527.77000 (11909.0 pips)
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3454.61000 low=3403.31000 (5130.0 pips)
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3486.20000 (Asian high=3454.61000, SL=3403.31000, TP=3742.70000)
+2026-03-23 21:59:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=80 sl=3532.18
+2026-03-23 21:59:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=80 3532.18 → 3535.35
+2026-03-23 21:59:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=80 3535.35 → 3554.91
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3489.79000 low=3375.80000 (11399.0 pips)
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3536.12000 (Asian high=3489.79000, SL=3375.80000, TP=4106.07000)
+2026-03-23 21:59:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3270.94000 low=3106.82000 (16412.0 pips)
+2026-03-23 21:59:49 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3192.75000 low=3088.27000 (10448.0 pips)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3208.89000 low=3130.57000 (7832.0 pips)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3213.53000 (Asian high=3208.89000, SL=3130.57000, TP=3605.13000)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3192.95000 low=3002.94000 (19001.0 pips)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3195.56000 (Asian high=3192.95000, SL=3002.94000, TP=4145.61000)
+2026-03-23 21:59:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3048.71000 low=2944.66000 (10405.0 pips)
+2026-03-23 21:59:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3057.10000 (Asian high=3048.71000, SL=2944.66000, TP=3577.35000)
+2026-03-23 21:59:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=84 sl=3126.46
+2026-03-23 21:59:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3128.19000 low=3045.64000 (8255.0 pips)
+2026-03-23 21:59:51 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3037.96000 (Asian low=3045.64000, SL=3128.19000, TP=2625.21000)
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=85 sl=2994.18
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=85 2994.18 → 2990.61
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=85 2990.61 → 2965.45
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=85 2965.45 → 2936.93
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=85 2936.93 → 2931.39
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=85 2931.39 → 2928.18
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=85 2928.18 → 2919.72
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3057.01000 low=2956.07000 (10094.0 pips)
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2904.33000 low=2772.51000 (13182.0 pips)
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2755.53000 (Asian low=2772.51000, SL=2904.33000, TP=2096.43000)
+2026-03-23 21:59:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2979.02000 low=2903.19000 (7583.0 pips)
+2026-03-23 21:59:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2870.14000 (Asian low=2903.19000, SL=2979.02000, TP=2490.99000)
+2026-03-23 21:59:55 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2982.66000 low=2905.97000 (7669.0 pips)
+2026-03-23 21:59:56 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3070.03000 low=3005.89000 (6414.0 pips)
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3033.39000 low=2992.92000 (4047.0 pips)
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3064.08000 (Asian high=3033.39000, SL=2992.92000, TP=3266.43000)
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3051.47000 low=3016.40000 (3507.0 pips)
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3005.70000 (Asian low=3016.40000, SL=3051.47000, TP=2830.35000)
+2026-03-23 21:59:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=89 sl=2982.67
+2026-03-23 21:59:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3011.02000 low=2974.26000 (3676.0 pips)
+2026-03-23 21:59:58 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3035.13000 low=2805.40000 (22973.0 pips)
+2026-03-23 21:59:59 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2823.87000 low=2782.59000 (4128.0 pips)
+2026-03-23 22:00:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3058.21000 low=2984.31000 (7390.0 pips)
+2026-03-23 22:00:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3058.70000 (Asian high=3058.21000, SL=2984.31000, TP=3428.20000)
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=90 sl=3094.51
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3094.51 → 3097.31
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3097.31 → 3109.58
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3109.58 → 3119.61
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3119.61 → 3122.02
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3122.02 → 3136.60
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3136.60 → 3138.01
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3138.01 → 3139.88
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3139.88 → 3159.63
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3159.63 → 3162.67
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3162.67 → 3168.88
+2026-03-23 22:00:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=90 3168.88 → 3204.10
+2026-03-23 22:00:00 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3239.13000 low=3144.50000 (9463.0 pips)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3191.84000 low=3121.88000 (6996.0 pips)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3112.95000 (Asian low=3121.88000, SL=3191.84000, TP=2763.15000)
+2026-03-23 22:00:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=91 sl=3055.69
+2026-03-23 22:00:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 3055.69 → 3055.63
+2026-03-23 22:00:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=91 3055.63 → 3054.91
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3045.12000 low=3005.46000 (3966.0 pips)
+2026-03-23 22:00:02 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3056.89000 low=3026.03000 (3086.0 pips)
+2026-03-23 22:00:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3136.81000 low=3012.39000 (12442.0 pips)
+2026-03-23 22:00:03 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3142.63000 (Asian high=3136.81000, SL=3012.39000, TP=3764.73000)
+2026-03-23 22:00:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=92 sl=3253.13
+2026-03-23 22:00:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=92 3253.13 → 3301.19
+2026-03-23 22:00:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=92 3301.19 → 3320.23
+2026-03-23 22:00:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=92 3320.23 → 3343.87
+2026-03-23 22:00:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3341.23000 low=3287.06000 (5417.0 pips)
+2026-03-23 22:00:04 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3346.72000 (Asian high=3341.23000, SL=3287.06000, TP=3617.57000)
+2026-03-23 22:00:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=93 sl=3391.64
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3354.20000 low=3166.09000 (18811.0 pips)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3264.66000 low=3184.37000 (8029.0 pips)
+2026-03-23 22:00:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3095.00000 low=3077.29000 (1771.0 pips)
+2026-03-23 22:00:06 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3118.26000 (Asian high=3095.00000, SL=3077.29000, TP=3206.81000)
+2026-03-23 22:00:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3149.87000 low=3025.21000 (12466.0 pips)
+2026-03-23 22:00:07 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3152.48000 (Asian high=3149.87000, SL=3025.21000, TP=3775.78000)
+2026-03-23 22:00:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2977.35000 low=2878.29000 (9906.0 pips)
+2026-03-23 22:00:08 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2972.98000 low=2925.69000 (4729.0 pips)
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2922.51000 (Asian low=2925.69000, SL=2972.98000, TP=2686.06000)
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2846.78000 low=2812.32000 (3446.0 pips)
+2026-03-23 22:00:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2933.76000 low=2807.55000 (12621.0 pips)
+2026-03-23 22:00:10 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2946.77000 (Asian high=2933.76000, SL=2807.55000, TP=3577.82000)
+2026-03-23 22:00:17 [INFO    ] src.backtesting.engine           Bar 20000/25621 (78%)
+2026-03-23 22:00:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=97 sl=3056.44
+2026-03-23 22:00:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3144.45000 low=3113.56000 (3089.0 pips)
+2026-03-23 22:00:19 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3113.25000 (Asian low=3113.56000, SL=3144.45000, TP=2958.80000)
+2026-03-23 22:00:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=98 sl=3092.70
+2026-03-23 22:00:20 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3165.62000 low=3112.33000 (5329.0 pips)
+2026-03-23 22:00:21 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3248.65000 low=3202.02000 (4663.0 pips)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3300.72000 low=3238.04000 (6268.0 pips)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3233.67000 (Asian low=3238.04000, SL=3300.72000, TP=2920.27000)
+2026-03-23 22:00:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=99 sl=3189.05
+2026-03-23 22:00:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 3189.05 → 3182.10
+2026-03-23 22:00:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 3182.10 → 3179.57
+2026-03-23 22:00:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 3179.57 → 3175.53
+2026-03-23 22:00:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 3175.53 → 3170.34
+2026-03-23 22:00:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 3170.34 → 3164.16
+2026-03-23 22:00:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 3164.16 → 3160.95
+2026-03-23 22:00:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 3160.95 → 3159.35
+2026-03-23 22:00:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 3159.35 → 3155.40
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3183.05000 low=3132.09000 (5096.0 pips)
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3130.89000 (Asian low=3132.09000, SL=3183.05000, TP=2876.09000)
+2026-03-23 22:00:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=100 sl=3098.12
+2026-03-23 22:00:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=100 3098.12 → 3078.95
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3146.76000 low=3080.51000 (6625.0 pips)
+2026-03-23 22:00:25 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3170.41000 low=3091.47000 (7894.0 pips)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3122.33000 low=3087.39000 (3494.0 pips)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3127.02000 (Asian high=3122.33000, SL=3087.39000, TP=3301.72000)
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=101 sl=3163.11
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 3163.11 → 3164.46
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 3164.46 → 3166.50
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 3166.50 → 3168.47
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 3168.47 → 3173.30
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 3173.30 → 3176.74
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 3176.74 → 3179.20
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 3179.20 → 3181.20
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 3181.20 → 3191.76
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3370.52000 low=3208.58000 (16194.0 pips)
+2026-03-23 22:00:27 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3373.31000 low=3276.07000 (9724.0 pips)
+2026-03-23 22:00:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3318.22000 low=3294.96000 (2326.0 pips)
+2026-03-23 22:00:29 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 3321.25000 (Asian high=3318.22000, SL=3294.96000, TP=3437.55000)
+2026-03-23 22:00:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=102 sl=3346.66
+2026-03-23 22:00:30 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3355.19000 low=3176.65000 (17854.0 pips)
+2026-03-23 22:00:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3213.33000 low=3164.94000 (4839.0 pips)
+2026-03-23 22:00:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 3155.82000 (Asian low=3164.94000, SL=3213.33000, TP=2913.87000)
+2026-03-23 22:00:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=103 sl=3125.38
+2026-03-23 22:00:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 3125.38 → 3114.97
+2026-03-23 22:00:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 3114.97 → 3109.43
+2026-03-23 22:00:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 3109.43 → 3102.79
+2026-03-23 22:00:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 3102.79 → 3102.08
+2026-03-23 22:00:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 3102.08 → 3092.98
+2026-03-23 22:00:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 3092.98 → 3085.49
+2026-03-23 22:00:31 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2997.88000 low=2911.01000 (8687.0 pips)
+2026-03-23 22:00:32 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3044.20000 low=2971.27000 (7293.0 pips)
+2026-03-23 22:00:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2983.59000 low=2939.33000 (4426.0 pips)
+2026-03-23 22:00:33 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2938.66000 (Asian low=2939.33000, SL=2983.59000, TP=2717.36000)
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2963.41000 low=2936.03000 (2738.0 pips)
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2935.82000 (Asian low=2936.03000, SL=2963.41000, TP=2798.92000)
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=105 sl=2914.78
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 2914.78 → 2905.09
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 2905.09 → 2899.42
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 2899.42 → 2898.99
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 2898.99 → 2889.85
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 2889.85 → 2876.24
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 2876.24 → 2860.48
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 2860.48 → 2845.90
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2897.43000 low=2785.84000 (11159.0 pips)
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 2903.20000 (Asian high=2897.43000, SL=2785.84000, TP=3461.15000)
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=106 sl=2982.88
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 2982.88 → 2987.18
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 2987.18 → 2988.05
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 2988.05 → 2991.99
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 2991.99 → 2994.70
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 2994.70 → 2995.53
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 2995.53 → 3001.62
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 3001.62 → 3007.62
+2026-03-23 22:00:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3033.78000 low=2991.76000 (4202.0 pips)
+2026-03-23 22:00:36 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2988.91000 (Asian low=2991.76000, SL=3033.78000, TP=2778.81000)
+2026-03-23 22:00:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=3026.18000 low=2936.46000 (8972.0 pips)
+2026-03-23 22:00:37 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2827.55000 low=2684.48000 (14307.0 pips)
+2026-03-23 22:00:38 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2474.69000 low=2405.19000 (6950.0 pips)
+2026-03-23 22:00:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2398.31000 (Asian low=2405.19000, SL=2474.69000, TP=2050.81000)
+2026-03-23 22:00:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=108 sl=2342.40
+2026-03-23 22:00:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=108 2342.40 → 2337.03
+2026-03-23 22:00:39 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2333.66000 low=2164.70000 (16896.0 pips)
+2026-03-23 22:00:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2358.36000 low=2283.48000 (7488.0 pips)
+2026-03-23 22:00:40 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: SELL breakout @ 2282.11000 (Asian low=2283.48000, SL=2358.36000, TP=1907.71000)
+2026-03-23 22:00:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=109 sl=2239.79
+2026-03-23 22:00:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=109 2239.79 → 2230.30
+2026-03-23 22:00:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=109 2230.30 → 2212.30
+2026-03-23 22:00:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=109 2212.30 → 2178.12
+2026-03-23 22:00:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=109 2178.12 → 2168.80
+2026-03-23 22:00:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=109 2168.80 → 2162.56
+2026-03-23 22:00:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2294.65000 low=2211.81000 (8284.0 pips)
+2026-03-23 22:00:41 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=2172.98000 low=2077.89000 (9509.0 pips)
+2026-03-23 22:00:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: Asian range high=1946.45000 low=1743.30000 (20315.0 pips)
+2026-03-23 22:00:42 [INFO    ] src.analysis.strategies.london_breakout London Breakout [ETHUSD]: BUY breakout @ 1957.40000 (Asian high=1946.45000, SL=1743.30000, TP=2973.15000)
+2026-03-23 22:00:54 [INFO    ] src.backtesting.engine           Bar 25000/25621 (98%)
+2026-03-23 22:01:00 [INFO    ] src.backtesting.engine         Backtest complete: 110 trades, 147.05% return, 12.89% max DD, 62.7% WR
+
+Backtest Results: london_breakout on ETHUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $74.12 │
+│ Total Return              │        +147.05% │
+│ Max Drawdown              │          12.89% │
+│ Total Trades              │             110 │
+│ Win Rate                  │           62.7% │
+│ Profit Factor             │            1.96 │
+│ Avg Trade P&L             │          $+0.40 │
+│ Sharpe Ratio              │            0.30 │
+│ Max Consecutive Losses    │               5 │
+│ Avg Trade Duration        │           29.4h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 22:01:00 [INFO    ] backtest                       Results saved to data/backtest_results/ETHUSD_ETHUSD-S-london_only_20260323_220100.json
+
+Backtest Results: london_breakout on ETHUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $74.12 │
+│ Total Return              │        +147.05% │
+│ Max Drawdown              │          12.89% │
+│ Total Trades              │             110 │
+│ Win Rate                  │           62.7% │
+│ Profit Factor             │            1.96 │
+│ Avg Trade P&L             │          $+0.40 │
+│ Sharpe Ratio              │            0.30 │
+│ Max Consecutive Losses    │               5 │
+│ Avg Trade Duration        │           29.4h │
+└───────────────────────────┴─────────────────┘
+

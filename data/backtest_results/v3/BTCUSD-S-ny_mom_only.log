@@ -1,0 +1,1046 @@
+2026-03-23 21:56:24 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/BTCUSD_M15_20250601_20260301.csv
+2026-03-23 21:56:24 [INFO    ] src.backtesting.data_loader    Loaded 25621 bars from data/backtest_cache/BTCUSD_M15_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:56:24 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/BTCUSD_H1_20250601_20260301.csv
+2026-03-23 21:56:24 [INFO    ] src.backtesting.data_loader    Loaded 6406 bars from data/backtest_cache/BTCUSD_H1_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:56:24 [INFO    ] backtest                       Data loaded: 25621 M15 bars, 6406 H1 bars
+2026-03-23 21:56:24 [INFO    ] backtest                       Config [BTCUSD-S-ny_mom_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:56:24 [INFO    ] src.backtesting.engine         Starting backtest: ny_momentum on BTCUSD (25621 M15 bars, 6406 H1 bars)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=104659.46000 low=104250.14000 (width=409.32000)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 104019.13000 (range low=104250.14000)
+2026-03-23 21:56:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=1 sl=104246.17
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 104225.19000 (RSI=46.2, MACD_hist=-140.83672)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105337.34000 low=105128.67000 (width=208.67000)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 105784.76000 (range high=105337.34000)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105978.73000 low=105636.80000 (width=341.93000)
+2026-03-23 21:56:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 104492.51000 (range low=105636.80000)
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=104678.54
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=104900.79000 low=104500.95000 (width=399.84000)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 104830.41000 (RSI=50.1, MACD_hist=6.29030)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=103799.77000 low=103539.72000 (width=260.05000)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 104326.12000 (range high=103799.77000)
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=6 sl=104156.80
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 104156.80 → 104364.04
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105184.54000 low=104821.76000 (width=362.78000)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 105205.42000 (range high=105184.54000)
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=7 sl=105379.43
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 105481.32000 (RSI=55.4, MACD_hist=114.08287)
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=8 sl=105591.03
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 105591.03 → 105621.03
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 105621.03 → 105634.61
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 105634.61 → 105647.42
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=8 105647.42 → 105659.56
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105466.94000 low=104962.79000 (width=504.15000)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 105670.54000 (range high=105466.94000)
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=9 sl=105715.82
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 105715.82 → 105860.07
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 105860.07 → 105888.46
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 105888.46 → 105893.51
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 105893.51 → 105995.12
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 105995.12 → 105998.12
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 105998.12 → 106032.97
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 106032.97 → 106075.73
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 106075.73 → 106089.72
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 106089.72 → 106098.36
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 106098.36 → 106111.99
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 106111.99 → 106112.02
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 106112.02 → 106146.66
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=107468.99000 low=106553.64000 (width=915.35000)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 107721.69000 (range high=107468.99000)
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=107728.40
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 107728.40 → 107798.86
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 107798.86 → 107821.97
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 107821.97 → 107936.10
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 107936.10 → 107940.92
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 107940.92 → 107981.49
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 107981.49 → 108063.84
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 108063.84 → 108227.71
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 108227.71 → 108283.89
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 108283.89 → 108288.73
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 108288.73 → 108336.36
+2026-03-23 21:56:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 108336.36 → 108803.90
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=109567.65000 low=109264.20000 (width=303.45000)
+2026-03-23 21:56:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 109730.33000 (range high=109567.65000)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=109469.48000 low=109181.77000 (width=287.71000)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 109816.00000 (range high=109469.48000)
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=12 sl=109596.11
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 109596.11 → 109836.04
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=107525.42000 low=107194.65000 (width=330.77000)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 107031.74000 (range low=107194.65000)
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=107190.43
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 107210.14000 (RSI=45.8, MACD_hist=-96.75613)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=104900.33000 low=104412.99000 (width=487.34000)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 104907.95000 (range high=104900.33000)
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=15 sl=104724.83
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 104959.61000 (RSI=53.5, MACD_hist=33.06913)
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=16 sl=105265.08
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105111.19000 low=104825.92000 (width=285.27000)
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 104949.22000 (RSI=43.9, MACD_hist=-68.62007)
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=17 sl=104876.33
+2026-03-23 21:56:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 104876.33 → 104702.05
+2026-03-23 21:56:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105187.51000 low=104914.54000 (width=272.97000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=107208.45000 low=106733.35000 (width=475.10000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 106690.11000 (range low=106733.35000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=106239.07000 low=105725.88000 (width=513.19000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 105718.00000 (range low=105725.88000)
+2026-03-23 21:56:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=19 sl=105837.49
+2026-03-23 21:56:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 105837.49 → 105672.56
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=104804.34000 low=104169.09000 (width=635.25000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 104839.25000 (range high=104804.34000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105078.43000 low=104834.76000 (width=243.67000)
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 104275.78000 (range low=104834.76000)
+2026-03-23 21:56:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=104412.39
+2026-03-23 21:56:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=106175.02000 low=105808.93000 (width=366.09000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 105661.30000 (range low=105808.93000)
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=105852.97
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 105852.97 → 105674.08
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=103989.13000 low=103759.89000 (width=229.24000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 103714.12000 (range low=103759.89000)
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=23 sl=103765.19
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 103765.19 → 103730.86
+2026-03-23 21:56:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=23 103730.86 → 103599.40
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=102546.35000 low=102139.97000 (width=406.38000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 102598.81000 (range high=102546.35000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=101575.09000 low=101189.14000 (width=385.95000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 101674.38000 (range high=101575.09000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105349.68000 low=105062.22000 (width=287.46000)
+2026-03-23 21:56:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 105354.26000 (range high=105349.68000)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 105214.88000 (RSI=52.8, MACD_hist=14.62233)
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=105710.34
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=107175.59000 low=106560.59000 (width=615.00000)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 107215.13000 (range high=107175.59000)
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=28 sl=107481.89
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 107353.00000 (RSI=53.3, MACD_hist=194.73341)
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=29 sl=107780.07
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=107457.63000 low=107235.13000 (width=222.50000)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 107184.73000 (range low=107235.13000)
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=30 sl=107346.14
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 107278.18000 (RSI=48.6, MACD_hist=-98.19208)
+2026-03-23 21:56:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=31 sl=107025.31
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=108303.41000 low=107835.25000 (width=468.16000)
+2026-03-23 21:56:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 108458.33000 (range high=108303.41000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=106629.95000 low=106290.78000 (width=339.17000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 107114.79000 (range high=106629.95000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=107841.17000 low=107602.16000 (width=239.01000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 107538.20000 (range low=107602.16000)
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=107658.71
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 107658.71 → 107573.89
+2026-03-23 21:56:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 107573.89 → 107479.20
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=109991.95000 low=109611.23000 (width=380.72000)
+2026-03-23 21:56:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 109587.23000 (range low=109611.23000)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 110075.71000 (RSI=61.8, MACD_hist=54.76329)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=109058.20000 low=108850.20000 (width=208.00000)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 107745.99000 (range low=108850.20000)
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=37 sl=107949.16
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 107949.16 → 107818.61
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=108204.30000 low=108047.78000 (width=156.52000)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 108205.38000 (range high=108204.30000)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=108126.54000 low=107796.13000 (width=330.41000)
+2026-03-23 21:56:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 108805.32000 (range high=108126.54000)
+2026-03-23 21:56:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=39 sl=108673.71
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=108898.63000 low=108403.10000 (width=495.53000)
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 108946.21000 (range high=108898.63000)
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 108745.20000 (RSI=52.7, MACD_hist=136.82878)
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=41 sl=109191.48
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 109191.48 → 109308.98
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=108905.70000 low=108696.82000 (width=208.88000)
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 109335.98000 (range high=108905.70000)
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 109060.61000 (RSI=50.9, MACD_hist=58.18797)
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=43 sl=109275.59
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 109275.59 → 109905.60
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 109905.60 → 110879.79
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111102.48000 low=110865.64000 (width=236.84000)
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 111161.88000 (range high=111102.48000)
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 110861.95000 (RSI=45.5, MACD_hist=-52.31108)
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118463.80000 low=117933.14000 (width=530.66000)
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 117720.79000 (range low=117933.14000)
+2026-03-23 21:56:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=46 sl=117901.67
+2026-03-23 21:56:32 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 117976.84000 (RSI=54.5, MACD_hist=133.93329)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118154.89000 low=117861.58000 (width=293.31000)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 117492.19000 (range low=117861.58000)
+2026-03-23 21:56:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=48 sl=117583.19
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=117847.05000 low=117725.40000 (width=121.65000)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 117892.70000 (range high=117847.05000)
+2026-03-23 21:56:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=49 sl=117894.51
+2026-03-23 21:56:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=49 117894.51 → 117904.35
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=122146.12000 low=121638.49000 (width=507.63000)
+2026-03-23 21:56:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 121519.55000 (range low=121638.49000)
+2026-03-23 21:56:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=50 sl=121508.11
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=117187.25000 low=116708.37000 (width=478.88000)
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 116452.08000 (range low=116708.37000)
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=119300.59000 low=118723.08000 (width=577.51000)
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 118609.56000 (range low=118723.08000)
+2026-03-23 21:56:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=52 sl=118792.22
+2026-03-23 21:56:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=52 118792.22 → 118769.03
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118865.91000 low=118227.47000 (width=638.44000)
+2026-03-23 21:56:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 117832.90000 (range low=118227.47000)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118470.98000 low=118170.95000 (width=300.03000)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 118035.88000 (range low=118170.95000)
+2026-03-23 21:56:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=54 sl=118118.24
+2026-03-23 21:56:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 118118.24 → 118062.59
+2026-03-23 21:56:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 118062.59 → 117941.19
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 118047.47000 (RSI=47.4, MACD_hist=-44.40282)
+2026-03-23 21:56:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=55 sl=117880.98
+2026-03-23 21:56:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 117880.98 → 117782.17
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118803.48000 low=118333.80000 (width=469.68000)
+2026-03-23 21:56:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 118061.64000 (range low=118333.80000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118944.64000 low=118290.88000 (width=653.76000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 119040.38000 (range high=118944.64000)
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=57 sl=118915.80
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=57 118915.80 → 118929.70
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 118740.05000 (RSI=51.8, MACD_hist=275.28797)
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=58 sl=118990.90
+2026-03-23 21:56:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=58 118990.90 → 119159.77
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118376.31000 low=117820.71000 (width=555.60000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 118640.21000 (range high=118376.31000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 117821.75000 (RSI=44.0, MACD_hist=-160.87320)
+2026-03-23 21:56:36 [INFO    ] src.backtesting.engine           Bar 5000/25621 (20%)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 118871.58000 (RSI=54.4, MACD_hist=91.52423)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=116487.98000 low=115976.99000 (width=510.99000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 116680.92000 (range high=116487.98000)
+2026-03-23 21:56:36 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 116223.09000 (RSI=52.0, MACD_hist=63.35167)
+2026-03-23 21:56:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=63 sl=116747.10
+2026-03-23 21:56:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 116747.10 → 116831.78
+2026-03-23 21:56:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 116831.78 → 116854.79
+2026-03-23 21:56:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 116854.79 → 116966.71
+2026-03-23 21:56:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 116966.71 → 117172.99
+2026-03-23 21:56:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 117172.99 → 117257.14
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118215.04000 low=117514.28000 (width=700.76000)
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118288.93000 low=117938.85000 (width=350.08000)
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 117891.17000 (range low=117938.85000)
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118967.43000 low=118617.06000 (width=350.37000)
+2026-03-23 21:56:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 118555.34000 (range low=118617.06000)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118823.94000 low=118291.57000 (width=532.37000)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 118146.47000 (range low=118291.57000)
+2026-03-23 21:56:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=66 sl=118278.91
+2026-03-23 21:56:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=66 118278.91 → 118242.94
+2026-03-23 21:56:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=66 118242.94 → 117995.03
+2026-03-23 21:56:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=66 117995.03 → 117921.09
+2026-03-23 21:56:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=66 117921.09 → 117860.80
+2026-03-23 21:56:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=66 117860.80 → 117789.05
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118419.11000 low=117934.50000 (width=484.61000)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 117530.70000 (range low=117934.50000)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118703.84000 low=118419.56000 (width=284.28000)
+2026-03-23 21:56:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 118406.64000 (range low=118419.56000)
+2026-03-23 21:56:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=68 sl=118520.68
+2026-03-23 21:56:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 118520.68 → 118396.95
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=115196.34000 low=114684.84000 (width=511.50000)
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 115285.80000 (range high=115196.34000)
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=69 sl=115342.65
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 115739.82000 (RSI=56.3, MACD_hist=14.18639)
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=113709.52000 low=113427.51000 (width=282.01000)
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 113857.21000 (range high=113709.52000)
+2026-03-23 21:56:39 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 113129.73000 (RSI=44.9, MACD_hist=-140.21584)
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=72 sl=112912.75
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 112912.75 → 112810.73
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 112810.73 → 112774.51
+2026-03-23 21:56:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 112774.51 → 112513.46
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=114509.94000 low=114222.51000 (width=287.43000)
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 114410.41000 (RSI=48.8, MACD_hist=-17.87115)
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 115247.73000 (range high=114509.94000)
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=74 sl=115060.19
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=115085.38000 low=114574.75000 (width=510.63000)
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 113862.10000 (range low=114574.75000)
+2026-03-23 21:56:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=75 sl=113779.69
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=114221.42000 low=113877.52000 (width=343.90000)
+2026-03-23 21:56:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 114232.58000 (range high=114221.42000)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=116433.10000 low=115028.78000 (width=1404.32000)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 116477.38000 (range high=116433.10000)
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=77 sl=116677.09
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=77 116677.09 → 116988.32
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=77 116988.32 → 117056.98
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=77 117056.98 → 117097.80
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=77 117097.80 → 117169.78
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=116713.89000 low=116309.81000 (width=404.08000)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 116617.21000 (RSI=46.9, MACD_hist=-38.91964)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 116753.04000 (range high=116713.89000)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=117926.48000 low=117365.86000 (width=560.62000)
+2026-03-23 21:56:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 117227.74000 (range low=117365.86000)
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=80 sl=117228.97
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=80 117228.97 → 117222.50
+2026-03-23 21:56:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=80 117222.50 → 117123.57
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118285.86000 low=117988.34000 (width=297.52000)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 118376.98000 (range high=118285.86000)
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=81 sl=118136.73
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 118136.73 → 118199.08
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 118199.08 → 118328.37
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=121446.76000 low=120960.22000 (width=486.54000)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 120938.14000 (range low=120960.22000)
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=82 sl=120924.78
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=82 120924.78 → 120690.05
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=82 120690.05 → 120655.71
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 119939.69000 (RSI=42.0, MACD_hist=-220.84842)
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=83 sl=119585.65
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=83 119585.65 → 119243.31
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=83 119243.31 → 119212.40
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=83 119212.40 → 119098.62
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=83 119098.62 → 119070.98
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118658.43000 low=118200.44000 (width=457.99000)
+2026-03-23 21:56:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 119256.99000 (range high=118658.43000)
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=84 sl=118881.79
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 118881.79 → 119209.27
+2026-03-23 21:56:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 119209.27 → 119367.70
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=120489.23000 low=120029.42000 (width=459.81000)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 120624.68000 (range high=120489.23000)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 121328.67000 (RSI=58.0, MACD_hist=324.16768)
+2026-03-23 21:56:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=86 sl=121759.91
+2026-03-23 21:56:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 121759.91 → 122076.68
+2026-03-23 21:56:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 122076.68 → 122162.53
+2026-03-23 21:56:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 122162.53 → 122229.00
+2026-03-23 21:56:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 122229.00 → 122379.69
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=121775.16000 low=120756.41000 (width=1018.75000)
+2026-03-23 21:56:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 119523.85000 (range low=120756.41000)
+2026-03-23 21:56:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=87 sl=119719.91
+2026-03-23 21:56:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 119719.91 → 119213.72
+2026-03-23 21:56:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=87 119213.72 → 119025.30
+2026-03-23 21:56:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=119023.39000 low=118700.45000 (width=322.94000)
+2026-03-23 21:56:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 119051.34000 (range high=119023.39000)
+2026-03-23 21:56:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=117444.84000 low=117132.96000 (width=311.88000)
+2026-03-23 21:56:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 117488.00000 (range high=117444.84000)
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=89 sl=117390.18
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 117390.18 → 117475.72
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 117475.72 → 117495.09
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 117495.09 → 117512.53
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 117512.53 → 117528.51
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 117528.51 → 117556.30
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 117556.30 → 117570.97
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 117570.97 → 117601.67
+2026-03-23 21:56:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 117601.67 → 117619.97
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=115263.77000 low=114978.65000 (width=285.12000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 114975.47000 (range low=114978.65000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 114841.05000 (RSI=40.2, MACD_hist=-73.41278)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=115571.91000 low=115303.75000 (width=268.16000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 115747.76000 (range high=115571.91000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=113862.77000 low=113579.65000 (width=283.12000)
+2026-03-23 21:56:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 113454.46000 (range low=113579.65000)
+2026-03-23 21:56:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=93 sl=113469.22
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 113348.35000 (RSI=47.2, MACD_hist=-31.25735)
+2026-03-23 21:56:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=94 sl=112942.47
+2026-03-23 21:56:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 112942.47 → 112780.80
+2026-03-23 21:56:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 112780.80 → 112626.50
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=113051.41000 low=112506.18000 (width=545.23000)
+2026-03-23 21:56:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 112308.04000 (range low=112506.18000)
+2026-03-23 21:56:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=95 sl=112384.66
+2026-03-23 21:56:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=95 112384.66 → 112346.41
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=115767.04000 low=115546.58000 (width=220.46000)
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 115203.72000 (range low=115546.58000)
+2026-03-23 21:56:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=96 sl=115251.33
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 114619.51000 (RSI=46.6, MACD_hist=-95.89554)
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111805.47000 low=110923.83000 (width=881.64000)
+2026-03-23 21:56:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 110821.65000 (range low=110923.83000)
+2026-03-23 21:56:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=110411.27000 low=110053.31000 (width=357.96000)
+2026-03-23 21:56:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 110024.31000 (range low=110053.31000)
+2026-03-23 21:56:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=99 sl=110227.61
+2026-03-23 21:56:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 110227.61 → 110015.03
+2026-03-23 21:56:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=99 110015.03 → 110012.22
+2026-03-23 21:56:48 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 109844.20000 (RSI=45.8, MACD_hist=-25.56643)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=113122.05000 low=112811.81000 (width=310.24000)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 113132.84000 (range high=113122.05000)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 112996.94000 (RSI=52.8, MACD_hist=80.60666)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=110022.25000 low=109731.45000 (width=290.80000)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 110108.67000 (range high=110022.25000)
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=103 sl=109843.52
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 109843.52 → 109946.59
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 109714.22000 (RSI=36.2, MACD_hist=-151.84545)
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=104 sl=109377.65
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 109377.65 → 109279.17
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 109279.17 → 109198.88
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 109198.88 → 108865.07
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 108865.07 → 108782.65
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 108782.65 → 108776.70
+2026-03-23 21:56:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 108776.70 → 108718.74
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=108622.84000 low=108296.34000 (width=326.50000)
+2026-03-23 21:56:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 108194.74000 (range low=108296.34000)
+2026-03-23 21:56:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=110470.76000 low=110115.23000 (width=355.53000)
+2026-03-23 21:56:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 110067.89000 (range low=110115.23000)
+2026-03-23 21:56:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=106 sl=110245.77
+2026-03-23 21:56:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 110245.77 → 110102.92
+2026-03-23 21:56:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=106 110102.92 → 109809.56
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111479.34000 low=111155.58000 (width=323.76000)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 111637.20000 (range high=111479.34000)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 111337.34000 (RSI=52.6, MACD_hist=107.05988)
+2026-03-23 21:56:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=108 sl=111915.99
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111138.31000 low=110618.00000 (width=520.31000)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 109802.47000 (range low=110618.00000)
+2026-03-23 21:56:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=109 sl=109960.01
+2026-03-23 21:56:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=109 109960.01 → 109945.30
+2026-03-23 21:56:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=109 109945.30 → 109872.10
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112565.56000 low=112183.04000 (width=382.52000)
+2026-03-23 21:56:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 112172.53000 (range low=112183.04000)
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=110804.18000 low=110667.78000 (width=136.40000)
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111234.23000 low=111031.01000 (width=203.22000)
+2026-03-23 21:56:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 111246.34000 (range high=111234.23000)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112182.01000 low=111905.49000 (width=276.52000)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 111867.84000 (range low=111905.49000)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=113032.26000 low=112624.93000 (width=407.33000)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 112587.39000 (range low=112624.93000)
+2026-03-23 21:56:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=113 sl=112707.70
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112416.32000 low=112190.52000 (width=225.80000)
+2026-03-23 21:56:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 112568.84000 (range high=112416.32000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=114109.26000 low=113873.62000 (width=235.64000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 114252.22000 (range high=114109.26000)
+2026-03-23 21:56:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=115 sl=114124.36
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 113855.77000 (RSI=43.8, MACD_hist=-5.67326)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=115093.21000 low=114918.76000 (width=174.45000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 114910.63000 (range low=114918.76000)
+2026-03-23 21:56:54 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 114858.92000 (RSI=42.8, MACD_hist=-38.00648)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=116163.19000 low=115905.39000 (width=257.80000)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 115880.15000 (range low=115905.39000)
+2026-03-23 21:56:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=119 sl=115913.56
+2026-03-23 21:56:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=119 115913.56 → 115854.19
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=116126.98000 low=115940.21000 (width=186.77000)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 115705.43000 (range low=115940.21000)
+2026-03-23 21:56:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=120 sl=115703.00
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=114944.57000 low=114708.72000 (width=235.85000)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 115053.84000 (range high=114944.57000)
+2026-03-23 21:56:55 [INFO    ] src.backtesting.engine           Bar 10000/25621 (39%)
+2026-03-23 21:56:55 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 114656.85000 (RSI=45.1, MACD_hist=-128.91868)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=116606.58000 low=116260.14000 (width=346.44000)
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 116250.10000 (range low=116260.14000)
+2026-03-23 21:56:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=123 sl=116242.30
+2026-03-23 21:56:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=123 116242.30 → 115968.73
+2026-03-23 21:56:56 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 115503.72000 (RSI=40.3, MACD_hist=-201.95136)
+2026-03-23 21:56:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=124 sl=115578.55
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=117304.84000 low=117067.36000 (width=237.48000)
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 117061.19000 (range low=117067.36000)
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 117376.08000 (RSI=58.1, MACD_hist=33.52465)
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=126 sl=117437.14
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=116541.06000 low=116420.08000 (width=120.98000)
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 116222.30000 (range low=116420.08000)
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=127 sl=116357.56
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=127 116357.56 → 116331.61
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=115788.69000 low=115660.24000 (width=128.45000)
+2026-03-23 21:56:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 115832.77000 (range high=115788.69000)
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=128 sl=115778.37
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=128 115778.37 → 115800.69
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=128 115800.69 → 115814.44
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=128 115814.44 → 115846.13
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=128 115846.13 → 115871.30
+2026-03-23 21:56:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=128 115871.30 → 115952.50
+2026-03-23 21:56:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112846.64000 low=112292.17000 (width=554.47000)
+2026-03-23 21:56:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 112895.04000 (range high=112846.64000)
+2026-03-23 21:56:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=129 sl=112718.85
+2026-03-23 21:56:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=129 112718.85 → 112745.36
+2026-03-23 21:56:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=129 112745.36 → 112966.72
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=113000.12000 low=112807.67000 (width=192.45000)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 112704.98000 (range low=112807.67000)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 112984.74000 (RSI=53.7, MACD_hist=70.44550)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112963.27000 low=112656.54000 (width=306.73000)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 113138.74000 (range high=112963.27000)
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=132 sl=113079.06
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111860.98000 low=111514.20000 (width=346.78000)
+2026-03-23 21:56:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 111411.86000 (range low=111514.20000)
+2026-03-23 21:56:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=133 sl=111473.42
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 111306.99000 (RSI=46.6, MACD_hist=-169.41494)
+2026-03-23 21:57:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=134 sl=110829.72
+2026-03-23 21:57:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=134 110829.72 → 110626.63
+2026-03-23 21:57:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=134 110626.63 → 110079.35
+2026-03-23 21:57:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=134 110079.35 → 109577.27
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=109562.21000 low=108693.65000 (width=868.56000)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 109152.97000 (RSI=48.5, MACD_hist=-89.20828)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=109476.89000 low=109248.28000 (width=228.61000)
+2026-03-23 21:57:00 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 109288.09000 (RSI=46.1, MACD_hist=-37.06155)
+2026-03-23 21:57:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112234.98000 low=112017.51000 (width=217.47000)
+2026-03-23 21:57:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 111913.21000 (range low=112017.51000)
+2026-03-23 21:57:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=113078.18000 low=112646.74000 (width=431.44000)
+2026-03-23 21:57:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 113228.25000 (range high=113078.18000)
+2026-03-23 21:57:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=138 sl=113169.75
+2026-03-23 21:57:01 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 113127.26000 (RSI=45.6, MACD_hist=-156.12340)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=116544.28000 low=116190.87000 (width=353.41000)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 116567.17000 (range high=116544.28000)
+2026-03-23 21:57:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=140 sl=116348.25
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=118918.86000 low=118555.13000 (width=363.73000)
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 119078.48000 (range high=118918.86000)
+2026-03-23 21:57:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=141 sl=119089.79
+2026-03-23 21:57:02 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 119163.05000 (RSI=53.1, MACD_hist=178.46342)
+2026-03-23 21:57:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=142 sl=119356.61
+2026-03-23 21:57:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=142 119356.61 → 119544.60
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=120505.94000 low=120257.50000 (width=248.44000)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 120525.74000 (range high=120505.94000)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 120439.53000 (RSI=55.8, MACD_hist=72.99828)
+2026-03-23 21:57:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=144 sl=120833.59
+2026-03-23 21:57:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=144 120833.59 → 121232.12
+2026-03-23 21:57:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=144 121232.12 → 121733.13
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=122334.26000 low=122096.72000 (width=237.54000)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 122025.83000 (range low=122096.72000)
+2026-03-23 21:57:03 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 122238.18000 (RSI=49.5, MACD_hist=-8.31013)
+2026-03-23 21:57:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=146 sl=122134.97
+2026-03-23 21:57:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=146 122134.97 → 121993.89
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=123130.08000 low=122514.46000 (width=615.62000)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 123354.27000 (range high=123130.08000)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=124145.73000 low=123893.37000 (width=252.36000)
+2026-03-23 21:57:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 123733.33000 (range low=123893.37000)
+2026-03-23 21:57:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=124406.61000 low=124008.47000 (width=398.14000)
+2026-03-23 21:57:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 124721.44000 (range high=124406.61000)
+2026-03-23 21:57:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=123103.94000 low=122486.78000 (width=617.16000)
+2026-03-23 21:57:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 122470.22000 (range low=122486.78000)
+2026-03-23 21:57:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=150 sl=122809.61
+2026-03-23 21:57:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=121531.23000 low=121216.06000 (width=315.17000)
+2026-03-23 21:57:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 121545.20000 (range high=121531.23000)
+2026-03-23 21:57:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=151 sl=121496.17
+2026-03-23 21:57:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=151 121496.17 → 121640.16
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112255.38000 low=111604.82000 (width=650.56000)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 112340.93000 (range high=112255.38000)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 111998.68000 (RSI=49.8, MACD_hist=-27.93768)
+2026-03-23 21:57:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=153 sl=111534.82
+2026-03-23 21:57:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 111534.82 → 111390.88
+2026-03-23 21:57:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 111390.88 → 111140.09
+2026-03-23 21:57:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 111140.09 → 110873.15
+2026-03-23 21:57:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 110873.15 → 110853.19
+2026-03-23 21:57:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=153 110853.19 → 110689.57
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112009.83000 low=111425.18000 (width=584.65000)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 112108.46000 (range high=112009.83000)
+2026-03-23 21:57:07 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 112331.83000 (RSI=62.2, MACD_hist=66.24104)
+2026-03-23 21:57:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=155 sl=112476.67
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=115156.41000 low=114729.65000 (width=426.76000)
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 113644.28000 (range low=114729.65000)
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 114316.19000 (RSI=44.0, MACD_hist=-106.58268)
+2026-03-23 21:57:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=157 sl=113612.84
+2026-03-23 21:57:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=157 113612.84 → 113515.74
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111328.96000 low=110035.33000 (width=1293.63000)
+2026-03-23 21:57:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 111346.51000 (range high=111328.96000)
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112643.84000 low=112080.85000 (width=562.99000)
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 112039.06000 (range low=112080.85000)
+2026-03-23 21:57:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=159 sl=111981.93
+2026-03-23 21:57:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 111981.93 → 111937.67
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 111913.92000 (RSI=47.9, MACD_hist=-235.70011)
+2026-03-23 21:57:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=160 sl=111541.04
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111712.96000 low=111017.27000 (width=695.69000)
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 111313.23000 (RSI=51.7, MACD_hist=75.34555)
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 110326.68000 (range low=111017.27000)
+2026-03-23 21:57:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=162 sl=110848.30
+2026-03-23 21:57:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=162 110848.30 → 110093.83
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=104907.73000 low=103521.24000 (width=1386.49000)
+2026-03-23 21:57:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 105805.98000 (range high=104907.73000)
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=163 sl=105711.13
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 105711.13 → 105870.09
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 105870.09 → 105900.83
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 105900.83 → 105926.94
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 105926.94 → 106321.03
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 106321.03 → 106326.69
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 106326.69 → 106382.18
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 106382.18 → 106777.63
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=163 106777.63 → 106859.23
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=107142.72000 low=106778.94000 (width=363.78000)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 107200.96000 (range high=107142.72000)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 107040.76000 (RSI=54.6, MACD_hist=28.97476)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=107878.85000 low=106987.22000 (width=891.63000)
+2026-03-23 21:57:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 108086.42000 (range high=107878.85000)
+2026-03-23 21:57:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=166 sl=107988.91
+2026-03-23 21:57:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 107988.91 → 108000.27
+2026-03-23 21:57:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 108000.27 → 108056.98
+2026-03-23 21:57:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 108056.98 → 108460.10
+2026-03-23 21:57:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 108460.10 → 108646.50
+2026-03-23 21:57:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 108646.50 → 108665.07
+2026-03-23 21:57:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 108665.07 → 108741.52
+2026-03-23 21:57:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 108741.52 → 108754.05
+2026-03-23 21:57:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 108754.05 → 108861.17
+2026-03-23 21:57:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=166 108861.17 → 108938.92
+2026-03-23 21:57:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111116.67000 low=110649.73000 (width=466.94000)
+2026-03-23 21:57:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 110609.89000 (range low=110649.73000)
+2026-03-23 21:57:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=108823.36000 low=107556.29000 (width=1267.07000)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 109120.14000 (range high=108823.36000)
+2026-03-23 21:57:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=168 sl=108986.03
+2026-03-23 21:57:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=168 108986.03 → 109121.75
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=108105.42000 low=107636.19000 (width=469.23000)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 107545.03000 (range low=107636.19000)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 107928.07000 (RSI=47.3, MACD_hist=-33.91435)
+2026-03-23 21:57:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=170 sl=107461.54
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=109702.83000 low=109372.84000 (width=329.99000)
+2026-03-23 21:57:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 109210.27000 (range low=109372.84000)
+2026-03-23 21:57:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=171 sl=109403.17
+2026-03-23 21:57:13 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 109379.33000 (RSI=54.1, MACD_hist=45.26082)
+2026-03-23 21:57:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=172 sl=109583.97
+2026-03-23 21:57:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=172 109583.97 → 110001.96
+2026-03-23 21:57:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=172 110001.96 → 110481.84
+2026-03-23 21:57:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111327.62000 low=111062.13000 (width=265.49000)
+2026-03-23 21:57:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 110989.31000 (range low=111062.13000)
+2026-03-23 21:57:13 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 111561.72000 (RSI=61.3, MACD_hist=79.84893)
+2026-03-23 21:57:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=112570.03000 low=112177.31000 (width=392.72000)
+2026-03-23 21:57:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 112698.20000 (range high=112570.03000)
+2026-03-23 21:57:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=175 sl=112964.93
+2026-03-23 21:57:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=115545.74000 low=115111.98000 (width=433.76000)
+2026-03-23 21:57:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 115080.13000 (range low=115111.98000)
+2026-03-23 21:57:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=176 sl=115264.96
+2026-03-23 21:57:14 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 114824.46000 (RSI=40.2, MACD_hist=-33.87388)
+2026-03-23 21:57:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=177 sl=114548.14
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=114601.91000 low=114416.72000 (width=185.19000)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 114747.13000 (range high=114601.91000)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 114855.48000 (RSI=51.2, MACD_hist=196.69633)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=113182.67000 low=112723.38000 (width=459.29000)
+2026-03-23 21:57:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 113349.65000 (range high=113182.67000)
+2026-03-23 21:57:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=110222.78000 low=109820.14000 (width=402.64000)
+2026-03-23 21:57:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 109703.20000 (range low=109820.14000)
+2026-03-23 21:57:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=181 sl=109915.21
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=111223.08000 low=110459.93000 (width=763.15000)
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 110397.52000 (range low=110459.93000)
+2026-03-23 21:57:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=182 sl=110210.67
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=107906.21000 low=106960.67000 (width=945.54000)
+2026-03-23 21:57:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 108054.71000 (range high=107906.21000)
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 106885.78000 (RSI=46.0, MACD_hist=-186.15124)
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=184 sl=106319.02
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=184 106319.02 → 105616.36
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=184 105616.36 → 104909.41
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=104690.46000 low=103764.93000 (width=925.53000)
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 103676.83000 (range low=103764.93000)
+2026-03-23 21:57:18 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 104083.87000 (RSI=47.7, MACD_hist=-222.38033)
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=186 sl=103843.31
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=186 103843.31 → 103516.58
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=186 103516.58 → 103433.50
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=186 103433.50 → 103040.85
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=186 103040.85 → 102194.97
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=186 102194.97 → 101995.87
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=186 101995.87 → 101723.36
+2026-03-23 21:57:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=186 101723.36 → 101620.59
+2026-03-23 21:57:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=102099.04000 low=101369.54000 (width=729.50000)
+2026-03-23 21:57:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 102518.11000 (range high=102099.04000)
+2026-03-23 21:57:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=187 sl=102242.74
+2026-03-23 21:57:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=187 102242.74 → 102390.67
+2026-03-23 21:57:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=103301.35000 low=102742.37000 (width=558.98000)
+2026-03-23 21:57:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 102447.99000 (range low=102742.37000)
+2026-03-23 21:57:19 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 103019.50000 (RSI=48.4, MACD_hist=-75.79335)
+2026-03-23 21:57:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=189 sl=102770.30
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=100788.18000 low=99789.68000 (width=998.50000)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 99786.52000 (range low=99789.68000)
+2026-03-23 21:57:20 [INFO    ] src.backtesting.engine           Bar 15000/25621 (59%)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 100558.24000 (RSI=47.6, MACD_hist=-147.53242)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=102628.42000 low=101708.44000 (width=919.98000)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 101590.56000 (range low=101708.44000)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=102307.03000 low=101870.22000 (width=436.81000)
+2026-03-23 21:57:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 103027.37000 (range high=102307.03000)
+2026-03-23 21:57:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=193 sl=103408.57
+2026-03-23 21:57:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=106314.37000 low=105948.54000 (width=365.83000)
+2026-03-23 21:57:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 105916.25000 (range low=105948.54000)
+2026-03-23 21:57:21 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 106248.93000 (RSI=55.0, MACD_hist=27.17131)
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105494.50000 low=105128.33000 (width=366.17000)
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 104380.90000 (range low=105128.33000)
+2026-03-23 21:57:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=196 sl=104508.49
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=105196.37000 low=104736.14000 (width=460.23000)
+2026-03-23 21:57:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 104686.28000 (range low=104736.14000)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=103145.96000 low=102694.70000 (width=451.26000)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 102544.63000 (range low=102694.70000)
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=198 sl=102875.05
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=198 102875.05 → 102790.05
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=198 102790.05 → 102394.88
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 102196.39000 (RSI=42.6, MACD_hist=-105.84189)
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=199 sl=101863.28
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 101863.28 → 101742.49
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 101742.49 → 101455.65
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 101455.65 → 101368.65
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 101368.65 → 101150.46
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 101150.46 → 100906.35
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 100906.35 → 100543.77
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 100543.77 → 100300.83
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 100300.83 → 100063.34
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 100063.34 → 99668.15
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 99668.15 → 99602.59
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 99602.59 → 99272.72
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 99272.72 → 99072.71
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=96938.32000 low=95699.28000 (width=1239.04000)
+2026-03-23 21:57:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 95603.30000 (range low=95699.28000)
+2026-03-23 21:57:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=200 sl=95694.01
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 96338.00000 (RSI=47.8, MACD_hist=-0.36997)
+2026-03-23 21:57:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=201 sl=96092.51
+2026-03-23 21:57:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=201 96092.51 → 95815.53
+2026-03-23 21:57:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=201 95815.53 → 95269.82
+2026-03-23 21:57:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=201 95269.82 → 95243.91
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=95979.46000 low=95621.92000 (width=357.54000)
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 96076.51000 (range high=95979.46000)
+2026-03-23 21:57:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=202 sl=96003.26
+2026-03-23 21:57:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=202 96003.26 → 96089.79
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=96442.98000 low=95493.88000 (width=949.10000)
+2026-03-23 21:57:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 95386.62000 (range low=95493.88000)
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=203 sl=95058.38
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=203 95058.38 → 94931.77
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=203 94931.77 → 94806.91
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=203 94806.91 → 94730.97
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=203 94730.97 → 94549.22
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 94831.52000 (RSI=47.1, MACD_hist=-340.72978)
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=204 sl=94528.52
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=204 94528.52 → 94404.82
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=204 94404.82 → 94229.80
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=204 94229.80 → 94215.97
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=204 94215.97 → 94105.70
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=95929.76000 low=95382.75000 (width=547.01000)
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 94931.99000 (range low=95382.75000)
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=205 sl=95019.65
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=205 95019.65 → 94349.09
+2026-03-23 21:57:25 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 94761.30000 (RSI=46.1, MACD_hist=-195.10602)
+2026-03-23 21:57:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=206 sl=94080.24
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=91602.89000 low=91237.59000 (width=365.30000)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 91106.99000 (range low=91237.59000)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 91469.57000 (RSI=54.6, MACD_hist=162.00482)
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=208 sl=91999.88
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=208 91999.88 → 92092.65
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=208 92092.65 → 92318.51
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=208 92318.51 → 92864.45
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=91767.53000 low=91297.76000 (width=469.77000)
+2026-03-23 21:57:26 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 91473.21000 (RSI=48.4, MACD_hist=-18.89603)
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=209 sl=91342.77
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=209 91342.77 → 90644.07
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=209 90644.07 → 90394.07
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=209 90394.07 → 90109.94
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=209 90109.94 → 89901.75
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=209 89901.75 → 89762.34
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=209 89762.34 → 89542.49
+2026-03-23 21:57:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=209 89542.49 → 89517.49
+2026-03-23 21:57:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=92021.88000 low=91479.28000 (width=542.60000)
+2026-03-23 21:57:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 90699.99000 (range low=91479.28000)
+2026-03-23 21:57:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=210 sl=91134.67
+2026-03-23 21:57:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=210 91134.67 → 90620.34
+2026-03-23 21:57:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=83337.65000 low=82188.31000 (width=1149.34000)
+2026-03-23 21:57:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 80931.62000 (range low=82188.31000)
+2026-03-23 21:57:27 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 83623.81000 (RSI=48.8, MACD_hist=-113.89655)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=86418.07000 low=85821.27000 (width=596.80000)
+2026-03-23 21:57:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 86600.37000 (range high=86418.07000)
+2026-03-23 21:57:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=213 sl=86509.61
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=86427.08000 low=85826.02000 (width=601.06000)
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 86501.11000 (range high=86427.08000)
+2026-03-23 21:57:29 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 86077.19000 (RSI=47.0, MACD_hist=-145.32795)
+2026-03-23 21:57:30 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 87096.06000 (RSI=48.7, MACD_hist=-148.96138)
+2026-03-23 21:57:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=216 sl=86975.76
+2026-03-23 21:57:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87093.08000 low=86837.01000 (width=256.07000)
+2026-03-23 21:57:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 86557.61000 (range low=86837.01000)
+2026-03-23 21:57:30 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 86892.37000 (RSI=45.3, MACD_hist=-103.84490)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=91612.02000 low=91287.62000 (width=324.40000)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 91260.32000 (range low=91287.62000)
+2026-03-23 21:57:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=219 sl=91393.73
+2026-03-23 21:57:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=219 91393.73 → 91292.29
+2026-03-23 21:57:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=219 91292.29 → 91136.33
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=92018.86000 low=91038.29000 (width=980.57000)
+2026-03-23 21:57:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 92357.40000 (range high=92018.86000)
+2026-03-23 21:57:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=220 sl=92494.15
+2026-03-23 21:57:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=91391.02000 low=90983.68000 (width=407.34000)
+2026-03-23 21:57:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 91435.77000 (range high=91391.02000)
+2026-03-23 21:57:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=221 sl=91489.78
+2026-03-23 21:57:33 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 91490.21000 (RSI=54.3, MACD_hist=130.00468)
+2026-03-23 21:57:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=86692.46000 low=86120.33000 (width=572.13000)
+2026-03-23 21:57:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 85867.05000 (range low=86120.33000)
+2026-03-23 21:57:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=223 sl=85839.66
+2026-03-23 21:57:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87597.83000 low=86986.99000 (width=610.84000)
+2026-03-23 21:57:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 88336.74000 (range high=87597.83000)
+2026-03-23 21:57:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=224 sl=88152.94
+2026-03-23 21:57:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=224 88152.94 → 88307.20
+2026-03-23 21:57:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=224 88307.20 → 88735.28
+2026-03-23 21:57:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=93050.24000 low=92660.98000 (width=389.26000)
+2026-03-23 21:57:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 93197.53000 (range high=93050.24000)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=93312.98000 low=92726.31000 (width=586.67000)
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 92538.38000 (range low=92726.31000)
+2026-03-23 21:57:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=226 sl=92360.54
+2026-03-23 21:57:35 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 92798.20000 (RSI=49.0, MACD_hist=-144.69607)
+2026-03-23 21:57:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=227 sl=92030.04
+2026-03-23 21:57:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=91553.59000 low=91115.89000 (width=437.70000)
+2026-03-23 21:57:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 91105.42000 (range low=91115.89000)
+2026-03-23 21:57:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=228 sl=91215.45
+2026-03-23 21:57:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=228 91215.45 → 90867.94
+2026-03-23 21:57:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=89724.15000 low=89476.35000 (width=247.80000)
+2026-03-23 21:57:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 89765.46000 (range high=89724.15000)
+2026-03-23 21:57:36 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 89857.57000 (RSI=56.4, MACD_hist=69.11329)
+2026-03-23 21:57:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=89268.57000 low=89136.22000 (width=132.35000)
+2026-03-23 21:57:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 89273.44000 (range high=89268.57000)
+2026-03-23 21:57:37 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 88922.67000 (RSI=37.3, MACD_hist=-49.53637)
+2026-03-23 21:57:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=232 sl=88308.97
+2026-03-23 21:57:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=92183.90000 low=91850.88000 (width=333.02000)
+2026-03-23 21:57:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 91779.24000 (range low=91850.88000)
+2026-03-23 21:57:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=233 sl=91988.81
+2026-03-23 21:57:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=233 91988.81 → 91806.33
+2026-03-23 21:57:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=233 91806.33 → 91710.95
+2026-03-23 21:57:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=90389.48000 low=90130.61000 (width=258.87000)
+2026-03-23 21:57:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 90590.16000 (range high=90389.48000)
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=92431.98000 low=91762.92000 (width=669.06000)
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=90408.10000 low=90197.85000 (width=210.25000)
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 90170.66000 (range low=90197.85000)
+2026-03-23 21:57:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=235 sl=90280.78
+2026-03-23 21:57:39 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 89540.51000 (RSI=30.9, MACD_hist=-68.04041)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=90606.13000 low=90286.54000 (width=319.59000)
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 90222.17000 (range low=90286.54000)
+2026-03-23 21:57:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=237 sl=90140.67
+2026-03-23 21:57:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=89852.85000 low=88670.94000 (width=1181.91000)
+2026-03-23 21:57:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=89898.12000 low=89571.98000 (width=326.14000)
+2026-03-23 21:57:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 89382.57000 (range low=89571.98000)
+2026-03-23 21:57:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=238 sl=89606.06
+2026-03-23 21:57:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87324.13000 low=86808.16000 (width=515.97000)
+2026-03-23 21:57:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 87357.85000 (range high=87324.13000)
+2026-03-23 21:57:43 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 86850.88000 (RSI=51.7, MACD_hist=226.61200)
+2026-03-23 21:57:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=240 sl=87273.34
+2026-03-23 21:57:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87127.23000 low=86553.11000 (width=574.12000)
+2026-03-23 21:57:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 87619.66000 (range high=87127.23000)
+2026-03-23 21:57:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87349.14000 low=87051.78000 (width=297.36000)
+2026-03-23 21:57:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 87349.32000 (range high=87349.14000)
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=88367.19000 low=88128.51000 (width=238.68000)
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 88005.15000 (range low=88128.51000)
+2026-03-23 21:57:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=243 sl=88212.11
+2026-03-23 21:57:45 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 88364.71000 (RSI=55.5, MACD_hist=150.97261)
+2026-03-23 21:57:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=244 sl=89142.86
+2026-03-23 21:57:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=90108.43000 low=89645.71000 (width=462.72000)
+2026-03-23 21:57:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 90290.65000 (range high=90108.43000)
+2026-03-23 21:57:46 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 89803.41000 (RSI=51.6, MACD_hist=104.70588)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87876.24000 low=87548.80000 (width=327.44000)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 87703.82000 (RSI=48.5, MACD_hist=-24.04780)
+2026-03-23 21:57:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=247 sl=87241.76
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 87284.34000 (range low=87548.80000)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87348.30000 low=87072.45000 (width=275.85000)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 87405.22000 (range high=87348.30000)
+2026-03-23 21:57:47 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 86963.08000 (RSI=44.3, MACD_hist=-12.97275)
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=88747.77000 low=88521.36000 (width=226.41000)
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 88824.74000 (range high=88747.77000)
+2026-03-23 21:57:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=251 sl=88783.13
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87538.81000 low=87430.89000 (width=107.92000)
+2026-03-23 21:57:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 87392.81000 (range low=87430.89000)
+2026-03-23 21:57:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87790.37000 low=87556.95000 (width=233.42000)
+2026-03-23 21:57:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 86950.46000 (range low=87556.95000)
+2026-03-23 21:57:51 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 87426.39000 (RSI=39.9, MACD_hist=-424.02499)
+2026-03-23 21:57:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=88015.76000 low=87741.17000 (width=274.59000)
+2026-03-23 21:57:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 88866.05000 (range high=88015.76000)
+2026-03-23 21:57:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=255 sl=88533.12
+2026-03-23 21:57:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=255 88533.12 → 88722.25
+2026-03-23 21:57:51 [INFO    ] src.backtesting.engine           Bar 20000/25621 (78%)
+2026-03-23 21:57:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=89044.58000 low=88797.47000 (width=247.11000)
+2026-03-23 21:57:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 88768.73000 (range low=88797.47000)
+2026-03-23 21:57:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=89672.63000 low=89349.05000 (width=323.58000)
+2026-03-23 21:57:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 89339.57000 (range low=89349.05000)
+2026-03-23 21:57:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=257 sl=89414.68
+2026-03-23 21:57:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=257 89414.68 → 89202.45
+2026-03-23 21:57:53 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 89375.59000 (RSI=52.3, MACD_hist=91.63085)
+2026-03-23 21:57:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=258 sl=89423.73
+2026-03-23 21:57:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=258 89423.73 → 89465.15
+2026-03-23 21:57:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=258 89465.15 → 89686.60
+2026-03-23 21:57:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=258 89686.60 → 89929.74
+2026-03-23 21:57:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=89770.99000 low=89658.58000 (width=112.41000)
+2026-03-23 21:57:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 89780.59000 (range high=89770.99000)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=91587.92000 low=91223.53000 (width=364.39000)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 91088.70000 (range low=91223.53000)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=93153.08000 low=92884.48000 (width=268.60000)
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 92801.38000 (range low=92884.48000)
+2026-03-23 21:57:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=261 sl=92900.26
+2026-03-23 21:57:55 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 93272.66000 (RSI=64.2, MACD_hist=70.98416)
+2026-03-23 21:57:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=262 sl=93336.19
+2026-03-23 21:57:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=262 93336.19 → 93443.85
+2026-03-23 21:57:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=93898.10000 low=93562.96000 (width=335.14000)
+2026-03-23 21:57:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 94092.84000 (range high=93898.10000)
+2026-03-23 21:57:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=263 sl=94063.13
+2026-03-23 21:57:56 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 94123.99000 (RSI=59.2, MACD_hist=83.23089)
+2026-03-23 21:57:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=92247.67000 low=91918.32000 (width=329.35000)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 91890.25000 (range low=91918.32000)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 92143.98000 (RSI=47.4, MACD_hist=-162.31528)
+2026-03-23 21:57:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=266 sl=92039.11
+2026-03-23 21:57:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=266 92039.11 → 91886.74
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=90477.47000 low=90013.76000 (width=463.71000)
+2026-03-23 21:57:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 89877.33000 (range low=90013.76000)
+2026-03-23 21:57:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=267 sl=90000.91
+2026-03-23 21:57:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=267 90000.91 → 89830.59
+2026-03-23 21:57:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=90683.67000 low=90397.29000 (width=286.38000)
+2026-03-23 21:57:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 90396.86000 (range low=90397.29000)
+2026-03-23 21:57:58 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 90336.52000 (RSI=40.3, MACD_hist=-83.52322)
+2026-03-23 21:58:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=90808.10000 low=90412.14000 (width=395.96000)
+2026-03-23 21:58:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 90277.12000 (range low=90412.14000)
+2026-03-23 21:58:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=92253.97000 low=91962.68000 (width=291.29000)
+2026-03-23 21:58:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 91933.27000 (range low=91962.68000)
+2026-03-23 21:58:01 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 92419.48000 (RSI=60.8, MACD_hist=57.73505)
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=272 sl=92462.28
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 92462.28 → 92960.00
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 92960.00 → 92990.16
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 92990.16 → 93025.91
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 93025.91 → 93246.56
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 93246.56 → 93429.44
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 93429.44 → 93658.50
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 93658.50 → 93792.53
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 93792.53 → 93804.93
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 93804.93 → 93911.55
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=272 93911.55 → 93922.28
+2026-03-23 21:58:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=95085.33000 low=94732.85000 (width=352.48000)
+2026-03-23 21:58:01 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 94959.58000 (RSI=47.1, MACD_hist=-22.96447)
+2026-03-23 21:58:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 95635.80000 (range high=95085.33000)
+2026-03-23 21:58:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=274 sl=95467.11
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=96925.70000 low=96579.47000 (width=346.23000)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 96972.09000 (range high=96925.70000)
+2026-03-23 21:58:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=275 sl=96829.84
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 96362.30000 (RSI=47.7, MACD_hist=-68.35420)
+2026-03-23 21:58:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=276 sl=96148.80
+2026-03-23 21:58:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=276 96148.80 → 95853.40
+2026-03-23 21:58:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=276 95853.40 → 95848.80
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=95466.12000 low=95255.50000 (width=210.62000)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 95562.24000 (range high=95466.12000)
+2026-03-23 21:58:02 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 94715.09000 (RSI=34.2, MACD_hist=-44.00270)
+2026-03-23 21:58:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=278 sl=94007.07
+2026-03-23 21:58:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=93306.56000 low=92963.01000 (width=343.55000)
+2026-03-23 21:58:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 92940.88000 (range low=92963.01000)
+2026-03-23 21:58:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=279 sl=93040.04
+2026-03-23 21:58:05 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 92916.19000 (RSI=47.7, MACD_hist=-4.93593)
+2026-03-23 21:58:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=280 sl=92707.58
+2026-03-23 21:58:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=91435.64000 low=91206.90000 (width=228.74000)
+2026-03-23 21:58:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 91143.24000 (range low=91206.90000)
+2026-03-23 21:58:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=281 sl=91211.56
+2026-03-23 21:58:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=281 91211.56 → 91159.56
+2026-03-23 21:58:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=89373.11000 low=88691.56000 (width=681.55000)
+2026-03-23 21:58:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 88368.39000 (range low=88691.56000)
+2026-03-23 21:58:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=90143.66000 low=89888.82000 (width=254.84000)
+2026-03-23 21:58:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 90177.24000 (range high=90143.66000)
+2026-03-23 21:58:07 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 89326.23000 (RSI=47.5, MACD_hist=-134.06347)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=88701.33000 low=88529.01000 (width=172.32000)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 88750.76000 (range high=88701.33000)
+2026-03-23 21:58:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=285 sl=88607.57
+2026-03-23 21:58:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=285 88607.57 → 88705.80
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 88712.01000 (RSI=49.5, MACD_hist=-7.60227)
+2026-03-23 21:58:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=286 sl=88159.08
+2026-03-23 21:58:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=286 88159.08 → 88070.07
+2026-03-23 21:58:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=286 88070.07 → 87934.29
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=87976.58000 low=87755.78000 (width=220.80000)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 88001.61000 (range high=87976.58000)
+2026-03-23 21:58:09 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 88136.42000 (RSI=60.0, MACD_hist=26.18939)
+2026-03-23 21:58:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=288 sl=88295.07
+2026-03-23 21:58:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=88086.16000 low=87733.21000 (width=352.95000)
+2026-03-23 21:58:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 87670.67000 (range low=87733.21000)
+2026-03-23 21:58:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=90148.42000 low=89305.23000 (width=843.19000)
+2026-03-23 21:58:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 90170.79000 (range high=90148.42000)
+2026-03-23 21:58:11 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 89743.40000 (RSI=52.9, MACD_hist=64.77286)
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=88050.90000 low=87737.89000 (width=313.01000)
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 88108.04000 (range high=88050.90000)
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=83299.52000 low=82671.86000 (width=627.66000)
+2026-03-23 21:58:12 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 82735.01000 (RSI=49.1, MACD_hist=-15.96176)
+2026-03-23 21:58:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=83151.88000 low=82844.16000 (width=307.72000)
+2026-03-23 21:58:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 82836.66000 (range low=82844.16000)
+2026-03-23 21:58:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=294 sl=82994.54
+2026-03-23 21:58:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=294 82994.54 → 82837.31
+2026-03-23 21:58:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=78870.66000 low=78271.10000 (width=599.56000)
+2026-03-23 21:58:14 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 78524.06000 (RSI=48.0, MACD_hist=-29.85514)
+2026-03-23 21:58:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=295 sl=78308.17
+2026-03-23 21:58:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 78208.40000 (range low=78271.10000)
+2026-03-23 21:58:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=296 sl=78223.34
+2026-03-23 21:58:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=77957.47000 low=77435.80000 (width=521.67000)
+2026-03-23 21:58:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 77962.81000 (range high=77957.47000)
+2026-03-23 21:58:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=297 sl=77715.44
+2026-03-23 21:58:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=78334.67000 low=77989.95000 (width=344.72000)
+2026-03-23 21:58:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 78397.45000 (range high=78334.67000)
+2026-03-23 21:58:15 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 77867.65000 (RSI=38.8, MACD_hist=-56.99558)
+2026-03-23 21:58:15 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=299 sl=77681.56
+2026-03-23 21:58:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=299 77681.56 → 77677.53
+2026-03-23 21:58:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=76291.09000 low=75663.27000 (width=627.82000)
+2026-03-23 21:58:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 75347.19000 (range low=75663.27000)
+2026-03-23 21:58:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=300 sl=75309.93
+2026-03-23 21:58:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=71050.91000 low=69913.33000 (width=1137.58000)
+2026-03-23 21:58:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 69633.48000 (range low=69913.33000)
+2026-03-23 21:58:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=301 sl=69061.28
+2026-03-23 21:58:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=66735.85000 low=65762.00000 (width=973.85000)
+2026-03-23 21:58:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 67026.47000 (range high=66735.85000)
+2026-03-23 21:58:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=302 sl=67538.65
+2026-03-23 21:58:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=302 67538.65 → 67968.52
+2026-03-23 21:58:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=68148.36000 low=67694.56000 (width=453.80000)
+2026-03-23 21:58:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 68839.48000 (range high=68148.36000)
+2026-03-23 21:58:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=71205.14000 low=70205.73000 (width=999.41000)
+2026-03-23 21:58:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 71235.06000 (range high=71205.14000)
+2026-03-23 21:58:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=69014.63000 low=68573.63000 (width=441.00000)
+2026-03-23 21:58:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 69177.10000 (range high=69014.63000)
+2026-03-23 21:58:20 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 68911.31000 (RSI=42.6, MACD_hist=-263.32024)
+2026-03-23 21:58:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=69073.87000 low=68445.85000 (width=628.02000)
+2026-03-23 21:58:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 68180.94000 (range low=68445.85000)
+2026-03-23 21:58:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=67103.32000 low=66514.45000 (width=588.87000)
+2026-03-23 21:58:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 67223.07000 (range high=67103.32000)
+2026-03-23 21:58:22 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 66598.81000 (RSI=45.6, MACD_hist=-92.41204)
+2026-03-23 21:58:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=309 sl=66109.98
+2026-03-23 21:58:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=67220.50000 low=66776.08000 (width=444.42000)
+2026-03-23 21:58:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 67331.01000 (range high=67220.50000)
+2026-03-23 21:58:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=310 sl=67371.76
+2026-03-23 21:58:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=70555.08000 low=69662.04000 (width=893.04000)
+2026-03-23 21:58:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 69635.53000 (range low=69662.04000)
+2026-03-23 21:58:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=311 sl=69668.92
+2026-03-23 21:58:24 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 69673.98000 (RSI=51.2, MACD_hist=107.14388)
+2026-03-23 21:58:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=312 sl=69929.88
+2026-03-23 21:58:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=70536.21000 low=70261.03000 (width=275.18000)
+2026-03-23 21:58:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 70251.02000 (range low=70261.03000)
+2026-03-23 21:58:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=68911.82000 low=68330.70000 (width=581.12000)
+2026-03-23 21:58:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 69655.10000 (range high=68911.82000)
+2026-03-23 21:58:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=67927.72000 low=67679.73000 (width=247.99000)
+2026-03-23 21:58:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 68066.40000 (range high=67927.72000)
+2026-03-23 21:58:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=315 sl=67894.70
+2026-03-23 21:58:26 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 68010.94000 (RSI=46.9, MACD_hist=-97.12622)
+2026-03-23 21:58:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=316 sl=67525.37
+2026-03-23 21:58:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=316 67525.37 → 67335.80
+2026-03-23 21:58:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=316 67335.80 → 67287.29
+2026-03-23 21:58:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=67799.30000 low=67069.80000 (width=729.50000)
+2026-03-23 21:58:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 67059.78000 (range low=67069.80000)
+2026-03-23 21:58:27 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 67047.77000 (RSI=41.3, MACD_hist=-105.96378)
+2026-03-23 21:58:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=318 sl=66893.57
+2026-03-23 21:58:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=318 66893.57 → 66839.52
+2026-03-23 21:58:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=318 66839.52 → 66739.84
+2026-03-23 21:58:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=318 66739.84 → 66672.66
+2026-03-23 21:58:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=318 66672.66 → 66669.53
+2026-03-23 21:58:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=66932.21000 low=66469.41000 (width=462.80000)
+2026-03-23 21:58:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 66409.96000 (range low=66469.41000)
+2026-03-23 21:58:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=319 sl=66450.07
+2026-03-23 21:58:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=319 66450.07 → 66252.70
+2026-03-23 21:58:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=319 66252.70 → 66243.79
+2026-03-23 21:58:28 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: SELL @ 66290.08000 (RSI=47.2, MACD_hist=-147.10395)
+2026-03-23 21:58:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=67974.10000 low=67276.40000 (width=697.70000)
+2026-03-23 21:58:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 66907.49000 (range low=67276.40000)
+2026-03-23 21:58:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=68275.03000 low=68072.51000 (width=202.52000)
+2026-03-23 21:58:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 68024.35000 (range low=68072.51000)
+2026-03-23 21:58:29 [INFO    ] src.analysis.strategies.ny_momentum NY Momentum [BTCUSD]: BUY @ 68349.57000 (RSI=53.4, MACD_hist=107.28805)
+2026-03-23 21:58:30 [INFO    ] src.backtesting.engine           Bar 25000/25621 (98%)
+2026-03-23 21:58:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=68238.62000 low=68120.27000 (width=118.35000)
+2026-03-23 21:58:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 67406.46000 (range low=68120.27000)
+2026-03-23 21:58:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=324 sl=67508.27
+2026-03-23 21:58:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=66481.13000 low=66101.45000 (width=379.68000)
+2026-03-23 21:58:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 66075.20000 (range low=66101.45000)
+2026-03-23 21:58:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=325 sl=66205.68
+2026-03-23 21:58:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=63306.11000 low=63045.11000 (width=261.00000)
+2026-03-23 21:58:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 62964.13000 (range low=63045.11000)
+2026-03-23 21:58:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=65479.11000 low=65192.30000 (width=286.81000)
+2026-03-23 21:58:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 65504.58000 (range high=65479.11000)
+2026-03-23 21:58:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=327 sl=65474.43
+2026-03-23 21:58:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=327 65474.43 → 65535.26
+2026-03-23 21:58:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=68387.18000 low=67969.72000 (width=417.46000)
+2026-03-23 21:58:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 67890.47000 (range low=67969.72000)
+2026-03-23 21:58:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=328 sl=68130.78
+2026-03-23 21:58:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=328 68130.78 → 67809.83
+2026-03-23 21:58:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=66772.42000 low=65948.61000 (width=823.81000)
+2026-03-23 21:58:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: SELL @ 65905.05000 (range low=65948.61000)
+2026-03-23 21:58:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=329 sl=65910.92
+2026-03-23 21:58:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=329 65910.92 → 65905.20
+2026-03-23 21:58:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=329 65905.20 → 65653.46
+2026-03-23 21:58:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [BTCUSD]: high=64296.84000 low=63782.92000 (width=513.92000)
+2026-03-23 21:58:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [BTCUSD]: BUY @ 65100.53000 (range high=64296.84000)
+2026-03-23 21:58:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=330 sl=64845.04
+2026-03-23 21:58:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=330 64845.04 → 65050.50
+2026-03-23 21:58:34 [INFO    ] src.backtesting.engine         Backtest complete: 330 trades, -140.31% return, 291.46% max DD, 45.5% WR
+
+Backtest Results: ny_momentum on BTCUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $-12.09 │
+│ Total Return              │        -140.31% │
+│ Max Drawdown              │         291.46% │
+│ Total Trades              │             330 │
+│ Win Rate                  │           45.5% │
+│ Profit Factor             │            0.96 │
+│ Avg Trade P&L             │          $-0.13 │
+│ Sharpe Ratio              │           -0.05 │
+│ Max Consecutive Losses    │               9 │
+│ Avg Trade Duration        │            3.7h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 21:58:34 [INFO    ] backtest                       Results saved to data/backtest_results/BTCUSD_BTCUSD-S-ny_mom_only_20260323_215834.json
+
+Backtest Results: ny_momentum on BTCUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │         $-12.09 │
+│ Total Return              │        -140.31% │
+│ Max Drawdown              │         291.46% │
+│ Total Trades              │             330 │
+│ Win Rate                  │           45.5% │
+│ Profit Factor             │            0.96 │
+│ Avg Trade P&L             │          $-0.13 │
+│ Sharpe Ratio              │           -0.05 │
+│ Max Consecutive Losses    │               9 │
+│ Avg Trade Duration        │            3.7h │
+└───────────────────────────┴─────────────────┘
+

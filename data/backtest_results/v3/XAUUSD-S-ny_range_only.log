@@ -1,0 +1,633 @@
+2026-03-23 21:53:33 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/XAUUSD_M15_20250601_20260301.csv
+2026-03-23 21:53:33 [INFO    ] src.backtesting.data_loader    Loaded 17653 bars from data/backtest_cache/XAUUSD_M15_20250601_20260301.csv (2025-06-02 01:00:00+00:00 → 2026-02-27 23:45:00+00:00)
+2026-03-23 21:53:33 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/XAUUSD_H1_20250601_20260301.csv
+2026-03-23 21:53:33 [INFO    ] src.backtesting.data_loader    Loaded 4418 bars from data/backtest_cache/XAUUSD_H1_20250601_20260301.csv (2025-06-02 01:00:00+00:00 → 2026-02-27 23:00:00+00:00)
+2026-03-23 21:53:33 [INFO    ] backtest                       Data loaded: 17653 M15 bars, 4418 H1 bars
+2026-03-23 21:53:33 [INFO    ] backtest                       Config [XAUUSD-S-ny_range_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:53:33 [INFO    ] src.backtesting.engine         Starting backtest: ny_range_breakout on XAUUSD (17653 M15 bars, 4418 H1 bars)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3358.63000 low=3354.94000 (width=3.69000)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3359.23000 (range high=3358.63000)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3363.93000 low=3347.24000 (width=16.69000)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3400.41000 low=3388.27000 (width=12.14000)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3402.83000 (range high=3400.41000)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3360.80000 low=3355.87000 (width=4.93000)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3353.89000 (range low=3355.87000)
+2026-03-23 21:53:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=3 sl=3356.77
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3319.68000 low=3312.11000 (width=7.57000)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3320.61000 (range high=3319.68000)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3336.28000 low=3328.41000 (width=7.87000)
+2026-03-23 21:53:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3338.98000 (range high=3336.28000)
+2026-03-23 21:53:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=5 sl=3338.82
+2026-03-23 21:53:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=5 3338.82 → 3340.63
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3385.82000 low=3362.53000 (width=23.29000)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3388.35000 (range high=3385.82000)
+2026-03-23 21:53:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=6 sl=3387.08
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3427.69000 low=3411.54000 (width=16.15000)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3431.51000 (range high=3427.69000)
+2026-03-23 21:53:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=7 sl=3431.67
+2026-03-23 21:53:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=7 3431.67 → 3434.50
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3398.73000 low=3385.33000 (width=13.40000)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3384.92000 (range low=3385.33000)
+2026-03-23 21:53:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=8 sl=3385.89
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3382.39000 low=3375.73000 (width=6.66000)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3389.02000 (range high=3382.39000)
+2026-03-23 21:53:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=9 sl=3388.57
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3379.09000 low=3369.08000 (width=10.01000)
+2026-03-23 21:53:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3365.88000 (range low=3369.08000)
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=3365.51
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 3365.51 → 3363.24
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 3363.24 → 3363.00
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 3363.00 → 3359.20
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3357.92000 low=3355.00000 (width=2.92000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3354.28000 (range low=3355.00000)
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=11 sl=3357.61
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=11 3357.61 → 3357.59
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3368.25000 low=3363.97000 (width=4.28000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3369.08000 (range high=3368.25000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3327.64000 low=3318.47000 (width=9.17000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3313.47000 (range low=3318.47000)
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=3308.75
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3329.50000 low=3324.25000 (width=5.25000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3319.76000 (range low=3324.25000)
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=14 sl=3321.45
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3321.45 → 3320.64
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3343.47000 low=3337.91000 (width=5.56000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3322.27000 (range low=3337.91000)
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=15 sl=3323.78
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3290.88000 low=3279.73000 (width=11.15000)
+2026-03-23 21:53:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3275.71000 (range low=3279.73000)
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=16 sl=3280.02
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 3280.02 → 3279.08
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 3279.08 → 3272.15
+2026-03-23 21:53:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 3272.15 → 3266.32
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3288.78000 low=3282.51000 (width=6.27000)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3280.47000 (range low=3282.51000)
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=17 sl=3282.65
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3349.68000 low=3344.42000 (width=5.26000)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3350.75000 (range high=3349.68000)
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=18 sl=3349.80
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3345.67000 low=3340.57000 (width=5.10000)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3338.18000 (range low=3340.57000)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3355.45000 low=3344.79000 (width=10.66000)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3331.29000 (range low=3344.79000)
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=20 sl=3336.84
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 3336.84 → 3335.27
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 3335.27 → 3330.00
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 3330.00 → 3329.81
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 3329.81 → 3329.35
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 3329.35 → 3327.43
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3310.69000 low=3296.43000 (width=14.26000)
+2026-03-23 21:53:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3311.77000 (range high=3310.69000)
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=3311.40
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3311.40 → 3313.17
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3313.17 → 3313.74
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3313.74 → 3315.88
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3315.88 → 3318.02
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3318.02 → 3319.48
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3319.48 → 3320.69
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3320.69 → 3324.50
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3324.50 → 3325.71
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3325.71 → 3327.01
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3327.01 → 3329.07
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3329.07 → 3332.58
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3332.58 → 3333.15
+2026-03-23 21:53:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 3333.15 → 3334.53
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3327.06000 low=3320.47000 (width=6.59000)
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3306.04000 (range low=3320.47000)
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=3306.15
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 3306.15 → 3304.85
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3295.90000 low=3288.29000 (width=7.61000)
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3287.77000 (range low=3288.29000)
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3328.77000 low=3322.25000 (width=6.52000)
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3320.42000 (range low=3322.25000)
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3348.24000 low=3339.44000 (width=8.80000)
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3348.79000 (range high=3348.24000)
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=25 sl=3345.70
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 3345.70 → 3348.46
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 3348.46 → 3349.82
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 3349.82 → 3352.11
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 3352.11 → 3353.42
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=25 3353.42 → 3357.51
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3374.60000 low=3369.71000 (width=4.89000)
+2026-03-23 21:53:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3369.49000 (range low=3369.71000)
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=26 sl=3370.27
+2026-03-23 21:53:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=26 3370.27 → 3368.25
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3366.33000 low=3361.20000 (width=5.13000)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3360.69000 (range low=3361.20000)
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=3363.34
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 3363.34 → 3362.24
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 3362.24 → 3360.09
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 3360.09 → 3357.78
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3331.15000 low=3324.93000 (width=6.22000)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3324.20000 (range low=3324.93000)
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=28 sl=3319.54
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3352.75000 low=3347.89000 (width=4.86000)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3352.90000 (range high=3352.75000)
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=29 sl=3350.99
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 3350.99 → 3354.24
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=29 3354.24 → 3355.51
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3368.09000 low=3362.86000 (width=5.23000)
+2026-03-23 21:53:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3369.46000 (range high=3368.09000)
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=30 sl=3369.25
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 3369.25 → 3369.56
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 3369.56 → 3371.22
+2026-03-23 21:53:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 3371.22 → 3371.85
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3388.66000 low=3385.91000 (width=2.75000)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3394.29000 (range high=3388.66000)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3431.34000 low=3421.13000 (width=10.21000)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3419.99000 (range low=3421.13000)
+2026-03-23 21:53:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=32 sl=3416.01
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3367.24000 low=3362.15000 (width=5.09000)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3361.71000 (range low=3362.15000)
+2026-03-23 21:53:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=33 sl=3360.26
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3348.03000 low=3340.99000 (width=7.04000)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3339.77000 (range low=3340.99000)
+2026-03-23 21:53:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=3343.00
+2026-03-23 21:53:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 3343.00 → 3338.78
+2026-03-23 21:53:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=34 3338.78 → 3337.60
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3338.81000 low=3334.21000 (width=4.60000)
+2026-03-23 21:53:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3333.27000 (range low=3334.21000)
+2026-03-23 21:53:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=35 sl=3335.82
+2026-03-23 21:53:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=35 3335.82 → 3333.41
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3326.38000 low=3322.02000 (width=4.36000)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3319.73000 (range low=3322.02000)
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=36 sl=3323.09
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 3323.09 → 3321.59
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3333.00000 low=3326.67000 (width=6.33000)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3309.18000 (range low=3326.67000)
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=37 sl=3312.76
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 3312.76 → 3310.59
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 3310.59 → 3309.94
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 3309.94 → 3308.78
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3308.10000 low=3293.79000 (width=14.31000)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3308.47000 (range high=3308.10000)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3303.08000 low=3293.31000 (width=9.77000)
+2026-03-23 21:53:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3339.05000 (range high=3303.08000)
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=39 sl=3340.94
+2026-03-23 21:53:40 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=39 3340.94 → 3341.94
+2026-03-23 21:53:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3358.88000 low=3352.93000 (width=5.95000)
+2026-03-23 21:53:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3363.83000 (range high=3358.88000)
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=40 sl=3361.87
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 3361.87 → 3362.66
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 3362.66 → 3365.04
+2026-03-23 21:53:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3361.74000 low=3352.92000 (width=8.82000)
+2026-03-23 21:53:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3372.77000 (range high=3361.74000)
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=41 sl=3371.78
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3371.78 → 3375.93
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3375.93 → 3377.00
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3377.00 → 3378.40
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3378.40 → 3379.09
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3379.09 → 3382.00
+2026-03-23 21:53:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3378.83000 low=3371.77000 (width=7.06000)
+2026-03-23 21:53:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3380.25000 (range high=3378.83000)
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=42 sl=3376.18
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3376.18 → 3378.40
+2026-03-23 21:53:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3378.40 → 3382.55
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3400.98000 low=3384.47000 (width=16.51000)
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3381.85000 (range low=3384.47000)
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3363.91000 low=3353.16000 (width=10.75000)
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3352.03000 (range low=3353.16000)
+2026-03-23 21:53:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=44 sl=3356.07
+2026-03-23 21:53:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3356.07 → 3355.51
+2026-03-23 21:53:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3355.51 → 3355.21
+2026-03-23 21:53:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3355.21 → 3354.73
+2026-03-23 21:53:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3354.73 → 3352.55
+2026-03-23 21:53:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3352.55 → 3352.11
+2026-03-23 21:53:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=44 3352.11 → 3351.02
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3350.51000 low=3343.97000 (width=6.54000)
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3343.83000 (range low=3343.97000)
+2026-03-23 21:53:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=45 sl=3346.91
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3359.06000 low=3352.09000 (width=6.97000)
+2026-03-23 21:53:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3338.30000 (range low=3352.09000)
+2026-03-23 21:53:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=46 sl=3342.97
+2026-03-23 21:53:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=46 3342.97 → 3340.94
+2026-03-23 21:53:43 [INFO    ] src.backtesting.engine           Bar 5000/17653 (28%)
+2026-03-23 21:53:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3327.86000 low=3323.90000 (width=3.96000)
+2026-03-23 21:53:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3342.06000 (range high=3327.86000)
+2026-03-23 21:53:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=47 sl=3338.66
+2026-03-23 21:53:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=47 3338.66 → 3340.55
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3341.57000 low=3327.57000 (width=14.00000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3341.83000 (range high=3341.57000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3368.49000 low=3365.09000 (width=3.40000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3369.78000 (range high=3368.49000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3375.17000 low=3367.18000 (width=7.99000)
+2026-03-23 21:53:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3376.31000 (range high=3375.17000)
+2026-03-23 21:53:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=50 sl=3375.33
+2026-03-23 21:53:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=50 3375.33 → 3375.91
+2026-03-23 21:53:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=50 3375.91 → 3378.76
+2026-03-23 21:53:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=50 3378.76 → 3380.47
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3399.22000 low=3393.83000 (width=5.39000)
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3404.13000 (range high=3399.22000)
+2026-03-23 21:53:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=51 sl=3401.87
+2026-03-23 21:53:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 3401.87 → 3402.56
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3408.85000 low=3404.65000 (width=4.20000)
+2026-03-23 21:53:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3416.45000 (range high=3408.85000)
+2026-03-23 21:53:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=52 sl=3414.09
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3473.97000 low=3466.31000 (width=7.66000)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3477.45000 (range high=3473.97000)
+2026-03-23 21:53:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=53 sl=3477.03
+2026-03-23 21:53:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=53 3477.03 → 3479.21
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3485.69000 low=3475.75000 (width=9.94000)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3489.77000 (range high=3485.69000)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3541.77000 low=3532.29000 (width=9.48000)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3546.26000 (range high=3541.77000)
+2026-03-23 21:53:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=55 sl=3543.73
+2026-03-23 21:53:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 3543.73 → 3549.99
+2026-03-23 21:53:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=55 3549.99 → 3552.90
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3547.01000 low=3538.35000 (width=8.66000)
+2026-03-23 21:53:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3548.05000 (range high=3547.01000)
+2026-03-23 21:53:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=56 sl=3543.91
+2026-03-23 21:53:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3552.94000 low=3549.44000 (width=3.50000)
+2026-03-23 21:53:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3554.74000 (range high=3552.94000)
+2026-03-23 21:53:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3622.47000 low=3613.46000 (width=9.01000)
+2026-03-23 21:53:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3624.22000 (range high=3622.47000)
+2026-03-23 21:53:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=58 sl=3623.21
+2026-03-23 21:53:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3655.98000 low=3648.78000 (width=7.20000)
+2026-03-23 21:53:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3648.02000 (range low=3648.78000)
+2026-03-23 21:53:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3657.57000 low=3651.56000 (width=6.01000)
+2026-03-23 21:53:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3649.10000 (range low=3651.56000)
+2026-03-23 21:53:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=60 sl=3651.32
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3624.91000 low=3619.74000 (width=5.17000)
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3615.69000 (range low=3619.74000)
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3652.12000 low=3646.26000 (width=5.86000)
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3646.34000 low=3639.09000 (width=7.25000)
+2026-03-23 21:53:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3659.98000 (range high=3646.34000)
+2026-03-23 21:53:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=62 sl=3656.00
+2026-03-23 21:53:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 3656.00 → 3657.68
+2026-03-23 21:53:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 3657.68 → 3660.26
+2026-03-23 21:53:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 3660.26 → 3661.43
+2026-03-23 21:53:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3698.79000 low=3692.83000 (width=5.96000)
+2026-03-23 21:53:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3692.74000 (range low=3692.83000)
+2026-03-23 21:53:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3669.76000 low=3660.43000 (width=9.33000)
+2026-03-23 21:53:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3672.51000 low=3665.53000 (width=6.98000)
+2026-03-23 21:53:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3640.78000 (range low=3665.53000)
+2026-03-23 21:53:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=64 sl=3646.32
+2026-03-23 21:53:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3728.34000 low=3721.04000 (width=7.30000)
+2026-03-23 21:53:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3720.86000 (range low=3721.04000)
+2026-03-23 21:53:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=65 sl=3721.92
+2026-03-23 21:53:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=65 3721.92 → 3721.82
+2026-03-23 21:53:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3787.87000 low=3780.84000 (width=7.03000)
+2026-03-23 21:53:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3780.33000 (range low=3780.84000)
+2026-03-23 21:53:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3768.61000 low=3759.83000 (width=8.78000)
+2026-03-23 21:53:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3771.53000 (range high=3768.61000)
+2026-03-23 21:53:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3754.93000 low=3743.00000 (width=11.93000)
+2026-03-23 21:53:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3772.15000 (range high=3754.93000)
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=68 sl=3767.92
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 3767.92 → 3768.89
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 3768.89 → 3769.16
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 3769.16 → 3770.44
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 3770.44 → 3772.44
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=68 3772.44 → 3773.30
+2026-03-23 21:53:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3818.55000 low=3806.44000 (width=12.11000)
+2026-03-23 21:53:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3818.86000 (range high=3818.55000)
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=69 sl=3818.76
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 3818.76 → 3820.37
+2026-03-23 21:53:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3814.58000 low=3798.24000 (width=16.34000)
+2026-03-23 21:53:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3816.84000 (range high=3814.58000)
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=70 sl=3811.92
+2026-03-23 21:53:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=70 3811.92 → 3829.36
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3889.59000 low=3885.23000 (width=4.36000)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3883.18000 (range low=3885.23000)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3883.81000 low=3875.80000 (width=8.01000)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3884.95000 (range high=3883.81000)
+2026-03-23 21:53:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=72 sl=3882.32
+2026-03-23 21:53:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 3882.32 → 3884.97
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3867.66000 low=3862.12000 (width=5.54000)
+2026-03-23 21:53:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3877.18000 (range high=3867.66000)
+2026-03-23 21:53:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=73 sl=3873.47
+2026-03-23 21:53:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3946.63000 low=3932.67000 (width=13.96000)
+2026-03-23 21:53:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3931.27000 (range low=3932.67000)
+2026-03-23 21:53:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3962.74000 low=3954.12000 (width=8.62000)
+2026-03-23 21:53:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3965.93000 (range high=3962.74000)
+2026-03-23 21:53:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=75 sl=3961.38
+2026-03-23 21:53:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3961.38 → 3963.96
+2026-03-23 21:53:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=75 3963.96 → 3969.93
+2026-03-23 21:53:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4049.54000 low=4033.53000 (width=16.01000)
+2026-03-23 21:53:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4029.84000 (range low=4033.53000)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4044.24000 low=4036.30000 (width=7.94000)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4044.37000 (range high=4044.24000)
+2026-03-23 21:53:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=77 sl=4045.54
+2026-03-23 21:53:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=77 4045.54 → 4047.67
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4085.09000 low=4071.27000 (width=13.82000)
+2026-03-23 21:53:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4087.66000 (range high=4085.09000)
+2026-03-23 21:53:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=78 sl=4083.49
+2026-03-23 21:53:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=78 4083.49 → 4084.40
+2026-03-23 21:53:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=78 4084.40 → 4086.81
+2026-03-23 21:53:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=78 4086.81 → 4087.13
+2026-03-23 21:53:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=78 4087.13 → 4089.18
+2026-03-23 21:53:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=78 4089.18 → 4093.92
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4144.31000 low=4125.09000 (width=19.22000)
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4118.73000 (range low=4125.09000)
+2026-03-23 21:53:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=79 sl=4124.39
+2026-03-23 21:53:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=79 4124.39 → 4121.46
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4206.26000 low=4190.45000 (width=15.81000)
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4208.43000 (range high=4206.26000)
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4246.05000 low=4234.28000 (width=11.77000)
+2026-03-23 21:53:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4246.53000 (range high=4246.05000)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4342.13000 low=4319.63000 (width=22.50000)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4319.48000 (range low=4319.63000)
+2026-03-23 21:53:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=82 sl=4330.37
+2026-03-23 21:53:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=82 4330.37 → 4310.97
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4260.91000 low=4245.73000 (width=15.18000)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4280.75000 (range high=4260.91000)
+2026-03-23 21:53:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=83 sl=4280.05
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4266.51000 low=4249.48000 (width=17.03000)
+2026-03-23 21:53:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4267.88000 (range high=4266.51000)
+2026-03-23 21:53:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4090.76000 low=4023.73000 (width=67.03000)
+2026-03-23 21:53:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4020.60000 (range low=4023.73000)
+2026-03-23 21:53:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4125.26000 low=4101.72000 (width=23.54000)
+2026-03-23 21:53:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4127.21000 (range high=4125.26000)
+2026-03-23 21:53:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=86 sl=4130.25
+2026-03-23 21:53:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 4130.25 → 4131.93
+2026-03-23 21:53:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4070.84000 low=4053.51000 (width=17.33000)
+2026-03-23 21:53:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4083.30000 (range high=4070.84000)
+2026-03-23 21:53:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=87 sl=4092.06
+2026-03-23 21:53:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4047.78000 low=4028.92000 (width=18.86000)
+2026-03-23 21:53:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4020.56000 (range low=4028.92000)
+2026-03-23 21:53:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=3930.89000 low=3900.07000 (width=30.82000)
+2026-03-23 21:53:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 3932.44000 (range high=3930.89000)
+2026-03-23 21:53:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=89 sl=3931.09
+2026-03-23 21:53:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 3931.09 → 3931.62
+2026-03-23 21:53:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 3931.62 → 3941.02
+2026-03-23 21:53:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 3941.02 → 3946.09
+2026-03-23 21:53:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 3946.09 → 3948.46
+2026-03-23 21:53:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=89 3948.46 → 3953.70
+2026-03-23 21:53:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4029.59000 low=4017.25000 (width=12.34000)
+2026-03-23 21:53:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4016.61000 (range low=4017.25000)
+2026-03-23 21:53:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4001.04000 low=3973.71000 (width=27.33000)
+2026-03-23 21:53:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3966.25000 (range low=3973.71000)
+2026-03-23 21:53:59 [INFO    ] src.backtesting.engine           Bar 10000/17653 (57%)
+2026-03-23 21:53:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4016.74000 low=4003.62000 (width=13.12000)
+2026-03-23 21:53:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4019.61000 (range high=4016.74000)
+2026-03-23 21:53:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=92 sl=4016.58
+2026-03-23 21:53:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=92 4016.58 → 4017.42
+2026-03-23 21:54:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4008.56000 low=3994.49000 (width=14.07000)
+2026-03-23 21:54:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4016.21000 (range high=4008.56000)
+2026-03-23 21:54:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=93 sl=4011.14
+2026-03-23 21:54:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=93 4011.14 → 4015.41
+2026-03-23 21:54:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4000.03000 low=3991.64000 (width=8.39000)
+2026-03-23 21:54:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 3983.92000 (range low=3991.64000)
+2026-03-23 21:54:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=94 sl=3991.07
+2026-03-23 21:54:00 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 3991.07 → 3986.94
+2026-03-23 21:54:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4019.39000 low=4007.12000 (width=12.27000)
+2026-03-23 21:54:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4005.23000 (range low=4007.12000)
+2026-03-23 21:54:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=95 sl=4001.33
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4011.90000 low=3993.77000 (width=18.13000)
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4085.43000 low=4075.82000 (width=9.61000)
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4089.44000 (range high=4085.43000)
+2026-03-23 21:54:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=96 sl=4085.09
+2026-03-23 21:54:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=96 4085.09 → 4085.98
+2026-03-23 21:54:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=96 4085.98 → 4088.73
+2026-03-23 21:54:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=96 4088.73 → 4093.64
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4144.48000 low=4139.12000 (width=5.36000)
+2026-03-23 21:54:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4138.98000 (range low=4139.12000)
+2026-03-23 21:54:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=97 sl=4142.42
+2026-03-23 21:54:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4131.15000 low=4123.09000 (width=8.06000)
+2026-03-23 21:54:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4136.35000 (range high=4131.15000)
+2026-03-23 21:54:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4232.28000 low=4219.34000 (width=12.94000)
+2026-03-23 21:54:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4234.51000 (range high=4232.28000)
+2026-03-23 21:54:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=99 sl=4230.60
+2026-03-23 21:54:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4169.95000 low=4130.88000 (width=39.07000)
+2026-03-23 21:54:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4125.88000 (range low=4130.88000)
+2026-03-23 21:54:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=100 sl=4105.35
+2026-03-23 21:54:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=100 4105.35 → 4077.62
+2026-03-23 21:54:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4085.89000 low=4061.10000 (width=24.79000)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4050.31000 low=4036.92000 (width=13.39000)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4033.09000 (range low=4036.92000)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4117.54000 low=4106.54000 (width=11.00000)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4103.13000 (range low=4106.54000)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4068.39000 low=4051.16000 (width=17.23000)
+2026-03-23 21:54:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4072.67000 (range high=4068.39000)
+2026-03-23 21:54:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=103 sl=4066.43
+2026-03-23 21:54:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=103 4066.43 → 4074.27
+2026-03-23 21:54:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4046.83000 low=4031.02000 (width=15.81000)
+2026-03-23 21:54:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4061.78000 (range high=4046.83000)
+2026-03-23 21:54:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=104 sl=4057.33
+2026-03-23 21:54:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=104 4057.33 → 4064.59
+2026-03-23 21:54:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4071.66000 low=4063.18000 (width=8.48000)
+2026-03-23 21:54:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4079.89000 (range high=4071.66000)
+2026-03-23 21:54:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=105 sl=4080.65
+2026-03-23 21:54:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 4080.65 → 4081.96
+2026-03-23 21:54:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=105 4081.96 → 4084.14
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4137.29000 low=4127.80000 (width=9.49000)
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4117.46000 (range low=4127.80000)
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4173.01000 low=4157.82000 (width=15.19000)
+2026-03-23 21:54:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4142.13000 (range low=4157.82000)
+2026-03-23 21:54:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4180.16000 low=4163.00000 (width=17.16000)
+2026-03-23 21:54:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4182.40000 (range high=4180.16000)
+2026-03-23 21:54:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=108 sl=4181.00
+2026-03-23 21:54:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=108 4181.00 → 4185.35
+2026-03-23 21:54:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=108 4185.35 → 4186.98
+2026-03-23 21:54:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4258.46000 low=4248.26000 (width=10.20000)
+2026-03-23 21:54:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4246.52000 (range low=4248.26000)
+2026-03-23 21:54:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4205.94000 low=4184.90000 (width=21.04000)
+2026-03-23 21:54:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4208.64000 (range high=4205.94000)
+2026-03-23 21:54:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=110 sl=4211.28
+2026-03-23 21:54:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=110 4211.28 → 4215.55
+2026-03-23 21:54:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4225.73000 low=4220.01000 (width=5.72000)
+2026-03-23 21:54:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4228.78000 (range high=4225.73000)
+2026-03-23 21:54:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=111 sl=4225.51
+2026-03-23 21:54:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=111 4225.51 → 4225.91
+2026-03-23 21:54:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=111 4225.91 → 4226.60
+2026-03-23 21:54:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=111 4226.60 → 4229.29
+2026-03-23 21:54:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4214.20000 low=4199.69000 (width=14.51000)
+2026-03-23 21:54:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4178.31000 (range low=4199.69000)
+2026-03-23 21:54:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4219.03000 low=4209.77000 (width=9.26000)
+2026-03-23 21:54:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4237.75000 (range high=4219.03000)
+2026-03-23 21:54:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4339.22000 low=4326.99000 (width=12.23000)
+2026-03-23 21:54:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4325.85000 (range low=4326.99000)
+2026-03-23 21:54:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4343.63000 low=4335.38000 (width=8.25000)
+2026-03-23 21:54:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4343.76000 (range high=4343.63000)
+2026-03-23 21:54:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4279.63000 low=4273.86000 (width=5.77000)
+2026-03-23 21:54:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4287.80000 (range high=4279.63000)
+2026-03-23 21:54:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=116 sl=4282.94
+2026-03-23 21:54:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=116 4282.94 → 4284.78
+2026-03-23 21:54:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=116 4284.78 → 4286.41
+2026-03-23 21:54:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=116 4286.41 → 4287.66
+2026-03-23 21:54:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4320.51000 low=4315.05000 (width=5.46000)
+2026-03-23 21:54:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4323.18000 (range high=4320.51000)
+2026-03-23 21:54:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=117 sl=4319.08
+2026-03-23 21:54:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4411.72000 low=4406.14000 (width=5.58000)
+2026-03-23 21:54:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4415.60000 (range high=4411.72000)
+2026-03-23 21:54:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4494.26000 low=4483.08000 (width=11.18000)
+2026-03-23 21:54:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4494.46000 (range high=4494.26000)
+2026-03-23 21:54:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4491.90000 low=4483.11000 (width=8.79000)
+2026-03-23 21:54:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4479.09000 (range low=4483.11000)
+2026-03-23 21:54:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4515.13000 low=4503.07000 (width=12.06000)
+2026-03-23 21:54:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4517.81000 (range high=4515.13000)
+2026-03-23 21:54:15 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=121 sl=4514.86
+2026-03-23 21:54:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=121 4514.86 → 4515.42
+2026-03-23 21:54:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=121 4515.42 → 4519.23
+2026-03-23 21:54:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4467.68000 low=4434.10000 (width=33.58000)
+2026-03-23 21:54:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4429.58000 (range low=4434.10000)
+2026-03-23 21:54:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=122 sl=4419.29
+2026-03-23 21:54:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=122 4419.29 → 4411.15
+2026-03-23 21:54:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4390.22000 low=4381.28000 (width=8.94000)
+2026-03-23 21:54:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4396.24000 (range high=4390.22000)
+2026-03-23 21:54:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=123 sl=4386.71
+2026-03-23 21:54:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=123 4386.71 → 4388.34
+2026-03-23 21:54:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4316.23000 low=4304.04000 (width=12.19000)
+2026-03-23 21:54:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4317.22000 (range high=4316.23000)
+2026-03-23 21:54:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=124 sl=4313.35
+2026-03-23 21:54:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=124 4313.35 → 4317.69
+2026-03-23 21:54:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4399.32000 low=4390.77000 (width=8.55000)
+2026-03-23 21:54:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4388.11000 (range low=4390.77000)
+2026-03-23 21:54:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4437.40000 low=4410.95000 (width=26.45000)
+2026-03-23 21:54:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4449.31000 (range high=4437.40000)
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=126 sl=4448.45
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 4448.45 → 4450.15
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 4450.15 → 4451.39
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 4451.39 → 4454.04
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 4454.04 → 4455.60
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 4455.60 → 4456.45
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 4456.45 → 4456.89
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=126 4456.89 → 4459.27
+2026-03-23 21:54:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4464.48000 low=4448.79000 (width=15.69000)
+2026-03-23 21:54:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4465.56000 (range high=4464.48000)
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=127 sl=4467.62
+2026-03-23 21:54:18 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=127 4467.62 → 4475.06
+2026-03-23 21:54:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4433.24000 low=4422.30000 (width=10.94000)
+2026-03-23 21:54:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4412.36000 (range low=4422.30000)
+2026-03-23 21:54:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4476.16000 low=4468.75000 (width=7.41000)
+2026-03-23 21:54:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4486.87000 (range high=4476.16000)
+2026-03-23 21:54:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=129 sl=4481.23
+2026-03-23 21:54:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4594.91000 low=4581.80000 (width=13.11000)
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4606.59000 (range high=4594.91000)
+2026-03-23 21:54:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=130 sl=4603.83
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4592.03000 low=4582.16000 (width=9.87000)
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4580.53000 (range low=4582.16000)
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4637.48000 low=4626.08000 (width=11.40000)
+2026-03-23 21:54:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4638.66000 (range high=4637.48000)
+2026-03-23 21:54:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4667.53000 low=4659.70000 (width=7.83000)
+2026-03-23 21:54:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4670.95000 (range high=4667.53000)
+2026-03-23 21:54:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=133 sl=4666.19
+2026-03-23 21:54:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=133 4666.19 → 4669.71
+2026-03-23 21:54:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=133 4669.71 → 4671.87
+2026-03-23 21:54:22 [INFO    ] src.backtesting.engine           Bar 15000/17653 (85%)
+2026-03-23 21:54:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4735.21000 low=4721.61000 (width=13.60000)
+2026-03-23 21:54:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4719.32000 (range low=4721.61000)
+2026-03-23 21:54:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4871.50000 low=4855.20000 (width=16.30000)
+2026-03-23 21:54:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4877.27000 (range high=4871.50000)
+2026-03-23 21:54:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4836.32000 low=4824.44000 (width=11.88000)
+2026-03-23 21:54:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4845.87000 (range high=4836.32000)
+2026-03-23 21:54:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=136 sl=4839.07
+2026-03-23 21:54:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=136 4839.07 → 4848.28
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4929.88000 low=4912.00000 (width=17.88000)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4952.88000 (range high=4929.88000)
+2026-03-23 21:54:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=137 sl=4943.16
+2026-03-23 21:54:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=137 4943.16 → 4952.78
+2026-03-23 21:54:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=137 4952.78 → 4966.88
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5092.75000 low=5078.46000 (width=14.29000)
+2026-03-23 21:54:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 5072.36000 (range low=5078.46000)
+2026-03-23 21:54:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5090.83000 low=5066.90000 (width=23.93000)
+2026-03-23 21:54:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 5059.82000 (range low=5066.90000)
+2026-03-23 21:54:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5270.80000 low=5238.64000 (width=32.16000)
+2026-03-23 21:54:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 5279.15000 (range high=5270.80000)
+2026-03-23 21:54:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5528.90000 low=5470.83000 (width=58.07000)
+2026-03-23 21:54:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 5535.67000 (range high=5528.90000)
+2026-03-23 21:54:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5144.89000 low=5089.55000 (width=55.34000)
+2026-03-23 21:54:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 5064.51000 (range low=5089.55000)
+2026-03-23 21:54:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=142 sl=5103.68
+2026-03-23 21:54:26 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=142 5103.68 → 5093.09
+2026-03-23 21:54:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4779.24000 low=4703.61000 (width=75.63000)
+2026-03-23 21:54:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4797.28000 (range high=4779.24000)
+2026-03-23 21:54:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4919.32000 low=4883.95000 (width=35.37000)
+2026-03-23 21:54:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4924.97000 (range high=4919.32000)
+2026-03-23 21:54:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=144 sl=4910.98
+2026-03-23 21:54:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5053.47000 low=5013.69000 (width=39.78000)
+2026-03-23 21:54:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 5055.94000 (range high=5053.47000)
+2026-03-23 21:54:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4894.42000 low=4864.46000 (width=29.96000)
+2026-03-23 21:54:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4840.14000 (range low=4864.46000)
+2026-03-23 21:54:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=146 sl=4870.00
+2026-03-23 21:54:28 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=146 4870.00 → 4862.11
+2026-03-23 21:54:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4895.76000 low=4863.92000 (width=31.84000)
+2026-03-23 21:54:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4909.61000 (range high=4895.76000)
+2026-03-23 21:54:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=147 sl=4901.79
+2026-03-23 21:54:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5018.03000 low=4988.70000 (width=29.33000)
+2026-03-23 21:54:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 5022.15000 (range high=5018.03000)
+2026-03-23 21:54:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=148 sl=5013.83
+2026-03-23 21:54:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=148 5013.83 → 5015.27
+2026-03-23 21:54:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=148 5015.27 → 5034.31
+2026-03-23 21:54:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=148 5034.31 → 5037.90
+2026-03-23 21:54:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=148 5037.90 → 5043.04
+2026-03-23 21:54:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=148 5043.04 → 5051.82
+2026-03-23 21:54:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=148 5051.82 → 5057.68
+2026-03-23 21:54:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5057.47000 low=5044.40000 (width=13.07000)
+2026-03-23 21:54:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 5028.40000 (range low=5044.40000)
+2026-03-23 21:54:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5116.63000 low=5082.55000 (width=34.08000)
+2026-03-23 21:54:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 5067.49000 (range low=5082.55000)
+2026-03-23 21:54:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=150 sl=5072.30
+2026-03-23 21:54:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4955.45000 low=4933.77000 (width=21.68000)
+2026-03-23 21:54:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4964.11000 (range high=4955.45000)
+2026-03-23 21:54:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=151 sl=4965.22
+2026-03-23 21:54:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=151 4965.22 → 4966.17
+2026-03-23 21:54:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=151 4966.17 → 4979.29
+2026-03-23 21:54:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4930.87000 low=4913.41000 (width=17.46000)
+2026-03-23 21:54:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4934.21000 (range high=4930.87000)
+2026-03-23 21:54:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=152 sl=4927.05
+2026-03-23 21:54:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4917.63000 low=4906.41000 (width=11.22000)
+2026-03-23 21:54:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 4958.55000 (range high=4917.63000)
+2026-03-23 21:54:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=4996.29000 low=4978.10000 (width=18.19000)
+2026-03-23 21:54:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 4973.51000 (range low=4978.10000)
+2026-03-23 21:54:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5034.79000 low=5015.57000 (width=19.22000)
+2026-03-23 21:54:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 5043.50000 (range high=5034.79000)
+2026-03-23 21:54:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=155 sl=5039.36
+2026-03-23 21:54:34 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=155 5039.36 → 5041.01
+2026-03-23 21:54:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5163.41000 low=5146.59000 (width=16.82000)
+2026-03-23 21:54:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 5164.62000 (range high=5163.41000)
+2026-03-23 21:54:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5178.55000 low=5171.02000 (width=7.53000)
+2026-03-23 21:54:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 5167.44000 (range low=5171.02000)
+2026-03-23 21:54:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5182.56000 low=5155.11000 (width=27.45000)
+2026-03-23 21:54:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 5183.76000 (range high=5182.56000)
+2026-03-23 21:54:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=158 sl=5177.74
+2026-03-23 21:54:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=158 5177.74 → 5185.61
+2026-03-23 21:54:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=158 5185.61 → 5191.02
+2026-03-23 21:54:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=158 5191.02 → 5195.96
+2026-03-23 21:54:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=158 5195.96 → 5198.71
+2026-03-23 21:54:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5178.38000 low=5161.20000 (width=17.18000)
+2026-03-23 21:54:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: SELL @ 5142.48000 (range low=5161.20000)
+2026-03-23 21:54:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [XAUUSD]: high=5185.90000 low=5172.67000 (width=13.23000)
+2026-03-23 21:54:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [XAUUSD]: BUY @ 5213.07000 (range high=5185.90000)
+2026-03-23 21:54:37 [INFO    ] src.backtesting.engine         Backtest complete: 160 trades, -763.17% return, 230.29% max DD, 46.9% WR
+
+Backtest Results: ny_range_breakout on XAUUSD
+  Period: 2025-06-03 → 2026-02-27
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │        $-198.95 │
+│ Total Return              │        -763.17% │
+│ Max Drawdown              │         230.29% │
+│ Total Trades              │             160 │
+│ Win Rate                  │           46.9% │
+│ Profit Factor             │            0.81 │
+│ Avg Trade P&L             │          $-1.43 │
+│ Sharpe Ratio              │            0.06 │
+│ Max Consecutive Losses    │              10 │
+│ Avg Trade Duration        │            2.4h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 21:54:37 [INFO    ] backtest                       Results saved to data/backtest_results/XAUUSD_XAUUSD-S-ny_range_only_20260323_215437.json
+
+Backtest Results: ny_range_breakout on XAUUSD
+  Period: 2025-06-03 → 2026-02-27
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │        $-198.95 │
+│ Total Return              │        -763.17% │
+│ Max Drawdown              │         230.29% │
+│ Total Trades              │             160 │
+│ Win Rate                  │           46.9% │
+│ Profit Factor             │            0.81 │
+│ Avg Trade P&L             │          $-1.43 │
+│ Sharpe Ratio              │            0.06 │
+│ Max Consecutive Losses    │              10 │
+│ Avg Trade Duration        │            2.4h │
+└───────────────────────────┴─────────────────┘
+

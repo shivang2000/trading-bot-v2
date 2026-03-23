@@ -20,6 +20,7 @@ import pandas_ta as ta
 from src.analysis.regime import MarketRegime, RegimeDetector, detect_regime_from_ohlcv
 from src.analysis.strategies.ema_pullback import EmaPullbackStrategy
 from src.analysis.strategies.london_breakout import LondonBreakoutStrategy
+from src.analysis.strategies.ny_momentum import NyMomentumStrategy, NyRangeBreakoutStrategy
 from src.backtesting.account import BacktestAccountManager
 from src.backtesting.result import BacktestResult, calculate_metrics
 from src.config.schema import AppConfig, EmaPullbackConfig, LondonBreakoutConfig
@@ -64,9 +65,19 @@ class BacktestEngine:
         ema_cfg = config.strategies.ema_pullback if config else EmaPullbackConfig()
         lb_cfg = config.strategies.london_breakout if config else LondonBreakoutConfig()
 
-        # Strategies
-        self._ema_pullback = EmaPullbackStrategy(ema_cfg) if strategy in ("ema_pullback", "both") else None
-        self._london_breakout = LondonBreakoutStrategy(lb_cfg) if strategy in ("london_breakout", "both") else None
+        # Strategies ("all" enables everything, "both" = legacy for ema+london)
+        all_on = strategy == "all"
+        self._ema_pullback = EmaPullbackStrategy(ema_cfg) if strategy in ("ema_pullback", "both", "all") else None
+        self._london_breakout = LondonBreakoutStrategy(lb_cfg) if strategy in ("london_breakout", "both", "all") else None
+        ny_cfg = config.strategies.ny_momentum if config else None
+        self._ny_range_breakout = NyRangeBreakoutStrategy(
+            breakout_buffer_pips=ny_cfg.range_breakout_buffer_pips if ny_cfg else 3.0,
+            tp_multiplier=ny_cfg.range_tp_multiplier if ny_cfg else 2.0,
+            max_trades_per_day=ny_cfg.range_max_trades_per_day if ny_cfg else 1,
+        ) if strategy in ("ny_range_breakout", "ny_momentum", "all") else None
+        self._ny_momentum = NyMomentumStrategy(
+            max_trades_per_day=ny_cfg.momentum_max_trades_per_day if ny_cfg else 1,
+        ) if strategy in ("ny_momentum", "all") else None
 
         # Regime detector
         self._regime_detector = RegimeDetector()
@@ -215,12 +226,19 @@ class BacktestEngine:
         regime: MarketRegime,
     ):
         """Run enabled strategies and return the first signal (or None)."""
-        is_up = regime == MarketRegime.TRENDING_UP
-        is_down = regime == MarketRegime.TRENDING_DOWN
         is_choppy = regime == MarketRegime.CHOPPY
         is_ranging = regime == MarketRegime.RANGING
 
-        # EMA Pullback
+        # VOLATILE_TREND direction from EMA slope
+        if regime == MarketRegime.VOLATILE_TREND:
+            ema50 = m15_window["close"].ewm(span=50).mean()
+            is_up = float(ema50.iloc[-1]) > float(ema50.iloc[-5]) if len(ema50) > 5 else False
+            is_down = not is_up
+        else:
+            is_up = regime == MarketRegime.TRENDING_UP
+            is_down = regime == MarketRegime.TRENDING_DOWN
+
+        # EMA Pullback (skip CHOPPY)
         if self._ema_pullback and not is_choppy:
             sig = loop.run_until_complete(
                 self._ema_pullback.scan(
@@ -234,7 +252,7 @@ class BacktestEngine:
             if sig:
                 return sig
 
-        # London Breakout
+        # London Breakout (skip CHOPPY)
         if self._london_breakout and not is_choppy:
             sig = loop.run_until_complete(
                 self._london_breakout.scan(
@@ -242,6 +260,33 @@ class BacktestEngine:
                     m15_bars=m15_window,
                     point_size=self._point_size,
                     regime_is_choppy=is_choppy,
+                    regime_is_ranging=is_ranging,
+                    as_of=bar_time,
+                )
+            )
+            if sig:
+                return sig
+
+        # NY Range Breakout (works in ALL regimes except RANGING)
+        if self._ny_range_breakout and not is_ranging:
+            sig = loop.run_until_complete(
+                self._ny_range_breakout.scan(
+                    symbol=self._symbol,
+                    m15_bars=m15_window,
+                    point_size=self._point_size,
+                    regime_is_ranging=is_ranging,
+                    as_of=bar_time,
+                )
+            )
+            if sig:
+                return sig
+
+        # NY Momentum (works in ALL regimes except RANGING)
+        if self._ny_momentum and not is_ranging:
+            sig = loop.run_until_complete(
+                self._ny_momentum.scan(
+                    symbol=self._symbol,
+                    m15_bars=m15_window,
                     regime_is_ranging=is_ranging,
                     as_of=bar_time,
                 )

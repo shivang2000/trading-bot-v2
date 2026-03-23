@@ -91,7 +91,7 @@ strategies:
     tp_multiplier: 5.0          # huge TP — let trailing stop be the real exit
     timeframe: "M15"
   ny_momentum:
-    enabled: true
+    enabled: false     # backtested: HURTS performance on 3/4 instruments
     range_breakout_buffer_pips: 3.0
     range_tp_multiplier: 2.0
     range_max_trades_per_day: 1

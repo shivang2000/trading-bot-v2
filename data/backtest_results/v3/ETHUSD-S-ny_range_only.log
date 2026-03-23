@@ -1,0 +1,904 @@
+2026-03-23 21:58:54 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/ETHUSD_M15_20250601_20260301.csv
+2026-03-23 21:58:54 [INFO    ] src.backtesting.data_loader    Loaded 25621 bars from data/backtest_cache/ETHUSD_M15_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:58:54 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/ETHUSD_H1_20250601_20260301.csv
+2026-03-23 21:58:54 [INFO    ] src.backtesting.data_loader    Loaded 6406 bars from data/backtest_cache/ETHUSD_H1_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:58:54 [INFO    ] backtest                       Data loaded: 25621 M15 bars, 6406 H1 bars
+2026-03-23 21:58:54 [INFO    ] backtest                       Config [ETHUSD-S-ny_range_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:58:54 [INFO    ] src.backtesting.engine         Starting backtest: ny_range_breakout on ETHUSD (25621 M15 bars, 6406 H1 bars)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2488.43000 low=2474.95000 (width=13.48000)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2492.21000 (range high=2488.43000)
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=1 sl=2482.89
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=1 2482.89 → 2493.52
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=1 2493.52 → 2495.37
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2618.84000 low=2608.49000 (width=10.35000)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2606.96000 (range low=2608.49000)
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=2 sl=2611.96
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2648.79000 low=2633.72000 (width=15.07000)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2631.49000 (range low=2633.72000)
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=3 sl=2634.18
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2485.47000 low=2466.77000 (width=18.70000)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2498.26000 (range high=2485.47000)
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=4 sl=2489.22
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2489.22 → 2498.38
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2498.38 → 2498.49
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=4 2498.49 → 2504.32
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2495.24000 low=2482.96000 (width=12.28000)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2495.61000 (range high=2495.24000)
+2026-03-23 21:58:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=5 sl=2496.58
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2539.29000 low=2507.08000 (width=32.21000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2542.11000 (range high=2539.29000)
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=6 sl=2548.29
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2548.29 → 2548.83
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2548.83 → 2550.17
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2550.17 → 2551.12
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2551.12 → 2551.95
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2551.95 → 2554.90
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2554.90 → 2558.33
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2558.33 → 2565.26
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2565.26 → 2568.70
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=6 2568.70 → 2571.85
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2696.26000 low=2679.68000 (width=16.58000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2705.01000 (range high=2696.26000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2771.85000 low=2755.79000 (width=16.06000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2779.51000 (range high=2771.85000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2752.17000 low=2732.14000 (width=20.03000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2716.14000 (range low=2732.14000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2532.52000 low=2508.09000 (width=24.43000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2534.19000 (range high=2532.52000)
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=2529.37
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 2529.37 → 2531.71
+2026-03-23 21:58:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=10 2531.71 → 2537.65
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2533.94000 low=2518.09000 (width=15.85000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2534.16000 (range high=2533.94000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2522.33000 low=2508.53000 (width=13.80000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2537.13000 (range high=2522.33000)
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=12 sl=2534.42
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=12 2534.42 → 2537.90
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2632.17000 low=2609.19000 (width=22.98000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2608.33000 (range low=2609.19000)
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=2611.21
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2567.86000 low=2544.14000 (width=23.72000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2542.88000 (range low=2544.14000)
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=14 sl=2551.17
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 2551.17 → 2541.45
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2527.56000 low=2487.02000 (width=40.54000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2481.24000 (range low=2487.02000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2543.12000 low=2532.19000 (width=10.93000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2512.39000 (range low=2532.19000)
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=16 sl=2518.87
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=16 2518.87 → 2508.85
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2556.20000 low=2546.22000 (width=9.98000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2543.48000 (range low=2546.22000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2445.99000 low=2430.03000 (width=15.96000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2419.12000 (range low=2430.03000)
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=18 sl=2417.82
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 2417.82 → 2412.45
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2263.43000 low=2237.52000 (width=25.91000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2265.89000 (range high=2263.43000)
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=19 sl=2260.30
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 2260.30 → 2260.77
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2251.58000 low=2237.35000 (width=14.23000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2251.72000 (range high=2251.58000)
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=20 sl=2245.56
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 2245.56 → 2251.84
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2421.64000 low=2405.38000 (width=16.26000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2427.82000 (range high=2421.64000)
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=2416.16
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 2416.16 → 2423.50
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2430.47000 low=2413.23000 (width=17.24000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2403.27000 (range low=2413.23000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2465.57000 low=2445.21000 (width=20.36000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2429.96000 (range low=2445.21000)
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=23 sl=2436.18
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2460.13000 low=2444.20000 (width=15.93000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2443.75000 (range low=2444.20000)
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=24 sl=2449.96
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 2449.96 → 2441.85
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 2441.85 → 2438.85
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 2438.85 → 2437.04
+2026-03-23 21:58:57 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 2437.04 → 2433.89
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2457.89000 low=2445.95000 (width=11.94000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2460.67000 (range high=2457.89000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2456.61000 low=2445.14000 (width=11.47000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2463.99000 (range high=2456.61000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2460.28000 low=2448.20000 (width=12.08000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2446.87000 (range low=2448.20000)
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=27 sl=2451.81
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 2451.81 → 2448.71
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 2448.71 → 2446.60
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 2446.60 → 2446.52
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=27 2446.52 → 2444.27
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2452.49000 low=2442.23000 (width=10.26000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2454.28000 (range high=2452.49000)
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=28 sl=2450.20
+2026-03-23 21:58:58 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=28 2450.20 → 2455.00
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2600.50000 low=2583.01000 (width=17.49000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2577.74000 (range low=2583.01000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2554.27000 low=2543.69000 (width=10.58000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2539.02000 (range low=2543.69000)
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=30 sl=2542.91
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=30 2542.91 → 2535.78
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2521.58000 low=2516.26000 (width=5.32000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2521.93000 (range high=2521.58000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2512.53000 low=2501.95000 (width=10.58000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2517.90000 (range high=2512.53000)
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=32 sl=2526.17
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2570.91000 low=2557.03000 (width=13.88000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2556.44000 (range low=2557.03000)
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=33 sl=2559.90
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=33 2559.90 → 2559.10
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2565.24000 low=2548.85000 (width=16.39000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2578.00000 (range high=2565.24000)
+2026-03-23 21:58:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=2574.95
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2620.30000 low=2605.08000 (width=15.22000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2623.42000 (range high=2620.30000)
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=35 sl=2637.16
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2785.63000 low=2770.76000 (width=14.87000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2767.79000 (range low=2770.76000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3013.65000 low=2991.32000 (width=22.33000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2987.70000 (range low=2991.32000)
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=37 sl=2996.25
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2978.15000 low=2965.76000 (width=12.39000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2956.67000 (range low=2965.76000)
+2026-03-23 21:59:00 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=38 sl=2959.71
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2955.88000 low=2944.07000 (width=11.81000)
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2959.32000 (range high=2955.88000)
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=39 sl=2962.76
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3077.31000 low=3028.29000 (width=49.02000)
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3028.17000 (range low=3028.29000)
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=40 sl=3028.99
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 3028.99 → 3026.53
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 3026.53 → 3013.98
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=40 3013.98 → 3011.98
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2978.44000 low=2965.66000 (width=12.78000)
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2964.64000 (range low=2965.66000)
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3161.86000 low=3142.86000 (width=19.00000)
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3161.98000 (range high=3161.86000)
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=42 sl=3154.12
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3154.12 → 3159.37
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=42 3159.37 → 3172.89
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3478.50000 low=3447.18000 (width=31.32000)
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3440.66000 (range low=3447.18000)
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=43 sl=3457.36
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 3457.36 → 3443.00
+2026-03-23 21:59:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 3443.00 → 3410.26
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3621.68000 low=3599.44000 (width=22.24000)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3595.47000 (range low=3599.44000)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3566.70000 low=3549.07000 (width=17.63000)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3540.74000 (range low=3549.07000)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3711.80000 low=3695.16000 (width=16.64000)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3719.05000 (range high=3711.80000)
+2026-03-23 21:59:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=46 sl=3705.59
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3820.06000 low=3766.92000 (width=53.14000)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3834.35000 (range high=3820.06000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3697.07000 low=3657.69000 (width=39.38000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3698.73000 (range high=3697.07000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3668.00000 low=3638.69000 (width=29.31000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3669.98000 (range high=3668.00000)
+2026-03-23 21:59:03 [INFO    ] src.backtesting.engine           Bar 5000/25621 (20%)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3656.22000 low=3589.58000 (width=66.64000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3688.29000 (range high=3656.22000)
+2026-03-23 21:59:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=50 sl=3693.13
+2026-03-23 21:59:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=50 3693.13 → 3723.03
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3745.64000 low=3704.82000 (width=40.82000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3679.29000 (range low=3704.82000)
+2026-03-23 21:59:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=51 sl=3676.31
+2026-03-23 21:59:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 3676.31 → 3665.44
+2026-03-23 21:59:03 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=51 3665.44 → 3646.14
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3781.92000 low=3751.46000 (width=30.46000)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3740.27000 (range low=3751.46000)
+2026-03-23 21:59:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=52 sl=3746.20
+2026-03-23 21:59:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=52 3746.20 → 3741.69
+2026-03-23 21:59:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=52 3741.69 → 3740.11
+2026-03-23 21:59:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=52 3740.11 → 3738.77
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3839.17000 low=3761.92000 (width=77.25000)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3896.04000 low=3874.56000 (width=21.48000)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3857.27000 (range low=3874.56000)
+2026-03-23 21:59:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=53 sl=3864.74
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3873.33000 low=3823.33000 (width=50.00000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3814.40000 (range low=3823.33000)
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=54 sl=3814.92
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 3814.92 → 3805.33
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 3805.33 → 3793.07
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 3793.07 → 3791.94
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 3791.94 → 3789.21
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 3789.21 → 3779.35
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=54 3779.35 → 3772.03
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3805.75000 low=3767.86000 (width=37.89000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3753.64000 (range low=3767.86000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3865.42000 low=3852.15000 (width=13.27000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3806.83000 (range low=3852.15000)
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=56 sl=3820.14
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 3820.14 → 3819.73
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 3819.73 → 3817.92
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3632.27000 low=3607.75000 (width=24.52000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3641.13000 (range high=3632.27000)
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=57 sl=3623.04
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=57 3623.04 → 3635.11
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3494.13000 low=3472.58000 (width=21.55000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3512.46000 (range high=3494.13000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3486.49000 low=3463.16000 (width=23.33000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3514.57000 (range high=3486.49000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3573.00000 low=3543.48000 (width=29.52000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3605.09000 (range high=3573.00000)
+2026-03-23 21:59:06 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=60 sl=3597.23
+2026-03-23 21:59:06 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=60 3597.23 → 3623.95
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3692.64000 low=3652.14000 (width=40.50000)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3628.27000 (range low=3652.14000)
+2026-03-23 21:59:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=61 sl=3638.86
+2026-03-23 21:59:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=61 3638.86 → 3612.72
+2026-03-23 21:59:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=61 3612.72 → 3603.51
+2026-03-23 21:59:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=61 3603.51 → 3595.71
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3632.10000 low=3610.18000 (width=21.92000)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3825.15000 low=3728.88000 (width=96.27000)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3826.88000 (range high=3825.15000)
+2026-03-23 21:59:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=62 sl=3840.66
+2026-03-23 21:59:07 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 3840.66 → 3847.38
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 3847.38 → 3859.77
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=62 3859.77 → 3889.77
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3906.90000 low=3885.11000 (width=21.79000)
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3913.57000 (range high=3906.90000)
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=63 sl=3915.01
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4245.58000 low=4211.18000 (width=34.40000)
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4200.04000 (range low=4211.18000)
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=64 sl=4205.83
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=64 4205.83 → 4193.71
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4231.33000 low=4191.72000 (width=39.61000)
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4179.08000 (range low=4191.72000)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4267.48000 low=4220.46000 (width=47.02000)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4193.59000 (range low=4220.46000)
+2026-03-23 21:59:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=66 sl=4203.43
+2026-03-23 21:59:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=66 4203.43 → 4203.16
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4297.50000 low=4272.44000 (width=25.06000)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4304.57000 (range high=4297.50000)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4714.33000 low=4686.52000 (width=27.81000)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4675.59000 (range low=4686.52000)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4764.75000 low=4673.29000 (width=91.46000)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4617.37000 (range low=4673.29000)
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=69 sl=4623.59
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=69 4623.59 → 4601.70
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4648.12000 low=4622.47000 (width=25.65000)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4560.52000 (range low=4622.47000)
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=70 sl=4586.42
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=70 4586.42 → 4568.01
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4413.33000 low=4371.68000 (width=41.65000)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4416.33000 (range high=4413.33000)
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=71 sl=4418.44
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=71 4418.44 → 4431.01
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=71 4431.01 → 4432.83
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=71 4432.83 → 4448.34
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=71 4448.34 → 4458.18
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=71 4458.18 → 4461.54
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4574.62000 low=4527.57000 (width=47.05000)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4519.59000 (range low=4527.57000)
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=72 sl=4497.44
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=72 4497.44 → 4488.24
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4305.94000 low=4257.40000 (width=48.54000)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4334.70000 (range high=4305.94000)
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=73 sl=4309.72
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=73 4309.72 → 4325.67
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=73 4325.67 → 4330.94
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4300.24000 low=4273.72000 (width=26.52000)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4208.82000 (range low=4273.72000)
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=74 sl=4229.97
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=74 4229.97 → 4225.18
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4231.66000 low=4209.37000 (width=22.29000)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4197.25000 (range low=4209.37000)
+2026-03-23 21:59:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=75 sl=4189.29
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4328.88000 low=4288.61000 (width=40.27000)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4242.48000 (range low=4288.61000)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4744.48000 low=4709.68000 (width=34.80000)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4702.89000 (range low=4709.68000)
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4773.95000 low=4732.72000 (width=41.23000)
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4732.26000 (range low=4732.72000)
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4611.80000 low=4518.45000 (width=93.35000)
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4620.62000 (range high=4611.80000)
+2026-03-23 21:59:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=79 sl=4614.45
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4449.19000 low=4416.93000 (width=32.26000)
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4415.72000 (range low=4416.93000)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4611.59000 low=4569.00000 (width=42.59000)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4613.11000 (range high=4611.59000)
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=81 sl=4588.75
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 4588.75 → 4595.12
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 4595.12 → 4597.96
+2026-03-23 21:59:14 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=81 4597.96 → 4614.63
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4611.32000 low=4580.43000 (width=30.89000)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4361.05000 low=4332.16000 (width=28.89000)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4366.29000 (range high=4361.05000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4469.57000 low=4447.75000 (width=21.82000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4443.95000 (range low=4447.75000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4443.59000 low=4388.74000 (width=54.85000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4385.91000 (range low=4388.74000)
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=84 sl=4389.54
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 4389.54 → 4388.57
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 4388.57 → 4383.06
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 4383.06 → 4356.93
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=84 4356.93 → 4348.91
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4399.96000 low=4376.37000 (width=23.59000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4325.84000 (range low=4376.37000)
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=85 sl=4330.66
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4376.19000 low=4343.31000 (width=32.88000)
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4418.95000 (range high=4376.19000)
+2026-03-23 21:59:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=86 sl=4404.41
+2026-03-23 21:59:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=86 4404.41 → 4440.77
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4432.40000 low=4391.47000 (width=40.93000)
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4388.90000 (range low=4391.47000)
+2026-03-23 21:59:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=87 sl=4373.86
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4421.54000 low=4393.65000 (width=27.89000)
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4447.95000 (range high=4421.54000)
+2026-03-23 21:59:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=88 sl=4435.11
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4302.22000 low=4285.35000 (width=16.87000)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4336.41000 low=4313.67000 (width=22.74000)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4302.93000 (range low=4313.67000)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4361.41000 low=4340.71000 (width=20.70000)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4364.73000 (range high=4361.41000)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4331.45000 low=4315.30000 (width=16.15000)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4332.20000 (range high=4331.45000)
+2026-03-23 21:59:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=91 sl=4327.95
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4428.98000 low=4413.22000 (width=15.76000)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4432.90000 (range high=4428.98000)
+2026-03-23 21:59:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=92 sl=4431.39
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4522.29000 low=4506.01000 (width=16.28000)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4533.78000 (range high=4522.29000)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4737.32000 low=4708.63000 (width=28.69000)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4683.80000 (range low=4708.63000)
+2026-03-23 21:59:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=94 sl=4678.80
+2026-03-23 21:59:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 4678.80 → 4677.01
+2026-03-23 21:59:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=94 4677.01 → 4658.65
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4668.43000 low=4655.71000 (width=12.72000)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4639.01000 (range low=4655.71000)
+2026-03-23 21:59:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=95 sl=4646.61
+2026-03-23 21:59:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=95 4646.61 → 4643.95
+2026-03-23 21:59:20 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=95 4643.95 → 4640.79
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4534.70000 low=4505.65000 (width=29.05000)
+2026-03-23 21:59:20 [INFO    ] src.backtesting.engine           Bar 10000/25621 (39%)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4496.77000 (range low=4505.65000)
+2026-03-23 21:59:20 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=96 sl=4509.55
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4513.41000 low=4491.88000 (width=21.53000)
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4453.96000 (range low=4491.88000)
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=97 sl=4459.95
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=97 4459.95 → 4458.40
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4500.37000 low=4477.52000 (width=22.85000)
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4473.02000 (range low=4477.52000)
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4599.60000 low=4569.12000 (width=30.48000)
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4606.03000 (range high=4599.60000)
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=99 sl=4601.84
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4532.77000 low=4516.41000 (width=16.36000)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4513.92000 (range low=4516.41000)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4474.68000 low=4462.49000 (width=12.19000)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4486.00000 (range high=4474.68000)
+2026-03-23 21:59:22 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=101 sl=4485.08
+2026-03-23 21:59:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=101 4485.08 → 4491.73
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4467.77000 low=4456.85000 (width=10.92000)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4468.52000 (range high=4467.77000)
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=102 sl=4462.87
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 4462.87 → 4465.65
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 4465.65 → 4466.68
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 4466.68 → 4470.29
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 4470.29 → 4471.52
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=102 4471.52 → 4471.96
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4188.09000 low=4140.61000 (width=47.48000)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4190.93000 (range high=4188.09000)
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=103 sl=4185.23
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4194.99000 low=4184.10000 (width=10.89000)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4182.79000 (range low=4184.10000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4182.70000 low=4163.03000 (width=19.67000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4192.19000 (range high=4182.70000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4041.37000 low=4008.03000 (width=33.34000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4003.16000 (range low=4008.03000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3914.90000 low=3873.12000 (width=41.78000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3947.32000 (range high=3914.90000)
+2026-03-23 21:59:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=107 sl=3929.66
+2026-03-23 21:59:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3999.15000 low=3983.45000 (width=15.70000)
+2026-03-23 21:59:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3970.35000 (range low=3983.45000)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4136.77000 low=4112.96000 (width=23.81000)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4103.39000 (range low=4112.96000)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4164.29000 low=4133.96000 (width=30.33000)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4164.98000 (range high=4164.29000)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4312.19000 low=4277.74000 (width=34.45000)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4314.46000 (range high=4312.19000)
+2026-03-23 21:59:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=111 sl=4309.31
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4395.16000 low=4373.62000 (width=21.54000)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4404.88000 (range high=4395.16000)
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=112 sl=4394.57
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4493.62000 low=4466.20000 (width=27.42000)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4465.59000 (range low=4466.20000)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4502.72000 low=4482.17000 (width=20.55000)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4478.55000 (range low=4482.17000)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4550.86000 low=4521.98000 (width=28.88000)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4577.93000 low=4556.54000 (width=21.39000)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4587.41000 (range high=4577.93000)
+2026-03-23 21:59:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=115 sl=4579.21
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4696.02000 low=4672.26000 (width=23.76000)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4707.55000 (range high=4696.02000)
+2026-03-23 21:59:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=116 sl=4720.51
+2026-03-23 21:59:29 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=116 4720.51 → 4727.55
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4503.63000 low=4478.51000 (width=25.12000)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4475.02000 (range low=4478.51000)
+2026-03-23 21:59:29 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=117 sl=4478.38
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4357.07000 low=4323.25000 (width=33.82000)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4358.06000 (range high=4357.07000)
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=118 sl=4341.90
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=118 4341.90 → 4351.19
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=118 4351.19 → 4369.63
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4344.75000 low=4319.25000 (width=25.50000)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4353.37000 (range high=4344.75000)
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=119 sl=4343.53
+2026-03-23 21:59:30 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=119 4343.53 → 4352.42
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3855.89000 low=3815.96000 (width=39.93000)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3811.27000 (range low=3815.96000)
+2026-03-23 21:59:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=120 sl=3814.38
+2026-03-23 21:59:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=120 3814.38 → 3799.78
+2026-03-23 21:59:31 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=120 3799.78 → 3785.09
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3865.43000 low=3813.77000 (width=51.66000)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3813.51000 (range low=3813.77000)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4165.96000 low=4138.67000 (width=27.29000)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4124.70000 (range low=4138.67000)
+2026-03-23 21:59:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3984.96000 low=3886.96000 (width=98.00000)
+2026-03-23 21:59:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3987.14000 (range high=3984.96000)
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=123 sl=4026.31
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=123 4026.31 → 4031.20
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=123 4031.20 → 4068.83
+2026-03-23 21:59:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4156.35000 low=4110.62000 (width=45.73000)
+2026-03-23 21:59:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4102.53000 (range low=4110.62000)
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=124 sl=4110.93
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=124 4110.93 → 4105.07
+2026-03-23 21:59:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=124 4105.07 → 4093.19
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3737.57000 low=3673.09000 (width=64.48000)
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3776.55000 (range high=3737.57000)
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=125 sl=3762.66
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3762.66 → 3780.58
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3780.58 → 3784.77
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3784.77 → 3784.98
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3784.98 → 3797.86
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3797.86 → 3800.01
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3800.01 → 3816.91
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3816.91 → 3820.11
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3820.11 → 3834.15
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3834.15 → 3841.02
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3841.02 → 3842.04
+2026-03-23 21:59:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=125 3842.04 → 3844.54
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3948.16000 low=3896.68000 (width=51.48000)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3970.79000 (range high=3948.16000)
+2026-03-23 21:59:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=126 sl=3981.58
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4052.12000 low=4014.67000 (width=37.45000)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3896.39000 low=3858.26000 (width=38.13000)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3925.66000 (range high=3896.39000)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3847.92000 low=3817.54000 (width=30.38000)
+2026-03-23 21:59:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3849.38000 (range high=3847.92000)
+2026-03-23 21:59:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=128 sl=3837.19
+2026-03-23 21:59:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3903.93000 low=3875.87000 (width=28.06000)
+2026-03-23 21:59:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3874.33000 (range low=3875.87000)
+2026-03-23 21:59:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=129 sl=3882.80
+2026-03-23 21:59:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=129 3882.80 → 3866.20
+2026-03-23 21:59:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3963.67000 low=3946.69000 (width=16.98000)
+2026-03-23 21:59:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3945.55000 (range low=3946.69000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3989.13000 low=3973.23000 (width=15.90000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3999.81000 (range high=3989.13000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4173.63000 low=4153.13000 (width=20.50000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4146.09000 (range low=4153.13000)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4123.49000 low=4107.53000 (width=15.96000)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 4102.57000 (range low=4107.53000)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=4003.25000 low=3986.82000 (width=16.43000)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 4007.85000 (range high=4003.25000)
+2026-03-23 21:59:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=134 sl=3996.62
+2026-03-23 21:59:38 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=134 3996.62 → 4006.91
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3906.31000 low=3882.00000 (width=24.31000)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3879.48000 (range low=3882.00000)
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=135 sl=3877.17
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3853.27000 low=3831.34000 (width=21.93000)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3872.63000 (range high=3853.27000)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3880.55000 low=3870.42000 (width=10.13000)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3895.81000 low=3860.52000 (width=35.29000)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3721.98000 low=3671.48000 (width=50.50000)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3724.33000 (range high=3721.98000)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3532.21000 low=3482.04000 (width=50.17000)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3554.24000 (range high=3532.21000)
+2026-03-23 21:59:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3323.45000 low=3274.31000 (width=49.14000)
+2026-03-23 21:59:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3353.26000 (range high=3323.45000)
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=139 sl=3344.28
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=139 3344.28 → 3360.30
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=139 3360.30 → 3367.00
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=139 3367.00 → 3397.50
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=139 3397.50 → 3397.65
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=139 3397.65 → 3405.09
+2026-03-23 21:59:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3406.42000 low=3379.49000 (width=26.93000)
+2026-03-23 21:59:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3372.91000 (range low=3379.49000)
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=140 sl=3372.80
+2026-03-23 21:59:42 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=140 3372.80 → 3372.33
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3279.05000 low=3224.28000 (width=54.77000)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3213.83000 (range low=3224.28000)
+2026-03-23 21:59:43 [INFO    ] src.backtesting.engine           Bar 15000/25621 (59%)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3454.48000 low=3405.20000 (width=49.28000)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3375.57000 (range low=3405.20000)
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3430.73000 low=3400.03000 (width=30.70000)
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3445.79000 (range high=3430.73000)
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=143 sl=3447.07
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3619.57000 low=3602.45000 (width=17.12000)
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3592.13000 (range low=3602.45000)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3580.46000 low=3558.46000 (width=22.00000)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3550.69000 (range low=3558.46000)
+2026-03-23 21:59:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=145 sl=3562.94
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3568.49000 low=3532.45000 (width=36.04000)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3582.11000 (range high=3568.49000)
+2026-03-23 21:59:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3516.64000 low=3493.40000 (width=23.24000)
+2026-03-23 21:59:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3424.65000 (range low=3493.40000)
+2026-03-23 21:59:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=147 sl=3437.96
+2026-03-23 21:59:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3181.80000 low=3115.52000 (width=66.28000)
+2026-03-23 21:59:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3082.46000 (range low=3115.52000)
+2026-03-23 21:59:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3171.57000 low=3145.56000 (width=26.01000)
+2026-03-23 21:59:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3191.71000 (range high=3171.57000)
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=149 sl=3192.61
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=149 3192.61 → 3206.81
+2026-03-23 21:59:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3236.73000 low=3158.95000 (width=77.78000)
+2026-03-23 21:59:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3157.84000 (range low=3158.95000)
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=150 sl=3135.57
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=150 3135.57 → 3128.17
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=150 3128.17 → 3110.23
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=150 3110.23 → 3101.57
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=150 3101.57 → 3091.57
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=150 3091.57 → 3090.15
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=150 3090.15 → 3083.50
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3221.44000 low=3191.91000 (width=29.53000)
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3190.37000 (range low=3191.91000)
+2026-03-23 21:59:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=151 sl=3183.49
+2026-03-23 21:59:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=151 3183.49 → 3168.53
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3072.64000 low=3051.38000 (width=21.26000)
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3039.31000 (range low=3051.38000)
+2026-03-23 21:59:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3101.27000 low=3077.24000 (width=24.03000)
+2026-03-23 21:59:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3060.46000 (range low=3077.24000)
+2026-03-23 21:59:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=153 sl=3054.21
+2026-03-23 21:59:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3026.13000 low=3000.98000 (width=25.15000)
+2026-03-23 21:59:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3035.36000 (range high=3026.13000)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2721.79000 low=2673.14000 (width=48.65000)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2637.44000 (range low=2673.14000)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2741.75000 low=2702.96000 (width=38.79000)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2744.06000 (range high=2741.75000)
+2026-03-23 21:59:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=156 sl=2753.62
+2026-03-23 21:59:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=156 2753.62 → 2772.05
+2026-03-23 21:59:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2819.41000 low=2802.64000 (width=16.77000)
+2026-03-23 21:59:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2827.16000 (range high=2819.41000)
+2026-03-23 21:59:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=157 sl=2817.12
+2026-03-23 21:59:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=157 2817.12 → 2820.10
+2026-03-23 21:59:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=157 2820.10 → 2822.42
+2026-03-23 21:59:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=157 2822.42 → 2827.28
+2026-03-23 21:59:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2807.13000 low=2788.77000 (width=18.36000)
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2832.58000 (range high=2807.13000)
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=158 sl=2817.03
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=158 2817.03 → 2820.91
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=158 2820.91 → 2834.07
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2898.31000 low=2887.11000 (width=11.20000)
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2903.53000 (range high=2898.31000)
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=159 sl=2890.17
+2026-03-23 21:59:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=159 2890.17 → 2891.40
+2026-03-23 21:59:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2916.88000 low=2906.24000 (width=10.64000)
+2026-03-23 21:59:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2919.76000 (range high=2916.88000)
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=160 sl=2906.24
+2026-03-23 21:59:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3034.97000 low=3022.06000 (width=12.91000)
+2026-03-23 21:59:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3012.90000 (range low=3022.06000)
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=161 sl=3019.15
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=161 3019.15 → 3004.71
+2026-03-23 21:59:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3061.03000 low=3016.63000 (width=44.40000)
+2026-03-23 21:59:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3072.75000 (range high=3061.03000)
+2026-03-23 21:59:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=162 sl=3070.15
+2026-03-23 21:59:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3000.62000 low=2990.84000 (width=9.78000)
+2026-03-23 21:59:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2990.72000 (range low=2990.84000)
+2026-03-23 21:59:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3015.65000 low=2998.20000 (width=17.45000)
+2026-03-23 21:59:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3023.62000 (range high=3015.65000)
+2026-03-23 21:59:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=164 sl=3031.76
+2026-03-23 21:59:55 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=164 3031.76 → 3034.57
+2026-03-23 21:59:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2849.21000 low=2834.31000 (width=14.90000)
+2026-03-23 21:59:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2819.22000 (range low=2834.31000)
+2026-03-23 21:59:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=165 sl=2827.16
+2026-03-23 21:59:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2829.28000 low=2815.14000 (width=14.14000)
+2026-03-23 21:59:56 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2836.10000 (range high=2829.28000)
+2026-03-23 21:59:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=166 sl=2827.90
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3076.20000 low=3048.83000 (width=27.37000)
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3076.96000 (range high=3076.20000)
+2026-03-23 21:59:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=167 sl=3075.59
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3193.74000 low=3176.40000 (width=17.34000)
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3175.61000 (range low=3176.40000)
+2026-03-23 21:59:57 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=168 sl=3181.27
+2026-03-23 21:59:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3142.31000 low=3109.61000 (width=32.70000)
+2026-03-23 21:59:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3102.66000 (range low=3109.61000)
+2026-03-23 21:59:58 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3040.79000 low=3027.25000 (width=13.54000)
+2026-03-23 21:59:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3045.90000 (range high=3040.79000)
+2026-03-23 21:59:59 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=170 sl=3042.40
+2026-03-23 21:59:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3041.08000 low=3034.07000 (width=7.01000)
+2026-03-23 21:59:59 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3047.80000 (range high=3041.08000)
+2026-03-23 22:00:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3162.84000 low=3134.97000 (width=27.87000)
+2026-03-23 22:00:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3167.85000 (range high=3162.84000)
+2026-03-23 22:00:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3119.37000 low=3099.45000 (width=19.92000)
+2026-03-23 22:00:00 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3130.07000 (range high=3119.37000)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3319.09000 low=3295.96000 (width=23.13000)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3319.52000 (range high=3319.09000)
+2026-03-23 22:00:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=174 sl=3312.44
+2026-03-23 22:00:01 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=174 3312.44 → 3312.77
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3201.50000 low=3191.76000 (width=9.74000)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3189.59000 (range low=3191.76000)
+2026-03-23 22:00:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3244.82000 low=3225.44000 (width=19.38000)
+2026-03-23 22:00:02 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3205.51000 (range low=3225.44000)
+2026-03-23 22:00:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3127.76000 low=3114.03000 (width=13.73000)
+2026-03-23 22:00:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3109.44000 (range low=3114.03000)
+2026-03-23 22:00:03 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=177 sl=3111.85
+2026-03-23 22:00:03 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3108.43000 low=3048.59000 (width=59.84000)
+2026-03-23 22:00:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3161.60000 low=3144.77000 (width=16.83000)
+2026-03-23 22:00:04 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3141.20000 (range low=3144.77000)
+2026-03-23 22:00:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=178 sl=3147.05
+2026-03-23 22:00:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=178 3147.05 → 3146.15
+2026-03-23 22:00:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=178 3146.15 → 3140.94
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2961.75000 low=2936.83000 (width=24.92000)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2964.48000 (range high=2961.75000)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2933.06000 low=2916.40000 (width=16.66000)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2940.23000 (range high=2933.06000)
+2026-03-23 22:00:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2858.69000 low=2849.10000 (width=9.59000)
+2026-03-23 22:00:06 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2871.00000 (range high=2858.69000)
+2026-03-23 22:00:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2969.87000 low=2948.99000 (width=20.88000)
+2026-03-23 22:00:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2972.65000 (range high=2969.87000)
+2026-03-23 22:00:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3000.12000 low=2991.90000 (width=8.22000)
+2026-03-23 22:00:07 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2984.83000 (range low=2991.90000)
+2026-03-23 22:00:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3057.11000 low=3035.55000 (width=21.56000)
+2026-03-23 22:00:08 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3057.21000 (range high=3057.11000)
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2974.05000 low=2962.30000 (width=11.75000)
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2957.82000 (range low=2962.30000)
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2936.39000 low=2923.79000 (width=12.60000)
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2909.02000 (range low=2923.79000)
+2026-03-23 22:00:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2927.56000 low=2919.06000 (width=8.50000)
+2026-03-23 22:00:10 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2928.83000 (range high=2927.56000)
+2026-03-23 22:00:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=187 sl=2925.51
+2026-03-23 22:00:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2970.42000 low=2961.82000 (width=8.60000)
+2026-03-23 22:00:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2971.07000 (range high=2970.42000)
+2026-03-23 22:00:11 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=188 sl=2967.53
+2026-03-23 22:00:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=188 2967.53 → 2968.53
+2026-03-23 22:00:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=188 2968.53 → 2971.24
+2026-03-23 22:00:11 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=188 2971.24 → 2975.35
+2026-03-23 22:00:11 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2932.29000 low=2921.93000 (width=10.36000)
+2026-03-23 22:00:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2966.41000 low=2957.10000 (width=9.31000)
+2026-03-23 22:00:12 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2932.18000 (range low=2957.10000)
+2026-03-23 22:00:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=189 sl=2947.13
+2026-03-23 22:00:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=189 2947.13 → 2945.37
+2026-03-23 22:00:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=189 2945.37 → 2944.87
+2026-03-23 22:00:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2983.13000 low=2972.73000 (width=10.40000)
+2026-03-23 22:00:13 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2987.61000 (range high=2983.13000)
+2026-03-23 22:00:13 [INFO    ] src.backtesting.engine           Bar 20000/25621 (78%)
+2026-03-23 22:00:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3002.35000 low=2978.86000 (width=23.49000)
+2026-03-23 22:00:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3014.25000 (range high=3002.35000)
+2026-03-23 22:00:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2991.97000 low=2983.85000 (width=8.12000)
+2026-03-23 22:00:14 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2983.29000 (range low=2983.85000)
+2026-03-23 22:00:14 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=192 sl=2984.52
+2026-03-23 22:00:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3056.63000 low=3039.36000 (width=17.27000)
+2026-03-23 22:00:15 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3033.96000 (range low=3039.36000)
+2026-03-23 22:00:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3099.14000 low=3090.73000 (width=8.41000)
+2026-03-23 22:00:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3100.08000 (range high=3099.14000)
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=194 sl=3093.54
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=194 3093.54 → 3096.65
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=194 3096.65 → 3100.08
+2026-03-23 22:00:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3145.21000 low=3133.72000 (width=11.49000)
+2026-03-23 22:00:16 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3132.75000 (range low=3133.72000)
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=195 sl=3136.51
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3182.57000 low=3166.98000 (width=15.59000)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3166.90000 (range low=3166.98000)
+2026-03-23 22:00:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=196 sl=3173.47
+2026-03-23 22:00:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=196 3173.47 → 3160.68
+2026-03-23 22:00:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3241.61000 low=3225.71000 (width=15.90000)
+2026-03-23 22:00:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3273.93000 (range high=3241.61000)
+2026-03-23 22:00:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3226.69000 low=3215.53000 (width=11.16000)
+2026-03-23 22:00:18 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3214.10000 (range low=3215.53000)
+2026-03-23 22:00:18 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=198 sl=3218.41
+2026-03-23 22:00:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3130.42000 low=3111.45000 (width=18.97000)
+2026-03-23 22:00:19 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3101.88000 (range low=3111.45000)
+2026-03-23 22:00:19 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=199 sl=3112.46
+2026-03-23 22:00:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 3112.46 → 3110.19
+2026-03-23 22:00:19 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=199 3110.19 → 3098.12
+2026-03-23 22:00:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3103.51000 low=3087.25000 (width=16.26000)
+2026-03-23 22:00:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3085.09000 (range low=3087.25000)
+2026-03-23 22:00:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3102.54000 low=3093.64000 (width=8.90000)
+2026-03-23 22:00:20 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3093.24000 (range low=3093.64000)
+2026-03-23 22:00:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=201 sl=3091.63
+2026-03-23 22:00:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=201 3091.63 → 3090.36
+2026-03-23 22:00:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=201 3090.36 → 3090.03
+2026-03-23 22:00:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=201 3090.03 → 3088.72
+2026-03-23 22:00:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=201 3088.72 → 3084.82
+2026-03-23 22:00:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3106.54000 low=3102.02000 (width=4.52000)
+2026-03-23 22:00:21 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3114.15000 (range high=3106.54000)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3138.07000 low=3130.08000 (width=7.99000)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3129.90000 (range low=3130.08000)
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3312.38000 low=3281.44000 (width=30.94000)
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3315.70000 (range high=3312.38000)
+2026-03-23 22:00:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=204 sl=3327.57
+2026-03-23 22:00:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3364.81000 low=3346.08000 (width=18.73000)
+2026-03-23 22:00:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3344.44000 (range low=3346.08000)
+2026-03-23 22:00:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3305.43000 low=3292.12000 (width=13.31000)
+2026-03-23 22:00:24 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3307.31000 (range high=3305.43000)
+2026-03-23 22:00:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3304.12000 low=3290.94000 (width=13.18000)
+2026-03-23 22:00:25 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3313.83000 (range high=3304.12000)
+2026-03-23 22:00:25 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=207 sl=3319.91
+2026-03-23 22:00:25 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=207 3319.91 → 3320.32
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3324.45000 low=3317.68000 (width=6.77000)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 3327.22000 (range high=3324.45000)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3229.94000 low=3211.84000 (width=18.10000)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3210.63000 (range low=3211.84000)
+2026-03-23 22:00:26 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=209 sl=3208.66
+2026-03-23 22:00:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3111.80000 low=3101.62000 (width=10.18000)
+2026-03-23 22:00:27 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 3092.86000 (range low=3101.62000)
+2026-03-23 22:00:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=210 sl=3102.79
+2026-03-23 22:00:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=210 3102.79 → 3102.08
+2026-03-23 22:00:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=210 3102.08 → 3092.98
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2970.43000 low=2937.62000 (width=32.81000)
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2920.70000 (range low=2937.62000)
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3005.53000 low=2976.65000 (width=28.88000)
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2967.24000 (range low=2976.65000)
+2026-03-23 22:00:28 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=212 sl=2961.93
+2026-03-23 22:00:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2945.33000 low=2927.25000 (width=18.08000)
+2026-03-23 22:00:29 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2907.46000 (range low=2927.25000)
+2026-03-23 22:00:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2945.35000 low=2931.13000 (width=14.22000)
+2026-03-23 22:00:30 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2928.38000 (range low=2931.13000)
+2026-03-23 22:00:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2899.64000 low=2886.89000 (width=12.75000)
+2026-03-23 22:00:31 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2905.86000 (range high=2899.64000)
+2026-03-23 22:00:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=3044.34000 low=3013.67000 (width=30.67000)
+2026-03-23 22:00:32 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2989.29000 (range low=3013.67000)
+2026-03-23 22:00:32 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=216 sl=2982.72
+2026-03-23 22:00:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=216 2982.72 → 2976.67
+2026-03-23 22:00:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=216 2976.67 → 2972.86
+2026-03-23 22:00:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=216 2972.86 → 2970.95
+2026-03-23 22:00:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=216 2970.95 → 2966.89
+2026-03-23 22:00:32 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=216 2966.89 → 2964.98
+2026-03-23 22:00:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=216 2964.98 → 2959.77
+2026-03-23 22:00:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2944.36000 low=2922.50000 (width=21.86000)
+2026-03-23 22:00:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2917.41000 (range low=2922.50000)
+2026-03-23 22:00:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=217 sl=2920.90
+2026-03-23 22:00:33 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=217 2920.90 → 2891.13
+2026-03-23 22:00:33 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2767.76000 low=2733.39000 (width=34.37000)
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2728.77000 (range low=2733.39000)
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=218 sl=2736.80
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2650.36000 low=2633.49000 (width=16.87000)
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2630.35000 (range low=2633.49000)
+2026-03-23 22:00:34 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=219 sl=2630.40
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2422.42000 low=2379.86000 (width=42.56000)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2376.05000 (range low=2379.86000)
+2026-03-23 22:00:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=220 sl=2378.81
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2296.69000 low=2272.56000 (width=24.13000)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2297.67000 (range high=2296.69000)
+2026-03-23 22:00:35 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=221 sl=2279.88
+2026-03-23 22:00:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=221 2279.88 → 2282.74
+2026-03-23 22:00:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=221 2282.74 → 2283.32
+2026-03-23 22:00:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=221 2283.32 → 2284.95
+2026-03-23 22:00:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=221 2284.95 → 2293.14
+2026-03-23 22:00:35 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=221 2293.14 → 2298.99
+2026-03-23 22:00:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2287.15000 low=2269.44000 (width=17.71000)
+2026-03-23 22:00:36 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2290.86000 (range high=2287.15000)
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=222 sl=2277.46
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=222 2277.46 → 2280.23
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=222 2280.23 → 2282.66
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=222 2282.66 → 2284.68
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=222 2284.68 → 2289.28
+2026-03-23 22:00:36 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=222 2289.28 → 2289.56
+2026-03-23 22:00:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2265.93000 low=2225.18000 (width=40.75000)
+2026-03-23 22:00:37 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2211.77000 (range low=2225.18000)
+2026-03-23 22:00:37 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=223 sl=2200.47
+2026-03-23 22:00:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=223 2200.47 → 2191.67
+2026-03-23 22:00:37 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=223 2191.67 → 2187.11
+2026-03-23 22:00:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2104.21000 low=2061.19000 (width=43.02000)
+2026-03-23 22:00:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2056.58000 (range low=2061.19000)
+2026-03-23 22:00:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1938.13000 low=1918.89000 (width=19.24000)
+2026-03-23 22:00:38 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 1941.73000 (range high=1938.13000)
+2026-03-23 22:00:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=225 sl=1926.58
+2026-03-23 22:00:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2020.02000 low=2005.75000 (width=14.27000)
+2026-03-23 22:00:39 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2032.23000 (range high=2020.02000)
+2026-03-23 22:00:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=226 sl=2018.28
+2026-03-23 22:00:39 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=226 2018.28 → 2020.71
+2026-03-23 22:00:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2136.46000 low=2093.08000 (width=43.38000)
+2026-03-23 22:00:40 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2137.15000 (range high=2136.46000)
+2026-03-23 22:00:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2035.58000 low=2019.56000 (width=16.02000)
+2026-03-23 22:00:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2035.68000 (range high=2035.58000)
+2026-03-23 22:00:41 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=228 sl=2028.62
+2026-03-23 22:00:41 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=228 2028.62 → 2029.83
+2026-03-23 22:00:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2021.39000 low=1999.88000 (width=21.51000)
+2026-03-23 22:00:41 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2022.28000 (range high=2021.39000)
+2026-03-23 22:00:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1955.19000 low=1936.78000 (width=18.41000)
+2026-03-23 22:00:42 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 1956.91000 (range high=1955.19000)
+2026-03-23 22:00:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2000.04000 low=1982.69000 (width=17.35000)
+2026-03-23 22:00:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 1980.03000 (range low=1982.69000)
+2026-03-23 22:00:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=231 sl=1984.39
+2026-03-23 22:00:43 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=231 1984.39 → 1974.40
+2026-03-23 22:00:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1960.85000 low=1944.81000 (width=16.04000)
+2026-03-23 22:00:43 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 1963.32000 (range high=1960.85000)
+2026-03-23 22:00:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=232 sl=1961.46
+2026-03-23 22:00:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=232 1961.46 → 1968.91
+2026-03-23 22:00:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2106.37000 low=2075.94000 (width=30.43000)
+2026-03-23 22:00:44 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2069.69000 (range low=2075.94000)
+2026-03-23 22:00:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=233 sl=2068.26
+2026-03-23 22:00:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2065.76000 low=2057.34000 (width=8.42000)
+2026-03-23 22:00:45 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 2018.85000 (range low=2057.34000)
+2026-03-23 22:00:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=234 sl=2026.36
+2026-03-23 22:00:45 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=234 2026.36 → 2024.55
+2026-03-23 22:00:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1982.50000 low=1956.05000 (width=26.45000)
+2026-03-23 22:00:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 1990.76000 (range high=1982.50000)
+2026-03-23 22:00:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=235 sl=1990.60
+2026-03-23 22:00:46 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=235 1990.60 → 1992.16
+2026-03-23 22:00:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1971.35000 low=1962.95000 (width=8.40000)
+2026-03-23 22:00:46 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 1971.87000 (range high=1971.35000)
+2026-03-23 22:00:46 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=236 sl=1968.07
+2026-03-23 22:00:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1997.04000 low=1975.16000 (width=21.88000)
+2026-03-23 22:00:47 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 1975.11000 (range low=1975.16000)
+2026-03-23 22:00:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=237 sl=1976.45
+2026-03-23 22:00:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1963.31000 low=1947.95000 (width=15.36000)
+2026-03-23 22:00:48 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 1947.09000 (range low=1947.95000)
+2026-03-23 22:00:48 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=238 sl=1950.13
+2026-03-23 22:00:48 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=238 1950.13 → 1942.51
+2026-03-23 22:00:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1956.25000 low=1939.19000 (width=17.06000)
+2026-03-23 22:00:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 1926.93000 (range low=1939.19000)
+2026-03-23 22:00:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1987.44000 low=1972.50000 (width=14.94000)
+2026-03-23 22:00:49 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 1969.88000 (range low=1972.50000)
+2026-03-23 22:00:50 [INFO    ] src.backtesting.engine           Bar 25000/25621 (98%)
+2026-03-23 22:00:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1981.92000 low=1976.25000 (width=5.67000)
+2026-03-23 22:00:50 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 1950.27000 (range low=1976.25000)
+2026-03-23 22:00:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=241 sl=1955.27
+2026-03-23 22:00:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1919.46000 low=1909.86000 (width=9.60000)
+2026-03-23 22:00:51 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 1921.09000 (range high=1919.46000)
+2026-03-23 22:00:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=242 sl=1918.51
+2026-03-23 22:00:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1826.15000 low=1816.98000 (width=9.17000)
+2026-03-23 22:00:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 1826.54000 (range high=1826.15000)
+2026-03-23 22:00:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1927.37000 low=1906.82000 (width=20.55000)
+2026-03-23 22:00:52 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 1927.79000 (range high=1927.37000)
+2026-03-23 22:00:52 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=244 sl=1925.67
+2026-03-23 22:00:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=244 1925.67 → 1926.07
+2026-03-23 22:00:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=244 1926.07 → 1940.32
+2026-03-23 22:00:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=244 1940.32 → 1941.58
+2026-03-23 22:00:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=244 1941.58 → 1947.22
+2026-03-23 22:00:52 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=244 1947.22 → 1949.73
+2026-03-23 22:00:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=2066.29000 low=2052.34000 (width=13.95000)
+2026-03-23 22:00:53 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 2068.38000 (range high=2066.29000)
+2026-03-23 22:00:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1982.93000 low=1952.29000 (width=30.64000)
+2026-03-23 22:00:54 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: SELL @ 1949.91000 (range low=1952.29000)
+2026-03-23 22:00:54 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=246 sl=1954.60
+2026-03-23 22:00:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=246 1954.60 → 1952.31
+2026-03-23 22:00:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=246 1952.31 → 1944.66
+2026-03-23 22:00:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=246 1944.66 → 1942.26
+2026-03-23 22:00:54 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=246 1942.26 → 1930.78
+2026-03-23 22:00:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range [ETHUSD]: high=1879.84000 low=1860.19000 (width=19.65000)
+2026-03-23 22:00:55 [INFO    ] src.analysis.strategies.ny_momentum NY Range Breakout [ETHUSD]: BUY @ 1897.25000 (range high=1879.84000)
+2026-03-23 22:00:55 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=247 sl=1887.34
+2026-03-23 22:00:55 [INFO    ] src.backtesting.engine         Backtest complete: 247 trades, 44.34% return, 21.03% max DD, 47.4% WR
+
+Backtest Results: ny_range_breakout on ETHUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $43.30 │
+│ Total Return              │         +44.34% │
+│ Max Drawdown              │          21.03% │
+│ Total Trades              │             247 │
+│ Win Rate                  │           47.4% │
+│ Profit Factor             │            1.19 │
+│ Avg Trade P&L             │          $+0.05 │
+│ Sharpe Ratio              │            0.13 │
+│ Max Consecutive Losses    │               9 │
+│ Avg Trade Duration        │            2.3h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 22:00:55 [INFO    ] backtest                       Results saved to data/backtest_results/ETHUSD_ETHUSD-S-ny_range_only_20260323_220055.json
+
+Backtest Results: ny_range_breakout on ETHUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $43.30 │
+│ Total Return              │         +44.34% │
+│ Max Drawdown              │          21.03% │
+│ Total Trades              │             247 │
+│ Win Rate                  │           47.4% │
+│ Profit Factor             │            1.19 │
+│ Avg Trade P&L             │          $+0.05 │
+│ Sharpe Ratio              │            0.13 │
+│ Max Consecutive Losses    │               9 │
+│ Avg Trade Duration        │            2.3h │
+└───────────────────────────┴─────────────────┘
+

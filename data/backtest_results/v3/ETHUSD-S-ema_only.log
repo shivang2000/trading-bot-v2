@@ -1,0 +1,841 @@
+2026-03-23 21:58:54 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/ETHUSD_M15_20250601_20260301.csv
+2026-03-23 21:58:54 [INFO    ] src.backtesting.data_loader    Loaded 25621 bars from data/backtest_cache/ETHUSD_M15_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:58:54 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/ETHUSD_H1_20250601_20260301.csv
+2026-03-23 21:58:54 [INFO    ] src.backtesting.data_loader    Loaded 6406 bars from data/backtest_cache/ETHUSD_H1_20250601_20260301.csv (2025-06-01 00:00:00+00:00 → 2026-03-01 00:00:00+00:00)
+2026-03-23 21:58:54 [INFO    ] backtest                       Data loaded: 25621 M15 bars, 6406 H1 bars
+2026-03-23 21:58:54 [INFO    ] backtest                       Config [ETHUSD-S-ema_only]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-23 21:58:54 [INFO    ] src.backtesting.engine         Starting backtest: ema_pullback on ETHUSD (25621 M15 bars, 6406 H1 bars)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2616.97000)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2630.80000)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2631.27000 SL=2592.57446 TP=2741.82868 (ATR=11.05587, pullback confirmed)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2677.64000)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2484.21000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2696.26000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2794.86000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2797.05000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2814.68000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2815.48000 SL=2765.09178 TP=2959.44634 (ATR=14.39663, pullback confirmed)
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=2 sl=2819.41
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=2 2819.41 → 2821.83
+2026-03-23 21:58:56 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=2 2821.83 → 2835.11
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2713.53000)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2716.70000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2506.49000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2521.82000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2513.48000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2524.78000)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:58:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2618.06000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2492.21000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2489.39000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2489.24000)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2501.49000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2414.02000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2266.77000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2178.85000)
+2026-03-23 21:58:59 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2169.18000 SL=2246.04237 TP=1949.57322 (ATR=21.96068, pullback confirmed)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2187.08000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2433.29000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2448.33000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2454.35000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2456.99000 SL=2416.86415 TP=2571.63529 (ATR=11.46453, pullback confirmed)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2468.50000)
+2026-03-23 21:59:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2491.81000 SL=2444.29418 TP=2627.56948 (ATR=13.57595, pullback confirmed)
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2507.37000)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2579.21000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2598.00000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2631.11000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2587.46000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2588.79000 SL=2554.28128 TP=2687.38634 (ATR=9.85963, pullback confirmed)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2508.81000)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2509.21000)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2509.09000)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2549.88000)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2551.69000 SL=2526.18800 TP=2624.55285 (ATR=7.28628, pullback confirmed)
+2026-03-23 21:59:04 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=7 sl=2579.40
+2026-03-23 21:59:04 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=7 2579.40 → 2581.77
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2580.34000)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2585.33000 SL=2551.96389 TP=2680.66173 (ATR=9.53317, pullback confirmed)
+2026-03-23 21:59:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2617.27000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2636.46000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2623.84000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2624.73000 SL=2598.39439 TP=2699.97460 (ATR=7.52446, pullback confirmed)
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=9 sl=2637.16
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 2637.16 → 2648.19
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=9 2648.19 → 2650.29
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2788.92000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2818.48000)
+2026-03-23 21:59:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2829.03000 SL=2775.53186 TP=2981.88184 (ATR=15.28518, pullback confirmed)
+2026-03-23 21:59:05 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=10 sl=2872.45
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3005.44000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2997.67000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2995.19000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2966.19000)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2938.59000)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2962.68000)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2963.06000 SL=2941.88070 TP=3023.57230 (ATR=6.05123, pullback confirmed)
+2026-03-23 21:59:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=11 sl=2973.33
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3015.36000)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3017.40000)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2970.65000)
+2026-03-23 21:59:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2968.75000 SL=3009.38364 TP=2852.65389 (ATR=11.60961, pullback confirmed)
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3382.23000)
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3423.23000 SL=3348.77726 TP=3635.95213 (ATR=21.27221, pullback confirmed)
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=13 sl=3440.39
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=13 3440.39 → 3440.87
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3441.14000)
+2026-03-23 21:59:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3485.20000 SL=3391.73925 TP=3752.23071 (ATR=26.70307, pullback confirmed)
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=14 sl=3526.42
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3526.42 → 3529.74
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3529.74 → 3553.60
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3553.60 → 3564.39
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3564.39 → 3564.99
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3564.99 → 3573.33
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3573.33 → 3581.75
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3581.75 → 3590.96
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3590.96 → 3602.86
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3602.86 → 3609.48
+2026-03-23 21:59:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=14 3609.48 → 3630.91
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3618.62000)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3650.78000)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3771.96000)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3758.58000)
+2026-03-23 21:59:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3761.71000 SL=3696.16917 TP=3948.96953 (ATR=18.72595, pullback confirmed)
+2026-03-23 21:59:10 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=15 sl=3776.50
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3793.81000)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3624.25000)
+2026-03-23 21:59:10 [INFO    ] src.backtesting.engine           Bar 5000/25621 (20%)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3574.80000)
+2026-03-23 21:59:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3555.10000 SL=3624.97879 TP=3355.44630 (ATR=19.96537, pullback confirmed)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3748.96000)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3749.07000 SL=3709.01513 TP=3863.51249 (ATR=11.44425, pullback confirmed)
+2026-03-23 21:59:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=17 sl=3761.92
+2026-03-23 21:59:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 3761.92 → 3766.30
+2026-03-23 21:59:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 3766.30 → 3771.64
+2026-03-23 21:59:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 3771.64 → 3772.83
+2026-03-23 21:59:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=17 3772.83 → 3778.92
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3839.17000)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3859.14000)
+2026-03-23 21:59:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3872.76000 SL=3818.21115 TP=4028.61387 (ATR=15.58539, pullback confirmed)
+2026-03-23 21:59:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=18 sl=3893.78
+2026-03-23 21:59:12 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=18 3893.78 → 3911.65
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3746.55000)
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3704.40000)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3676.78000)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3563.12000)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3453.76000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3465.64000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3545.40000)
+2026-03-23 21:59:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3546.74000 SL=3502.24533 TP=3673.86764 (ATR=12.71276, pullback confirmed)
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=19 sl=3583.91
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 3583.91 → 3597.23
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 3597.23 → 3623.95
+2026-03-23 21:59:15 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=19 3623.95 → 3628.77
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3687.11000)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3700.96000)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3916.53000)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4004.33000)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4032.53000)
+2026-03-23 21:59:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4033.54000 SL=3989.52879 TP=4159.28632 (ATR=12.57463, pullback confirmed)
+2026-03-23 21:59:17 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=20 sl=4043.84
+2026-03-23 21:59:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 4043.84 → 4058.28
+2026-03-23 21:59:17 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=20 4058.28 → 4059.00
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4221.72000)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4251.77000)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4427.01000)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4714.33000)
+2026-03-23 21:59:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4725.15000)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4767.13000)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4772.98000)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4764.75000)
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4463.08000)
+2026-03-23 21:59:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4447.38000 SL=4521.93200 TP=4234.37430 (ATR=21.30057, pullback confirmed)
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=21 sl=4433.54
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4433.54 → 4431.35
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4431.35 → 4415.69
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4415.69 → 4405.77
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4405.77 → 4366.02
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4366.02 → 4365.48
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4365.48 → 4351.99
+2026-03-23 21:59:21 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4351.99 → 4351.46
+2026-03-23 21:59:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4351.46 → 4335.06
+2026-03-23 21:59:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4335.06 → 4322.40
+2026-03-23 21:59:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4322.40 → 4312.18
+2026-03-23 21:59:22 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=21 4312.18 → 4295.91
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4175.07000)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4193.43000)
+2026-03-23 21:59:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4187.59000 SL=4264.91684 TP=3966.65618 (ATR=22.09338, pullback confirmed)
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=22 sl=4174.12
+2026-03-23 21:59:23 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=22 4174.12 → 4168.45
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4208.72000)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4646.16000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4761.25000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4756.45000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4790.66000)
+2026-03-23 21:59:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4791.93000 SL=4733.52930 TP=4958.78915 (ATR=16.68591, pullback confirmed)
+2026-03-23 21:59:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4564.34000)
+2026-03-23 21:59:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:25 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4372.20000)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4635.36000)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4616.07000)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4447.30000)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4467.48000)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4463.85000 SL=4524.23207 TP=4291.32981 (ATR=17.25202, pullback confirmed)
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=24 sl=4424.80
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4424.80 → 4413.39
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4413.39 → 4412.75
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4412.75 → 4411.08
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4411.08 → 4404.70
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4404.70 → 4389.12
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4389.12 → 4387.24
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4387.24 → 4366.48
+2026-03-23 21:59:27 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=24 4366.48 → 4359.79
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4267.67000)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4338.71000)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4476.52000)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4476.98000)
+2026-03-23 21:59:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4485.41000 SL=4429.58576 TP=4644.90783 (ATR=15.94978, pullback confirmed)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4284.50000)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4300.09000)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4481.19000)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4469.45000)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4297.63000)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4299.00000)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4306.26000)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4289.93000)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4277.41000)
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4534.02000)
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4528.47000)
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4563.02000)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4729.03000)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4722.49000)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4662.35000)
+2026-03-23 21:59:35 [INFO    ] src.backtesting.engine           Bar 10000/25621 (39%)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4486.47000)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4498.37000)
+2026-03-23 21:59:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4601.78000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4612.24000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4610.62000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4615.30000 SL=4573.04297 TP=4736.03438 (ATR=12.07344, pullback confirmed)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4444.09000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4445.20000)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4453.09000)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4461.33000)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4465.38000)
+2026-03-23 21:59:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4464.56000 SL=4485.05094 TP=4406.01444 (ATR=5.85456, pullback confirmed)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4165.61000)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4159.53000)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4157.45000 SL=4213.27571 TP=3997.94796 (ATR=15.95020, pullback confirmed)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4189.39000)
+2026-03-23 21:59:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4182.79000 SL=4227.40279 TP=4055.32487 (ATR=12.74651, pullback confirmed)
+2026-03-23 21:59:39 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=29 sl=4175.48
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4157.23000)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4127.99000)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4098.96000 SL=4169.37092 TP=3897.78596 (ATR=20.11740, pullback confirmed)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4148.45000)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4157.87000)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3917.26000)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3908.36000 SL=3978.36933 TP=3708.33333 (ATR=20.00267, pullback confirmed)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4026.63000)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4135.03000)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4187.70000)
+2026-03-23 21:59:43 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4191.00000 SL=4125.73861 TP=4377.46111 (ATR=18.64611, pullback confirmed)
+2026-03-23 21:59:43 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=32 sl=4204.60
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4300.65000)
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4302.07000 SL=4227.82415 TP=4514.20100 (ATR=21.21310, pullback confirmed)
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=33 sl=4325.59
+2026-03-23 21:59:44 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=33 4325.59 → 4353.57
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4392.88000)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4482.80000)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4476.34000)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4491.82000 SL=4441.62588 TP=4635.23177 (ATR=14.34118, pullback confirmed)
+2026-03-23 21:59:45 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=34 sl=4503.45
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4493.62000)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:45 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4581.15000)
+2026-03-23 21:59:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4689.89000)
+2026-03-23 21:59:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4690.35000 SL=4640.05090 TP=4834.06172 (ATR=14.37117, pullback confirmed)
+2026-03-23 21:59:47 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=35 sl=4700.84
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4438.53000)
+2026-03-23 21:59:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4334.57000)
+2026-03-23 21:59:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 4316.84000 SL=4404.42221 TP=4066.60512 (ATR=25.02349, pullback confirmed)
+2026-03-23 21:59:49 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=36 sl=4288.53
+2026-03-23 21:59:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4288.53 → 4201.23
+2026-03-23 21:59:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4201.23 → 4185.12
+2026-03-23 21:59:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4185.12 → 4151.63
+2026-03-23 21:59:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4151.63 → 4141.83
+2026-03-23 21:59:49 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=36 4141.83 → 4135.07
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3797.68000)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3809.23000)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3783.33000 SL=3859.09610 TP=3566.85544 (ATR=21.64746, pullback confirmed)
+2026-03-23 21:59:50 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=37 sl=3754.86
+2026-03-23 21:59:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 3754.86 → 3728.99
+2026-03-23 21:59:50 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=37 3728.99 → 3714.50
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3806.38000)
+2026-03-23 21:59:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4196.86000)
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4144.29000)
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4127.76000)
+2026-03-23 21:59:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3889.16000)
+2026-03-23 21:59:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3864.97000 SL=3927.23652 TP=3687.06565 (ATR=17.79043, pullback confirmed)
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=38 sl=3855.39
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 3855.39 → 3847.01
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 3847.01 → 3810.04
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 3810.04 → 3809.59
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 3809.59 → 3788.94
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 3788.94 → 3776.90
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 3776.90 → 3767.07
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 3767.07 → 3759.19
+2026-03-23 21:59:53 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=38 3759.19 → 3746.55
+2026-03-23 21:59:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3756.59000)
+2026-03-23 21:59:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3752.86000 SL=3866.38987 TP=3428.48896 (ATR=32.43710, pullback confirmed)
+2026-03-23 21:59:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:54 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3841.37000)
+2026-03-23 21:59:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 21:59:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4037.62000)
+2026-03-23 21:59:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 4039.44000 SL=3965.57912 TP=4250.47109 (ATR=21.10311, pullback confirmed)
+2026-03-23 21:59:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3863.46000)
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 21:59:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3778.61000)
+2026-03-23 22:00:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:00 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=4220.74000)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3991.32000)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3971.95000)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3857.63000)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3842.62000)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3894.81000)
+2026-03-23 22:00:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3888.74000 SL=3953.59763 TP=3703.43248 (ATR=18.53075, pullback confirmed)
+2026-03-23 22:00:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=41 sl=3838.73
+2026-03-23 22:00:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3838.73 → 3815.05
+2026-03-23 22:00:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=41 3815.05 → 3801.84
+2026-03-23 22:00:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3817.73000)
+2026-03-23 22:00:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3894.38000)
+2026-03-23 22:00:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3845.52000)
+2026-03-23 22:00:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:04 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3562.77000)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3477.18000)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3361.67000)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3281.21000)
+2026-03-23 22:00:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3348.19000)
+2026-03-23 22:00:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3303.82000)
+2026-03-23 22:00:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3290.90000 SL=3379.19690 TP=3038.62313 (ATR=25.22769, pullback confirmed)
+2026-03-23 22:00:07 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=42 sl=3256.56
+2026-03-23 22:00:07 [INFO    ] src.backtesting.engine           Bar 15000/25621 (59%)
+2026-03-23 22:00:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3398.73000)
+2026-03-23 22:00:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3401.30000 SL=3356.86813 TP=3528.24821 (ATR=12.69482, pullback confirmed)
+2026-03-23 22:00:08 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=43 sl=3409.63
+2026-03-23 22:00:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 3409.63 → 3410.29
+2026-03-23 22:00:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 3410.29 → 3426.65
+2026-03-23 22:00:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 3426.65 → 3437.30
+2026-03-23 22:00:08 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=43 3437.30 → 3447.07
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3626.59000)
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3614.24000)
+2026-03-23 22:00:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3416.13000)
+2026-03-23 22:00:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3426.98000)
+2026-03-23 22:00:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3206.24000)
+2026-03-23 22:00:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3150.42000 SL=3254.02990 TP=2854.39172 (ATR=29.60283, pullback confirmed)
+2026-03-23 22:00:12 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=44 sl=3123.80
+2026-03-23 22:00:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3137.59000)
+2026-03-23 22:00:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:14 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2977.02000)
+2026-03-23 22:00:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2831.22000)
+2026-03-23 22:00:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2820.92000)
+2026-03-23 22:00:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2810.13000 SL=2898.68410 TP=2557.11829 (ATR=25.30117, pullback confirmed)
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=45 sl=2791.72
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=45 2791.72 → 2776.09
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=45 2776.09 → 2763.13
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=45 2763.13 → 2748.36
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=45 2748.36 → 2729.43
+2026-03-23 22:00:16 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=45 2729.43 → 2719.31
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2676.49000)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2707.06000)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2773.66000)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2711.83000)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2744.52000)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2717.22000)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2738.26000)
+2026-03-23 22:00:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2819.62000)
+2026-03-23 22:00:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:19 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2843.76000)
+2026-03-23 22:00:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3034.97000)
+2026-03-23 22:00:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3071.59000)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3078.03000)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3090.98000 SL=3040.18237 TP=3236.11608 (ATR=14.51361, pullback confirmed)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3051.62000)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3052.41000 SL=2999.13746 TP=3204.61726 (ATR=15.22073, pullback confirmed)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2961.43000)
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2982.69000)
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2985.27000)
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:23 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2984.78000)
+2026-03-23 22:00:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2818.03000)
+2026-03-23 22:00:24 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2816.90000 SL=2854.55346 TP=2709.31870 (ATR=10.75813, pullback confirmed)
+2026-03-23 22:00:24 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=48 sl=2792.30
+2026-03-23 22:00:24 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=48 2792.30 → 2753.76
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3210.13000)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3197.06000)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3206.75000)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:26 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3215.41000)
+2026-03-23 22:00:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3021.42000)
+2026-03-23 22:00:27 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3014.21000 SL=3045.37392 TP=2925.17024 (ATR=8.90398, pullback confirmed)
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3029.91000)
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3027.91000 SL=3050.32105 TP=2963.87844 (ATR=6.40316, pullback confirmed)
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3027.65000)
+2026-03-23 22:00:28 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3024.22000 SL=3053.31877 TP=2941.08065 (ATR=8.31394, pullback confirmed)
+2026-03-23 22:00:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:29 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3155.31000)
+2026-03-23 22:00:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3139.37000)
+2026-03-23 22:00:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3302.32000)
+2026-03-23 22:00:30 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3343.79000 SL=3245.65601 TP=3624.17283 (ATR=28.03828, pullback confirmed)
+2026-03-23 22:00:31 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=52 sl=3391.64
+2026-03-23 22:00:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:31 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3326.28000)
+2026-03-23 22:00:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3253.02000)
+2026-03-23 22:00:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:32 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3084.96000)
+2026-03-23 22:00:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3100.67000)
+2026-03-23 22:00:33 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3100.48000 SL=3131.36070 TP=3012.24943 (ATR=8.82306, pullback confirmed)
+2026-03-23 22:00:33 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=53 sl=3076.79
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3076.02000)
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:34 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2936.50000)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2885.47000)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2963.05000)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2910.84000)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2919.32000)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:35 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2918.80000)
+2026-03-23 22:00:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2821.48000)
+2026-03-23 22:00:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:36 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2823.53000)
+2026-03-23 22:00:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2993.96000)
+2026-03-23 22:00:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:37 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2980.26000)
+2026-03-23 22:00:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2974.73000)
+2026-03-23 22:00:38 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2975.51000 SL=2955.08014 TP=3033.88102 (ATR=5.83710, pullback confirmed)
+2026-03-23 22:00:38 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=54 sl=2986.51
+2026-03-23 22:00:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:39 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3055.75000)
+2026-03-23 22:00:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2924.77000)
+2026-03-23 22:00:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:40 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2926.21000)
+2026-03-23 22:00:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:41 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2923.21000)
+2026-03-23 22:00:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2923.02000)
+2026-03-23 22:00:42 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2922.49000 SL=2948.88017 TP=2847.08951 (ATR=7.54005, pullback confirmed)
+2026-03-23 22:00:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:44 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2923.84000)
+2026-03-23 22:00:45 [INFO    ] src.backtesting.engine           Bar 20000/25621 (78%)
+2026-03-23 22:00:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:46 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2981.53000)
+2026-03-23 22:00:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2989.81000)
+2026-03-23 22:00:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:47 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3004.74000)
+2026-03-23 22:00:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:48 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3106.76000)
+2026-03-23 22:00:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:49 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3146.35000)
+2026-03-23 22:00:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3243.04000)
+2026-03-23 22:00:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3232.50000)
+2026-03-23 22:00:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3251.49000)
+2026-03-23 22:00:50 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3229.12000)
+2026-03-23 22:00:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 3236.59000 SL=3205.18078 TP=3326.33064 (ATR=8.97406, pullback confirmed)
+2026-03-23 22:00:51 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=56 sl=3258.95
+2026-03-23 22:00:51 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=56 3258.95 → 3287.10
+2026-03-23 22:00:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:51 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3292.81000)
+2026-03-23 22:00:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3132.09000)
+2026-03-23 22:00:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:52 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3093.95000)
+2026-03-23 22:00:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3104.03000)
+2026-03-23 22:00:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3104.00000 SL=3140.37730 TP=3000.06486 (ATR=10.39351, pullback confirmed)
+2026-03-23 22:00:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:53 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3079.45000)
+2026-03-23 22:00:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:55 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3122.47000)
+2026-03-23 22:00:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3091.16000)
+2026-03-23 22:00:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:00:56 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3092.00000)
+2026-03-23 22:00:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:57 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3360.27000)
+2026-03-23 22:00:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:00:58 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3368.36000)
+2026-03-23 22:01:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3204.70000)
+2026-03-23 22:01:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3207.06000)
+2026-03-23 22:01:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3209.71000)
+2026-03-23 22:01:01 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 3197.62000 SL=3224.69382 TP=3120.26623 (ATR=7.73538, pullback confirmed)
+2026-03-23 22:01:01 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=58 sl=3189.49
+2026-03-23 22:01:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2962.34000)
+2026-03-23 22:01:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2957.94000 SL=2993.99713 TP=2854.91964 (ATR=10.30204, pullback confirmed)
+2026-03-23 22:01:02 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=59 sl=2938.51
+2026-03-23 22:01:02 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=59 2938.51 → 2928.87
+2026-03-23 22:01:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2884.64000)
+2026-03-23 22:01:02 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2870.42000 SL=2963.64805 TP=2604.05415 (ATR=26.63658, pullback confirmed)
+2026-03-23 22:01:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:03 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2946.12000)
+2026-03-23 22:01:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2931.13000)
+2026-03-23 22:01:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:05 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2937.11000)
+2026-03-23 22:01:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3014.19000)
+2026-03-23 22:01:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3038.35000)
+2026-03-23 22:01:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:06 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=3032.06000)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2801.17000)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2728.25000)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2692.95000)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2757.14000)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:07 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2664.00000)
+2026-03-23 22:01:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2424.13000)
+2026-03-23 22:01:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:08 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2379.86000)
+2026-03-23 22:01:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2320.76000)
+2026-03-23 22:01:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2317.00000 SL=2380.60810 TP=2135.26258 (ATR=18.17374, pullback confirmed)
+2026-03-23 22:01:09 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=61 sl=2298.71
+2026-03-23 22:01:09 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=61 2298.71 → 2294.23
+2026-03-23 22:01:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2251.19000)
+2026-03-23 22:01:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:09 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2225.05000)
+2026-03-23 22:01:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2107.23000)
+2026-03-23 22:01:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2111.84000)
+2026-03-23 22:01:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2064.97000)
+2026-03-23 22:01:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1886.94000)
+2026-03-23 22:01:10 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 1874.42000 SL=1958.39809 TP=1634.48259 (ATR=23.99374, pullback confirmed)
+2026-03-23 22:01:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2062.80000)
+2026-03-23 22:01:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:11 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2106.26000)
+2026-03-23 22:01:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2121.82000)
+2026-03-23 22:01:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2126.02000)
+2026-03-23 22:01:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2121.96000)
+2026-03-23 22:01:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:12 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2123.44000)
+2026-03-23 22:01:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1991.50000)
+2026-03-23 22:01:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2003.77000)
+2026-03-23 22:01:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2008.93000)
+2026-03-23 22:01:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 2008.15000 SL=2041.98742 TP=1911.47165 (ATR=9.66784, pullback confirmed)
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop activated: ticket=63 sl=2000.05
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 2000.05 → 1988.35
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 1988.35 → 1987.52
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 1987.52 → 1970.60
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 1970.60 → 1966.01
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 1966.01 → 1962.49
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 1962.49 → 1962.04
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 1962.04 → 1960.47
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 1960.47 → 1954.23
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 1954.23 → 1952.24
+2026-03-23 22:01:13 [INFO    ] src.risk.trailing_stop         Trailing stop moved: ticket=63 1952.24 → 1952.04
+2026-03-23 22:01:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:13 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1907.43000)
+2026-03-23 22:01:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:15 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2087.31000)
+2026-03-23 22:01:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1956.83000)
+2026-03-23 22:01:16 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → SELL @ 1955.65000 SL=1992.95265 TP=1849.07101 (ATR=10.65790, pullback confirmed)
+2026-03-23 22:01:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:17 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1945.61000)
+2026-03-23 22:01:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:18 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1935.71000)
+2026-03-23 22:01:19 [INFO    ] src.backtesting.engine           Bar 25000/25621 (98%)
+2026-03-23 22:01:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bearish cross, regime=DOWN)
+2026-03-23 22:01:20 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1850.01000)
+2026-03-23 22:01:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1848.68000)
+2026-03-23 22:01:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:21 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=1915.34000)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2078.45000)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2082.21000)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2069.34000)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2069.62000 SL=2038.84305 TP=2157.55414 (ATR=8.79341, pullback confirmed)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: SCANNING → ARMED (bullish cross, regime=UP)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ARMED → WINDOW_OPEN (pullback=1, breakout=2028.52000)
+2026-03-23 22:01:22 [INFO    ] src.analysis.strategies.ema_pullback EMA Pullback [ETHUSD]: ENTRY → BUY @ 2030.46000 SL=1985.35983 TP=2159.31763 (ATR=12.88576, pullback confirmed)
+2026-03-23 22:01:23 [INFO    ] src.backtesting.engine         Backtest complete: 66 trades, 34.46% return, 13.13% max DD, 57.6% WR
+
+Backtest Results: ema_pullback on ETHUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $40.34 │
+│ Total Return              │         +34.46% │
+│ Max Drawdown              │          13.13% │
+│ Total Trades              │              66 │
+│ Win Rate                  │           57.6% │
+│ Profit Factor             │            1.51 │
+│ Avg Trade P&L             │          $+0.16 │
+│ Sharpe Ratio              │            0.16 │
+│ Max Consecutive Losses    │               4 │
+│ Avg Trade Duration        │            7.1h │
+└───────────────────────────┴─────────────────┘
+2026-03-23 22:01:23 [INFO    ] backtest                       Results saved to data/backtest_results/ETHUSD_ETHUSD-S-ema_only_20260323_220123.json
+
+Backtest Results: ema_pullback on ETHUSD
+  Period: 2025-06-02 → 2026-03-01
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $40.34 │
+│ Total Return              │         +34.46% │
+│ Max Drawdown              │          13.13% │
+│ Total Trades              │              66 │
+│ Win Rate                  │           57.6% │
+│ Profit Factor             │            1.51 │
+│ Avg Trade P&L             │          $+0.16 │
+│ Sharpe Ratio              │            0.16 │
+│ Max Consecutive Losses    │               4 │
+│ Avg Trade Duration        │            7.1h │
+└───────────────────────────┴─────────────────┘
+
