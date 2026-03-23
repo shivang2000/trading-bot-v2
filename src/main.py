@@ -66,6 +66,8 @@ class TradingBot:
     def __init__(self, config: AppConfig) -> None:
         self._config = config
         self._shutdown_event = asyncio.Event()
+        self._cached_positions: list = []
+        self._cached_account_state = None
 
         # Core
         self._event_bus = EventBus()
@@ -134,6 +136,7 @@ class TradingBot:
             tracking_db=self._db,
             poll_interval=config.position_monitor.poll_interval_seconds,
             trailing_stop_config=config.trailing_stop,
+            positions_callback=self._update_cached_positions,
         )
 
         # Signal generator (own technical signals)
@@ -158,41 +161,68 @@ class TradingBot:
     # ── Sync wrappers for callback-based interfaces ──
 
     def _sync_symbol_info(self, symbol: str) -> dict:
-        """Sync wrapper for MT5 symbol_info (used by RiskManager)."""
-        if not self._mt5.is_connected:
-            return {}
-        loop = asyncio.get_event_loop()
-        future = asyncio.run_coroutine_threadsafe(
-            self._mt5.symbol_info(symbol), loop
-        )
-        return future.result(timeout=10)
+        """Return symbol info from config (non-blocking).
+
+        No MT5 call needed — instrument specs are in config.
+        """
+        for inst in self._config.instruments:
+            if inst.symbol == symbol:
+                return {
+                    "symbol": inst.symbol,
+                    "point": inst.point_size,
+                    "trade_tick_value": inst.tick_value,
+                    "volume_min": inst.min_lot,
+                    "volume_max": inst.max_lot,
+                    "volume_step": inst.lot_step,
+                }
+        return {}
 
     def _sync_account_state(self):
-        """Sync wrapper for MT5 account_info (used by RiskManager)."""
-        if not self._mt5.is_connected:
-            from src.core.models import AccountState
-            from datetime import datetime
-            return AccountState(
-                balance=self._config.account.initial_balance,
-                equity=self._config.account.initial_balance,
-                margin=0, free_margin=self._config.account.initial_balance,
-                margin_level=0, profit=0, timestamp=datetime.now(),
-            )
-        loop = asyncio.get_event_loop()
-        future = asyncio.run_coroutine_threadsafe(
-            self._mt5.account_info(), loop
+        """Return cached account state (non-blocking).
+
+        Updated by _refresh_account_cache() called from PositionMonitor cycle.
+        Falls back to initial balance if no cache yet.
+        """
+        if self._cached_account_state is not None:
+            return self._cached_account_state
+        from src.core.models import AccountState
+        from datetime import datetime
+        return AccountState(
+            balance=self._config.account.initial_balance,
+            equity=self._config.account.initial_balance,
+            margin=0, free_margin=self._config.account.initial_balance,
+            margin_level=0, profit=0, timestamp=datetime.now(),
         )
-        return future.result(timeout=10)
+
+    def _update_cached_positions(self, positions: list) -> None:
+        """Called by PositionMonitor every 30s with current MT5 positions."""
+        self._cached_positions = positions
+
+    async def _account_cache_loop(self) -> None:
+        """Background loop: refresh account state every 30s."""
+        while not self._shutdown_event.is_set():
+            await self._refresh_account_cache()
+            await asyncio.sleep(30)
+
+    async def _refresh_account_cache(self) -> None:
+        """Refresh cached account state from MT5 (called from async context)."""
+        try:
+            state = await self._mt5.account_info()
+            if state:
+                self._cached_account_state = state
+        except Exception:
+            pass  # keep stale cache rather than crash
 
     def _sync_positions(self, symbol: str | None = None):
-        """Sync wrapper for MT5 positions_get (used by RiskManager)."""
-        if not self._mt5.is_connected:
-            return []
-        loop = asyncio.get_event_loop()
-        future = asyncio.run_coroutine_threadsafe(
-            self._mt5.positions_get(symbol), loop
-        )
-        return future.result(timeout=10)
+        """Return cached positions for RiskManager (non-blocking).
+
+        PositionMonitor updates _cached_positions every 30s poll cycle.
+        We can't call MT5 async from sync context (deadlocks the event loop).
+        """
+        positions = self._cached_positions
+        if symbol is not None:
+            positions = [p for p in positions if p.symbol == symbol]
+        return positions
 
     # ── Notification hooks ──
 
@@ -291,6 +321,8 @@ class TradingBot:
         # 5. Start background services (skip if MT5 not connected)
         if mt5_connected:
             await self._position_monitor.start()
+            # Start account cache refresh loop (avoids deadlock in RiskManager)
+            asyncio.create_task(self._account_cache_loop())
             if self._config.signal_generator.enabled:
                 await self._signal_generator.start()
             else:

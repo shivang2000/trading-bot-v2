@@ -38,12 +38,14 @@ class PositionMonitor:
         poll_interval: int = 30,
         account_state_func: Callable[[], Any] | None = None,
         trailing_stop_config: TrailingStopConfig | None = None,
+        positions_callback: Callable[[list], None] | None = None,
     ) -> None:
         self._mt5 = mt5_client
         self._event_bus = event_bus
         self._db = tracking_db
         self._poll_interval = poll_interval
         self._account_state_func = account_state_func
+        self._positions_callback = positions_callback
         self._known_tickets: dict[int, Position] = {}
         self._running = False
         self._task: asyncio.Task | None = None
@@ -136,6 +138,10 @@ class PositionMonitor:
 
         # Update known state
         self._known_tickets = current_tickets
+
+        # Update cached positions for RiskManager (avoids deadlock)
+        if self._positions_callback:
+            self._positions_callback(list(current_tickets.values()))
 
     async def _handle_close(self, position: Position) -> None:
         """Handle a detected position close."""
