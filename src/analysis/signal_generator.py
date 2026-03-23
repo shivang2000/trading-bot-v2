@@ -135,6 +135,8 @@ class SignalGenerator:
             logger.debug("Signal scan skipped: weekend (Friday close)")
             return
 
+        logger.debug("Running scan cycle at %s UTC", now.strftime("%H:%M:%S"))
+
         # Check session first
         session = self._session_mgr.get_current_session()
         if not self._session_mgr.is_trading_allowed():
@@ -150,7 +152,7 @@ class SignalGenerator:
             try:
                 await self._scan_symbol(symbol, session)
             except Exception:
-                logger.warning("Scan failed for %s", symbol, exc_info=True)
+                logger.error("Scan CRASHED for %s", symbol, exc_info=True)
 
     async def _scan_symbol(self, symbol: str, session) -> None:
         """Run all strategies for one symbol."""
@@ -159,14 +161,22 @@ class SignalGenerator:
         if overrides:
             logger.debug("Applying overrides for %s: %s", symbol, overrides)
 
-        # Fetch H1 bars for regime detection
+        # Fetch H1 bars for regime detection (with timeout to prevent hang)
         try:
-            h1_bars = await self._mt5.get_bars(symbol, "H1", count=100)
+            h1_bars = await asyncio.wait_for(
+                self._mt5.get_bars(symbol, "H1", count=100), timeout=30
+            )
+        except asyncio.TimeoutError:
+            logger.warning("Timeout fetching H1 bars for %s", symbol)
+            return
         except Exception:
-            logger.debug("Cannot fetch H1 bars for %s", symbol)
+            logger.warning("Cannot fetch H1 bars for %s", symbol, exc_info=True)
             return
 
+        logger.debug("Fetched H1 for %s: %d bars", symbol, len(h1_bars) if h1_bars is not None else 0)
+
         if h1_bars is None or h1_bars.empty or len(h1_bars) < 60:
+            logger.info("Insufficient H1 data for %s (%d bars)", symbol, len(h1_bars) if h1_bars is not None else 0)
             return
 
         # Detect market regime
@@ -175,20 +185,30 @@ class SignalGenerator:
             h1_bars, self._regime_detector, current_price
         )
 
+        logger.info("Regime for %s: %s", symbol, regime.value)
+
         if regime == MarketRegime.CHOPPY:
-            logger.debug("Skipping %s: regime=CHOPPY", symbol)
+            logger.info("Skipping %s: regime=CHOPPY", symbol)
             return
 
-        is_up = regime == MarketRegime.TRENDING_UP
-        is_down = regime == MarketRegime.TRENDING_DOWN
+        # Map regime to strategy flags
+        # VOLATILE_TREND = strong trend + high volatility — let strategies run
+        # (they check EMA direction internally)
+        is_up = regime in (MarketRegime.TRENDING_UP, MarketRegime.VOLATILE_TREND)
+        is_down = regime in (MarketRegime.TRENDING_DOWN, MarketRegime.VOLATILE_TREND)
         is_choppy = regime == MarketRegime.CHOPPY
         is_ranging = regime == MarketRegime.RANGING
 
-        # Fetch M15 bars for entry strategies
+        # Fetch M15 bars for entry strategies (with timeout)
         try:
-            m15_bars = await self._mt5.get_bars(symbol, "M15", count=100)
+            m15_bars = await asyncio.wait_for(
+                self._mt5.get_bars(symbol, "M15", count=100), timeout=30
+            )
+        except asyncio.TimeoutError:
+            logger.warning("Timeout fetching M15 bars for %s", symbol)
+            return
         except Exception:
-            logger.debug("Cannot fetch M15 bars for %s", symbol)
+            logger.warning("Cannot fetch M15 bars for %s", symbol, exc_info=True)
             return
 
         if m15_bars is None or m15_bars.empty:
