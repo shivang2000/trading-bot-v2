@@ -345,6 +345,35 @@ class TradingBot:
         except Exception:
             logger.warning("Failed to restore persisted state", exc_info=True)
 
+        # 5b. Sync MT5 positions into cache BEFORE signal generator starts
+        # This prevents the bot from opening duplicate positions on restart
+        if mt5_connected:
+            try:
+                mt5_positions = await self._mt5.positions_get()
+                if mt5_positions:
+                    self._cached_positions = mt5_positions
+                    logger.info(
+                        "Pre-synced %d MT5 position(s) into cache",
+                        len(mt5_positions),
+                    )
+                    # Also sync any orphan positions into our DB
+                    for pos in mt5_positions:
+                        existing = await self._db.get_trade_by_ticket(pos.ticket)
+                        if not existing:
+                            await self._db.save_bot_position(
+                                ticket=pos.ticket, symbol=pos.symbol,
+                                side="BUY" if pos.side.value == "BUY" else "SELL",
+                                volume=pos.volume, open_price=pos.open_price,
+                                sl=pos.stop_loss, tp=pos.take_profit,
+                                source="synced-from-mt5",
+                            )
+                            logger.info(
+                                "Synced orphan MT5 position #%d %s into DB",
+                                pos.ticket, pos.symbol,
+                            )
+            except Exception:
+                logger.warning("Failed to pre-sync MT5 positions", exc_info=True)
+
         # 6. Start background services (skip if MT5 not connected)
         if mt5_connected:
             await self._position_monitor.start()

@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"ssh -i /Users/shivang/dev/advanced-trading-bot/trading-bot-v2/south-mumbai-key-pair.pem ec2-user@ec2-13-202-138-193.ap-south-1.compute.amazonaws.com 'docker exec trading-bot-v2 python -c \\...",
+  "error": "Exit code 1\n** WARNING: connection is not using a post-quantum key exchange algorithm.\r\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\r\n** The server may need to be upgraded. See https://openssh.com/pq.html\r\nTraceback (most recent call last):\n  File \"<string>\", line 51, in <module>\n  File \"/usr/local/lib/python3.12/asyncio/runners.py\", line 195, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/asyncio/runners.py\", line 118...",
+  "timestamp": "2026-03-23T10:07:02.484Z",
+  "retry_count": 1
+}
