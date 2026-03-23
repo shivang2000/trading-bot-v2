@@ -60,9 +60,15 @@ trailing_stop:
 
 signal_generator:
   enabled: true
-  scan_interval_seconds: 60     # was 300 — scan every 1 min
+  scan_interval_seconds: 60
   instruments: [XAUUSD, XAGUSD, BTCUSD, ETHUSD]
   allowed_sessions: [london, new_york, london_ny_overlap, asian_london_overlap]
+  instrument_overrides:
+    ETHUSD:
+      risk_per_trade_pct: 3.0    # ETH performs best at 3% (backtested)
+      atr_sl_multiplier: 2.5     # tighter SL for ETH
+    XAGUSD:
+      risk_per_trade_pct: 1.0    # Silver has extreme tick_value — reduce risk
 
 strategies:
   ema_pullback:
@@ -85,7 +91,7 @@ strategies:
     tp_multiplier: 5.0          # huge TP — let trailing stop be the real exit
     timeframe: "M15"
   smc_confluence:
-    enabled: false
+    enabled: true
     ob_confidence_boost: 0.10
     fvg_confidence_boost: 0.10
     bos_confidence_boost: 0.05

@@ -143,6 +143,13 @@ class StrategiesConfig(BaseModel):
     smc_confluence: SmcConfluenceConfig = Field(default_factory=SmcConfluenceConfig)
 
 
+class InstrumentOverride(BaseModel):
+    """Per-instrument parameter overrides."""
+    risk_per_trade_pct: float | None = None
+    atr_sl_multiplier: float | None = None
+    atr_tp_multiplier: float | None = None
+
+
 class SignalGeneratorConfig(BaseModel):
     enabled: bool = True
     scan_interval_seconds: int = 300
@@ -150,6 +157,7 @@ class SignalGeneratorConfig(BaseModel):
     allowed_sessions: list[str] = Field(
         default_factory=lambda: ["london", "new_york", "london_ny_overlap"]
     )
+    instrument_overrides: dict[str, InstrumentOverride] = Field(default_factory=dict)
 
 
 class AppConfig(BaseModel):

@@ -29,6 +29,7 @@ from src.analysis.regime import (
     detect_regime_from_ohlcv,
 )
 from src.analysis.sessions import SessionManager, SessionName, SessionPriority
+from src.analysis.smc_confluence import adjust_confidence as smc_adjust
 from src.analysis.strategies.ema_pullback import EmaPullbackStrategy
 from src.analysis.strategies.london_breakout import LondonBreakoutStrategy
 from src.config.schema import AppConfig
@@ -153,6 +154,11 @@ class SignalGenerator:
 
     async def _scan_symbol(self, symbol: str, session) -> None:
         """Run all strategies for one symbol."""
+        # Check per-instrument overrides
+        overrides = self._config.signal_generator.instrument_overrides.get(symbol)
+        if overrides:
+            logger.debug("Applying overrides for %s: %s", symbol, overrides)
+
         # Fetch H1 bars for regime detection
         try:
             h1_bars = await self._mt5.get_bars(symbol, "H1", count=100)
@@ -200,6 +206,10 @@ class SignalGenerator:
                 h1_regime_is_choppy=is_choppy,
             )
             if sig:
+                sig.confidence = smc_adjust(
+                    sig.action, symbol, m15_bars, sig.confidence,
+                    self._config.strategies.smc_confluence,
+                )
                 await self._publish_signal(sig, "ema_pullback")
 
         # Run London Breakout strategy
@@ -212,6 +222,10 @@ class SignalGenerator:
                 regime_is_ranging=is_ranging,
             )
             if sig:
+                sig.confidence = smc_adjust(
+                    sig.action, symbol, m15_bars, sig.confidence,
+                    self._config.strategies.smc_confluence,
+                )
                 await self._publish_signal(sig, "london_breakout")
 
     async def _publish_signal(self, sig, strategy_name: str) -> None:

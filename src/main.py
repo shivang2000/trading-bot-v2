@@ -137,6 +137,7 @@ class TradingBot:
             poll_interval=config.position_monitor.poll_interval_seconds,
             trailing_stop_config=config.trailing_stop,
             positions_callback=self._update_cached_positions,
+            initial_balance=config.account.initial_balance,
         )
 
         # Signal generator (own technical signals)

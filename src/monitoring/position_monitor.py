@@ -17,11 +17,12 @@ from typing import Any, Callable
 import pandas_ta as ta
 
 from src.config.schema import TrailingStopConfig
-from src.core.enums import OrderSide
-from src.core.events import EventBus, ModifyOrderEvent, PositionClosedEvent
-from src.core.models import ModifyOrder, Position
+from src.core.enums import OrderSide, OrderType
+from src.core.events import EventBus, ModifyOrderEvent, OrderEvent, PositionClosedEvent
+from src.core.models import ModifyOrder, Order, Position
 from src.mt5.client import AsyncMT5Client
 from src.risk.trailing_stop import TrailingStopManager
+from src.safety.emergency import EmergencyStop
 from src.tracking.database import TrackingDB
 
 logger = logging.getLogger(__name__)
@@ -39,6 +40,7 @@ class PositionMonitor:
         account_state_func: Callable[[], Any] | None = None,
         trailing_stop_config: TrailingStopConfig | None = None,
         positions_callback: Callable[[list], None] | None = None,
+        initial_balance: float = 30.0,
     ) -> None:
         self._mt5 = mt5_client
         self._event_bus = event_bus
@@ -49,6 +51,11 @@ class PositionMonitor:
         self._known_tickets: dict[int, Position] = {}
         self._running = False
         self._task: asyncio.Task | None = None
+        self._emergency = EmergencyStop(
+            max_daily_loss_usd=initial_balance * 0.08,   # 8% of initial
+            max_drawdown_usd=initial_balance * 0.20,     # 20% of initial
+        )
+        self._emergency_triggered = False
 
         # Trailing stop management
         self._ts_config = trailing_stop_config
@@ -142,6 +149,26 @@ class PositionMonitor:
         # Update cached positions for RiskManager (avoids deadlock)
         if self._positions_callback:
             self._positions_callback(list(current_tickets.values()))
+
+        # Emergency stop check — close all positions if daily loss exceeds limit
+        if self._account_state_func and current_tickets and not self._emergency_triggered:
+            try:
+                account = self._account_state_func()
+                if self._emergency.check(account):
+                    self._emergency_triggered = True
+                    logger.critical("EMERGENCY STOP TRIGGERED — closing all positions")
+                    for pos in list(current_tickets.values()):
+                        close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+                        order = Order(
+                            symbol=pos.symbol, side=close_side,
+                            order_type=OrderType.MARKET, volume=pos.volume,
+                            magic=200000, comment="EMERGENCY_STOP",
+                        )
+                        await self._event_bus.publish(
+                            OrderEvent(timestamp=datetime.now(timezone.utc), order=order)
+                        )
+            except Exception:
+                logger.debug("Emergency check skipped", exc_info=True)
 
     async def _handle_close(self, position: Position) -> None:
         """Handle a detected position close."""
