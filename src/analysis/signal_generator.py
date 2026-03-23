@@ -107,6 +107,12 @@ class SignalGenerator:
         """Main scanning loop — runs every scan_interval_seconds."""
         interval = self._config.signal_generator.scan_interval_seconds
 
+        # Wait 60s on startup to let PositionMonitor sync MT5 positions
+        # This prevents opening duplicate trades on every restart
+        logger.info("SignalGenerator waiting 60s for position sync before first scan...")
+        await asyncio.sleep(60)
+        logger.info("SignalGenerator startup delay complete, beginning scans")
+
         while self._running:
             try:
                 await self._run_scan()

@@ -36,11 +36,11 @@ instruments:
     lot_step: 0.01
 
 risk:
-  max_open_positions: 5         # was 3
-  max_positions_per_symbol: 2   # was 1 — allow pyramiding
-  max_daily_trades: 20          # was 10
-  max_daily_loss_pct: 8.0       # was 5.0
-  max_drawdown_pct: 20.0        # was 15.0
+  max_open_positions: 2         # reduced for $30 account (was 5)
+  max_positions_per_symbol: 1   # no pyramiding on small account (was 2)
+  max_daily_trades: 10          # conservative (was 20)
+  max_daily_loss_pct: 8.0
+  max_drawdown_pct: 20.0
 
 signal_parser:
   model: "claude-haiku-4-5-20251001"
