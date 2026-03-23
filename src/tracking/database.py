@@ -78,6 +78,49 @@ CREATE INDEX IF NOT EXISTS idx_raw_messages_channel
     ON raw_messages(channel_id);
 CREATE INDEX IF NOT EXISTS idx_trades_channel ON trades(channel_id);
 CREATE INDEX IF NOT EXISTS idx_trades_opened ON trades(opened_at);
+
+-- Bot-opened positions (tracks what WE opened, survives restart)
+CREATE TABLE IF NOT EXISTS bot_positions (
+    mt5_ticket INTEGER PRIMARY KEY,
+    symbol TEXT NOT NULL,
+    side TEXT NOT NULL,
+    volume REAL,
+    open_price REAL,
+    stop_loss REAL,
+    take_profit REAL,
+    opened_at TIMESTAMP,
+    source TEXT,
+    status TEXT DEFAULT 'open'
+);
+
+-- Trailing stop state (survives restart)
+CREATE TABLE IF NOT EXISTS trailing_stops (
+    mt5_ticket INTEGER PRIMARY KEY,
+    current_sl REAL NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Strategy state machines (survives restart)
+CREATE TABLE IF NOT EXISTS strategy_state (
+    symbol TEXT NOT NULL,
+    strategy TEXT NOT NULL,
+    state TEXT NOT NULL,
+    direction TEXT,
+    breakout_level REAL,
+    pullback_count INTEGER DEFAULT 0,
+    window_candles INTEGER DEFAULT 0,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (symbol, strategy)
+);
+
+-- Daily counters (survives restart)
+CREATE TABLE IF NOT EXISTS daily_state (
+    date TEXT PRIMARY KEY,
+    trade_count INTEGER DEFAULT 0,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_bot_positions_status ON bot_positions(status);
 """
 
 
@@ -324,6 +367,136 @@ class TrackingDB:
             cursor = await self._db.execute("SELECT * FROM channel_stats")
         rows = await cursor.fetchall()
         return [dict(row) for row in rows]
+
+    # --- Bot Positions (our own trade tracking) ---
+
+    async def save_bot_position(
+        self, ticket: int, symbol: str, side: str, volume: float,
+        open_price: float, sl: float | None, tp: float | None,
+        source: str = "",
+    ) -> None:
+        """Record a position the bot opened."""
+        await self._db.execute(
+            """INSERT OR REPLACE INTO bot_positions
+               (mt5_ticket, symbol, side, volume, open_price, stop_loss,
+                take_profit, opened_at, source, status)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'open')""",
+            (ticket, symbol, side, volume, open_price, sl, tp,
+             datetime.utcnow(), source),
+        )
+        await self._db.commit()
+
+    async def close_bot_position(
+        self, ticket: int, close_price: float = 0.0, pnl: float = 0.0,
+        reason: str = "",
+    ) -> None:
+        """Mark a bot position as closed."""
+        await self._db.execute(
+            "UPDATE bot_positions SET status = 'closed' WHERE mt5_ticket = ?",
+            (ticket,),
+        )
+        await self._db.commit()
+        # Also close in trades table
+        await self.close_trade(
+            mt5_ticket=ticket, close_price=close_price,
+            pnl=pnl, close_reason=reason,
+        )
+
+    async def get_open_bot_positions(self) -> list[dict]:
+        """Get all positions the bot currently has open."""
+        cursor = await self._db.execute(
+            "SELECT * FROM bot_positions WHERE status = 'open'"
+        )
+        rows = await cursor.fetchall()
+        return [dict(row) for row in rows]
+
+    # --- Trailing Stop Persistence ---
+
+    async def save_trailing_stop(self, ticket: int, sl: float) -> None:
+        """Persist a trailing stop level."""
+        await self._db.execute(
+            """INSERT OR REPLACE INTO trailing_stops (mt5_ticket, current_sl, updated_at)
+               VALUES (?, ?, ?)""",
+            (ticket, sl, datetime.utcnow()),
+        )
+        await self._db.commit()
+
+    async def get_trailing_stops(self) -> dict[int, float]:
+        """Load all persisted trailing stop levels."""
+        cursor = await self._db.execute("SELECT mt5_ticket, current_sl FROM trailing_stops")
+        rows = await cursor.fetchall()
+        return {row["mt5_ticket"]: row["current_sl"] for row in rows}
+
+    async def delete_trailing_stop(self, ticket: int) -> None:
+        """Remove trailing stop when position closes."""
+        await self._db.execute(
+            "DELETE FROM trailing_stops WHERE mt5_ticket = ?", (ticket,)
+        )
+        await self._db.commit()
+
+    # --- Strategy State Persistence ---
+
+    async def save_strategy_state(
+        self, symbol: str, strategy: str, state: str,
+        direction: str = "", breakout_level: float = 0.0,
+        pullback_count: int = 0, window_candles: int = 0,
+    ) -> None:
+        """Persist a strategy's state machine for a symbol."""
+        await self._db.execute(
+            """INSERT OR REPLACE INTO strategy_state
+               (symbol, strategy, state, direction, breakout_level,
+                pullback_count, window_candles, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+            (symbol, strategy, state, direction, breakout_level,
+             pullback_count, window_candles, datetime.utcnow()),
+        )
+        await self._db.commit()
+
+    async def get_strategy_states(self, strategy: str) -> dict[str, dict]:
+        """Load all persisted states for a strategy. Returns {symbol: state_dict}."""
+        cursor = await self._db.execute(
+            "SELECT * FROM strategy_state WHERE strategy = ?", (strategy,)
+        )
+        rows = await cursor.fetchall()
+        return {
+            row["symbol"]: {
+                "state": row["state"],
+                "direction": row["direction"],
+                "breakout_level": row["breakout_level"],
+                "pullback_count": row["pullback_count"],
+                "window_candles": row["window_candles"],
+            }
+            for row in rows
+        }
+
+    # --- Daily State Persistence ---
+
+    async def increment_daily_trades(self) -> int:
+        """Increment today's trade count. Returns new count."""
+        today = datetime.utcnow().strftime("%Y-%m-%d")
+        await self._db.execute(
+            """INSERT INTO daily_state (date, trade_count, updated_at)
+               VALUES (?, 1, ?)
+               ON CONFLICT(date) DO UPDATE SET
+                 trade_count = trade_count + 1,
+                 updated_at = ?""",
+            (today, datetime.utcnow(), datetime.utcnow()),
+        )
+        await self._db.commit()
+        cursor = await self._db.execute(
+            "SELECT trade_count FROM daily_state WHERE date = ?", (today,)
+        )
+        row = await cursor.fetchone()
+        return row["trade_count"] if row else 1
+
+    async def get_daily_trade_count(self) -> int:
+        """Get today's trade count."""
+        today = datetime.utcnow().strftime("%Y-%m-%d")
+        cursor = await self._db.execute(
+            "SELECT trade_count FROM daily_state WHERE date = ?", (today,)
+        )
+        row = await cursor.fetchone()
+        return row["trade_count"] if row else 0
 
     async def get_daily_stats(self) -> dict:
         """Get today's trading statistics."""

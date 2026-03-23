@@ -227,11 +227,27 @@ class TradingBot:
     # ── Notification hooks ──
 
     async def _on_fill_notify(self, event: Event) -> None:
-        """Send notifications when an order is filled."""
+        """Send notifications and track when an order is filled."""
         if not isinstance(event, FillEvent) or event.order is None:
             return
         order = event.order
         source = order.comment or ""
+
+        # Track in our database (survives restart)
+        try:
+            ticket = getattr(order, "ticket", 0) or 0
+            if ticket:
+                await self._db.save_bot_position(
+                    ticket=ticket, symbol=order.symbol,
+                    side=order.side.value, volume=event.fill_volume,
+                    open_price=event.fill_price,
+                    sl=order.stop_loss, tp=order.take_profit,
+                    source=source,
+                )
+                await self._db.increment_daily_trades()
+        except Exception:
+            logger.debug("Failed to persist bot position", exc_info=True)
+
         await self._telegram_notifier.send_trade_opened(
             symbol=order.symbol,
             side=order.side.value,
@@ -318,7 +334,18 @@ class TradingBot:
         self._event_bus.subscribe("FILL", self._on_fill_notify)
         self._event_bus.subscribe("POSITION_CLOSED", self._on_position_closed_notify)
 
-        # 5. Start background services (skip if MT5 not connected)
+        # 5. Restore persisted state from database
+        try:
+            trailing_stops = await self._db.get_trailing_stops()
+            if trailing_stops and self._position_monitor._trailing_manager:
+                self._position_monitor._trailing_manager.restore(trailing_stops)
+
+            daily_count = await self._db.get_daily_trade_count()
+            self._risk_manager.set_daily_trade_count(daily_count)
+        except Exception:
+            logger.warning("Failed to restore persisted state", exc_info=True)
+
+        # 6. Start background services (skip if MT5 not connected)
         if mt5_connected:
             await self._position_monitor.start()
             # Start account cache refresh loop (avoids deadlock in RiskManager)

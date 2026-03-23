@@ -113,3 +113,9 @@ class TrailingStopManager:
     def remove(self, ticket: int) -> None:
         """Remove tracking when a position is closed."""
         self._trailing_stops.pop(ticket, None)
+
+    def restore(self, stops: dict[int, float]) -> None:
+        """Restore trailing stops from persisted data (after restart)."""
+        self._trailing_stops.update(stops)
+        if stops:
+            logger.info("Restored %d trailing stop(s) from database", len(stops))

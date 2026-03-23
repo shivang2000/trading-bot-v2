@@ -78,6 +78,12 @@ class RiskManager:
 
         logger.info("RiskManager initialized")
 
+    def set_daily_trade_count(self, count: int) -> None:
+        """Restore daily trade count from persisted state."""
+        self._daily_trade_count = count
+        if count > 0:
+            logger.info("Restored daily trade count: %d", count)
+
     async def _on_signal(self, event: Event) -> None:
         """Handle incoming signal event."""
         if not isinstance(event, SignalEvent) or event.signal is None:

@@ -197,6 +197,18 @@ class PositionMonitor:
         # Clean up trailing stop tracking
         if self._trailing_manager:
             self._trailing_manager.remove(position.ticket)
+            try:
+                await self._db.delete_trailing_stop(position.ticket)
+            except Exception:
+                pass
+
+        # Close in bot_positions table
+        try:
+            await self._db.close_bot_position(
+                position.ticket, close_price, pnl, "market"
+            )
+        except Exception:
+            pass
 
     async def _update_trailing_stops(
         self, positions: dict[int, Position]
@@ -219,6 +231,12 @@ class PositionMonitor:
                 )
 
                 if new_sl is not None:
+                    # Persist trailing stop to DB (survives restart)
+                    try:
+                        await self._db.save_trailing_stop(ticket, round(new_sl, 5))
+                    except Exception:
+                        pass
+
                     # Publish modify order to move SL on MT5
                     modify = ModifyOrder(
                         ticket=ticket,

@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"python3 -c \\\"import pandas, pandas_ta, numpy, rich; print('All deps OK')\\\" 2>&1\",\"description\":\"Check if Python dependencies are available locally\"}",
-  "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas_ta/__init__.py\", line 6, in <module>\n    from pandas_ta.utils import *\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas_ta/utils/__init__.py\", line 4, in <module>\n    from ._math import *\n  File \"/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packag...",
-  "timestamp": "2026-03-23T05:32:59.849Z",
-  "retry_count": 1
-}
