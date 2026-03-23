@@ -200,6 +200,12 @@ class RiskManager:
                 "max_drawdown_pct", dd_pct, risk.max_drawdown_pct
             )
 
+        # 6. Free margin check (prevent "No money" errors)
+        if account.free_margin < account.equity * 0.2:
+            raise RiskLimitExceeded(
+                "free_margin", account.free_margin, account.equity * 0.2
+            )
+
     def _signal_to_order(self, signal: Signal) -> Order:
         """Convert an approved signal to an executable order."""
         symbol_info = self._symbol_info_func(signal.symbol)

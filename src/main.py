@@ -374,6 +374,22 @@ class TradingBot:
             except Exception:
                 logger.warning("Failed to pre-sync MT5 positions", exc_info=True)
 
+        # 5c. Clean stale DB positions not found in MT5 (e.g. after account reset)
+        try:
+            db_open = await self._db.get_open_bot_positions()
+            mt5_tickets = {pos.ticket for pos in self._cached_positions}
+            for db_pos in db_open:
+                if db_pos["mt5_ticket"] not in mt5_tickets:
+                    await self._db.close_bot_position(
+                        db_pos["mt5_ticket"], 0, 0, "stale-cleanup"
+                    )
+                    logger.info(
+                        "Cleaned stale DB position #%d (not in MT5)",
+                        db_pos["mt5_ticket"],
+                    )
+        except Exception:
+            logger.debug("Stale position cleanup skipped", exc_info=True)
+
         # 6. Start background services (skip if MT5 not connected)
         if mt5_connected:
             await self._position_monitor.start()
