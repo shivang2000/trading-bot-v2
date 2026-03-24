@@ -20,6 +20,9 @@ import pandas_ta as ta
 from src.analysis.regime import MarketRegime, RegimeDetector, detect_regime_from_ohlcv
 from src.analysis.strategies.ema_pullback import EmaPullbackStrategy
 from src.analysis.strategies.london_breakout import LondonBreakoutStrategy
+from src.analysis.strategies.m1_ema_micro import M1EmaMicroStrategy
+from src.analysis.strategies.m5_bb_squeeze import M5BbSqueezeStrategy
+from src.analysis.strategies.m5_mean_reversion import M5MeanReversionStrategy
 from src.analysis.strategies.ny_momentum import NyMomentumStrategy, NyRangeBreakoutStrategy
 from src.backtesting.account import BacktestAccountManager
 from src.backtesting.result import BacktestResult, calculate_metrics
@@ -78,6 +81,11 @@ class BacktestEngine:
         self._ny_momentum = NyMomentumStrategy(
             max_trades_per_day=ny_cfg.momentum_max_trades_per_day if ny_cfg else 1,
         ) if strategy in ("ny_momentum", "all") else None
+
+        # Scalping strategies (M5/M1)
+        self._m5_mean_rev = M5MeanReversionStrategy() if strategy in ("m5_mean_reversion", "m5_scalp", "all_scalp") else None
+        self._m5_bb_squeeze = M5BbSqueezeStrategy() if strategy in ("m5_bb_squeeze", "m5_scalp", "all_scalp") else None
+        self._m1_ema_micro = M1EmaMicroStrategy() if strategy in ("m1_ema_micro", "all_scalp") else None
 
         # Regime detector
         self._regime_detector = RegimeDetector()
@@ -288,6 +296,45 @@ class BacktestEngine:
                     symbol=self._symbol,
                     m15_bars=m15_window,
                     regime_is_ranging=is_ranging,
+                    as_of=bar_time,
+                )
+            )
+            if sig:
+                return sig
+
+        # M5 Mean Reversion RSI Extreme
+        if self._m5_mean_rev:
+            sig = loop.run_until_complete(
+                self._m5_mean_rev.scan(
+                    symbol=self._symbol,
+                    m5_bars=m15_window,  # uses same data window, strategy checks timeframe
+                    point_size=self._point_size,
+                    as_of=bar_time,
+                )
+            )
+            if sig:
+                return sig
+
+        # M5 Bollinger Band Squeeze
+        if self._m5_bb_squeeze:
+            sig = loop.run_until_complete(
+                self._m5_bb_squeeze.scan(
+                    symbol=self._symbol,
+                    m5_bars=m15_window,
+                    point_size=self._point_size,
+                    as_of=bar_time,
+                )
+            )
+            if sig:
+                return sig
+
+        # M1 EMA Micro Pullback
+        if self._m1_ema_micro:
+            sig = loop.run_until_complete(
+                self._m1_ema_micro.scan(
+                    symbol=self._symbol,
+                    m1_bars=m15_window,
+                    point_size=self._point_size,
                     as_of=bar_time,
                 )
             )

@@ -40,11 +40,11 @@ class M5MeanReversionStrategy:
     def __init__(
         self,
         rsi_period: int = 7,
-        rsi_oversold: float = 10.0,
-        rsi_overbought: float = 90.0,
+        rsi_oversold: float = 20.0,
+        rsi_overbought: float = 80.0,
         tp_pips: float = 25.0,
         sl_pips: float = 18.0,
-        max_trades_per_day: int = 3,
+        max_trades_per_day: int = 5,
     ) -> None:
         self._rsi_period = rsi_period
         self._rsi_os = rsi_oversold
@@ -99,8 +99,8 @@ class M5MeanReversionStrategy:
         tp_dist = self._tp_pips * point_size
         sl_dist = self._sl_pips * point_size
 
-        # BUY: RSI drops below oversold extreme + EMA slope up (with trend)
-        if curr_rsi < self._rsi_os and ema_slope_up:
+        # BUY: RSI drops below oversold extreme (mean reversion — buy the dip)
+        if curr_rsi < self._rsi_os:
             sl = curr_close - sl_dist
             tp = curr_close + tp_dist
             self._daily_trades[symbol] = (today_str, entry[1] + 1 if entry[0] == today_str else 1)
@@ -114,8 +114,8 @@ class M5MeanReversionStrategy:
                 reason=f"M5 mean reversion BUY (RSI {curr_rsi:.0f} < {self._rsi_os})",
             )
 
-        # SELL: RSI rises above overbought extreme + EMA slope down
-        if curr_rsi > self._rsi_ob and not ema_slope_up:
+        # SELL: RSI rises above overbought extreme (mean reversion — sell the spike)
+        if curr_rsi > self._rsi_ob:
             sl = curr_close + sl_dist
             tp = curr_close - tp_dist
             self._daily_trades[symbol] = (today_str, entry[1] + 1 if entry[0] == today_str else 1)

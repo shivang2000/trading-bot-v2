@@ -38,8 +38,10 @@ def main() -> None:
     parser.add_argument("--end", help="End date (YYYY-MM-DD)")
     parser.add_argument(
         "--strategy", default="all",
-        choices=["ema_pullback", "london_breakout", "ny_range_breakout", "ny_momentum", "both", "all"],
-        help="Strategy to backtest (all = all 4 strategies)",
+        choices=["ema_pullback", "london_breakout", "ny_range_breakout", "ny_momentum",
+                 "m5_mean_reversion", "m5_bb_squeeze", "m1_ema_micro", "m5_scalp", "all_scalp",
+                 "both", "all"],
+        help="Strategy to backtest (m5_scalp=all M5, all_scalp=M5+M1, all=M15 strategies)",
     )
     parser.add_argument("--initial-capital", type=float, default=10000.0, help="Starting balance")
     parser.add_argument("--volume", type=float, default=0.01, help="Lot size per trade")
