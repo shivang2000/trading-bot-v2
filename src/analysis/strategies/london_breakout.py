@@ -121,6 +121,18 @@ class LondonBreakoutStrategy:
                 self._ranges[symbol].range_pips,
             )
 
+            # Stale breakout detection: if price already above/below range,
+            # the breakout happened before we started — skip it
+            first_check_close = float(m15_bars["close"].iloc[-1])
+            buffer_check = cfg.breakout_buffer_pips * point_size
+            if first_check_close > asian_range[0] + buffer_check or first_check_close < asian_range[1] - buffer_check:
+                self._ranges[symbol].traded_today = True
+                logger.info(
+                    "London Breakout [%s]: stale breakout detected (price %.2f already outside range), skipping",
+                    symbol, first_check_close,
+                )
+                return None
+
         ar = self._ranges[symbol]
         buffer = cfg.breakout_buffer_pips * point_size
 

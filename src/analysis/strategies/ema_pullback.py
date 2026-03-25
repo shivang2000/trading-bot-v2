@@ -68,6 +68,7 @@ class EmaPullbackStrategy:
     def __init__(self, config: EmaPullbackConfig) -> None:
         self._config = config
         self._states: dict[str, SymbolState] = {}
+        self._initialized: dict[str, bool] = {}  # first scan = observe only
 
     def _get_state(self, symbol: str) -> SymbolState:
         if symbol not in self._states:
@@ -129,8 +130,17 @@ class EmaPullbackStrategy:
             bullish_cross = prev_fast <= prev_slow and current_fast > current_slow
             bearish_cross = prev_fast >= prev_slow and current_fast < current_slow
 
-            # Deduplicate: don't re-arm on the same bar (scans run every 60s but M15 = 15 min)
             current_bar_idx = len(m15_bars) - 1
+
+            # First scan for this symbol: observe only, don't trade
+            # This prevents arming on stale crossovers after restart
+            if not self._initialized.get(symbol, False):
+                self._initialized[symbol] = True
+                st.last_crossover_bar = current_bar_idx
+                logger.debug("EMA Pullback [%s]: first scan — observing state, not trading", symbol)
+                return None
+
+            # Deduplicate: don't re-arm on the same bar
             if current_bar_idx == st.last_crossover_bar:
                 return None
 
