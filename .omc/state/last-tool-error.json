@@ -1,7 +1,7 @@
 {
-  "tool_name": "WebFetch",
-  "tool_input_preview": "{\"url\":\"https://forums.babypips.com/t/a-scalping-day-trading-strategy-5minute-timeframe/1266726\",\"prompt\":\"Extract the complete 5-minute scalping/day trading strategy: entry rules, exit rules, indicat...",
-  "error": "Request failed with status code 403",
-  "timestamp": "2026-03-24T14:19:51.754Z",
-  "retry_count": 2
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"git checkout main && echo \\\"ON: $(git branch --show-current)\\\"\",\"description\":\"Switch to main branch\"}",
+  "error": "Exit code 1\nerror: Your local changes to the following files would be overwritten by checkout:\n\t.omc/state/idle-notif-cooldown.json\nPlease commit your changes or stash them before you switch branches.\nAborting",
+  "timestamp": "2026-03-25T10:55:36.682Z",
+  "retry_count": 1
 }
