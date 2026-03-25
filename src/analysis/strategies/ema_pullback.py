@@ -129,11 +129,17 @@ class EmaPullbackStrategy:
             bullish_cross = prev_fast <= prev_slow and current_fast > current_slow
             bearish_cross = prev_fast >= prev_slow and current_fast < current_slow
 
+            # Deduplicate: don't re-arm on the same bar (scans run every 60s but M15 = 15 min)
+            current_bar_idx = len(m15_bars) - 1
+            if current_bar_idx == st.last_crossover_bar:
+                return None
+
             if bullish_cross and h1_regime_is_trending_up:
                 st.state = State.ARMED
                 st.direction = "BUY"
                 st.armed_at = datetime.utcnow()
                 st.pullback_count = 0
+                st.last_crossover_bar = current_bar_idx
                 logger.info(
                     "EMA Pullback [%s]: SCANNING → ARMED (bullish cross, regime=UP)",
                     symbol,
@@ -144,6 +150,7 @@ class EmaPullbackStrategy:
                 st.direction = "SELL"
                 st.armed_at = datetime.utcnow()
                 st.pullback_count = 0
+                st.last_crossover_bar = current_bar_idx
                 logger.info(
                     "EMA Pullback [%s]: SCANNING → ARMED (bearish cross, regime=DOWN)",
                     symbol,

@@ -102,6 +102,7 @@ class LondonBreakoutStrategy:
                 m15_bars, cfg.asian_start_hour, cfg.asian_end_hour, now
             )
             if asian_range is None:
+                logger.info("London Breakout [%s]: no Asian range found for %s", symbol, today_str)
                 return None
 
             range_width = asian_range[0] - asian_range[1]
@@ -192,10 +193,16 @@ class LondonBreakoutStrategy:
         asian_bars = []
         for i in range(len(bars)):
             bar_time = None
-            if "time" in bars.columns:
-                bar_time = pd.Timestamp(bars["time"].iloc[i])
-            elif bars.index.dtype.kind == "M":
+            # Use DatetimeIndex first (most reliable from MT5 client)
+            if bars.index.dtype.kind == "M":
                 bar_time = bars.index[i]
+            elif "time" in bars.columns:
+                val = bars["time"].iloc[i]
+                # Handle unix seconds (int/float) vs datetime
+                if isinstance(val, (int, float)):
+                    bar_time = pd.Timestamp(val, unit="s", tz="UTC")
+                else:
+                    bar_time = pd.Timestamp(val)
 
             if bar_time is None:
                 continue
