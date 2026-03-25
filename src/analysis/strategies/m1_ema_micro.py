@@ -119,10 +119,8 @@ class M1EmaMicroStrategy:
             bouncing = curr_close > curr_slow and curr_close > prev_close
 
             if touched_slow and bouncing:
-                # Find pullback low for SL
-                recent_lows = low.iloc[-5:]
-                pullback_low = float(recent_lows.min())
-                sl = pullback_low - sl_buf
+                # Fixed pip-based SL (not pullback low — that's too far on Gold)
+                sl = curr_close - sl_buf - tp_dist  # SL = TP + buffer below entry
                 tp = curr_close + tp_dist
 
                 self._bullish_cross[symbol] = False
@@ -144,9 +142,8 @@ class M1EmaMicroStrategy:
             dropping = curr_close < curr_slow and curr_close < prev_close
 
             if touched_slow and dropping:
-                recent_highs = high.iloc[-5:]
-                pullback_high = float(recent_highs.max())
-                sl = pullback_high + sl_buf
+                # Fixed pip-based SL
+                sl = curr_close + sl_buf + tp_dist  # SL = TP + buffer above entry
                 tp = curr_close - tp_dist
 
                 self._bearish_cross[symbol] = False

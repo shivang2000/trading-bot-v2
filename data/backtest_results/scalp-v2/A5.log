@@ -1,0 +1,127 @@
+2026-03-25 07:14:49 [INFO    ] backtest                       Loading M15 data from CSV: data/backtest_cache/XAUUSD_M5_all.csv
+2026-03-25 07:14:49 [INFO    ] src.backtesting.data_loader    Loaded 100000 bars from data/backtest_cache/XAUUSD_M5_all.csv (2024-10-23 13:55:00+00:00 → 2026-03-24 18:45:00+00:00)
+2026-03-25 07:14:49 [INFO    ] backtest                       Loading H1 data from CSV: data/backtest_cache/XAUUSD_H1_20250601_20260301.csv
+2026-03-25 07:14:49 [INFO    ] src.backtesting.data_loader    Loaded 4418 bars from data/backtest_cache/XAUUSD_H1_20250601_20260301.csv (2025-06-02 01:00:00+00:00 → 2026-02-27 23:00:00+00:00)
+2026-03-25 07:14:49 [INFO    ] backtest                       Data loaded: 100000 M15 bars, 4418 H1 bars
+2026-03-25 07:14:49 [INFO    ] backtest                       Config [A5-bb]: risk=2.0%, SL=3.5x ATR, TP=10.0x ATR, trail_act=20%, trail_atr=1.5x
+2026-03-25 07:14:49 [INFO    ] src.backtesting.engine         Starting backtest: m5_bb_squeeze on XAUUSD (100000 M15 bars, 4418 H1 bars)
+2026-03-25 07:14:50 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 2788.01000 (squeeze range=4.02124)
+2026-03-25 07:14:51 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 2616.12000 (squeeze range=5.42119)
+2026-03-25 07:14:52 [INFO    ] src.backtesting.engine           Bar 5000/100000 (5%)
+2026-03-25 07:14:53 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 2639.93000 (squeeze range=2.09915)
+2026-03-25 07:14:54 [INFO    ] src.backtesting.engine           Bar 10000/100000 (10%)
+2026-03-25 07:14:57 [INFO    ] src.backtesting.engine           Bar 15000/100000 (15%)
+2026-03-25 07:15:00 [INFO    ] src.backtesting.engine           Bar 20000/100000 (20%)
+2026-03-25 07:15:03 [INFO    ] src.backtesting.engine           Bar 25000/100000 (25%)
+2026-03-25 07:15:03 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 2920.84000 (squeeze range=5.65507)
+2026-03-25 07:15:06 [INFO    ] src.backtesting.engine           Bar 30000/100000 (30%)
+2026-03-25 07:15:06 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3076.42000 (squeeze range=3.57311)
+2026-03-25 07:15:06 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3080.82000 (squeeze range=4.58024)
+2026-03-25 07:15:06 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3135.90000 (squeeze range=4.89036)
+2026-03-25 07:15:08 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3489.47000 (squeeze range=11.50121)
+2026-03-25 07:15:08 [INFO    ] src.backtesting.engine           Bar 35000/100000 (35%)
+2026-03-25 07:15:10 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3319.74000 (squeeze range=8.91632)
+2026-03-25 07:15:10 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3333.41000 (squeeze range=11.22551)
+2026-03-25 07:15:11 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3189.69000 (squeeze range=9.62623)
+2026-03-25 07:15:11 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3181.51000 (squeeze range=7.18056)
+2026-03-25 07:15:11 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3224.01000 (squeeze range=8.12696)
+2026-03-25 07:15:11 [INFO    ] src.backtesting.engine           Bar 40000/100000 (40%)
+2026-03-25 07:15:11 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3238.25000 (squeeze range=5.65905)
+2026-03-25 07:15:12 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3293.42000 (squeeze range=7.15304)
+2026-03-25 07:15:12 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3349.29000 (squeeze range=6.96211)
+2026-03-25 07:15:13 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3359.09000 (squeeze range=5.09269)
+2026-03-25 07:15:13 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3358.71000 (squeeze range=2.94815)
+2026-03-25 07:15:13 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3378.77000 (squeeze range=6.69641)
+2026-03-25 07:15:13 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3315.31000 (squeeze range=4.79474)
+2026-03-25 07:15:14 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3325.18000 (squeeze range=4.81162)
+2026-03-25 07:15:15 [INFO    ] src.backtesting.engine           Bar 45000/100000 (45%)
+2026-03-25 07:15:16 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3391.72000 (squeeze range=7.14816)
+2026-03-25 07:15:17 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3343.29000 (squeeze range=4.19120)
+2026-03-25 07:15:18 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3342.85000 (squeeze range=3.43567)
+2026-03-25 07:15:19 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3333.18000 (squeeze range=7.59032)
+2026-03-25 07:15:20 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3304.86000 (squeeze range=8.01970)
+2026-03-25 07:15:20 [INFO    ] src.backtesting.engine           Bar 50000/100000 (50%)
+2026-03-25 07:15:25 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3310.65000 (squeeze range=5.77342)
+2026-03-25 07:15:27 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3341.15000 (squeeze range=11.30055)
+2026-03-25 07:15:27 [INFO    ] src.backtesting.engine           Bar 55000/100000 (55%)
+2026-03-25 07:15:33 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3328.58000 (squeeze range=2.59632)
+2026-03-25 07:15:34 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3371.75000 (squeeze range=2.47498)
+2026-03-25 07:15:34 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3375.61000 (squeeze range=3.36579)
+2026-03-25 07:15:35 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3418.53000 (squeeze range=3.94736)
+2026-03-25 07:15:35 [INFO    ] src.backtesting.engine           Bar 60000/100000 (60%)
+2026-03-25 07:15:36 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3480.61000 (squeeze range=7.06622)
+2026-03-25 07:15:41 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3642.82000 (squeeze range=3.96935)
+2026-03-25 07:15:42 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3684.96000 (squeeze range=3.47179)
+2026-03-25 07:15:43 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3672.23000 (squeeze range=5.79494)
+2026-03-25 07:15:44 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3750.06000 (squeeze range=5.46946)
+2026-03-25 07:15:45 [INFO    ] src.backtesting.engine           Bar 65000/100000 (65%)
+2026-03-25 07:15:46 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3749.57000 (squeeze range=4.30111)
+2026-03-25 07:15:48 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3869.31000 (squeeze range=10.35631)
+2026-03-25 07:15:48 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3883.18000 (squeeze range=6.65505)
+2026-03-25 07:15:51 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4031.66000 (squeeze range=7.93466)
+2026-03-25 07:15:53 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4127.44000 (squeeze range=18.32169)
+2026-03-25 07:15:54 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4223.19000 (squeeze range=9.81235)
+2026-03-25 07:15:55 [INFO    ] src.backtesting.engine           Bar 70000/100000 (70%)
+2026-03-25 07:15:55 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4339.65000 (squeeze range=11.13751)
+2026-03-25 07:15:58 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4122.77000 (squeeze range=13.13533)
+2026-03-25 07:15:58 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4074.88000 (squeeze range=8.45924)
+2026-03-25 07:16:06 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4108.98000 (squeeze range=7.82657)
+2026-03-25 07:16:07 [INFO    ] src.backtesting.engine           Bar 75000/100000 (75%)
+2026-03-25 07:16:08 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4089.00000 (squeeze range=18.57978)
+2026-03-25 07:16:18 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4208.84000 (squeeze range=10.65420)
+2026-03-25 07:16:19 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4198.94000 (squeeze range=6.27454)
+2026-03-25 07:16:20 [INFO    ] src.backtesting.engine           Bar 80000/100000 (80%)
+2026-03-25 07:16:28 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 4484.46000 (squeeze range=11.25717)
+2026-03-25 07:16:30 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4317.18000 (squeeze range=25.45811)
+2026-03-25 07:16:34 [INFO    ] src.backtesting.engine           Bar 85000/100000 (85%)
+2026-03-25 07:16:36 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4497.71000 (squeeze range=10.63297)
+2026-03-25 07:16:37 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4602.78000 (squeeze range=13.85706)
+2026-03-25 07:16:40 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 4594.19000 (squeeze range=16.52101)
+2026-03-25 07:16:43 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 4870.36000 (squeeze range=10.90346)
+2026-03-25 07:16:49 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 5066.06000 (squeeze range=60.31079)
+2026-03-25 07:16:49 [INFO    ] src.backtesting.engine           Bar 90000/100000 (90%)
+2026-03-25 07:17:00 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4927.75000 (squeeze range=9.69058)
+2026-03-25 07:17:07 [INFO    ] src.backtesting.engine           Bar 95000/100000 (95%)
+2026-03-25 07:17:26 [INFO    ] src.backtesting.engine         Backtest complete: 58 trades, 145.46% return, 298.82% max DD, 39.7% WR
+
+Backtest Results: m5_bb_squeeze on XAUUSD
+  Period: 2024-10-23 → 2026-03-24
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $73.64 │
+│ Total Return              │        +145.46% │
+│ Max Drawdown              │         298.82% │
+│ Total Trades              │              58 │
+│ Win Rate                  │           39.7% │
+│ Profit Factor             │            1.14 │
+│ Avg Trade P&L             │          $+0.75 │
+│ Sharpe Ratio              │            0.07 │
+│ Max Consecutive Losses    │               8 │
+│ Avg Trade Duration        │            4.8h │
+└───────────────────────────┴─────────────────┘
+2026-03-25 07:17:26 [INFO    ] backtest                       Results saved to data/backtest_results/XAUUSD_A5-bb_20260325_071726.json
+
+Backtest Results: m5_bb_squeeze on XAUUSD
+  Period: 2024-10-23 → 2026-03-24
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │          $30.00 │
+│ Final Equity              │          $73.64 │
+│ Total Return              │        +145.46% │
+│ Max Drawdown              │         298.82% │
+│ Total Trades              │              58 │
+│ Win Rate                  │           39.7% │
+│ Profit Factor             │            1.14 │
+│ Avg Trade P&L             │          $+0.75 │
+│ Sharpe Ratio              │            0.07 │
+│ Max Consecutive Losses    │               8 │
+│ Avg Trade Duration        │            4.8h │
+└───────────────────────────┴─────────────────┘
+

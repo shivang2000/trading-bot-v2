@@ -41,11 +41,12 @@ class BacktestEngine:
     def __init__(
         self,
         symbol: str,
-        strategy: str = "both",  # "ema_pullback" | "london_breakout" | "both"
+        strategy: str = "both",
         initial_capital: float = 10_000.0,
         volume: float = 0.01,
         config: AppConfig | None = None,
         point_size: float = 0.01,
+        use_strategy_sl_tp: bool = False,
     ) -> None:
         self._symbol = symbol
         self._strategy_name = strategy
@@ -54,6 +55,11 @@ class BacktestEngine:
         self._point_size = point_size
         self._risk_pct = config.account.risk_per_trade_pct if config else 2.0
         self._max_lot = config.account.max_lot_per_trade if config else 0.50
+
+        # Scalping mode: use strategy's own SL/TP, disable trailing stops
+        self._use_strategy_sl_tp = use_strategy_sl_tp or strategy in (
+            "m5_mean_reversion", "m5_bb_squeeze", "m1_ema_micro", "m5_scalp", "all_scalp"
+        )
 
         # Instrument specs for P&L calculation
         self._tick_value = 0.01  # default for Gold
@@ -134,8 +140,9 @@ class BacktestEngine:
                 # 1. Check SL/TP on open positions FIRST
                 account.check_sl_tp(self._symbol, bar_high, bar_low, bar_time)
 
-                # 2. Update trailing stops
-                self._update_trailing(account, m15_data, i, bar_close)
+                # 2. Update trailing stops (skip for scalping — use fixed SL/TP)
+                if not self._use_strategy_sl_tp:
+                    self._update_trailing(account, m15_data, i, bar_close)
 
                 # 3. Get regime from H1 data (no lookahead)
                 regime = self._get_regime(h1_data, bar_time, bar_close)

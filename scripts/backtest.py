@@ -58,6 +58,7 @@ def main() -> None:
     parser.add_argument("--trail-act", type=float, default=None, help="Trailing activation %% override")
     parser.add_argument("--trail-atr", type=float, default=None, help="Trailing ATR multiplier override")
     parser.add_argument("--label", default="", help="Label for this config (e.g. 'A-conservative')")
+    parser.add_argument("--use-strategy-sltp", action="store_true", help="Use strategy own SL/TP (for scalping)")
 
     args = parser.parse_args()
 
@@ -129,6 +130,7 @@ def main() -> None:
         volume=args.volume,
         point_size=args.point_size,
         config=config,
+        use_strategy_sl_tp=args.use_strategy_sltp,
     )
 
     result = engine.run(m15_data, h1_data)
