@@ -14,25 +14,15 @@ Strategy B4: H1 Trend + M1 Micro
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
 from datetime import datetime, timezone
 
 import numpy as np
 import pandas as pd
 import pandas_ta as ta
 
+from src.core.models import StrategySignal
+
 logger = logging.getLogger(__name__)
-
-
-@dataclass
-class StrategySignal:
-    symbol: str
-    action: str
-    entry_price: float
-    stop_loss: float
-    take_profit: float
-    confidence: float
-    reason: str
 
 
 def detect_sr_levels(h1_bars: pd.DataFrame, lookback: int = 50, tolerance_pct: float = 0.002) -> list[float]:

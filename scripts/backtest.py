@@ -47,6 +47,8 @@ def main() -> None:
     parser.add_argument("--volume", type=float, default=0.01, help="Lot size per trade")
     parser.add_argument("--csv-m15", help="Path to M15 CSV (skip MT5 download)")
     parser.add_argument("--csv-h1", help="Path to H1 CSV (or resample from M15)")
+    parser.add_argument("--csv-m5", help="Path to M5 CSV for scalping strategies")
+    parser.add_argument("--csv-m1", help="Path to M1 CSV for scalping strategies")
     parser.add_argument("--mt5-host", default="localhost", help="MT5 RPyC host")
     parser.add_argument("--mt5-port", type=int, default=8001, help="MT5 RPyC port")
     parser.add_argument("--point-size", type=float, default=0.01, help="Symbol point size")
@@ -98,6 +100,16 @@ def main() -> None:
 
     logger.info("Data loaded: %d M15 bars, %d H1 bars", len(m15_data), len(h1_data))
 
+    # Load optional M5/M1 data for scalping strategies
+    m5_data = None
+    m1_data = None
+    if args.csv_m5:
+        logger.info("Loading M5 data from CSV: %s", args.csv_m5)
+        m5_data = load_from_csv(args.csv_m5)
+    if args.csv_m1:
+        logger.info("Loading M1 data from CSV: %s", args.csv_m1)
+        m1_data = load_from_csv(args.csv_m1)
+
     # Load config from base.yaml and apply CLI overrides
     config = load_config()
     if args.risk_pct is not None:
@@ -132,6 +144,9 @@ def main() -> None:
         config=config,
         use_strategy_sl_tp=args.use_strategy_sltp,
     )
+
+    if m5_data is not None or m1_data is not None:
+        engine.set_scalping_data(m5_data=m5_data, m1_data=m1_data)
 
     result = engine.run(m15_data, h1_data)
 

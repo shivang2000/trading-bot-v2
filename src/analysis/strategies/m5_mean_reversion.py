@@ -1,37 +1,32 @@
 """M5 Mean Reversion RSI Extreme Strategy.
 
 Catches overextension snapbacks on the 5-minute chart. Gold oscillates
-around its mean on short timeframes — extreme RSI readings (< 10 or > 90)
-indicate the price has stretched too far and is likely to snap back.
+around its mean on short timeframes — extreme RSI readings indicate the
+price has stretched too far and is likely to snap back.
 
-Key difference from standard RSI: we use RSI(7) at EXTREME levels (10/90),
-not the standard 30/70 which produces too many false signals on M5.
+Uses EMA(20) slope filter to avoid trading mean reversion in strong trends.
+ATR-dynamic SL/TP adapts to current volatility regime via ADX.
 
-Entry: RSI(7) < 10 (BUY) or > 90 (SELL) + EMA(20) slope filter
-Exit: TP 20-30 pips, SL 15-20 pips, or time stop after 5 candles
+Entry: RSI(7) extreme + flat EMA(20) slope (no strong trend)
+Exit: ATR-dynamic SL/TP scaled by ADX regime
 """
 
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
 from datetime import datetime, timezone
 
 import pandas as pd
 import pandas_ta as ta
 
+from src.analysis.strategies.scalping_base import ScalpingStrategyBase
+from src.core.models import StrategySignal
+
 logger = logging.getLogger(__name__)
 
-
-@dataclass
-class StrategySignal:
-    symbol: str
-    action: str
-    entry_price: float
-    stop_loss: float
-    take_profit: float
-    confidence: float
-    reason: str
+# EMA(20) slope threshold: if abs(slope) exceeds this, trend is too strong
+# for mean reversion. Slope = (ema[-1] - ema[-5]) / ema[-5]
+_EMA_SLOPE_THRESHOLD = 0.002
 
 
 class M5MeanReversionStrategy:
@@ -40,11 +35,13 @@ class M5MeanReversionStrategy:
     def __init__(
         self,
         rsi_period: int = 7,
-        rsi_oversold: float = 20.0,
-        rsi_overbought: float = 80.0,
+        rsi_oversold: float = 15.0,
+        rsi_overbought: float = 85.0,
         tp_pips: float = 25.0,
         sl_pips: float = 18.0,
-        max_trades_per_day: int = 5,
+        max_trades_per_day: int = 30,
+        atr_period: int = 10,
+        adx_period: int = 14,
     ) -> None:
         self._rsi_period = rsi_period
         self._rsi_os = rsi_oversold
@@ -52,6 +49,8 @@ class M5MeanReversionStrategy:
         self._tp_pips = tp_pips
         self._sl_pips = sl_pips
         self._max_trades = max_trades_per_day
+        self._atr_period = atr_period
+        self._adx_period = adx_period
         self._daily_trades: dict[str, tuple[str, int]] = {}
 
     async def scan(
@@ -88,21 +87,39 @@ class M5MeanReversionStrategy:
         if rsi is None or ema20 is None:
             return None
 
+        # Calculate ATR and ADX for dynamic SL/TP
+        atr = ta.atr(high, low, close, length=self._atr_period)
+        adx_df = ta.adx(high, low, close, length=self._adx_period)
+
+        if atr is None or adx_df is None:
+            return None
+
+        curr_atr = float(atr.iloc[-1])
+        curr_adx = float(adx_df.iloc[-1, 0])  # ADX column
+
+        if curr_atr <= 0:
+            return None
+
         curr_rsi = float(rsi.iloc[-1])
         prev_rsi = float(rsi.iloc[-2])
         curr_close = float(close.iloc[-1])
         curr_ema20 = float(ema20.iloc[-1])
 
-        # EMA slope (last 5 bars)
-        ema_slope_up = float(ema20.iloc[-1]) > float(ema20.iloc[-5]) if len(ema20) > 5 else False
+        # EMA(20) slope check over last 5 bars — skip mean reversion in strong trends
+        if len(ema20) > 5:
+            ema_5_ago = float(ema20.iloc[-5])
+            if ema_5_ago > 0:
+                ema_slope = (curr_ema20 - ema_5_ago) / ema_5_ago
+                if abs(ema_slope) > _EMA_SLOPE_THRESHOLD:
+                    return None
 
-        tp_dist = self._tp_pips * point_size
-        sl_dist = self._sl_pips * point_size
+        # ATR-dynamic SL/TP based on ADX regime
+        sl_mult, tp_mult = ScalpingStrategyBase._atr_dynamic_sl_tp(curr_atr, curr_adx)
 
         # BUY: RSI drops below oversold extreme (mean reversion — buy the dip)
         if curr_rsi < self._rsi_os:
-            sl = curr_close - sl_dist
-            tp = curr_close + tp_dist
+            sl = curr_close - sl_mult * curr_atr
+            tp = curr_close + tp_mult * curr_atr
             self._daily_trades[symbol] = (today_str, entry[1] + 1 if entry[0] == today_str else 1)
             logger.info(
                 "M5 Mean Rev [%s]: BUY @ %.5f (RSI=%.1f, extreme oversold)",
@@ -112,12 +129,13 @@ class M5MeanReversionStrategy:
                 symbol=symbol, action="BUY", entry_price=curr_close,
                 stop_loss=sl, take_profit=tp, confidence=0.65,
                 reason=f"M5 mean reversion BUY (RSI {curr_rsi:.0f} < {self._rsi_os})",
+                strategy_name="m5_mean_reversion",
             )
 
         # SELL: RSI rises above overbought extreme (mean reversion — sell the spike)
         if curr_rsi > self._rsi_ob:
-            sl = curr_close + sl_dist
-            tp = curr_close - tp_dist
+            sl = curr_close + sl_mult * curr_atr
+            tp = curr_close - tp_mult * curr_atr
             self._daily_trades[symbol] = (today_str, entry[1] + 1 if entry[0] == today_str else 1)
             logger.info(
                 "M5 Mean Rev [%s]: SELL @ %.5f (RSI=%.1f, extreme overbought)",
@@ -127,6 +145,7 @@ class M5MeanReversionStrategy:
                 symbol=symbol, action="SELL", entry_price=curr_close,
                 stop_loss=sl, take_profit=tp, confidence=0.65,
                 reason=f"M5 mean reversion SELL (RSI {curr_rsi:.0f} > {self._rsi_ob})",
+                strategy_name="m5_mean_reversion",
             )
 
         return None

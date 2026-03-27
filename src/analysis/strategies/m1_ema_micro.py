@@ -3,34 +3,25 @@
 Ultra-short-term pullback scalping on the 1-minute chart. Uses EMA(5)/EMA(10)
 crossover to identify micro-trends, then enters on pullbacks to the slow EMA.
 
-This is the fastest strategy — targets 4-7 pips per trade with tight SL.
+ATR-dynamic SL/TP adapts to current volatility regime via ADX.
 Only trades during peak liquidity (London/NY sessions) when spreads are tight.
 
 Entry: EMA(5) cross + pullback to EMA(10) + bounce candle confirmation
-Exit: TP 4-7 pips, SL below pullback low, or time stop after 3 candles (3 min)
+Exit: ATR-dynamic SL/TP scaled by ADX regime
 """
 
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
 from datetime import datetime, timezone
 
 import pandas as pd
 import pandas_ta as ta
 
+from src.analysis.strategies.scalping_base import ScalpingStrategyBase
+from src.core.models import StrategySignal
+
 logger = logging.getLogger(__name__)
-
-
-@dataclass
-class StrategySignal:
-    symbol: str
-    action: str
-    entry_price: float
-    stop_loss: float
-    take_profit: float
-    confidence: float
-    reason: str
 
 
 class M1EmaMicroStrategy:
@@ -42,13 +33,17 @@ class M1EmaMicroStrategy:
         slow_ema: int = 10,
         tp_pips: float = 6.0,
         sl_buffer_pips: float = 3.0,
-        max_trades_per_day: int = 5,
+        max_trades_per_day: int = 40,
+        atr_period: int = 7,
+        adx_period: int = 14,
     ) -> None:
         self._fast_ema = fast_ema
         self._slow_ema = slow_ema
         self._tp_pips = tp_pips
         self._sl_buffer = sl_buffer_pips
         self._max_trades = max_trades_per_day
+        self._atr_period = atr_period
+        self._adx_period = adx_period
         self._daily_trades: dict[str, tuple[str, int]] = {}
         # Track state: waiting for pullback after crossover
         self._bullish_cross: dict[str, bool] = {}
@@ -88,6 +83,19 @@ class M1EmaMicroStrategy:
         if fast is None or slow is None:
             return None
 
+        # Calculate ATR and ADX for dynamic SL/TP
+        atr = ta.atr(high, low, close, length=self._atr_period)
+        adx_df = ta.adx(high, low, close, length=self._adx_period)
+
+        if atr is None or adx_df is None:
+            return None
+
+        curr_atr = float(atr.iloc[-1])
+        curr_adx = float(adx_df.iloc[-1, 0])  # ADX column
+
+        if curr_atr <= 0:
+            return None
+
         curr_fast = float(fast.iloc[-1])
         prev_fast = float(fast.iloc[-2])
         curr_slow = float(slow.iloc[-1])
@@ -108,8 +116,8 @@ class M1EmaMicroStrategy:
             self._bearish_cross[symbol] = True
             self._bullish_cross[symbol] = False
 
-        tp_dist = self._tp_pips * point_size
-        sl_buf = self._sl_buffer * point_size
+        # ATR-dynamic SL/TP based on ADX regime
+        sl_mult, tp_mult = ScalpingStrategyBase._atr_dynamic_sl_tp(curr_atr, curr_adx)
 
         # BUY: After bullish cross, price pulled back to slow EMA, now bouncing
         if self._bullish_cross.get(symbol, False):
@@ -119,9 +127,8 @@ class M1EmaMicroStrategy:
             bouncing = curr_close > curr_slow and curr_close > prev_close
 
             if touched_slow and bouncing:
-                # Fixed pip-based SL (not pullback low — that's too far on Gold)
-                sl = curr_close - sl_buf - tp_dist  # SL = TP + buffer below entry
-                tp = curr_close + tp_dist
+                sl = curr_close - sl_mult * curr_atr
+                tp = curr_close + tp_mult * curr_atr
 
                 self._bullish_cross[symbol] = False
                 self._daily_trades[symbol] = (today_str, entry[1] + 1 if entry[0] == today_str else 1)
@@ -134,6 +141,7 @@ class M1EmaMicroStrategy:
                     symbol=symbol, action="BUY", entry_price=curr_close,
                     stop_loss=sl, take_profit=tp, confidence=0.55,
                     reason="M1 EMA micro pullback BUY",
+                    strategy_name="m1_ema_micro",
                 )
 
         # SELL: After bearish cross, price pulled back to slow EMA, now dropping
@@ -142,9 +150,8 @@ class M1EmaMicroStrategy:
             dropping = curr_close < curr_slow and curr_close < prev_close
 
             if touched_slow and dropping:
-                # Fixed pip-based SL
-                sl = curr_close + sl_buf + tp_dist  # SL = TP + buffer above entry
-                tp = curr_close - tp_dist
+                sl = curr_close + sl_mult * curr_atr
+                tp = curr_close - tp_mult * curr_atr
 
                 self._bearish_cross[symbol] = False
                 self._daily_trades[symbol] = (today_str, entry[1] + 1 if entry[0] == today_str else 1)
@@ -157,6 +164,7 @@ class M1EmaMicroStrategy:
                     symbol=symbol, action="SELL", entry_price=curr_close,
                     stop_loss=sl, take_profit=tp, confidence=0.55,
                     reason="M1 EMA micro pullback SELL",
+                    strategy_name="m1_ema_micro",
                 )
 
         return None

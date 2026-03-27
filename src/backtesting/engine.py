@@ -96,10 +96,23 @@ class BacktestEngine:
         # Regime detector
         self._regime_detector = RegimeDetector()
 
+        # Optional M5/M1 data for scalping strategies (set via set_scalping_data)
+        self._m5_data: pd.DataFrame | None = None
+        self._m1_data: pd.DataFrame | None = None
+
         # Trailing stop (use config values if available)
         ts_mult = config.trailing_stop.atr_multiplier if config else 1.5
         ts_act = config.trailing_stop.activation_pct if config else 0.5
         self._trailing_mgr = TrailingStopManager(atr_multiplier=ts_mult, activation_pct=ts_act)
+
+    def set_scalping_data(
+        self,
+        m5_data: pd.DataFrame | None = None,
+        m1_data: pd.DataFrame | None = None,
+    ) -> None:
+        """Set actual M5/M1 data for scalping strategies (instead of using M15)."""
+        self._m5_data = m5_data
+        self._m1_data = m1_data
 
     def run(
         self,
@@ -309,12 +322,24 @@ class BacktestEngine:
             if sig:
                 return sig
 
+        # Build M5 window: use actual M5 data if available, otherwise fall back to M15
+        if self._m5_data is not None:
+            m5_window = self._m5_data[self._m5_data["time"] <= bar_time].tail(100).copy()
+        else:
+            m5_window = m15_window
+
+        # Build M1 window: use actual M1 data if available, otherwise fall back to M15
+        if self._m1_data is not None:
+            m1_window = self._m1_data[self._m1_data["time"] <= bar_time].tail(100).copy()
+        else:
+            m1_window = m15_window
+
         # M5 Mean Reversion RSI Extreme
         if self._m5_mean_rev:
             sig = loop.run_until_complete(
                 self._m5_mean_rev.scan(
                     symbol=self._symbol,
-                    m5_bars=m15_window,  # uses same data window, strategy checks timeframe
+                    m5_bars=m5_window,
                     point_size=self._point_size,
                     as_of=bar_time,
                 )
@@ -327,7 +352,7 @@ class BacktestEngine:
             sig = loop.run_until_complete(
                 self._m5_bb_squeeze.scan(
                     symbol=self._symbol,
-                    m5_bars=m15_window,
+                    m5_bars=m5_window,
                     point_size=self._point_size,
                     as_of=bar_time,
                 )
@@ -340,7 +365,7 @@ class BacktestEngine:
             sig = loop.run_until_complete(
                 self._m1_ema_micro.scan(
                     symbol=self._symbol,
-                    m1_bars=m15_window,
+                    m1_bars=m1_window,
                     point_size=self._point_size,
                     as_of=bar_time,
                 )
