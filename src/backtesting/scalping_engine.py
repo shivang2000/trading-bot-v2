@@ -132,20 +132,20 @@ class ScalpingBacktestEngine:
                 h1_win = self._safe_window(h1_computed, bar_time, 60)
 
                 for strategy in self._strategies:
-                    strategy_name = strategy.__class__.__name__
-                    if not self._can_open_position(account, strategy_name):
-                        continue
-
                     try:
                         signal = self._invoke_strategy(
                             loop, strategy, primary_window,
                             m5_win, m15_win, h1_win, bar_time, regime,
                         )
                     except Exception as exc:
-                        logger.warning("Strategy %s error: %s", strategy_name, exc)
+                        logger.warning("Strategy %s error: %s", strategy.__class__.__name__, exc)
                         continue
 
                     if signal is not None:
+                        # Check position limit using signal.strategy_name (matches comment prefix)
+                        sname = signal.strategy_name or strategy.__class__.__name__
+                        if not self._can_open_position(account, sname):
+                            continue
                         side = OrderSide.BUY if signal.action == "BUY" else OrderSide.SELL
                         entry = signal.entry_price
                         if self._cost_model is not None:

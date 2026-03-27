@@ -125,14 +125,14 @@ class UnifiedBacktestEngine:
 
                 # 4. Run M5 scalping strategies (every bar)
                 for strat in self._m5_strategies:
-                    sname = strat.__class__.__name__
-                    if not self._can_open(account, sname):
-                        continue
                     sig = self._invoke(
                         loop, strat, m5_bars=m5_window, m15_bars=m15_window,
                         h1_bars=h1_window, bar_time=bar_time, regime=regime,
                     )
                     if sig is not None:
+                        # Check position limit using signal.strategy_name (matches comment prefix)
+                        if not self._can_open(account, sig.strategy_name):
+                            continue
                         self._open_trade(account, sig, bar, bar_time)
                         signals_generated += 1
 
@@ -143,14 +143,14 @@ class UnifiedBacktestEngine:
 
                 if is_new_m15 and len(m15_window) >= 30:
                     for strat in self._m15_strategies:
-                        sname = strat.__class__.__name__
-                        if not self._can_open(account, sname):
-                            continue
                         sig = self._invoke(
                             loop, strat, m15_bars=m15_window, h1_bars=h1_window,
                             bar_time=bar_time, regime=regime, m5_bars=m5_window,
                         )
                         if sig is not None:
+                            sname = sig.strategy_name or strat.__class__.__name__
+                            if not self._can_open(account, sname):
+                                continue
                             self._open_trade(account, sig, bar, bar_time)
                             signals_generated += 1
 
