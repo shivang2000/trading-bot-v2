@@ -166,14 +166,27 @@ class RiskManager:
                 "max_open_positions", open_count, risk.max_open_positions
             )
 
-        # 2. Max positions per symbol
+        # 2. Max positions per symbol (strategy-aware for scalping)
         symbol_positions = [p for p in positions if p.symbol == signal.symbol]
-        if len(symbol_positions) >= risk.max_positions_per_symbol:
-            raise RiskLimitExceeded(
-                "max_positions_per_symbol",
-                len(symbol_positions),
-                risk.max_positions_per_symbol,
-            )
+
+        # Get incoming strategy name from signal
+        incoming_strategy = ""
+        if hasattr(signal, 'metadata') and signal.metadata:
+            incoming_strategy = signal.metadata.get("strategy", "")
+
+        # Count positions from THIS strategy only
+        if incoming_strategy:
+            strategy_positions = [p for p in symbol_positions if p.comment.startswith(incoming_strategy + ":")]
+            if len(strategy_positions) >= 1:  # max 1 per strategy
+                raise RiskLimitExceeded("strategy_position", len(strategy_positions), 1)
+        else:
+            # Fallback: original behavior for non-scalping signals
+            if len(symbol_positions) >= risk.max_positions_per_symbol:
+                raise RiskLimitExceeded(
+                    "max_positions_per_symbol",
+                    len(symbol_positions),
+                    risk.max_positions_per_symbol,
+                )
 
         # 3. Daily trade limit
         if self._daily_trade_count >= risk.max_daily_trades:

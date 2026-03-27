@@ -24,12 +24,31 @@ class InstrumentConfig(BaseModel):
     lot_step: float = 0.01
 
 
+class BalanceAdjustment(BaseModel):
+    date: str
+    type: str = "deposit"  # "deposit" or "withdrawal"
+    amount: float = 0.0
+    note: str = ""
+
+
 class AccountConfig(BaseModel):
-    initial_balance: float = 30.0
+    initial_balance: float = 100.0
     mode: str = "demo"
     risk_per_trade_pct: float = 1.0
-    max_lot_per_trade: float = 0.10
+    max_lot_per_trade: float = 0.50
     min_lot_size: float = 0.01
+    balance_adjustments: list[BalanceAdjustment] = Field(default_factory=list)
+
+
+def get_adjusted_initial_capital(config: AccountConfig) -> float:
+    """Calculate effective initial capital from deposits minus withdrawals."""
+    capital = 0.0
+    for adj in config.balance_adjustments:
+        if adj.type == "deposit":
+            capital += adj.amount
+        elif adj.type == "withdrawal":
+            capital -= adj.amount
+    return max(capital, 0.01)
 
 
 class RiskConfig(BaseModel):

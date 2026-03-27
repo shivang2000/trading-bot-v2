@@ -6,9 +6,14 @@ mt5:
 account:
   initial_balance: 100
   mode: "demo"
-  risk_per_trade_pct: 2.0       # was 1.0 — 2x more risk per trade
-  max_lot_per_trade: 0.50       # was 0.10 — allow bigger lots as account grows
+  risk_per_trade_pct: 1.0
+  max_lot_per_trade: 0.50
   min_lot_size: 0.01
+  balance_adjustments:
+    - date: "2026-03-27"
+      type: "deposit"
+      amount: 100.0
+      note: "Initial deposit"
 
 instruments:
   - symbol: XAUUSD
@@ -116,17 +121,19 @@ strategies:
     profit_growth_factor: 0.50
     scan_interval_seconds: 15
     strategies_enabled:
-      - m5_dual_supertrend
-      - m5_keltner_squeeze
-      - m5_vwap_mean_reversion
-      - m5_stochrsi_adx
-      - m5_mtf_momentum
-      - m5_bb_squeeze
-      - m5_mean_reversion
-      - m1_heikin_ashi_momentum
-      - m1_rsi_scalp
-      - m1_supertrend_scalp
-      - m1_ema_micro
+      # WINNERS (deploy these)
+      - m5_mtf_momentum         # PF 1.36, DD 10%
+      - m5_keltner_squeeze      # PF 1.20, DD 19%
+      - m5_dual_supertrend      # PF 1.15, high return
+      # DISABLED (not profitable with costs)
+      # - m5_vwap_mean_reversion
+      # - m5_stochrsi_adx
+      # - m5_bb_squeeze
+      # - m5_mean_reversion
+      # - m1_heikin_ashi_momentum
+      # - m1_rsi_scalp
+      # - m1_supertrend_scalp
+      # - m1_ema_micro
 
 position_monitor:
   poll_interval_seconds: 30

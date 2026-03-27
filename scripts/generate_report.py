@@ -5,6 +5,7 @@ Usage:
     python scripts/generate_report.py --results "data/backtest_results/XAUUSD_*.json" --type comparison --open
     python scripts/generate_report.py --results data/backtest_results/specific.json --type single --open
     python scripts/generate_report.py --results "data/backtest_results/*.json" --output reports/
+    python scripts/generate_report.py --type master --open
 """
 
 from __future__ import annotations
@@ -147,14 +148,15 @@ def main() -> None:
     )
     parser.add_argument(
         "--results",
-        required=True,
-        help="Glob pattern for JSON result files (e.g. 'data/backtest_results/XAUUSD_*.json')",
+        default=None,
+        help="Glob pattern for JSON result files (e.g. 'data/backtest_results/XAUUSD_*.json'). "
+             "Not required when --type master (auto-globs data/backtest_results/).",
     )
     parser.add_argument(
         "--type",
-        choices=["single", "comparison"],
+        choices=["single", "comparison", "master"],
         default="comparison",
-        help="Report type: single (one per file) or comparison (all in one). Default: comparison",
+        help="Report type: single (one per file), comparison (all in one), or master (all-runs dashboard). Default: comparison",
     )
     parser.add_argument(
         "--output",
@@ -169,11 +171,22 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    # Find result files
-    files = sorted(glob.glob(args.results))
-    if not files:
-        logger.error("No files matched pattern: %s", args.results)
-        sys.exit(1)
+    # --results is required for single/comparison modes
+    if args.type != "master" and not args.results:
+        parser.error("--results is required for single and comparison report types")
+
+    # For master reports, glob ALL JSON files in data/backtest_results/
+    if args.type == "master":
+        master_dir = Path("data/backtest_results")
+        files = sorted(str(p) for p in master_dir.glob("*.json")) if master_dir.is_dir() else []
+        if not files:
+            logger.error("No JSON files found in %s", master_dir)
+            sys.exit(1)
+    else:
+        files = sorted(glob.glob(args.results))
+        if not files:
+            logger.error("No files matched pattern: %s", args.results)
+            sys.exit(1)
 
     logger.info("Found %d result file(s): %s", len(files), ", ".join(files))
 
@@ -231,6 +244,11 @@ def main() -> None:
             path = generator.generate_single_report(r, str(out_path))
             generated_paths.append(path)
             logger.info("Generated: %s", path)
+    elif args.type == "master":
+        out_path = output_dir / f"master_dashboard_{timestamp}.html"
+        path = generator.generate_master_report(results, str(out_path))
+        generated_paths.append(path)
+        logger.info("Generated: %s", path)
     else:
         out_path = output_dir / f"comparison_{timestamp}.html"
         path = generator.generate_comparison_report(results, str(out_path))

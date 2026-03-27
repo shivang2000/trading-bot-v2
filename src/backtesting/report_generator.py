@@ -384,3 +384,174 @@ class BacktestReportGenerator:
             f'<div style="margin-top:4px;font-size:.85rem">{reasons[i] if i < len(reasons) else ""}</div></div>'
             for i, r in enumerate(top))
         return f'<div class="card"><h2>Top Recommendations</h2>{items}</div>'
+
+    def generate_master_report(self, results: list[BacktestResult], output_path: str) -> str:
+        """Generate a master dashboard HTML report from ALL backtest runs.
+
+        Includes an all-runs table, a strategy leaderboard grouped by best PF,
+        and a deployment recommendation box.  Returns the absolute path to
+        the generated file.
+        """
+        if not results:
+            raise ValueError("At least one BacktestResult required")
+        out = Path(output_path)
+        out.parent.mkdir(parents=True, exist_ok=True)
+
+        b: list[str] = []
+
+        # --- Header -----------------------------------------------------------
+        syms = sorted({r.symbol for r in results})
+        strats = sorted({r.strategy_name for r in results})
+        b.append(
+            f'<div class="card hc"><div><h1>Master Backtest Dashboard</h1>'
+            f'<div class="sub">{len(results)} runs &middot; '
+            f'{len(strats)} strategies &middot; {", ".join(syms)}</div></div></div>'
+        )
+
+        # --- All Runs Table ----------------------------------------------------
+        sorted_runs = sorted(results, key=lambda r: r.profit_factor, reverse=True)
+        run_rows = "".join(
+            f'<tr>'
+            f'<td>{r.start_date:%Y-%m-%d}</td>'
+            f'<td style="font-weight:600">{_esc(r.strategy_name)}</td>'
+            f'<td>{_esc(r.symbol)}</td>'
+            f'<td>{r.total_trades}</td>'
+            f'<td>{_pf(r.profit_factor)}</td>'
+            f'<td class="{"p" if r.total_return_pct>=0 else "n"}">{r.total_return_pct:+.2f}%</td>'
+            f'<td>{r.max_drawdown_pct:.2f}%</td>'
+            f'<td>{r.win_rate:.1f}%</td>'
+            f'<td>{r.sharpe_ratio:.2f}</td>'
+            f'<td>${_fmt(r.initial_capital)}</td>'
+            f'</tr>'
+            for r in sorted_runs
+        )
+        b.append(
+            f'<div class="card"><h2>All Runs</h2><div class="ts"><table>'
+            f'<thead><tr>'
+            f'<th>Date</th><th>Strategy</th><th>Symbol</th><th>Trades</th>'
+            f'<th>PF</th><th>Return %</th><th>Max DD %</th>'
+            f'<th>Win Rate</th><th>Sharpe</th><th>Capital</th>'
+            f'</tr></thead><tbody>{run_rows}</tbody></table></div></div>'
+        )
+
+        # --- Strategy Leaderboard (best PF per strategy) -----------------------
+        best_by_strat: dict[str, BacktestResult] = {}
+        for r in results:
+            prev = best_by_strat.get(r.strategy_name)
+            if prev is None or r.profit_factor > prev.profit_factor:
+                best_by_strat[r.strategy_name] = r
+        leaderboard = sorted(best_by_strat.values(),
+                             key=lambda r: r.profit_factor, reverse=True)
+
+        lb_rows = ""
+        for r in leaderboard:
+            pf = r.profit_factor
+            if math.isinf(pf) or pf > 999:
+                pf_val = 999.99
+            else:
+                pf_val = pf
+            if pf_val > 1.1:
+                bg = "rgba(0,255,136,0.12)"
+            elif pf_val >= 0.95:
+                bg = "rgba(255,217,61,0.12)"
+            else:
+                bg = "rgba(255,68,68,0.12)"
+            lb_rows += (
+                f'<tr style="background:{bg}">'
+                f'<td style="font-weight:600">{_esc(r.strategy_name)}</td>'
+                f'<td>{_esc(r.symbol)}</td>'
+                f'<td>{_pf(r.profit_factor)}</td>'
+                f'<td class="{"p" if r.total_return_pct>=0 else "n"}">'
+                f'{r.total_return_pct:+.2f}%</td>'
+                f'<td>{r.max_drawdown_pct:.2f}%</td>'
+                f'<td>{r.win_rate:.1f}%</td>'
+                f'<td>{r.sharpe_ratio:.2f}</td>'
+                f'<td>{r.total_trades}</td>'
+                f'</tr>'
+            )
+        b.append(
+            f'<div class="card"><h2>Strategy Leaderboard (Best PF per Strategy)</h2>'
+            f'<div class="ts"><table>'
+            f'<thead><tr>'
+            f'<th>Strategy</th><th>Symbol</th><th>PF</th><th>Return %</th>'
+            f'<th>Max DD %</th><th>Win Rate</th><th>Sharpe</th><th>Trades</th>'
+            f'</tr></thead><tbody>{lb_rows}</tbody></table></div></div>'
+        )
+
+        # --- Deployment Recommendation Box -------------------------------------
+        deploy = [r for r in leaderboard
+                  if not math.isinf(r.profit_factor) and r.profit_factor > 1.1]
+        not_rec = [r for r in leaderboard
+                   if not math.isinf(r.profit_factor) and r.profit_factor < 1.0]
+
+        deploy_items = ""
+        for r in deploy:
+            dd_warn = ' <span style="color:#ffd93d">&#9888; High DD</span>' \
+                if r.max_drawdown_pct > 50 else ""
+            deploy_items += (
+                f'<li class="deploy" style="padding:6px 0">'
+                f'<strong>{_esc(r.strategy_name)}</strong> &mdash; '
+                f'PF {_pf(r.profit_factor)}, DD {r.max_drawdown_pct:.0f}%, '
+                f'{r.total_return_pct:+.0f}% return{dd_warn}</li>'
+            )
+        not_rec_items = ""
+        for r in not_rec:
+            not_rec_items += (
+                f'<li class="skip" style="padding:6px 0">'
+                f'<strong>{_esc(r.strategy_name)}</strong> &mdash; '
+                f'PF {_pf(r.profit_factor)} '
+                f'<span style="color:#ff4444">&#10060;</span></li>'
+            )
+
+        rec_html = '<div class="card">'
+        rec_html += '<h2>Deployment Recommendation</h2>'
+        if deploy_items:
+            rec_html += (
+                '<div style="border-left:4px solid #00ff88;padding:12px 16px;'
+                'margin-bottom:16px;background:rgba(0,255,136,0.06);border-radius:0 8px 8px 0">'
+                '<h3 style="color:#00ff88;margin-bottom:8px">Recommended for Deployment</h3>'
+                f'<ul style="list-style:none;padding:0">{deploy_items}</ul></div>'
+            )
+        else:
+            rec_html += (
+                '<div style="border-left:4px solid #94a3b8;padding:12px 16px;'
+                'margin-bottom:16px;background:rgba(148,163,184,0.06);border-radius:0 8px 8px 0">'
+                '<h3 style="color:#94a3b8;margin-bottom:8px">Recommended for Deployment</h3>'
+                '<p style="color:#94a3b8">No strategies met the PF &gt; 1.1 threshold.</p></div>'
+            )
+        if not_rec_items:
+            rec_html += (
+                '<div style="border-left:4px solid #ff4444;padding:12px 16px;'
+                'background:rgba(255,68,68,0.06);border-radius:0 8px 8px 0">'
+                '<h3 style="color:#ff4444;margin-bottom:8px">Not Recommended</h3>'
+                f'<ul style="list-style:none;padding:0">{not_rec_items}</ul></div>'
+            )
+        rec_html += '</div>'
+        b.append(rec_html)
+
+        # --- PF Distribution Chart ---------------------------------------------
+        pf_labels = [_esc(r.strategy_name) for r in leaderboard]
+        pf_vals = [round(min(r.profit_factor, 5.0), 2) for r in leaderboard]
+        pf_colors = [
+            "#00ff88" if (not math.isinf(r.profit_factor) and r.profit_factor > 1.1)
+            else "#ffd93d" if (not math.isinf(r.profit_factor) and r.profit_factor >= 0.95)
+            else "#ff4444"
+            for r in leaderboard
+        ]
+        b.append(
+            '<div class="card"><h2>Profit Factor by Strategy</h2>'
+            '<div class="cc"><canvas id="pfChart"></canvas></div></div>'
+        )
+
+        b.append(f'<div class="stamp">Generated {datetime.now():%Y-%m-%d %H:%M:%S}</div>')
+
+        # --- Chart JS ----------------------------------------------------------
+        js = _chart_js("pfChart", "bar", pf_labels, [
+            {"label": "Profit Factor", "data": pf_vals,
+             "backgroundColor": pf_colors, "borderWidth": 0, "borderRadius": 4}
+        ])
+
+        html = self._html("Master Backtest Dashboard", "\n".join(b), js)
+        out.write_text(html, encoding="utf-8")
+        logger.info("Master report saved to %s", out)
+        return str(out.resolve())
