@@ -257,6 +257,22 @@ class PositionMonitor:
                     open_price=pos.open_price,
                 )
 
+                # Also check profit-based trailing (tighter)
+                profit_sl = self._trailing_manager.update_profit_trail(
+                    ticket=ticket,
+                    side=pos.side,
+                    current_price=pos.current_price or pos.open_price,
+                    open_price=pos.open_price,
+                )
+                if profit_sl is not None:
+                    # Use the tighter SL (profit trail or ATR trail)
+                    if new_sl is None:
+                        new_sl = profit_sl
+                    elif pos.side == OrderSide.BUY:
+                        new_sl = max(new_sl, profit_sl)  # higher SL = tighter for BUY
+                    else:
+                        new_sl = min(new_sl, profit_sl)  # lower SL = tighter for SELL
+
                 if new_sl is not None:
                     # Persist trailing stop to DB (survives restart)
                     try:

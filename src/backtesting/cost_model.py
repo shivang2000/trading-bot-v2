@@ -28,15 +28,30 @@ class CostModel:
 
     def __init__(
         self,
-        base_spread_pips: float = 2.0,
-        commission_per_lot: float = 0.0,
-        slippage_pips: float = 0.5,
+        base_spread_pips: float = 1.8,
+        commission_per_lot: float = 7.0,
+        slippage_pips: float = 0.3,
         session_manager: SessionManager | None = None,
+        spread_from_data: bool = False,
+        max_spread_points: int = 35,
     ) -> None:
         self._base_spread = base_spread_pips
         self._commission = commission_per_lot
         self._slippage = slippage_pips
         self._session_mgr = session_manager or SessionManager()
+        self._spread_from_data = spread_from_data
+        self._max_spread_points = max_spread_points
+
+    def get_spread_from_bar(self, bar_spread_points: float, point_size: float = 0.01) -> float:
+        """Get spread in pips from the bar's spread column (in points).
+
+        MT5 stores spread in points. For XAUUSD: 18 points = 1.8 pips.
+        """
+        return bar_spread_points * point_size / (10 * point_size)  # convert points to pips
+
+    def should_skip_trade(self, bar_spread_points: float) -> bool:
+        """Return True if spread is too wide (news spike / low liquidity)."""
+        return bar_spread_points > self._max_spread_points
 
     def get_spread(self, as_of: datetime) -> float:
         """Get estimated spread in pips for the current session.

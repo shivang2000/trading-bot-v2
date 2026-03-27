@@ -4,7 +4,8 @@ mt5:
   connection_timeout: 30
 
 account:
-  initial_balance: 30
+  initial_balance: 100
+  mode: "demo"
   risk_per_trade_pct: 2.0       # was 1.0 — 2x more risk per trade
   max_lot_per_trade: 0.50       # was 0.10 — allow bigger lots as account grows
   min_lot_size: 0.01
@@ -36,9 +37,9 @@ instruments:
     lot_step: 0.01
 
 risk:
-  max_open_positions: 2         # reduced for $30 account (was 5)
-  max_positions_per_symbol: 1   # no pyramiding on small account (was 2)
-  max_daily_trades: 10          # conservative (was 20)
+  max_open_positions: 10
+  max_positions_per_symbol: 5
+  max_daily_trades: 200
   max_daily_loss_pct: 8.0
   max_drawdown_pct: 20.0
 
@@ -104,6 +105,27 @@ strategies:
     liquidity_sweep_boost: 0.10
     opposing_ob_penalty: 0.15
     lookback_bars: 100
+  scalping:
+    enabled: true
+    max_trades_per_strategy: 1
+    max_total_open_positions: 10
+    max_daily_trades_per_strategy: 50
+    max_daily_trades_total: 200
+    daily_loss_limit_pct: 5.0
+    risk_per_trade_pct: 1.0
+    scan_interval_seconds: 15
+    strategies_enabled:
+      - m5_dual_supertrend
+      - m5_keltner_squeeze
+      - m5_vwap_mean_reversion
+      - m5_stochrsi_adx
+      - m5_mtf_momentum
+      - m5_bb_squeeze
+      - m5_mean_reversion
+      - m1_heikin_ashi_momentum
+      - m1_rsi_scalp
+      - m1_supertrend_scalp
+      - m1_ema_micro
 
 position_monitor:
   poll_interval_seconds: 30

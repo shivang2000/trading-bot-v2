@@ -43,6 +43,8 @@ class ScalpingBacktestEngine:
         daily_loss_limit_pct: float = 5.0,
         risk_pct: float = 1.0,
         max_lot: float = 0.50,
+        max_per_strategy: int = 1,
+        max_total_positions: int = 10,
     ) -> None:
         self._symbol = symbol
         self._primary_tf = primary_timeframe
@@ -53,6 +55,8 @@ class ScalpingBacktestEngine:
         self._tick_value = tick_value
         self._max_daily_trades = max_daily_trades
         self._daily_loss_limit = daily_loss_limit_pct
+        self._max_per_strategy = max_per_strategy
+        self._max_total_positions = max_total_positions
         self._regime_detector = RegimeDetector()
 
         if config is not None:
@@ -119,22 +123,38 @@ class ScalpingBacktestEngine:
                 # 3. Get regime from H1 (no lookahead)
                 regime = self._get_regime(h1_computed, bar_time, bar_close)
 
-                # 4. Run strategies if no open position
-                if not account.has_position(self._symbol):
-                    primary_window = primary_data.iloc[max(0, i - 199):i + 1].copy()
-                    m5_win = self._safe_window(m5_data, bar_time, 200)
-                    m15_win = self._safe_window(m15_data, bar_time, 100)
-                    h1_win = self._safe_window(h1_computed, bar_time, 60)
+                # 4. Run each strategy independently — each can hold its own position
+                primary_window = primary_data.iloc[max(0, i - 199):i + 1].copy()
+                m5_win = self._safe_window(m5_data, bar_time, 200)
+                m15_win = self._safe_window(m15_data, bar_time, 100)
+                h1_win = self._safe_window(h1_computed, bar_time, 60)
 
-                    signal = self._run_strategies(
-                        loop, primary_window, m5_win, m15_win, h1_win,
-                        bar_time, regime,
-                    )
+                for strategy in self._strategies:
+                    strategy_name = strategy.__class__.__name__
+                    if not self._can_open_position(account, strategy_name):
+                        continue
+
+                    try:
+                        signal = self._invoke_strategy(
+                            loop, strategy, primary_window,
+                            m5_win, m15_win, h1_win, bar_time, regime,
+                        )
+                    except Exception as exc:
+                        logger.warning("Strategy %s error: %s", strategy_name, exc)
+                        continue
+
                     if signal is not None:
                         side = OrderSide.BUY if signal.action == "BUY" else OrderSide.SELL
                         entry = signal.entry_price
                         if self._cost_model is not None:
-                            spread = self._cost_model.get_spread(bar_time)
+                            # Use actual bar spread if available and configured
+                            bar_spread = float(bar.get("spread", 0)) if hasattr(bar, 'get') else 0
+                            if bar_spread > 0 and self._cost_model._spread_from_data:
+                                if self._cost_model.should_skip_trade(bar_spread):
+                                    continue  # skip trade — spread too wide
+                                spread = bar_spread * self._point_size  # convert points to price
+                            else:
+                                spread = self._cost_model.get_spread(bar_time)
                             entry = self._cost_model.adjust_entry_for_spread(
                                 entry, signal.action, spread, self._point_size,
                             )
@@ -237,6 +257,16 @@ class ScalpingBacktestEngine:
         if df is None:
             return None
         return df[df["time"] <= bar_time].tail(n).copy()
+
+    def _can_open_position(self, account: BacktestAccountManager, strategy_name: str) -> bool:
+        """Check if this strategy can open a new position (per-strategy + total limits)."""
+        positions = account.get_positions(self._symbol)
+        if len(positions) >= self._max_total_positions:
+            return False
+        strategy_positions = [p for p in positions if p.comment.startswith(strategy_name + ":")]
+        if len(strategy_positions) >= self._max_per_strategy:
+            return False
+        return True
 
     # -- Daily risk limits --------------------------------------------------
 

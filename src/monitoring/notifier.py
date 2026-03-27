@@ -66,15 +66,27 @@ class TelegramNotifier:
         stop_loss: float | None = None,
         take_profit: float | None = None,
         source: str = "",
+        strategy_name: str = "",
+        confidence: float = 0.0,
+        session: str = "",
+        risk_amount: float = 0.0,
+        rr_ratio: float = 0.0,
+        equity: float = 0.0,
     ) -> bool:
         """Send notification when a trade is opened."""
         sl_str = f"\nSL: {stop_loss:.2f}" if stop_loss else ""
         tp_str = f" | TP: {take_profit:.2f}" if take_profit else ""
-        source_str = f"\nSource: {source}" if source else ""
+        strategy_str = f"\nStrategy: {strategy_name}" if strategy_name else ""
+        conf_str = f" | Confidence: {confidence:.0%}" if confidence else ""
+        session_str = f"\nSession: {session}" if session else ""
+        risk_str = f"\nRisk: ${risk_amount:.2f}" if risk_amount else ""
+        rr_str = f" | R:R 1:{rr_ratio:.1f}" if rr_ratio else ""
+        equity_str = f"\nEquity: ${equity:.2f}" if equity else ""
         msg = (
             f"<b>Trade Opened</b>\n"
             f"{symbol} {side} {volume} @ {price:.2f}"
-            f"{sl_str}{tp_str}{source_str}"
+            f"{sl_str}{tp_str}{strategy_str}{conf_str}"
+            f"{session_str}{risk_str}{rr_str}{equity_str}"
         )
         return await self.send(msg)
 
@@ -87,15 +99,28 @@ class TelegramNotifier:
         pnl: float,
         duration_hours: float = 0.0,
         source: str = "",
+        strategy_name: str = "",
+        daily_pnl: float = 0.0,
+        daily_wins: int = 0,
+        daily_losses: int = 0,
+        equity: float = 0.0,
+        streak: int = 0,
     ) -> bool:
         """Send notification when a trade is closed."""
         emoji = "+" if pnl >= 0 else "-"
-        source_str = f"\nSource: {source}" if source else ""
+        strategy_str = f"\nStrategy: {strategy_name}" if strategy_name else ""
+        streak_str = ""
+        if streak > 0:
+            streak_str = f"\n&#128293; Win streak: {streak}"
+        elif streak < 0:
+            streak_str = f"\n&#128200; Loss streak: {abs(streak)}"
+        daily_str = f"\nDaily: {daily_wins}W/{daily_losses}L | P&amp;L: ${daily_pnl:+.2f}" if daily_wins + daily_losses > 0 else ""
+        equity_str = f"\nEquity: ${equity:.2f}" if equity else ""
         msg = (
             f"<b>Trade Closed [{emoji}]</b>\n"
             f"{symbol} {side} {volume} @ {close_price:.2f}\n"
-            f"P&L: ${pnl:+.2f}\n"
-            f"Duration: {duration_hours:.1f}h{source_str}"
+            f"P&amp;L: ${pnl:+.2f} | Duration: {duration_hours:.1f}h"
+            f"{strategy_str}{streak_str}{daily_str}{equity_str}"
         )
         return await self.send(msg)
 
@@ -138,3 +163,53 @@ class TelegramNotifier:
         """Send emergency stop notification."""
         msg = f"<b>EMERGENCY STOP</b>\n{reason}"
         return await self.send(msg)
+
+    async def send_position_update(self, positions: list[dict]) -> bool:
+        """Send periodic update of all open positions with unrealized P&L."""
+        if not positions:
+            return await self.send("<b>No open positions</b>")
+
+        lines = ["<b>Open Positions Update</b>"]
+        total_pnl = 0.0
+        for p in positions:
+            emoji = "&#9989;" if p.get("pnl", 0) >= 0 else "&#10060;"
+            lines.append(
+                f"{emoji} #{p.get('ticket', '?')} {p.get('symbol', '')} {p.get('side', '')} "
+                f"{p.get('volume', 0):.2f} lots | Entry: {p.get('entry', 0):.2f} | "
+                f"Now: {p.get('price', 0):.2f} | P&amp;L: ${p.get('pnl', 0):+.2f} | "
+                f"Strategy: {p.get('strategy', 'unknown')}"
+            )
+            total_pnl += p.get("pnl", 0)
+        lines.append(f"\n<b>Total unrealized: ${total_pnl:+.2f}</b>")
+        return await self.send("\n".join(lines))
+
+    async def send_profit_milestone(
+        self, ticket: int, symbol: str, side: str, pnl: float, milestone: float,
+    ) -> bool:
+        """Alert when unrealized profit hits a milestone."""
+        msg = (
+            f"<b>Profit Milestone</b>\n"
+            f"#{ticket} {symbol} {side} now +${pnl:.2f}! (hit ${milestone:.0f} milestone)"
+        )
+        return await self.send(msg)
+
+    async def send_loss_warning(
+        self, ticket: int, symbol: str, side: str, pnl: float,
+    ) -> bool:
+        """Warn when unrealized loss is significant."""
+        msg = (
+            f"<b>Loss Warning</b>\n"
+            f"#{ticket} {symbol} {side} now ${pnl:.2f}!"
+        )
+        return await self.send(msg)
+
+    async def send_strategy_summary(self, strategies: list[dict]) -> bool:
+        """Send per-strategy performance summary."""
+        lines = ["<b>Strategy Performance</b>"]
+        for s in strategies:
+            emoji = "&#9989;" if s.get("pnl", 0) >= 0 else "&#10060;"
+            lines.append(
+                f"{emoji} {s.get('name', '?')}: {s.get('trades', 0)} trades | "
+                f"{s.get('wins', 0)}W/{s.get('losses', 0)}L | P&amp;L: ${s.get('pnl', 0):+.2f}"
+            )
+        return await self.send("\n".join(lines))

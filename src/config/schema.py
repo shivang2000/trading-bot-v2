@@ -26,6 +26,7 @@ class InstrumentConfig(BaseModel):
 
 class AccountConfig(BaseModel):
     initial_balance: float = 30.0
+    mode: str = "demo"
     risk_per_trade_pct: float = 1.0
     max_lot_per_trade: float = 0.10
     min_lot_size: float = 0.01
@@ -145,11 +146,28 @@ class SmcConfluenceConfig(BaseModel):
     lookback_bars: int = 100
 
 
+class ScalpingConfig(BaseModel):
+    enabled: bool = True
+    max_trades_per_strategy: int = 1
+    max_total_open_positions: int = 10
+    max_daily_trades_per_strategy: int = 50
+    max_daily_trades_total: int = 200
+    daily_loss_limit_pct: float = 5.0
+    risk_per_trade_pct: float = 1.0
+    scan_interval_seconds: int = 15
+    strategies_enabled: list[str] = Field(default_factory=lambda: [
+        "m5_dual_supertrend", "m5_keltner_squeeze", "m5_vwap_mean_reversion",
+        "m5_stochrsi_adx", "m5_mtf_momentum", "m5_bb_squeeze", "m5_mean_reversion",
+        "m1_heikin_ashi_momentum", "m1_rsi_scalp", "m1_supertrend_scalp", "m1_ema_micro",
+    ])
+
+
 class StrategiesConfig(BaseModel):
     ema_pullback: EmaPullbackConfig = Field(default_factory=EmaPullbackConfig)
     london_breakout: LondonBreakoutConfig = Field(default_factory=LondonBreakoutConfig)
     ny_momentum: NyMomentumConfig = Field(default_factory=NyMomentumConfig)
     smc_confluence: SmcConfluenceConfig = Field(default_factory=SmcConfluenceConfig)
+    scalping: ScalpingConfig = Field(default_factory=ScalpingConfig)
 
 
 class InstrumentOverride(BaseModel):
