@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 ACTIVE_HOURS = list(range(8, 22))
 
 # Minimum bar counts for each timeframe
-_MIN_H1_BARS = 210
+_MIN_H1_BARS = 20
 _MIN_M15_BARS = 20
 _MIN_M5_BARS = 30
 
@@ -41,7 +41,7 @@ class M5MtfMomentumStrategy(ScalpingStrategyBase):
         h1_st_period: int = 10,
         h1_st_mult: float = 3.0,
         m15_adx_period: int = 14,
-        m15_adx_threshold: float = 20.0,
+        m15_adx_threshold: float = 15.0,
         m15_rsi_period: int = 14,
         m5_fast_ema: int = 9,
         m5_slow_ema: int = 21,
@@ -175,9 +175,9 @@ class M5MtfMomentumStrategy(ScalpingStrategyBase):
 
         curr_rsi = float(rsi.iloc[-1])
 
-        if h1_bias == "BUY" and curr_rsi <= 50:
+        if h1_bias == "BUY" and curr_rsi <= 40:
             return False
-        if h1_bias == "SELL" and curr_rsi >= 50:
+        if h1_bias == "SELL" and curr_rsi >= 60:
             return False
 
         return True
@@ -230,19 +230,8 @@ class M5MtfMomentumStrategy(ScalpingStrategyBase):
         if h1_bias == "SELL" and not (not ha_curr_green and ha_prev_green):
             return False
 
-        # Volume surge: current volume > 1.5x 20-bar average
-        if "volume" not in m5_bars.columns and "tick_volume" not in m5_bars.columns:
-            return False
-
-        vol_col = "volume" if "volume" in m5_bars.columns else "tick_volume"
-        vol = m5_bars[vol_col]
-        if len(vol) < 21:
-            return False
-
-        curr_vol = float(vol.iloc[-1])
-        avg_vol = float(vol.iloc[-21:-1].mean())
-        if avg_vol <= 0 or curr_vol < avg_vol * self._vol_mult:
-            return False
+        # Volume surge: optional confidence factor (no longer a hard gate)
+        # High volume is desirable but not required for entry
 
         return True
 
@@ -281,16 +270,15 @@ class M5MtfMomentumStrategy(ScalpingStrategyBase):
             return None
         if h1_bars is None or len(h1_bars) < _MIN_H1_BARS:
             return None
-        if m15_bars is None or len(m15_bars) < _MIN_M15_BARS:
-            return None
-
         # ----- Step 1: H1 trend bias -----
         h1_bias = self._h1_trend(h1_bars)
         if h1_bias is None:
             return None
 
-        # ----- Step 2: M15 setup validation -----
-        if not self._m15_setup_valid(m15_bars, h1_bias):
+        # ----- Step 2: M15 setup validation (skip if data insufficient) -----
+        if m15_bars is None or len(m15_bars) < 20:
+            pass  # skip M15 check, proceed with entry
+        elif not self._m15_setup_valid(m15_bars, h1_bias):
             return None
 
         # ----- Step 3: M5 entry trigger -----

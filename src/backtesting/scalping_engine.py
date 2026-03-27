@@ -45,6 +45,7 @@ class ScalpingBacktestEngine:
         max_lot: float = 0.50,
         max_per_strategy: int = 1,
         max_total_positions: int = 10,
+        profit_growth_factor: float = 0.50,
     ) -> None:
         self._symbol = symbol
         self._primary_tf = primary_timeframe
@@ -57,6 +58,7 @@ class ScalpingBacktestEngine:
         self._daily_loss_limit = daily_loss_limit_pct
         self._max_per_strategy = max_per_strategy
         self._max_total_positions = max_total_positions
+        self._profit_growth_factor = profit_growth_factor
         self._regime_detector = RegimeDetector()
 
         if config is not None:
@@ -378,7 +380,11 @@ class ScalpingBacktestEngine:
     ) -> float:
         """Calculate lot size: volume = risk$ / ((sl_dist / point_size) * tick_value)."""
         equity = account._get_equity()
-        risk_dollars = equity * self._risk_pct / 100.0
+        # Dampen profit growth — only use X% of profits for risk sizing
+        # This reduces drawdown by preventing exponential position growth
+        profit = max(0, equity - self._initial_capital)
+        effective_equity = self._initial_capital + (profit * self._profit_growth_factor)
+        risk_dollars = effective_equity * self._risk_pct / 100.0
         sl_distance = abs(entry - sl)
         if sl_distance <= 0:
             return 0.01

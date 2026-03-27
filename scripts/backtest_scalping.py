@@ -104,12 +104,13 @@ def _find_csv(symbol: str, timeframe: str) -> str | None:
     return str(fallback) if fallback.exists() else None
 
 
-def _build_engine(symbol, timeframe, strategies, capital, max_daily, risk_pct, costs):
+def _build_engine(symbol, timeframe, strategies, capital, max_daily, risk_pct, costs, profit_growth_factor=0.50):
     cost_model = CostModel(session_manager=SessionManager()) if costs else None
     return ScalpingBacktestEngine(
         symbol=symbol, primary_timeframe=timeframe, strategies=strategies,
         initial_capital=capital, cost_model=cost_model,
         max_daily_trades=max_daily, risk_pct=risk_pct,
+        profit_growth_factor=profit_growth_factor,
     )
 
 
@@ -192,6 +193,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--report", action="store_true", help="Generate HTML report")
     p.add_argument("--report-dir", default="reports/")
     p.add_argument("--label", default="", help="Label for output files")
+    p.add_argument("--profit-growth", type=float, default=0.50, help="Profit growth factor (0.5 = use 50%% of profits for sizing)")
+    p.add_argument("--trail-giveback", type=float, default=0.10, help="Trailing stop giveback percentage")
+    p.add_argument("--trail-maxgive", type=float, default=10.0, help="Max trailing giveback in dollars")
+    p.add_argument("--trail-activation", type=float, default=5.0, help="Trailing activation profit in dollars")
     return p
 
 
@@ -207,6 +212,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
             engine = _build_engine(
                 args.symbol, args.timeframe, [c() for c in strat_map.values()],
                 args.initial_capital, args.max_daily_trades, args.risk_pct, enable_costs,
+                args.profit_growth,
             )
             logger.info("Running period %s (%s to %s, %d bars)", pname, ps, pe, len(pdata))
             result = engine.run(pdata, h1_data)
@@ -227,6 +233,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
             engine = _build_engine(
                 args.symbol, args.timeframe, [cls()],
                 args.initial_capital, args.max_daily_trades, args.risk_pct, enable_costs,
+                args.profit_growth,
             )
             logger.info("Running strategy: %s", name)
             result = engine.run(primary_data, h1_data)
@@ -244,6 +251,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
     engine = _build_engine(
         args.symbol, args.timeframe, [c() for c in strat_map.values()],
         args.initial_capital, args.max_daily_trades, args.risk_pct, enable_costs,
+        args.profit_growth,
     )
     result = engine.run(primary_data, h1_data)
     print(result.summary())

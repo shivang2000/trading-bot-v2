@@ -154,6 +154,7 @@ class ScalpingConfig(BaseModel):
     max_daily_trades_total: int = 200
     daily_loss_limit_pct: float = 5.0
     risk_per_trade_pct: float = 1.0
+    profit_growth_factor: float = 0.50  # use only 50% of profits for risk sizing
     scan_interval_seconds: int = 15
     strategies_enabled: list[str] = Field(default_factory=lambda: [
         "m5_dual_supertrend", "m5_keltner_squeeze", "m5_vwap_mean_reversion",
