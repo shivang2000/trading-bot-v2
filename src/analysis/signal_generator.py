@@ -23,6 +23,7 @@ import asyncio
 import logging
 from datetime import datetime, timezone
 
+from src.analysis.news_filter import NewsEventFilter
 from src.analysis.regime import (
     MarketRegime,
     RegimeDetector,
@@ -84,6 +85,9 @@ class SignalGenerator:
         self._mt5 = mt5_client
         self._running = False
         self._task: asyncio.Task | None = None
+
+        # News event filter
+        self._news_filter = NewsEventFilter(calendar_path="config/news_calendar.csv")
 
         # Regime detection
         self._regime_detector = RegimeDetector()
@@ -349,6 +353,11 @@ class SignalGenerator:
 
     async def _scan_scalping(self, symbol: str, h1_bars, session) -> None:
         """Run M5/M1 scalping strategies for a symbol."""
+        blocked, reason = self._news_filter.is_blocked(datetime.now(timezone.utc))
+        if blocked:
+            logger.info("Trading blocked: %s", reason)
+            return
+
         try:
             m5_bars = await asyncio.wait_for(
                 self._mt5.get_bars(symbol, "M5", count=200), timeout=30

@@ -35,7 +35,7 @@ class AccountConfig(BaseModel):
     initial_balance: float = 100.0
     mode: str = "demo"
     risk_per_trade_pct: float = 1.0
-    max_lot_per_trade: float = 0.50
+    max_lot_per_trade: float = 100.0
     min_lot_size: float = 0.01
     balance_adjustments: list[BalanceAdjustment] = Field(default_factory=list)
 

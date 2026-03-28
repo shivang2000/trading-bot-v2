@@ -26,6 +26,30 @@ logger = logging.getLogger(__name__)
 WARMUP_BARS = 200  # Need enough for EMA(200) on resampled data
 
 
+class _StrategyEquityTracker:
+    """Pauses strategies whose equity drops below 20-trade MA."""
+
+    def __init__(self, ma_period: int = 20) -> None:
+        self._pnls: dict[str, list[float]] = {}
+        self._ma = ma_period
+
+    def add_trade(self, name: str, pnl: float) -> None:
+        self._pnls.setdefault(name, []).append(pnl)
+
+    def is_paused(self, name: str) -> bool:
+        pnls = self._pnls.get(name, [])
+        if len(pnls) < self._ma:
+            return False
+        cumulative: list[float] = []
+        s = 0.0
+        for p in pnls:
+            s += p
+            cumulative.append(s)
+        recent = cumulative[-self._ma:]
+        ma_val = sum(recent) / len(recent)
+        return cumulative[-1] < ma_val
+
+
 class ScalpingBacktestEngine:
     """Native M1/M5 bar-by-bar replay engine with MTF data pipeline."""
 
@@ -42,7 +66,7 @@ class ScalpingBacktestEngine:
         max_daily_trades: int = 50,
         daily_loss_limit_pct: float = 5.0,
         risk_pct: float = 1.0,
-        max_lot: float = 0.50,
+        max_lot: float = 100.0,
         max_per_strategy: int = 1,
         max_total_positions: int = 10,
         profit_growth_factor: float = 0.50,
@@ -72,6 +96,17 @@ class ScalpingBacktestEngine:
         else:
             self._risk_pct = risk_pct
             self._max_lot = max_lot
+
+        # DD recovery mode
+        self._peak_equity = initial_capital
+        self._in_dd_recovery = False
+        self._dd_trigger = 30.0      # enter recovery at 30% DD
+        self._dd_recovery = 15.0     # exit recovery at 15% DD
+        self._dd_position_reduction = 0.50
+        self._dd_min_confidence = 0.70
+
+        # Equity curve trading
+        self._equity_tracker = _StrategyEquityTracker()
 
         self._current_date = ""
         self._daily_trade_count = 0
@@ -115,7 +150,15 @@ class ScalpingBacktestEngine:
                 bar_close = float(bar["close"])
 
                 # 1. Check SL/TP on open positions FIRST
-                account.check_sl_tp(self._symbol, bar_high, bar_low, bar_time)
+                # Capture position comments before SL/TP check for equity tracker
+                pre_comments = {p.ticket: p.comment for p in account.get_positions(self._symbol)}
+                closed_trades = account.check_sl_tp(self._symbol, bar_high, bar_low, bar_time)
+
+                # Feed closed trades to equity curve tracker
+                for ct in closed_trades:
+                    orig_comment = pre_comments.get(ct.ticket, "")
+                    ct_sname = orig_comment.split(":")[0] if orig_comment else ""
+                    self._equity_tracker.add_trade(ct_sname, ct.profit)
 
                 # 2. Check daily limits (reset on new day)
                 if not self._check_daily_limits(bar_time, account):
@@ -132,18 +175,28 @@ class ScalpingBacktestEngine:
                 h1_win = self._safe_window(h1_computed, bar_time, 60)
 
                 for strategy in self._strategies:
+                    sname = strategy.__class__.__name__
+
+                    # Equity curve trading: skip strategies below their MA
+                    if self._equity_tracker.is_paused(sname):
+                        continue
+
                     try:
                         signal = self._invoke_strategy(
                             loop, strategy, primary_window,
                             m5_win, m15_win, h1_win, bar_time, regime,
                         )
                     except Exception as exc:
-                        logger.warning("Strategy %s error: %s", strategy.__class__.__name__, exc)
+                        logger.warning("Strategy %s error: %s", sname, exc)
                         continue
 
                     if signal is not None:
+                        # DD recovery: skip low-confidence signals
+                        if self._in_dd_recovery and signal.confidence < self._dd_min_confidence:
+                            continue
+
                         # Check position limit using signal.strategy_name (matches comment prefix)
-                        sname = signal.strategy_name or strategy.__class__.__name__
+                        sname = signal.strategy_name or sname
                         if not self._can_open_position(account, sname):
                             continue
                         side = OrderSide.BUY if signal.action == "BUY" else OrderSide.SELL
@@ -385,6 +438,22 @@ class ScalpingBacktestEngine:
         profit = max(0, equity - self._initial_capital)
         effective_equity = self._initial_capital + (profit * self._profit_growth_factor)
         risk_dollars = effective_equity * self._risk_pct / 100.0
+
+        # Track peak equity for DD recovery
+        current_equity = account._get_equity()
+        if current_equity > self._peak_equity:
+            self._peak_equity = current_equity
+
+        # DD recovery mode
+        dd_pct = ((self._peak_equity - current_equity) / self._peak_equity) * 100 if self._peak_equity > 0 else 0
+        if dd_pct >= self._dd_trigger:
+            self._in_dd_recovery = True
+        elif dd_pct <= self._dd_recovery:
+            self._in_dd_recovery = False
+
+        if self._in_dd_recovery:
+            risk_dollars *= self._dd_position_reduction
+
         sl_distance = abs(entry - sl)
         if sl_distance <= 0:
             return 0.01
