@@ -48,7 +48,7 @@ DEFAULT_RISKS = [0.3, 0.5, 0.8, 1.0, 1.5, 2.0]
 DEFAULT_GROWTHS = [0.30, 0.50, 0.75, 1.00]
 
 CSV_COLUMNS = [
-    "strategy", "capital", "risk_pct", "profit_growth", "final_equity",
+    "strategy", "capital", "risk_pct", "profit_growth", "max_lot", "final_equity",
     "return_pct", "profit_factor", "max_drawdown_pct", "total_trades",
     "win_rate", "sharpe", "avg_pnl", "is_10x", "is_5x_safe", "return_dd_ratio",
 ]
@@ -95,6 +95,7 @@ def run_single_backtest(params: dict) -> dict:
                 profit_growth_factor=profit_growth,
                 cost_model=cost_model,
                 max_daily_trades=50,
+                max_lot=params.get("max_lot", 0.50),
             )
             result = engine.run(data)
 
@@ -128,6 +129,7 @@ def run_single_backtest(params: dict) -> dict:
             "capital": capital,
             "risk_pct": risk_pct,
             "profit_growth": profit_growth,
+            "max_lot": params.get("max_lot", 0.50),
             "final_equity": result.final_equity,
             "return_pct": result.total_return_pct,
             "profit_factor": result.profit_factor,
@@ -275,6 +277,7 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--enable-costs", action="store_true", default=True)
     p.add_argument("--no-costs", dest="enable_costs", action="store_false",
                    help="Disable spread/slippage costs")
+    p.add_argument("--max-lot", type=float, default=0.50, help="Max lot size per trade")
     p.add_argument("--output", default="data/optimization/grid_results.csv",
                    help="CSV output path")
     return p
@@ -304,7 +307,8 @@ def main() -> None:
     grid = [
         {
             "strategy": strat, "capital": cap, "risk_pct": risk,
-            "profit_growth": growth, "csv_path": csv_path,
+            "profit_growth": growth, "max_lot": args.max_lot,
+            "csv_path": csv_path,
             "symbol": args.symbol, "enable_costs": args.enable_costs,
         }
         for strat, cap, risk, growth in product(strategies, capitals, risks, growths)

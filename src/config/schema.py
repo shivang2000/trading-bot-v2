@@ -174,6 +174,10 @@ class ScalpingConfig(BaseModel):
     daily_loss_limit_pct: float = 5.0
     risk_per_trade_pct: float = 1.0
     profit_growth_factor: float = 0.50  # use only 50% of profits for risk sizing
+    use_tiered_lot_caps: bool = False
+    lot_cap_tiers: list[list[float]] = Field(default_factory=lambda: [
+        [0, 0.50], [500, 1.00], [2000, 2.00], [5000, 5.00], [10000, 10.00]
+    ])
     scan_interval_seconds: int = 15
     strategies_enabled: list[str] = Field(default_factory=lambda: [
         "m5_dual_supertrend", "m5_keltner_squeeze", "m5_vwap_mean_reversion",

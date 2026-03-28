@@ -26,6 +26,14 @@ logger = logging.getLogger(__name__)
 
 WARMUP_BARS = 200  # Need enough for EMA(200) on resampled data
 
+DEFAULT_LOT_TIERS = [
+    (0, 0.50),
+    (500, 1.00),
+    (2000, 2.00),
+    (5000, 5.00),
+    (10000, 10.00),
+]
+
 
 class _StrategyEquityTracker:
     """Pauses strategies whose equity drops below 20-trade MA."""
@@ -71,6 +79,8 @@ class ScalpingBacktestEngine:
         max_per_strategy: int = 1,
         max_total_positions: int = 10,
         profit_growth_factor: float = 0.50,
+        use_tiered_caps: bool = False,
+        lot_tiers: list[tuple[float, float]] | None = None,
     ) -> None:
         self._symbol = symbol
         self._primary_tf = primary_timeframe
@@ -84,6 +94,8 @@ class ScalpingBacktestEngine:
         self._max_per_strategy = max_per_strategy
         self._max_total_positions = max_total_positions
         self._profit_growth_factor = profit_growth_factor
+        self._use_tiered_caps = use_tiered_caps
+        self._lot_tiers = lot_tiers or DEFAULT_LOT_TIERS
         self._regime_detector = RegimeDetector()
         self._news_filter = NewsEventFilter()
 
@@ -468,7 +480,15 @@ class ScalpingBacktestEngine:
         sl_points = sl_distance / self._point_size if self._point_size > 0 else sl_distance
         cost_per_lot = sl_points * self._tick_value
         volume = risk_dollars / cost_per_lot if cost_per_lot > 0 else 0.01
-        return round(max(0.01, min(volume, self._max_lot)), 2)
+        effective_max_lot = self._max_lot
+        if self._use_tiered_caps:
+            equity = account._get_equity()
+            for threshold, cap in reversed(self._lot_tiers):
+                if equity >= threshold:
+                    effective_max_lot = cap
+                    break
+        volume = max(0.01, min(volume, effective_max_lot))
+        return round(volume, 2)
 
     def _empty_result(self) -> BacktestResult:
         """Return an empty result when insufficient data."""

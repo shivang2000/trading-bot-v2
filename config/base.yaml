@@ -119,6 +119,13 @@ strategies:
     daily_loss_limit_pct: 5.0
     risk_per_trade_pct: 1.0
     profit_growth_factor: 0.50
+    use_tiered_lot_caps: false
+    lot_cap_tiers:
+      - [0, 0.50]
+      - [500, 1.00]
+      - [2000, 2.00]
+      - [5000, 5.00]
+      - [10000, 10.00]
     scan_interval_seconds: 15
     strategies_enabled:
       # WINNERS (deploy these)
