@@ -105,7 +105,8 @@ def _find_csv(symbol: str, timeframe: str) -> str | None:
 
 
 def _build_engine(symbol, timeframe, strategies, capital, max_daily, risk_pct, costs,
-                   profit_growth_factor=0.50, max_lot=0.50, use_tiered_caps=False):
+                   profit_growth_factor=0.50, max_lot=0.50, use_tiered_caps=False,
+                   prop_firm_config=None):
     cost_model = CostModel(session_manager=SessionManager()) if costs else None
     return ScalpingBacktestEngine(
         symbol=symbol, primary_timeframe=timeframe, strategies=strategies,
@@ -113,6 +114,7 @@ def _build_engine(symbol, timeframe, strategies, capital, max_daily, risk_pct, c
         max_daily_trades=max_daily, risk_pct=risk_pct,
         profit_growth_factor=profit_growth_factor,
         max_lot=max_lot, use_tiered_caps=use_tiered_caps,
+        prop_firm_config=prop_firm_config,
     )
 
 
@@ -201,11 +203,24 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--trail-giveback", type=float, default=0.10, help="Trailing stop giveback percentage")
     p.add_argument("--trail-maxgive", type=float, default=10.0, help="Max trailing giveback in dollars")
     p.add_argument("--trail-activation", type=float, default=5.0, help="Trailing activation profit in dollars")
+    p.add_argument("--prop-firm", action="store_true", help="Enable prop firm mode")
+    p.add_argument("--account-size", type=float, default=5000.0, help="Prop firm account size")
+    p.add_argument("--leverage", type=float, default=30.0, help="Leverage for metals")
+    p.add_argument("--phase", default="step1", choices=["step1", "step2", "master"])
     return p
 
 
 def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
     """Execute single run, compare, or multi-period mode."""
+    prop_firm_config = None
+    if args.prop_firm:
+        from src.risk.prop_firm_guard import PropFirmConfig
+        prop_firm_config = PropFirmConfig(
+            account_size=args.account_size or args.initial_capital,
+            phase=args.phase,
+            leverage_metals=args.leverage,
+        )
+
     if args.multi_period:
         all_results = []
         for pname, (ps, pe) in PERIODS.items():
@@ -217,6 +232,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
                 args.symbol, args.timeframe, [c() for c in strat_map.values()],
                 args.initial_capital, args.max_daily_trades, args.risk_pct, enable_costs,
                 args.profit_growth, args.max_lot, args.tiered_caps,
+                prop_firm_config=prop_firm_config,
             )
             logger.info("Running period %s (%s to %s, %d bars)", pname, ps, pe, len(pdata))
             result = engine.run(pdata, h1_data)
@@ -238,6 +254,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
                 args.symbol, args.timeframe, [cls()],
                 args.initial_capital, args.max_daily_trades, args.risk_pct, enable_costs,
                 args.profit_growth, args.max_lot, args.tiered_caps,
+                prop_firm_config=prop_firm_config,
             )
             logger.info("Running strategy: %s", name)
             result = engine.run(primary_data, h1_data)
@@ -256,6 +273,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
         args.symbol, args.timeframe, [c() for c in strat_map.values()],
         args.initial_capital, args.max_daily_trades, args.risk_pct, enable_costs,
         args.profit_growth, args.max_lot, args.tiered_caps,
+        prop_firm_config=prop_firm_config,
     )
     result = engine.run(primary_data, h1_data)
     print(result.summary())

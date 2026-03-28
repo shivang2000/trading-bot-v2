@@ -21,6 +21,8 @@ from src.backtesting.cost_model import CostModel
 from src.backtesting.result import BacktestResult, calculate_metrics
 from src.config.schema import AppConfig
 from src.core.enums import OrderSide
+from src.risk.prop_firm_guard import PropFirmGuard, PropFirmConfig
+from src.risk.position_sizer import calculate_lot_size_prop_firm
 
 logger = logging.getLogger(__name__)
 
@@ -81,6 +83,7 @@ class ScalpingBacktestEngine:
         profit_growth_factor: float = 0.50,
         use_tiered_caps: bool = False,
         lot_tiers: list[tuple[float, float]] | None = None,
+        prop_firm_config: PropFirmConfig | None = None,
     ) -> None:
         self._symbol = symbol
         self._primary_tf = primary_timeframe
@@ -121,6 +124,11 @@ class ScalpingBacktestEngine:
 
         # Equity curve trading
         self._equity_tracker = _StrategyEquityTracker()
+
+        # Prop firm guard
+        self._prop_firm: PropFirmGuard | None = None
+        if prop_firm_config:
+            self._prop_firm = PropFirmGuard(prop_firm_config)
 
         self._current_date = ""
         self._daily_trade_count = 0
@@ -169,6 +177,31 @@ class ScalpingBacktestEngine:
                     account.update_prices(self._symbol, bar_close, bar_time)
                     continue
 
+                # 0b. Prop firm checks
+                if self._prop_firm:
+                    can_trade, reason = self._prop_firm.can_trade(account._get_equity(), bar_time)
+                    if not can_trade:
+                        # Check if profit target reached — terminate backtest successfully
+                        reached, profit = self._prop_firm.check_profit_target(account._get_equity())
+                        if reached:
+                            logger.info("PROFIT TARGET REACHED! Profit: $%.2f — stopping backtest", profit)
+                            break
+                        # Otherwise just skip this bar (daily limit or DD warning)
+                        account.update_prices(self._symbol, bar_close, bar_time)
+                        continue
+
+                    # Friday auto-close
+                    if self._prop_firm.should_friday_close(bar_time):
+                        for pos in list(account.get_positions(self._symbol)):
+                            account.close_position(pos.ticket, bar_close, bar_time, "FRIDAY_CLOSE")
+                        account.update_prices(self._symbol, bar_close, bar_time)
+                        continue
+
+                    # Don't open new trades near Friday close
+                    if self._prop_firm.should_stop_new_trades_friday(bar_time):
+                        account.update_prices(self._symbol, bar_close, bar_time)
+                        continue
+
                 # 1. Check SL/TP on open positions FIRST
                 # Capture position comments before SL/TP check for equity tracker
                 pre_comments = {p.ticket: p.comment for p in account.get_positions(self._symbol)}
@@ -211,6 +244,12 @@ class ScalpingBacktestEngine:
                         continue
 
                     if signal is not None:
+                        # Prop firm: directional exposure check
+                        if self._prop_firm:
+                            positions = account.get_positions(self._symbol)
+                            if not self._prop_firm.check_directional_exposure(positions, signal.action):
+                                continue  # too many positions in same direction
+
                         # DD recovery: skip low-confidence signals
                         if self._in_dd_recovery and signal.confidence < self._dd_min_confidence:
                             continue
@@ -457,6 +496,25 @@ class ScalpingBacktestEngine:
         # This reduces drawdown by preventing exponential position growth
         profit = max(0, equity - self._initial_capital)
         effective_equity = self._initial_capital + (profit * self._profit_growth_factor)
+
+        # Prop firm position sizing override
+        if self._prop_firm:
+            risk_mult = self._prop_firm.get_risk_multiplier(equity)
+            if risk_mult <= 0:
+                return 0.0  # stop trading
+            volume = calculate_lot_size_prop_firm(
+                equity=effective_equity,
+                risk_pct=self._risk_pct,
+                entry_price=entry,
+                stop_loss=sl,
+                leverage=self._prop_firm._config.leverage_metals,
+                point_size=self._point_size,
+                tick_value=self._tick_value,
+                commission_per_lot=self._prop_firm._config.commission_per_lot,
+                risk_multiplier=risk_mult,
+            )
+            return volume
+
         risk_dollars = effective_equity * self._risk_pct / 100.0
 
         # Track peak equity for DD recovery

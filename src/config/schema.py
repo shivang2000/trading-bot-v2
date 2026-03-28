@@ -186,6 +186,27 @@ class ScalpingConfig(BaseModel):
     ])
 
 
+class PropFirmConfig(BaseModel):
+    enabled: bool = False
+    provider: str = "fundingpips"
+    account_size: float = 5000.0
+    phase: str = "step1"  # step1, step2, master
+    leverage_metals: float = 30.0
+    commission_per_lot_metals: float = 5.0
+    daily_loss_limit_pct: float = 5.0
+    max_overall_dd_pct: float = 10.0
+    max_risk_per_trade_pct: float = 2.0
+    profit_target_pct: float = 10.0
+    safety_buffer_daily_pct: float = 1.0
+    safety_buffer_dd_pct: float = 1.0
+    friday_auto_close: bool = True
+    friday_close_hour_utc: int = 21
+    news_filter_enabled: bool = True
+    max_directional_positions: int = 3
+    min_trading_days: int = 3
+    inactivity_limit_days: int = 30
+
+
 class StrategiesConfig(BaseModel):
     ema_pullback: EmaPullbackConfig = Field(default_factory=EmaPullbackConfig)
     london_breakout: LondonBreakoutConfig = Field(default_factory=LondonBreakoutConfig)
@@ -231,3 +252,4 @@ class AppConfig(BaseModel):
     )
     channels: list[ChannelConfig] = Field(default_factory=list)
     database: DatabaseConfig = Field(default_factory=DatabaseConfig)
+    prop_firm: PropFirmConfig = Field(default_factory=PropFirmConfig)

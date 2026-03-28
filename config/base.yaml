@@ -164,3 +164,23 @@ telegram_listener:
 
 database:
   path: "data/trading_bot_v2.db"
+
+prop_firm:
+  enabled: false
+  provider: "fundingpips"
+  account_size: 5000
+  phase: "step1"
+  leverage_metals: 30
+  commission_per_lot_metals: 5.0
+  daily_loss_limit_pct: 5.0
+  max_overall_dd_pct: 10.0
+  max_risk_per_trade_pct: 2.0
+  profit_target_pct: 10.0
+  safety_buffer_daily_pct: 1.0
+  safety_buffer_dd_pct: 1.0
+  friday_auto_close: true
+  friday_close_hour_utc: 21
+  news_filter_enabled: true
+  max_directional_positions: 3
+  min_trading_days: 3
+  inactivity_limit_days: 30

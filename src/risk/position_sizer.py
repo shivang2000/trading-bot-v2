@@ -1,7 +1,11 @@
-"""Position sizer: fixed risk % per trade.
+"""Leverage-aware position sizer for prop firm trading.
 
-Calculates lot size based on account equity and distance to stop loss.
-Auto-scales naturally — as equity grows, lot sizes grow proportionally.
+Calculates lot size considering:
+1. Risk-based sizing (% of equity at risk)
+2. Leverage/margin constraints (1:30 for metals)
+3. Commission impact on expected P&L
+
+Also contains the original PositionSizer class for backward compatibility.
 """
 
 from __future__ import annotations
@@ -13,6 +17,75 @@ from src.config.schema import AccountConfig
 from src.core.models import AccountState, Signal
 
 logger = logging.getLogger(__name__)
+
+
+def calculate_lot_size(
+    equity: float,
+    risk_pct: float,
+    entry_price: float,
+    stop_loss: float,
+    point_size: float = 0.01,
+    tick_value: float = 1.0,
+    min_lot: float = 0.01,
+    max_lot: float = 0.50,
+    risk_multiplier: float = 1.0,
+) -> float:
+    """Standard position sizer (existing logic, extracted as function)."""
+    risk_dollars = equity * risk_pct / 100.0 * risk_multiplier
+    sl_distance = abs(entry_price - stop_loss)
+    if sl_distance <= 0:
+        return min_lot
+    sl_pips = sl_distance / point_size if point_size > 0 else sl_distance
+    cost_per_lot = sl_pips * tick_value
+    volume = risk_dollars / cost_per_lot if cost_per_lot > 0 else min_lot
+    return round(max(min_lot, min(volume, max_lot)), 2)
+
+
+def calculate_lot_size_prop_firm(
+    equity: float,
+    risk_pct: float,
+    entry_price: float,
+    stop_loss: float,
+    leverage: float = 30.0,
+    contract_size: float = 100.0,
+    point_size: float = 0.01,
+    tick_value: float = 1.0,
+    min_lot: float = 0.01,
+    commission_per_lot: float = 5.0,
+    risk_multiplier: float = 1.0,
+    max_margin_usage_pct: float = 50.0,
+) -> float:
+    """Leverage-aware position sizer for prop firm accounts.
+
+    Respects both risk-based and margin-based constraints.
+    On a $5K account with 1:30 leverage on gold at $3000:
+    - Margin per lot = $3000 * 100 / 30 = $10,000
+    - Max lots from margin (50% usage) = $2,500 / $10,000 = 0.25 lots
+    """
+    risk_dollars = equity * risk_pct / 100.0 * risk_multiplier
+    sl_distance = abs(entry_price - stop_loss)
+    if sl_distance <= 0:
+        return min_lot
+
+    # Lot size from risk
+    sl_pips = sl_distance / point_size if point_size > 0 else sl_distance
+    cost_per_pip = tick_value
+    risk_lot = risk_dollars / (sl_pips * cost_per_pip) if sl_pips * cost_per_pip > 0 else min_lot
+
+    # Lot size from leverage (margin constraint)
+    margin_per_lot = (entry_price * contract_size) / leverage if leverage > 0 else float("inf")
+    max_margin = equity * max_margin_usage_pct / 100.0
+    margin_lot = max_margin / margin_per_lot if margin_per_lot > 0 else min_lot
+
+    # Use the smaller of risk-based and margin-based
+    lot_size = min(risk_lot, margin_lot)
+    lot_size = max(min_lot, round(lot_size, 2))
+
+    logger.debug(
+        "Prop firm sizer: equity=$%.2f risk=%.1f%% SL=$%.2f → risk_lot=%.2f margin_lot=%.2f → %.2f",
+        equity, risk_pct, sl_distance, risk_lot, margin_lot, lot_size,
+    )
+    return lot_size
 
 
 class PositionSizer:

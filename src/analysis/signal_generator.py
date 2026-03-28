@@ -452,6 +452,12 @@ class SignalGenerator:
                     await asyncio.sleep(interval)
                     continue
 
+                # Friday auto-close — no new scalping trades after 20:00 UTC
+                if now.weekday() == 4 and now.hour >= 20:
+                    logger.info("Friday close window — no new scalping trades")
+                    await asyncio.sleep(interval)
+                    continue
+
                 session = self._session_mgr.get_current_session()
                 if not self._session_mgr.is_trading_allowed():
                     await asyncio.sleep(interval)
