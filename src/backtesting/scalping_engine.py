@@ -14,6 +14,7 @@ from datetime import datetime, timezone
 
 import pandas as pd
 
+from src.analysis.news_filter import NewsEventFilter
 from src.analysis.regime import MarketRegime, RegimeDetector, detect_regime_from_ohlcv
 from src.backtesting.account import BacktestAccountManager
 from src.backtesting.cost_model import CostModel
@@ -84,6 +85,7 @@ class ScalpingBacktestEngine:
         self._max_total_positions = max_total_positions
         self._profit_growth_factor = profit_growth_factor
         self._regime_detector = RegimeDetector()
+        self._news_filter = NewsEventFilter()
 
         if config is not None:
             self._risk_pct = config.account.risk_per_trade_pct
@@ -148,6 +150,12 @@ class ScalpingBacktestEngine:
                 bar_high = float(bar["high"])
                 bar_low = float(bar["low"])
                 bar_close = float(bar["close"])
+
+                # 0. Check news filter
+                blocked, reason = self._news_filter.is_blocked(bar_time)
+                if blocked:
+                    account.update_prices(self._symbol, bar_close, bar_time)
+                    continue
 
                 # 1. Check SL/TP on open positions FIRST
                 # Capture position comments before SL/TP check for equity tracker
