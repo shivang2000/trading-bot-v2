@@ -168,6 +168,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--report", action="store_true", help="Generate HTML report")
     p.add_argument("--report-dir", default="reports/")
     p.add_argument("--label", default="", help="Label for output file naming")
+    p.add_argument("--prop-firm", action="store_true", help="Enable prop firm mode")
+    p.add_argument("--account-size", type=float, default=5000.0, help="Prop firm account size")
+    p.add_argument("--leverage", type=float, default=30.0, help="Leverage for metals")
+    p.add_argument("--phase", default="step1", choices=["step1", "step2", "master"])
     return p
 
 
@@ -202,6 +206,16 @@ def main() -> None:
 
     found = args.csv_h1 or _find_csv(args.symbol, "H1")
     h1_data = load_from_csv(found) if found else resample_m15_to_h1(m15_data)
+
+    # Prop firm config
+    prop_firm_config = None
+    if args.prop_firm:
+        from src.risk.prop_firm_guard import PropFirmConfig
+        acct_size = args.account_size or args.initial_capital
+        args.initial_capital = acct_size
+        prop_firm_config = PropFirmConfig(
+            account_size=acct_size, phase=args.phase, leverage_metals=args.leverage,
+        )
 
     # Build engine and run
     cost_model = CostModel(session_manager=SessionManager()) if enable_costs else None
