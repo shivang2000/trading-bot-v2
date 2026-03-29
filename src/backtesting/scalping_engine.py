@@ -23,6 +23,8 @@ from src.config.schema import AppConfig
 from src.core.enums import OrderSide
 from src.risk.prop_firm_guard import PropFirmGuard, PropFirmConfig
 from src.risk.position_sizer import calculate_lot_size_prop_firm
+from src.analysis.smc_confluence import adjust_confidence as smc_adjust
+from src.config.schema import SmcConfluenceConfig
 
 logger = logging.getLogger(__name__)
 
@@ -84,6 +86,8 @@ class ScalpingBacktestEngine:
         use_tiered_caps: bool = False,
         lot_tiers: list[tuple[float, float]] | None = None,
         prop_firm_config: PropFirmConfig | None = None,
+        smc_config: SmcConfluenceConfig | None = None,
+        min_confidence: float = 0.45,
     ) -> None:
         self._symbol = symbol
         self._primary_tf = primary_timeframe
@@ -124,6 +128,10 @@ class ScalpingBacktestEngine:
 
         # Equity curve trading
         self._equity_tracker = _StrategyEquityTracker()
+
+        # SMC confluence filter
+        self._smc_config = smc_config or SmcConfluenceConfig()
+        self._min_confidence = min_confidence
 
         # Prop firm guard
         self._prop_firm: PropFirmGuard | None = None
@@ -244,6 +252,24 @@ class ScalpingBacktestEngine:
                         continue
 
                     if signal is not None:
+                        # SMC confluence adjustment
+                        try:
+                            data_for_smc = primary_window if primary_window is not None and len(primary_window) >= 20 else m5_win
+                            if data_for_smc is not None and len(data_for_smc) >= 20:
+                                signal.confidence = smc_adjust(
+                                    action=signal.action,
+                                    symbol=self._symbol,
+                                    m15_bars=data_for_smc,
+                                    base_confidence=signal.confidence,
+                                    config=self._smc_config,
+                                )
+                        except Exception:
+                            pass  # SMC failure should not block trades
+
+                        # Min confidence filter
+                        if signal.confidence < self._min_confidence:
+                            continue
+
                         # Prop firm: directional exposure check
                         if self._prop_firm:
                             positions = account.get_positions(self._symbol)
