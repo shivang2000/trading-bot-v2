@@ -215,11 +215,14 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
     prop_firm_config = None
     if args.prop_firm:
         from src.risk.prop_firm_guard import PropFirmConfig
+        acct_size = args.account_size or args.initial_capital
         prop_firm_config = PropFirmConfig(
-            account_size=args.account_size or args.initial_capital,
+            account_size=acct_size,
             phase=args.phase,
             leverage_metals=args.leverage,
         )
+        # Override initial_capital to match prop firm account size
+        args.initial_capital = acct_size
 
     if args.multi_period:
         all_results = []
