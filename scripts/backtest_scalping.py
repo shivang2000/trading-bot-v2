@@ -106,7 +106,7 @@ def _find_csv(symbol: str, timeframe: str) -> str | None:
 
 def _build_engine(symbol, timeframe, strategies, capital, max_daily, risk_pct, costs,
                    profit_growth_factor=0.50, max_lot=0.50, use_tiered_caps=False,
-                   prop_firm_config=None):
+                   prop_firm_config=None, point_size=0.01, tick_value=1.0):
     cost_model = CostModel(session_manager=SessionManager()) if costs else None
     return ScalpingBacktestEngine(
         symbol=symbol, primary_timeframe=timeframe, strategies=strategies,
@@ -115,6 +115,7 @@ def _build_engine(symbol, timeframe, strategies, capital, max_daily, risk_pct, c
         profit_growth_factor=profit_growth_factor,
         max_lot=max_lot, use_tiered_caps=use_tiered_caps,
         prop_firm_config=prop_firm_config,
+        point_size=point_size, tick_value=tick_value,
     )
 
 
@@ -224,6 +225,18 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
         # Override initial_capital to match prop firm account size
         args.initial_capital = acct_size
 
+    # Get instrument tick_value and point_size from config
+    from src.config.loader import load_config
+    cfg = load_config()
+    point_size = 0.01
+    tick_value = 1.0  # CRITICAL: Gold tick_value=1.0, not 0.01
+    for inst in cfg.instruments:
+        if inst.symbol == args.symbol:
+            point_size = inst.point_size
+            tick_value = inst.tick_value
+            break
+    logger.info("Instrument %s: point_size=%s, tick_value=%s", args.symbol, point_size, tick_value)
+
     if args.multi_period:
         all_results = []
         for pname, (ps, pe) in PERIODS.items():
@@ -236,6 +249,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
                 args.initial_capital, args.max_daily_trades, args.risk_pct, enable_costs,
                 args.profit_growth, args.max_lot, args.tiered_caps,
                 prop_firm_config=prop_firm_config,
+                point_size=point_size, tick_value=tick_value,
             )
             logger.info("Running period %s (%s to %s, %d bars)", pname, ps, pe, len(pdata))
             result = engine.run(pdata, h1_data)
@@ -258,6 +272,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
                 args.initial_capital, args.max_daily_trades, args.risk_pct, enable_costs,
                 args.profit_growth, args.max_lot, args.tiered_caps,
                 prop_firm_config=prop_firm_config,
+                point_size=point_size, tick_value=tick_value,
             )
             logger.info("Running strategy: %s", name)
             result = engine.run(primary_data, h1_data)
