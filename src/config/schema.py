@@ -163,6 +163,9 @@ class SmcConfluenceConfig(BaseModel):
     liquidity_sweep_boost: float = 0.10
     opposing_ob_penalty: float = 0.15
     lookback_bars: int = 100
+    fvg_entry_zone_boost: float = 0.15
+    anchored_vwap_bounce_boost: float = 0.10
+    volume_profile_poc_boost: float = 0.10
 
 
 class ScalpingConfig(BaseModel):
