@@ -135,9 +135,11 @@ class TradingBot:
             event_bus=self._event_bus,
             tracking_db=self._db,
             poll_interval=config.position_monitor.poll_interval_seconds,
+            account_state_func=self._sync_account_state,
             trailing_stop_config=config.trailing_stop,
             positions_callback=self._update_cached_positions,
             initial_balance=config.account.initial_balance,
+            prop_firm_guard=self._risk_manager._prop_firm_guard,
         )
 
         # Signal generator (own technical signals)
@@ -203,6 +205,13 @@ class TradingBot:
         """Background loop: refresh account state every 30s."""
         while not self._shutdown_event.is_set():
             await self._refresh_account_cache()
+            # Persist peak equity so it survives restarts
+            try:
+                await self._db.save_bot_state(
+                    "peak_equity", str(self._risk_manager.peak_equity)
+                )
+            except Exception:
+                pass
             await asyncio.sleep(30)
 
     async def _refresh_account_cache(self) -> None:
@@ -337,12 +346,20 @@ class TradingBot:
 
         # 5. Restore persisted state from database
         try:
+            # Reset daily trade counter on restart (prevents stale count from
+            # previous sessions/accounts blocking trades)
+            await self._db.reset_daily_state()
+
             trailing_stops = await self._db.get_trailing_stops()
             if trailing_stops and self._position_monitor._trailing_manager:
                 self._position_monitor._trailing_manager.restore(trailing_stops)
 
             daily_count = await self._db.get_daily_trade_count()
             self._risk_manager.set_daily_trade_count(daily_count)
+
+            saved_peak = await self._db.get_bot_state("peak_equity")
+            if saved_peak:
+                self._risk_manager.set_peak_equity(float(saved_peak))
         except Exception:
             logger.warning("Failed to restore persisted state", exc_info=True)
 

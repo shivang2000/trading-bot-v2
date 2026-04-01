@@ -182,6 +182,7 @@ class ScalpingConfig(BaseModel):
         [0, 0.50], [500, 1.00], [2000, 2.00], [5000, 5.00], [10000, 10.00]
     ])
     scan_interval_seconds: int = 15
+    instruments: list[str] = Field(default_factory=list)  # empty = use signal_generator.instruments
     strategies_enabled: list[str] = Field(default_factory=lambda: [
         "m5_dual_supertrend", "m5_keltner_squeeze", "m5_vwap_mean_reversion",
         "m5_stochrsi_adx", "m5_mtf_momentum", "m5_bb_squeeze", "m5_mean_reversion",
@@ -202,6 +203,8 @@ class PropFirmConfig(BaseModel):
     profit_target_pct: float = 10.0
     safety_buffer_daily_pct: float = 1.0
     safety_buffer_dd_pct: float = 1.0
+    safety_buffer_daily_usd: float = 0.0  # when > 0, overrides pct buffer
+    safety_buffer_dd_usd: float = 0.0     # when > 0, overrides pct buffer
     friday_auto_close: bool = True
     friday_close_hour_utc: int = 21
     news_filter_enabled: bool = True
@@ -235,6 +238,15 @@ class SignalGeneratorConfig(BaseModel):
     instrument_overrides: dict[str, InstrumentOverride] = Field(default_factory=dict)
 
 
+class ClaudeFilterConfig(BaseModel):
+    """Config for Claude AI pre-trade signal filter."""
+
+    enabled: bool = False
+    model: str = "claude-haiku-4-5-20251001"
+    confidence_threshold: float = 0.65
+    timeout_seconds: float = 5.0
+
+
 class AppConfig(BaseModel):
     """Root configuration model. Everything rolls up here."""
 
@@ -256,3 +268,4 @@ class AppConfig(BaseModel):
     channels: list[ChannelConfig] = Field(default_factory=list)
     database: DatabaseConfig = Field(default_factory=DatabaseConfig)
     prop_firm: PropFirmConfig = Field(default_factory=PropFirmConfig)
+    claude_filter: ClaudeFilterConfig = Field(default_factory=ClaudeFilterConfig)

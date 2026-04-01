@@ -169,7 +169,7 @@ database:
   path: "data/trading_bot_v2.db"
 
 prop_firm:
-  enabled: false
+  enabled: false                   # Set true (or use fundingpips.yaml overlay)
   provider: "fundingpips"
   account_size: 5000
   phase: "step1"
@@ -178,7 +178,7 @@ prop_firm:
   daily_loss_limit_pct: 5.0
   max_overall_dd_pct: 10.0
   max_risk_per_trade_pct: 2.0
-  profit_target_pct: 10.0
+  profit_target_pct: 8.0          # FundingPips Step1=8%, Step2=5%
   safety_buffer_daily_pct: 1.0
   safety_buffer_dd_pct: 1.0
   friday_auto_close: true
@@ -187,3 +187,9 @@ prop_firm:
   max_directional_positions: 3
   min_trading_days: 3
   inactivity_limit_days: 30
+
+claude_filter:
+  enabled: false                   # Enable in fundingpips.yaml overlay
+  model: "claude-haiku-4-5-20251001"
+  confidence_threshold: 0.65
+  timeout_seconds: 5.0

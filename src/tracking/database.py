@@ -120,6 +120,13 @@ CREATE TABLE IF NOT EXISTS daily_state (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Generic bot state key-value store (peak equity, session flags, etc.)
+CREATE TABLE IF NOT EXISTS bot_state (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE INDEX IF NOT EXISTS idx_bot_positions_status ON bot_positions(status);
 """
 
@@ -497,6 +504,32 @@ class TrackingDB:
         )
         row = await cursor.fetchone()
         return row["trade_count"] if row else 0
+
+    async def reset_daily_state(self) -> None:
+        """Clear daily state on bot restart. Prevents stale trade counts
+        from previous sessions/accounts blocking new trades."""
+        today = datetime.utcnow().strftime("%Y-%m-%d")
+        await self._db.execute("DELETE FROM daily_state WHERE date = ?", (today,))
+        await self._db.commit()
+        logger.info("Daily trade counter reset for %s", today)
+
+    # --- Bot State (generic key-value, survives restart) ---
+
+    async def save_bot_state(self, key: str, value: str) -> None:
+        """Persist a bot state value by key."""
+        await self._db.execute(
+            """INSERT OR REPLACE INTO bot_state (key, value, updated_at) VALUES (?, ?, ?)""",
+            (key, value, datetime.utcnow()),
+        )
+        await self._db.commit()
+
+    async def get_bot_state(self, key: str) -> str | None:
+        """Retrieve a persisted bot state value."""
+        cursor = await self._db.execute(
+            "SELECT value FROM bot_state WHERE key = ?", (key,)
+        )
+        row = await cursor.fetchone()
+        return row["value"] if row else None
 
     async def get_daily_stats(self) -> dict:
         """Get today's trading statistics."""

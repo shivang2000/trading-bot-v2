@@ -58,10 +58,36 @@ class RiskManager:
         self._positions_func = positions_func
         self._sizer = PositionSizer(config.account)
 
+        # Prop firm guard (enforces funded account breach rules)
+        self._prop_firm_guard = None
+        if config.prop_firm and config.prop_firm.enabled:
+            from src.risk.prop_firm_guard import PropFirmGuard
+            from src.risk.prop_firm_guard import PropFirmConfig as PFConfig
+
+            pf = config.prop_firm
+            self._prop_firm_guard = PropFirmGuard(PFConfig(
+                account_size=pf.account_size,
+                phase=pf.phase,
+                daily_loss_limit_pct=pf.daily_loss_limit_pct,
+                max_overall_dd_pct=pf.max_overall_dd_pct,
+                max_risk_per_trade_pct=pf.max_risk_per_trade_pct,
+                profit_target_pct=pf.profit_target_pct,
+                safety_buffer_daily_pct=pf.safety_buffer_daily_pct,
+                safety_buffer_dd_pct=pf.safety_buffer_dd_pct,
+                safety_buffer_daily_usd=pf.safety_buffer_daily_usd,
+                safety_buffer_dd_usd=pf.safety_buffer_dd_usd,
+                leverage_metals=pf.leverage_metals,
+                commission_per_lot=pf.commission_per_lot_metals,
+                friday_auto_close=pf.friday_auto_close,
+                friday_close_hour_utc=pf.friday_close_hour_utc,
+                max_directional_positions=pf.max_directional_positions,
+            ))
+
         # Track daily state
         self._daily_trade_count = 0
         self._session_start_equity = config.account.initial_balance
         self._peak_equity = config.account.initial_balance
+        self._current_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     async def initialize(self) -> None:
         """Subscribe to events and sync initial state."""
@@ -84,11 +110,34 @@ class RiskManager:
         if count > 0:
             logger.info("Restored daily trade count: %d", count)
 
+    def set_peak_equity(self, equity: float) -> None:
+        """Restore persisted peak equity (called on startup)."""
+        self._peak_equity = equity
+        logger.info("Restored peak equity: $%.2f", equity)
+
+    @property
+    def peak_equity(self) -> float:
+        return self._peak_equity
+
+    def _reset_if_new_day(self) -> None:
+        """Reset daily counters when UTC date changes."""
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        if today != self._current_date:
+            self._current_date = today
+            self._daily_trade_count = 0
+            try:
+                account = self._account_state_func()
+                self._session_start_equity = account.equity
+            except Exception:
+                pass
+            logger.info("New trading day %s — daily counters reset", today)
+
     async def _on_signal(self, event: Event) -> None:
         """Handle incoming signal event."""
         if not isinstance(event, SignalEvent) or event.signal is None:
             return
 
+        self._reset_if_new_day()
         signal = event.signal
         logger.info(
             "Processing signal: %s %s %s strength=%.2f",
@@ -110,6 +159,29 @@ class RiskManager:
                         signal.source, signal.strength, min_conf,
                     )
                     return
+
+                # Prop firm guard — check breach limits before any trade
+                if self._prop_firm_guard:
+                    account = self._account_state_func()
+                    can_trade, reason = self._prop_firm_guard.can_trade(
+                        account.equity, datetime.now(timezone.utc)
+                    )
+                    if not can_trade:
+                        logger.warning(
+                            "Signal BLOCKED by PropFirmGuard [%s]: %s",
+                            signal.source, reason,
+                        )
+                        return
+
+                    # Check profit target — stop trading once challenge target is reached
+                    reached, profit = self._prop_firm_guard.check_profit_target(account.equity)
+                    if reached:
+                        logger.warning(
+                            "PROFIT TARGET REACHED: $%.2f profit (target $%.2f). "
+                            "Stop trading and submit for verification.",
+                            profit, self._prop_firm_guard.profit_target,
+                        )
+                        return
 
                 self._validate_risk_limits(signal)
 
@@ -165,6 +237,14 @@ class RiskManager:
             raise RiskLimitExceeded(
                 "max_open_positions", open_count, risk.max_open_positions
             )
+
+        # 1b. Directional exposure limit (prop firm safety)
+        if self._prop_firm_guard and signal.action in (SignalAction.BUY, SignalAction.SELL):
+            direction = signal.action.value  # "BUY" or "SELL"
+            if not self._prop_firm_guard.check_directional_exposure(positions, direction):
+                raise RiskLimitExceeded(
+                    "directional_exposure", direction, self._prop_firm_guard._config.max_directional_positions
+                )
 
         # 2. Max positions per symbol (strategy-aware for scalping)
         symbol_positions = [p for p in positions if p.symbol == signal.symbol]

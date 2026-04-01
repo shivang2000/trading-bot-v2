@@ -48,6 +48,7 @@ from src.analysis.strategies.m1_rsi_scalp import M1RsiScalpStrategy
 from src.analysis.strategies.m1_supertrend_scalp import M1SupertrendScalpStrategy
 from src.analysis.strategies.m1_ema_micro import M1EmaMicroStrategy
 
+from src.analysis.claude_signal_filter import ClaudeSignalFilter
 from src.config.schema import AppConfig
 from src.core.enums import SignalAction
 from src.core.events import EventBus, SignalEvent
@@ -115,6 +116,23 @@ class SignalGenerator:
         self._point_sizes: dict[str, float] = {
             inst.symbol: inst.point_size for inst in config.instruments
         }
+
+        # Claude AI signal filter (optional pre-trade confidence gate)
+        self._claude_filter: ClaudeSignalFilter | None = None
+        if hasattr(config, 'claude_filter') and config.claude_filter.enabled:
+            self._claude_filter = ClaudeSignalFilter(
+                model=config.claude_filter.model,
+                confidence_threshold=config.claude_filter.confidence_threshold,
+                timeout=config.claude_filter.timeout_seconds,
+            )
+            logger.info(
+                "Claude signal filter enabled (model=%s, threshold=%.2f)",
+                config.claude_filter.model,
+                config.claude_filter.confidence_threshold,
+            )
+
+        # Cache for scan context (regime/session) used by _publish_signal
+        self._scan_context: dict[str, dict] = {}
 
         # Scalping strategies (instantiate from config)
         self._scalping_strategies = []
@@ -255,6 +273,19 @@ class SignalGenerator:
         )
 
         logger.info("Regime for %s: %s", symbol, regime.value)
+
+        # Cache scan context for Claude filter (regime, session, indicators)
+        import pandas_ta as ta
+        atr_series = ta.atr(h1_bars["high"], h1_bars["low"], h1_bars["close"], length=14)
+        ema200 = h1_bars["close"].ewm(span=200, min_periods=50).mean()
+        rsi_series = ta.rsi(h1_bars["close"], length=14)
+        self._scan_context[symbol] = {
+            "regime": regime.value,
+            "session": session.name.value if session else "UNKNOWN",
+            "atr": float(atr_series.iloc[-1]) if atr_series is not None and len(atr_series) > 0 else 0.0,
+            "ema200": float(ema200.iloc[-1]) if len(ema200) > 0 else current_price,
+            "rsi": float(rsi_series.iloc[-1]) if rsi_series is not None and len(rsi_series) > 0 else 50.0,
+        }
 
         # Map regime to strategy flags
         is_choppy = regime == MarketRegime.CHOPPY
@@ -463,7 +494,9 @@ class SignalGenerator:
                     await asyncio.sleep(interval)
                     continue
 
-                for symbol in self._config.signal_generator.instruments:
+                scalp_instruments = self._config.strategies.scalping.instruments
+                instruments = scalp_instruments if scalp_instruments else self._config.signal_generator.instruments
+                for symbol in instruments:
                     try:
                         h1_bars = await asyncio.wait_for(
                             self._mt5.get_bars(symbol, "H1", count=100), timeout=30
@@ -478,7 +511,35 @@ class SignalGenerator:
             await asyncio.sleep(interval)
 
     async def _publish_signal(self, sig, strategy_name: str) -> None:
-        """Convert a strategy signal to a SignalEvent and publish."""
+        """Convert a strategy signal to a SignalEvent and publish.
+
+        If Claude filter is enabled, evaluates the signal first.
+        Skipped signals are logged but not published.
+        """
+        # Claude AI filter gate (technical signals only)
+        if self._claude_filter:
+            ctx = self._scan_context.get(sig.symbol, {})
+            filter_input = {
+                "strategy": strategy_name,
+                "symbol": sig.symbol,
+                "side": sig.action,
+                "entry": sig.entry_price,
+                "sl": sig.stop_loss,
+                "tp": getattr(sig, "take_profit", sig.entry_price),
+                "regime": ctx.get("regime", "UNKNOWN"),
+                "session": ctx.get("session", "UNKNOWN"),
+                "atr": ctx.get("atr", 0.0),
+                "ema200": ctx.get("ema200", sig.entry_price),
+                "rsi": ctx.get("rsi", 50.0),
+            }
+            if not self._claude_filter.should_take(filter_input):
+                logger.info(
+                    "Claude filter SKIPPED: %s %s %s @ %.5f (strategy=%s)",
+                    sig.action, sig.symbol, strategy_name,
+                    sig.entry_price, strategy_name,
+                )
+                return
+
         action = SignalAction.BUY if sig.action == "BUY" else SignalAction.SELL
 
         signal = Signal(

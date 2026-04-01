@@ -1,0 +1,96 @@
+# ═══════════════════════════════════════════════════════════════════════
+# FundingPips $10,000 Account — Optimal Configuration
+# Generated from backtesting matrix: 3 strategies × 4 risk levels
+#
+# OPTIMAL RISK: 0.5% per trade
+#   - MTF Momentum:    ✗ DISABLED (loses money on $10k at all risk levels)
+#   - Keltner Squeeze: ✓ profitable (+33.1%, R:R 1:4.40, $294/mo at 80% split)
+#   - Dual Supertrend: ✓ profitable (+31.5%, R:R 1:1.90, $280/mo at 80% split)
+#   - EMA Pullback:    ✓ proven live ($30→$376)
+#   - London Breakout: ✓ proven live ($30→$376)
+#
+# WARNING: MTF Momentum is NOT profitable on $10k at any tested risk level.
+# The $10k account's position limits interact differently with MTF signals.
+#
+# PROJECTED MONTHLY INCOME (funded, 80% split): ~$574/month (Keltner+DST)
+# ═══════════════════════════════════════════════════════════════════════
+
+account:
+  initial_balance: 10000
+  mode: "live"
+  risk_per_trade_pct: 0.5          # ★ OPTIMAL for $10k
+  max_lot_per_trade: 1.00
+  min_lot_size: 0.01
+  balance_adjustments: []
+
+risk:
+  max_open_positions: 4
+  max_positions_per_symbol: 3
+  max_daily_trades: 50
+  max_daily_loss_pct: 4.0
+  max_drawdown_pct: 9.0
+
+prop_firm:
+  enabled: true
+  provider: "fundingpips"
+  account_size: 10000
+  phase: "step1"                   # Change: step1 → step2 → funded
+  leverage_metals: 30
+  commission_per_lot_metals: 5.0
+  daily_loss_limit_pct: 5.0
+  max_overall_dd_pct: 10.0
+  safety_buffer_daily_pct: 1.0
+  safety_buffer_dd_pct: 1.0
+  safety_buffer_daily_usd: 7
+  safety_buffer_dd_usd: 7
+  profit_target_pct: 10.0         # Step1=10.0, Step2=5.0, Funded=0
+  max_risk_per_trade_pct: 3.0     # FundingPips: <$50k = 3% max
+  friday_auto_close: true
+  friday_close_hour_utc: 21
+  news_filter_enabled: true
+  max_directional_positions: 2
+  min_trading_days: 3
+  inactivity_limit_days: 30
+
+strategies:
+  scalping:
+    risk_per_trade_pct: 0.5
+    profit_growth_factor: 0.50
+    max_total_open_positions: 4
+    daily_loss_limit_pct: 4.0
+    instruments: [XAUUSD]
+    strategies_enabled:
+      - m5_keltner_squeeze         # ✓ +33.1%, R:R 1:4.40, WR 22%
+      - m5_dual_supertrend         # ✓ +31.5%, R:R 1:1.90, WR 37%
+      # - m5_mtf_momentum          # ✗ DISABLED — loses money on $10k at all risk levels
+  ema_pullback:
+    enabled: true
+    fast_ema: 8
+    slow_ema: 21
+    trend_ema: 50
+    pullback_max_candles: 5
+    entry_window_candles: 2
+    atr_sl_multiplier: 3.5
+    atr_tp_multiplier: 10.0
+    entry_timeframe: "M15"
+    regime_timeframe: "H1"
+  london_breakout:
+    enabled: true
+    asian_start_hour: 0
+    asian_end_hour: 7
+    breakout_buffer_pips: 3.0
+    max_trades_per_day: 2
+    tp_multiplier: 5.0
+    timeframe: "M15"
+
+claude_filter:
+  enabled: false
+
+signal_generator:
+  instruments: [XAUUSD, XAGUSD, BTCUSD, ETHUSD]
+  instrument_overrides: {}
+  allowed_sessions:
+    - london
+    - new_york
+    - london_ny_overlap
+    - asian_london_overlap

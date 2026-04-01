@@ -79,6 +79,14 @@ def _resolve_strategies(strategy_arg: str, timeframe: str) -> dict[str, type]:
     if strategy_arg == "all_m1":
         return dict(M1_STRATEGIES)
     combined = {**M5_STRATEGIES, **M1_STRATEGIES}
+    if "," in strategy_arg:
+        result = {}
+        for name in [s.strip() for s in strategy_arg.split(",")]:
+            if name not in combined:
+                logger.error("Unknown strategy in combo: %s", name)
+                sys.exit(1)
+            result[name] = combined[name]
+        return result
     if strategy_arg in combined:
         return {strategy_arg: combined[strategy_arg]}
     logger.error("Unknown strategy: %s", strategy_arg)
@@ -185,7 +193,9 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--timeframe", choices=["M1", "M5"], default="M5")
     p.add_argument("--csv-primary", help="Path to M1 or M5 CSV file")
     p.add_argument("--csv-h1", help="Optional H1 CSV (otherwise resampled)")
-    p.add_argument("--strategy", default="all", choices=valid)
+    p.add_argument("--csv-m1", help="Optional M1 CSV for M1 strategies when primary is M5 (auto-detected if omitted)")
+    p.add_argument("--strategy", default="all",
+                   help="Strategy name, comma-separated combo, or: all/all_m5/all_m1")
     p.add_argument("--start", help="Start date YYYY-MM-DD")
     p.add_argument("--end", help="End date YYYY-MM-DD")
     p.add_argument("--initial-capital", type=float, default=10_000.0)
@@ -208,10 +218,14 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--account-size", type=float, default=5000.0, help="Prop firm account size")
     p.add_argument("--leverage", type=float, default=30.0, help="Leverage for metals")
     p.add_argument("--phase", default="step1", choices=["step1", "step2", "master"])
+    p.add_argument("--safety-buffer-daily-usd", type=float, default=7.0,
+                   help="Stop trading $N before daily loss hard limit")
+    p.add_argument("--safety-buffer-dd-usd", type=float, default=7.0,
+                   help="Stop trading $N before DD floor hard limit")
     return p
 
 
-def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
+def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label, m1_data=None):
     """Execute single run, compare, or multi-period mode."""
     prop_firm_config = None
     if args.prop_firm:
@@ -221,6 +235,8 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
             account_size=acct_size,
             phase=args.phase,
             leverage_metals=args.leverage,
+            safety_buffer_daily_usd=args.safety_buffer_daily_usd,
+            safety_buffer_dd_usd=args.safety_buffer_dd_usd,
         )
         # Override initial_capital to match prop firm account size
         args.initial_capital = acct_size
@@ -252,7 +268,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
                 point_size=point_size, tick_value=tick_value,
             )
             logger.info("Running period %s (%s to %s, %d bars)", pname, ps, pe, len(pdata))
-            result = engine.run(pdata, h1_data)
+            result = engine.run(pdata, h1_data, m1_data=m1_data)
             rd = _result_to_dict(result)
             rd["period"], rd["strategy"] = pname, f"{label}_{pname}"
             all_results.append(rd)
@@ -275,7 +291,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
                 point_size=point_size, tick_value=tick_value,
             )
             logger.info("Running strategy: %s", name)
-            result = engine.run(primary_data, h1_data)
+            result = engine.run(primary_data, h1_data, m1_data=m1_data)
             rd = _result_to_dict(result)
             rd["strategy"] = name
             all_results.append(rd)
@@ -293,7 +309,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label):
         args.profit_growth, args.max_lot, args.tiered_caps,
         prop_firm_config=prop_firm_config,
     )
-    result = engine.run(primary_data, h1_data)
+    result = engine.run(primary_data, h1_data, m1_data=m1_data)
     print(result.summary())
     rd = _result_to_dict(result)
     _save_results(rd, args.symbol, label)
@@ -318,11 +334,20 @@ def main() -> None:
 
     h1_data = load_from_csv(args.csv_h1) if args.csv_h1 else None
 
+    # Load supplemental M1 data for M1 strategies when primary is M5
+    m1_data = None
+    if args.timeframe == "M5":
+        m1_csv = args.csv_m1 or _find_csv(args.symbol, "M1")
+        if m1_csv:
+            logger.info("Loading supplemental M1 data from %s", m1_csv)
+            m1_data = load_from_csv(m1_csv)
+            logger.info("M1 data: %d bars", len(m1_data))
+
     strat_map = _resolve_strategies(args.strategy, args.timeframe)
     if not strat_map:
         sys.exit("ERROR: No strategies available to run")
 
-    _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label)
+    _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label, m1_data=m1_data)
 
 
 if __name__ == "__main__":

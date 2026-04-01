@@ -32,6 +32,8 @@ class PropFirmConfig:
     profit_target_pct: float = 10.0  # step1=10%, step2=5%
     safety_buffer_daily_pct: float = 1.0  # stop at 4% not 5%
     safety_buffer_dd_pct: float = 1.0  # floor buffer
+    safety_buffer_daily_usd: float = 0.0  # when > 0, overrides pct buffer
+    safety_buffer_dd_usd: float = 0.0     # when > 0, overrides pct buffer
     leverage_metals: float = 30.0
     commission_per_lot: float = 5.0
     friday_auto_close: bool = True
@@ -49,20 +51,28 @@ class PropFirmGuard:
 
         # Calculate limits
         self._dd_floor = c.account_size * (1 - c.max_overall_dd_pct / 100)
-        self._dd_floor_with_buffer = c.account_size * (
-            1 - (c.max_overall_dd_pct - c.safety_buffer_dd_pct) / 100
-        )
         self._daily_limit = c.account_size * c.daily_loss_limit_pct / 100
-        self._daily_limit_with_buffer = (
-            c.account_size * (c.daily_loss_limit_pct - c.safety_buffer_daily_pct) / 100
-        )
+
+        if c.safety_buffer_daily_usd > 0:
+            self._daily_limit_with_buffer = self._daily_limit - c.safety_buffer_daily_usd
+        else:
+            self._daily_limit_with_buffer = (
+                c.account_size * (c.daily_loss_limit_pct - c.safety_buffer_daily_pct) / 100
+            )
+
+        if c.safety_buffer_dd_usd > 0:
+            self._dd_floor_with_buffer = self._dd_floor + c.safety_buffer_dd_usd
+        else:
+            self._dd_floor_with_buffer = c.account_size * (
+                1 - (c.max_overall_dd_pct - c.safety_buffer_dd_pct) / 100
+            )
         self._profit_target = c.account_size * c.profit_target_pct / 100
 
-        # Phase-specific profit targets
-        if c.phase == "step2":
-            self._profit_target = c.account_size * 5.0 / 100  # $250
-        elif c.phase == "master":
-            self._profit_target = float("inf")  # no target on master
+        # Phase-specific profit targets (use config value, don't hardcode)
+        # FundingPips: Step1=8%/10%, Step2=5%, Master/Funded=no target
+        if c.phase in ("master", "funded"):
+            self._profit_target = float("inf")
+        # else: uses profit_target_pct from config (set per phase)
 
         # Daily tracking
         self._current_date: str = ""
@@ -107,11 +117,6 @@ class PropFirmGuard:
         # Check daily loss (with buffer)
         if self._daily_pnl <= -self._daily_limit_with_buffer:
             return False, f"Daily loss ${self._daily_pnl:.2f} near limit ${-self._daily_limit:.2f}"
-
-        # Check profit target reached
-        profit = equity - self._config.account_size
-        if profit >= self._profit_target and self._config.phase != "master":
-            return False, f"PROFIT TARGET REACHED! Profit ${profit:.2f} >= ${self._profit_target:.2f}"
 
         # Friday auto-close check
         if self._config.friday_auto_close and self.should_friday_close(bar_time):
@@ -184,8 +189,57 @@ class PropFirmGuard:
     def check_profit_target(self, equity: float) -> tuple[bool, float]:
         """Check if profit target is reached. Returns (reached, profit)."""
         profit = equity - self._config.account_size
-        reached = profit >= self._profit_target and self._config.phase != "master"
+        reached = profit >= self._profit_target and self._config.phase not in ("master", "funded")
         return reached, profit
+
+    def reset_after_payout(self, new_balance: float) -> None:
+        """Reset guard state after a master account payout/withdrawal.
+
+        Recalculates all limits from the new balance. Called manually
+        after a withdrawal resets the funded account balance.
+
+        IMPORTANT: Must only be called when ALL positions are closed.
+        If called with open positions, daily loss tracking will be
+        anchored to wrong reference point.
+        """
+        c = self._config
+        old_balance = c.account_size
+        c.account_size = new_balance
+
+        self._dd_floor = new_balance * (1 - c.max_overall_dd_pct / 100)
+        if c.safety_buffer_dd_usd > 0:
+            self._dd_floor_with_buffer = self._dd_floor + c.safety_buffer_dd_usd
+        else:
+            self._dd_floor_with_buffer = new_balance * (
+                1 - (c.max_overall_dd_pct - c.safety_buffer_dd_pct) / 100
+            )
+
+        self._daily_limit = new_balance * c.daily_loss_limit_pct / 100
+        if c.safety_buffer_daily_usd > 0:
+            self._daily_limit_with_buffer = self._daily_limit - c.safety_buffer_daily_usd
+        else:
+            self._daily_limit_with_buffer = (
+                new_balance * (c.daily_loss_limit_pct - c.safety_buffer_daily_pct) / 100
+            )
+
+        self._dd_tiers = [
+            (new_balance * 1.04, 1.0),
+            (new_balance, 0.8),
+            (new_balance * 0.96, 0.5),
+            (new_balance * 0.92, 0.3),
+        ]
+
+        self._daily_start_equity = new_balance
+        self._daily_pnl = 0.0
+        self._recent_trades.clear()
+
+        logger.info(
+            "PropFirmGuard RESET after payout: $%.0f -> $%.0f, "
+            "floor=$%.0f (buffer=$%.0f), daily=$%.0f (buffer=$%.0f)",
+            old_balance, new_balance,
+            self._dd_floor, self._dd_floor_with_buffer,
+            self._daily_limit, self._daily_limit_with_buffer,
+        )
 
     @property
     def dd_floor(self) -> float:

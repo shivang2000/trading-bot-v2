@@ -41,6 +41,7 @@ class PositionMonitor:
         trailing_stop_config: TrailingStopConfig | None = None,
         positions_callback: Callable[[list], None] | None = None,
         initial_balance: float = 30.0,
+        prop_firm_guard=None,
     ) -> None:
         self._mt5 = mt5_client
         self._event_bus = event_bus
@@ -56,6 +57,8 @@ class PositionMonitor:
             max_drawdown_usd=initial_balance * 0.20,     # 20% of initial
         )
         self._emergency_triggered = False
+        self._prop_firm_guard = prop_firm_guard
+        self._friday_close_triggered = False
 
         # Trailing stop management
         self._ts_config = trailing_stop_config
@@ -169,6 +172,52 @@ class PositionMonitor:
                         )
             except Exception:
                 logger.debug("Emergency check skipped", exc_info=True)
+
+        now = datetime.now(timezone.utc)
+
+        # Friday auto-close — actually close open positions before weekend gap
+        if self._prop_firm_guard and current_tickets:
+            if now.weekday() != 4:
+                self._friday_close_triggered = False  # reset on non-Friday
+            elif not self._friday_close_triggered and self._prop_firm_guard.should_friday_close(now):
+                self._friday_close_triggered = True
+                logger.warning(
+                    "FRIDAY AUTO-CLOSE: closing %d position(s) before weekend gap",
+                    len(current_tickets),
+                )
+                for pos in list(current_tickets.values()):
+                    close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+                    order = Order(
+                        symbol=pos.symbol, side=close_side,
+                        order_type=OrderType.MARKET, volume=pos.volume,
+                        magic=200000, comment="FRIDAY_CLOSE",
+                    )
+                    await self._event_bus.publish(
+                        OrderEvent(timestamp=datetime.now(timezone.utc), order=order)
+                    )
+
+        # Periodic PropFirmGuard equity check — catches rapid drawdown between signals
+        if self._prop_firm_guard and self._account_state_func and current_tickets:
+            try:
+                account = self._account_state_func()
+                can_trade, reason = self._prop_firm_guard.can_trade(account.equity, now)
+                if not can_trade and ("DANGER:" in reason or "Daily loss" in reason):
+                    logger.critical(
+                        "PROPFIRM GUARD (periodic): %s — closing all %d position(s)",
+                        reason, len(current_tickets),
+                    )
+                    for pos in list(current_tickets.values()):
+                        close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+                        order = Order(
+                            symbol=pos.symbol, side=close_side,
+                            order_type=OrderType.MARKET, volume=pos.volume,
+                            magic=200000, comment="PROPFIRM_GUARD",
+                        )
+                        await self._event_bus.publish(
+                            OrderEvent(timestamp=datetime.now(timezone.utc), order=order)
+                        )
+            except Exception:
+                logger.debug("PropFirm periodic check skipped", exc_info=True)
 
     async def _handle_close(self, position: Position) -> None:
         """Handle a detected position close."""
