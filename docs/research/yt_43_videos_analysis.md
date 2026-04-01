@@ -138,3 +138,37 @@ Based on 43 videos analysis:
 - Multiple videos on candlestick patterns for entry confirmation
 - We have basic patterns (engulfing, pin bars)
 - Add: doji, morning/evening star, three soldiers/crows as signal boosters
+
+---
+
+## INSTAGRAM REELS ANALYSIS (5 reels transcribed via Whisper)
+
+### Reel: Box Theory Strategy (DWDUW26DYbZ) — ACTIONABLE
+
+**Complete strategy in 60 seconds:**
+
+1. **Box the previous day's high and low** — draw horizontal lines
+2. **Draw a middle line** between high and low
+3. **At bottom of box → BUY** (look for wick rejection candle)
+4. **At top of box → SELL** (look for wick rejection candle)
+5. **At middle of box → DO NOTHING** (false signals zone)
+
+**Entry confirmation:** "John Wick candle" = long wick rejection candle (pin bar)
+
+**Implementation idea:** This is a daily-range mean-reversion strategy. Similar to our London Breakout (uses Asian range) but trades WITHIN the range instead of breakout. Could be implemented as:
+- Calculate previous day high/low from H1 or D1 data
+- Buy zone: price at bottom 25% of range + pin bar/wick rejection
+- Sell zone: price at top 25% of range + pin bar/wick rejection  
+- No-trade zone: middle 50% of range
+
+### Other Reels
+- DWjzkKijQZq: Too short, visual-only content
+- DWb880ciFAo: Music reel, no trading content
+- DVZccCxk-mU / DSi1knsCGLF: Garbled audio, couldn't transcribe clearly
+
+### YouTube Videos (rate-limited, 1 of 3 downloaded)
+- "This Trading Strategy Will Create Millionaires" (5J01qKDAziM) — downloaded ✓
+- "How to Align Monthly, Weekly & Daily Bias (SMC)" (sKeiQzRJcNw) — rate limited
+- "How Pro Traders Align Bias (Monthly Weekly Daily)" (zFKs1vZ0WHU) — rate limited
+
+Will retry YouTube downloads later when rate limit expires.
