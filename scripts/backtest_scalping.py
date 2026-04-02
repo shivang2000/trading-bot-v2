@@ -42,6 +42,8 @@ _IMPORTS: list[tuple[dict, str, str, str]] = [
     (M5_STRATEGIES, "m5_mtf_momentum", "src.analysis.strategies.m5_mtf_momentum", "M5MtfMomentumStrategy"),
     (M5_STRATEGIES, "m5_bb_squeeze", "src.analysis.strategies.m5_bb_squeeze", "M5BbSqueezeStrategy"),
     (M5_STRATEGIES, "m5_mean_reversion", "src.analysis.strategies.m5_mean_reversion", "M5MeanReversionStrategy"),
+    (M5_STRATEGIES, "m5_box_theory", "src.analysis.strategies.m5_box_theory", "M5BoxTheoryStrategy"),
+    (M5_STRATEGIES, "m5_amd_cycle", "src.analysis.strategies.m5_amd_cycle", "M5AmdCycleStrategy"),
     (M1_STRATEGIES, "m1_heikin_ashi_momentum", "src.analysis.strategies.m1_heikin_ashi_momentum", "M1HeikinAshiMomentumStrategy"),
     (M1_STRATEGIES, "m1_rsi_scalp", "src.analysis.strategies.m1_rsi_scalp", "M1RsiScalpStrategy"),
     (M1_STRATEGIES, "m1_supertrend_scalp", "src.analysis.strategies.m1_supertrend_scalp", "M1SupertrendScalpStrategy"),

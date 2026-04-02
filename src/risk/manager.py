@@ -246,6 +246,16 @@ class RiskManager:
                     "directional_exposure", direction, self._prop_firm_guard._config.max_directional_positions
                 )
 
+        # 1c. R:R minimum gate — reject signals with R:R < 1.5
+        if signal.action in (SignalAction.BUY, SignalAction.SELL):
+            if signal.stop_loss and signal.take_profit and signal.entry_price:
+                sl_dist = abs(signal.entry_price - signal.stop_loss)
+                tp_dist = abs(signal.take_profit - signal.entry_price)
+                if sl_dist > 0:
+                    rr_ratio = tp_dist / sl_dist
+                    if rr_ratio < 1.5:
+                        raise RiskLimitExceeded("rr_ratio", round(rr_ratio, 2), 1.5)
+
         # 2. Max positions per symbol (strategy-aware for scalping)
         symbol_positions = [p for p in positions if p.symbol == signal.symbol]
 

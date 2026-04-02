@@ -47,6 +47,8 @@ from src.analysis.strategies.m1_heikin_ashi_momentum import M1HeikinAshiMomentum
 from src.analysis.strategies.m1_rsi_scalp import M1RsiScalpStrategy
 from src.analysis.strategies.m1_supertrend_scalp import M1SupertrendScalpStrategy
 from src.analysis.strategies.m1_ema_micro import M1EmaMicroStrategy
+from src.analysis.strategies.m5_box_theory import M5BoxTheoryStrategy
+from src.analysis.strategies.m5_amd_cycle import M5AmdCycleStrategy
 
 from src.analysis.claude_signal_filter import ClaudeSignalFilter
 from src.config.schema import AppConfig
@@ -69,6 +71,8 @@ SCALPING_REGISTRY: dict[str, type] = {
     "m1_rsi_scalp": M1RsiScalpStrategy,
     "m1_supertrend_scalp": M1SupertrendScalpStrategy,
     "m1_ema_micro": M1EmaMicroStrategy,
+    "m5_box_theory": M5BoxTheoryStrategy,
+    "m5_amd_cycle": M5AmdCycleStrategy,
 }
 
 
@@ -279,12 +283,25 @@ class SignalGenerator:
         atr_series = ta.atr(h1_bars["high"], h1_bars["low"], h1_bars["close"], length=14)
         ema200 = h1_bars["close"].ewm(span=200, min_periods=50).mean()
         rsi_series = ta.rsi(h1_bars["close"], length=14)
+
+        # MTF bias alignment: daily EMA(21) ≈ H1 EMA(504), weekly ≈ H1 EMA(2520)
+        daily_ema21 = h1_bars["close"].ewm(span=504, min_periods=200).mean()
+        weekly_ema21 = h1_bars["close"].ewm(span=2520, min_periods=500).mean()
+        daily_bias = ""
+        weekly_bias = ""
+        if len(daily_ema21) > 0 and not daily_ema21.iloc[-1] != daily_ema21.iloc[-1]:  # not NaN
+            daily_bias = "bullish" if current_price > float(daily_ema21.iloc[-1]) else "bearish"
+        if len(weekly_ema21) > 0 and not weekly_ema21.iloc[-1] != weekly_ema21.iloc[-1]:  # not NaN
+            weekly_bias = "bullish" if current_price > float(weekly_ema21.iloc[-1]) else "bearish"
+
         self._scan_context[symbol] = {
             "regime": regime.value,
             "session": session.name.value if session else "UNKNOWN",
             "atr": float(atr_series.iloc[-1]) if atr_series is not None and len(atr_series) > 0 else 0.0,
             "ema200": float(ema200.iloc[-1]) if len(ema200) > 0 else current_price,
             "rsi": float(rsi_series.iloc[-1]) if rsi_series is not None and len(rsi_series) > 0 else 50.0,
+            "daily_bias": daily_bias,
+            "weekly_bias": weekly_bias,
         }
 
         # Map regime to strategy flags
@@ -513,10 +530,47 @@ class SignalGenerator:
     async def _publish_signal(self, sig, strategy_name: str) -> None:
         """Convert a strategy signal to a SignalEvent and publish.
 
-        If Claude filter is enabled, evaluates the signal first.
+        Applies filters in order: EMA(200) → MTF bias → Claude AI.
         Skipped signals are logged but not published.
         """
-        # Claude AI filter gate (technical signals only)
+        ctx = self._scan_context.get(sig.symbol, {})
+
+        # ── Filter 1: EMA(200) trend filter ──
+        # Don't buy below EMA(200), don't sell above
+        ema200 = ctx.get("ema200", 0)
+        if ema200 > 0 and sig.entry_price:
+            if sig.action == "BUY" and sig.entry_price < ema200:
+                logger.info(
+                    "EMA200 filter: BUY %s rejected (price %.2f < EMA200 %.2f)",
+                    sig.symbol, sig.entry_price, ema200,
+                )
+                return
+            if sig.action == "SELL" and sig.entry_price > ema200:
+                logger.info(
+                    "EMA200 filter: SELL %s rejected (price %.2f > EMA200 %.2f)",
+                    sig.symbol, sig.entry_price, ema200,
+                )
+                return
+
+        # ── Filter 2: MTF bias alignment ──
+        # Weekly + daily bias must agree with trade direction
+        daily_bias = ctx.get("daily_bias", "")
+        weekly_bias = ctx.get("weekly_bias", "")
+        if daily_bias and weekly_bias:
+            if sig.action == "BUY" and (daily_bias != "bullish" or weekly_bias != "bullish"):
+                logger.info(
+                    "MTF bias filter: BUY %s rejected (daily=%s, weekly=%s)",
+                    sig.symbol, daily_bias, weekly_bias,
+                )
+                return
+            if sig.action == "SELL" and (daily_bias != "bearish" or weekly_bias != "bearish"):
+                logger.info(
+                    "MTF bias filter: SELL %s rejected (daily=%s, weekly=%s)",
+                    sig.symbol, daily_bias, weekly_bias,
+                )
+                return
+
+        # ── Filter 3: Claude AI filter gate (technical signals only) ──
         if self._claude_filter:
             ctx = self._scan_context.get(sig.symbol, {})
             filter_input = {
