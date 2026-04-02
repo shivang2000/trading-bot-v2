@@ -172,3 +172,28 @@ Based on 43 videos analysis:
 - "How Pro Traders Align Bias (Monthly Weekly Daily)" (zFKs1vZ0WHU) — rate limited
 
 Will retry YouTube downloads later when rate limit expires.
+
+### Reel: AMD/FEG Cycle (DVcQ8Hhkg_b) — ACTIONABLE
+
+**"Accumulation, Manipulation, FEG, Distribution"** — the ICT/SMC market cycle:
+
+1. **Accumulation** — price consolidates, smart money builds positions
+2. **Manipulation** — fake breakout, liquidity grab (stop hunts)  
+3. **FEG (Fair Value Gap)** — imbalance created during the move
+4. **Distribution** — the real directional move
+
+**Implementation idea:** Detect the full AMD cycle:
+- Accumulation = low ATR + range-bound (existing regime: RANGING)
+- Manipulation = liquidity sweep beyond range (existing SMC: sweep detection)
+- FEG = fair value gap created (existing SMC: FVG detection)
+- Distribution = trend continuation from FEG (existing: break of structure)
+
+Our SMC Confluence layer already detects individual components. A higher-level "AMD Cycle Detector" could combine them into a sequenced pattern for highest-confidence entries.
+
+### YouTube: Hindi SMC Bias Videos (sKeiQzRJcNw + zFKs1vZ0WHU)
+
+Topic: Multi-timeframe bias alignment (monthly → weekly → daily)
+Language: Hindi — transcribed but garbled in English. Key concepts detected:
+- Daily bias combined with weekly and monthly
+- 3-timeframe alignment method
+- Order block (OB) usage across timeframes
