@@ -1,0 +1,76 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Vantage $50 Micro Account — Optimal Configuration
+# Generated from 160-cell backtesting matrix (Apr 2026)
+#
+# OPTIMAL RISK: 1% per trade (lots at minimum 0.01 regardless — risk % barely matters)
+#   - Dual Supertrend: ✓ +8441%, R:R 1:1.76, 901 trades (compounding effect)
+#   - London Breakout: ✓ +4898%, R:R 1:1.31, 79 trades
+#   - Keltner Squeeze: ✓ +1511%, R:R 1:5.46, 242 trades
+#   - MTF Momentum:    ✓ +301%, R:R 1:1.77, 54 trades
+#
+# DISABLED (lose money on $50):
+#   - Box Theory:   ✗ -8.9%
+#   - StochRSI ADX: ✗ -9.5% (only 1 trade)
+#   - EMA Pullback: ✗ -13.3% (SL too wide for $50)
+#   - AMD Cycle:    ✗ -14.3%
+#
+# NOTE: On $50, all trades are minimum lot (0.01). Growth comes from
+# compounding — profits increase equity → position sizes grow.
+# This is a long-term growth account, not a quick income source.
+# ═══════════════════════════════════════════════════════════════════════
+
+account:
+  initial_balance: 50
+  mode: "live"
+  risk_per_trade_pct: 1.0
+  max_lot_per_trade: 0.50
+  min_lot_size: 0.01
+  balance_adjustments: []
+
+risk:
+  max_open_positions: 4
+  max_positions_per_symbol: 3
+  max_daily_trades: 50
+  max_daily_loss_pct: 8.0           # More relaxed for personal account (no prop firm rules)
+  max_drawdown_pct: 20.0            # No prop firm — wider DD tolerance
+
+# No prop firm guard for Vantage personal account
+prop_firm:
+  enabled: false
+
+strategies:
+  scalping:
+    risk_per_trade_pct: 1.0
+    profit_growth_factor: 0.50
+    max_total_open_positions: 4
+    daily_loss_limit_pct: 8.0
+    instruments: [XAUUSD]
+    strategies_enabled:
+      - m5_dual_supertrend         # ✓ +8441%, best performer on $50
+      - m5_keltner_squeeze         # ✓ +1511%, R:R 1:5.46
+      - m5_mtf_momentum            # ✓ +301%, solid all-rounder
+      # - m5_box_theory            # ✗ loses money on $50
+      # - m5_amd_cycle             # ✗ loses money on $50
+      # - m5_stochrsi_adx          # ✗ loses money on $50
+  london_breakout:
+    enabled: true                   # ✓ +4898%, 79 trades
+    asian_start_hour: 0
+    asian_end_hour: 7
+    breakout_buffer_pips: 3.0
+    max_trades_per_day: 2
+    tp_multiplier: 5.0
+    timeframe: "M15"
+  ema_pullback:
+    enabled: false                  # ✗ SL too wide for $50 — loses money
+
+claude_filter:
+  enabled: false
+
+signal_generator:
+  instruments: [XAUUSD]            # Single instrument for $50 — focus on gold
+  instrument_overrides: {}
+  allowed_sessions:
+    - london
+    - new_york
+    - london_ny_overlap
+    - asian_london_overlap
