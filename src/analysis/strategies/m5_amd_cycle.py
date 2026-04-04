@@ -141,6 +141,32 @@ class M5AmdCycleStrategy(ScalpingStrategyBase):
 
         return None
 
+    def _get_h1_9am_bias(self, h1_bars: pd.DataFrame, as_of: datetime) -> str:
+        """Get directional bias from the H1 candle closing at/after 9am UTC.
+
+        Returns 'bullish', 'bearish', or '' if no data.
+        """
+        if h1_bars is None or len(h1_bars) < 5:
+            return ""
+
+        df = h1_bars.copy()
+        if "time" in df.columns:
+            df["time"] = pd.to_datetime(df["time"], utc=True)
+        else:
+            return ""
+
+        today = as_of.date()
+        nine_am_candles = df[
+            (df["time"].dt.date == today)
+            & (df["time"].dt.hour >= 9)
+            & (df["time"].dt.hour <= 10)
+        ]
+        if len(nine_am_candles) == 0:
+            return ""
+
+        candle = nine_am_candles.iloc[0]
+        return "bullish" if candle["close"] > candle["open"] else "bearish"
+
     async def scan(
         self,
         symbol: str,
@@ -167,6 +193,9 @@ class M5AmdCycleStrategy(ScalpingStrategyBase):
         regime_str = regime.value if hasattr(regime, "value") else str(regime) if regime else ""
         if regime_str in ("STRONG_TREND_UP", "STRONG_TREND_DOWN"):
             return None
+
+        # Power of Three: 9am H1 candle sets directional bias
+        h1_bias = self._get_h1_9am_bias(h1_bars, now) if h1_bars is not None else ""
 
         # Calculate ATR
         import pandas_ta as ta
@@ -196,8 +225,8 @@ class M5AmdCycleStrategy(ScalpingStrategyBase):
         # Step 4: Generate distribution entry (opposite to sweep)
         signal = None
 
-        if sweep_dir == "below":
-            # Sweep below = bullish manipulation → BUY distribution
+        if sweep_dir == "below" and h1_bias != "bearish":
+            # Sweep below = bullish manipulation → BUY (only if H1 bias not bearish)
             sl = sweep_price - atr * 0.5  # SL below the sweep wick
             tp = zone.high + (zone.high - zone.low)  # TP = range width above zone
             rr = abs(tp - current_price) / abs(current_price - sl) if abs(current_price - sl) > 0 else 0
@@ -215,8 +244,8 @@ class M5AmdCycleStrategy(ScalpingStrategyBase):
                     + (f", FEG confirmed" if feg else ""),
                 )
 
-        elif sweep_dir == "above":
-            # Sweep above = bearish manipulation → SELL distribution
+        elif sweep_dir == "above" and h1_bias != "bullish":
+            # Sweep above = bearish manipulation → SELL (only if H1 bias not bullish)
             sl = sweep_price + atr * 0.5  # SL above the sweep wick
             tp = zone.low - (zone.high - zone.low)  # TP = range width below zone
             rr = abs(current_price - tp) / abs(sl - current_price) if abs(sl - current_price) > 0 else 0
