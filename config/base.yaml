@@ -40,6 +40,36 @@ instruments:
     min_lot: 0.01
     max_lot: 100.0
     lot_step: 0.01
+  - symbol: USDJPY
+    point_size: 0.001      # MT5: point=0.001 (3-digit JPY pair)
+    tick_value: 0.01       # Approximate — verify from MT5 symbol_info
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: GBPJPY
+    point_size: 0.001      # MT5: point=0.001 (3-digit JPY pair)
+    tick_value: 0.01       # Approximate — verify from MT5 symbol_info
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: NZDUSD
+    point_size: 0.00001    # MT5: point=0.00001 (5-digit broker)
+    tick_value: 1.0        # Standard forex: $1 per pip per lot
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: GBPUSD
+    point_size: 0.00001    # MT5: point=0.00001 (5-digit broker)
+    tick_value: 1.0        # Standard forex: $1 per pip per lot
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: EURUSD
+    point_size: 0.00001    # MT5: point=0.00001 (5-digit broker)
+    tick_value: 1.0        # Standard forex: $1 per pip per lot
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
 
 risk:
   max_open_positions: 10
