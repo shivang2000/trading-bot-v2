@@ -70,7 +70,7 @@ prop_firm:
   enabled: true                    # ← MUST be true for prop firm trading
   provider: "fundingpips"
   account_size: 5000               # <── CHANGE: Must match account.initial_balance
-  phase: "step1"                   # <── CHANGE: step1 | step2 | funded (waiting for 3-day min)
+  phase: "step2"                   # <── CHANGE: step1 | step2 | funded
   leverage_metals: 30              # FundingPips gold leverage = 1:30
   commission_per_lot_metals: 5.0   # Typical gold round-trip commission
 
@@ -92,7 +92,7 @@ prop_firm:
   # Step 1 = 8% ($400 on $5k, $800 on $10k)
   # Step 2 = 5% ($250 on $5k, $500 on $10k)  ← change this when advancing
   # Funded = 0 (ignored, no target)
-  profit_target_pct: 10.0          # <── Step1=10.0 ($500 on $5k). Change to 5.0 for Step2
+  profit_target_pct: 5.0           # <── Step2=5.0 ($250 on $5k)
 
   # ── TRADING RULES ──────────────────────────────────────────────────
   max_risk_per_trade_pct: 2.0      # Max risk any single trade can take
@@ -122,11 +122,31 @@ strategies:
     profit_growth_factor: 0.50     # Compound 50% of profits into risk sizing
     max_total_open_positions: 4
     daily_loss_limit_pct: 4.0      # Must match risk.max_daily_loss_pct
-    instruments: [XAUUSD]          # Scalping only on gold (backtested)
+    instruments: [XAUUSD, USDJPY, GBPJPY]
     strategies_enabled:
-      - m5_mtf_momentum            # +31.7%, R:R 1:1.95, 0.10 lots, WR 41%
-      - m5_keltner_squeeze         # +74.7%, R:R 1:4.00, 0.17 lots, WR 23% (1% ONLY — dies at 2%)
-      - m5_dual_supertrend         # +4329%, R:R 1:1.92, 0.14 lots, WR 47% (1% ONLY — death spiral at 2%)
+      - m5_mtf_momentum            # XAUUSD + USDJPY + GBPJPY
+      - m5_keltner_squeeze         # XAUUSD only
+      - m5_dual_supertrend         # XAUUSD only
+      - m5_amd_cycle               # XAUUSD + USDJPY + GBPJPY
+      - m5_stochrsi_adx            # GBPJPY only
+    # ── Per-instrument optimal risk (from 4-risk backtest matrix) ──
+    instrument_strategy_overrides:
+      XAUUSD:
+        m5_mtf_momentum: { risk_pct: 1.0 }
+        m5_keltner_squeeze: { risk_pct: 1.0 }
+        m5_dual_supertrend: { risk_pct: 1.0 }
+        london_breakout: { risk_pct: 1.0 }
+        m5_amd_cycle: { risk_pct: 1.0 }
+      USDJPY:
+        m5_mtf_momentum: { risk_pct: 2.0 }
+        m5_amd_cycle: { risk_pct: 0.25 }
+        ema_pullback: { risk_pct: 2.0 }
+        london_breakout: { risk_pct: 0.25 }
+      GBPJPY:
+        m5_mtf_momentum: { risk_pct: 1.0 }
+        m5_amd_cycle: { risk_pct: 2.0 }
+        m5_stochrsi_adx: { risk_pct: 2.0 }
+        ema_pullback: { risk_pct: 2.0 }
   # ── Main strategies: pinned from base.yaml (immune to drift) ────────
   ema_pullback:
     enabled: true
@@ -163,7 +183,7 @@ claude_filter:
 # SIGNAL GENERATOR — Run only gold, only during active sessions
 # ──────────────────────────────────────────────────────────────────────
 signal_generator:
-  instruments: [XAUUSD, XAGUSD, BTCUSD, ETHUSD]  # EMA+London on all 4 (proven live). Scalping limited to XAUUSD via strategies.scalping.instruments
+  instruments: [XAUUSD, XAGUSD, BTCUSD, ETHUSD, USDJPY, GBPJPY]  # All profitable instruments
   instrument_overrides: {}         # Nullify base.yaml ETHUSD 3% override — all instruments use account.risk_per_trade_pct
   allowed_sessions:
     - london

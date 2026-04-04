@@ -44,16 +44,33 @@ strategies:
     profit_growth_factor: 0.50
     max_total_open_positions: 4
     daily_loss_limit_pct: 8.0
-    instruments: [XAUUSD, USDJPY, GBPJPY]  # MTF profitable on all 3
+    instruments: [XAUUSD, USDJPY, GBPJPY]
     strategies_enabled:
-      - m5_dual_supertrend         # ✓ +8441% on XAUUSD
-      - m5_keltner_squeeze         # ✓ +1511% on XAUUSD
-      - m5_mtf_momentum            # ✓ +301% XAUUSD, +16.7% USDJPY, +22.5% GBPJPY
-      - m5_amd_cycle               # ✓ +4.5% tuned P3 (WR 66.7%, was 33.3%)
-      # - m5_box_theory            # ✗ loses money on $50
-      # - m5_stochrsi_adx          # ✗ loses money on $50
+      - m5_dual_supertrend         # XAUUSD only
+      - m5_keltner_squeeze         # XAUUSD only
+      - m5_mtf_momentum            # XAUUSD + USDJPY + GBPJPY
+      - m5_amd_cycle               # XAUUSD + USDJPY + GBPJPY
+      - m5_stochrsi_adx            # GBPJPY only
+    # ── Per-instrument optimal risk (from 4-risk backtest matrix) ──
+    instrument_strategy_overrides:
+      XAUUSD:
+        m5_mtf_momentum: { risk_pct: 1.0 }        # +301%
+        m5_keltner_squeeze: { risk_pct: 1.0 }      # +1511%
+        m5_dual_supertrend: { risk_pct: 1.0 }      # +8441%
+        london_breakout: { risk_pct: 1.0 }          # +4898%
+        m5_amd_cycle: { risk_pct: 1.0 }             # +4.5% (P3 tuned)
+      USDJPY:
+        m5_mtf_momentum: { risk_pct: 2.0 }          # +22.9% at 2% (best)
+        m5_amd_cycle: { risk_pct: 0.25 }             # +1.1% at 0.25% (best)
+        ema_pullback: { risk_pct: 2.0 }              # +2.1% at 2%
+        london_breakout: { risk_pct: 0.25 }          # +3.0% at 0.25% (best)
+      GBPJPY:
+        m5_mtf_momentum: { risk_pct: 1.0 }          # +22.5% at 1% (best)
+        m5_amd_cycle: { risk_pct: 2.0 }              # +4.2% at 2% (best)
+        m5_stochrsi_adx: { risk_pct: 2.0 }           # +2.0% at 2%
+        ema_pullback: { risk_pct: 2.0 }              # +1.9% at 2%
   london_breakout:
-    enabled: true                   # ✓ +4898%, 79 trades
+    enabled: true
     asian_start_hour: 0
     asian_end_hour: 7
     breakout_buffer_pips: 3.0
@@ -61,7 +78,7 @@ strategies:
     tp_multiplier: 5.0
     timeframe: "M15"
   ema_pullback:
-    enabled: false                  # ✗ SL too wide for $50 — loses money
+    enabled: true                   # Enabled for USDJPY + GBPJPY (profitable via overrides)
 
 claude_filter:
   enabled: false
