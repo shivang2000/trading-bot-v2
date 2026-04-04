@@ -51,7 +51,7 @@ class M5AmdCycleStrategy(ScalpingStrategyBase):
         self._accum_atr_pct = cfg.get("accum_atr_pct", 0.8)
         self._sweep_wick_atr = cfg.get("sweep_wick_atr", 1.5)
         self._feg_min_size = cfg.get("feg_min_size", 0.3)
-        self._min_rr = cfg.get("min_rr", 2.0)
+        self._min_rr = cfg.get("min_rr", 1.5)
 
     def _find_accumulation(self, bars: pd.DataFrame, atr: float) -> AccumulationZone | None:
         """Find a recent accumulation zone (tight range, low volatility)."""
@@ -228,7 +228,7 @@ class M5AmdCycleStrategy(ScalpingStrategyBase):
         if sweep_dir == "below" and h1_bias != "bearish":
             # Sweep below = bullish manipulation → BUY (only if H1 bias not bearish)
             sl = sweep_price - atr * 0.5  # SL below the sweep wick
-            tp = zone.high + (zone.high - zone.low)  # TP = range width above zone
+            tp = zone.high  # TP = opposite side of accumulation (conservative)
             rr = abs(tp - current_price) / abs(current_price - sl) if abs(current_price - sl) > 0 else 0
 
             if rr >= self._min_rr:
@@ -247,7 +247,7 @@ class M5AmdCycleStrategy(ScalpingStrategyBase):
         elif sweep_dir == "above" and h1_bias != "bullish":
             # Sweep above = bearish manipulation → SELL (only if H1 bias not bullish)
             sl = sweep_price + atr * 0.5  # SL above the sweep wick
-            tp = zone.low - (zone.high - zone.low)  # TP = range width below zone
+            tp = zone.low  # TP = opposite side of accumulation (conservative)
             rr = abs(current_price - tp) / abs(sl - current_price) if abs(sl - current_price) > 0 else 0
 
             if rr >= self._min_rr:
