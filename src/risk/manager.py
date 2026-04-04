@@ -330,7 +330,8 @@ class RiskManager:
             volume = positions[0].volume if positions else 0.01
         else:
             side = OrderSide.BUY if signal.action == SignalAction.BUY else OrderSide.SELL
-            volume = self._sizer.calculate(signal, account_state, symbol_info)
+            risk_override = signal.metadata.get("risk_pct_override") if signal.metadata else None
+            volume = self._sizer.calculate(signal, account_state, symbol_info, risk_pct=risk_override)
 
         signal_id = signal.metadata.get("signal_id") if signal.metadata else None
 

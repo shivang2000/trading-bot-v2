@@ -168,6 +168,11 @@ class SmcConfluenceConfig(BaseModel):
     volume_profile_poc_boost: float = 0.10
 
 
+class InstrumentStrategyOverride(BaseModel):
+    """Per-instrument, per-strategy risk configuration."""
+    risk_pct: float = 1.0
+
+
 class ScalpingConfig(BaseModel):
     enabled: bool = True
     max_trades_per_strategy: int = 1
@@ -188,6 +193,10 @@ class ScalpingConfig(BaseModel):
         "m5_stochrsi_adx", "m5_mtf_momentum", "m5_bb_squeeze", "m5_mean_reversion",
         "m1_heikin_ashi_momentum", "m1_rsi_scalp", "m1_supertrend_scalp", "m1_ema_micro",
     ])
+    instrument_strategy_overrides: dict[str, dict[str, InstrumentStrategyOverride]] = Field(
+        default_factory=dict,
+        description="Per-instrument strategy whitelist with optimal risk. Key=symbol, Value=dict of strategy→override",
+    )
 
 
 class PropFirmConfig(BaseModel):

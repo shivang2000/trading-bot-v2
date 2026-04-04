@@ -101,8 +101,13 @@ class PositionSizer:
         signal: Signal,
         account_state: AccountState,
         symbol_info: dict,
+        risk_pct: float | None = None,
     ) -> float:
         """Calculate lot size for a signal.
+
+        Args:
+            risk_pct: Optional per-instrument risk override (e.g. 1.0 for 1%).
+                      If provided, overrides the global account risk_per_trade_pct.
 
         Formula:
             risk_amount = equity * risk_pct
@@ -110,7 +115,8 @@ class PositionSizer:
             lot_size = risk_amount / (pip_distance * tick_value)
         """
         equity = account_state.equity
-        risk_amount = equity * self._risk_pct
+        effective_risk = (risk_pct / 100.0) if risk_pct else self._risk_pct
+        risk_amount = equity * effective_risk
 
         # Get symbol specs
         point = symbol_info.get("point", 0.00001)

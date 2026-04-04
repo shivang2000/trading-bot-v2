@@ -616,7 +616,24 @@ class SignalGenerator:
             )
             return
 
-        # ── Filter 5: Claude AI filter gate (technical signals only) ──
+        # ── Filter 5: Per-instrument strategy whitelist + risk override ──
+        risk_pct_override = None
+        overrides = self._config.strategies.scalping.instrument_strategy_overrides
+        if sig.symbol in overrides:
+            sym_overrides = overrides[sig.symbol]
+            if strategy_name not in sym_overrides:
+                logger.info(
+                    "Instrument override: %s on %s not in whitelist — rejected",
+                    strategy_name, sig.symbol,
+                )
+                return
+            risk_pct_override = sym_overrides[strategy_name].risk_pct
+            logger.debug(
+                "Instrument override: %s on %s using risk_pct=%.2f%%",
+                strategy_name, sig.symbol, risk_pct_override,
+            )
+
+        # ── Filter 6: Claude AI filter gate (technical signals only) ──
         if self._claude_filter:
             ctx = self._scan_context.get(sig.symbol, {})
             filter_input = {
@@ -651,7 +668,11 @@ class SignalGenerator:
             entry_price=sig.entry_price,
             stop_loss=sig.stop_loss,
             take_profit=sig.take_profit,
-            metadata={"strategy": strategy_name, "reason": sig.reason},
+            metadata={
+                "strategy": strategy_name,
+                "reason": sig.reason,
+                **({"risk_pct_override": risk_pct_override} if risk_pct_override else {}),
+            },
         )
 
         logger.info(
