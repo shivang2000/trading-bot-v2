@@ -59,6 +59,7 @@ strategies:
         m5_dual_supertrend: { risk_pct: 1.0 }      # +8441%
         london_breakout: { risk_pct: 1.0 }          # +4898%
         m5_amd_cycle: { risk_pct: 1.0 }             # +4.5% (P3 tuned)
+        ema_pullback: { risk_pct: 1.0 }              # live proven ($30→$376)
       USDJPY:
         m5_mtf_momentum: { risk_pct: 2.0 }          # +22.9% at 2% (best)
         m5_amd_cycle: { risk_pct: 0.25 }             # +1.1% at 0.25% (best)
@@ -78,7 +79,7 @@ strategies:
     tp_multiplier: 5.0
     timeframe: "M15"
   ema_pullback:
-    enabled: true                   # Enabled for USDJPY + GBPJPY (profitable via overrides)
+    enabled: true                   # Enabled for XAUUSD + USDJPY + GBPJPY (via overrides)
 
 claude_filter:
   enabled: false
