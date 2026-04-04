@@ -302,7 +302,33 @@ class SignalGenerator:
             "rsi": float(rsi_series.iloc[-1]) if rsi_series is not None and len(rsi_series) > 0 else 50.0,
             "daily_bias": daily_bias,
             "weekly_bias": weekly_bias,
+            "dxy_bias": "",
+            "h1_position": 0.5,
         }
+
+        # ── EURUSD Dollar Strength (for XAUUSD correlation) ──
+        if symbol == "XAUUSD":
+            try:
+                eurusd_bars = await asyncio.wait_for(
+                    self._mt5.get_bars("EURUSD", "H1", count=50), timeout=15
+                )
+                if eurusd_bars is not None and len(eurusd_bars) >= 21:
+                    eur_ema21 = eurusd_bars["close"].ewm(span=21, min_periods=10).mean()
+                    eur_price = float(eurusd_bars["close"].iloc[-1])
+                    eur_ema_val = float(eur_ema21.iloc[-1])
+                    # EURUSD up = Dollar weak = Gold bullish
+                    dxy_bias = "bearish" if eur_price > eur_ema_val else "bullish"
+                    self._scan_context[symbol]["dxy_bias"] = dxy_bias
+            except Exception:
+                logger.debug("Failed to fetch EURUSD for DXY correlation")
+
+        # ── 1H Mid-Range Position ──
+        if h1_bars is not None and len(h1_bars) >= 1:
+            current_h1 = h1_bars.iloc[-1]
+            h1_range = float(current_h1["high"]) - float(current_h1["low"])
+            if h1_range > 0:
+                h1_pos = (current_price - float(current_h1["low"])) / h1_range
+                self._scan_context[symbol]["h1_position"] = round(h1_pos, 3)
 
         # Map regime to strategy flags
         is_choppy = regime == MarketRegime.CHOPPY
@@ -570,7 +596,27 @@ class SignalGenerator:
                 )
                 return
 
-        # ── Filter 3: Claude AI filter gate (technical signals only) ──
+        # ── Filter 3: EURUSD Dollar Strength (XAUUSD only) ──
+        if sig.symbol == "XAUUSD":
+            dxy_bias = ctx.get("dxy_bias", "")
+            if dxy_bias:
+                if sig.action == "BUY" and dxy_bias == "bullish":
+                    logger.info("DXY filter: BUY XAUUSD rejected (Dollar strong)")
+                    return
+                if sig.action == "SELL" and dxy_bias == "bearish":
+                    logger.info("DXY filter: SELL XAUUSD rejected (Dollar weak)")
+                    return
+
+        # ── Filter 4: 1H Mid-Range Avoidance ──
+        h1_pos = ctx.get("h1_position", 0.5)
+        if 0.3 < h1_pos < 0.7:
+            logger.info(
+                "1H mid-range filter: %s %s rejected (h1_pos=%.2f, manipulation zone)",
+                sig.action, sig.symbol, h1_pos,
+            )
+            return
+
+        # ── Filter 5: Claude AI filter gate (technical signals only) ──
         if self._claude_filter:
             ctx = self._scan_context.get(sig.symbol, {})
             filter_input = {
