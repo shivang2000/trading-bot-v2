@@ -102,6 +102,18 @@ def find_result(acct_label: str, risk_label: str, strat_key: str) -> dict | None
     return None
 
 
+FOREX_PAIRS = ["USDJPY", "GBPJPY", "NZDUSD", "GBPUSD", "EURUSD"]
+FOREX_RISKS = [("025", 0.25, "0.25%"), ("05", 0.5, "0.5%"), ("10", 1.0, "1.0%"), ("20", 2.0, "2.0%")]
+
+
+def find_forex_result(symbol: str, risk_label: str, strat_key: str) -> dict | None:
+    pattern = f"scalp_{symbol}_forex_{symbol}_{risk_label}_{strat_key}_*.json"
+    files = sorted(glob.glob(os.path.join(RESULT_DIR, pattern)))
+    if files:
+        return analyze(files[-1])
+    return None
+
+
 def cell_class(r: dict | None) -> str:
     if r is None or r["trades"] == 0:
         return "gray"
@@ -250,6 +262,33 @@ td {{ padding:6px 8px; border:1px solid #333; text-align:center; }}
     <div class="step future"><strong>Vantage $100 (parallel)</strong><br><span class="metric">Monthly: {fmt_money(b100.get("split_mo",0))}</span></div>
     '''
     html += "</div></div>"
+
+    # Forex Pairs Matrix
+    html += '<div class="section"><h2>Forex Pairs — 8 Strategies × 2 Risks ($50 Account)</h2>'
+    html += '<p class="metric">Pairs tested: USDJPY, GBPJPY, NZDUSD, GBPUSD, EURUSD | Risks: 0.5%, 1.0%</p>'
+
+    for sym in FOREX_PAIRS:
+        html += f'<h3>{sym}</h3><table><tr><th>Strategy</th>'
+        for _, _, risk_name in FOREX_RISKS:
+            html += f'<th>{risk_name}</th>'
+        html += '</tr>'
+
+        for strat_key, strat_name in STRATEGIES:
+            html += f"<tr><td style='text-align:left'><strong>{strat_name}</strong></td>"
+            for risk_label, _, _ in FOREX_RISKS:
+                r = find_forex_result(sym, risk_label, strat_key)
+                if r is None or r["trades"] == 0:
+                    html += '<td class="gray">No trades</td>'
+                else:
+                    cls = "green" if r["ret"] > 0 else "red"
+                    html += f'<td class="{cls}">'
+                    html += f'<strong>{r["ret"]:.1f}%</strong><br>'
+                    html += f'<span class="metric">WR:{r["wr"]:.0f}% R:R 1:{r["rr"]:.1f} #{r["trades"]}</span>'
+                    html += '</td>'
+            html += '</tr>'
+        html += '</table>'
+
+    html += '</div>'
 
     # Methodology
     html += """<div class="section"><h2>Methodology</h2><ul>
