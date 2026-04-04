@@ -197,3 +197,58 @@ Language: Hindi — transcribed but garbled in English. Key concepts detected:
 - Daily bias combined with weekly and monthly
 - 3-timeframe alignment method
 - Order block (OB) usage across timeframes
+
+---
+
+## SESSION 3: New Research (Apr 4, 2026)
+
+### YouTube: "I Made $1.4M Trading Gold" (xSVlVpXLuV0) — 2,618 words
+
+**Gold-DXY Correlation Strategy:**
+1. Never just trade Gold — trade Gold vs Dollar (DXY correlation)
+2. Identify a middle timeframe range
+3. Wait for price to overextend ~20 min into range high/low
+4. Enter at ~30 min mark on market structure shift
+5. Target 50% of the overextension (mean reversion)
+6. Key: when Gold is strong AND Dollar is weak = high-probability BUY
+
+**Implementation idea:** Add DXY correlation filter. Before taking XAUUSD signals, check if DXY is moving opposite direction. Requires DXY data feed.
+
+### Instagram: Power of Three (DTvRCwhDGCZ) — 78% Win Rate
+
+**Complete strategy (works on all timeframes):**
+1. Wait for **accumulation** (tight range, no structure)
+2. Price **manipulates** — sweeps one side of the range
+3. Price **distributes** to the intended target
+
+**Trading rules:**
+- Wait for 9am 1H candle to close (establishes bias: bullish/bearish)
+- Wait for price to accumulate then manipulate into a 15min FVG
+- Wait for an inversion FVG
+- Target: opposite side of accumulation
+
+**THIS IS IDENTICAL TO OUR AMD CYCLE STRATEGY** — validates our m5_amd_cycle.py implementation. The Power of Three = Accumulation → Manipulation → Distribution.
+
+### Instagram: Multi-Timeframe Precision Entry (DWGznU_j175)
+
+**5-level timeframe cascade:**
+1. **Daily + 4H**: Establish overall bias direction
+2. **1H**: Avoid when candle is "flowing" (pre-manipulation zone)
+3. **15M/5M**: SMC setup — market structure, liquidity, order blocks
+4. **3M/1M**: Precise entry for best risk-to-reward
+
+**Implementation idea:** This validates our MTF bias alignment filter. Add 1H "flow avoidance" — when 1H candle is mid-range (not at extremes), skip signals.
+
+### Currency Pair Personalities (from user notes)
+- **XAUUSD (Gold)** = "Luxury" — our primary, well-backtested
+- **USDJPY** = "Beauty" — trending, could add to bot
+- **GBPJPY** = "Beast/Sleepless nights" — extreme volatility, high reward/risk
+- **EURUSD** = "Toxicity" — choppy, avoid for trend strategies
+- **NZDUSD** = "Peace" — calm, predictable mean reversion
+- **GBPUSD** = mentioned for scalping
+
+### New Instrument Opportunities
+Based on research, potential additions to bot (after backtesting):
+1. **USDJPY** — trending pair, good for MTF Momentum + Keltner
+2. **GBPJPY** — high volatility, good for breakout strategies
+3. **NZDUSD** — calm pair, ideal for Box Theory (mean reversion)
