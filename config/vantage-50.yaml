@@ -44,13 +44,13 @@ strategies:
     profit_growth_factor: 0.50
     max_total_open_positions: 4
     daily_loss_limit_pct: 8.0
-    instruments: [XAUUSD]
+    instruments: [XAUUSD, USDJPY, GBPJPY]  # MTF profitable on all 3
     strategies_enabled:
-      - m5_dual_supertrend         # ✓ +8441%, best performer on $50
-      - m5_keltner_squeeze         # ✓ +1511%, R:R 1:5.46
-      - m5_mtf_momentum            # ✓ +301%, solid all-rounder
+      - m5_dual_supertrend         # ✓ +8441% on XAUUSD
+      - m5_keltner_squeeze         # ✓ +1511% on XAUUSD
+      - m5_mtf_momentum            # ✓ +301% XAUUSD, +16.7% USDJPY, +22.5% GBPJPY
+      - m5_amd_cycle               # ✓ +4.5% tuned P3 (WR 66.7%, was 33.3%)
       # - m5_box_theory            # ✗ loses money on $50
-      # - m5_amd_cycle             # ✗ loses money on $50
       # - m5_stochrsi_adx          # ✗ loses money on $50
   london_breakout:
     enabled: true                   # ✓ +4898%, 79 trades
@@ -67,7 +67,7 @@ claude_filter:
   enabled: false
 
 signal_generator:
-  instruments: [XAUUSD, BTCUSD, ETHUSD]  # Gold + Crypto — more trade opportunities
+  instruments: [XAUUSD, BTCUSD, ETHUSD, USDJPY, GBPJPY]  # Gold + Crypto + profitable forex pairs
   instrument_overrides: {}
   allowed_sessions:
     - london
