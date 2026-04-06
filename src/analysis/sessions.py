@@ -130,7 +130,7 @@ class SessionManager:
         },
         {
             "name": SessionName.ASIAN,
-            "start": time(0, 0),
+            "start": time(22, 0),  # Starts 22:00 UTC (Sydney open) — spans midnight
             "end": time(8, 0),
             "priority": SessionPriority.LOW,
             "volatility": 0.7,
@@ -161,16 +161,26 @@ class SessionManager:
         if dt is None:
             dt = datetime.utcnow()
 
-        # Check weekend
-        if not self.weekend_trading and dt.weekday() >= 5:  # Saturday = 5, Sunday = 6
-            return TradingSession(
-                name=SessionName.CLOSED,
-                start_time=time(0, 0),
-                end_time=time(0, 0),
-                priority=SessionPriority.LOW,
-                volatility_rating=0.0,
-                recommended_for_gold=False,
-            )
+        # Check weekend — Saturday fully closed, Sunday closed until 22:00 UTC (Sydney open)
+        if not self.weekend_trading:
+            if dt.weekday() == 5:  # Saturday = fully closed
+                return TradingSession(
+                    name=SessionName.CLOSED,
+                    start_time=time(0, 0),
+                    end_time=time(0, 0),
+                    priority=SessionPriority.LOW,
+                    volatility_rating=0.0,
+                    recommended_for_gold=False,
+                )
+            if dt.weekday() == 6 and dt.hour < 22:  # Sunday before 22:00 UTC = closed
+                return TradingSession(
+                    name=SessionName.CLOSED,
+                    start_time=time(0, 0),
+                    end_time=time(0, 0),
+                    priority=SessionPriority.LOW,
+                    volatility_rating=0.0,
+                    recommended_for_gold=False,
+                )
 
         current_time = dt.time()
 
