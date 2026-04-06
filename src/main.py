@@ -374,8 +374,10 @@ class TradingBot:
                         "Pre-synced %d MT5 position(s) into cache",
                         len(mt5_positions),
                     )
-                    # Also sync any orphan positions into our DB
+                    # Also sync any orphan BOT positions into our DB (skip manual)
                     for pos in mt5_positions:
+                        if not pos.comment or not pos.comment.startswith("tg:"):
+                            continue  # Skip manual positions
                         existing = await self._db.get_trade_by_ticket(pos.ticket)
                         if not existing:
                             await self._db.save_bot_position(

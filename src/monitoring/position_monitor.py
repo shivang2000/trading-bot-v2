@@ -159,8 +159,11 @@ class PositionMonitor:
                 account = self._account_state_func()
                 if self._emergency.check(account):
                     self._emergency_triggered = True
-                    logger.critical("EMERGENCY STOP TRIGGERED — closing all positions")
+                    logger.critical("EMERGENCY STOP TRIGGERED — closing bot positions")
                     for pos in list(current_tickets.values()):
+                        if not self._is_bot_position(pos):
+                            logger.info("Skipping manual position ticket=%d on emergency close", pos.ticket)
+                            continue
                         close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
                         order = Order(
                             symbol=pos.symbol, side=close_side,
@@ -186,6 +189,9 @@ class PositionMonitor:
                     len(current_tickets),
                 )
                 for pos in list(current_tickets.values()):
+                    if not self._is_bot_position(pos):
+                        logger.info("Skipping manual position ticket=%d on Friday close", pos.ticket)
+                        continue
                     close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
                     order = Order(
                         symbol=pos.symbol, side=close_side,
@@ -207,6 +213,9 @@ class PositionMonitor:
                         reason, len(current_tickets),
                     )
                     for pos in list(current_tickets.values()):
+                        if not self._is_bot_position(pos):
+                            logger.info("Skipping manual position ticket=%d on propfirm guard close", pos.ticket)
+                            continue
                         close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
                         order = Order(
                             symbol=pos.symbol, side=close_side,
@@ -286,12 +295,19 @@ class PositionMonitor:
         except Exception:
             pass
 
+    @staticmethod
+    def _is_bot_position(pos) -> bool:
+        """Check if a position was opened by the bot (comment starts with 'tg:')."""
+        return bool(pos.comment and pos.comment.startswith("tg:"))
+
     async def _update_trailing_stops(
         self, positions: dict[int, Position]
     ) -> None:
-        """Update trailing stops for all open positions."""
+        """Update trailing stops for bot-opened positions only."""
         for ticket, pos in positions.items():
             try:
+                if not self._is_bot_position(pos):
+                    continue  # Skip manual positions
                 atr = await self._get_atr(pos.symbol)
                 if atr is None or atr <= 0:
                     continue

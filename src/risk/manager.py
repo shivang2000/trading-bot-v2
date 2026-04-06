@@ -355,6 +355,9 @@ class RiskManager:
             return
 
         for pos in positions:
+            if not pos.comment or not pos.comment.startswith("tg:"):
+                logger.info("Skipping manual position ticket=%d on CLOSE_ALL", pos.ticket)
+                continue
             close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
             order = Order(
                 symbol=signal.symbol,
