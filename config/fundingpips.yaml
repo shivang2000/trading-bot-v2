@@ -186,6 +186,7 @@ signal_generator:
   instruments: [XAUUSD, XAGUSD, BTCUSD, ETHUSD, USDJPY, GBPJPY]  # All profitable instruments
   instrument_overrides: {}         # Nullify base.yaml ETHUSD 3% override — all instruments use account.risk_per_trade_pct
   allowed_sessions:
+    - asian
     - london
     - new_york
     - london_ny_overlap
