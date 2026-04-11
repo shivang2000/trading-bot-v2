@@ -1,0 +1,500 @@
+with a 90% win rate and a very tight
+ 
+stop loss this is an amazing scalping
+robot in the first two videos we did the
+coding for Forex pairs USD JPY Euro USD
+and gpp USD today we're going to look at
+the modifications required to run this
+EA on bitcoin gold and US indices namely
+NASDAQ and DOW johs so with no motion
+any guns let's
+start before we get to the coding of the
+modifications let's run a quick back
+test to have a bit of an indication of
+what the EA is all about so I'm going to
+start with PTC USD on a 5 minutes chart
+is starting from 2023 until 2024 today
+I'm going to run it on every take with
+,000 Euro balance to start with now I
+know there is a lot of discussion
+between real take and every take and
+which one is better these are just two
+data sets provided by your broker I
+don't believe in either the only real
+test is actually forward testing where
+you apply the EA in a demo account and
+see over the next 2 three months how the
+EA performs you will like some things
+you will not like some things you will
+like some periods you will not like some
+periods and that will give you a bit of
+feeling of when to apply the year and
+when not to apply it more importantly
+when to turn it off so those are the
+kind of things you will only learn
+during real testing not in a back test
+anyways we're going to run it on every
+tick and let's look at the inputs we're
+running it on bitcoin profile we're
+running it on 5 minutes chart starting
+at 7:00 in the
+morning and until 2100 hours in the
+evening these are the Bitcoin related
+crypto related inputs that I'm providing
+and we're going to go through this a
+little bit more in details so let's run
+the test now the first thing you're
+going to notice is that there are no
+running draw downs and that is because
+of a very TI of stop loss that we put in
+place the second thing to note is that
+there are periods where there are
+consecutive losses there are periods
+when the EA is stagnant so for example
+between here and here but overall if you
+let the EA run for a longer period of
+time it does have more good perod than
+bad period now this EA performs very
+well when the market is trending it's
+going in One Direction by the up or down
+when the market is choppy and it's going
+sideways with no clear Direction up or
+down that's when the year struggles a
+little bit if you look at the back test
+results we started with a balance of
+€1,000 we're ending up with €
+433,000 we have 90% win rate on short
+trades we have 90% win rate on Long
+trades we have a relative draw down of
+10% Now is it going to be the same in
+the real world don't know I mean I only
+know through the back test that there
+are indications that this year can
+perform if you look at the hourly where
+you will see is that during the overlap
+of New York session and the London
+session is when the EA makes most of the
+money but it is quite profitable during
+the London session alone as as well you
+can try it during the Asian session as
+well but I have not had good experience
+with the Asian session because of the
+liquidity crash during that
+time now let's look at
+gold again 5 minutes chart is starting
+2023 until 2024 on input stab we're
+going to select the profile
+gold and thereby we're applying these
+inputs and not the Bitcoin inputs let's
+start once again you see that there are
+no running draw Downs there are periods
+of stagnation there are periods of
+consecutive losses and draw down as well
+here for example between June and
+September it is completely stagnant but
+if you let it be the overall performance
+of the EA is up and up if you look at
+the back test results what you will see
+is we started with a balance of ,000
+we're ending with a balance of €
+24,000 10% draw down 93% win on short
+trades and 92% win on Long trades again
+on the timing you will see that during
+the overlap between London session and
+New York session is when the year
+perform better it makes more more profit
+during that period but it is quite
+decent during the London session as well
+now let's look at
+NASDAQ and I will just run NASDAQ but
+you can also apply it on us30 as well
+Dow
+Jones on the input tab we're going to go
+up and we're going to select us indices
+as the profile and now these inputs are
+going to be used and not the Bitcoin
+ones or the gold ones let's start the
+test once again no relative draw Downs
+because of the tighest stop losses
+periods of stagnation periods of
+consecutive losses but overall the
+performance of the EA is up and up
+during the trending periods the e is
+going to perform very very well during
+sideways Market chaotic markets sudden
+volatile markets where it goes up and
+down very very quickly the EA will
+startle if you look at the back test
+,000 we're ending up with around
+24,000 almost 9% relative draw down 92%
+win on short trades and 91% win on Long
+trades as well timing wise on NASDAQ as
+you would imagine it's Norm during the
+US session when the year is going to
+perform better because it is a US index
+but it does do okay during the London
+session as well but do your testing see
+it in a demo account whether you like
+the New York session alone do you like
+the overlap of the London and New York
+session better or do you like to run it
+overall between New York session and
+London session up to
+you now that we've seen the back test
+results we can start with the coding of
+the modifications So today we're going
+to start looking at the modifications re
+wired in order to run it on bitcoin gold
+and US indicis starting from the
+previous video the first thing we're
+going to do is we're going to arrange
+our variables into groups so what I've
+done from the last video is that I've
+created two of these sections and I have
+put the variables which are common like
+Risk percentage time frame magic number
+start Hour end hour total number of bars
+expiration bar because this is going to
+be common variables across all of the
+profiles so I've grouped them together
+here and then all of the Forex Trading
+input related like the TP Point SL Point
+trigger point and the TSL points that I
+have put against another section now
+after this we're going to get to the top
+and what we're going to do is we're
+going to create one more section and
+we're going to call it trading profiles
+and we'll start with an enum because
+we're going to create a dropdown menu
+for our users to select from so I'm
+creating an enum I'm calling it system
+type that's the variable type which will
+be assigned later on to a variable and
+I'm giving four inputs in within that
+Forex Bitcoin gold and US indices and
+I'm giving them 0 1 2 and three as
+respective
+identifiers now for gold because mql
+already has somewhere in their coding
+gold used so we cannot give it the name
+gold as a profile so I'm giving it
+underscore gold you can give it gold
+underscore just gold is going to give
+you an error the next thing we're going
+to do is we're going to create a
+variable and we're going to call that
+variable
+system type we're asking the user to
+provide the input and this is why we're
+going to start with input system type by
+assigning this variable type so that
+these drop downs are available we're
+going to create the variable ass system
+type and the default value that we are
+assigning to it is zero which is Forex
+and after two slashes we give it a
+description trading system applied Forex
+crypto gold or indices and then I'm
+creating another integer variable system
+choice where I will store the value
+whatever the user selects then we come
+back up here and and I'm going to create
+another section and I'm calling it
+crypto related input which are effective
+only on the Bitcoin profile and there
+like the Forex we're going to store
+these values but for Bitcoin we're going
+to have the values stored as percentages
+of the price now one thing which is
+different from Forex into Bitcoin gold
+and US indices is that the prices can
+fluctuate a lot so Bitcoin can be 10,000
+one day 15,000 and another month 60,000
+70,000 the prices keep changing a lot so
+we cannot assign a static stop loss we
+need to have it as a percentage of
+whatever is the price in the market and
+so we are asking the user to provide an
+input of pp as a percentage of the price
+SL as a percentage of the price and then
+we're going to use that TP and assign
+the trigger of the stop loss and the
+stop- loss itself or the trailing stop-
+loss itself as a percentage of that PP
+so as an example if the price is 60,000
+and we say
+1% of the price is our TP then 600
+points is going to be our TP 600 price
+up from the price and 600 points below
+from the price will be our stop loss and
+then out of the 600 if we said 10% is
+our trailing stop loss then 60 points
+are going to be our training stop loss
+we're going to do exactly the same for
+gold and for indices as well now the
+reason I'm creating these different
+profiles you can keep it under one
+because the logic is exactly the same so
+you can keep it under one but I'm
+creating it separately because I like to
+keep a track of what the percentages are
+and if I want to change and once I have
+found something which works on gold or
+which works on indices or which works on
+crypto I don't want to have to remember
+it and change it every time that I apply
+it so I'm creating three different
+profiles so now that we have the
+profiles then we can go ahead and we can
+assign the vales in the initialization
+and I say here that if the S type is
+zero which is
+here if the user has selected S type as
+zero which is Forex then this variable
+system choice is going to be zero if
+user has selected one which is Bitcoin
+then system choice is one if user has
+selected S type as two then system choic
+is two and if they have selected S type
+as three which is indices then the
+system choices three which is indexes
+now one of the difficulties we're going
+to face is that here we have all of
+these points we're collecting the input
+from the user and if you're collecting
+an input from the user then you cannot
+change the value of that variable during
+the operations so we need to create four
+more variables and I'm coming back up
+here into the common trading input and
+I'm putting here these variables as
+double and I'm calling them the TP point
+the SL point the TSL trigger point and
+the TSL point now if you would remember
+from the Forex video and if you have
+coded along using that video is that
+these are the variables that we use in
+the EA itself to send orders to modify
+positions and do all sorts of operations
+so I'm creating them separately and
+these will have zero values at the start
+of the E now if you would remember from
+the Forex coding video these these
+variables were called TP points SL Point
+TSL trigger point and TSL point but I've
+added the word input at the end of all
+of them so that when once we collect the
+value on the Forex from the user these
+are input variables but these are not
+assigned yet to these variables and
+these are the variable that we're going
+to use in the year so while we collect
+the input we keep it into the user
+provided input variables and not assign
+it to anything at this point in time
+same goes for crypto same goes for gold
+same goes for indices all of these are
+collected from the users but these are
+not assigned anywhere so now on
+initialization what we're going to do is
+we're going to start assigning now for
+the default what I'm going to do is I
+will assign to these variables the
+values that I have collected from the
+user under the Forex profile so these
+variables are not empty they have by
+default the Forex values into it then we
+go to the ontick function so this is our
+new bar section everything written
+underneath is going to be run on opening
+of every new candle and every code above
+this is going to be triggered on every
+tick because the system is going to come
+here on every tick it will do whatever
+is here then it's going to check whether
+it's a new bar and if it's not a new bar
+it's going to exit so nothing is going
+to be run only on a new bar everything
+below this code line this code line is
+going to be run so when we come down
+here once we have assigned the trading
+hours then what we can do is we can just
+simply go that if the system choice is
+one which is our Bitcoin profile then
+let's get the ask value
+by using the function symbol in for
+double sending the value of the current
+chart symbol and asking for the ask
+price and then we'll use that ask price
+as the market price and then we can go
+then the DP point is going to be ask
+price multipli by whatever TP as
+percentage the user has
+defined here for
+Bitcoin then for the stop- loss we're
+going to use again the market price in
+terms of ask variable that we have
+stored the ask value in and then we're
+going to multiply it by whatever is the
+stop loss defined as percentage under
+the crypto here is the variable so
+assign that value and so on and so forth
+we assigned the order distance point now
+for the order distance point the logic
+in the Forex was if the SL points were
+200 points 20 Pips then we were putting
+the order distant Point as 100 which is
+10 Pips which is half and I'm using the
+same logic here here by saying that
+whatever is the TP now or whatever is
+the SL now put the order distance Point
+as divided by two then for the TSL Point
+what we're going to do is we have the TP
+points now so we're going to multiply it
+by the TSL as a percentage of TP we're
+using this so if the user has said that
+5% of the TP is going to be my trailing
+stoploss and 7% of my TP is going to be
+my trigger of the the stop loss then we
+come down here
+and we say multiply that as a percentage
+so first converting into a percent and
+then multiplying it by the TP point so
+the TP points were I don't know 600 and
+TSL as a percentage of TP is 10 then
+it's basically 60
+points then we go to the next line and
+we repeat the same process for Gold by
+saying if system Choice equals two and
+if you put two equal signs that's a
+condition check so if system Choice
+equals 2 then get the ask price then
+multiply the T or get the TP points by
+multiplying the ask price which is the
+market price by whatever is the TP as a
+percentage gold so use this variable
+instead and then the same for SL then
+the same for trigger point following
+exactly the same logic we go then the SL
+Point equals this variable multiply by
+price and then the TSL points and the
+TSL trigger points are going to be
+whatever is the TP points multiply it by
+whatever is the trigger of the stop loss
+as a percentage of pp
+gold then if the choice is indicis then
+exactly the same process get the ask
+value by sending the symbol value and
+asking for ask and this time around we
+multiply the ask value with the TP as a
+percentage or stop- loss as a
+percentage but this time indicis section
+now these are the values that I have
+used in the back test that I've shown
+you but by creating these separate
+profile files that gets you the
+flexibility of creating different
+scenarios optimizing differently and
+remembering and putting that value and
+hardcoding it so that you don't have to
+remember it all the time so this is it
+Guys these are all the modifications
+that you're going to use to convert the
+Forex EA that we created in the previous
+video to apply it on bitcoin gold and US
+indices now this is not limited to this
+because once you follow the logic that
+now we're using TPS stoploss trigger
+points and stop L coins as a percentage
+of the price now you can check this on
+other things as well like don't know oil
+whatever else you trade you can try this
+percentage method and see what values
+work and what values do not
+work before I go just a few very
+important points number one no EA makes
+money every day every week every month
+there will be times when the will make
+money and then there will be times when
+the will not make money or even lose
+money we just hope that the periods in
+which the year makes money far outweigh
+and are more frequent than the times
+when the year loses money or is stagnant
+the second point is this this year at
+least in my experience works better when
+the market is trending either up or down
+when the market is chaotic volatile or
+is stagnant that's when the year
+struggles the third point is because
+it's a scalping robot the volume of the
+trade is going to be massive so you
+require really tight spreads so if your
+broker does not have very tight spreads
+offered
+then I would suggest you to try it on
+different Brokers and see which ones it
+works on which ones it doesn't work on
+Fourth important point is that your
+broker needs to allow es scalloping and
+by that I mean setting the trailing a
+stop loss extremely close to the price I
+know some Brokers do not allow setting
+the stop loss very close to the price
+and if that is the case then the trailer
+stop loss is not going to work and if
+the trail stop loss is not going to work
+then this strategy is not going to work
+because this strategy completely banks
+on the idea that as the price moves in
+our favorable Direction then we start to
+Trail the stop loss extremely
+aggressively so since the entire year is
+based on that there is no getting around
+it so when you run the test and you get
+60% or 50% win rate the first thing to
+check is whether or not your trailing a
+stop loss is working and if it's not
+working well after checking the codes
+that the codes are correct what you need
+to check is that your broker actually
+allows the trailing stop loss to be
+Trail very very aggressively now further
+points again I will keep talking about
+them in the frequently ask questions run
+it on every take run it on real take see
+what you like see you don't what you
+don't like the real test is forward
+testing because that's the only time
+when you're actually applying the EA
+into the real market conditions and
+that's the only way to know whether or
+not you like it and even if you like it
+which parts of it you like and which
+parts of it you want to twe so back
+testing is good but back testing is not
+real
+testing now in the next video I will
+come back with a few filters which we're
+going to apply on this year to tighten
+the trading even further so for example
+if the price is too far away from the
+moving average we don't want to trade if
+the RSI is above 75 below 25 we don't
+want to trade if there is a major news
+event upcoming then we not only want to
+not trade but we also want to turn off
+the EA and we want to delete any order
+which is sitting so those kind of
+filters I will come back in the next
+video leave me a comment if there's
+something that I didn't explain well or
+if there are any questions frequently
+asked questions I will continue to put
+them together into a frequently Asked
+question segment and we will continue to
+come back with more and more stuff uh so
+stay tuned and until next time guys stay
+safe fade safe
+[Music]

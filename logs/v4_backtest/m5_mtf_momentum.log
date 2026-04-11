@@ -1,0 +1,202 @@
+smartmoneyconcepts not installed — SMC confluence disabled
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              Loading primary M5 data from data/backtest_cache/XAUUSD_M5_all.csv
+2026-04-01 04:22:46 [INFO    ] src.backtesting.data_loader    Loaded 100000 bars from data/backtest_cache/XAUUSD_M5_all.csv (2024-10-23 13:55:00+00:00 → 2026-03-24 18:45:00+00:00)
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              Primary data: 86741 bars after date filter
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              Loading supplemental M1 data from data/backtest_cache/XAUUSD_M1_all.csv
+2026-04-01 04:22:46 [INFO    ] src.backtesting.data_loader    Loaded 100000 bars from data/backtest_cache/XAUUSD_M1_all.csv (2025-12-09 19:51:00+00:00 → 2026-03-24 18:48:00+00:00)
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              M1 data: 100000 bars
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              Instrument XAUUSD: point_size=0.01, tick_value=1.0
+2026-04-01 04:22:46 [INFO    ] src.analysis.news_filter       Loaded 64 default news events (FOMC + NFP + CPI)
+2026-04-01 04:22:46 [INFO    ] src.risk.prop_firm_guard       PropFirmGuard: phase=step1, account=$5000, floor=$4500 (buffer=$4507), daily_limit=$250 (buffer=$243), target=$500
+2026-04-01 04:22:46 [INFO    ] src.backtesting.scalping_engine MTF pre-computed: M5=86741, M15=28917, H1=7236 bars
+2026-04-01 04:22:46 [INFO    ] src.backtesting.scalping_engine Scalping backtest: XAUUSD on M5 (86741 M5 bars, 1 strategies)
+2026-04-01 04:22:48 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2640.36000  SL=2642.80826  TP=2635.46348  (ATR=1.63217)
+2026-04-01 04:22:49 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2652.67000  SL=2649.65393  TP=2658.70215  (ATR=2.01072)
+2026-04-01 04:22:49 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2653.25000  SL=2651.03412  TP=2657.68176  (ATR=1.47725)
+2026-04-01 04:22:53 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2670.84000  SL=2674.82764  TP=2662.86472  (ATR=2.65843)
+2026-04-01 04:22:54 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2668.57000  SL=2670.67029  TP=2664.36942  (ATR=1.40019)
+2026-04-01 04:22:55 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2669.80000  SL=2672.10268  TP=2665.19464  (ATR=1.53512)
+2026-04-01 04:22:56 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2685.58000  SL=2681.43526  TP=2693.86948  (ATR=2.76316)
+2026-04-01 04:23:02 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2753.71000  SL=2752.14505  TP=2756.83990  (ATR=1.04330)
+2026-04-01 04:23:02 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2745.17000  SL=2740.60020  TP=2754.30959  (ATR=3.04653)
+2026-04-01 04:23:03 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2775.73000  SL=2772.99718  TP=2781.19563  (ATR=1.82188)
+2026-04-01 04:23:04 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2753.38000  SL=2757.60683  TP=2744.92635  (ATR=2.81788)
+2026-04-01 04:23:07 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2751.32000  SL=2753.74540  TP=2746.46920  (ATR=1.61693)
+2026-04-01 04:23:09 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2808.89000  SL=2803.95751  TP=2818.75497  (ATR=3.28832)
+2026-04-01 04:23:16 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2902.27000  SL=2899.29493  TP=2908.22014  (ATR=1.98338)
+2026-04-01 04:23:19 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2891.07000  SL=2894.00153  TP=2885.20694  (ATR=1.95435)
+2026-04-01 04:23:20 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2918.10000  SL=2914.48782  TP=2925.32437  (ATR=2.40812)
+2026-04-01 04:23:21 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2917.15000  SL=2914.44890  TP=2922.55219  (ATR=1.80073)
+2026-04-01 04:23:23 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2899.19000  SL=2902.34515  TP=2892.87971  (ATR=2.10343)
+2026-04-01 04:23:24 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2912.08000  SL=2909.72791  TP=2916.78418  (ATR=1.56806)
+2026-04-01 04:23:28 [INFO    ] src.backtesting.scalping_engine   Bar 10000/86741 (12%)
+2026-04-01 04:23:29 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2943.08000  SL=2940.40630  TP=2948.42741  (ATR=1.78247)
+2026-04-01 04:23:34 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2862.80000  SL=2865.50005  TP=2857.39990  (ATR=1.80003)
+2026-04-01 04:23:36 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2878.82000  SL=2875.20797  TP=2886.04405  (ATR=2.40802)
+2026-04-01 04:23:40 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 2900.63000  SL=2905.36612  TP=2891.15776  (ATR=3.15741)
+2026-04-01 04:23:41 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2921.24000  SL=2918.76773  TP=2926.18453  (ATR=1.64818)
+2026-04-01 04:23:44 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2917.66000  SL=2913.28528  TP=2926.40944  (ATR=2.91648)
+2026-04-01 04:23:44 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2917.15000  SL=2914.32486  TP=2922.80028  (ATR=1.88343)
+2026-04-01 04:23:48 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2997.12000  SL=2993.01791  TP=3005.32419  (ATR=2.73473)
+2026-04-01 04:23:49 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 2988.42000  SL=2986.41521  TP=2992.42959  (ATR=1.33653)
+2026-04-01 04:23:52 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3033.80000  SL=3030.83344  TP=3039.73311  (ATR=1.97770)
+2026-04-01 04:23:55 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3030.87000  SL=3034.39669  TP=3023.81661  (ATR=2.35113)
+2026-04-01 04:23:57 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3015.19000  SL=3017.31107  TP=3010.94786  (ATR=1.41405)
+2026-04-01 04:23:59 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3023.90000  SL=3021.28440  TP=3029.13121  (ATR=1.74374)
+2026-04-01 04:24:04 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3144.75000  SL=3141.74996  TP=3150.75008  (ATR=2.00003)
+2026-04-01 04:24:04 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3133.06000  SL=3129.92640  TP=3139.32720  (ATR=2.08907)
+2026-04-01 04:24:06 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3119.63000  SL=3115.98521  TP=3126.91958  (ATR=2.42986)
+2026-04-01 04:24:15 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3160.04000  SL=3152.40930  TP=3175.30139  (ATR=5.08713)
+2026-04-01 04:24:18 [INFO    ] src.backtesting.scalping_engine   Bar 20000/86741 (23%)
+2026-04-01 04:24:19 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3216.34000  SL=3221.89760  TP=3205.22481  (ATR=3.70506)
+2026-04-01 04:24:19 [INFO    ] src.backtesting.scalping_engine ✓ PROFIT TARGET MET! $517.76 profit — continuing to trade
+2026-04-01 04:24:26 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3338.81000  SL=3345.88124  TP=3324.66753  (ATR=4.71416)
+2026-04-01 04:24:30 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3299.05000  SL=3305.21103  TP=3286.72794  (ATR=4.10735)
+2026-04-01 04:24:33 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3312.48000  SL=3306.03559  TP=3325.36883  (ATR=4.29628)
+2026-04-01 04:24:36 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3229.44000  SL=3233.70299  TP=3220.91402  (ATR=2.84199)
+2026-04-01 04:24:36 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3219.09000  SL=3229.39021  TP=3198.48957  (ATR=6.86681)
+2026-04-01 04:24:38 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3259.65000  SL=3255.25679  TP=3268.43642  (ATR=2.92881)
+2026-04-01 04:24:40 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3362.15000  SL=3355.80218  TP=3374.84565  (ATR=4.23188)
+2026-04-01 04:24:43 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3386.43000  SL=3382.35149  TP=3394.58703  (ATR=2.71901)
+2026-04-01 04:24:45 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3324.17000  SL=3327.95040  TP=3316.60920  (ATR=2.52027)
+2026-04-01 04:24:46 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3277.65000  SL=3281.28108  TP=3270.38784  (ATR=2.42072)
+2026-04-01 04:24:46 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3274.55000  SL=3279.98989  TP=3263.67022  (ATR=3.62659)
+2026-04-01 04:24:47 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3254.59000  SL=3263.40212  TP=3236.96576  (ATR=5.87475)
+2026-04-01 04:24:47 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3236.51000  SL=3243.95320  TP=3221.62361  (ATR=4.96213)
+2026-04-01 04:24:54 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3224.01000  SL=3218.88534  TP=3234.25931  (ATR=3.41644)
+2026-04-01 04:25:00 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3337.97000  SL=3335.03226  TP=3343.84548  (ATR=1.95849)
+2026-04-01 04:25:01 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3314.71000  SL=3311.22678  TP=3321.67643  (ATR=2.32214)
+2026-04-01 04:25:01 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3334.63000  SL=3328.71523  TP=3346.45953  (ATR=3.94318)
+2026-04-01 04:25:04 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3323.50000  SL=3328.98583  TP=3312.52835  (ATR=3.65722)
+2026-04-01 04:25:15 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3358.33000  SL=3351.88657  TP=3371.21686  (ATR=4.29562)
+2026-04-01 04:25:15 [INFO    ] src.backtesting.scalping_engine   Bar 30000/86741 (35%)
+2026-04-01 04:25:19 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3313.98000  SL=3317.70988  TP=3306.52024  (ATR=2.48659)
+2026-04-01 04:25:27 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3417.71000  SL=3413.03130  TP=3427.06740  (ATR=3.11913)
+2026-04-01 04:25:40 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3325.06000  SL=3328.27428  TP=3318.63144  (ATR=2.14285)
+2026-04-01 04:25:41 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3337.11000  SL=3333.52021  TP=3344.28959  (ATR=2.39320)
+2026-04-01 04:25:44 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3266.90000  SL=3274.66898  TP=3251.36203  (ATR=5.17932)
+2026-04-01 04:25:47 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3351.61000  SL=3346.32187  TP=3362.18627  (ATR=3.52542)
+2026-04-01 04:25:49 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3335.60000  SL=3332.12974  TP=3342.54052  (ATR=2.31351)
+2026-04-01 04:25:52 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3341.26000  SL=3339.27603  TP=3345.22795  (ATR=1.32265)
+2026-04-01 04:26:05 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3362.28000  SL=3358.86111  TP=3369.11779  (ATR=2.27926)
+2026-04-01 04:26:14 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3387.50000  SL=3385.31168  TP=3391.87665  (ATR=1.45888)
+2026-04-01 04:26:17 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3380.92000  SL=3383.69356  TP=3375.37289  (ATR=1.84904)
+2026-04-01 04:26:18 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3369.94000  SL=3373.02334  TP=3363.77332  (ATR=2.05556)
+2026-04-01 04:26:19 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3369.90000  SL=3372.35067  TP=3364.99867  (ATR=1.63378)
+2026-04-01 04:26:19 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3356.79000  SL=3359.71509  TP=3350.93983  (ATR=1.95006)
+2026-04-01 04:26:20 [INFO    ] src.backtesting.scalping_engine   Bar 40000/86741 (46%)
+2026-04-01 04:26:22 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3335.65000  SL=3338.27167  TP=3330.40666  (ATR=1.74778)
+2026-04-01 04:26:23 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3312.89000  SL=3317.11131  TP=3304.44738  (ATR=2.81421)
+2026-04-01 04:26:23 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3319.06000  SL=3321.92725  TP=3313.32550  (ATR=1.91150)
+2026-04-01 04:26:40 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3374.30000  SL=3377.53853  TP=3367.82294  (ATR=2.15902)
+2026-04-01 04:26:43 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3340.82000  SL=3348.72542  TP=3325.00916  (ATR=5.27028)
+2026-04-01 04:26:44 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3348.92000  SL=3351.23692  TP=3344.28616  (ATR=1.54461)
+2026-04-01 04:26:50 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3340.74000  SL=3344.28939  TP=3333.64122  (ATR=2.36626)
+2026-04-01 04:26:53 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3318.44000  SL=3320.43029  TP=3314.45942  (ATR=1.32686)
+2026-04-01 04:26:55 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3345.41000  SL=3343.49686  TP=3349.23629  (ATR=1.27543)
+2026-04-01 04:27:05 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3391.77000  SL=3389.52116  TP=3396.26767  (ATR=1.49922)
+2026-04-01 04:27:05 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3398.97000  SL=3396.69814  TP=3403.51371  (ATR=1.51457)
+2026-04-01 04:27:10 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3496.96000  SL=3493.62571  TP=3503.62858  (ATR=2.22286)
+2026-04-01 04:27:17 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3550.51000  SL=3547.40659  TP=3556.71681  (ATR=2.06894)
+2026-04-01 04:27:17 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3553.20000  SL=3550.10415  TP=3559.39171  (ATR=2.06390)
+2026-04-01 04:27:18 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3587.31000  SL=3584.25856  TP=3593.41289  (ATR=2.03430)
+2026-04-01 04:27:27 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3655.59000  SL=3653.43004  TP=3659.90993  (ATR=1.43998)
+2026-04-01 04:27:30 [INFO    ] src.backtesting.scalping_engine   Bar 50000/86741 (58%)
+2026-04-01 04:27:33 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3684.96000  SL=3682.83121  TP=3689.21757  (ATR=1.41919)
+2026-04-01 04:27:36 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3666.68000  SL=3670.39084  TP=3659.25831  (ATR=2.47390)
+2026-04-01 04:27:36 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3666.21000  SL=3669.59029  TP=3659.44943  (ATR=2.25352)
+2026-04-01 04:27:43 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3780.33000  SL=3776.37551  TP=3788.23898  (ATR=2.63633)
+2026-04-01 04:27:44 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3768.39000  SL=3764.15676  TP=3776.85649  (ATR=2.82216)
+2026-04-01 04:27:46 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3744.57000  SL=3750.44028  TP=3732.82945  (ATR=3.91352)
+2026-04-01 04:27:50 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3814.59000  SL=3809.10588  TP=3825.55824  (ATR=3.65608)
+2026-04-01 04:27:57 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3871.51000  SL=3866.93815  TP=3880.65370  (ATR=3.04790)
+2026-04-01 04:28:01 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 3955.24000  SL=3949.86247  TP=3965.99505  (ATR=3.58502)
+2026-04-01 04:28:05 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4038.43000  SL=4033.59591  TP=4048.09819  (ATR=3.22273)
+2026-04-01 04:28:10 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3982.27000  SL=3991.91499  TP=3962.98003  (ATR=6.42999)
+2026-04-01 04:28:11 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4061.36000  SL=4056.50346  TP=4071.07308  (ATR=3.23769)
+2026-04-01 04:28:27 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4137.41000  SL=4149.06473  TP=4114.10054  (ATR=7.76982)
+2026-04-01 04:28:30 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4140.68000  SL=4132.64629  TP=4156.74742  (ATR=5.35581)
+2026-04-01 04:28:44 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4025.82000  SL=4015.23058  TP=4046.99884  (ATR=7.05961)
+2026-04-01 04:28:44 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4025.17000  SL=4014.82549  TP=4045.85902  (ATR=6.89634)
+2026-04-01 04:28:47 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 3991.93000  SL=3997.70273  TP=3980.38453  (ATR=3.84849)
+2026-04-01 04:28:49 [INFO    ] src.backtesting.scalping_engine   Bar 60000/86741 (69%)
+2026-04-01 04:28:54 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4008.68000  SL=4004.17309  TP=4017.69382  (ATR=3.00461)
+2026-04-01 04:29:03 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4236.70000  SL=4228.50624  TP=4253.08751  (ATR=5.46250)
+2026-04-01 04:29:14 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4065.87000  SL=4073.68913  TP=4050.23174  (ATR=5.21275)
+2026-04-01 04:29:15 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4061.61000  SL=4073.03597  TP=4038.75806  (ATR=7.61731)
+2026-04-01 04:29:44 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4181.13000  SL=4185.50740  TP=4172.37520  (ATR=2.91827)
+2026-04-01 04:29:45 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4205.06000  SL=4195.87650  TP=4223.42701  (ATR=6.12234)
+2026-04-01 04:29:54 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4341.62000  SL=4336.88060  TP=4351.09880  (ATR=3.15960)
+2026-04-01 04:29:59 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4322.27000  SL=4316.90662  TP=4332.99676  (ATR=3.57559)
+2026-04-01 04:29:59 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4320.65000  SL=4316.51634  TP=4328.91732  (ATR=2.75577)
+2026-04-01 04:30:00 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4321.53000  SL=4317.24570  TP=4330.09860  (ATR=2.85620)
+2026-04-01 04:30:04 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4344.25000  SL=4335.74825  TP=4361.25350  (ATR=5.66783)
+2026-04-01 04:30:08 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4485.74000  SL=4481.89616  TP=4493.42768  (ATR=2.56256)
+2026-04-01 04:30:08 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4486.50000  SL=4483.25032  TP=4492.99936  (ATR=2.16645)
+2026-04-01 04:30:12 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4516.62000  SL=4512.70865  TP=4524.44270  (ATR=2.60757)
+2026-04-01 04:30:27 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4457.54000  SL=4451.73582  TP=4469.14837  (ATR=3.86946)
+2026-04-01 04:30:28 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4425.76000  SL=4432.54019  TP=4412.19962  (ATR=4.52013)
+2026-04-01 04:30:28 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4426.41000  SL=4433.56465  TP=4412.10069  (ATR=4.76977)
+2026-04-01 04:30:30 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4485.48000  SL=4474.70425  TP=4507.03150  (ATR=7.18383)
+2026-04-01 04:30:32 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4610.78000  SL=4597.01337  TP=4638.31326  (ATR=9.17775)
+2026-04-01 04:30:35 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4633.45000  SL=4624.43038  TP=4651.48924  (ATR=6.01308)
+2026-04-01 04:30:37 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4617.25000  SL=4613.38456  TP=4624.98089  (ATR=2.57696)
+2026-04-01 04:30:44 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4741.39000  SL=4729.24689  TP=4765.67622  (ATR=8.09541)
+2026-04-01 04:30:45 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4862.91000  SL=4855.80044  TP=4877.12912  (ATR=4.73971)
+2026-04-01 04:30:45 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4866.82000  SL=4860.49538  TP=4879.46925  (ATR=4.21642)
+2026-04-01 04:31:00 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4916.96000  SL=4897.58438  TP=4955.71124  (ATR=12.91708)
+2026-04-01 04:31:02 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 5081.38000  SL=5067.80109  TP=5108.53783  (ATR=9.05261)
+2026-04-01 04:31:03 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4917.85000  SL=4890.14538  TP=4973.25923  (ATR=18.46974)
+2026-04-01 04:31:04 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4858.77000  SL=4880.61638  TP=4815.07724  (ATR=14.56425)
+2026-04-01 04:31:19 [INFO    ] src.backtesting.scalping_engine   Bar 80000/86741 (92%)
+2026-04-01 04:31:19 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4958.76000  SL=4948.69553  TP=4978.88893  (ATR=6.70964)
+2026-04-01 04:31:21 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 4994.87000  SL=4984.37512  TP=5015.85976  (ATR=6.99659)
+2026-04-01 04:31:31 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 5182.06000  SL=5170.37184  TP=5205.43631  (ATR=7.79210)
+2026-04-01 04:31:35 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 5084.36000  SL=5109.32090  TP=5034.43821  (ATR=16.64060)
+2026-04-01 04:31:45 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: BUY @ 5206.64000  SL=5199.50316  TP=5220.91368  (ATR=4.75789)
+2026-04-01 04:31:56 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4702.48000  SL=4712.54423  TP=4682.35154  (ATR=6.70949)
+2026-04-01 04:32:00 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4412.92000  SL=4434.80053  TP=4369.15893  (ATR=14.58702)
+2026-04-01 04:32:00 [INFO    ] src.analysis.strategies.m5_mtf_momentum M5 MTF Momentum [XAUUSD]: SELL @ 4401.14000  SL=4423.71930  TP=4355.98140  (ATR=15.05287)
+2026-04-01 04:32:01 [INFO    ] src.backtesting.scalping_engine Scalping backtest done: 139 trades, 58.23% return, 15.09% DD, 41.7% WR
+
+Backtest Results: M5MtfMomentumStrategy on XAUUSD
+  Period: 2025-01-02 → 2026-03-24
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │       $5,000.00 │
+│ Final Equity              │       $7,911.30 │
+│ Total Return              │         +58.23% │
+│ Max Drawdown              │          15.09% │
+│ Total Trades              │             139 │
+│ Win Rate                  │           41.7% │
+│ Profit Factor             │            1.36 │
+│ Avg Trade P&L             │         $+20.94 │
+│ Sharpe Ratio              │            0.11 │
+│ Max Consecutive Losses    │               6 │
+│ Avg Trade Duration        │            1.9h │
+└───────────────────────────┴─────────────────┘
+2026-04-01 04:32:01 [INFO    ] backtest_scalping              Results saved to data/backtest_results/scalp_XAUUSD_v4_m5_mtf_momentum_20260401_043201.json
+
+Backtest Results: M5MtfMomentumStrategy on XAUUSD
+  Period: 2025-01-02 → 2026-03-24
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │       $5,000.00 │
+│ Final Equity              │       $7,911.30 │
+│ Total Return              │         +58.23% │
+│ Max Drawdown              │          15.09% │
+│ Total Trades              │             139 │
+│ Win Rate                  │           41.7% │
+│ Profit Factor             │            1.36 │
+│ Avg Trade P&L             │         $+20.94 │
+│ Sharpe Ratio              │            0.11 │
+│ Max Consecutive Losses    │               6 │
+│ Avg Trade Duration        │            1.9h │
+└───────────────────────────┴─────────────────┘
+

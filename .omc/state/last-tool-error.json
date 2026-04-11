@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"# Accept theirs (research-v2) for .omc files — these are just state, not code\\ngit checkout --theirs .omc/project-memory.json 2>/dev/null\\ngit checkout --theirs .omc/state/idle-notif-coold...",
-  "error": "Exit code 128\nrm '.omc/state/agent-replay-c6e0181d-d731-41f7-9de1-c7505dc2af42.jsonl'\nfatal: Unable to create '/Users/shivang/dev/advanced-trading-bot/trading-bot-v2/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, e.g.\nan editor opened by 'git commit'. Please make sure all processes\nare terminated then try again. If it still fails, a git process\nmay have crashed in this repository earlier:\nremove the file manually to continue.",
-  "timestamp": "2026-04-11T21:22:19.284Z",
-  "retry_count": 2
+  "tool_input_preview": "{\"command\":\"rm -f .git/index.lock && git add -A .omc/ && git commit --no-edit 2>&1\",\"description\":\"Remove lock file and complete merge commit\"}",
+  "error": "Exit code 1\nThe following paths are ignored by one of your .gitignore files:\n.omc\nhint: Use -f if you really want to add them.\nhint: Disable this message with \"git config set advice.addIgnoredFile false\"",
+  "timestamp": "2026-04-11T21:22:32.413Z",
+  "retry_count": 3
 }

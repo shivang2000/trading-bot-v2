@@ -1,0 +1,2526 @@
+in the summer of last year I shared the
+ 
+full coding of my scalloping year it got
+a bit of interest and a lot of people
+started asking me if they can apply it
+on profone challenges and my answer was
+no because the codes were not written in
+a way that was suitable for Prof from
+challenges but it got me thinking if I
+can make the modifications and the
+tweeks necessary to apply it on propone
+challenges in this video we're going to
+look at all the modifications and the TW
+each and the additional features that
+have added including a panel to track
+our progress I will share all of the
+codings with full explanation and
+details with no more Shenanigans let's
+start
+in order to find out if this scalping
+robot can even work on Prop Firs I
+created a new account separate from my
+regular one in order to just trade the
+scalloping robot on that I applied it on
+Euro USD gpp USD usdjpy NASDAQ gold and
+Bitcoin the key settings profile
+depending on whether it's a currency or
+other asset class on a 5- minute chart
+starting at 600 hours and 2100 hours
+with 100 bars in I explained the bars
+and in quite a bit of detail in my last
+video so I'm not going to go over it
+today then standard settings for the for
+pays and these settings for the other
+asset classes news filter on to avoid
+NFP Joels non-farm payroll and interest
+rate and only for USD currencies because
+that moves the market really rapidly I'm
+applying the RSI filter but not the
+moving average filter currently and then
+if you look at the results from the
+first of Jan until today the 30th the EA
+has made about 21% profit looking by
+pairs we have 1% on usdjpy 4% on gold
+with a big trade of
+$161 7% on bitcoin because Bitcoin has
+been in a very strong
+Trend 2% on gpp USD 5% on Euro USD again
+with one big trade and 1% on
+NASDAQ allog together 50 trades that are
+amounting to 21% profit let's look at
+the report it shows the total from the
+mid of December when I actually created
+the account we had a couple of losing
+trades in the beginning before I shut
+off the year for Christmas and New Year
+but from there on the year has performed
+really well so there's $100 in one week
+of December and $1,000 in full month of
+gen on a base of
+€5,000 well not much to show in this
+step almost equal long and shorts by
+simpol as we saw Bitcoin did very very
+well due to a very strong Trend followed
+by EU and gold but most importantly the
+draw
+down which was about 4% during the month
+owing to a very high win rate so
+consecutive losses do not happen that
+much we had one loss trade on the 15th
+of Jan and one on the 17th of Jan these
+are the only only two trades that went
+into losses in the month of Jan now I
+cannot claim that this is how the year
+is going to perform month after month
+weeks after weeks years after years but
+it does seem to have the right profile
+for a prop fform challenge now guys I
+know a lot of you rush to the store to
+download it if you're not even going to
+spend the next 12 15 minutes to
+understand the functionality of the E
+and its most important settings just
+rushing to download and apply the EA
+will be completely
+useless the key reason that I said this
+EA cannot work on a Prof fir is because
+it requires an extremely aggressive
+trading stop loss which on my broker is
+not a problem because there is no limit
+to how close you can set a stop loss to
+the price but many Brokers do have that
+requirement and a lot of prop forms as
+well and if the trailing is stop is not
+going to work the entire strategy is
+based on aggressive trailing so the
+strategy is not going to work so one key
+change that we're going to make to the
+EA is to check for minimum stop-loss
+distance required by the broker and if
+the user input is smaller than that then
+we're going to override that input and
+use that minimum so we know that the TR
+stop loss will work even if at a
+slightly bigger distance the second
+change we will make to the EA is to
+introduce a panel so we can track the
+progress on key rules at all times and
+also to stop trading if a certain draw
+down for a day has happened or a certain
+draw down for a week has happened or a
+certain draw down overall has happen and
+we will have the ability to set these
+thresholds a little bit below the prop
+from challenge rules so there is some
+safety margin and if we want to change
+something we still have room to do it so
+let's take a look at this visually say
+we run the year on bitcoin we start from
+the 1 of gen until today so we have to
+select the setting percentage of price
+profile which you are familiar with from
+all of the other videos that I made on
+scalping robot and don't worry if you're
+not because we're going to go over the
+key settings in details anyway we take
+2% risk on every trade we run it on 5
+minutes chart and then at the bottom you
+define all the Prof form rules you
+define when the challenge started so we
+can calculate the weeks and the months
+correctly because you might start the
+challenge in the middle of the month and
+then you define the Max draw down
+allowed say if for a day the max allowed
+is 5% then we put 3% to give ourself a
+little bit of buffer and safety margin
+then if for a week the max allowed is
+10% then we set 7even and then we set
+the same seven for the month and then
+for the entire challenge as well say on
+the fdmo the requirement is 5% Max draw
+down for a day and 10% for a month so we
+keep the safety margin let's run a
+visual test so we can see how this
+entire thing works the very first thing
+that the E is now going to check is what
+is the minimum stop-loss distance
+required by the broker and if the input
+by the user is lower than that then it
+will override with the broker's minimum
+so we know that the triling is going to
+happen it be it a bigger distance from
+the price and then with the second
+modification you can see the key stats
+in the panel which is going to be on the
+screen what balance did you start the
+challenge with what was the balance at
+the beginning of the day beginning of
+the week which is then used to calculate
+the profit percentages at the bottom so
+you know where you are versus the target
+so how much profit today this week and
+overall but more importantly the equity
+high points because the draw Downs are
+not calculated versus the opening
+balances they are calculated versus the
+highest Equity points so during the day
+during the week whenever we have hit a
+peak for that week for that day we store
+that point as a highest Equity point and
+then calculate the draw down versus that
+so we look at today the last 7 Days the
+last 30 days and overall which is the
+most important requirement of the props
+managing the draw down and with the
+modifications you have it here in the
+panel in one glance then the other
+setting we're going to change is the
+loss size setting so before you only
+used to have risk as a percentage of the
+balance but now you can Define as fixed
+slots as a percentage of balance as a
+percentage of equity so in case you you
+have other open trades because of
+another year the Year also takes that
+into consideration and then also has a
+percentage of free margin because if you
+have other trades open on the account
+then free margin is more relevant than
+the equity itself depending on what you
+select you need to Define as a risk
+percentage if you are using the risk
+percentage either of balance Equity or
+free margin and then if you are defining
+it as fixed Lots then you need to Define
+what your fixed lots are going to be
+here and the last modification that
+we're going to make to the EA is for the
+trailing stop loss now in the normal
+scalping robot video we have the
+trailing stop loss as an extremely
+aggressive trailing stop loss so as soon
+as the price moves into profit we start
+trailing the stop loss very aggressively
+until the price comes back and hits it
+but then I've have also added other
+types of trailing stop losses the first
+time the stop- loss is going to move is
+when the price moves into profit so it
+will be like the normal default trailing
+stop loss but once the stop loss has
+moved to break even then you can select
+the default Trail type which is the
+aggressive Trail type but now you also
+have the possibility to Trail the stop-
+loss on previous candle in case of a buy
+it will be trailed on the previous
+candle's low and in case of a sell it
+will be trailed on the previous candle
+high and then you have to Define here
+how many candles do you want to Trail it
+by so if you say one then it's going to
+be on the previous candle if you say two
+it's going to be on the previous from
+previous and so on and so forth another
+way you can Trail the stop- loss after
+it has moved to break even is on fast
+moving average in that case you define
+what that fast moving average is going
+to be so there is a little bit more
+distance than just the last candle or
+the last from last candle and lastly you
+can also decide to trade tril it on the
+ichimoku 10 consent line in which case
+once the price has moved in profit and
+the stop loss has moved to break even
+after that the trailing is going to
+happen on the 10 consent line I will
+share all the course and explain them as
+best I can but the panel that is going
+to require quite a lot of coding
+including all the mql classes and stuff
+but buckle up because it's going to be
+some
+effort now before you apply this e you
+do need to understand what the E
+actually does so we need to look at this
+strategy as well we defined the last
+last high and last low in the market and
+then we place buy orders and sell orders
+and when the price comes and hits those
+levels again what we are basically
+banking is that the price is going to
+continue to move in that direction by at
+least another couple Pips so as soon as
+it moves in profit we start trailing the
+stop- loss extremely aggressively which
+is the reason why the win rate is 90%
+but this comes at a cost because the
+profit trates are going to be small and
+one is stop loss hit is going to be
+larger but what we're counting on is
+that with a high win rate the small
+amount profit trades are going to more
+than offset that one big stoploss hit
+and this brings us to the last key
+settings which is the bars end value
+which is what we use to define the highs
+and lows in the market so let's say if
+you put the value as five then the year
+is going to try and find the price
+structure where there are five candles
+to the left and five candles to the
+right all below the middle candle and
+then it's going to call it a high but if
+you put the value as 100 now the EA has
+to find a price structure where there
+are 100 candles on the left and 100
+candles on the right all below the
+middle candle before the es say that it
+is a valid high so with a small value
+you're going to get a lot of these highs
+which is going to work amazingly well
+during a strong Trend because you want
+to trade every time there is a new high
+for me but when the markets are just
+simply drifting then you don't want to
+be trading every small new high that
+appears because the price is going to
+take your order and then it might zigzag
+back to the stop loss before continuing
+again in the same direction so with a
+higher value of 50 or 100 it's going to
+be on the more established price point
+that you place your orders but there are
+going to be fewer trades and a smaller
+value trades are going to be more
+frequent as the EA is going to continue
+to trade every new high that forms in
+the market so it's a
+trade-off before we start with the
+modification of the EA some of the very
+key settings that you definitely need to
+understand the first one is the correct
+profile there is the fixed pip profile
+which if you select that then you define
+all of the stop-loss DP trigger of the
+stop loss and the trailing stop loss
+here and this one is when you're using
+the Forex Pairs and then there's the
+percentage of price profile to determine
+stop- losses TPS and trailing Etc and
+this is because other asset classes they
+can vary in prices so Bitcoin used to be
+$220,000 and $40,000 and $50,000 and now
+$100,000 so fixed Pips on such varying
+prices do not make any sense at all so
+for Bitcoin gold and NASDAQ or Dow Jones
+if you want to use that we use the
+percentage of price profile and then we
+Define the TP and the stop- loss as a
+percentage of the price here and then
+Define the trigger of the trailing stop-
+loss and the trailing stop loss as a
+percentage of of that is stop loss so if
+Bitcoin was $11,000 when we took the
+trade then 0.4% will equals 100,000 *
+0.4% so $400 so the TP is going to be
+set at ,400 and a stop loss at 9,600 and
+then the trading stop loss will trigger
+once the price has moved in our
+favorable Direction by 10% of the stop
+loss so taking that $400 10% of that is
+40 so only when the price has moved more
+than $40 in profit that's when the
+trailing will start and then the
+trailing is 5% of the stop loss so $20
+so at any point in time the distance
+between the price and the trailing stop
+loss will be $20 going up and then the
+minimum order distance because you
+cannot set an order here when the price
+is already above it so you need to have
+a distance to that order and also we
+want to make sure that when we sending
+the order there is a distance between
+the order and the price that's is going
+to be based on 50% of the stop loss as
+well so it's going to be $200 so the
+price needs to be $200 below that point
+where we're sending the order then the
+news filter is self-explanatory so which
+news do you want to avoid and on which
+currencies so for example interest rate
+on USD then the RSI filter is to stop
+trading when the price is in extreme
+condition so when the RSI is above 80 or
+below 20 on a higher time frame chart
+such as 4 hours we stop trading because
+now the markets can be very chaotic and
+then the same for the moving average
+filter but in a different way so it
+looks at 200 EMA and then we say what
+percentage the price needs to be away
+from that moving average up or down
+let's say 3% so if the the price is that
+far away from the moving average it is
+in an extreme condition and we don't
+want to be trading further because it
+might reward back then the trading
+Allowed by day which is not so relevant
+for Forex paays but say Bitcoin trades
+over Saturday and Sunday as well and you
+might not want to trade it because of
+lower liquidity and lastly the prop from
+settings so what's the initial balance
+when you start the challenge because you
+if you turn off the EA in the middle and
+then reapply it the EA doesn't know
+where you started what is the profit
+Target so the EA stops when it has
+reached that profit so has not to lose
+anything after that then what's the
+start date of the challenge because we
+need that to calculate the 7day draw
+down the month draw down Etc and if you
+started the challenge in the middle of
+the month the EA needs to know that and
+then the Max draw down settings for the
+challenge best to keep them below the
+actual requirement so the EA stops with
+a little bit of a safety margin in case
+you want to make some
+changes now guys I do have to say that I
+do not use Pro funds myself I don't
+really see a point I have traded myself
+over the years and grew a customer base
+and thereby a fund that manage also I
+believe that the business model of the
+Prof Firs is completely based on you
+paying for the challenge and then losing
+that's where their profits come from
+much like the video that I made on the
+Brokers and how they stack up everything
+against you I believe the profunds do
+the same banking on you to lose the
+challenge so they can keep the money
+that you paid and their funded accounts
+are probably not even funded accounts
+these are just virtual accounts as they
+believe that even if you pass the
+challenge you will probably blow up the
+account anyway but with all that said
+here are the modifications required to
+make this scalping robot more suitable
+for profer challenges as well because a
+lot of people do want to use
+it we're going to start with the
+scalloping Robo including the gold
+Bitcoin indices with the filters so this
+video basically where we're going to
+start from let's first save the file as
+Bitcoin
+indices and I'm going to change it to
+including mods
+filters and additional
+features and two more features that
+we're going to add before we go to the
+prop features are going to be is trading
+Allowed by which day because on bitcoin
+it also trades on Saturday and Sunday
+and there might be a lot of people who
+do not want to trade on Saturdays and
+Sundays and in that case you can just
+simply turn this to false and that the
+system knows not to trade on Saturday on
+Sunday and the other setting that we're
+going to change before we start with the
+prop from things is to have a drop- down
+where we're going to have the lot sizes
+based on either fixed Lots or percentage
+of balance or percentage of equity or
+percentage of free margin and in case if
+we select fixed slots then we need to
+say what is the value of the fixed lots
+and then if we go for anything else
+which is a percentage of balance Equity
+of free margin then we need to input
+here what is that percentage so these
+two features we're going to add first
+because they are not related to prop
+firm as such there just general part of
+the scalping robot and we'll help
+everyone and then we will focus on
+converting this EA to prop firm so back
+again in metat Trader we're starting off
+from where we left off in this video and
+the first thing I'm going to do is I'm
+going to get all of the enums and put
+them together so let's make a place
+above here where we're going to gather
+all of the
+enums Just to clean up a
+little only the news filter enum I'm
+leaving down below here because it is
+related only the news
+filter okay so now we have these drop
+down enims that we created before and
+now I'm going to add one more enum to it
+which is an enum for lot type and we're
+giving the values of fixed Lots
+percentage of balance percentage of
+equity or percentage of free margin so
+now when we use this enum the user will
+get this drop- down possibility to
+select then we come down to Common
+trading inputs and this is where we will
+ask the user what type of lot type do
+you want so we're saying input enum lot
+type which is this so it's going to give
+this drop down to the user so the user
+can select a value and whatever value
+the user is going to select it's going
+to be stored in lot type I'm putting the
+default value as one which is the
+percentage of balance so when the user
+loads the year in default the default
+Position will be percentage of balance
+in the drop down but he can select now
+all these four values and his selection
+will be stored in this variable that we
+created as lot type then we already have
+the risk percentage variable so we only
+need one more variable which is going to
+be fix slots so in case the user selects
+fixed slots in the dropdown the value of
+the fixed slots is going to come from
+this variable and then the risk
+percentage is from before so we already
+have that and then the rest of the time
+frame magic number they remain the same
+I'm currently using the es bars 100 so
+I'm going to change this to 100 as well
+in fact normally I would change it here
+directly but just in case if someone is
+following this video the default values
+that I'm using these days is bars and
+100 and nothing else changes anywhere
+then we come down to the bottom and this
+say we're going to create a group
+trading Allowed by days and we will
+create these seven variables so is it
+allowed on Monday is it allowed on
+Tuesday Wednesday Thursday Friday
+Saturday and Sunday and I'm setting the
+default value to be true and then we're
+going to need one more variable for
+which we don't need the user input so
+I'm not putting it as an input but
+directly as bu so as a true or false
+variable and I'm calling it day filter
+on which we're going to use to check
+whether or not the user has selected a
+certain day to be true or false so this
+is for the inputs and then to implement
+the first option which was the lot type
+selection we're going to go down to
+calculate lot size and this is where
+we're going to implement the change so
+we'll start with whatever is the minimum
+volume for that symbol on that broker so
+you basically request from your broker
+by using the function simple input
+double sending the symbol value and
+asking what is the minimum volume on
+that pair Allowed by the broker and
+whatever value comes back we store it
+into the Lots variable then as we giving
+the possibilities to have lot sizes
+defined by percentage of balance
+percentage of equity and percentage of
+free margin so we need to know those
+values so the first thing I'm asking is
+the account balance by using the
+function account info double and asking
+for the balance then I ask for the
+equity value and store it into a double
+variable Equity balance and lastly we
+get the free margin value so what is the
+free margin on the account as we speak
+now so we get that value from the broker
+as well because you might have a few
+open trades from another EA or if you're
+manually trading in the same account
+then you might be interested in getting
+the free margin and basing your lot
+sizes on the free margin and not the equ
+with your account and then instead of
+Simply assigning the risk value using
+the account balance now we have to see
+what has the user selected so I'll start
+with risk value as zero and then I'm
+going to switch between the lot types so
+the variable that we created up top the
+lot type which is this dropdown so
+whatever the user has selected here we
+stored that value into this lot type
+variable and now we're going to switch
+between those values so we're going to
+go through all of the values one by one
+I open the bracket so I need to close it
+and then within this function we're
+going to switch between different values
+so we say if the case is zero which is
+the fixed Lots then the lots are equals
+to the fixed Lots variable which is the
+variable we created here in that case
+assign that fixed Lots value to the Lots
+variable that we have created here and
+then just return so exit the function
+don't don't need to do anything else we
+have already assigned the lot's value
+but then if the value is one which is
+the percentage of account balance in
+that case we say risk is going to be
+whatever is the account balance that we
+have gotten here multiply it by the risk
+percentage variable that the user is
+defining here we don't return like here
+because we if that is the case then we
+need to continue but in that case we say
+break meaning if if this was the case
+and you have done this break this
+function don't do anything here and then
+go on to these lines then exactly in the
+same way we say if the case was two then
+the risk equals Equity balance times the
+risk percentage and if the if the case
+selected by the user is three then it's
+three margin times the risk percentage
+which is to say here this is case Zero
+case 1 case 2 and case three in every
+case we break in this case we don't have
+to but a good practice to break the
+function so when the when the system is
+going to come here it's going to start
+with lot size as minimum then it's going
+to get the values of these then it's
+going to start with the risk value of
+zero and then it's going to go through
+the lot type switch through it and then
+depending on whether the user has
+selected fix slots account balance
+Equity or free margin it's going to
+assign either the Lots directly and then
+exit the function or it's going to
+assign the value of risk in absolute
+terms so that then we can run the rest
+of the function to calculate and then
+return the losss nothing else else
+changes in this function so we compile
+and we get one error which is the
+variable is already defined because we
+already defined the variable last time
+and now we're defining it again so this
+is the definition now and this is just
+the assignment if I compile
+again then we have zero error and then
+if I go back to meta Trader now we have
+this drop down available to us and
+depending on what you select the system
+is going to calculate the lot sizes
+based on whatever you select here either
+using the percentage value for these
+three options or in case of a fixed loss
+it's just going to take the fixed loss
+from here so that's the first change
+that we made and then for the second
+change which is about whether or not
+trading is allowed on a certain day
+let's go down to the bottom and we'll
+create one more function let's call that
+function is trading allow by day the
+first thing we're going to do is we're
+going to create an mql datetime variable
+which is and call it today an mql
+datetime variable is a variable that
+stores the Val of the date time
+separately for the number of day the
+month the year and everything that way
+so for example if you had to say today
+and then you hit dot you will get the
+value of day day of the week year hour
+minute so it breaks down into a
+structure the mql DAT time which has now
+that is structure so by day day of the
+week hour minute so we can break it down
+the time and that then gives us the
+possibility to create a variable a
+string variable day today which is what
+is the day today and then we can say can
+convert the enum to string get the the
+today's day of the week value which is
+basically this today day of the week
+whatever is the day of the week so is it
+day one day two day three take that
+convert it from the number of the day to
+the name of the day so Monday Tuesday
+wedn is the Thursday and because it's
+going to return the value as an enum so
+we need to convert it into a string so
+we say enum to string therefore we're
+going to get the value of Monday or
+Tuesday as a string that we store into
+day to-day and then the life becomes
+very easy because we just simply say if
+the allowed Monday is true which is here
+we're asking the user is monay is
+trading on Monday allow if it is true
+and the day today value which is
+returned is Monday and it's all in caps
+this is how the value comes back it's
+not going to work if you write it like
+this or if you write it like this a lot
+of people make the mistake of not
+following the the case mql is case
+sensitive so you need to say Monday all
+in caps so if Monday allowed is true and
+day-to-day value returned by this
+function is Monday so just return the
+value of true from here so exit the
+function and return the value true and
+we do the same for all the rest of the
+days so is if allowed Tuesday is true
+and return value of this function is
+Tuesday then fine if trading is allowed
+on Wednesday and today is Wednesday then
+of course return true and so on and so
+forth until Sunday now if any of this
+value was false so if the use user had
+selected false here then of course
+allowed Sunday is going to be false and
+day-to-day return will be Sunday so then
+this function is going to return the
+value of false and then following the
+logic that we had here for printing the
+messages for rsia for ma filter for RSI
+filter and for news filter we're going
+to use the same logic to say that if
+trading enabl com is equal to blank so
+there is no value in the trading enabled
+com with just to refresh the
+memory is a string that we created here
+in the global variables to store
+whatever comment we want to send so if
+that value is blank that means there is
+no comment stored or if the tra enable
+value is printed because once we print
+the value once we will change the value
+of this variable to print it in that
+case we don't want to print it again and
+again and again so either if it's blank
+or its value is not equal to printed
+that means then we need to print a new
+message so then we say trading enabled
+com becomes trading is not allowed plus
+whatever is the value of the day coming
+from here and then if nothing if none of
+the above is true then just return
+false and that covers this function
+let's compile it we don't have any error
+so far so now we have created the
+function and now we need to use it so we
+go back up here on the ontick function
+where we were always checking for all
+the filters the news filter the RSI
+filter the ma filter we're going to add
+one more condition here that if the
+value of the is trading Allowed by day
+comes back as a false and this is why
+saying not is trading Allowed by day
+because if it is allowed then it's going
+to come back as true and if it's not
+allowed then it's going to come back as
+false so in case if it's false then you
+need to close all of the orders which
+are currently on the broker server you
+need to change the trading enabl to
+false change the color of the chart to
+whatever the user has selected as to be
+the color of the chart when the trading
+is off and then if the enabled Comm is
+not equals to printed then print the new
+commment that we just wrote here the
+trading is not allowed on certain day
+print that and then after you have
+printed change the trading enabled com
+variable to print it so the next time
+the year goes here oh but it is equal to
+printed so it's this condition is false
+so it's not going to print it again
+otherwise you're going to have a list of
+the same message going until the time
+the trading is enabled again and it will
+just continue and this is why we use
+this logic of printed print and then
+return meaning exit this entire function
+of ontake don't run these codes below
+now one thing you can do to make the EA
+a little bit more efficient is take the
+if is new bar and move it up here to
+after the trailing
+stop because everything before this is
+going to be run on every tick and I
+don't know if you want to run this on
+every tick maybe you just want to check
+it on every new candle which is going to
+be every 5 minutes or every 10 minutes
+if you do want to check it on every tick
+then you just need to leave it here and
+have this a still above I prefer to
+change it to checking on every bar
+because you're not going to be running
+this scalping year on a 4H hour chart so
+it might still be okay to check for
+these conditions every 10 minutes 5
+minutes of 15 minutes but if you are
+planning to use it on a 1 hour chart
+better to leave it below here so in that
+case the E doesn't end up checking for
+these conditions every hour it checks it
+on every day so that's the tradeoff I
+compile I have no error and now we have
+in our scalping robot the possibility to
+assign the lot sizes by fixed Lots
+equity or percentage of free
+margin and also we have the ability to
+say whether or not to trade on a
+specific big day so this covers the
+first part which is the normal scalping
+EA additional features and now we can
+move on to the stuff that we have added
+for prop funds now on to the
+modifications that we're going to make
+for prop funds so the first one we're
+going to make is to check for a minimum
+stop-loss distance because many Brokers
+have a requirement for how far away the
+stop loss needs to be from the price and
+this scalping year is completely
+dependent on trailing the stop- loss
+aggressively so in case if on your prop
+firm they have a limitation on how
+aggressively you can Trail the stop-
+loss the strategy is just not going to
+work so not only that we're going to
+check for the stop loss minimum distance
+on the broker and then set the value
+accordingly but then we're also going to
+add many different ways of trailing the
+stop losses so if the aggressive
+trailing is not possible then at least
+you have other methods of trailing the
+stop loss then we're going to simplify
+the profiles currently we have Forex
+profile Bitcoin profile gold profile and
+US indicis profile separately but the
+Bitcoin gold and US indicis profile is
+more or less the same because here
+you're defining the PPS and stop losses
+as a percentage of the price so we can
+combine these together and simplify
+stuff then we're going to add a panel so
+that we can track the prop from
+challenge stats and also we're going to
+add enabling and disabling of the
+trading once those draw down limits have
+been hit so for example if on your prop
+firm the draw down requirement for the
+day is 5% then you don't want to be
+trading once it has already been 4% draw
+down so we'll add a feature where you
+can Define probably like 3% so once 3%
+draw down has been hit on a certain day
+we disable the trading automatically and
+then we start the trading again the next
+St so these are the five modifications
+that we're going to make so we start now
+with the scalping robot including mods
+filters and additional features and we
+save it as another file into a new
+folder and let's call it scalping prop
+form and use an underscore or something
+because the way that we're going to
+write the code we're going to have to
+reference this file location in that
+case there can be no spaces so I'm
+putting it as es scalping uncore prop
+form and then I'm going to call this is
+scalping
+underscore prop firm version once again
+with underscores because we cannot have
+spaces so now that we have that we
+create a new and this time we're going
+to have an include file because that's
+where we're going to create our panel so
+we're going to create an include file
+and let's call it prop form panel again
+you cannot have spaces so I'm combining
+it together as prop from panel and it's
+in the include folder and we have finish
+and this is what you're going to get as
+the mph file I'll clean it up so you're
+basically left with this then we're
+going to use two include files which are
+here in the controls the dialogue and
+the level and what this does is it gives
+us all of these pre-written codes that
+mql has written so that we don't have to
+write it and we can use it by
+referencing and the dialogue is going to
+create that small panel within which
+we're going to have all of our steps and
+levels are basically levels so it's
+textt that you can write within that
+dialogue so we're going to reference to
+these two files then we're going to
+create an input group and call it panel
+parameters because this is where we're
+going to store all of the variables
+where we ask the user to provide their
+input and here we're going to ask the
+user how much should be the width of the
+panel and how much should be the height
+of the panel so they can adjust it then
+for the text size within the panel what
+text size do they want so they can
+increase or decrease the font size if
+they want to and then we're going to ask
+them for two more colors for example if
+your target profit is 10% once that
+Target profit is hit 10% we're going to
+stop the trading but we also want to
+change the color of the chart to
+something else so that the user can one
+glance see that oh it's green now so
+that means that the entire target has
+been achieved and also when the draw
+down has been exceeded for that day or
+for that week we also want to turn on
+the trading but we also want to change
+the color of the chart then to whichever
+color the user selects that they can see
+in one glass that the trading is
+disabled and then they can look around
+okay why is it disabled and what do they
+need to do so we're going to ask for
+these two colors as well and then we're
+going to create a class and we're going
+to call it C prop from panel that's the
+name of the panel that we're going to
+create and we're going to use the C the
+the ca dialogue function from the
+dialogue include file and it's going to
+be a public function so other functions
+and other files can access it as well we
+close it here and then we create two
+different parts of this class one is the
+private and the other part is public so
+everything that we're going to write
+here is going to be accessible only to
+this function and this portion that
+we're going to write here in the public
+section is going to be available to not
+only this mq file but also anything
+that's referencing to this mq class is
+also going to be able to use it in the
+private class we're going to create a Bo
+function by the name create panel which
+we're going to have to create here as bu
+create panel so this is a function that
+we're going to write later but we're
+going to be able to call this function
+from the private portion of the CPR from
+panel that we have created here and then
+within the public section we have to
+create a Constructor for prop from panel
+which is going to be exactly the same
+name as here so these two names should
+be exactly the same and then we also
+need a d Constructor which is with this
+stilla sign before the see prop form
+panel name which is going to be used to
+destroy this panel then once we have
+created it we also need to initialize it
+so we're going to create a bull function
+by the name on in it to keep it
+different from the on initialization
+function here we're going to use a lower
+case for in it so that we can
+distinguish between the two and the last
+one is going to be a function by the
+name panel chart event where we're going
+to create the panel chart events and
+these are EXT standard values that you
+need to send to this chart event so it's
+ID it's long parameter it's double
+parameter and it's string parameter so
+just copy it like this exactly and now
+let's create this function at the bottom
+and within classes you have to create
+the functions like this so you say void
+and then reference to the class and then
+with these two columns then you give it
+the name of the function so the name of
+the function is C prop form panel in the
+class C prop form panel and we don't
+need to write anything within so we just
+open the function and close the function
+and same as for the Constructor we also
+need to create one for the deconstructor
+as well so it's going to be again the
+same so it's in the class c pro from
+panel but the function is with the
+tilder so that it's basically
+referencing to this then we need to
+create this onit function which is going
+to be exactly the same way so we say
+Bull and the name of the class and then
+the name of the function we open the
+bracket and here we create the panel by
+saying that if this meaning this class
+this function when you create the panel
+this is a not sign so if this is not
+successful then return the value false
+so basically run it but if it fails to
+run then return the value of false
+otherwise return true and then we close
+the bracket to close the function and
+this create panel function we also show
+should have written it exactly the same
+way within this class type c prop from
+panel create a function by the name of
+create panel and within that we're going
+to do exactly the same thing as for on
+in it so we say if we we create this by
+saying this do create and then passing
+on the values null is the chart this is
+the name these are the width parameters
+and here we're going to use the input
+width and input height parameters from
+here and otherwise if it fails to create
+it then return the value your false
+after that we asked to run this try to
+run it and if it's not run meaning if
+you fail to run it then return false
+otherwise redraw the chart by saying
+chart redraw and return the value true
+so if you're able to run this if you're
+able to run this then chart redraw and
+then return the value true if I compile
+it I forgot to put a colon here I put a
+colon and then compile yeah we don't
+have any error so now that we have this
+we can go back to to our scalping prop
+from version that we had created and now
+here we can reference to this file by
+saying include prop from panel so this
+file. mq which is saved in the include
+folder as prop for panel. mq this is the
+one that we have just written if I
+compile it now it says that the
+Declaration of POS hides the overall so
+I'll change all of the POs to POS info
+and .
+info we go to the
+top we go to the top so POS info and POS
+doino Dot and then we have match whole
+words
+only so in that case it's going to pick
+up here for example p. select so that's
+fine to replace this is okay to replace
+replace replace replace place so
+wherever there was POS dot we
+were where we were using the POS
+value to get the position info I'm
+changing it to position info because I
+think mql uses POS somewhere else as a
+variable so this is it wherever there
+was POS we changeed it to posos info and
+let's compile to
+see yeah everything is fine now so we
+included this file so now we should be
+able able to add the class that we add
+as prop form panel so this class that we
+have written
+here this class that we have written
+here that we can now call here and
+within that and I am and I am assigning
+it to a variable that I'm going to call
+panel so now this panel is basically
+referencing to this class CPR form panel
+that we have just created and with that
+now I can go down to our initialization
+function and here here after putting the
+magic number now I can reference to that
+panel variable that I've just created
+and I can reference to its own init
+function that we have created here which
+is going to create the
+panel and then return true so we can say
+on in it and then that and if we start
+it then we also have to on the
+initialization we need to destroy it so
+I'm going to say destroy
+and I'm just going to say reason so
+whatever is the reason if I compile it
+now don't have an error still and now if
+I go back to meta Trader then here this
+new one that we have just created if I
+attach it to the Chart I'm seeing the
+panel appear here and the panel says
+challenges stats which is the name that
+we have given here as challenges stats
+this is the input width and input height
+here and if I now look into the settings
+I will also see see these panel
+parameters which we have created in the
+prop from panel so even though they are
+not here they're is still accessible
+because we are referencing to this file
+so it's picking up all of the input
+values from here as well this is how we
+create the panel and now we will need to
+start getting the values that we want to
+assign here and actually putting these
+values and refreshing them if I open up
+the one that I've already written and
+apply that one the one which is already
+complete then we're going to see this
+panel so this is the end result of the
+panel writing what you're going to see
+is four categories of stats so beginning
+balance Equity High draw down and profit
+and within each one of them there are
+four levels so we're going to look at
+the beginning balance and Equity High
+and the draw down and the profit as
+today 7 days 30 days and all time so
+these are the total stats that we will
+collect and we will print into the panel
+so this is what it needs to look like in
+the end so Al together we're looking at
+20 different levels that we need to
+create so I'm going to go back to meta
+editor and within the private section is
+where we're going to start creating
+these labels the first one is beginning
+balance with these four stat types so
+here I'm creating five different labels
+the first one is beginning balance and
+the other fours are these ones so I'm
+calling it BB for beginning balance so
+beginning balance one day beginning
+balance 7 Days beginning balance 30 days
+and beginning balance all time then I'm
+going to do the same for Equity high so
+I'm creating Equity high and then
+shortening it to eh Equity High Equity
+High 1 day Equity High 7day Equity High
+30-day and Equity High all time and the
+next one is for draw down so I'm
+creating these five the C lb will draw
+down and then draw down day one draw
+down one day draw down 7 Days draw down
+30 days and draw down all time and then
+the last one is for profit so I'm
+creating these five for profit so profit
+profit one day profit 7day profit 30-day
+and profit all time and this is where
+we're going to print all of these labels
+which are going to be printed here now
+that we have these labels we can go down
+to the create p panel and after creating
+the panel that's where we're going to
+start creating these labels so if I
+write the first one which is the
+beginning balance this one and if you
+open the bracket you're going to see
+that it asks for the chart value so the
+chart value is zero because we're going
+to apply it on the current chart then
+what's the name of that so it's
+beginning balance then the sub window is
+zero and where do we want to print it so
+I'm giving it from the X and Y 10 and 10
+and then one and one for the Y value 2
+and Y value so these two are important
+and then the x value and the Y value on
+the axis of where I want to print it
+within the panel so if I say 10 and 10
+that means it's going to be printed 10
+pixels from the X and 10 pixels from the
+Y if I said 50 it would be printed
+somewhere here with 50 distance to the X
+and 50 distance to the Y then for the X2
+and Y2 value I'm just giving it one and
+one and then once we have created it we
+have to give it values so what's the
+value of this beginning balance label
+that we create and I'm giving it the
+text beginning balance which is going to
+appear here as beginning balance what's
+the color and I'm giving it the color of
+gold so it's going to appear like this
+and then what's the font size and for
+the font size I'm saying whatever the
+user has put here that plus one so
+whatever the user has put is going to be
+this so just to make it a little bit
+bigger so I'm saying plus one so this is
+how I create this and once we have
+created this we have to add this
+so we say this meaning within this panel
+add this one beginning balance add it
+and you do this by saying this and then
+when you open it up you say add and then
+you have to give it which control to add
+and that is the beginning balance we do
+exactly the same for the next one which
+is going to be bp1 day this one the
+beginning balance at the beginning of
+today so now we create that and now for
+the X and Y value I'm giving it 50 and
+30 so it is 50 from the X and 30 from
+the Y then we update the value of the
+text to today equals and this is what we
+will create later so I'll remove it for
+now so today equals and then giving
+spaces three spaces because we need to
+line it up properly but that you can
+then play around how many spaces before
+the T and how many spaces after the T to
+line This equal signs properly then the
+the color of the text is going to be
+whatever the user selects here and the
+font size to whatever the user selects
+here I'm going to repeat the same
+process for the other four so for the 7
+day we say BB uncore 7day and then we
+create and give it a level BB 7day and
+now I'm keeping this value the x value
+the same as 50 so it's going to be x
+value Y is the same distance from the X
+but from the Y I need to now increase
+the value so it's not overlapping but
+it's below it so I'm giving it the value
+45 so 15 pixels more so it will be 15
+pixels
+below the today value then the text is
+going to be 7 days equal and the rest
+Remains the Same and here then we add
+that label as BB 7day then the same
+thing for 30-day we're going to create
+the BB 30day so this one here BB 30-day
+label we use that label and create it
+giving it the name BB3 days and now
+again x value is 50 but now we're
+increasing the value as 15 so from 30 to
+45 to 60 so from 30 to 45 to 60 in y
+I'll remove this for now because we're
+going to add that later and then again
+the input text color the font size and
+then we say add this to the panel this
+label and then finally the all time so
+we say beginning balance all time again
+create and I'm keeping the x value at 50
+but then increasing the Y value at 75
+just to have that level of distance
+between so that there's no overlap we're
+going to create the text as all time
+High same input of color and then we add
+this to the panel so if I compile it now
+here and then go back to scalping Prof
+form version and compile that as well
+and then if we go back to metat
+Trader and apply our
+EA now I should see the panel here and
+these four text in labels that we had
+put in today 7 days 30 days and alltime
+high they're all appearing here now
+let's change the color of the background
+first so that we can see it more clearly
+I'll remove the E and we go back here
+and to do that we're going to go back to
+our prop form panel go back up to the
+top and here at the very top we're going
+to include control/ def. mq So within
+the controls this file defines and this
+one lets us Define or undefine the
+properties of the panel two values that
+we're going to undefine are the
+background so we say hash un defined and
+controls dialog color client background
+I mean when you're typing it it's going
+to pop up so background and the second
+one is the controls font name so that we
+can choose whatever font we want to use
+and then we're going to define the value
+of the controls dialogue as color
+midnight blue and we will Define the
+controls font name as consolas and
+that's the font that we're going to use
+it takes exactly the same amount of
+space for a character so it's going to
+line up everything properly so if I
+compile it now I don't have any error
+and now I need to go back to the
+scalping prop fform version and compile
+that as well and now if I go back to
+metat Trader and now we apply our
+scalping robot prop form version now we
+see that the background color has
+changed and the font has changed as well
+and with this font we able to line up
+the dashes exactly in order so this is
+the beginning balance section so with
+today 7day 30-day and all time and we're
+going to get the values of this here
+from the prop version but we haven't
+defined the variables yet but let's
+first complete the panel so we go back
+to the panel by the way this needs to be
+right at the top even before anything
+starts so we're redefining everything
+about the panel at the very top so down
+here I'll continue adding our labels so
+then we put the equity high and now I'm
+taking it back to the x value of 10 like
+the label here at the beginning and then
+on the Y AIS I'm giving it distance of
+25 so instead of 15 I'm giving it 25 so
+that there is a little bit more space
+just to see it in action if I compile
+both files now and then we go back to
+our metat Trader you see this one is
+lined up with the beginning balance and
+this is why we had a distance of 10 and
+there is a little bit more distance
+between all time and Equity because the
+distance here is 15 and distance here is
+25 so the distance between these were 15
+and the distance between this one is 25
+then the next one is for 1 day again
+going back to 50 and having a distance
+of 20 to have a little bit more distance
+than 15 I'm going to remove the variable
+now and then adding this to the panel
+once again if I compile and we go back
+to met Trader now we see today as well
+this is lined up at 50x so it's more
+lined up with this one rather than that
+one coming back to prop for panel and
+now I'm going to add D3 so now the 7day
+again giving it a distance of 15 again
+15 again and 15 again 30d and all time
+exactly the same way then we're going to
+create the draw down so we create and
+this one is going back again to the x
+value of 10 because that is the yellow
+label and I'm giving a distance of 35
+just to compile it
+now we were missing the closing here if
+I compile it now and compile the
+scalping prop form version and we go
+back to my Trader now we see the draw
+down menu appearing here as well now we
+need to put today 7day 30-day and
+alltime high here we go back to prop
+from panel and we create the one day
+giving it again the x value of 50 and
+then a distance of 30 then the 7day
+30-day and all time and again keeping
+the value of x at 50 increasing this by
+15 once again if I compile and compile
+the prop version we see now these four
+here as well and then at the bottom now
+we create the profit exactly the same
+way as before just changing names the
+values of the Y the name of the
+text and adding this and then we do the
+same for 1 day 7 Day 30-day and all time
+keeping the distances in the order that
+this to this has
+35 between these there are there's 15
+pixel between the last one and this one
+is 25 and then the cycle continues so if
+scalping Prof form version as well we
+should now see our entire panel the
+values are still not there because we
+still haven't assigned them okay now
+that we have this panel now we need to
+start updating the values here so for
+that we need to go back to meta editor
+and we need to create these variables
+where we're going to store the values
+now this file is for the panel this is
+where our EA is going to run so all of
+the variables and all of the values are
+going to come from here so at the top
+I'm going to create these variables that
+I'm going to need to use and these are
+the ones that I'm creating so a double
+which is a variable that can store
+decimal values and here I'm creating
+beginning of day balance beginning of
+week balance beginning of month balance
+then to populate the draw downs and
+profits we're going to go draw down one
+day percentage draw down 7-Day
+percentage draw down 30-day percentage
+alltime percentage and same for the
+profit 1 day 7day 30-day and all time so
+that we can populate the values here so
+this is where we're going to use these
+variables and then for the equity I'm
+creating also the 1 day 7day 30-day and
+all time which are going to be used here
+there's beginning balance beginning of
+that's going to be used here then I need
+a start day of the challenge because if
+you start the challenge in the middle of
+the month then the year needs to know
+that and then an mql date time format
+mql datetime format is the one where you
+can split the day and the day of the
+week and hours and months and I'm keep
+creating a variable and calling it
+challenge start and then let's go down
+below at the bottom after where we had
+the trading Allowed by day profile
+section and let's create a section where
+we're going to ask the user to provide
+the values for the prop for Challenge
+and there I'm creating an input Group by
+the name of prop for values prop for
+rule settings and here I'm asking the
+user now for input by variable initial
+balance so what is the initial balance
+you're starting with what is the profit
+Target
+that is a double because it could be in
+decimals then what is the start of the
+challenge as a date time what is the
+challenge length so how many days what's
+the maximum draw down allowed per day
+per week per month and in total and if I
+compile it now and go back to metat
+Trader then we see this panel appearing
+here as initial balance th000 and here
+the user can select which date does he
+start the challenge and then all of the
+rest of the values then we go to on init
+function and here we can start by
+putting the value that we got from the
+user the start of challenge here which
+was in a datetime format and we're going
+to put this value Into The Challenge
+start variable that we created here in
+mql date time so we're basically using
+time to structure and taking the date
+time variable and putting the value of
+that date time variable into the mql
+datetime variable so we have the
+breakdown by day by hour by month etc
+etc and this variable then is string
+variable which is the start day of
+challenge this is where we're going to
+store the value of which day was it when
+the challenge started and we do it
+exactly the same way as we did it before
+so we get the challenges start this
+variable in mql date format so we get
+the challenges start and then we get the
+day of the week which is going to be
+either Monday Tuesday Wednesday Thursday
+Friday whatever it is is going to come
+back as an enum end of the week we need
+to convert it into a string so we say
+enum to string enum day of the week
+challenges start day day of the week and
+store that value as Monday or Tuesday
+whatever comes back as a string into the
+start day of the challenge then we get
+the beginning balances at the start of
+the challenge or when you are starting
+the initialization the beginning of the
+day would be the same as the beginning
+of the week which will be the same as
+the beginning of the month balance so we
+get the account balance and we put the
+value into beginning of day beginning of
+week and beginning of month balance but
+they start it's all going to be exactly
+the same which is €1,000 or $1,000 that
+we start with then we go down to the
+bottom and this is where we're going to
+update the values on every candle so we
+create a function by the name of update
+initial balance and let's close the
+function here so we we have the initial
+balances now but we're going to update
+them on every candle because the values
+are going to keep changing depending on
+the day and the week we start by
+creating a variable previous check as an
+mql date time static and then we create
+a variable of 9 now and then we store
+the value of the current time into Now
+by saying time current and storing that
+value Into the Now variable that we just
+created this way we can create a check
+that if this is not equal to now that
+means that a new candle has opened and
+therefore we say if now. day is not
+equal to previous check. day so the day
+has changed we're going to check it on
+every candle and as soon as the now the
+day of the now the time current is not
+equal to whenever we previously checked
+the day of that that means it's a new
+day so we're going to update the
+beginning of the day balance by getting
+the account in double account balance
+today we're going to update the value of
+the equity high of one day to the
+beginning of day balance so the
+beginning of the day we're going to take
+the beginning of the day balance also
+the acity would be the same at that
+point in time and then we're going to
+reset the value of the draw down of one
+day percentage to zero profit one day
+percentage to zero and then we're going
+to put the value of 9 now into the
+previous check so the next time the year
+comes back here now. day will be equal
+to previous check so it's not going to
+do this until the time the day changes
+so this is how we Loop through and check
+that if it's a new day and if it's a new
+day then we update these values then we
+update the values at the end of 7day
+period so whenever you start it from
+there until the end of the week so that
+when the new week starts and this is
+where we're going to create another
+datetime variable as a static so it's
+created one and we're going to call it
+underscore 7day period in mql you cannot
+start a variable by by a numeral and
+this is why we start with underscore 7
+day period and that's going to be equal
+to the start start of the challenge and
+then we say if time current is greater
+than 7day period so whatever value we
+have is stored in it if the time current
+is bigger than that then we know it's a
+new week because the first time is going
+to be a new week as soon as the time
+current as soon as the challenge starts
+so the time Cur is going to be bigger
+than whatever is the start of the
+challenge then we update the value of
+the beginning of the week balance the
+7day high of the equity to the same
+amount and then reset the value of the
+draw down and the profit for the 70
+percentag is to zero and then we change
+the value of the 7day period by
+increasing it by whatever is the number
+of seconds in 7 days and this you do by
+looking at okay well how many seconds
+are there in one day and then multiply
+it by seven so the total amount is going
+to be 7 days worth of seconds and that
+we add into 7day period so the next time
+when the year comes only when the time
+current becomes bigger than 7 days after
+the last check that's when these sces
+are going to be run then using the same
+logic we update the value of the 30 days
+so we start again with a static datetime
+variable of Min of _ 30 days period
+starting at the start of the challenge
+so the first time is just going to be
+whenever the time current is bigger than
+that we're going to set the beginning of
+the month balance and the equity high
+balance both to the starting account
+balance have these percentages at zero
+and then add to it 30 days worth of
+seconds so again seconds within one day
+multiply by 30 and add it by saying plus
+equals to add it to this variable so the
+next time the year comes here the time
+current is only going to be bigger than
+this variable once 30 days have passed
+so this is how we checked for 30 days
+let's compile it to see if we have any
+errors we don't have any errors so then
+we can go on to update the values
+because here we're setting up the
+beginning balances at the beginning of
+the day at the beginning of the 7 days
+at the beginning of 30 days and now we
+will update the values as we go along on
+every candle so we create another
+function and call it update prop from
+values we start by getting the equity
+value of the account and then we say
+that if the beginning of the day balance
+is not equal to to zero so if it has a
+value then profit for one day percentage
+is equal to whatever is the equity at
+that point in time minus the beginning
+of the day balance time 100 divided by
+the beginning of the day balance so this
+is how we calculate what is the
+percentage for today is and then if
+Equity is higher than the equity one day
+which we had updated in the previous
+section if it is higher than the
+beginning of the day then we change
+Equity high for to B to equity then we
+create a double variable call it the
+current one day draw down and that will
+be equal to wherever is the equity minus
+the high Equity whatever is the the new
+high times 100 and divided by that
+Equity high of one day so that's going
+to give us the current draw down if
+there is any so on a new candle if you
+had a position which was in loss then
+your Equity is going to be lower than
+you whatever was the high of the equity
+for that day and this is why we
+calculate current draw down and then if
+the current draw down is smaller because
+it's a negative number so if the current
+draw down is smaller than whatever was
+the percentage of that at the start of
+the day then we store that value into
+the draw down of one day percentage so
+that we can use it in the panel to show
+then we do the same thing for the
+beginning of the week so we start with
+if the beginning of the week balance is
+not equal to zero then we say that the
+profit on every candle in percentage is
+equal to whatever is the equity right
+right now minus whatever was the balance
+at the beginning of the day time 100
+divided by the balance at the beginning
+of the week will give us whatever is our
+profit this week positive or negative
+and then if the equity is higher than
+the equity value of 7 days which in the
+starting is going to be zero but then if
+it is if it becomes bigger because we
+need to continue updating the value of
+the equity on every candle so if it is
+higher than the 7-Day Equity High
+whatever it was before then store that
+value into the equity 7day high and then
+check for the current draw down by
+saying Equity minus whatever is the high
+of the equity time 100 / the 70 Equity
+high and if the current draw down is
+lower than whatever is the draw down for
+the 7day percentage then set the 7day
+percentage draw down to current draw
+down so as soon as there is a lower draw
+down than whatever was before we update
+the value to a low draw now then we do
+the same for the beginning of the month
+so starting with beginning of the month
+balance if it's not equal to zero then
+the profit percentage is whatever is the
+equity right now minus whatever was the
+beginning balance of the month divided
+by the beginning balance of the month
+time 100 and if Equity is higher than
+whatever is the equity high of 30-day
+then store that value into the equity
+high of 30-day so that when the equity
+grows we continue to grow our Equity
+high value because draw down is always
+calculated against whatever is the
+highest point of the equity not the
+beginning balance then check the current
+draw down versus this Equity by saying
+whatever is the current Equity minus
+whatever is the highest Equity during
+the last 30 days divided by the highest
+Equity during the last 30 days time 100
+and if it is lower than whatever is
+stored before then store the new current
+draw down value into the 30-day
+percentage for draw down and then we do
+the same for the all time and this is
+where we start with the initial balance
+if it is higher than zero because
+initial balance is defined by the user
+so we're using that value and then do
+the same thing so the profit all time
+will be equal to whatever is the equity
+now minus the initial balance divided by
+the initial balance time 100 and then we
+check if the equity on this candle is
+higher than the equity all time that we
+had already stored then replace that
+value and then check for the draw down
+all time by using the same calculation
+as before and then if the current draw
+down is smaller than because it's a
+negative value if it's smaller than
+whatever was stored before then store
+the new value into this variable so this
+is how we update the value of the
+percentage for the profit the value of
+the 7day acity high and the value of the
+highest draw down versus that Equity so
+if I compile it now I don't have any
+errors so we can proceed to The Next
+Step which is to disable the trading if
+the draw down exceeds a certain number
+so we're asking the user here what are
+the percentages which are allowed for
+the draw down for day for week for 30
+days and for the entire challenge so
+this is where we're going to check for
+that having calculated everything here
+it becomes very easy because we say if
+the draw down one day percentage that we
+are calculating here if that becomes
+bigger than minus Max draw down because
+we're asking the user for the input and
+they're going to provide the input as
+three but the draw down is a negative
+number so it's minus 3 so if it is
+smaller than minus 3 then if trading in
+aable comment is printed then make the
+trading enabl comment as trading
+disabled Max draw down for the day and
+return the value as false so then the
+trading is not allowed because of that
+then we do the same for 7 days so
+checking the 7day draw down percentage
+variable that we have updated here
+versus whatever is Max allowed and then
+if it is lower than that then we need to
+disable the trading so if the trading
+enabl common is not equals to printed
+and you understand the logic of printed
+B from the last time then change the
+trading enable common to this and then
+false meaning that the trading is not
+allowed same for 30 days and same for
+alltime percentages and then at the end
+we check for the profit percentages by
+saying if the profit alltime percentage
+is higher than the profit Target then
+return the comment of trading enabled as
+for the target has been achieved because
+that basically means that alltime high
+profit here is bigger than whatever was
+the profit Target defined by the user so
+now we don't want to trade trade anymore
+because we've already achieved that
+Target and this is why we say disable
+the trading return this commment and
+return false meaning now trading is not
+allowed anymore because we have achieved
+the Target and if none of the above then
+return true meaning that the trading is
+allowed so one day draw down is not less
+than whatever is the max 7day draw down
+is not lower than whatever is the max
+30-day is also not lower than whatever
+is the 30-day Max and same for the all
+time so now we have that function as
+well let's compile to see if there are
+any errors I don't have any errors so
+now we can go back up to the ontick
+function and here after the is new bar
+function and after having check if the
+trading is allowed for the day before we
+do anything else we will update the
+initial balances which is going to run
+this function to update the values of
+the week and beginning of the month
+balances then we will update the prop
+from values which is going to run this
+function to update the percentages and
+then we're going to run the function of
+is trading allowed so we have updated
+the beginning balance for the day 7 days
+and 30 days then we have updated the
+current draw down percentage profit
+percentage Etc and now we can check
+whether or not the trading is allowed by
+running this function and if trading is
+allowed then only the EA is going to run
+the code and to ensure that we're going
+to bring down this
+portion from above to
+below so here so once we have checked if
+the trading is allowed then we will add
+another value here by saying if not is
+trading allowed then also run these sces
+before we started we had these three
+filters then we added the filter ofice
+trading is allowed by day and now we are
+also adding the if trading is allowed by
+the prop form values so when the year
+comes here on a new bar it will update
+the initial balance it will update the
+Prof form values and then it will check
+coming down here and if the value turns
+out to be false then this value is going
+to be true which is not is trading
+allowed so meaning it's false and in
+that case close all the order disable
+the trading set the chart value to
+whatever is the chart color trading off
+then the next thing we're going to do is
+we're going to simplify these input
+variables because here we have crypto
+profile gold profile and indicis profile
+but they're practically the same because
+they're looking at the TP as a
+percentage of the price so instead of
+having these three we're just going to
+go for one so I'll delete these two and
+we're going to change this input group
+value from crypto input to as a
+percentage of price profile then we have
+the TPS percentage is stop loss as
+percentage then TP and a stop loss as a
+percentage TSL and Trigger as a
+percentage of the stop
+loss and then we're going to add order
+distance Point as well as a percentage
+of stop- loss and we can move this order
+distance point from here which was
+related to Forex profile down below here
+and make it an input variable as well so
+that the user can add values to it and
+call it input and we can also move this
+these double variables from here again
+down below because these are also
+related to Forex so I'm going to move
+them here and I will add to it order
+distance point of without the word input
+so we're going to collect the input here
+and then we're going to pass on this
+input to order distance point from
+either from here or from here when we
+are into the on on initialization
+function pink looks really bad to me so
+I'm going to change this to purple the
+trading off color and the trading on
+color is still black and we can move
+this from here as it is not related to
+Common to up here just to clean it up
+and I'm deleting the integer system
+choice because we simply going to use
+the system type and then removing the
+spaces so this is the start Hour end
+hour I'm removing the S choice and end
+hour choice because we're simply going
+to use the S Type here and I think we're
+good to go if I compile now I get all of
+these errors because we haven't changed
+the
+values in the oninit function where we
+were assigning these values so this I
+don't need anymore so I'll remove it
+this we don't need anymore as well so
+I'm going to remove that as well because
+we don't have the system type 2 and
+system type 3 anymore we only have
+system type zero and system type 1 Let's
+rewrite this to enum system type and
+then fix Pips profile and percentage of
+price profile so we're not going to use
+this anymore we're going to use this one
+so I'm going to delete this one and then
+let's go down to here we don't need
+these system types because we don't have
+system type 2 and three and this is
+where we were putting the initial
+default values but now we're going to
+switch between the system type which is
+going to be coming from here the system
+type and we need to change this to enum
+system type because that's the new name
+system enum type so the value is going
+to be coming from here as either zero or
+one so if it is zero which is the fixed
+Pips profile then here at the
+initialization of the function we're
+going to say if the case of the system
+type is zero then the TP points are
+equal to TP points input which are
+coming from the Forex profile here so
+it's all going to come from here the
+Forex profile so if the system type is
+zero then TP points are equal to TP
+points input SL points so whatever the
+user has provided as input and then also
+the order distance point the Forex
+profile then TP Point SL Point trigger
+point and the TSL Point are all going to
+be coming from the Forex inputs same
+goes for the order distance point and
+then we break because we're using the
+case so if that is the case do all of
+this and then break from this function
+but if it is case one then we say that
+the TP points Cel point or the distance
+Point are now going to be dependent on
+the values provided in the percentage of
+price input and here we're collecting
+the values as percentages so we need to
+do the calculations so the first one
+would be PP points is going to be equal
+to whatever is the ask in the market
+times whatever is the TP as a percentage
+and for that we need to have the ask so
+we create the variable up above here as
+ask and we get the value by using the
+function symbol input double sending the
+symbol value and asking for the symbol
+ask value and then we divide it by 100
+because it is a percentage but then
+let's say if bitcoin price is 100,000
+then
+0.4% of that is going to be 100,000 *
+0.4% = 400 so that is the stop loss but
+if you look at the value of Bitcoin it
+has two decimal places after the dot as
+well so the actual stop- loss is going
+to be
+40 dot 0 0 so there needs to be two more
+zeros after that as well and this we
+achieve by dividing it by the point
+value so dividing it by whatever is the
+point value so that we're converting
+this TP points into points instead of a
+number of dollars so then the value is
+going to be returned as as because there
+are two dots so the value is going to
+become 40400 and then two more dots so
+40,000 but then when we will actually be
+sending the order we're multiplying the
+DP points and SL points by the points as
+well so we're converting it back into
+400 so this is why we will need to
+divide it by points here so that these
+values are converted into points rather
+than just dollar values then because
+these are going to be in points so then
+we can use this SL point value to
+calculate the order distance Point TSL
+points and trigger point by multiplying
+it by whatever is the user input divided
+by 100 because it's a percentage and
+then break and then we close the switch
+function then the next thing we're going
+to do is at the very beginning or
+initialization we're going to check what
+is the stop level because different
+Brokers have different requirements for
+how far away from the price the stop-
+loss should be so when we're trailing
+the stop- loss we need to be careful
+that the value provided for the trailing
+stop loss by the user is actually bigger
+than what is required by the broker
+because if it's not then the trailing
+stop will never work so we check by
+using the symbol info integer sending
+the value of the symbol and asking for
+what is the trading stop levels and
+because it's return as an a long value
+and we are storing it into integer so we
+use the word integer in front to convert
+it into integer and then storing the
+value into stop level so now we know
+what is the broker's requirement and
+let's print that value by using the
+print command and saying minimum loss
+distance required by the broker on
+whatever is the symbol is whatever is
+the stop level in points and then we
+compare that the TSL points that are
+either coming out of this calculation
+here or are coming out of the user
+provided input for the Forex profile if
+those are smaller than what the broker
+requires then we PR that the trailing
+stoploss value of whatever is the
+correct calculated value or the user
+provid provided value is smaller than
+Allowed by the broker therefore we are
+overriding to broker minimum of whatever
+is the stop level points accepted by the
+broker and then we convert the TSL
+points to whatever is the stop level
+points accepted by the broker and if our
+trailing stop loss points are not less
+than the broker's requirement then in
+that case everything is fine so we just
+say current trailing stop value of
+whatever is the TSL value coming out of
+the calculation or from user input is
+okay so that's the first check that we
+do at the beginning then just for the
+tester before we check for whether or
+not the indicator height is true or not
+we start with a default value of tester
+hide indicator as false and then if the
+user has selected the value as true then
+only we convert it into true so let's
+start with a default value and then
+change it to whether the user has
+selected the indicator hiding as true
+and now that we have assigned the values
+of the TP Point SL Point trigger point
+here whether it's fixed Pips or as a
+percentage so we don't need to do this
+in on tick function so here we don't
+have to to check whether it's system
+Choice 1 2 or three we have already done
+that on the initialization so we can
+remove this part and now if I compile I
+have these four errors because we remove
+these s Choice eh choice and eh choice
+so we can replace it with SH input eh
+input and eh input which are the
+variables here where we're asking the
+user to provide when to start the
+trading and when to stop the trading so
+we remove these two and replace it by
+the ones below compile now we still have
+one more error and that is the closing
+code
+expected and this is we didn't have the
+closing code compile now we don't have
+any errors so this concludes our
+creation of the Prof form panel and then
+getting the values for those variables
+so we can populate these variables but
+now we need to go back to the prop panel
+and create an update function so that
+these variables that we have now
+calculated can be populated here so we
+go back to prop from panel and we create
+a function which is the panel chart
+event which is the one that we created
+here so we create that we provided the
+ID the long parameter double parameter
+and the string parameter and we just say
+chart event is whatever is the ID passed
+on to it whatever is the long parameter
+double parameter and the string
+parameter that's passed on to it
+and then we close the function and then
+we create this last function which is
+update where we will update the values
+in the panel and then we go down to the
+bottom and we create another function
+for the class C prop form the function
+name is update and then we start
+updating the values in these levels from
+those variables so the first one the
+name of this level was bbor 1D so we say
+bbor beginning balance 1D do text is it
+used to be only
+this and now we can add to it the
+variable value of beginning of day
+balance that we have created here and
+populated the value
+here so now we're starting to use the
+values from the actual EA into the panel
+so that's the first one then we have the
+7day text the 30-day text and the
+alltime text so we start with whatever
+is the text before from here and then
+just add to it
+the value of the values that we're
+getting from the variables
+here we start populating the panel with
+the values because these variables are
+going to return a double value and the
+text is going to be in a string so we
+need to First convert it into a string
+before adding it to the labels I'm going
+to do it for the rest as well which is
+the equity High one day text 7-Day text
+30-day text and alltime text and adding
+to it the the value of the variables
+that we calculated back into the label
+by converting them to Strings and then
+adding it then the same for draw down
+one day text which is going to be again
+the initial text which was today 7day
+30day and all time but then adding to it
+the percentage values that we are going
+to get from DD 1 day percentage
+variable that we calculate here and here
+and here and then the same goes for
+profit labels which we calculated here
+here and here so we update the values
+from those variables back into the panel
+labels by adding to whatever text was
+before and then adding this value as a
+string and then going a string
+substructure so that it can be converted
+properly and after that we first say
+whatever was the color before so input
+text colors of the draw down values one
+1 day 7day 30-day and all time as
+whatever was chosen color by the user
+but then in case if the one day draw
+down percentage is lower than whatever
+is the max allowed so if the max allowed
+was 3% so it's minus 3 if it turns out
+to be lower than that so it's in a way
+it's bigger than 3% draw down then
+change the color to Tomato which is the
+red color so we can see it very easily
+on the panel whenever we have gone above
+the Max allowed draw down so this is the
+update in the panel to update the values
+but because we are getting the values
+from this one into this one so we need
+to go back up and include
+this
+file back into this prop form and the
+way to do that would be you start with a
+dot dot which means from this include
+folder where this prop form panel file
+that we have created is placed so go up
+one folder to here then go to The
+Experts folder then to wherever is your
+scalping EA these codes are saved this
+one so what I can do is I can right
+click on it this folder and then open
+the folder and then here is my EA so I'm
+going to right click on it check for
+properties and copy the
+location copy this location come back
+here here paste it below this is the
+part that I need from experts I'll
+delete the
+rest and then I have to paste it here as
+expert YouTube es scalping scalping prop
+which is this folder and then within
+that folder I have the file as scalping
+prop form version so I need to say
+scalping prop formore version and this
+is why you cannot have spaces here
+because then you're not going to be able
+able to define the values here in a
+simple way so the easiest way is to just
+put underscore in the names of the mq5
+file that you create so that you can
+reference it easier now if you compile
+you're going to get a lot of
+Errors because now that we are
+referencing to this file we can no
+longer compile it from within the prop
+panel we need to compile it from here
+and if you compile it from here then
+you're not getting any error so both
+these files are compiled into one year
+because this EA is already including the
+Prof from panel and this Prof from panel
+is referencing back to scaling Prof
+version mq5 file so you cannot compile
+it anymore from here you can only
+compile it from here now that we have
+created this update function here to
+refresh the values from the variables we
+now need to go back to the scaling prop
+form version come down to the ontick
+function and here before we check for is
+trading allowed we we going to do the
+panel.
+update so the panel can then call on
+within the prop from panel the update
+function that we have just created here
+and then the last thing we're going to
+do before we start with the trailing
+stoploss modifications is to come down
+to the bottom and add this one more
+function which is the on chart event
+function which you can simply copy paste
+from here as well if you want to which
+is exactly the same function from there
+but then we put it here as well now if
+we compile we don't have any errors and
+now if I go back to metat Trader we can
+now see that the opening balance the
+beginning balances and everything is
+getting updated the equity highs for
+today the draw downs and the profit
+percentages are all being calculated
+within the panel so this concludes our
+panel and now we can go back up to the
+trailing stop function because that is
+the last modification we're going to
+make to include Within the trailing the
+option to trail by the last candle the
+option to trail by fast moving average
+and the option to trail by ichimoku
+Tenon line go back all the way back up
+and here and here after the percentage
+of price I'm going to add one more group
+and call it trailing stop management and
+here we're going to include our trailing
+stop management but before that I go
+back up here and I create another enum
+and let's call it TSL type which is
+going to be the default rail which is
+the aggressive stop-loss movement like
+normal scalping year that we have but
+then we're also going to add the option
+to select previous candle a fast moving
+average or a 10 consent line so now that
+we have this enum available we can use
+it here and we say that the user needs
+to input what trail type does he want to
+apply by using this TSL type that we
+have just created here so for example
+now if I compile and go back to my
+Trader then here I should see a new
+trailing stop-loss management and here
+now the user has the option to select
+which one does he want to use and then
+in case he wants to use candles to Trail
+the stop loss then he needs to Define
+how many candles to Trail it on so how
+many candles on the left to Trail it on
+and in case he chooses fast moving
+average then what is the fast moving
+average value that he wants to trade it
+on 10 consent is 10 consent and the
+default Trail is default Trail then that
+only need to Define so with these
+variables we go down now to
+initialization function and then where
+we were creating the handles we add two
+more handles so if the trailing of the
+stop-loss type equals 2 which is the
+moving average type then the handle of
+the trailing ma equals IMA and handle
+ichimoku equals ichimoku now we haven't
+created these two variables so I'm going
+to go back up here and where we had
+created these two hand Les I'm going to
+add to it handle of trailing moving
+average and handle of ichimoku so that
+we can initialize it here and then we
+pass on the values of the time frame the
+fast moving average period that the user
+defines here and in case of ichimoku
+then the time frame and the standard
+value of ichimoku cloud which is 926 and
+52 so now that we have created these
+handles as well now we can use these
+values so we go to the trailing stoploss
+function and start modifying it I'm
+going to create two more variables here
+the first one is going to be an integer
+variable for a stop level so that we can
+get from the broker what is the minimum
+stop level required and then I'm also
+creating an indicator buffer because I'm
+going to be copying the values of the
+fast moving average and ichimoku now
+before we had this function up until
+here we're going to keep the function as
+it is because what we're doing is we're
+running through the positions we're
+selecting it by index getting the ticket
+number and then we go okay well if it is
+in input magic number is our magic
+number and its symbol is our symbol then
+we know it's our trade then we check
+whether it's a buy type and if it's a
+buy type then we check whether or not
+the price has moved above the trigger of
+the trailing stoploss and in that case
+we assign the the value of the take
+profit to the variable
+TP that we created
+here but after that we add one more
+condition which is if the position is
+stop loss currently is below the opening
+price which means that it is still the
+initial stop- loss and it hasn't moved
+because once it has moved with the
+aggressive trailing stop loss then it
+will be above the opening price so if it
+is below the opening price still that
+means it is still the original stop loss
+and then we say that the stop loss now
+is going to be equal to bid minus TSL
+point so the new aggressive st stop loss
+and then we don't need this condition
+and we just say in that case change the
+trade modify the position by sending it
+the ticket and the stop- loss andp
+values that we have just calculated move
+it properly so what's happening here is
+once we know that this is our trade and
+it is a pro type buy and then the price
+has moved above the trigger of the TR
+the stop- loss
+points then we check if the stop loss
+the original the the stop loss of the
+position currently is below the opening
+price which means this is still the
+audition stop loss only in that case we
+change the stop loss to TSL point
+and then change the stop loss to the new
+stop loss so above the price meaning
+Break Even but once it has moved to
+break even then it's going to be above
+the price open in which case this is not
+going to happen again so once it is
+above the break even then we don't want
+to do anything and then we're going to
+Loop through all of the cases depending
+on how the user has defined how he wants
+to Trail the stop loss but the first
+time the stop loss is going to move is
+as soon as it can move to the break even
+we move it and then we switch through
+the cases and say switch through the
+trail type so which Trail type has the
+user selected and if it's case one which
+means is the normal aggressive trailing
+of the stop loss in that case a stop
+loss is going to be bid minus dtsl point
+just like here exactly the same and in
+that case break so don't run anything
+below if it is case one then the user
+has selected to move it move the stop
+loss on the previous candle or whatever
+number of candles in that case the stop
+loss is going to be the low of whatever
+candle number the the user has selected
+so if the user has said one then it's
+the previous candle if the user has said
+two then it's the previous from previous
+candle so the low of that will be the
+stop- loss and then break because you
+don't want to run the rest of rest of
+the function if it's case two then we're
+looking at fast moving average as the
+trailing stoploss in that case we use
+the copy buffer function to copy the
+value of the moving average main line
+for the last candle and paste that value
+into the indicator buffer variable that
+we have created here set the array as a
+series so that it's in order and then
+break and then in case it is case number
+three then we're going to use the handle
+ichimoku and from that we're going to
+copy the 10 consent line for the last
+candle into the indicator buffer and
+then we set the stop loss to be a to be
+equal to that indicator buffer so the 10
+can line value from the previous candle
+and then break so here we now assigning
+stop losses based on which Trail type
+has been selected by the user and once
+we have that now we can say if the stop
+loss is above the last stop- loss
+because we only want to move the stop
+loss upward and the calculated stop-
+loss value is not zero because that can
+be an error and the stop loss is bigger
+than the price open so it is in positive
+territory and the stop loss is lower
+than the bid because you can have a
+situation where on a candle the candle
+is bent above but then the price comes
+down in which case the price has
+actually come below the low of the
+candle in which case the stop loss that
+we're sending is going to be an invalid
+stop because it's going to be above the
+bid so we need to check that it is below
+the bid and then if those conditions are
+met then modify the position by sending
+the ticket the stop- loss and the TP
+values and the stop loss values are
+going to come from here depending on
+which case has been selected now if I
+compile I don't have any errors which
+means that the parentheses are probably
+okay and then we go else if if the
+position type is sell then we're going
+to follow exactly the same logic by
+checking if ask price has come down
+below the open price minus the trigger
+point so it has moved more than the
+trigger point below in which case we set
+the TP but then for the stop loss we
+have to go through exactly the same
+logic as before where we say if the
+position info of the stop loss is bigger
+than the price open meaning it is still
+the original stop loss then we do the
+aggressive trailing by setting the stop
+loss to ask plus the TSL Point like
+before and then changing the stop loss
+value by providing the ticket number SL
+and TP so this is only going to happen
+when you still have the original stop
+loss and the price has moved more than
+the trigger of the stop- loss point in
+our favorable Direction so we move it to
+break even but after it has moved to the
+the break even then we do the same thing
+which is switching through the trail
+type and then if it's case Zero then the
+stop- loss is going to be the aggressive
+stop loss which is going to be the same
+as here but if it is case one which is
+the the last candle or last from last
+candle then in that case the trailing
+stop is going to move on the high of the
+candles whatever number of candles the
+user has defined if it's case two then
+it's moving on fast moving average in
+which case we copy buffer into the
+indicator buffer from the handle trail
+of ma the main line for the last candle
+and then we set the stop loss to that
+indicator buffer value which is the fast
+moving average and in case if it is case
+three the trail type then we are looking
+for the jimu and in that case we take
+the handle chimu the 10 consent line for
+the last candle and copy it into
+indicator buffer and then we set the
+stop loss to indicate above a zero value
+which is going to be the 10 consent line
+of the last candle and then we break
+so now we have our stop loss calculated
+based on the trail type so then we can
+go that if the stop loss is lower than
+the initial stop loss or whatever is the
+current stop loss of the position and
+it's not zero so there is no calculation
+error and that the stop loss is below
+the price open because we only want to
+Trail it once it's below the price once
+it is in profit and also the stop loss
+is greater than ask otherwise the new
+stop loss is going to be an an invalid
+stop loss so we check for this condition
+as well and if those conditions are met
+then we modify by sending the ticket
+number the SL based on whatever
+calculation comes from here and the TP
+value and then we don't need this
+because we have already instead of just
+sending the aggressive stop loss we have
+now gone through these cases so we
+delete this one if I compile I don't
+have any errors put this on the screens
+because here the parentheses are
+extremely important so you can pause the
+video here and copy these codes so this
+is page
+one and this is page
+two and this is Page
+Three and from there onwards
+here so try to put the parentheses
+exactly in the same position where I
+have put them and that covers the
+trailing stop loss as well and I compile
+now and everything seems to be
+fine in which case if I go back here now
+we have all of the functions available
+so you have the width of the panels that
+you can change you have the trading type
+you have the trading system so fixed is
+going to be used for Forex and
+percentage of price is going to be used
+for other
+classes then you can select the lot size
+based on fixed percentages of equity
+balance or
+margin in which case you have to Define
+what those values are the time frame and
+everything from
+before the chart color when the EA is
+inactive I like to use it as
+purple but you can change it then black
+when it is when the trading is
+allowed then here you define the Forex
+profiles if you're applying it on a
+Forex pair and here you apply the
+percentage of price method if you're
+applying it on bitcoin gold us indices
+oil and things like
+those then what is the trailing
+stop-loss type so default Trail is going
+to be the aggressive Trail so as with
+the TSL values so with the TSL values
+here here and
+here but now you also have the
+possibility to Trail the stop- loss by
+previous candle on fast moving average
+or 10 consent line after it has moved to
+the break even so the break even move is
+still going to be as soon as it
+can and then you have the Muse filter
+from before you have the RSI filter from
+before and you have the moving average
+filter from before then we added also
+the is trading Allowed by day which day
+it is
+allowed and then we have the Prof from
+settings of what is the initial balance
+what is the target profit and what are
+the values of the draw Downs allowed and
+when do you start the challenge and
+these values are going to be updated in
+this panel As you move along in case if
+we run into draw down more than what is
+allowed for today the trading will be
+stopped and the chart is going to turn
+into purple and once we have reached the
+profit Target all time then it's going
+to turn into green and the trading will
+be stopped as well so this is it for the
+ch es and modifications now if I find
+any error in the way that I have written
+the code or explain them I'll update
+that do test it thoroughly before you
+decide to apply it because these are
+very complex codes so until next time
+guys stay safe stay safe
+[Music]

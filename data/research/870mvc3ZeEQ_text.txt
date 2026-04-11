@@ -1,0 +1,530 @@
+I've been building this strategy using
+ 
+Claude Opus for the last little while.
+And this is my little training engine
+that Claude that I hand off to Claude.
+It has access to it so it could run back
+tests for me overnight. And if you
+haven't seen those videos, go back and
+take a look. I show you guys how to
+build a dashboard like this, how to run
+back tests like this. And it's just so
+much better than Trading View because
+with Trading View, you really just get,
+you know, one back test. You get to run
+the candlesticks. That's those are the
+ones you get. You don't get to download
+or modify them or run more extensive
+stress tests like Monte Carlos
+simulations, randomizing the
+candlesticks, breaking up the price
+patterns and price structures to make
+sure that you know your trading bot is
+flexible enough to respond in real time
+to many different market simulations,
+not just the one version of history. So,
+if you like this kind of content, I want
+to show you guys this the strategy here
+in this video and how I improved it. I
+did several versions overnight that
+progressively got better. And I if you
+do like this kind of content, you want
+to see, you know, the real deal and
+somebody who hands it to you as it is
+and shows you guys the whole internal
+process, drop us a like on the video and
+subscribe to the channel. I also will
+answer any comments that you comment
+down below for the first little bit.
+I'll try to respond to as many comments
+as I can. So, Cloud Code here, I have my
+Visual Studio Code open and it ran all
+night. So it ran for around 8 n 10 hours
+straight and I had just told it to you
+know try to beat the previous best
+strategy and then to go over there and
+you know compare the results and to see
+you know what what we get and one of the
+interesting things was I wanted to see
+if it was able to perform on Salanacoin
+but also Bitcoin, Ethereum as well other
+coins to see if they could perform and
+yeah it it does. So this is the out of
+sample data that performs pretty stably
+in uh this new candlestick data that I
+didn't show the engine originally and
+claw did not have access to this
+information. So it didn't know to pick
+based off this data. It was picking
+based off the training data which is
+this data here. I'm going to change the
+chart. So that's the training data that
+it was operating off. This is the
+baseline. So sharp ratio was 0.59 in the
+training data. And so Claude, what it
+knew was that it had to
+try and beat that. So it'll keep this
+stack, but it might add new trading
+rules. So this was the second version
+here. There's a lot of different exit
+rules configured here. And right away,
+you can see the sharp came up to 1.02.
+Very, very good. Win rate is 60%. Let's
+go back here. 43% and then 58%.
+And I just want to show you this real
+quick. So the draw down came down to 21%
+but there's one that's even better than
+this. It found you know 15% draw down
+with a 64% win rate and a 1.31%
+sharp ratio. Look at this 10.74
+sortino ratio in here. So this is in
+sample data. It's really good to have to
+compare this to some of some out of
+sample data like testing data here that
+I've withheld. So certino ratio is less
+but that's a pretty good curve. Let's
+compare this to some of the other
+versions cuz that's that's the important
+thing. Look at this curve here on this
+testing data. This is the intermediate
+strategy. 60% win rate and that's a
+really good curve there for this testing
+data. And I just want to compare this to
+the original. Look how much improved
+that that is. 43% win rate with a sharp
+of 0.57 and then 0.62 and then here.
+Yeah, it comes back down. So this
+intermediate one a little bit better on
+the out of sample data. And that's
+that's generally how I'll operate it.
+And then Claude will give a stability
+score across the bootstrap percentages.
+It didn't run bootstraps here, but this
+would be the next step. So I'll put
+these like all of these versions into uh
+bootstrap simulations to see how stable
+they are. So what that means is I'll
+take just we'll just go back to the
+training data here and that's going to
+be our baseline, right? Sharp is 1.31.
+Now, if we randomize the candlesticks,
+the most important thing that I'm that
+I'm telling Claude to to do here, so I
+would just type in here, it has access
+to my engine. So, I would just ask it to
+run a new simulation, turn on the
+bootstrapping or the Monte Carlo
+simulations, and run a couple thousand
+simulations with each of these
+strategies to see which one performs the
+the most stable so that we can knock out
+the version because these rules might
+just be overfit. So, we want to we want
+to rule out rules and parameters that
+are overfit. So that's that's kind of
+the next stage here. So we have a bunch
+of candidate strategies here. And also
+it ran these on Bitcoin and Ethereum
+here. This is the Ethereum chart. And
+look at that look at that curve there.
+Sharp is.1
+ratio is 23.7. So we're assuming this
+this is probably susceptible to
+overfitting. So what we would do is we
+would run this on Ethereum, go back to
+our cloud, tell it, hey, like take this
+stack uh of trading rules and see if it
+can survive and how long it survives in
+random simulations. So we'll we'll
+download the price data, which is really
+just this is the Salana chart. It
+downloads all of this and then it just
+randomizes it up, jumbles and randomizes
+the candlesticks, which gives us a
+really good sample of, you know, random
+random price patterns. That's what you
+want to to to know. You want to know is
+your bot flexible enough to to respond
+in real time. And if you don't do this,
+now I I I want to be firm here. There
+are a lot of people, and this is a shout
+out to the Discord. There are people who
+are, you know, putting money into these
+bots and they're not doing this. And
+it's 100% overfit, right? It might work
+on your bot might work on a subset of
+the data. Like if your back test, for
+example, if we if we open up the back
+testing panel here, uh we go down to a
+different time frame here. Your back
+test might work on some of the data, but
+then you you zoom forward. You know,
+maybe you just okay, it works on the
+last 30 days, but does it work on the
+last 90 days? And what about the entire
+history? Uh if it's if it stops
+performing at a certain point, you got
+to wonder, well, your strategy is
+definitely not generalized. And how do
+you know that the future data is going
+to correspond to just the little random
+slice that you took, right? So, I would
+heavily caution anyone who's just
+yoloing in, right? I I take a more
+rigorous statistics-based approach with
+this. You you want your strategy to be
+open and flexible. And sometimes that
+means having in a in a certain par uh in
+a certain indicator. It might mean
+having less options for your indicator
+like less parameters to tune. Uh so it's
+more broad or generalized so that you
+have to tune less parameters which also
+makes it easier to like configure and
+back test cuz you're not doing trillions
+of simulations. cuz you might only have
+to do 100,000 or something like that,
+which is very doable on a on a good CPU.
+So, that that's a little bit of uh
+advice off the shelf for anyone who's
+trying to do this. Uh when you're
+looking at parameter sets, you know,
+like yes, we can optimize them. Yes,
+these are, you know, ideal parameter
+combinations. And I can also stack these
+are two parameter sets that it found. It
+could have like 18 of these. It could
+have 18 different options. And we could
+weigh each of those options. And some of
+these options might be more stable in
+bootstrapping than others, right? And
+some of them because if the parameter is
+set really low, like close to one,
+perhaps maybe that just means it's going
+with the flow, going with the
+candlesticks, but it's not really
+predicting. It doesn't have any
+predictive power. So keep that in in
+mind as well when going through here. So
+yeah, the again the way that I that the
+way that I would start is use vectorbt.
+It's a pre-loaded library. You can use
+ta lib. That's another library for uh
+using indicators. And a criticism,
+something I see a lot of people saying
+is that the market's rigged. If you
+trade with trading bots, you're just
+throwing your money away. Well, you can
+back test on rigged data. And if as long
+as you bake in whatever actual market
+conditions you have, right? Like right
+here, you might see some liquidations in
+this Salana chart. And yeah, like right
+right here, there's some liquidations.
+the market's being manipulated. But if
+you're training on that, then you're
+training to handle that market
+manipulation, which should be really
+good, right? If you think about it that
+way, it's kind of makes sense that as
+long as your strategy is yeah, as
+generalized as as possible, as flexible
+as it can be, and when you do so, you're
+not going to hit the perfect peaks and
+the perfect bottoms on every single
+trade that your bot does, but generally
+it's going to not cave in and burn
+itself out on like some choppy movement
+or like one liquidation, for example.
+Like there are these anomalies that
+happen. Look at this like really big
+candle here that would wick out any bot
+and gather its liquidity, right? So your
+bot can serve either as fodder for
+bigger bots, you know, big trading
+firms, or you know, your bot can just
+kind of take a piece of the pie. The,
+you know, the market will move, and as
+long as your bots's listening to it and
+able to go to sleep when it has to and
+wake up when there's really important
+trading happening, then you might you
+might be on to something. So the goal
+the goal is not to always just get the
+highest sharp ratio which that that is
+one of my goals. I want to have the
+lowest draw down so I can feel safe and
+I have the highest sharp ratio so I know
+that I have the best risk risk is this
+sharp ratio is a volatility adjusted
+risk to reward. So for anyone who knows
+anything about uh risktore reward ratios
+adjusting for volume just makes it a
+little bit more stable. So when you're
+looking at many simulations it's it's
+more like it's more generalized of a
+number. So that's why I look at sharp.
+Uh STO is important too, but uh that's
+the one I look at. I I know that super
+high win rate, like 64% win rate looks
+cool, but it depends, right? It depends
+on what the risk is and what the reward
+is because maybe you're only gaining a
+little bit. So that's that's what I
+would say on that. So win rate
+intrinsically does not matter. It it
+dependently matters if you you know have
+a good risk risk-to-reward ratio which
+why would why would you optimize for win
+rate when you know your engine can
+optimize for any number right you could
+tell it to get the best net profit but
+that could be at the expense of really
+high draw down and you don't want that
+right you want to probably maximize
+sharp ratio or minimize draw down is
+what I usually focus on and what I would
+recommend focusing on because as a
+result of that a byproduct is that
+you'll have higher net profit and you
+know when you're putting real money in
+you'll feel safer. You know, if you have
+if you're a larger trail trader or you
+know, a whale, then yeah, like you want
+to minimize your draw down. You don't
+want to you want to park your bot and
+you you want to trust it. So, it's a
+trust building exercise with your bot.
+So, rolling out a bot might look
+something like this. So, I'll design
+just the base configuration. And then I
+I'll start adding really good exit rules
+from here. So if this is just the the
+default and I like this and I'll have
+maybe you know clawed overnight can do
+like 20 25 of these or if you have a
+better CPU maybe you could do 50 to 100
+completely different strategies
+overnight and it'll put them through
+stress tests. It'll tell you which one
+of these holds up more in Monte Carlo
+simulations and has like a fair
+baseline. So ultimately if you're
+selecting for uh Monte Carlo stability
+with the highest Monte Carlo sharp ratio
+and highest uh highest bootstrap
+stability then you know in real time
+your bot has a has a better chance at
+winning because you know in the worst 5%
+simulations that you have it might not
+perform but you know you have a 95%
+chance of not ending up in that
+situation but uh the worst of the worst
+might not be you want to like raise the
+floor basically of how bad your bot
+could perform cuz if the market just has
+like really clear data. If I zoom out
+here on the weekly chart, you can see
+really clear information here. It's
+bullish. If you're trading long here,
+you'll win. Period. Right? Same same
+back here. If you're long, you're going
+to win. And if you're bare, if you're
+short here, you're going to win. But the
+market isn't always that clear, right?
+What if what if there was there's a
+whole year here of data where it's not
+so clear. And your bot could chew itself
+out and lose all the profit it made on
+the bull run in this period, which you
+don't want that. you probably want your
+bot to to know when to go to sleep or
+when to when to reduce its trading
+activity. So th that's that's some other
+good good advice as well. So yeah,
+generally you want your uh your claude
+to compete uh and run its strategies and
+try to try to beat previous strategies.
+So I did that overnight and it ran it
+ran 25 different strategies and found
+this one was one of the better ones. So
+that's why I wanted to feature it in
+this video and I'll show future ones in
+other videos as well and probably put
+them up on the signal swap marketplace.
+They're really good ones. But rolling
+them out is basically something to to
+end up on the signal swap marketplace.
+It also needs forward testing, meaning
+real signals with real profit and
+profitable over that time period before
+there'll be any subscribers. So,
+anything you'll see on Signal Swap
+Marketplace, which is right here, I'm a
+developer for Signal Swap, and you know,
+you could connect your Bybit, Apex, and
+Pinex bots here, and you can publish if
+if they're doing well, you can publish
+them on the marketplace, and these are
+just some test bots in the marketplace
+right now, but these are real real
+signals and real charts for for these.
+So, they're also be back testing. So,
+stress tests can go here through signal
+swap. We have a a back testing system as
+well for robustness testing. So if you
+have any pine script that you want to
+test, you can take it directly from
+training view and drop it in here into
+the the back testing and then it'll tell
+you if it's robust. So it'll run similar
+tests to what my cloud does except it's
+all it's all done in pint script. So
+it's really fast and it's thousands of
+times faster than back testing on
+trading view. Plus it optimizes it uh
+you know with the stress test with the
+Monte Carlo simulations. For example,
+this EMA doesn't have a chance to be
+robust, but yeah, it says it fails. It
+fails the robustness test. Tells you how
+much it failed and and and why. So then
+you could get the full detailed report
+here on on the back testing feature. So
+you can build your own in Python, but
+then you might have to spend a lot of
+time tweaking it. But uh if you just are
+coming from Training View and you want
+to drop it in here, um right now this is
+down, but it'll be up very shortly. This
+is a brand new signal swap website, so
+I'm proud to launch it. I highly
+recommend signing up, setting up a bot,
+getting some signals. And if you have
+good strategies too, you can put them on
+the marketplace. If you create a bot and
+connect it and it's profitable, then you
+can publish it to the marketplace as
+well. So that means that you'll be able
+to profit and you know, from anyone who
+subscribes, you'll get 70% of the
+revenue from your trading bot. And of
+course, we got to vet to make sure it's
+good, but if it is good, then it'll be
+up on the marketplace. So that's also
+just a little side detour. So, what I
+what I'm going to do to get my bots on
+the marketplace, this is the full
+breakdown and summary, and then I I
+guess I'll just leave the video after
+the summary here, but I will I'll
+generally I'll take an idea, this is the
+baseline, and then I'll start adding
+exits. I'll start adding, you know, chop
+filters so it won't trade in precarious
+conditions. You know, when the market's
+really choppy, it'll turn off, it'll go
+to sleep. I'll start adding things like
+that in to see, you know, building
+stability improvements. This is the
+second version, third version of it. And
+then there's different branches it could
+take, right? Because I could take out
+some of these signals and then add in
+others and see how it does. So it'll
+kind of form a tree of all the possible
+configurations this bot can have on
+various coins. And the next thing is
+testing on various coins. So does it
+perform on Bitcoin like this one? Yeah,
+it it performs it looks like in training
+data, but in testing uh it might you
+might see a little bit of distortion
+here. It's still profitable in this out
+of sample data, but again like the win
+rate's dropping, uh sharp ratio is
+dropping. So it kind of tells you, okay,
+well maybe maybe Salana is just a little
+bit easier for this specific system. So
+it doesn't mean not as bad. It just
+means maybe it's less broad and
+generalized as uh as as I thought. And
+then yeah, for here uh Ethereum, we can
+look at the the some of the outsampled
+data here and it it's still a nice
+curve, right? But still the win rates
+coming down. Uh even though this one
+testing this is out as sample data, but
+because of that, you know, you want to
+see also bootstrapping simulations how
+often it holds up. So once it does that
+typically I'll I'll connect it to signal
+swap uh using the cratebot feature I'll
+I'll connect it here and then if it
+starts performing well then uh I might
+just increase you know I might have a
+paper trading account here through
+signal swap or just a really low maybe
+like $25 $50 something really small like
+$100 and then start start increasing it
+once it starts performing once it starts
+earning my trust then I'll increase the
+equity that that I'm willing to put into
+a specific system. So gen generally like
+what I have is there's I'm you know
+overnight it's claude is building
+hundreds of systems. So I have thousands
+of different bots and it's just about
+configuring and finding out which ones
+are robust. That's the idea cuz you know
+you don't know which one is robust. It
+might look good on trending view with
+one snapshot but it's about the
+stability scores. Like I said, that's
+like the gold standard is bootstrap
+stability of of your bot because when
+the candlesticks are randomized, you
+know, your bot is really going to be
+stress tested. And then yeah, out of
+sample testing super crucial that you
+guys have to be you have to get on that.
+That's I'm giving you guys the real the
+real secrets for this. This is the this
+is the methodology and you know, cloud
+can build it all for you. You don't need
+to know how to code. If you just have
+the time, you know, and you put your
+mind to it, then yeah, and this is my
+mission. I really believe in this. So I
+have a full free community. You can join
+on discord and there's some training
+bots here already open source community.
+People are sharing ideas and you know
+tuning and configuring. But again people
+in the in the discord I hope you know if
+you guys head over to the Python section
+you'll find more about uh like trading
+bots and and what I'm doing with claude
+in in Python um as as well. So this this
+is a place to be and you know I'm
+generally generally responsive here. So,
+if you want to find me or, you know, you
+can comment down below. I'll try to
+reply. But I'll I'll leave it there for
+you guys. I'll hand it off to you now.
+So, here's your chance to, you know,
+build build what you can show it off in
+the in the Discord if you want to post
+like, you know, all your gains or
+whatever. You can you can post your
+profitable bots, what what you guys are
+doing. And if it really is profitable,
+you can list it on the Signal Swap
+marketplace. Um, and you know, you can
+make some revenue that way, some extra
+extra side cash that way. So, thank you
+for watching if you watched this far,
+and I hope to have some really
+interesting content for you guys coming
+up. So, hit that subscribe button as
+well.

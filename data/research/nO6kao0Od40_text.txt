@@ -1,0 +1,784 @@
+We're going to build this EA. We'll go
+ 
+step-by-step and by the end of the
+series you will fully own this EA
+for free. Well, not free. It will take a
+computer, an internet connection, and by
+the end of it you will probably have a
+few more gray hair compared to when you
+started. Uh before we go forward, this
+trading robot has been on the MQL
+marketplace for years.
+It sells for $2,800. Seems to be
+boosting a lot of profits, consecutive
+months in profit, and has full
+documentation on the features, how to
+install it, requirements, settings,
+strategy, and all the other good stuff.
+But what we're going to do, we're going
+to look through the entire EA, figure
+out how it works, and then we're going
+to build it by ourselves. Now, let's
+look at the EA itself. This is the front
+screen of the EA with an entire panel
+and a few indicators. But we're going to
+build this entire thing with a yellow
+Pac-Man. Why? Because I just couldn't
+find a green Pac-Man. But in any case,
+this is how our EA in entirety will look
+like with a full panel, exactly the same
+way as you can find in the original.
+Let's first try and see how this EA
+works. So, this is from the market
+and I'm going to run a visual test.
+Now, this is going to take forever to
+run because there are a lot lot of
+indicators and there is a panel as well.
+But what we can see here is that the EA
+is based on standard deviation 36,
+RSI 20,
+ATR 96, and ATR 672. So, we're going to
+remember these and let's go back. And
+now we're going to run the test without
+the visual mode. So, we get the results
+here.
+All of the trades are visible here.
+And now we know what are the indicators
+through the visual test. So, we can put
+those
+So, for example, the ATR, and we know we
+need ATR 96 and 672. So, ATR 96, and
+then we put
+an ATR 672.
+Then we know there is an RSI 20.
+And there is a standard deviation 36.
+So, now we have all four of them here
+on the results. And let's look at the
+first trade,
+which is here.
+So, what happens is I'm seeing that the
+RSI has hit 70. Let's look at the
+settings as well. This is based on
+Bollinger Band period 35 and RSI period
+20. Yes, but the maximum RSI setting of
+15. I think this RSI setting is
+basically you have the middle 50
+and this is 15 above and 15 below for
+the buy and sell.
+So, this is from 50, we go up to 65 and
+35. So, if I look back here, on this
+trade, we have an RSI coming close to 60
+Yeah, 65. And let's say this trade here
+is the buy trade. So, if I come back
+down here, I see Yes, it is 38. So, what
+I see here is on a new bar.
+Look here.
+It's come down and the RSI is 32. So,
+it's again below 35. Look here. We get
+32, again below 35. Now, of course, it's
+not that simple. I mean, I just don't
+look at the chart and in 1 second
+understand exactly how the trades are
+opening. But I've seen through many
+different back tests is that every time
+the new trade open up, it has nothing to
+do with ATR. It has nothing to do with
+ATR 672. It has nothing to do with the
+Bollinger Band or standard deviations,
+either. It's only the RSI. So, as long
+as it is above 65 or it is below 35,
+immediately the trade opens, the first
+trade. Not the grid, the first trade.
+So, we can figure it out from all the
+trades here. The other thing I have
+noticed is that in the inputs you have
+the Bollinger Bands 35. But in the
+indicators, you don't have Bollinger
+Bands. What you have is the standard
+deviation of 35 or 36. So, it's 35 + 1.
+And what is a Bollinger Band? A
+Bollinger Band is a moving average with
+two standard deviation on the upper side
+for the upper Bollinger Band and two
+standard deviation on the lower side for
+the lower Bollinger Band. So, this
+standard deviation is showing up in the
+charts because the Bollinger Bands are
+being calculated manually using the
+moving average and the standard
+deviations to the top and standard
+deviations below. And this is most
+likely because for multi-currency EAs,
+MQL struggles with Bollinger Bands. So,
+it's easier to get the standard
+deviation and then calculate the
+Bollinger Band because then you're able
+to internally calculate it on every
+tick. Now, the other thing I noticed is
+that the trade distance is 35, which
+basically means that once you have
+opened the trade based on RSI, next
+trade is going to be 35 pips, and then
+the next grid trade is going to be 35,
+and then 35, and so on and so forth. So,
+the trading robot is opening the first
+trade based on RSI, but then it's adding
+the grids based on this 35 distance that
+the user can specify. But one thing
+which I've noticed is that that it's not
+always 35. One, because the EA is
+running the code on new candles and not
+every tick, because with every tick all
+of this is going to become way too much.
+So, it only runs on a new candle. But
+more importantly, what I've noticed is
+that there is a link to this ATR 96 and
+ATR 672 to get the volatility in the
+market. So, if there's more volatility
+in the market now versus longer period
+ATR,
+then this divide by this is being used
+as a multiplier to then increase the
+level from 35, whatever the user has
+put, to a different level. And I know
+this because you have this is smart
+distance, which if it is true and let's
+look here. We ran the test. You see here
+the first trade was opened at 9383.
+The second trade was opened at 9425,
+which is 42 pips. Could be because of
+the the candle. But the next trade from
+to 9475
+is actually 50, which is based on this
+value from ATR 96 divided by this value
+from ATR 96. So, one divided by the
+other gives you a multiplier
+and then you multiply that with the
+smart distance. The other reason I'm
+sure about this is if we go and change
+this to false, and I'm going to run the
+test again.
+Then here in the new test, where we have
+disabled the multiplier, if I look at
+the same trades, then you will see it's
+90 9336 to 9383, which might be because
+of this huge candle. But let's say from
+here,
+9406 to 9443 is 35 pips-ish.
+to 9480, 37 pips. And then if I look at
+some other trade, it is 9540 to 9576.
+So, exactly 36. So, if you turn off the
+smart distancing, the distance is
+actually exactly 35 plus minus for when
+the bar is closing. Whereas in the case
+of a smart distance being true, the
+differences are quite different. So, you
+have 9425
+to 9475,
+which is 50 pips. And that is because of
+this ATR divided by this ATR gives you a
+value which is being used as a
+multiplier. Now, I have run the test on
+AUD/CAD, NZD/CAD, and different
+currencies to verify this. You're more
+than welcome to download the demo EA,
+look it up for yourself. By the way,
+this is also very evident when you're
+running the EA in the visual mode with
+the panel on,
+that you will see here the next level
+and the lots. And here the next level is
+always 35, only changing with the smart
+TP based on the ATR 96 divided by ATR
+672. The next thing I saw in the inputs,
+after the smart distance, you have the
+second trade multiplier, the third to
+the fifth trade multiplier, and the
+sixth multiplier, which is one,
+two, and 1.6, which is You look at the
+grid. Let's say it's 3.64 for the first
+trade, the base trade. Then for the
+level one, it is a still 3.64. But for
+the level two, it's going to be
+multiplied by two. So, it's from 3.64 to
+7.28. Then for the third level, it is
+going to be multiplied again by two. And
+then if there are more positions, this
+is how the entire multiplier will
+continue. So, you will have the base
+rate as a lot size calculation, which is
+coming out of this setting. But once you
+have the base rate, the first level is
+going to have this multiplier. Then from
+third to fifth trade, you're going to
+double the lots every time. And then
+from sixth trade, meaning level five
+onwards, you're going to multiply it by
+1.6. This is how the entire martingale
+is working in this EA. And this then
+links back into the weighted take
+profit, which is the initial take profit
+when the first trade, the base trade,
+opens is 10. But then going forward,
+once we open martingale, so the next
+levels can become heavier in lots. In
+that case, we take the weighted average
+of all the positions, and then we
+calculate the average price, and then we
+put the TP versus that average price.
+It's a weighted take profit in that
+sense. And then this possibility of take
+profit for grid in pips, which can be
+different from this one. So, if nothing
+is specified here, it will be the
+weighted average price if this property
+is true. Otherwise, it will just be a
+simple average. And then from that
+simple average or weighted average
+price, the distance to the TP is going
+to be this 10 initial pips. Otherwise,
+if the user has specified something
+here, then depending on its simple
+average or a weighted average, this take
+profit is going to be used. And then
+going back up here, what I see here as a
+lot sizing is that you have lot of
+setting of 25% annually, which is 0.25%
+deposit load. Then 40%, which is 0.5%
+deposit load. Then 80%, which I'm
+assuming is between 0.5 and 1.5, cuz
+it's just double. So, 0.25 to 0.5. Then
+80% is definitely one. And then 120,
+which is 1 and 1/2 * 80%. So, this one
+is 1.5 deposit load. And then you have
+dynamic lot size based on balance and
+equity, which is a very simple one,
+which is you specify here the dynamic
+lot. So, 0.01 lot size per every
+$10,000. For every $10,000 of either
+equity or balance is the minimum lot
+size, 0.01. And then the fixed lots is
+very simple. It's fixed lots and then
+you specify it here, but then you also
+have the lots based on deposit load,
+where you can specify a custom deposit
+load. It's 0.25 as the default, which is
+the setting. 0.25, this is 0.5, then
+this is 1 and this 1.5. These are the
+lot sizing method for the base trade.
+And then for all other trades, you have
+these multipliers. And by the way, I
+think you can also put custom
+multipliers by comma. We can spend
+another hour going through all of this
+James Bond 007 stuff. You're more than
+welcome to download the demo EA and
+verify it for yourself. But the main way
+that the EA actually works is the RSI
+value from 50 is used to open the first
+trade. Then this trade distance of 35
+determines the next levels. The smart
+distances are based on ATR 96 / ATR 672
+as a multiplier. So, you take that
+multiplier and multiply with the trade
+distance. What I've also seen there's a
+gap between 1 and 1.5 because I've not
+seen a trade in a grid which is less
+than 35. So, it's definitely a gap of 1
+on the lower side. And then I've not
+seen something which is more than 1 and
+1/2. So, that's the upper limit for this
+ATR. Well, a smart distance, it is very
+very smart. But yes, in a way, I mean,
+if you have the faster ATR 96 is more
+volatile than the longer term ATR 672,
+you might want to increase the distance
+of your and it's a good linkage. Then
+you have the multipliers for the lot
+sizing and martingaling. And there's one
+more setting which is of interest, which
+is the grid level to start. And it's a
+very clever one. So, normally whenever
+your RSI is going to hit this
+15 difference from the mean 50,
+you're going to open up a trade. But you
+also have the possibility
+of actually saying, "No, I want to start
+from level three." In which case, and
+let's run it to see that when you run it
+with the grid level to start as three,
+then for the base level, you have 0.01.
+For the first level, you have 0.01. And
+then from trade three, you actually have
+3.66. While in the original one, you can
+see here from the very beginning it is
+3.64, 3.64, and then double already,
+6.7.28.
+Grid leveling is started immediately
+from the time that the RSI hits 65 or
+35.
+But if you are setting the grid level to
+start at a different value, then in that
+case, the EA is still places a bookmark,
+but with the minimum lot, 0.01. For the
+second level, it is still 0.01.
+Only from the level that you specify,
+that's where the actual lot sizing will
+start. 3.66. So, you don't put 3.66
+already here. You wait because, for
+example, you're expecting the price to
+move against you. In that case, what's
+the point of putting the full lot size
+here when you're already expecting that
+the price is going to move against you?
+Now, of course, there are many trades
+where you're going to open up on the
+first level and immediately it hits the
+take profit. So, you lose on that
+because you're only going to have 0.01.
+But when the market conditions are a bit
+more volatile, this can come in very
+handy. Then you only put a bookmark
+here, a bookmark here, and actual lot
+sizing starts from the level three. Now,
+another intelligent one is that when
+you're doing this, you also have the
+option to keep the original profit and
+lot sizing.
+What that means, in the normal where if
+we are starting from level one, the
+first lot was already 3.64. And this was
+3.64. And then already this is 7.28. And
+then this is again 14.56.
+But here, you started with 0.01, 0.01.
+But then this is going to be equal to
+the first trade that you placed. But if
+you change this to keep original lot
+size and profit levels, and now if we
+run the back test, what you will see is
+that the first trade is 0.01.
+The second trade is 0.01. But the third
+trade is not 3.67, it's already 6.82.
+As if this was calculated to be 3.6,
+this was calculated to be. So, even
+though we're placing bookmarks of 0.01
+and 0.01,
+but we're somehow is storing the values
+of what the lot size would have been
+if we were starting from grid level one.
+And then on the third level, we already
+start with that multiplier.
+Very clever. So, the difference between
+the three is if you have this grid level
+to start as the normal default one, then
+in that case, from the first time that
+the RSI hits the 65 or whatever you have
+specified that that level, it will open
+up the trade normally with the lot
+sizing based on whatever you have
+selected here in the lot sizing method.
+But if you select a value different in
+the grid size to open, then you have two
+very clever different options, which is
+one to keep the original profit and lot
+sizing to false, in which case the the
+grid is going to be based on 0.01,
+0.01.
+And from the third trade,
+we're going to start calculating based
+on the deposit load. So, this is going
+to be the first trade in that case. But
+then if you had selected it to be true,
+which is the back test here, then in
+that case, even though we're placing
+bookmarks on trade one, bookmark on
+level two, we are still considering
+these to be actual trade. So, from level
+three, we calculate the lot size as if
+these were full lot sizing
+according to the method that we have
+selected. Now, let's quickly look
+through the critical settings.
+I'm not going to go through the entire
+page. Most of this is just cosmetics and
+stuff or I'll run very quickly through.
+But since we're going to build this
+entire EA ourselves, so it's probably
+better to understand what is it that
+we're actually about to build. So, this
+is just allow the opening of the new
+trade. Then the lot sizing method,
+that's the important one.
+Fixed lots, lots based on deposit load,
+in which case you put this here. Dynamic
+lot sizing based on balance or equity.
+So, 0.01 lot size based on what balance?
+So, $20,000 will be 0.02. $30,000 will
+be 0.03. Then deposit load as a
+percentage, 0.25. And then there are
+some preset settings, which is low risk
+is 0.25 deposit load, medium risk is
+0.5, significant risk, which is double
+this, so it's definitely 1%. And then
+120%, which is six time this, so 1 and
+1/2, 1/2%. So, that's what our lot
+sizing are going to be based on. Then
+this one, the fixed initial deposit. And
+that's also a clever one because with
+the martingaling strategies, it's not a
+question of if, it's a question of when
+your strategy is going to blow. It will
+blow unless you have tremendous amount
+of deposit. So, then the idea with the
+martingaling strategies is always you
+put an initial deposit,
+but as soon as you make some profit,
+take it out. And then you make some
+profit, take it out. And what you're
+betting on is that you will make more
+money than the initial deposit before
+the EA tanks. Now, this setting allows
+you
+in the tester only
+to set fixed initial deposit. So, even
+though in the tester itself with the
+profit, your balance might increase, but
+the lot sizing is always going to take
+this initial deposit as if you were
+withdrawing the money all the time. So,
+these three settings are related to
+that.
+I mean, that's just rounding method. So,
+yeah.
+Max lot per lot, yeah, fine, understood.
+Auto split,
+which is if the lot size becomes so big,
+which is not allowed by either your max
+lot per order or your broker, then in
+that case, do you want to split it into
+two trades and then send? Maximum
+spread, maximum slippage, understood.
+Portfolio, no idea. I think it's just
+cosmetic Maximum number at a time.
+So, even though you might have three or
+four currencies at the same time,
+if two currencies always already have
+grids, then you don't allow more grids
+to open up. So, that's a very good
+restriction that you can put. Only one
+symbol if the grid reaches this level.
+So, on one symbol if it reaches level
+four, so it's a massive grid, then you
+don't want to allow anything else.
+Something something. Allow hedging,
+which is if there's a buy grid on the
+symbol, do you also allow a sell grid on
+the same symbol? Allow trading during
+holiday, cool. A very simple one, do you
+allow buy and sell, buy only, or sell
+only? Um minimum free margin,
+okay, a validation. Then this maximum
+floating drawdown. So, that's a drawdown
+control.
+Then maximum floating drawdown in money,
+so that's the money control. So, this
+one is in percentage and this one is in
+dollars.
+Then some FTMO related stuff.
+And then this one. So, when the drawdown
+happens based on this, what do you want?
+Do you want to close the trades and stop
+trading? Do you want to close the trade
+and stop trading until restart? Do you
+want to stop trading?
+Do you want to close the trade and stop
+trading? I think it until restart.
+Uh prohibit opening new grids, prohibit
+opening new grids until restart. And
+then the rollover because during the end
+of the day, the spreads can spike a lot.
+So, you might want to have a rollover
+period. So, from 23:45
+until 0:15 the next morning, that's the
+rollover period, during which you do you
+want to stop everything? Meaning like
+don't take any trade, don't close any
+trades because the spreads must be very
+high.
+And then maximum drawdown, is it based
+on this account or this is strategy?
+Because you might have manual trades as
+well. Do you take the drawdown only for
+this EA or this is strategy or for the
+entire account? Something something
+cosmetics then hour to start trading and
+hour to stop trading. Yeah, very valid
+ones. Then trade on Monday, trade until
+Friday. Do you want to restrict any
+particular day which I don't understand
+really? I mean, yeah, it's there but if
+you have a grid open in a martingale
+setting, how can you not trade on
+Wednesday then? Like what? I'm three
+level deep in a grid and I've floating
+negative profit of $300 but I decide not
+to trade on Wednesday.
+Okay, it might be useful if you're just
+going Okay, don't open up a new grid on
+Wednesday
+or Friday because it's a sacred Muslim
+day. I don't know. Then the rollover
+period we already looked at. Then the
+sendovers during rollover mean during
+this period if there is an order, do you
+send it or not? And then remove the take
+profit and stop loss during the
+rollover. I don't know why you would
+want to remove the take profit during
+rollover because yeah, if it hits it's
+happy days. Well, do you not want to
+take profit during the rollover period?
+A stop loss makes sense if there is
+actually a stop loss because what I've
+seen is somewhere down below here is the
+stop loss is actually 1,000 pips if it
+is zero. So 1,000 pips that kind of
+spikes not going to happen during
+rollover but let's suppose that the user
+has put a value into the stop loss then
+yes, I can see the sense in removing the
+stop loss during rollover because what
+happens at the end of the day is the
+spreads are going to spike, take your
+stop loss and then shrink back again.
+And your stop loss is gone, your trade
+is gone. So yeah, it might be a good
+idea to actually during the rollover
+remove the stop loss. So yes, that's a
+good one. Then of course, what symbols?
+No idea what this is but
+Okay, working time frame for Bollinger
+Bands and RSI. What what it is based on
+is 15 minutes. Then you have the
+Bollinger Band period as 35, RSI as 20
+and the RSI value which is going to
+determine where we open the first trade.
+Reverse strategy, well, it's an option,
+I guess. One can build it which is
+instead of taking the sell trade, take
+the buy trade. So you want to reverse
+the strategy which is the same probably
+as the open open opposite trade. And
+then the take profit, we have already
+covered that. Take profit and the
+weighted take profit and the grid take
+profit if it is going to be different
+from the initial take profit. And then
+you have these two additional settings
+which can probably come in help which is
+take profit after a certain level. So
+let's say four levels I've opened then
+you might want to have a different TP
+than if it was just to up to grid two.
+And same for the number of X bars which
+is if 500 bars or 200 bars or 100 bars
+have happened since the time. So it's
+been a long time the grid is open then
+you might want to assign a different TP.
+I don't think this is anytime really
+useful but fine, it's there. Then hide
+the take profit which is funny. I
+understand the hide the take stop loss
+that you don't send it to the to the
+broker. Your broker might hunt stop
+losses. But take profit, well, I
+wouldn't mind if my broker hits my TP.
+That's just me making some profit. So
+hide take profit does not really make
+much sense but fine, it's here in the
+year. And then the OPO method for taking
+TP once again, it's stupid which is here
+is my TP level but only take the take
+profit if the bar closes above it.
+Like why?
+Why would you risk that actually your TP
+was hit but the bar didn't close above,
+it closed below. You didn't hit your TP.
+Like why would you want to do that? By
+anyways, open price only method to
+handle TP. And then time frame for OPO
+method is well, you can define a
+different one from the main time frame.
+Is smart take profit? This I already
+spoke. I mean, yeah, I cannot show you
+the entire double O seven stuff here but
+this is basically based on Bollinger
+Bands.
+You set your TP as a percentage of how
+wide the Bollinger Bands are. Okay, do
+not adjust the TP unless a new grid
+level opens which means yeah, it makes
+kind of sense. I mean, you don't want to
+adjust your TP every three bars. So if
+this is your first level and here is the
+TP and then your second level opens,
+then you want to take a weighted average
+and then set the TP and move it. So this
+kind of makes sense. I don't understand
+why anybody would choose to be false.
+Don't know, don't understand and don't
+really think that it it is something
+useful. Cover swaps? Yes, if your grid
+is open for five days
+then there must be some swap
+accumulated. So for your TP calculation,
+do you want to include the swap cover as
+well? So you change your TP after the
+rollover.
+But once again, these settings are not
+related to the functioning of the year.
+This is more fine tuning of the year. So
+let's go through them with with that in
+mind. Is stop loss? Makes sense. Hide
+the stop loss.
+I don't think that the stop loss hunting
+happens. Well, don't start writing in
+comments that it does.
+Maybe it does and I haven't experienced
+it. But here yeah, it makes sense to
+hide it. And then makes sense to do OPO
+method because you don't want just a
+spike to take it and go back. You want
+if the entire candle closes below the
+stop loss, that's when you take the stop
+loss hit. So here OPO method will make
+much more sense than in the TP. Then
+trailing the stop loss in pips,
+understand. Randomize order TP level.
+I like what? I mean, just take it out of
+your hat. And then the trade distance
+we've been through. A smart distance is
+based on ATRs.
+Multipliers we've already understood.
+Maximum number of trades on the year,
+fine, understood. Calculate level from
+the initial trades, understood. Grid
+level to start we also looked at in
+quite a lot of detail. What does that
+mean? Placing bookmark trades
+until that level or start from the very
+first first level. Then keep original
+profit which was related to if this is a
+different number, then do you want to
+start at level three as if level one and
+level two were calculated with the
+proper lot sizing
+or do you want to start with the first
+lot sizing on level three? Understood.
+Then news filter, understand. Here, I
+mean, we're going to build the entire
+news panel anyways. So yes, news filter
+is enabled. And then the news action,
+prohibit opening of the initial which
+makes sense. So yeah, we'll incorporate
+that. Disable trading on bank holidays,
+news filter. I mean, all of this is
+yeah, fine fine fine, understand, easy
+to do. It speaks. I don't know. Maybe
+the year speaks if you turn it to
+or
+this is
+when what's his name? Jerome Powell when
+he opens his mouth, things go really bad
+sometimes. What's the period before the
+news and after the news? Do you want to
+increase the TP? And then there's the
+crash of the stock market which is based
+on some setting which I cannot figure
+out. So when we're going to be building
+it, I'm not going to be building this
+one. I I really can't figure this out.
+What does it mean by crash? I think it's
+a percentage.
+Probably we can build that which is if
+the stock market SP500 or I mean, you
+define here which one
+if SP500 drops by 3%
+so you can in the background monitor if
+it drops by more than 3% then you stop
+trading or something.
+Um so I understand what this is supposed
+to be doing. I cannot figure out because
+I mean, here I can only run a back test
+and in the back test I cannot figure out
+what's the linkage. So maybe we will
+build one of our own but it's not going
+to be based on what I can see in the
+year itself.
+And then the trade comment, UID is the
+unique identifier which I understand
+because of this magic number and the way
+I've seen the magic numbers work. It is
+a very unique method which is you build
+the magic number based on the direction
+of the year, then the magic number
+itself which is 84570
+and then ending it with a level. Two
+decimals for the level so you can keep a
+track of whether it's a buy grid, it's a
+sell grid
+but also which level is it? So every
+trade has a different magic number.
+That's what we're going to build as
+well.
+Show panel, understood. Show stats,
+understood. Show the next level grid.
+Yes, that's part of the panel. So yeah,
+of course.
+Font size, yeah, okay. In the panel
+we're going to build a font size as
+well. And then debug mode.
+Why? Like me? Who runs the year in debug
+mode? That's for debugging but fine. And
+disable automatic GMT detection. GMT DST
+is like when you're running the year on
+the chart in a proper account, it's your
+broker server which time which makes
+sense. But fine, we'll add a GMT and DST
+as well. But the point is a lot of these
+settings are just a small
+flavors
+for the lack of a better word. I suppose
+a lot of it is also to justify the
+$2,800 price tag and also maybe a lot of
+people look at this and go, "Wow.
+This must be good."
+But we're going to start with the
+backbone of the year and then we'll see
+all the things from here which makes
+sense, we'll add it.
+I think adding all of this is definitely
+going to require
+quite a bit of effort. I think we should
+be thankful to the gentleman who built
+this EA and also be thankful to him that
+he actually showed which indicators and
+parameters he's using through these
+indicators and the panel here what it's
+displaying plus the settings on the
+Bollinger Bands and RSI, it's not that
+difficult to to out what's happening in
+the trading bot. I think the bigger
+question is even if you understand what
+is happening in this $2,800 grid
+management system,
+can you build it?
+And the answer is yes, with a computer,
+an internet connection,
+a small thank you to Mr. Caffrey,
+and a few more gray hair,
+yes, you can. And that's what we're
+going to build in this series.
+So, until next time, guys,
+stay safe, [music]
+trade safe.

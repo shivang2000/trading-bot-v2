@@ -1,0 +1,1449 @@
+we're starting with a balance of ,000 e
+ 
+we're ending somewhere close to 41,000
+92% win on short trades 92% win on Long
+trades a relative draw down of only 11%
+no running draw Downs the general
+performance of the year is just up and
+up if you have a computer an internet
+connection and 2 hours of time then by
+the end of this video you will
+practically own this trading robot even
+if you know nothing about coding matter
+Trader or mql as a coding language we
+will go step by step we will look at all
+the codings and I will explain
+everything so with no motion any let's
+start before we get to the coding let's
+first look at the year itself so here I
+am in the strategy tester I'm going to
+run it on USD JPY 5 minutes chart is
+starting from 2023 until 2024 we're
+running it on every tick and I'm
+starting with a balance of
+,000 let's look at the input table we
+are putting a 3% risk on every trade we
+have set our stop loss and take profits
+to be 20 Pips and we want our trailing
+stop to be triggered once the trade is
+in 15 points profit so 1 and a half pip
+and we want our trailing stop loss to be
+trailed by one pit so 10 points we're
+running the year between 700 hours in
+the morning until 2100 hours in the
+evening so let's start the test so the
+EA performs the trading operations only
+during the trading hour so we have
+defined it to be between 700 hours and
+2100 hours so during the night the EA is
+not going to do
+anything once the trading period starts
+the EA will start trading everything
+automatically it will then open up the
+trades it will Trail the stop losses and
+then it will close the trades all
+operations done automatically now I will
+speed up the
+test so the test has finished we started
+with a balance of ,000 and we're ending
+up with somewhere around
+41,800 history wise if you look there
+are a lot of Trades which are in profit
+there will be some trades which are
+going to be in losses as well if we go
+back to metat
+Trader the first thing you will notice
+is that there are no running draw Downs
+there are PE of consecutive losses like
+here there are periods of stagnation but
+if you let the year run for a longer
+period of time the general performance
+of the year is up and up if you look at
+the back test results we're starting
+with a balance of ,000 e we're ending
+somewhere close to 41,000 92% win on
+short trades 92% win on Long trades a
+relative draw down of only 11% now this
+year requires very tight spreads and
+normally on Brokers the years that
+you're going to find the tightest
+spreads are USD JPY gbpusd and Euro USD
+so we're going to run on those three so
+USD JPY we have seen let's very quickly
+run it on gbpusd as well again five
+minutes chart is starting from 2023
+until today every tick and 1,000 let's
+start the test again you will notice
+that there are no running draw Downs
+because of a very tight stop loss there
+are periods during which the EA does not
+do very well so somewhere between August
+and December it actually was a stagnant
+in fact losing a little bit of money but
+overall the performance of the Year
+Still Remains up and up over a longer
+period of
+time looking at the back test results we
+started with ,000 we're ending up with
+4600 again 92% short trade win and 92%
+long PA when a relative draw down of
+17% let's quickly run it on Euro
+USD and once again no running draw Downs
+as I said because of a very tight stop
+loss periods of consecutive losses
+periods of stagnation but the general
+performance of the Year remains up and
+up looking at the back test results we
+started with a, we're ending up with
+4,300 a relative row down of 14% 91% win
+on short trade 94% win on Long trades
+the year performs really really well now
+before we dive in into more details and
+start coding the entire stuff let's
+start looking at the strategy
+first so the strategy is extremely
+simple what we're betting on is that if
+the price is moving in a certain
+direction that it will continue to move
+in the same direction by at least one
+and a half more bits that's the entire
+strategy now you can have different ways
+of defining when to take trades the one
+that I'm using here is looking at the
+last High and the last low so the EA is
+going to put orders on the last high and
+on the last low and after the trade
+comes down to our stop order then we're
+basically betting that it was moving in
+that direction so it will continue to
+move in that direction by another one
+and a half pit once it moves in that
+direction in our favorable Direction by
+more than one and a half pit we start to
+Trail our stop loss very aggressively
+by One PP only until the time the trade
+either goes in the direction of our TP
+or it comes back and hits our stop loss
+which we are training so that's the
+entire strategy now you can use
+different methods for example you can
+use moving average crossovers once the
+fast moving average crosses a slow
+moving average you can take the trade in
+the general direction of where the
+market is moving and then bet that it's
+going to move by more than 1 and a half
+pip you can use RSI so for example if
+the RSI goes from below 70 to above 70
+you take the general trade in the
+direction of where the price is moving
+and then you bet that it's going to move
+another 1 and a half pip so you can
+start trading the stop loss so entry
+criteria can be many the general
+strategy is if the price is moving in a
+certain direction I will continue to
+move in that direction by at least one
+and a half more F now this e works
+extremely well when the market is
+trending so it's going in a general
+direction either upward or downward it's
+during the stagnant period the chaotic
+Market periods and volatile Market
+periods that the strategy is going to
+suffer now for our friends who are
+generally new to the entire coding let's
+quickly look at what softwares you're
+going to need so the first thing is
+you're going to head to Google and
+you're going to type metat Trader and
+here on the download tab you will find
+that metatrader 5 is available for
+Windows and for Mac it's also available
+for
+Linux we're going to download it for
+Windows and once you have downloaded it
+and installed it when you open it you
+will see a screen like this if you head
+to the view and you select market watch
+that's where you're going to see all of
+the currency pairs if you're missing
+yours you can add it here so for example
+if I wanted to add New
+Zealand CHF I type it here and when I
+hit it it appears here if I right click
+on it and I select chart window we're
+going to get the chart in this window
+the second thing you're going to open up
+in the view is your Navigator and this
+is where once you have an account on the
+broker you're going to connect it here
+you can right click here you can log a
+trade account and here you're going to
+provide your login details and select
+the server which is provided by your
+broker to connect the third thing that
+we were using again in the view is the
+strategy tester and this is what we were
+using to run our back test I have
+already written the year it's called
+scalping robot Forex but we will rewrite
+it and I will go line by line and
+explain everything if you look at the
+input tab this is where we Define all of
+the variables for the year so for
+example how much risk do I want to take
+on every trade as 2% how much is my take
+profit or a stop- loss point I'm putting
+it as 20 Pips up and down then when does
+my trailing stop triggers and I'm
+setting it up at 1 and A2 pip and then I
+want to Trail my stop- loss by one pit
+I'm going to run it on 5 minutes chart
+starting from 700 hours until 2100 hours
+so these are all the input variables
+that we collect information from our
+user and we will be coding all of this
+step by step and that we do by heading
+to the ID which is the development
+environment when you will click on it
+meta editor 5 will open up and it will
+look something like this if you don't
+have the Navigator window then it is in
+the view you can select the Navigator
+window and here in the experts folder
+all of our EAS our trading robots
+they're going to be coded n store I'm
+going to hit
+new and I'm creating an expert advisor
+and let's call it a scalping
+robot and I hit next and then next and
+then finish and this is the generic
+template that I get to now all of the
+stuff that's written after two forward
+slashes that's considered by mql 5 to be
+Commons I'm going to remove them to
+clean up the template and after the
+clean up the template looks something
+like
+this now there are three functions which
+come with the expert advisor
+automatically the first one is on it
+function and these are all event based
+so going back to metatrader now the
+market is closed so we're not going to
+get a tick but whenever there is a new
+price that arrives in
+metatrader that's what metatrader calls
+a tick so it's the arrival of a tick and
+then on every tick all the codes which
+are written on the on thck functions so
+here are going to be run all the the
+codes written here under the onit
+function which is initialization
+function are going to be run when the EA
+is initialized so when you attach it to
+a chart on the first run of the Year all
+the course it in here are going to be
+executed the de initialization is the
+opposite of initialization so every code
+that's written here is going to be run
+when the EA is stopped now besides these
+three functions we're going to need a
+lot of other functions as well and don't
+worry about it I will go through every
+function line by line and explain the
+codee so let's
+start I will start creating all of the
+functions below this comment line so
+that we can separate between the on pick
+function initialization function de
+initialization function and our general
+functions that we are writing ourselves
+so the first function we're going to
+need is the is new bar function and
+that's the function that's going to
+check on metatrader that whether a new
+candle has opened so all of the ticks
+that arrive in between these candles so
+that we don't run the EA on every tick
+but we only run the EA on the
+initialization of a new candle the way
+to write this is we're going to call
+this a buol function AOL function
+Returns the value of either true or
+false so we start by creating a variable
+previous time and it's a date time
+variable I'm assigning it a value zero
+so basically leaving it black then what
+I'm doing is I'm getting the current
+time on the server by using the I time
+function function and this function
+comes generic with mql so when you will
+type I time and open up the bracket it
+will ask for three inputs the first one
+is with chart and if we write underscore
+symbol that basically means whatever
+chart that the EA is attached to use
+that
+symbol then the next one is period
+current which is whatever is the period
+currently and later on we're going to
+Define a variable by the name of time
+frame but I will change it already here
+by saying this is the variable that I
+will send so what's the time frame and
+then which bar do I want to check it on
+so this is bar zero the last bar this is
+bar one bar two bar three and so on and
+so forth so I want the value of the
+current bar now once I get the current
+time which is the time on which the
+current bar is started then I can check
+whether the previous time is equals to
+current time if the previous time is
+equal to the current time then it
+basically means that no new candle has
+opened so the current time is exactly
+the same as we had before but if not and
+this is the way of writing not if
+previous time is not equal to current
+time then it's definitely a new bar so
+we want to return true but then the next
+time the E comes back to check it we
+want the current time to be the same as
+the previous time until a new candle
+opens up this is why we assigned the
+current time to the previous time so the
+next time the year comes back here the
+previous time then is equal to current
+time and it doesn't doesn't do anything
+it doesn't return a true it returns a
+false until the time a next candle arri
+and then of course the current time of
+the next candle is going to be different
+and therefore again the entire procedure
+will continue and therefore again the
+previous time will not be equal to
+current time and then we will have our
+true value until the next time so this
+is our first
+function then the next function we're
+going to need is a function to find a
+high and a low
+so I'm creating a function and I'm
+calling it find high and it's a double
+function so it will return a value of
+decimals now in mql double means a
+variable which can store decimal Valu so
+100. 333 4 something like that it's a
+double variable a variable that cannot
+store the decimal will be integer so it
+will only store 1 2 3 but it will never
+store 1.1 we want to find the high and
+normally the prices are in decimals so
+we want to create the function to return
+value which is going to include decimals
+and this is why I'm creting the function
+as double visually it is very easy to
+find a high so we know that this is a
+high we can say that this is a high then
+this is a high then this is a high this
+is a high this is a high and this is a
+low this is a low this is a low this is
+a low this is a low this is a low and so
+on and so forth so visually it is very
+easy and intuitive to find the high and
+low how do we tell mql how to find the
+highs and lows the way that we're going
+to achieve this is we're going to tell
+mql that at any point in time look for
+five candles to the right and five
+candles to the left if all the five
+candles on the left and all the five
+candles on the right are below the
+middle candle that's what we call a high
+now it can be 10 candles to the right 10
+candles to the left 20 candles to the
+right 20 candles to the left but the
+logic is the same so as long as X number
+of bars on the left and X numbers of
+bars on the right are below the middle
+handle we call it a high so back again
+in meta editor we start by creating a
+double variable and we call that
+variable highest high and we assign it a
+value of zero because we don't have a
+highest high yet so that's the starting
+point the next thing we do is we create
+a loop and this is how you create a loop
+in mql by saying for and then for an
+integer value is starting at zero and as
+long as it's below 200 or 300 400 run
+these codes and every time increase the
+value of I by one so start at zero run
+the code come back make I equal 1 then
+run it then I equals 2 then run it until
+the time that I hits 200 and that's when
+you stop running the loop so all of the
+CES which we are going to write here
+between these two curly brackets are
+going to be run for 200 times we start
+by creating another variable and again a
+double variable so we can store decimal
+in it and we call it high and in that
+variable what we're going to check on
+every Loop by using the I high function
+and the I high function in mql Returns
+the highest value of a candle so for
+example on this candle this is the
+highest point this candle this is the
+highest point so that's the point that I
+high is going to return so we want to
+get the I high meaning the highest point
+of the candle we send the value of the
+current symbol which when we say
+underscore symbol means the current
+chart then the time frame variable that
+we're going to Define later so that our
+user can define whether he wants to run
+this on 5 minutes or 10 minutes 15
+minutes 20 minutes and then check the
+value of the bar number I so if it is
+starting then I equals 0 next time I
+equals 1 then the next time I equals two
+and so on and so forth until 200 so
+every time we're going to be looping
+we're going to find the high of this
+candle then this candle then this candle
+then this candle and so on and so forth
+200 candles back for and then we say
+that if
+I is greater than bars n and we're going
+to create a variable bars n in which
+we're going to store the value of how
+many bars to the left and how many bars
+to the right you need to look so if I is
+greater than Bar N because we don't want
+I to be the last candle because we want
+to check five candles to the right and
+that's not possible so the first time
+that five bars on the right are going to
+be possible is if the I is greater than
+whatever is the number of bars we're
+checking on on the right so if I is
+greater than Bar's n then check the I
+highest and if you use the I highest
+function in mql by sending the symbol
+value and the time frame value and then
+telling mql okay which mode am I looking
+for am I looking for high or am I
+looking for low and then starting at
+which bar and how many bars to
+look then mql is going to look back that
+many bars and it's going to find the
+highest value within that
+range so here we are checking so here we
+are checking for bars n * 2 so if our
+bars n is five so if we checking for
+five bars to the right five bars to the
+left then bars * 2 is going to be 10 and
+then we add one more to it so it's 11 so
+we're asking it to check 11 candles
+backwards is starting at whatever is the
+current IE - 5 so if the current bar is
+this one then it start here five bars to
+the right look back 11 bars and find the
+highest point so for example if we were
+starting here and looking back 11
+candles the highest point is going to be
+on candle number
+six and this is what we're going to get
+here this function is going to return in
+that range of 11 candles which number
+candle has the highest value or if the
+candle that you find as the highest
+candle is the one that
+is the I then we know that it is the
+high of that range it has five candles
+to the left and five candles to the
+right so we have found our high and then
+if high is greater than highest high so
+we started with the value of zero but if
+it is greater than that then return the
+value of high back because now you have
+found the high and the reason why we do
+this check is because if the EA has
+already found a high let's say here so
+we do need to check that the new high
+that it has found is actually higher
+than the last High it had found so that
+we don't go downwards we only go upwards
+and then as the last step we say return
+the high back and then make the highest
+high value equal to whatever is the
+higher value between high and highest
+high so that the highest high has now
+stored the highest value and then if you
+cannot find anything just return minus
+one so this is how we tell mql how to
+find the high now no prizes for guessing
+how to find low which is the exact
+opposite of finding the high so we're
+going to create another function we call
+it find low but this time we start the
+lowest low value as double Max we cannot
+start it as zero because the year is
+never going to find a value of a low
+below zero so we start with whatever is
+the max value available within mql and
+then we do the same iterations of
+looping finding the low's distance time
+and then checking if the I lowest
+happens to be right in the middle of the
+range that we're looking at the 11
+candles and if it does then we return
+the low and then we set the lowest low
+to whatever is the math minimum between
+the low and the lowest low if it cannot
+find a low then just return minus one
+which is return
+nothing now the next thing we're going
+to look at is because we are asking the
+user to provide how much loss is he
+willing to take on one trade
+so now we need to do a calculation to
+calculate the lot sizes so I'm going to
+create a function and I'm going to call
+it calculate Lots what we're going to
+send to the function is a double
+variable by the name of SL points we're
+going to send the value to this function
+of how big of stop loss is in points
+whether below the price in case of a buy
+or above the price in case of a sell
+we're going to send what's the distance
+between the entry price and the stop
+loss to this function and then we're
+going to ask the function to calculate
+for us for the lot size should be so we
+start with creating a variable we call
+it risk and here we're going to convert
+the risk percent variable where we're
+going to collect the value from the user
+in terms of percentage we're going to
+convert it into absolute value by first
+converting it into a percent and then
+getting the info of what the account
+balance is so if the account balance is
+1,000 we multiply it by the risk percent
+and that gives us our absolute risk then
+we need to get the these three values
+from mq which is how big is a tick size
+so for example for Euro USD The Tick
+size value is the fifth decimal so
+that's the tick size then we ask for
+what's the value of that tick and then
+we ask for lot steps so on different
+Brokers it can go from 0.01 to 0.02 to
+0.03 so these are the steps in which the
+lot increases once we have these three
+values then we can calculate the Lots we
+calculate it by first dividing the SL
+points that we have sent by The Tick
+size value and lot steps
+multiplication and then our lots are
+going to be whatever our risk is divided
+by whatever is the result of this
+formula times the lot step and that's
+going to return to us the lot size
+that's going to match the risk
+percentage depending on the account
+balance but as a safety precaution we're
+also going to get the minimum volume
+Allowed by the broker the max volume
+Allowed by the broker and the volume
+limit Allowed by the broker and then we
+can say if the volume limit is not zero
+meaning that there is a limit then set
+the lot size to the minimum of lots or
+whatever is the volume limit then the
+same if there's a maximum volume is not
+zero it means there is a limit there is
+a max volume then the Lots can be the
+math minimum of between our calculation
+of the lots and whatever is the max
+volume allowed and in case of minimum
+volume is also not zero which means
+there is is a minimum requirement then
+the lot size is going to be the higher
+of whatever is that volume minimum and
+the lot size that we're calculating here
+after that we just normalize our lot
+size to two decimal and then we return
+the value of the lot
+size now before we go with more
+functions let's come back to the top and
+let's start defining some variables now
+the first variable that we're going to
+ask our user to provide us is the risk
+percent where you can see here and the
+way we tell mql that it's a user defined
+variable is by starting the command as
+input so the mql knows that it is an
+input variable it needs to ask the user
+and it's a double variable because it
+will store decimal values we call it
+risk percent and we assign it as an
+initial value of two so that's the
+default value now risk percent as a
+variable itself it's a very unique name
+the user might not be able to understand
+so if after two slashes you write
+something that's going to appear here
+for the user in the input tab so we say
+risk in percentage on each tra so that's
+what the user is going to see as a
+description in the input tab then the
+next variable we're going to ask is the
+time frame we're asking the user to
+Define already for us whether he wants
+to run it on 5 minutes chart 10 minutes
+chart 15 minutes chart and the reason
+we're asking here is because in metat
+Trader once he has assigned the EA on
+the chart the user might actually switch
+between 1 minute chart 5 minute chart 15
+minute chart but then the EA will get
+confused whether it needs to run the
+code on 5 minutes chart 15 minutes chart
+30 minutes chart so it will depend on
+what is currently selected we don't want
+that so we ask the user to provide a
+value so no matter what the value of the
+chart time frame is the EA will always
+run it back on whatever the user has
+defined the third variable we're going
+to ask is the one that we have already
+used which is the bars n it's like how
+many bars to the right and how many bars
+to the left to look for so if I compile
+it now
+and I don't have any errors so now if I
+go back to metat Trader then under the
+expert advisors I will find my new
+scalping robot if you cannot find it
+then just right click and
+refresh and it should bring your
+scalping robot here now drag this
+scalping robot to the
+tester and if you can't find the tester
+here in the view you click on a strategy
+tester and now if you go to input tab
+now you can see that these are the three
+variables that we have currently defined
+in our EA and they are displayed here as
+the description which we put after the
+two forward slashes so back here four
+more inputs that we are going to require
+from the user are going to be the TP
+points the take profit points the
+stop-loss points the the TSL points and
+the TSL trigger point these are provided
+in points not Pips 10 points equal a pip
+the TSL point is going to be how far
+from the price do we want our stop- loss
+to Trail so we're saying one pip and
+then we are also asking the user to
+provide when to start trading so how
+much the trade needs to be in profit
+before you trigger the trading of the
+stop- loss and we're setting it to 1 and
+1/2 pip so once the trade is in profit
+by 1 and 1/2 pip then start trailing the
+stop- loss by one tiip then besides the
+baren I'm also going to ask the user to
+provide an order distance point and an
+expiration bar now first the order
+distance point so if this this is our
+low but the price is here I don't want
+to send the order because the price
+currently is extremely close to the low
+that I have
+identified so how much should be the
+distance between the lowest point or the
+highest
+point with current price before we send
+the order to so if this was the high I
+only want to send the order once there
+is a distance between the current price
+and that High by more than 10 Pips the
+expiration part is once we have sent the
+order to the server it's going to stay
+there forever until the time that we
+either delete it or it expires so when
+we're sending the order we will also
+send a command to the server saying that
+once you have placed the order keep it
+valid for a 100 bars but then after the
+100 bars expire it so if it's a 5
+minutes chart then after 500 minutes
+expir it if it's an hour chart then
+after 100 hours expire it if I compile
+it now and go back to met Trader I will
+see that all of my variables that I'm
+asking are now defined here and the user
+is able to provide the inputs either by
+putting the value or by selecting it
+from a drop down now the next thing
+we're going to collect is the time frame
+during which time to trade and for that
+we're going to create a variable type
+because it doesn't come with mqr we're
+going to create a variable type where
+we're going to have values of inactive
+100 hours 200 hours 300 hours and so
+forth and so forth until 2300 hours and
+we create a new variable type by saying
+enum and then giving it a name and then
+putting within the curly brackets what
+values it can have so now that I have
+this variable type which has these
+values to choose from I can ask my user
+to now provide an input on a variable
+that I'm calling sh input so start our
+input and I'm giving this variable the
+type a start hour that we have created
+in this line so now if I compile and go
+back to metat Trader I will see now that
+there is a start hour and here is our
+drop down and it has the values that we
+created in the variable type so now the
+user can select what hours it wants or
+if it wants it to be
+inactive then we do the same thing for
+end hour by creating an enum a variable
+type calling it and hour putting exactly
+the same as here and then we ask for
+input and store it into a variable that
+we're going to Define as th inputs and
+our input and assigning it the variable
+tys and hour that we have created here
+two more things that we're going to need
+from our users are an integer variable
+and we're calling it input magic number
+and this variable is going to store the
+unique identification number for our EA
+so that when our EA places its trade on
+a server then later on it's able to
+identify its own trade from other trades
+that are placed on the server and the
+last one is I'm asking for a string and
+a string is a text variable type and I'm
+collecting it in a variable that I'm
+defining as trade common and for now
+I've put the value as notion an if you
+compile now and go back you will see
+that our start hour and end hour have
+also come here we have our unique EA
+number which the user can Define and
+user can also write whatever comment
+they want and as the last variable
+we're going to create two more variables
+by the name of asset choice so start our
+choice and end our choice where we're
+going to store the value of whatever the
+user has selected in sh input and eh
+input we're going to store it here these
+are all the variables that we're going
+to use in this
+year let's go back to defining our
+functions now the next one I'm going to
+create is when we find a suitable High
+then we will send a Buy order so I'm
+creating a function by the name of
+execute bu and we will send to this
+function the value of the price that we
+want to set the order basically the
+value of the high for Buys so we start
+by collecting the ask value currently in
+the market by sending the information of
+the symbol for which we're asking the
+ask value and asking back the symbol ask
+value through the symbol in for double
+function once we have the ask value then
+the next thing we do is we look that if
+the ask value that we're getting here if
+it is greater than the entry point that
+we're sending the high point minus the
+order distance point so where it should
+be or below if it is higher than that
+then we don't want to send the order so
+we basically say return which means
+don't do anything further just exit this
+function but if it is not then we know
+that the price is currently below the
+point at which we want to send the
+orders and in which case we start
+preparing to send the order so the first
+thing we do is we create a PP variable
+and a stoploss variable our TP variable
+is going to be whatever entry price
+we're sending which is the
+high plus the TP points which we have
+collected from the
+user how many points to set the TP at
+and the SL
+points but convert it into the points
+Decimal System of whatever the currency
+pair is so for example on Euro USD you
+have normally five decimal places but on
+USD JPY you have three decimals so using
+the correct decimal values is important
+and that we achieve by multiplying the
+points by a generic value that comes
+with mql as underscore points and that
+converts the value of the TP points into
+the correct point system we do the same
+for SL but the SL is going to be entry
+minus the stop loss points convert it
+correctly for the decimal system and
+then we start with a standard lot size
+of 0.01 as a default value and then we
+say that if the risk percent is greater
+than zero so if the user has provided a
+value in the risk
+if it is greater than zero then the user
+has provided a value in which case we
+don't want the default lot size we want
+the lot size to be calculated by sending
+the entry minus a stop loss distance to
+our calculat loss
+function and this entry minus a stop
+loss is basically where our entry point
+is where our stop loss point is the
+distance between the two so we're
+sending the distance between the stop
+loss point and the entry point point and
+not the stop loss
+itself the next thing we look at is the
+expiration because we need to set the
+expiration for the order and this we
+calculate by getting the time of the
+current Candle by using the I time
+function for the zero candle meaning the
+current the last candle and then add to
+it whatever number of expiration bars
+that we have defined so here we have set
+100 give it set
+100 convert it into whatever is the p
+period second of that time frame so if
+it is 5 minutes chart then basically it
+will be 60 * 5 300 seconds all together
+multiply by the number of bars so 300
+seconds multiply by 100 bars 3,000
+seconds from the current time by adding
+it and that is our expiration time once
+we also have our expiration time then we
+can send the order now in order to do
+trading operations in mql we need to
+make a reference to an mq file so we
+come back to the top and we provide a
+reference to a file by saying hash
+include and then providing the path
+which is going to be here in the include
+folder in the trade folder and the file
+name is trade. mq now this trade. mq
+file comes with mql where mql has
+written all of these codes so that we
+don't have to write it and we can just
+call these functions
+to do the trading operations now the
+three functions we're going to
+use are C trade function C position info
+function and c order info function now
+the C trade function does trade so all
+of the trade operations are going to be
+done through Class Type C trade and
+we're assigning this class to a variable
+that we're creating and we're calling it
+trade now if you want to collect
+information on the current positions
+which are open on the server then we use
+the C-Class position info and we're
+assigning it to a variable we're going
+to call POS and same for order info
+we're assigning it to a variable that
+we're calling or so now that we have the
+trade variable we can go
+back to our execute bu function and here
+we can write trade as soon as I will hit
+the dot all of the trading operations
+which are available are going to now be
+available to me the one I'm using is the
+buy stop because we're sending a buyer
+stop on the high value in the market
+when you will open up the bracket it
+will ask ask for the value of the volume
+which in our case is
+Lots here that we have calculated or
+here then it asks for the price on which
+price is set the order and that we will
+send as entry then it asks for what is a
+symbol and we want to whatever chart it
+is attached on then it asks for what's
+the stop- loss and we have calculated
+the stop loss here then it asks for TP
+we have calculated the TP here then it
+asks for what type of order are you
+sending and we're sending and we say
+that we're sending order time specified
+so we will specify when to expire it and
+then we give it the value of the
+expiration time through this variable
+that we have created here and calculated
+the
+expiration and then we finish with a
+colon every code in mql finishes with a
+colon that's the way of telling mql that
+this line has finished and now it needs
+to go to the next
+instruction if I compile it again I do
+not have any any errors so all
+good so then we can proceed to creating
+no prizes for guessing the execute sell
+order which is going to be exactly the
+opposite of the buy order so this time
+we collect the bid instead of ask then
+we check if the bid is smaller than
+entry plus distance point so if the
+entry is here and this is how much
+distance we want if the bid is below
+that distance then just exit the
+function
+otherwise calculate the TP but this time
+the TP points are going to be entry
+minus because it's a cell so TP is going
+to be below the price and the stop loss
+is going to be higher than the price
+then we start with the lot size and then
+we if the risk percentage is greater
+than zero then we calculate the lot size
+but sending the distance again but this
+time we will say SL minus entry here we
+said entry minus SL here we will say SL
+minus entry because SL for a cell is
+going to be above the entry and we want
+to send the distance between the two so
+this minus
+this then we calculate the expiration
+bar and this time we use a trade
+variable that we have created to send a
+sell stop by providing the value that we
+have calculated
+here then one more function we're going
+to require is to close all
+orders which is when the trading time
+will finish we will close all of the
+pending orders and this I Do by going
+through a loop so we start for a loop
+and and this time I is going to be
+equals to orders
+total so how many orders are there on
+the server get all of them so if there
+are five then I want to start the I as 5
+minus one because I will go as 4 3 2 1
+and zero so if there are five values I
+want five iterations so I will start
+with a value of four so that it can go
+down to zero so I equals whatever the
+number of the orders are there on the
+server and then
+decrease the I by 1 by saying iusus
+that's i - one decrease the value of I
+by One on every iteration so when we're
+going through all of the orders every
+time I will become smaller so 4 3 2 1
+and zero and then as long as it's bigger
+than or equals to zero then run these
+codes which is to select the order and
+this where we
+using the order variable that we created
+and assign to class order
+info so now we're using that here by
+saying order and then select by index so
+select this order by its index number so
+for example if there five and start as
+four get its ticket number by saying.
+ticket number and assign it to a
+variable by the name of ticket and then
+if the symbol of this order is is the
+current chart symbol and the magic
+number of the order is our magic number
+then that basically means it's our trade
+placed by thisa and it is on the same
+chart so it is the same currency pair as
+well and in that case just delete the
+order by providing the ticket number so
+this is how we will close all the
+orders so now that we have written all
+the functions that we need let's go back
+up all the way to our initialization of
+the EA and the first thing we do is we
+assign on the initialization of the EA
+the magic number by saying set expert
+magic number and within there we say
+input magic number and then finishing
+with the colon so now all of the trading
+operations which are going to happen by
+this year will have this input magic
+number as the magic number assigned the
+next thing we do is we assign the value
+of what we have collected from the US
+as start our input and end our input up
+here to these variables that we defined
+so let's assign the value of start our
+input into start our choice and end our
+input into end our choice then we go to
+the on tick
+function and then on every tick what we
+want the EA to do is to check whether
+it's a new
+bar and we do that by saying if not is
+new bar meaning if it's not a new bar
+then return so exit the function don't
+run the codes below so all the codes
+which are going to be written below this
+line are only going to be run on every
+new candle and not on every tick and
+this we do because we don't want the
+year to check on every tick all of the
+stuff it's good enough to do it on every
+new canle then we get the current
+time and we create an mql date time
+variable and we call it time and you
+will understand it in a few seconds and
+then we use the function time to
+structure and we send to it the current
+time and then we assign the value of the
+structur time to the variable that we
+have defined here by doing this now what
+we can do is when we write time and hit
+dot then the time can now be split into
+day day of the week hour minute second
+so for example if it's 20 100 hour now I
+can get the value of the hour as 21
+rather than the entire
+time the thing that we are interested in
+is our so we create another variable and
+we call it our now and we assign it the
+value of time do hours or whatever is
+the current time the hour of that
+current time now that we have the value
+of the current time in hours we can now
+compare and we go that if the hour now
+this hour now the current time hour is
+less than the start hour choice so if
+the start hour Choice was 700 in the
+morning but the hour now is four then
+basically close all the orders and
+return meaning exit this function don't
+do anything else so don't do any trading
+operations before the hour now becomes
+bigger than the start
+hour and then if the hour now is greater
+than or equal to the end hour choice and
+the end our choice is not inactive then
+in that case close all the orders and
+return so BAS basically only run the
+codes below during the trading time
+defined by the user the next thing we're
+going to do is we're going to check if
+there are already orders placed by our
+EA on the server or if there are already
+open positions because then we don't
+want to send more orders so we start by
+creating two variables buy total and
+sell total and we assign it a value of
+zero and now we're going to Loop through
+all of the positions and all of the
+orders so let's first Loop through all
+of the orders on the server by exactly
+the same way as did is for close all
+orders is we creating a loop for Loop we
+starting with total number of orders on
+the server minus one because it's going
+to go down all the way down to zero so 5
+= 4 3 2 1 and Zer and as long as I
+remains greater than zero then run these
+codes and every time decrease the I by
+one so go 4 3 2 1 and zero and on every
+iteration select by index the order and
+the index would be whatever is the I now
+so 4 3 2 and then 1 and then zero and
+then if the order type equals by stop
+and Order symbol is the symbol on the
+chart and the magic number of the order
+is also equal to our magic number then
+it's an order placed by us on the same
+currency pair in that case increase the
+value of the buy total by one when you
+say buy total plus plus it basically
+means plus one so now by total will
+become one if there is an
+order and if the order type equals cell
+stop and it is the current chart symbol
+and our magic number then we know it's
+our trade placed by our year on the same
+currency pair so then the cell total
+becomes one as well or whatever is the
+cell total increased by one exactly the
+same way we're going to check if there
+are open positions by looping through
+all of the open positions on the
+server selecting them by index and then
+checking if the position type is
+position type by is the c chart symbol
+and it's our magic number then buy total
+increases by one and sell total
+increases by one if it is cell type cell
+and it's on our chart and using our
+magic number so now if bottal is less
+than zero or equal to zero that means we
+didn't find any order and we didn't find
+any open positions in which case we're
+going to send the high by finding the
+high assigning it to a variable by the
+name of high and if there is a value of
+I so high is not zero is greater than
+zero meaning there is a valid value it's
+not a mathematical error then execute
+the function that we wrote as execute by
+by sending it the entry value as high so
+then the E is going to go here and it's
+going to run this function and send this
+by stop using the value entry which is
+the high then exactly the same procedure
+for cell total so if Cell total is less
+than or equal to zero which means that
+we didn't find any cell order we didn't
+find cell positions in which case find
+the low and then if low is greater than
+zero so it's not a mathematical error it
+is a valid value then execute the cell
+by sending the value low as the entry so
+the system will come down
+here and execute the cell stop by using
+all its
+parameters if we compile it now we
+hopefully do not have any errors which
+basically means our EA is almost
+complete and when I say almost complete
+the only thing it's missing now is the
+trailing stop function but before we
+write the trailing stop function let's
+check if all of the codes we have
+written so far they actually
+work so I'm going to head to metat
+Trader and here now if I refresh it to
+default I have all of these values I'm
+going to run it between 700
+hours
+and
+and 2100
+hours and I'm going to run it in a
+visual mode so I can check that the CES
+that I've written are correct so here we
+are but it looks horrible with all of
+these grid lines so I'm going to stop it
+and I'm going to go back to meta editor
+on the initialization function I'm going
+to remove the grids by using the
+function charts at
+integer for the current
+chart using chart show grid lines and
+setting it to false
+so I'll compile it
+again and now if I run
+it it definitely looks
+better so now the first thing we're
+going to
+check is this is the high that our EA
+has found it has five bars to the left
+and five bars to the right and this is
+the first High it could find and then
+for the low I don't see so it couldn't
+find any low valid low according to our
+definition until here so it has sent an
+order at this low point with 5 bars to
+the left and five bars to the right why
+it did not send an order here is because
+the price is already below this so it's
+not a valid low same goes for this same
+goes for this these are not valid lows
+because the price is already below them
+so this is the one it fun for the buy
+order it set the TP 20 points above 20
+Pips above and a stop loss 20 Pips below
+and if I look above and the DP was set
+exactly 20 Pips below so our codes are
+working as intended so we can now
+proceed to setting the trail stop loss
+as
+well so I go back to meta editor and
+what we're going to do is on every tick
+we're going to call a function and we're
+going to call that function Trail
+stop why we're running it here is
+because you would remember that every
+code below
+this is new bar check is only going to
+be run on every new candle but for
+trailing of the stop loss we want to
+check it on every TI because on every TI
+the price can move and we might need to
+Trail our stop
+loss so the last function that we need
+to create is a trail stop
+function so I'll come down to the bottom
+and I'll
+create a void function by the name is
+stop we start with two curly brackets
+and in between the two curly brackets
+we're going to write our fors guys on
+this function there are going to be so
+many opening of the curly brackets and
+closing of the curly brackets that you
+really need to follow this pause this
+once we have completed the code pause it
+and type it exactly the same if you miss
+the curly brackets one here or there
+you're going to have errors and your
+trailing stop is not going to run
+properly so pay extra attention to this
+one so so we'll start by creating four
+variables stop loss and we're going to
+call it zero PP we're going to assign it
+zero we're going to get the ask price
+and the bid price from the market by
+using the symol input double sending the
+chart value and asking for ask and bid
+and then we're going to Loop through all
+of the current positions by doing
+exactly the same as we have done before
+we're going to create a loop for the
+total number of positions minus one
+because if the total positions are five
+then we're going to run it four to 1 and
+zero and again decreasing the I every
+time by one then we're going to select
+the position by index by using whatever
+is the I value in that
+iteration we're going to get the posos
+ticket number assign it to a ticket
+variable and then we're going to check
+if the magic position if the magic
+number of the position that we have
+selected here equals our magic number
+and the symbol of the position is the
+symbol of the current ch
+chart then we're going to check if the
+position type is position type
+by and if it's a buy then we know that
+it's our position by this year and it's
+a position type buy so if it is a
+position type buy then what we're going
+to check is that if the bid minus the
+opening price of that position has
+become bigger than the trigger of the
+the trailing stoploss point so we said
+that our trading stop will start at 15
+if now the price has moved by more than
+15% so the bid is even higher than the
+opening price by more than 15 then we
+need to assign a new stop- loss so we
+get the the current take profit of the
+position and assign it to the variable
+TP but then we redefine the stop loss as
+bid minus whatever is the TSL points
+whatever the user has said how much to
+tra it byy in our case 10 points and
+converting it to the right point
+system then we go if the stop- loss that
+we have now
+calculated is above the current position
+of stop loss because once we start
+trailing the stop loss above we don't
+want to come down we only want to go up
+so if it is above the current stop- loss
+of the position and it's not zero so
+there is no mathematical error then we
+modify the position by sending the
+ticket number of the position and
+sending the new stop loss and the Old
+takeprofit Point and if it's not a buy
+position then we check that if it's a
+sell position and then in case if it's a
+sell position we have already checked
+that it's our input magic number and
+current symbol so if it is a sell
+position and not a buy position then we
+check if the ask plus the trigger point
+so whatever is the price if I include in
+that the 15 trigger points as well if it
+is still below the open price that means
+we are in profit by more than 15 points
+in that case we are assign the take
+profit to TP and we change the stop-
+loss by saying ask plus the TSL points
+and then if the new stop loss that we
+have calculated is below the current
+stop- loss again it's a cell position so
+if it is below the current stop loss of
+the position and it's not zero so there
+is no mathematical error then modify the
+position by sending the ticket number
+the new stop loss and the and the TP for
+this function there are so many curly
+brackets and all of these brackets need
+to be exactly in the correct place for
+this to work so I would suggest that you
+pause the video here take your time and
+code it entirely exactly as it is on the
+screen okay let's compile it now and we
+don't have any error and this basically
+completes our base code for the Forex
+and we're going to check now if the
+trailing stoploss is also
+working now when we will run the normal
+test the test is going to be so quick
+that we're not going to be able check if
+the trailer stop loss works so what
+we're going to do is we're going to put
+a Mark here by double clicking and I put
+a Mark here by double clicking and
+thereby we're telling mql to stop if the
+code comes to this line and the code
+will only come to this line if all of
+these conditions are met same for the
+cell so if I press the play button now
+and our testing has started and as soon
+as our sell position is open and I think
+the price has moved in our favorable
+Direction and this is why the EA has
+stopped and it has stopped at this line
+because it wants now to modify the stop
+loss if I press the play button one more
+time and then go back to
+metatrader then I will see that the
+price has moved below and yes my
+trailing stop loss is also moving below
+now if I press it again and go back I
+see that the price has moved more so in
+our favorable Direction so the trail
+stop is moving along then I go one more
+more time and this time it doesn't stop
+because now my stop loss has been hit
+and the position has already been closed
+now let's let it run until we have a buy
+position as
+well and here we now have a buy position
+and the year has a stopped which
+basically means that it's trying to
+modify the trailing stop LS if I press
+play one more time and go back I see
+that now the position is moving in our
+favorable Direction and The trailing
+stop loss is moving along as well if I
+play again it is moving
+more it's moving even
+further moving even
+further it continues to move and the
+trailing stop loss is moving along and
+I'll press the button a few times and
+you can see that the price is moving
+upward and the trailing stop loss is
+moving moving alongside the price so
+this concludes the testing of the year I
+will remove this and I will just let it
+run a minor correction
+guys we go up to where we were finding
+the highs and the lows and here we had
+defined as I - 5 and I - 5 while what it
+should be is IUS bars
+n same here IUS bar
+n and the reason for that is if we using
+the bars n here to calculate our range
+which is let's say if bars n is 5 then 5
+* 2 + 1 so 11 is our range then we
+wanted to start at I minus bars n which
+is five bars to the right of the current
+candle same here five bars to the right
+of current candle but then if the user
+defines the bars n to be 10 then it
+should be IUS 10 and this is why we are
+updating the value here as bars n and as
+bars n and not hard coding a number five
+so this concludes our coding if I go
+ahead and compile I do not have any
+errors and this is where our coding
+portion is
+complete no year is going to make money
+every day every week every month and we
+saw it in the back test as well that
+there were periods when there were
+consecutive losses there were periods of
+the stagnation for months where the year
+did not make any money so if you applied
+in a demo account and only base your
+judgment on a one we or result you're
+doing the year bit of a disservice the
+second thing is this year works better
+during trending markets It suffers
+during the time when the market is
+stagnant it's just moving sideways the
+third point is it's a scalping robot so
+the volume of Trades are going to be
+massive so you need very tight spreads
+otherwise your broker makes money and
+you don't your spreads on an average
+need to be below 0.5 Pips for this year
+to work better and the last part is your
+broker needs to allow scalping which is
+basically the ability to Trail the stop-
+loss very close to the price we Trail
+the stop loss extremely aggressively and
+extremely close to the price and many
+Brokers do not allow that they have a
+requirement of two Pips or three Pips
+where you can set the stop loss and
+that's not going to work with this year
+following this video you should be able
+to code this entirely run some demo
+tests apply it in a demo account first
+for 2 3 months to see how the year
+performs what you like about the year
+what you don't like about the year
+because forward testing is the only
+testing in the next video I will come
+back with modifications required to
+modify this year to trade Bitcoin gold
+and US indicis NASDAQ and DOW Johns and
+then in the last video I will come back
+with some more filters that we will
+apply on top of this base code to limit
+the trading even further so for example
+if the RSI is above a certain number we
+don't want to trade if if the price is
+way too far away from the moving average
+we don't want to trade if there's a big
+news event coming up then we not only
+don't want to trade we also want to turn
+off the year completely so those kind of
+filters I will come back with in the
+last part in the next part we will look
+at gold Bitcoin and US indices and what
+modifications are required to this year
+in order to run those until next time
+guys stay safe St safe
+[Music]

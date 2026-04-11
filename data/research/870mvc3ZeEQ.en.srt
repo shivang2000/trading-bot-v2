@@ -1,0 +1,5285 @@
+1
+00:00:00,080 --> 00:00:01,670
+
+I've been building this strategy using
+
+2
+00:00:01,670 --> 00:00:01,680
+I've been building this strategy using
+ 
+
+3
+00:00:01,680 --> 00:00:03,750
+I've been building this strategy using
+Claude Opus for the last little while.
+
+4
+00:00:03,750 --> 00:00:03,760
+Claude Opus for the last little while.
+ 
+
+5
+00:00:03,760 --> 00:00:05,910
+Claude Opus for the last little while.
+And this is my little training engine
+
+6
+00:00:05,910 --> 00:00:05,920
+And this is my little training engine
+ 
+
+7
+00:00:05,920 --> 00:00:07,909
+And this is my little training engine
+that Claude that I hand off to Claude.
+
+8
+00:00:07,909 --> 00:00:07,919
+that Claude that I hand off to Claude.
+ 
+
+9
+00:00:07,919 --> 00:00:09,750
+that Claude that I hand off to Claude.
+It has access to it so it could run back
+
+10
+00:00:09,750 --> 00:00:09,760
+It has access to it so it could run back
+ 
+
+11
+00:00:09,760 --> 00:00:12,470
+It has access to it so it could run back
+tests for me overnight. And if you
+
+12
+00:00:12,470 --> 00:00:12,480
+tests for me overnight. And if you
+ 
+
+13
+00:00:12,480 --> 00:00:14,150
+tests for me overnight. And if you
+haven't seen those videos, go back and
+
+14
+00:00:14,150 --> 00:00:14,160
+haven't seen those videos, go back and
+ 
+
+15
+00:00:14,160 --> 00:00:15,829
+haven't seen those videos, go back and
+take a look. I show you guys how to
+
+16
+00:00:15,829 --> 00:00:15,839
+take a look. I show you guys how to
+ 
+
+17
+00:00:15,839 --> 00:00:17,670
+take a look. I show you guys how to
+build a dashboard like this, how to run
+
+18
+00:00:17,670 --> 00:00:17,680
+build a dashboard like this, how to run
+ 
+
+19
+00:00:17,680 --> 00:00:19,990
+build a dashboard like this, how to run
+back tests like this. And it's just so
+
+20
+00:00:19,990 --> 00:00:20,000
+back tests like this. And it's just so
+ 
+
+21
+00:00:20,000 --> 00:00:21,269
+back tests like this. And it's just so
+much better than Trading View because
+
+22
+00:00:21,269 --> 00:00:21,279
+much better than Trading View because
+ 
+
+23
+00:00:21,279 --> 00:00:23,109
+much better than Trading View because
+with Trading View, you really just get,
+
+24
+00:00:23,109 --> 00:00:23,119
+with Trading View, you really just get,
+ 
+
+25
+00:00:23,119 --> 00:00:25,029
+with Trading View, you really just get,
+you know, one back test. You get to run
+
+26
+00:00:25,029 --> 00:00:25,039
+you know, one back test. You get to run
+ 
+
+27
+00:00:25,039 --> 00:00:26,390
+you know, one back test. You get to run
+the candlesticks. That's those are the
+
+28
+00:00:26,390 --> 00:00:26,400
+the candlesticks. That's those are the
+ 
+
+29
+00:00:26,400 --> 00:00:27,910
+the candlesticks. That's those are the
+ones you get. You don't get to download
+
+30
+00:00:27,910 --> 00:00:27,920
+ones you get. You don't get to download
+ 
+
+31
+00:00:27,920 --> 00:00:30,790
+ones you get. You don't get to download
+or modify them or run more extensive
+
+32
+00:00:30,790 --> 00:00:30,800
+or modify them or run more extensive
+ 
+
+33
+00:00:30,800 --> 00:00:32,630
+or modify them or run more extensive
+stress tests like Monte Carlos
+
+34
+00:00:32,630 --> 00:00:32,640
+stress tests like Monte Carlos
+ 
+
+35
+00:00:32,640 --> 00:00:34,389
+stress tests like Monte Carlos
+simulations, randomizing the
+
+36
+00:00:34,389 --> 00:00:34,399
+simulations, randomizing the
+ 
+
+37
+00:00:34,399 --> 00:00:36,229
+simulations, randomizing the
+candlesticks, breaking up the price
+
+38
+00:00:36,229 --> 00:00:36,239
+candlesticks, breaking up the price
+ 
+
+39
+00:00:36,239 --> 00:00:37,910
+candlesticks, breaking up the price
+patterns and price structures to make
+
+40
+00:00:37,910 --> 00:00:37,920
+patterns and price structures to make
+ 
+
+41
+00:00:37,920 --> 00:00:39,670
+patterns and price structures to make
+sure that you know your trading bot is
+
+42
+00:00:39,670 --> 00:00:39,680
+sure that you know your trading bot is
+ 
+
+43
+00:00:39,680 --> 00:00:41,510
+sure that you know your trading bot is
+flexible enough to respond in real time
+
+44
+00:00:41,510 --> 00:00:41,520
+flexible enough to respond in real time
+ 
+
+45
+00:00:41,520 --> 00:00:43,430
+flexible enough to respond in real time
+to many different market simulations,
+
+46
+00:00:43,430 --> 00:00:43,440
+to many different market simulations,
+ 
+
+47
+00:00:43,440 --> 00:00:45,990
+to many different market simulations,
+not just the one version of history. So,
+
+48
+00:00:45,990 --> 00:00:46,000
+not just the one version of history. So,
+ 
+
+49
+00:00:46,000 --> 00:00:47,670
+not just the one version of history. So,
+if you like this kind of content, I want
+
+50
+00:00:47,670 --> 00:00:47,680
+if you like this kind of content, I want
+ 
+
+51
+00:00:47,680 --> 00:00:49,350
+if you like this kind of content, I want
+to show you guys this the strategy here
+
+52
+00:00:49,350 --> 00:00:49,360
+to show you guys this the strategy here
+ 
+
+53
+00:00:49,360 --> 00:00:51,430
+to show you guys this the strategy here
+in this video and how I improved it. I
+
+54
+00:00:51,430 --> 00:00:51,440
+in this video and how I improved it. I
+ 
+
+55
+00:00:51,440 --> 00:00:53,510
+in this video and how I improved it. I
+did several versions overnight that
+
+56
+00:00:53,510 --> 00:00:53,520
+did several versions overnight that
+ 
+
+57
+00:00:53,520 --> 00:00:56,470
+did several versions overnight that
+progressively got better. And I if you
+
+58
+00:00:56,470 --> 00:00:56,480
+progressively got better. And I if you
+ 
+
+59
+00:00:56,480 --> 00:00:57,910
+progressively got better. And I if you
+do like this kind of content, you want
+
+60
+00:00:57,910 --> 00:00:57,920
+do like this kind of content, you want
+ 
+
+61
+00:00:57,920 --> 00:00:59,910
+do like this kind of content, you want
+to see, you know, the real deal and
+
+62
+00:00:59,910 --> 00:00:59,920
+to see, you know, the real deal and
+ 
+
+63
+00:00:59,920 --> 00:01:01,750
+to see, you know, the real deal and
+somebody who hands it to you as it is
+
+64
+00:01:01,750 --> 00:01:01,760
+somebody who hands it to you as it is
+ 
+
+65
+00:01:01,760 --> 00:01:03,910
+somebody who hands it to you as it is
+and shows you guys the whole internal
+
+66
+00:01:03,910 --> 00:01:03,920
+and shows you guys the whole internal
+ 
+
+67
+00:01:03,920 --> 00:01:06,310
+and shows you guys the whole internal
+process, drop us a like on the video and
+
+68
+00:01:06,310 --> 00:01:06,320
+process, drop us a like on the video and
+ 
+
+69
+00:01:06,320 --> 00:01:07,990
+process, drop us a like on the video and
+subscribe to the channel. I also will
+
+70
+00:01:07,990 --> 00:01:08,000
+subscribe to the channel. I also will
+ 
+
+71
+00:01:08,000 --> 00:01:09,429
+subscribe to the channel. I also will
+answer any comments that you comment
+
+72
+00:01:09,429 --> 00:01:09,439
+answer any comments that you comment
+ 
+
+73
+00:01:09,439 --> 00:01:10,870
+answer any comments that you comment
+down below for the first little bit.
+
+74
+00:01:10,870 --> 00:01:10,880
+down below for the first little bit.
+ 
+
+75
+00:01:10,880 --> 00:01:12,630
+down below for the first little bit.
+I'll try to respond to as many comments
+
+76
+00:01:12,630 --> 00:01:12,640
+I'll try to respond to as many comments
+ 
+
+77
+00:01:12,640 --> 00:01:15,750
+I'll try to respond to as many comments
+as I can. So, Cloud Code here, I have my
+
+78
+00:01:15,750 --> 00:01:15,760
+as I can. So, Cloud Code here, I have my
+ 
+
+79
+00:01:15,760 --> 00:01:17,749
+as I can. So, Cloud Code here, I have my
+Visual Studio Code open and it ran all
+
+80
+00:01:17,749 --> 00:01:17,759
+Visual Studio Code open and it ran all
+ 
+
+81
+00:01:17,759 --> 00:01:20,710
+Visual Studio Code open and it ran all
+night. So it ran for around 8 n 10 hours
+
+82
+00:01:20,710 --> 00:01:20,720
+night. So it ran for around 8 n 10 hours
+ 
+
+83
+00:01:20,720 --> 00:01:23,590
+night. So it ran for around 8 n 10 hours
+straight and I had just told it to you
+
+84
+00:01:23,590 --> 00:01:23,600
+straight and I had just told it to you
+ 
+
+85
+00:01:23,600 --> 00:01:25,350
+straight and I had just told it to you
+know try to beat the previous best
+
+86
+00:01:25,350 --> 00:01:25,360
+know try to beat the previous best
+ 
+
+87
+00:01:25,360 --> 00:01:27,910
+know try to beat the previous best
+strategy and then to go over there and
+
+88
+00:01:27,910 --> 00:01:27,920
+strategy and then to go over there and
+ 
+
+89
+00:01:27,920 --> 00:01:30,870
+strategy and then to go over there and
+you know compare the results and to see
+
+90
+00:01:30,870 --> 00:01:30,880
+you know compare the results and to see
+ 
+
+91
+00:01:30,880 --> 00:01:34,469
+you know compare the results and to see
+you know what what we get and one of the
+
+92
+00:01:34,469 --> 00:01:34,479
+you know what what we get and one of the
+ 
+
+93
+00:01:34,479 --> 00:01:37,670
+you know what what we get and one of the
+interesting things was I wanted to see
+
+94
+00:01:37,670 --> 00:01:37,680
+interesting things was I wanted to see
+ 
+
+95
+00:01:37,680 --> 00:01:40,149
+interesting things was I wanted to see
+if it was able to perform on Salanacoin
+
+96
+00:01:40,149 --> 00:01:40,159
+if it was able to perform on Salanacoin
+ 
+
+97
+00:01:40,159 --> 00:01:43,030
+if it was able to perform on Salanacoin
+but also Bitcoin, Ethereum as well other
+
+98
+00:01:43,030 --> 00:01:43,040
+but also Bitcoin, Ethereum as well other
+ 
+
+99
+00:01:43,040 --> 00:01:44,950
+but also Bitcoin, Ethereum as well other
+coins to see if they could perform and
+
+100
+00:01:44,950 --> 00:01:44,960
+coins to see if they could perform and
+ 
+
+101
+00:01:44,960 --> 00:01:47,030
+coins to see if they could perform and
+yeah it it does. So this is the out of
+
+102
+00:01:47,030 --> 00:01:47,040
+yeah it it does. So this is the out of
+ 
+
+103
+00:01:47,040 --> 00:01:49,830
+yeah it it does. So this is the out of
+sample data that performs pretty stably
+
+104
+00:01:49,830 --> 00:01:49,840
+sample data that performs pretty stably
+ 
+
+105
+00:01:49,840 --> 00:01:52,630
+sample data that performs pretty stably
+in uh this new candlestick data that I
+
+106
+00:01:52,630 --> 00:01:52,640
+in uh this new candlestick data that I
+ 
+
+107
+00:01:52,640 --> 00:01:54,230
+in uh this new candlestick data that I
+didn't show the engine originally and
+
+108
+00:01:54,230 --> 00:01:54,240
+didn't show the engine originally and
+ 
+
+109
+00:01:54,240 --> 00:01:55,910
+didn't show the engine originally and
+claw did not have access to this
+
+110
+00:01:55,910 --> 00:01:55,920
+claw did not have access to this
+ 
+
+111
+00:01:55,920 --> 00:01:59,030
+claw did not have access to this
+information. So it didn't know to pick
+
+112
+00:01:59,030 --> 00:01:59,040
+information. So it didn't know to pick
+ 
+
+113
+00:01:59,040 --> 00:02:00,870
+information. So it didn't know to pick
+based off this data. It was picking
+
+114
+00:02:00,870 --> 00:02:00,880
+based off this data. It was picking
+ 
+
+115
+00:02:00,880 --> 00:02:03,190
+based off this data. It was picking
+based off the training data which is
+
+116
+00:02:03,190 --> 00:02:03,200
+based off the training data which is
+ 
+
+117
+00:02:03,200 --> 00:02:04,550
+based off the training data which is
+this data here. I'm going to change the
+
+118
+00:02:04,550 --> 00:02:04,560
+this data here. I'm going to change the
+ 
+
+119
+00:02:04,560 --> 00:02:06,709
+this data here. I'm going to change the
+chart. So that's the training data that
+
+120
+00:02:06,709 --> 00:02:06,719
+chart. So that's the training data that
+ 
+
+121
+00:02:06,719 --> 00:02:07,990
+chart. So that's the training data that
+it was operating off. This is the
+
+122
+00:02:07,990 --> 00:02:08,000
+it was operating off. This is the
+ 
+
+123
+00:02:08,000 --> 00:02:10,949
+it was operating off. This is the
+baseline. So sharp ratio was 0.59 in the
+
+124
+00:02:10,949 --> 00:02:10,959
+baseline. So sharp ratio was 0.59 in the
+ 
+
+125
+00:02:10,959 --> 00:02:12,869
+baseline. So sharp ratio was 0.59 in the
+training data. And so Claude, what it
+
+126
+00:02:12,869 --> 00:02:12,879
+training data. And so Claude, what it
+ 
+
+127
+00:02:12,879 --> 00:02:18,949
+training data. And so Claude, what it
+knew was that it had to
+
+128
+00:02:18,949 --> 00:02:18,959
+
+ 
+
+129
+00:02:18,959 --> 00:02:21,670
+
+try and beat that. So it'll keep this
+
+130
+00:02:21,670 --> 00:02:21,680
+try and beat that. So it'll keep this
+ 
+
+131
+00:02:21,680 --> 00:02:23,510
+try and beat that. So it'll keep this
+stack, but it might add new trading
+
+132
+00:02:23,510 --> 00:02:23,520
+stack, but it might add new trading
+ 
+
+133
+00:02:23,520 --> 00:02:24,869
+stack, but it might add new trading
+rules. So this was the second version
+
+134
+00:02:24,869 --> 00:02:24,879
+rules. So this was the second version
+ 
+
+135
+00:02:24,879 --> 00:02:26,790
+rules. So this was the second version
+here. There's a lot of different exit
+
+136
+00:02:26,790 --> 00:02:26,800
+here. There's a lot of different exit
+ 
+
+137
+00:02:26,800 --> 00:02:29,350
+here. There's a lot of different exit
+rules configured here. And right away,
+
+138
+00:02:29,350 --> 00:02:29,360
+rules configured here. And right away,
+ 
+
+139
+00:02:29,360 --> 00:02:31,589
+rules configured here. And right away,
+you can see the sharp came up to 1.02.
+
+140
+00:02:31,589 --> 00:02:31,599
+you can see the sharp came up to 1.02.
+ 
+
+141
+00:02:31,599 --> 00:02:33,990
+you can see the sharp came up to 1.02.
+Very, very good. Win rate is 60%. Let's
+
+142
+00:02:33,990 --> 00:02:34,000
+Very, very good. Win rate is 60%. Let's
+ 
+
+143
+00:02:34,000 --> 00:02:37,589
+Very, very good. Win rate is 60%. Let's
+go back here. 43% and then 58%.
+
+144
+00:02:37,589 --> 00:02:37,599
+go back here. 43% and then 58%.
+ 
+
+145
+00:02:37,599 --> 00:02:39,110
+go back here. 43% and then 58%.
+And I just want to show you this real
+
+146
+00:02:39,110 --> 00:02:39,120
+And I just want to show you this real
+ 
+
+147
+00:02:39,120 --> 00:02:41,110
+And I just want to show you this real
+quick. So the draw down came down to 21%
+
+148
+00:02:41,110 --> 00:02:41,120
+quick. So the draw down came down to 21%
+ 
+
+149
+00:02:41,120 --> 00:02:42,470
+quick. So the draw down came down to 21%
+but there's one that's even better than
+
+150
+00:02:42,470 --> 00:02:42,480
+but there's one that's even better than
+ 
+
+151
+00:02:42,480 --> 00:02:44,630
+but there's one that's even better than
+this. It found you know 15% draw down
+
+152
+00:02:44,630 --> 00:02:44,640
+this. It found you know 15% draw down
+ 
+
+153
+00:02:44,640 --> 00:02:49,110
+this. It found you know 15% draw down
+with a 64% win rate and a 1.31%
+
+154
+00:02:49,110 --> 00:02:49,120
+with a 64% win rate and a 1.31%
+ 
+
+155
+00:02:49,120 --> 00:02:52,550
+with a 64% win rate and a 1.31%
+sharp ratio. Look at this 10.74
+
+156
+00:02:52,550 --> 00:02:52,560
+sharp ratio. Look at this 10.74
+ 
+
+157
+00:02:52,560 --> 00:02:54,470
+sharp ratio. Look at this 10.74
+sortino ratio in here. So this is in
+
+158
+00:02:54,470 --> 00:02:54,480
+sortino ratio in here. So this is in
+ 
+
+159
+00:02:54,480 --> 00:02:56,710
+sortino ratio in here. So this is in
+sample data. It's really good to have to
+
+160
+00:02:56,710 --> 00:02:56,720
+sample data. It's really good to have to
+ 
+
+161
+00:02:56,720 --> 00:02:59,110
+sample data. It's really good to have to
+compare this to some of some out of
+
+162
+00:02:59,110 --> 00:02:59,120
+compare this to some of some out of
+ 
+
+163
+00:02:59,120 --> 00:03:01,190
+compare this to some of some out of
+sample data like testing data here that
+
+164
+00:03:01,190 --> 00:03:01,200
+sample data like testing data here that
+ 
+
+165
+00:03:01,200 --> 00:03:04,149
+sample data like testing data here that
+I've withheld. So certino ratio is less
+
+166
+00:03:04,149 --> 00:03:04,159
+I've withheld. So certino ratio is less
+ 
+
+167
+00:03:04,159 --> 00:03:06,070
+I've withheld. So certino ratio is less
+but that's a pretty good curve. Let's
+
+168
+00:03:06,070 --> 00:03:06,080
+but that's a pretty good curve. Let's
+ 
+
+169
+00:03:06,080 --> 00:03:07,190
+but that's a pretty good curve. Let's
+compare this to some of the other
+
+170
+00:03:07,190 --> 00:03:07,200
+compare this to some of the other
+ 
+
+171
+00:03:07,200 --> 00:03:09,110
+compare this to some of the other
+versions cuz that's that's the important
+
+172
+00:03:09,110 --> 00:03:09,120
+versions cuz that's that's the important
+ 
+
+173
+00:03:09,120 --> 00:03:10,550
+versions cuz that's that's the important
+thing. Look at this curve here on this
+
+174
+00:03:10,550 --> 00:03:10,560
+thing. Look at this curve here on this
+ 
+
+175
+00:03:10,560 --> 00:03:12,229
+thing. Look at this curve here on this
+testing data. This is the intermediate
+
+176
+00:03:12,229 --> 00:03:12,239
+testing data. This is the intermediate
+ 
+
+177
+00:03:12,239 --> 00:03:14,949
+testing data. This is the intermediate
+strategy. 60% win rate and that's a
+
+178
+00:03:14,949 --> 00:03:14,959
+strategy. 60% win rate and that's a
+ 
+
+179
+00:03:14,959 --> 00:03:17,509
+strategy. 60% win rate and that's a
+really good curve there for this testing
+
+180
+00:03:17,509 --> 00:03:17,519
+really good curve there for this testing
+ 
+
+181
+00:03:17,519 --> 00:03:19,670
+really good curve there for this testing
+data. And I just want to compare this to
+
+182
+00:03:19,670 --> 00:03:19,680
+data. And I just want to compare this to
+ 
+
+183
+00:03:19,680 --> 00:03:21,910
+data. And I just want to compare this to
+the original. Look how much improved
+
+184
+00:03:21,910 --> 00:03:21,920
+the original. Look how much improved
+ 
+
+185
+00:03:21,920 --> 00:03:24,949
+the original. Look how much improved
+that that is. 43% win rate with a sharp
+
+186
+00:03:24,949 --> 00:03:24,959
+that that is. 43% win rate with a sharp
+ 
+
+187
+00:03:24,959 --> 00:03:29,110
+that that is. 43% win rate with a sharp
+of 0.57 and then 0.62 and then here.
+
+188
+00:03:29,110 --> 00:03:29,120
+of 0.57 and then 0.62 and then here.
+ 
+
+189
+00:03:29,120 --> 00:03:30,550
+of 0.57 and then 0.62 and then here.
+Yeah, it comes back down. So this
+
+190
+00:03:30,550 --> 00:03:30,560
+Yeah, it comes back down. So this
+ 
+
+191
+00:03:30,560 --> 00:03:32,309
+Yeah, it comes back down. So this
+intermediate one a little bit better on
+
+192
+00:03:32,309 --> 00:03:32,319
+intermediate one a little bit better on
+ 
+
+193
+00:03:32,319 --> 00:03:34,390
+intermediate one a little bit better on
+the out of sample data. And that's
+
+194
+00:03:34,390 --> 00:03:34,400
+the out of sample data. And that's
+ 
+
+195
+00:03:34,400 --> 00:03:36,949
+the out of sample data. And that's
+that's generally how I'll operate it.
+
+196
+00:03:36,949 --> 00:03:36,959
+that's generally how I'll operate it.
+ 
+
+197
+00:03:36,959 --> 00:03:39,350
+that's generally how I'll operate it.
+And then Claude will give a stability
+
+198
+00:03:39,350 --> 00:03:39,360
+And then Claude will give a stability
+ 
+
+199
+00:03:39,360 --> 00:03:41,430
+And then Claude will give a stability
+score across the bootstrap percentages.
+
+200
+00:03:41,430 --> 00:03:41,440
+score across the bootstrap percentages.
+ 
+
+201
+00:03:41,440 --> 00:03:43,910
+score across the bootstrap percentages.
+It didn't run bootstraps here, but this
+
+202
+00:03:43,910 --> 00:03:43,920
+It didn't run bootstraps here, but this
+ 
+
+203
+00:03:43,920 --> 00:03:45,990
+It didn't run bootstraps here, but this
+would be the next step. So I'll put
+
+204
+00:03:45,990 --> 00:03:46,000
+would be the next step. So I'll put
+ 
+
+205
+00:03:46,000 --> 00:03:48,550
+would be the next step. So I'll put
+these like all of these versions into uh
+
+206
+00:03:48,550 --> 00:03:48,560
+these like all of these versions into uh
+ 
+
+207
+00:03:48,560 --> 00:03:50,630
+these like all of these versions into uh
+bootstrap simulations to see how stable
+
+208
+00:03:50,630 --> 00:03:50,640
+bootstrap simulations to see how stable
+ 
+
+209
+00:03:50,640 --> 00:03:53,190
+bootstrap simulations to see how stable
+they are. So what that means is I'll
+
+210
+00:03:53,190 --> 00:03:53,200
+they are. So what that means is I'll
+ 
+
+211
+00:03:53,200 --> 00:03:55,030
+they are. So what that means is I'll
+take just we'll just go back to the
+
+212
+00:03:55,030 --> 00:03:55,040
+take just we'll just go back to the
+ 
+
+213
+00:03:55,040 --> 00:03:57,030
+take just we'll just go back to the
+training data here and that's going to
+
+214
+00:03:57,030 --> 00:03:57,040
+training data here and that's going to
+ 
+
+215
+00:03:57,040 --> 00:04:00,470
+training data here and that's going to
+be our baseline, right? Sharp is 1.31.
+
+216
+00:04:00,470 --> 00:04:00,480
+be our baseline, right? Sharp is 1.31.
+ 
+
+217
+00:04:00,480 --> 00:04:02,550
+be our baseline, right? Sharp is 1.31.
+Now, if we randomize the candlesticks,
+
+218
+00:04:02,550 --> 00:04:02,560
+Now, if we randomize the candlesticks,
+ 
+
+219
+00:04:02,560 --> 00:04:04,070
+Now, if we randomize the candlesticks,
+the most important thing that I'm that
+
+220
+00:04:04,070 --> 00:04:04,080
+the most important thing that I'm that
+ 
+
+221
+00:04:04,080 --> 00:04:06,229
+the most important thing that I'm that
+I'm telling Claude to to do here, so I
+
+222
+00:04:06,229 --> 00:04:06,239
+I'm telling Claude to to do here, so I
+ 
+
+223
+00:04:06,239 --> 00:04:07,750
+I'm telling Claude to to do here, so I
+would just type in here, it has access
+
+224
+00:04:07,750 --> 00:04:07,760
+would just type in here, it has access
+ 
+
+225
+00:04:07,760 --> 00:04:09,670
+would just type in here, it has access
+to my engine. So, I would just ask it to
+
+226
+00:04:09,670 --> 00:04:09,680
+to my engine. So, I would just ask it to
+ 
+
+227
+00:04:09,680 --> 00:04:12,070
+to my engine. So, I would just ask it to
+run a new simulation, turn on the
+
+228
+00:04:12,070 --> 00:04:12,080
+run a new simulation, turn on the
+ 
+
+229
+00:04:12,080 --> 00:04:13,670
+run a new simulation, turn on the
+bootstrapping or the Monte Carlo
+
+230
+00:04:13,670 --> 00:04:13,680
+bootstrapping or the Monte Carlo
+ 
+
+231
+00:04:13,680 --> 00:04:15,589
+bootstrapping or the Monte Carlo
+simulations, and run a couple thousand
+
+232
+00:04:15,589 --> 00:04:15,599
+simulations, and run a couple thousand
+ 
+
+233
+00:04:15,599 --> 00:04:16,949
+simulations, and run a couple thousand
+simulations with each of these
+
+234
+00:04:16,949 --> 00:04:16,959
+simulations with each of these
+ 
+
+235
+00:04:16,959 --> 00:04:19,670
+simulations with each of these
+strategies to see which one performs the
+
+236
+00:04:19,670 --> 00:04:19,680
+strategies to see which one performs the
+ 
+
+237
+00:04:19,680 --> 00:04:21,990
+strategies to see which one performs the
+the most stable so that we can knock out
+
+238
+00:04:21,990 --> 00:04:22,000
+the most stable so that we can knock out
+ 
+
+239
+00:04:22,000 --> 00:04:24,070
+the most stable so that we can knock out
+the version because these rules might
+
+240
+00:04:24,070 --> 00:04:24,080
+the version because these rules might
+ 
+
+241
+00:04:24,080 --> 00:04:26,390
+the version because these rules might
+just be overfit. So, we want to we want
+
+242
+00:04:26,390 --> 00:04:26,400
+just be overfit. So, we want to we want
+ 
+
+243
+00:04:26,400 --> 00:04:28,550
+just be overfit. So, we want to we want
+to rule out rules and parameters that
+
+244
+00:04:28,550 --> 00:04:28,560
+to rule out rules and parameters that
+ 
+
+245
+00:04:28,560 --> 00:04:30,550
+to rule out rules and parameters that
+are overfit. So that's that's kind of
+
+246
+00:04:30,550 --> 00:04:30,560
+are overfit. So that's that's kind of
+ 
+
+247
+00:04:30,560 --> 00:04:32,150
+are overfit. So that's that's kind of
+the next stage here. So we have a bunch
+
+248
+00:04:32,150 --> 00:04:32,160
+the next stage here. So we have a bunch
+ 
+
+249
+00:04:32,160 --> 00:04:34,469
+the next stage here. So we have a bunch
+of candidate strategies here. And also
+
+250
+00:04:34,469 --> 00:04:34,479
+of candidate strategies here. And also
+ 
+
+251
+00:04:34,479 --> 00:04:37,189
+of candidate strategies here. And also
+it ran these on Bitcoin and Ethereum
+
+252
+00:04:37,189 --> 00:04:37,199
+it ran these on Bitcoin and Ethereum
+ 
+
+253
+00:04:37,199 --> 00:04:39,189
+it ran these on Bitcoin and Ethereum
+here. This is the Ethereum chart. And
+
+254
+00:04:39,189 --> 00:04:39,199
+here. This is the Ethereum chart. And
+ 
+
+255
+00:04:39,199 --> 00:04:41,030
+here. This is the Ethereum chart. And
+look at that look at that curve there.
+
+256
+00:04:41,030 --> 00:04:41,040
+look at that look at that curve there.
+ 
+
+257
+00:04:41,040 --> 00:04:42,870
+look at that look at that curve there.
+Sharp is.1
+
+258
+00:04:42,870 --> 00:04:42,880
+Sharp is.1
+ 
+
+259
+00:04:42,880 --> 00:04:45,749
+Sharp is.1
+ratio is 23.7. So we're assuming this
+
+260
+00:04:45,749 --> 00:04:45,759
+ratio is 23.7. So we're assuming this
+ 
+
+261
+00:04:45,759 --> 00:04:47,830
+ratio is 23.7. So we're assuming this
+this is probably susceptible to
+
+262
+00:04:47,830 --> 00:04:47,840
+this is probably susceptible to
+ 
+
+263
+00:04:47,840 --> 00:04:49,749
+this is probably susceptible to
+overfitting. So what we would do is we
+
+264
+00:04:49,749 --> 00:04:49,759
+overfitting. So what we would do is we
+ 
+
+265
+00:04:49,759 --> 00:04:51,590
+overfitting. So what we would do is we
+would run this on Ethereum, go back to
+
+266
+00:04:51,590 --> 00:04:51,600
+would run this on Ethereum, go back to
+ 
+
+267
+00:04:51,600 --> 00:04:53,270
+would run this on Ethereum, go back to
+our cloud, tell it, hey, like take this
+
+268
+00:04:53,270 --> 00:04:53,280
+our cloud, tell it, hey, like take this
+ 
+
+269
+00:04:53,280 --> 00:04:56,310
+our cloud, tell it, hey, like take this
+stack uh of trading rules and see if it
+
+270
+00:04:56,310 --> 00:04:56,320
+stack uh of trading rules and see if it
+ 
+
+271
+00:04:56,320 --> 00:04:58,950
+stack uh of trading rules and see if it
+can survive and how long it survives in
+
+272
+00:04:58,950 --> 00:04:58,960
+can survive and how long it survives in
+ 
+
+273
+00:04:58,960 --> 00:05:00,950
+can survive and how long it survives in
+random simulations. So we'll we'll
+
+274
+00:05:00,950 --> 00:05:00,960
+random simulations. So we'll we'll
+ 
+
+275
+00:05:00,960 --> 00:05:03,030
+random simulations. So we'll we'll
+download the price data, which is really
+
+276
+00:05:03,030 --> 00:05:03,040
+download the price data, which is really
+ 
+
+277
+00:05:03,040 --> 00:05:04,469
+download the price data, which is really
+just this is the Salana chart. It
+
+278
+00:05:04,469 --> 00:05:04,479
+just this is the Salana chart. It
+ 
+
+279
+00:05:04,479 --> 00:05:06,310
+just this is the Salana chart. It
+downloads all of this and then it just
+
+280
+00:05:06,310 --> 00:05:06,320
+downloads all of this and then it just
+ 
+
+281
+00:05:06,320 --> 00:05:08,310
+downloads all of this and then it just
+randomizes it up, jumbles and randomizes
+
+282
+00:05:08,310 --> 00:05:08,320
+randomizes it up, jumbles and randomizes
+ 
+
+283
+00:05:08,320 --> 00:05:09,749
+randomizes it up, jumbles and randomizes
+the candlesticks, which gives us a
+
+284
+00:05:09,749 --> 00:05:09,759
+the candlesticks, which gives us a
+ 
+
+285
+00:05:09,759 --> 00:05:13,270
+the candlesticks, which gives us a
+really good sample of, you know, random
+
+286
+00:05:13,270 --> 00:05:13,280
+really good sample of, you know, random
+ 
+
+287
+00:05:13,280 --> 00:05:15,510
+really good sample of, you know, random
+random price patterns. That's what you
+
+288
+00:05:15,510 --> 00:05:15,520
+random price patterns. That's what you
+ 
+
+289
+00:05:15,520 --> 00:05:17,350
+random price patterns. That's what you
+want to to to know. You want to know is
+
+290
+00:05:17,350 --> 00:05:17,360
+want to to to know. You want to know is
+ 
+
+291
+00:05:17,360 --> 00:05:19,590
+want to to to know. You want to know is
+your bot flexible enough to to respond
+
+292
+00:05:19,590 --> 00:05:19,600
+your bot flexible enough to to respond
+ 
+
+293
+00:05:19,600 --> 00:05:22,070
+your bot flexible enough to to respond
+in real time. And if you don't do this,
+
+294
+00:05:22,070 --> 00:05:22,080
+in real time. And if you don't do this,
+ 
+
+295
+00:05:22,080 --> 00:05:24,550
+in real time. And if you don't do this,
+now I I I want to be firm here. There
+
+296
+00:05:24,550 --> 00:05:24,560
+now I I I want to be firm here. There
+ 
+
+297
+00:05:24,560 --> 00:05:26,310
+now I I I want to be firm here. There
+are a lot of people, and this is a shout
+
+298
+00:05:26,310 --> 00:05:26,320
+are a lot of people, and this is a shout
+ 
+
+299
+00:05:26,320 --> 00:05:27,749
+are a lot of people, and this is a shout
+out to the Discord. There are people who
+
+300
+00:05:27,749 --> 00:05:27,759
+out to the Discord. There are people who
+ 
+
+301
+00:05:27,759 --> 00:05:29,830
+out to the Discord. There are people who
+are, you know, putting money into these
+
+302
+00:05:29,830 --> 00:05:29,840
+are, you know, putting money into these
+ 
+
+303
+00:05:29,840 --> 00:05:31,830
+are, you know, putting money into these
+bots and they're not doing this. And
+
+304
+00:05:31,830 --> 00:05:31,840
+bots and they're not doing this. And
+ 
+
+305
+00:05:31,840 --> 00:05:34,230
+bots and they're not doing this. And
+it's 100% overfit, right? It might work
+
+306
+00:05:34,230 --> 00:05:34,240
+it's 100% overfit, right? It might work
+ 
+
+307
+00:05:34,240 --> 00:05:36,150
+it's 100% overfit, right? It might work
+on your bot might work on a subset of
+
+308
+00:05:36,150 --> 00:05:36,160
+on your bot might work on a subset of
+ 
+
+309
+00:05:36,160 --> 00:05:37,990
+on your bot might work on a subset of
+the data. Like if your back test, for
+
+310
+00:05:37,990 --> 00:05:38,000
+the data. Like if your back test, for
+ 
+
+311
+00:05:38,000 --> 00:05:39,670
+the data. Like if your back test, for
+example, if we if we open up the back
+
+312
+00:05:39,670 --> 00:05:39,680
+example, if we if we open up the back
+ 
+
+313
+00:05:39,680 --> 00:05:41,990
+example, if we if we open up the back
+testing panel here, uh we go down to a
+
+314
+00:05:41,990 --> 00:05:42,000
+testing panel here, uh we go down to a
+ 
+
+315
+00:05:42,000 --> 00:05:43,350
+testing panel here, uh we go down to a
+different time frame here. Your back
+
+316
+00:05:43,350 --> 00:05:43,360
+different time frame here. Your back
+ 
+
+317
+00:05:43,360 --> 00:05:45,990
+different time frame here. Your back
+test might work on some of the data, but
+
+318
+00:05:45,990 --> 00:05:46,000
+test might work on some of the data, but
+ 
+
+319
+00:05:46,000 --> 00:05:48,629
+test might work on some of the data, but
+then you you zoom forward. You know,
+
+320
+00:05:48,629 --> 00:05:48,639
+then you you zoom forward. You know,
+ 
+
+321
+00:05:48,639 --> 00:05:49,909
+then you you zoom forward. You know,
+maybe you just okay, it works on the
+
+322
+00:05:49,909 --> 00:05:49,919
+maybe you just okay, it works on the
+ 
+
+323
+00:05:49,919 --> 00:05:51,430
+maybe you just okay, it works on the
+last 30 days, but does it work on the
+
+324
+00:05:51,430 --> 00:05:51,440
+last 30 days, but does it work on the
+ 
+
+325
+00:05:51,440 --> 00:05:54,390
+last 30 days, but does it work on the
+last 90 days? And what about the entire
+
+326
+00:05:54,390 --> 00:05:54,400
+last 90 days? And what about the entire
+ 
+
+327
+00:05:54,400 --> 00:05:56,710
+last 90 days? And what about the entire
+history? Uh if it's if it stops
+
+328
+00:05:56,710 --> 00:05:56,720
+history? Uh if it's if it stops
+ 
+
+329
+00:05:56,720 --> 00:05:58,230
+history? Uh if it's if it stops
+performing at a certain point, you got
+
+330
+00:05:58,230 --> 00:05:58,240
+performing at a certain point, you got
+ 
+
+331
+00:05:58,240 --> 00:05:59,749
+performing at a certain point, you got
+to wonder, well, your strategy is
+
+332
+00:05:59,749 --> 00:05:59,759
+to wonder, well, your strategy is
+ 
+
+333
+00:05:59,759 --> 00:06:01,670
+to wonder, well, your strategy is
+definitely not generalized. And how do
+
+334
+00:06:01,670 --> 00:06:01,680
+definitely not generalized. And how do
+ 
+
+335
+00:06:01,680 --> 00:06:03,110
+definitely not generalized. And how do
+you know that the future data is going
+
+336
+00:06:03,110 --> 00:06:03,120
+you know that the future data is going
+ 
+
+337
+00:06:03,120 --> 00:06:05,430
+you know that the future data is going
+to correspond to just the little random
+
+338
+00:06:05,430 --> 00:06:05,440
+to correspond to just the little random
+ 
+
+339
+00:06:05,440 --> 00:06:07,670
+to correspond to just the little random
+slice that you took, right? So, I would
+
+340
+00:06:07,670 --> 00:06:07,680
+slice that you took, right? So, I would
+ 
+
+341
+00:06:07,680 --> 00:06:09,510
+slice that you took, right? So, I would
+heavily caution anyone who's just
+
+342
+00:06:09,510 --> 00:06:09,520
+heavily caution anyone who's just
+ 
+
+343
+00:06:09,520 --> 00:06:12,710
+heavily caution anyone who's just
+yoloing in, right? I I take a more
+
+344
+00:06:12,710 --> 00:06:12,720
+yoloing in, right? I I take a more
+ 
+
+345
+00:06:12,720 --> 00:06:14,790
+yoloing in, right? I I take a more
+rigorous statistics-based approach with
+
+346
+00:06:14,790 --> 00:06:14,800
+rigorous statistics-based approach with
+ 
+
+347
+00:06:14,800 --> 00:06:16,710
+rigorous statistics-based approach with
+this. You you want your strategy to be
+
+348
+00:06:16,710 --> 00:06:16,720
+this. You you want your strategy to be
+ 
+
+349
+00:06:16,720 --> 00:06:18,390
+this. You you want your strategy to be
+open and flexible. And sometimes that
+
+350
+00:06:18,390 --> 00:06:18,400
+open and flexible. And sometimes that
+ 
+
+351
+00:06:18,400 --> 00:06:21,110
+open and flexible. And sometimes that
+means having in a in a certain par uh in
+
+352
+00:06:21,110 --> 00:06:21,120
+means having in a in a certain par uh in
+ 
+
+353
+00:06:21,120 --> 00:06:22,629
+means having in a in a certain par uh in
+a certain indicator. It might mean
+
+354
+00:06:22,629 --> 00:06:22,639
+a certain indicator. It might mean
+ 
+
+355
+00:06:22,639 --> 00:06:25,189
+a certain indicator. It might mean
+having less options for your indicator
+
+356
+00:06:25,189 --> 00:06:25,199
+having less options for your indicator
+ 
+
+357
+00:06:25,199 --> 00:06:27,430
+having less options for your indicator
+like less parameters to tune. Uh so it's
+
+358
+00:06:27,430 --> 00:06:27,440
+like less parameters to tune. Uh so it's
+ 
+
+359
+00:06:27,440 --> 00:06:29,189
+like less parameters to tune. Uh so it's
+more broad or generalized so that you
+
+360
+00:06:29,189 --> 00:06:29,199
+more broad or generalized so that you
+ 
+
+361
+00:06:29,199 --> 00:06:31,029
+more broad or generalized so that you
+have to tune less parameters which also
+
+362
+00:06:31,029 --> 00:06:31,039
+have to tune less parameters which also
+ 
+
+363
+00:06:31,039 --> 00:06:32,710
+have to tune less parameters which also
+makes it easier to like configure and
+
+364
+00:06:32,710 --> 00:06:32,720
+makes it easier to like configure and
+ 
+
+365
+00:06:32,720 --> 00:06:34,550
+makes it easier to like configure and
+back test cuz you're not doing trillions
+
+366
+00:06:34,550 --> 00:06:34,560
+back test cuz you're not doing trillions
+ 
+
+367
+00:06:34,560 --> 00:06:36,070
+back test cuz you're not doing trillions
+of simulations. cuz you might only have
+
+368
+00:06:36,070 --> 00:06:36,080
+of simulations. cuz you might only have
+ 
+
+369
+00:06:36,080 --> 00:06:37,909
+of simulations. cuz you might only have
+to do 100,000 or something like that,
+
+370
+00:06:37,909 --> 00:06:37,919
+to do 100,000 or something like that,
+ 
+
+371
+00:06:37,919 --> 00:06:40,629
+to do 100,000 or something like that,
+which is very doable on a on a good CPU.
+
+372
+00:06:40,629 --> 00:06:40,639
+which is very doable on a on a good CPU.
+ 
+
+373
+00:06:40,639 --> 00:06:42,710
+which is very doable on a on a good CPU.
+So, that that's a little bit of uh
+
+374
+00:06:42,710 --> 00:06:42,720
+So, that that's a little bit of uh
+ 
+
+375
+00:06:42,720 --> 00:06:44,790
+So, that that's a little bit of uh
+advice off the shelf for anyone who's
+
+376
+00:06:44,790 --> 00:06:44,800
+advice off the shelf for anyone who's
+ 
+
+377
+00:06:44,800 --> 00:06:46,390
+advice off the shelf for anyone who's
+trying to do this. Uh when you're
+
+378
+00:06:46,390 --> 00:06:46,400
+trying to do this. Uh when you're
+ 
+
+379
+00:06:46,400 --> 00:06:48,150
+trying to do this. Uh when you're
+looking at parameter sets, you know,
+
+380
+00:06:48,150 --> 00:06:48,160
+looking at parameter sets, you know,
+ 
+
+381
+00:06:48,160 --> 00:06:50,550
+looking at parameter sets, you know,
+like yes, we can optimize them. Yes,
+
+382
+00:06:50,550 --> 00:06:50,560
+like yes, we can optimize them. Yes,
+ 
+
+383
+00:06:50,560 --> 00:06:53,110
+like yes, we can optimize them. Yes,
+these are, you know, ideal parameter
+
+384
+00:06:53,110 --> 00:06:53,120
+these are, you know, ideal parameter
+ 
+
+385
+00:06:53,120 --> 00:06:55,110
+these are, you know, ideal parameter
+combinations. And I can also stack these
+
+386
+00:06:55,110 --> 00:06:55,120
+combinations. And I can also stack these
+ 
+
+387
+00:06:55,120 --> 00:06:56,870
+combinations. And I can also stack these
+are two parameter sets that it found. It
+
+388
+00:06:56,870 --> 00:06:56,880
+are two parameter sets that it found. It
+ 
+
+389
+00:06:56,880 --> 00:06:58,469
+are two parameter sets that it found. It
+could have like 18 of these. It could
+
+390
+00:06:58,469 --> 00:06:58,479
+could have like 18 of these. It could
+ 
+
+391
+00:06:58,479 --> 00:06:59,909
+could have like 18 of these. It could
+have 18 different options. And we could
+
+392
+00:06:59,909 --> 00:06:59,919
+have 18 different options. And we could
+ 
+
+393
+00:06:59,919 --> 00:07:01,749
+have 18 different options. And we could
+weigh each of those options. And some of
+
+394
+00:07:01,749 --> 00:07:01,759
+weigh each of those options. And some of
+ 
+
+395
+00:07:01,759 --> 00:07:04,230
+weigh each of those options. And some of
+these options might be more stable in
+
+396
+00:07:04,230 --> 00:07:04,240
+these options might be more stable in
+ 
+
+397
+00:07:04,240 --> 00:07:06,790
+these options might be more stable in
+bootstrapping than others, right? And
+
+398
+00:07:06,790 --> 00:07:06,800
+bootstrapping than others, right? And
+ 
+
+399
+00:07:06,800 --> 00:07:09,350
+bootstrapping than others, right? And
+some of them because if the parameter is
+
+400
+00:07:09,350 --> 00:07:09,360
+some of them because if the parameter is
+ 
+
+401
+00:07:09,360 --> 00:07:11,189
+some of them because if the parameter is
+set really low, like close to one,
+
+402
+00:07:11,189 --> 00:07:11,199
+set really low, like close to one,
+ 
+
+403
+00:07:11,199 --> 00:07:12,710
+set really low, like close to one,
+perhaps maybe that just means it's going
+
+404
+00:07:12,710 --> 00:07:12,720
+perhaps maybe that just means it's going
+ 
+
+405
+00:07:12,720 --> 00:07:13,830
+perhaps maybe that just means it's going
+with the flow, going with the
+
+406
+00:07:13,830 --> 00:07:13,840
+with the flow, going with the
+ 
+
+407
+00:07:13,840 --> 00:07:15,589
+with the flow, going with the
+candlesticks, but it's not really
+
+408
+00:07:15,589 --> 00:07:15,599
+candlesticks, but it's not really
+ 
+
+409
+00:07:15,599 --> 00:07:16,790
+candlesticks, but it's not really
+predicting. It doesn't have any
+
+410
+00:07:16,790 --> 00:07:16,800
+predicting. It doesn't have any
+ 
+
+411
+00:07:16,800 --> 00:07:18,710
+predicting. It doesn't have any
+predictive power. So keep that in in
+
+412
+00:07:18,710 --> 00:07:18,720
+predictive power. So keep that in in
+ 
+
+413
+00:07:18,720 --> 00:07:21,110
+predictive power. So keep that in in
+mind as well when going through here. So
+
+414
+00:07:21,110 --> 00:07:21,120
+mind as well when going through here. So
+ 
+
+415
+00:07:21,120 --> 00:07:23,430
+mind as well when going through here. So
+yeah, the again the way that I that the
+
+416
+00:07:23,430 --> 00:07:23,440
+yeah, the again the way that I that the
+ 
+
+417
+00:07:23,440 --> 00:07:26,550
+yeah, the again the way that I that the
+way that I would start is use vectorbt.
+
+418
+00:07:26,550 --> 00:07:26,560
+way that I would start is use vectorbt.
+ 
+
+419
+00:07:26,560 --> 00:07:28,230
+way that I would start is use vectorbt.
+It's a pre-loaded library. You can use
+
+420
+00:07:28,230 --> 00:07:28,240
+It's a pre-loaded library. You can use
+ 
+
+421
+00:07:28,240 --> 00:07:30,790
+It's a pre-loaded library. You can use
+ta lib. That's another library for uh
+
+422
+00:07:30,790 --> 00:07:30,800
+ta lib. That's another library for uh
+ 
+
+423
+00:07:30,800 --> 00:07:33,350
+ta lib. That's another library for uh
+using indicators. And a criticism,
+
+424
+00:07:33,350 --> 00:07:33,360
+using indicators. And a criticism,
+ 
+
+425
+00:07:33,360 --> 00:07:34,950
+using indicators. And a criticism,
+something I see a lot of people saying
+
+426
+00:07:34,950 --> 00:07:34,960
+something I see a lot of people saying
+ 
+
+427
+00:07:34,960 --> 00:07:37,350
+something I see a lot of people saying
+is that the market's rigged. If you
+
+428
+00:07:37,350 --> 00:07:37,360
+is that the market's rigged. If you
+ 
+
+429
+00:07:37,360 --> 00:07:38,469
+is that the market's rigged. If you
+trade with trading bots, you're just
+
+430
+00:07:38,469 --> 00:07:38,479
+trade with trading bots, you're just
+ 
+
+431
+00:07:38,479 --> 00:07:40,309
+trade with trading bots, you're just
+throwing your money away. Well, you can
+
+432
+00:07:40,309 --> 00:07:40,319
+throwing your money away. Well, you can
+ 
+
+433
+00:07:40,319 --> 00:07:42,790
+throwing your money away. Well, you can
+back test on rigged data. And if as long
+
+434
+00:07:42,790 --> 00:07:42,800
+back test on rigged data. And if as long
+ 
+
+435
+00:07:42,800 --> 00:07:45,270
+back test on rigged data. And if as long
+as you bake in whatever actual market
+
+436
+00:07:45,270 --> 00:07:45,280
+as you bake in whatever actual market
+ 
+
+437
+00:07:45,280 --> 00:07:46,950
+as you bake in whatever actual market
+conditions you have, right? Like right
+
+438
+00:07:46,950 --> 00:07:46,960
+conditions you have, right? Like right
+ 
+
+439
+00:07:46,960 --> 00:07:49,029
+conditions you have, right? Like right
+here, you might see some liquidations in
+
+440
+00:07:49,029 --> 00:07:49,039
+here, you might see some liquidations in
+ 
+
+441
+00:07:49,039 --> 00:07:51,589
+here, you might see some liquidations in
+this Salana chart. And yeah, like right
+
+442
+00:07:51,589 --> 00:07:51,599
+this Salana chart. And yeah, like right
+ 
+
+443
+00:07:51,599 --> 00:07:53,510
+this Salana chart. And yeah, like right
+right here, there's some liquidations.
+
+444
+00:07:53,510 --> 00:07:53,520
+right here, there's some liquidations.
+ 
+
+445
+00:07:53,520 --> 00:07:56,150
+right here, there's some liquidations.
+the market's being manipulated. But if
+
+446
+00:07:56,150 --> 00:07:56,160
+the market's being manipulated. But if
+ 
+
+447
+00:07:56,160 --> 00:07:57,430
+the market's being manipulated. But if
+you're training on that, then you're
+
+448
+00:07:57,430 --> 00:07:57,440
+you're training on that, then you're
+ 
+
+449
+00:07:57,440 --> 00:07:59,830
+you're training on that, then you're
+training to handle that market
+
+450
+00:07:59,830 --> 00:07:59,840
+training to handle that market
+ 
+
+451
+00:07:59,840 --> 00:08:01,430
+training to handle that market
+manipulation, which should be really
+
+452
+00:08:01,430 --> 00:08:01,440
+manipulation, which should be really
+ 
+
+453
+00:08:01,440 --> 00:08:02,869
+manipulation, which should be really
+good, right? If you think about it that
+
+454
+00:08:02,869 --> 00:08:02,879
+good, right? If you think about it that
+ 
+
+455
+00:08:02,879 --> 00:08:04,790
+good, right? If you think about it that
+way, it's kind of makes sense that as
+
+456
+00:08:04,790 --> 00:08:04,800
+way, it's kind of makes sense that as
+ 
+
+457
+00:08:04,800 --> 00:08:07,430
+way, it's kind of makes sense that as
+long as your strategy is yeah, as
+
+458
+00:08:07,430 --> 00:08:07,440
+long as your strategy is yeah, as
+ 
+
+459
+00:08:07,440 --> 00:08:09,749
+long as your strategy is yeah, as
+generalized as as possible, as flexible
+
+460
+00:08:09,749 --> 00:08:09,759
+generalized as as possible, as flexible
+ 
+
+461
+00:08:09,759 --> 00:08:12,309
+generalized as as possible, as flexible
+as it can be, and when you do so, you're
+
+462
+00:08:12,309 --> 00:08:12,319
+as it can be, and when you do so, you're
+ 
+
+463
+00:08:12,319 --> 00:08:14,070
+as it can be, and when you do so, you're
+not going to hit the perfect peaks and
+
+464
+00:08:14,070 --> 00:08:14,080
+not going to hit the perfect peaks and
+ 
+
+465
+00:08:14,080 --> 00:08:16,070
+not going to hit the perfect peaks and
+the perfect bottoms on every single
+
+466
+00:08:16,070 --> 00:08:16,080
+the perfect bottoms on every single
+ 
+
+467
+00:08:16,080 --> 00:08:18,469
+the perfect bottoms on every single
+trade that your bot does, but generally
+
+468
+00:08:18,469 --> 00:08:18,479
+trade that your bot does, but generally
+ 
+
+469
+00:08:18,479 --> 00:08:21,430
+trade that your bot does, but generally
+it's going to not cave in and burn
+
+470
+00:08:21,430 --> 00:08:21,440
+it's going to not cave in and burn
+ 
+
+471
+00:08:21,440 --> 00:08:24,469
+it's going to not cave in and burn
+itself out on like some choppy movement
+
+472
+00:08:24,469 --> 00:08:24,479
+itself out on like some choppy movement
+ 
+
+473
+00:08:24,479 --> 00:08:26,469
+itself out on like some choppy movement
+or like one liquidation, for example.
+
+474
+00:08:26,469 --> 00:08:26,479
+or like one liquidation, for example.
+ 
+
+475
+00:08:26,479 --> 00:08:27,909
+or like one liquidation, for example.
+Like there are these anomalies that
+
+476
+00:08:27,909 --> 00:08:27,919
+Like there are these anomalies that
+ 
+
+477
+00:08:27,919 --> 00:08:29,510
+Like there are these anomalies that
+happen. Look at this like really big
+
+478
+00:08:29,510 --> 00:08:29,520
+happen. Look at this like really big
+ 
+
+479
+00:08:29,520 --> 00:08:31,510
+happen. Look at this like really big
+candle here that would wick out any bot
+
+480
+00:08:31,510 --> 00:08:31,520
+candle here that would wick out any bot
+ 
+
+481
+00:08:31,520 --> 00:08:33,670
+candle here that would wick out any bot
+and gather its liquidity, right? So your
+
+482
+00:08:33,670 --> 00:08:33,680
+and gather its liquidity, right? So your
+ 
+
+483
+00:08:33,680 --> 00:08:36,630
+and gather its liquidity, right? So your
+bot can serve either as fodder for
+
+484
+00:08:36,630 --> 00:08:36,640
+bot can serve either as fodder for
+ 
+
+485
+00:08:36,640 --> 00:08:38,630
+bot can serve either as fodder for
+bigger bots, you know, big trading
+
+486
+00:08:38,630 --> 00:08:38,640
+bigger bots, you know, big trading
+ 
+
+487
+00:08:38,640 --> 00:08:40,709
+bigger bots, you know, big trading
+firms, or you know, your bot can just
+
+488
+00:08:40,709 --> 00:08:40,719
+firms, or you know, your bot can just
+ 
+
+489
+00:08:40,719 --> 00:08:42,149
+firms, or you know, your bot can just
+kind of take a piece of the pie. The,
+
+490
+00:08:42,149 --> 00:08:42,159
+kind of take a piece of the pie. The,
+ 
+
+491
+00:08:42,159 --> 00:08:44,230
+kind of take a piece of the pie. The,
+you know, the market will move, and as
+
+492
+00:08:44,230 --> 00:08:44,240
+you know, the market will move, and as
+ 
+
+493
+00:08:44,240 --> 00:08:46,230
+you know, the market will move, and as
+long as your bots's listening to it and
+
+494
+00:08:46,230 --> 00:08:46,240
+long as your bots's listening to it and
+ 
+
+495
+00:08:46,240 --> 00:08:48,389
+long as your bots's listening to it and
+able to go to sleep when it has to and
+
+496
+00:08:48,389 --> 00:08:48,399
+able to go to sleep when it has to and
+ 
+
+497
+00:08:48,399 --> 00:08:49,990
+able to go to sleep when it has to and
+wake up when there's really important
+
+498
+00:08:49,990 --> 00:08:50,000
+wake up when there's really important
+ 
+
+499
+00:08:50,000 --> 00:08:52,070
+wake up when there's really important
+trading happening, then you might you
+
+500
+00:08:52,070 --> 00:08:52,080
+trading happening, then you might you
+ 
+
+501
+00:08:52,080 --> 00:08:54,150
+trading happening, then you might you
+might be on to something. So the goal
+
+502
+00:08:54,150 --> 00:08:54,160
+might be on to something. So the goal
+ 
+
+503
+00:08:54,160 --> 00:08:56,710
+might be on to something. So the goal
+the goal is not to always just get the
+
+504
+00:08:56,710 --> 00:08:56,720
+the goal is not to always just get the
+ 
+
+505
+00:08:56,720 --> 00:08:58,790
+the goal is not to always just get the
+highest sharp ratio which that that is
+
+506
+00:08:58,790 --> 00:08:58,800
+highest sharp ratio which that that is
+ 
+
+507
+00:08:58,800 --> 00:09:00,470
+highest sharp ratio which that that is
+one of my goals. I want to have the
+
+508
+00:09:00,470 --> 00:09:00,480
+one of my goals. I want to have the
+ 
+
+509
+00:09:00,480 --> 00:09:02,470
+one of my goals. I want to have the
+lowest draw down so I can feel safe and
+
+510
+00:09:02,470 --> 00:09:02,480
+lowest draw down so I can feel safe and
+ 
+
+511
+00:09:02,480 --> 00:09:03,910
+lowest draw down so I can feel safe and
+I have the highest sharp ratio so I know
+
+512
+00:09:03,910 --> 00:09:03,920
+I have the highest sharp ratio so I know
+ 
+
+513
+00:09:03,920 --> 00:09:05,670
+I have the highest sharp ratio so I know
+that I have the best risk risk is this
+
+514
+00:09:05,670 --> 00:09:05,680
+that I have the best risk risk is this
+ 
+
+515
+00:09:05,680 --> 00:09:07,509
+that I have the best risk risk is this
+sharp ratio is a volatility adjusted
+
+516
+00:09:07,509 --> 00:09:07,519
+sharp ratio is a volatility adjusted
+ 
+
+517
+00:09:07,519 --> 00:09:10,070
+sharp ratio is a volatility adjusted
+risk to reward. So for anyone who knows
+
+518
+00:09:10,070 --> 00:09:10,080
+risk to reward. So for anyone who knows
+ 
+
+519
+00:09:10,080 --> 00:09:12,949
+risk to reward. So for anyone who knows
+anything about uh risktore reward ratios
+
+520
+00:09:12,949 --> 00:09:12,959
+anything about uh risktore reward ratios
+ 
+
+521
+00:09:12,959 --> 00:09:14,550
+anything about uh risktore reward ratios
+adjusting for volume just makes it a
+
+522
+00:09:14,550 --> 00:09:14,560
+adjusting for volume just makes it a
+ 
+
+523
+00:09:14,560 --> 00:09:15,750
+adjusting for volume just makes it a
+little bit more stable. So when you're
+
+524
+00:09:15,750 --> 00:09:15,760
+little bit more stable. So when you're
+ 
+
+525
+00:09:15,760 --> 00:09:18,550
+little bit more stable. So when you're
+looking at many simulations it's it's
+
+526
+00:09:18,550 --> 00:09:18,560
+looking at many simulations it's it's
+ 
+
+527
+00:09:18,560 --> 00:09:20,230
+looking at many simulations it's it's
+more like it's more generalized of a
+
+528
+00:09:20,230 --> 00:09:20,240
+more like it's more generalized of a
+ 
+
+529
+00:09:20,240 --> 00:09:21,990
+more like it's more generalized of a
+number. So that's why I look at sharp.
+
+530
+00:09:21,990 --> 00:09:22,000
+number. So that's why I look at sharp.
+ 
+
+531
+00:09:22,000 --> 00:09:24,710
+number. So that's why I look at sharp.
+Uh STO is important too, but uh that's
+
+532
+00:09:24,710 --> 00:09:24,720
+Uh STO is important too, but uh that's
+ 
+
+533
+00:09:24,720 --> 00:09:26,790
+Uh STO is important too, but uh that's
+the one I look at. I I know that super
+
+534
+00:09:26,790 --> 00:09:26,800
+the one I look at. I I know that super
+ 
+
+535
+00:09:26,800 --> 00:09:29,110
+the one I look at. I I know that super
+high win rate, like 64% win rate looks
+
+536
+00:09:29,110 --> 00:09:29,120
+high win rate, like 64% win rate looks
+ 
+
+537
+00:09:29,120 --> 00:09:30,870
+high win rate, like 64% win rate looks
+cool, but it depends, right? It depends
+
+538
+00:09:30,870 --> 00:09:30,880
+cool, but it depends, right? It depends
+ 
+
+539
+00:09:30,880 --> 00:09:33,110
+cool, but it depends, right? It depends
+on what the risk is and what the reward
+
+540
+00:09:33,110 --> 00:09:33,120
+on what the risk is and what the reward
+ 
+
+541
+00:09:33,120 --> 00:09:35,110
+on what the risk is and what the reward
+is because maybe you're only gaining a
+
+542
+00:09:35,110 --> 00:09:35,120
+is because maybe you're only gaining a
+ 
+
+543
+00:09:35,120 --> 00:09:36,470
+is because maybe you're only gaining a
+little bit. So that's that's what I
+
+544
+00:09:36,470 --> 00:09:36,480
+little bit. So that's that's what I
+ 
+
+545
+00:09:36,480 --> 00:09:37,990
+little bit. So that's that's what I
+would say on that. So win rate
+
+546
+00:09:37,990 --> 00:09:38,000
+would say on that. So win rate
+ 
+
+547
+00:09:38,000 --> 00:09:40,310
+would say on that. So win rate
+intrinsically does not matter. It it
+
+548
+00:09:40,310 --> 00:09:40,320
+intrinsically does not matter. It it
+ 
+
+549
+00:09:40,320 --> 00:09:43,110
+intrinsically does not matter. It it
+dependently matters if you you know have
+
+550
+00:09:43,110 --> 00:09:43,120
+dependently matters if you you know have
+ 
+
+551
+00:09:43,120 --> 00:09:45,670
+dependently matters if you you know have
+a good risk risk-to-reward ratio which
+
+552
+00:09:45,670 --> 00:09:45,680
+a good risk risk-to-reward ratio which
+ 
+
+553
+00:09:45,680 --> 00:09:47,590
+a good risk risk-to-reward ratio which
+why would why would you optimize for win
+
+554
+00:09:47,590 --> 00:09:47,600
+why would why would you optimize for win
+ 
+
+555
+00:09:47,600 --> 00:09:49,269
+why would why would you optimize for win
+rate when you know your engine can
+
+556
+00:09:49,269 --> 00:09:49,279
+rate when you know your engine can
+ 
+
+557
+00:09:49,279 --> 00:09:50,949
+rate when you know your engine can
+optimize for any number right you could
+
+558
+00:09:50,949 --> 00:09:50,959
+optimize for any number right you could
+ 
+
+559
+00:09:50,959 --> 00:09:52,870
+optimize for any number right you could
+tell it to get the best net profit but
+
+560
+00:09:52,870 --> 00:09:52,880
+tell it to get the best net profit but
+ 
+
+561
+00:09:52,880 --> 00:09:54,630
+tell it to get the best net profit but
+that could be at the expense of really
+
+562
+00:09:54,630 --> 00:09:54,640
+that could be at the expense of really
+ 
+
+563
+00:09:54,640 --> 00:09:56,470
+that could be at the expense of really
+high draw down and you don't want that
+
+564
+00:09:56,470 --> 00:09:56,480
+high draw down and you don't want that
+ 
+
+565
+00:09:56,480 --> 00:09:58,470
+high draw down and you don't want that
+right you want to probably maximize
+
+566
+00:09:58,470 --> 00:09:58,480
+right you want to probably maximize
+ 
+
+567
+00:09:58,480 --> 00:10:00,310
+right you want to probably maximize
+sharp ratio or minimize draw down is
+
+568
+00:10:00,310 --> 00:10:00,320
+sharp ratio or minimize draw down is
+ 
+
+569
+00:10:00,320 --> 00:10:02,070
+sharp ratio or minimize draw down is
+what I usually focus on and what I would
+
+570
+00:10:02,070 --> 00:10:02,080
+what I usually focus on and what I would
+ 
+
+571
+00:10:02,080 --> 00:10:03,750
+what I usually focus on and what I would
+recommend focusing on because as a
+
+572
+00:10:03,750 --> 00:10:03,760
+recommend focusing on because as a
+ 
+
+573
+00:10:03,760 --> 00:10:06,150
+recommend focusing on because as a
+result of that a byproduct is that
+
+574
+00:10:06,150 --> 00:10:06,160
+result of that a byproduct is that
+ 
+
+575
+00:10:06,160 --> 00:10:07,990
+result of that a byproduct is that
+you'll have higher net profit and you
+
+576
+00:10:07,990 --> 00:10:08,000
+you'll have higher net profit and you
+ 
+
+577
+00:10:08,000 --> 00:10:09,030
+you'll have higher net profit and you
+know when you're putting real money in
+
+578
+00:10:09,030 --> 00:10:09,040
+know when you're putting real money in
+ 
+
+579
+00:10:09,040 --> 00:10:10,710
+know when you're putting real money in
+you'll feel safer. You know, if you have
+
+580
+00:10:10,710 --> 00:10:10,720
+you'll feel safer. You know, if you have
+ 
+
+581
+00:10:10,720 --> 00:10:13,110
+you'll feel safer. You know, if you have
+if you're a larger trail trader or you
+
+582
+00:10:13,110 --> 00:10:13,120
+if you're a larger trail trader or you
+ 
+
+583
+00:10:13,120 --> 00:10:14,949
+if you're a larger trail trader or you
+know, a whale, then yeah, like you want
+
+584
+00:10:14,949 --> 00:10:14,959
+know, a whale, then yeah, like you want
+ 
+
+585
+00:10:14,959 --> 00:10:16,150
+know, a whale, then yeah, like you want
+to minimize your draw down. You don't
+
+586
+00:10:16,150 --> 00:10:16,160
+to minimize your draw down. You don't
+ 
+
+587
+00:10:16,160 --> 00:10:17,670
+to minimize your draw down. You don't
+want to you want to park your bot and
+
+588
+00:10:17,670 --> 00:10:17,680
+want to you want to park your bot and
+ 
+
+589
+00:10:17,680 --> 00:10:19,350
+want to you want to park your bot and
+you you want to trust it. So, it's a
+
+590
+00:10:19,350 --> 00:10:19,360
+you you want to trust it. So, it's a
+ 
+
+591
+00:10:19,360 --> 00:10:21,350
+you you want to trust it. So, it's a
+trust building exercise with your bot.
+
+592
+00:10:21,350 --> 00:10:21,360
+trust building exercise with your bot.
+ 
+
+593
+00:10:21,360 --> 00:10:22,870
+trust building exercise with your bot.
+So, rolling out a bot might look
+
+594
+00:10:22,870 --> 00:10:22,880
+So, rolling out a bot might look
+ 
+
+595
+00:10:22,880 --> 00:10:24,550
+So, rolling out a bot might look
+something like this. So, I'll design
+
+596
+00:10:24,550 --> 00:10:24,560
+something like this. So, I'll design
+ 
+
+597
+00:10:24,560 --> 00:10:27,190
+something like this. So, I'll design
+just the base configuration. And then I
+
+598
+00:10:27,190 --> 00:10:27,200
+just the base configuration. And then I
+ 
+
+599
+00:10:27,200 --> 00:10:29,350
+just the base configuration. And then I
+I'll start adding really good exit rules
+
+600
+00:10:29,350 --> 00:10:29,360
+I'll start adding really good exit rules
+ 
+
+601
+00:10:29,360 --> 00:10:31,350
+I'll start adding really good exit rules
+from here. So if this is just the the
+
+602
+00:10:31,350 --> 00:10:31,360
+from here. So if this is just the the
+ 
+
+603
+00:10:31,360 --> 00:10:33,030
+from here. So if this is just the the
+default and I like this and I'll have
+
+604
+00:10:33,030 --> 00:10:33,040
+default and I like this and I'll have
+ 
+
+605
+00:10:33,040 --> 00:10:35,110
+default and I like this and I'll have
+maybe you know clawed overnight can do
+
+606
+00:10:35,110 --> 00:10:35,120
+maybe you know clawed overnight can do
+ 
+
+607
+00:10:35,120 --> 00:10:37,269
+maybe you know clawed overnight can do
+like 20 25 of these or if you have a
+
+608
+00:10:37,269 --> 00:10:37,279
+like 20 25 of these or if you have a
+ 
+
+609
+00:10:37,279 --> 00:10:39,670
+like 20 25 of these or if you have a
+better CPU maybe you could do 50 to 100
+
+610
+00:10:39,670 --> 00:10:39,680
+better CPU maybe you could do 50 to 100
+ 
+
+611
+00:10:39,680 --> 00:10:41,030
+better CPU maybe you could do 50 to 100
+completely different strategies
+
+612
+00:10:41,030 --> 00:10:41,040
+completely different strategies
+ 
+
+613
+00:10:41,040 --> 00:10:42,630
+completely different strategies
+overnight and it'll put them through
+
+614
+00:10:42,630 --> 00:10:42,640
+overnight and it'll put them through
+ 
+
+615
+00:10:42,640 --> 00:10:44,150
+overnight and it'll put them through
+stress tests. It'll tell you which one
+
+616
+00:10:44,150 --> 00:10:44,160
+stress tests. It'll tell you which one
+ 
+
+617
+00:10:44,160 --> 00:10:46,710
+stress tests. It'll tell you which one
+of these holds up more in Monte Carlo
+
+618
+00:10:46,710 --> 00:10:46,720
+of these holds up more in Monte Carlo
+ 
+
+619
+00:10:46,720 --> 00:10:48,710
+of these holds up more in Monte Carlo
+simulations and has like a fair
+
+620
+00:10:48,710 --> 00:10:48,720
+simulations and has like a fair
+ 
+
+621
+00:10:48,720 --> 00:10:51,269
+simulations and has like a fair
+baseline. So ultimately if you're
+
+622
+00:10:51,269 --> 00:10:51,279
+baseline. So ultimately if you're
+ 
+
+623
+00:10:51,279 --> 00:10:54,230
+baseline. So ultimately if you're
+selecting for uh Monte Carlo stability
+
+624
+00:10:54,230 --> 00:10:54,240
+selecting for uh Monte Carlo stability
+ 
+
+625
+00:10:54,240 --> 00:10:56,230
+selecting for uh Monte Carlo stability
+with the highest Monte Carlo sharp ratio
+
+626
+00:10:56,230 --> 00:10:56,240
+with the highest Monte Carlo sharp ratio
+ 
+
+627
+00:10:56,240 --> 00:10:58,550
+with the highest Monte Carlo sharp ratio
+and highest uh highest bootstrap
+
+628
+00:10:58,550 --> 00:10:58,560
+and highest uh highest bootstrap
+ 
+
+629
+00:10:58,560 --> 00:10:59,990
+and highest uh highest bootstrap
+stability then you know in real time
+
+630
+00:10:59,990 --> 00:11:00,000
+stability then you know in real time
+ 
+
+631
+00:11:00,000 --> 00:11:01,750
+stability then you know in real time
+your bot has a has a better chance at
+
+632
+00:11:01,750 --> 00:11:01,760
+your bot has a has a better chance at
+ 
+
+633
+00:11:01,760 --> 00:11:04,389
+your bot has a has a better chance at
+winning because you know in the worst 5%
+
+634
+00:11:04,389 --> 00:11:04,399
+winning because you know in the worst 5%
+ 
+
+635
+00:11:04,399 --> 00:11:06,310
+winning because you know in the worst 5%
+simulations that you have it might not
+
+636
+00:11:06,310 --> 00:11:06,320
+simulations that you have it might not
+ 
+
+637
+00:11:06,320 --> 00:11:09,030
+simulations that you have it might not
+perform but you know you have a 95%
+
+638
+00:11:09,030 --> 00:11:09,040
+perform but you know you have a 95%
+ 
+
+639
+00:11:09,040 --> 00:11:10,310
+perform but you know you have a 95%
+chance of not ending up in that
+
+640
+00:11:10,310 --> 00:11:10,320
+chance of not ending up in that
+ 
+
+641
+00:11:10,320 --> 00:11:12,389
+chance of not ending up in that
+situation but uh the worst of the worst
+
+642
+00:11:12,389 --> 00:11:12,399
+situation but uh the worst of the worst
+ 
+
+643
+00:11:12,399 --> 00:11:14,550
+situation but uh the worst of the worst
+might not be you want to like raise the
+
+644
+00:11:14,550 --> 00:11:14,560
+might not be you want to like raise the
+ 
+
+645
+00:11:14,560 --> 00:11:16,389
+might not be you want to like raise the
+floor basically of how bad your bot
+
+646
+00:11:16,389 --> 00:11:16,399
+floor basically of how bad your bot
+ 
+
+647
+00:11:16,399 --> 00:11:18,710
+floor basically of how bad your bot
+could perform cuz if the market just has
+
+648
+00:11:18,710 --> 00:11:18,720
+could perform cuz if the market just has
+ 
+
+649
+00:11:18,720 --> 00:11:20,710
+could perform cuz if the market just has
+like really clear data. If I zoom out
+
+650
+00:11:20,710 --> 00:11:20,720
+like really clear data. If I zoom out
+ 
+
+651
+00:11:20,720 --> 00:11:22,069
+like really clear data. If I zoom out
+here on the weekly chart, you can see
+
+652
+00:11:22,069 --> 00:11:22,079
+here on the weekly chart, you can see
+ 
+
+653
+00:11:22,079 --> 00:11:23,829
+here on the weekly chart, you can see
+really clear information here. It's
+
+654
+00:11:23,829 --> 00:11:23,839
+really clear information here. It's
+ 
+
+655
+00:11:23,839 --> 00:11:26,150
+really clear information here. It's
+bullish. If you're trading long here,
+
+656
+00:11:26,150 --> 00:11:26,160
+bullish. If you're trading long here,
+ 
+
+657
+00:11:26,160 --> 00:11:28,310
+bullish. If you're trading long here,
+you'll win. Period. Right? Same same
+
+658
+00:11:28,310 --> 00:11:28,320
+you'll win. Period. Right? Same same
+ 
+
+659
+00:11:28,320 --> 00:11:29,509
+you'll win. Period. Right? Same same
+back here. If you're long, you're going
+
+660
+00:11:29,509 --> 00:11:29,519
+back here. If you're long, you're going
+ 
+
+661
+00:11:29,519 --> 00:11:31,030
+back here. If you're long, you're going
+to win. And if you're bare, if you're
+
+662
+00:11:31,030 --> 00:11:31,040
+to win. And if you're bare, if you're
+ 
+
+663
+00:11:31,040 --> 00:11:33,030
+to win. And if you're bare, if you're
+short here, you're going to win. But the
+
+664
+00:11:33,030 --> 00:11:33,040
+short here, you're going to win. But the
+ 
+
+665
+00:11:33,040 --> 00:11:34,790
+short here, you're going to win. But the
+market isn't always that clear, right?
+
+666
+00:11:34,790 --> 00:11:34,800
+market isn't always that clear, right?
+ 
+
+667
+00:11:34,800 --> 00:11:36,470
+market isn't always that clear, right?
+What if what if there was there's a
+
+668
+00:11:36,470 --> 00:11:36,480
+What if what if there was there's a
+ 
+
+669
+00:11:36,480 --> 00:11:38,230
+What if what if there was there's a
+whole year here of data where it's not
+
+670
+00:11:38,230 --> 00:11:38,240
+whole year here of data where it's not
+ 
+
+671
+00:11:38,240 --> 00:11:40,470
+whole year here of data where it's not
+so clear. And your bot could chew itself
+
+672
+00:11:40,470 --> 00:11:40,480
+so clear. And your bot could chew itself
+ 
+
+673
+00:11:40,480 --> 00:11:42,150
+so clear. And your bot could chew itself
+out and lose all the profit it made on
+
+674
+00:11:42,150 --> 00:11:42,160
+out and lose all the profit it made on
+ 
+
+675
+00:11:42,160 --> 00:11:43,990
+out and lose all the profit it made on
+the bull run in this period, which you
+
+676
+00:11:43,990 --> 00:11:44,000
+the bull run in this period, which you
+ 
+
+677
+00:11:44,000 --> 00:11:45,190
+the bull run in this period, which you
+don't want that. you probably want your
+
+678
+00:11:45,190 --> 00:11:45,200
+don't want that. you probably want your
+ 
+
+679
+00:11:45,200 --> 00:11:47,509
+don't want that. you probably want your
+bot to to know when to go to sleep or
+
+680
+00:11:47,509 --> 00:11:47,519
+bot to to know when to go to sleep or
+ 
+
+681
+00:11:47,519 --> 00:11:49,750
+bot to to know when to go to sleep or
+when to when to reduce its trading
+
+682
+00:11:49,750 --> 00:11:49,760
+when to when to reduce its trading
+ 
+
+683
+00:11:49,760 --> 00:11:51,990
+when to when to reduce its trading
+activity. So th that's that's some other
+
+684
+00:11:51,990 --> 00:11:52,000
+activity. So th that's that's some other
+ 
+
+685
+00:11:52,000 --> 00:11:54,310
+activity. So th that's that's some other
+good good advice as well. So yeah,
+
+686
+00:11:54,310 --> 00:11:54,320
+good good advice as well. So yeah,
+ 
+
+687
+00:11:54,320 --> 00:11:57,350
+good good advice as well. So yeah,
+generally you want your uh your claude
+
+688
+00:11:57,350 --> 00:11:57,360
+generally you want your uh your claude
+ 
+
+689
+00:11:57,360 --> 00:12:00,150
+generally you want your uh your claude
+to compete uh and run its strategies and
+
+690
+00:12:00,150 --> 00:12:00,160
+to compete uh and run its strategies and
+ 
+
+691
+00:12:00,160 --> 00:12:02,069
+to compete uh and run its strategies and
+try to try to beat previous strategies.
+
+692
+00:12:02,069 --> 00:12:02,079
+try to try to beat previous strategies.
+ 
+
+693
+00:12:02,079 --> 00:12:04,150
+try to try to beat previous strategies.
+So I did that overnight and it ran it
+
+694
+00:12:04,150 --> 00:12:04,160
+So I did that overnight and it ran it
+ 
+
+695
+00:12:04,160 --> 00:12:05,910
+So I did that overnight and it ran it
+ran 25 different strategies and found
+
+696
+00:12:05,910 --> 00:12:05,920
+ran 25 different strategies and found
+ 
+
+697
+00:12:05,920 --> 00:12:07,590
+ran 25 different strategies and found
+this one was one of the better ones. So
+
+698
+00:12:07,590 --> 00:12:07,600
+this one was one of the better ones. So
+ 
+
+699
+00:12:07,600 --> 00:12:08,790
+this one was one of the better ones. So
+that's why I wanted to feature it in
+
+700
+00:12:08,790 --> 00:12:08,800
+that's why I wanted to feature it in
+ 
+
+701
+00:12:08,800 --> 00:12:10,470
+that's why I wanted to feature it in
+this video and I'll show future ones in
+
+702
+00:12:10,470 --> 00:12:10,480
+this video and I'll show future ones in
+ 
+
+703
+00:12:10,480 --> 00:12:12,710
+this video and I'll show future ones in
+other videos as well and probably put
+
+704
+00:12:12,710 --> 00:12:12,720
+other videos as well and probably put
+ 
+
+705
+00:12:12,720 --> 00:12:14,389
+other videos as well and probably put
+them up on the signal swap marketplace.
+
+706
+00:12:14,389 --> 00:12:14,399
+them up on the signal swap marketplace.
+ 
+
+707
+00:12:14,399 --> 00:12:15,829
+them up on the signal swap marketplace.
+They're really good ones. But rolling
+
+708
+00:12:15,829 --> 00:12:15,839
+They're really good ones. But rolling
+ 
+
+709
+00:12:15,839 --> 00:12:18,310
+They're really good ones. But rolling
+them out is basically something to to
+
+710
+00:12:18,310 --> 00:12:18,320
+them out is basically something to to
+ 
+
+711
+00:12:18,320 --> 00:12:19,829
+them out is basically something to to
+end up on the signal swap marketplace.
+
+712
+00:12:19,829 --> 00:12:19,839
+end up on the signal swap marketplace.
+ 
+
+713
+00:12:19,839 --> 00:12:21,910
+end up on the signal swap marketplace.
+It also needs forward testing, meaning
+
+714
+00:12:21,910 --> 00:12:21,920
+It also needs forward testing, meaning
+ 
+
+715
+00:12:21,920 --> 00:12:23,910
+It also needs forward testing, meaning
+real signals with real profit and
+
+716
+00:12:23,910 --> 00:12:23,920
+real signals with real profit and
+ 
+
+717
+00:12:23,920 --> 00:12:25,670
+real signals with real profit and
+profitable over that time period before
+
+718
+00:12:25,670 --> 00:12:25,680
+profitable over that time period before
+ 
+
+719
+00:12:25,680 --> 00:12:27,030
+profitable over that time period before
+there'll be any subscribers. So,
+
+720
+00:12:27,030 --> 00:12:27,040
+there'll be any subscribers. So,
+ 
+
+721
+00:12:27,040 --> 00:12:28,550
+there'll be any subscribers. So,
+anything you'll see on Signal Swap
+
+722
+00:12:28,550 --> 00:12:28,560
+anything you'll see on Signal Swap
+ 
+
+723
+00:12:28,560 --> 00:12:30,710
+anything you'll see on Signal Swap
+Marketplace, which is right here, I'm a
+
+724
+00:12:30,710 --> 00:12:30,720
+Marketplace, which is right here, I'm a
+ 
+
+725
+00:12:30,720 --> 00:12:32,629
+Marketplace, which is right here, I'm a
+developer for Signal Swap, and you know,
+
+726
+00:12:32,629 --> 00:12:32,639
+developer for Signal Swap, and you know,
+ 
+
+727
+00:12:32,639 --> 00:12:34,790
+developer for Signal Swap, and you know,
+you could connect your Bybit, Apex, and
+
+728
+00:12:34,790 --> 00:12:34,800
+you could connect your Bybit, Apex, and
+ 
+
+729
+00:12:34,800 --> 00:12:38,069
+you could connect your Bybit, Apex, and
+Pinex bots here, and you can publish if
+
+730
+00:12:38,069 --> 00:12:38,079
+Pinex bots here, and you can publish if
+ 
+
+731
+00:12:38,079 --> 00:12:39,430
+Pinex bots here, and you can publish if
+if they're doing well, you can publish
+
+732
+00:12:39,430 --> 00:12:39,440
+if they're doing well, you can publish
+ 
+
+733
+00:12:39,440 --> 00:12:41,590
+if they're doing well, you can publish
+them on the marketplace, and these are
+
+734
+00:12:41,590 --> 00:12:41,600
+them on the marketplace, and these are
+ 
+
+735
+00:12:41,600 --> 00:12:43,030
+them on the marketplace, and these are
+just some test bots in the marketplace
+
+736
+00:12:43,030 --> 00:12:43,040
+just some test bots in the marketplace
+ 
+
+737
+00:12:43,040 --> 00:12:45,269
+just some test bots in the marketplace
+right now, but these are real real
+
+738
+00:12:45,269 --> 00:12:45,279
+right now, but these are real real
+ 
+
+739
+00:12:45,279 --> 00:12:47,990
+right now, but these are real real
+signals and real charts for for these.
+
+740
+00:12:47,990 --> 00:12:48,000
+signals and real charts for for these.
+ 
+
+741
+00:12:48,000 --> 00:12:49,670
+signals and real charts for for these.
+So, they're also be back testing. So,
+
+742
+00:12:49,670 --> 00:12:49,680
+So, they're also be back testing. So,
+ 
+
+743
+00:12:49,680 --> 00:12:51,750
+So, they're also be back testing. So,
+stress tests can go here through signal
+
+744
+00:12:51,750 --> 00:12:51,760
+stress tests can go here through signal
+ 
+
+745
+00:12:51,760 --> 00:12:53,910
+stress tests can go here through signal
+swap. We have a a back testing system as
+
+746
+00:12:53,910 --> 00:12:53,920
+swap. We have a a back testing system as
+ 
+
+747
+00:12:53,920 --> 00:12:56,150
+swap. We have a a back testing system as
+well for robustness testing. So if you
+
+748
+00:12:56,150 --> 00:12:56,160
+well for robustness testing. So if you
+ 
+
+749
+00:12:56,160 --> 00:12:58,310
+well for robustness testing. So if you
+have any pine script that you want to
+
+750
+00:12:58,310 --> 00:12:58,320
+have any pine script that you want to
+ 
+
+751
+00:12:58,320 --> 00:12:59,829
+have any pine script that you want to
+test, you can take it directly from
+
+752
+00:12:59,829 --> 00:12:59,839
+test, you can take it directly from
+ 
+
+753
+00:12:59,839 --> 00:13:02,389
+test, you can take it directly from
+training view and drop it in here into
+
+754
+00:13:02,389 --> 00:13:02,399
+training view and drop it in here into
+ 
+
+755
+00:13:02,399 --> 00:13:04,710
+training view and drop it in here into
+the the back testing and then it'll tell
+
+756
+00:13:04,710 --> 00:13:04,720
+the the back testing and then it'll tell
+ 
+
+757
+00:13:04,720 --> 00:13:06,470
+the the back testing and then it'll tell
+you if it's robust. So it'll run similar
+
+758
+00:13:06,470 --> 00:13:06,480
+you if it's robust. So it'll run similar
+ 
+
+759
+00:13:06,480 --> 00:13:09,509
+you if it's robust. So it'll run similar
+tests to what my cloud does except it's
+
+760
+00:13:09,509 --> 00:13:09,519
+tests to what my cloud does except it's
+ 
+
+761
+00:13:09,519 --> 00:13:11,509
+tests to what my cloud does except it's
+all it's all done in pint script. So
+
+762
+00:13:11,509 --> 00:13:11,519
+all it's all done in pint script. So
+ 
+
+763
+00:13:11,519 --> 00:13:14,230
+all it's all done in pint script. So
+it's really fast and it's thousands of
+
+764
+00:13:14,230 --> 00:13:14,240
+it's really fast and it's thousands of
+ 
+
+765
+00:13:14,240 --> 00:13:15,590
+it's really fast and it's thousands of
+times faster than back testing on
+
+766
+00:13:15,590 --> 00:13:15,600
+times faster than back testing on
+ 
+
+767
+00:13:15,600 --> 00:13:17,670
+times faster than back testing on
+trading view. Plus it optimizes it uh
+
+768
+00:13:17,670 --> 00:13:17,680
+trading view. Plus it optimizes it uh
+ 
+
+769
+00:13:17,680 --> 00:13:19,590
+trading view. Plus it optimizes it uh
+you know with the stress test with the
+
+770
+00:13:19,590 --> 00:13:19,600
+you know with the stress test with the
+ 
+
+771
+00:13:19,600 --> 00:13:21,509
+you know with the stress test with the
+Monte Carlo simulations. For example,
+
+772
+00:13:21,509 --> 00:13:21,519
+Monte Carlo simulations. For example,
+ 
+
+773
+00:13:21,519 --> 00:13:23,430
+Monte Carlo simulations. For example,
+this EMA doesn't have a chance to be
+
+774
+00:13:23,430 --> 00:13:23,440
+this EMA doesn't have a chance to be
+ 
+
+775
+00:13:23,440 --> 00:13:25,350
+this EMA doesn't have a chance to be
+robust, but yeah, it says it fails. It
+
+776
+00:13:25,350 --> 00:13:25,360
+robust, but yeah, it says it fails. It
+ 
+
+777
+00:13:25,360 --> 00:13:27,190
+robust, but yeah, it says it fails. It
+fails the robustness test. Tells you how
+
+778
+00:13:27,190 --> 00:13:27,200
+fails the robustness test. Tells you how
+ 
+
+779
+00:13:27,200 --> 00:13:29,910
+fails the robustness test. Tells you how
+much it failed and and and why. So then
+
+780
+00:13:29,910 --> 00:13:29,920
+much it failed and and and why. So then
+ 
+
+781
+00:13:29,920 --> 00:13:31,430
+much it failed and and and why. So then
+you could get the full detailed report
+
+782
+00:13:31,430 --> 00:13:31,440
+you could get the full detailed report
+ 
+
+783
+00:13:31,440 --> 00:13:33,110
+you could get the full detailed report
+here on on the back testing feature. So
+
+784
+00:13:33,110 --> 00:13:33,120
+here on on the back testing feature. So
+ 
+
+785
+00:13:33,120 --> 00:13:34,790
+here on on the back testing feature. So
+you can build your own in Python, but
+
+786
+00:13:34,790 --> 00:13:34,800
+you can build your own in Python, but
+ 
+
+787
+00:13:34,800 --> 00:13:36,230
+you can build your own in Python, but
+then you might have to spend a lot of
+
+788
+00:13:36,230 --> 00:13:36,240
+then you might have to spend a lot of
+ 
+
+789
+00:13:36,240 --> 00:13:38,629
+then you might have to spend a lot of
+time tweaking it. But uh if you just are
+
+790
+00:13:38,629 --> 00:13:38,639
+time tweaking it. But uh if you just are
+ 
+
+791
+00:13:38,639 --> 00:13:40,310
+time tweaking it. But uh if you just are
+coming from Training View and you want
+
+792
+00:13:40,310 --> 00:13:40,320
+coming from Training View and you want
+ 
+
+793
+00:13:40,320 --> 00:13:42,710
+coming from Training View and you want
+to drop it in here, um right now this is
+
+794
+00:13:42,710 --> 00:13:42,720
+to drop it in here, um right now this is
+ 
+
+795
+00:13:42,720 --> 00:13:44,470
+to drop it in here, um right now this is
+down, but it'll be up very shortly. This
+
+796
+00:13:44,470 --> 00:13:44,480
+down, but it'll be up very shortly. This
+ 
+
+797
+00:13:44,480 --> 00:13:46,470
+down, but it'll be up very shortly. This
+is a brand new signal swap website, so
+
+798
+00:13:46,470 --> 00:13:46,480
+is a brand new signal swap website, so
+ 
+
+799
+00:13:46,480 --> 00:13:48,069
+is a brand new signal swap website, so
+I'm proud to launch it. I highly
+
+800
+00:13:48,069 --> 00:13:48,079
+I'm proud to launch it. I highly
+ 
+
+801
+00:13:48,079 --> 00:13:50,069
+I'm proud to launch it. I highly
+recommend signing up, setting up a bot,
+
+802
+00:13:50,069 --> 00:13:50,079
+recommend signing up, setting up a bot,
+ 
+
+803
+00:13:50,079 --> 00:13:51,110
+recommend signing up, setting up a bot,
+getting some signals. And if you have
+
+804
+00:13:51,110 --> 00:13:51,120
+getting some signals. And if you have
+ 
+
+805
+00:13:51,120 --> 00:13:52,790
+getting some signals. And if you have
+good strategies too, you can put them on
+
+806
+00:13:52,790 --> 00:13:52,800
+good strategies too, you can put them on
+ 
+
+807
+00:13:52,800 --> 00:13:55,030
+good strategies too, you can put them on
+the marketplace. If you create a bot and
+
+808
+00:13:55,030 --> 00:13:55,040
+the marketplace. If you create a bot and
+ 
+
+809
+00:13:55,040 --> 00:13:57,030
+the marketplace. If you create a bot and
+connect it and it's profitable, then you
+
+810
+00:13:57,030 --> 00:13:57,040
+connect it and it's profitable, then you
+ 
+
+811
+00:13:57,040 --> 00:13:58,870
+connect it and it's profitable, then you
+can publish it to the marketplace as
+
+812
+00:13:58,870 --> 00:13:58,880
+can publish it to the marketplace as
+ 
+
+813
+00:13:58,880 --> 00:14:01,030
+can publish it to the marketplace as
+well. So that means that you'll be able
+
+814
+00:14:01,030 --> 00:14:01,040
+well. So that means that you'll be able
+ 
+
+815
+00:14:01,040 --> 00:14:03,910
+well. So that means that you'll be able
+to profit and you know, from anyone who
+
+816
+00:14:03,910 --> 00:14:03,920
+to profit and you know, from anyone who
+ 
+
+817
+00:14:03,920 --> 00:14:05,990
+to profit and you know, from anyone who
+subscribes, you'll get 70% of the
+
+818
+00:14:05,990 --> 00:14:06,000
+subscribes, you'll get 70% of the
+ 
+
+819
+00:14:06,000 --> 00:14:08,230
+subscribes, you'll get 70% of the
+revenue from your trading bot. And of
+
+820
+00:14:08,230 --> 00:14:08,240
+revenue from your trading bot. And of
+ 
+
+821
+00:14:08,240 --> 00:14:09,430
+revenue from your trading bot. And of
+course, we got to vet to make sure it's
+
+822
+00:14:09,430 --> 00:14:09,440
+course, we got to vet to make sure it's
+ 
+
+823
+00:14:09,440 --> 00:14:11,030
+course, we got to vet to make sure it's
+good, but if it is good, then it'll be
+
+824
+00:14:11,030 --> 00:14:11,040
+good, but if it is good, then it'll be
+ 
+
+825
+00:14:11,040 --> 00:14:12,949
+good, but if it is good, then it'll be
+up on the marketplace. So that's also
+
+826
+00:14:12,949 --> 00:14:12,959
+up on the marketplace. So that's also
+ 
+
+827
+00:14:12,959 --> 00:14:14,949
+up on the marketplace. So that's also
+just a little side detour. So, what I
+
+828
+00:14:14,949 --> 00:14:14,959
+just a little side detour. So, what I
+ 
+
+829
+00:14:14,959 --> 00:14:16,629
+just a little side detour. So, what I
+what I'm going to do to get my bots on
+
+830
+00:14:16,629 --> 00:14:16,639
+what I'm going to do to get my bots on
+ 
+
+831
+00:14:16,639 --> 00:14:18,550
+what I'm going to do to get my bots on
+the marketplace, this is the full
+
+832
+00:14:18,550 --> 00:14:18,560
+the marketplace, this is the full
+ 
+
+833
+00:14:18,560 --> 00:14:21,829
+the marketplace, this is the full
+breakdown and summary, and then I I
+
+834
+00:14:21,829 --> 00:14:21,839
+breakdown and summary, and then I I
+ 
+
+835
+00:14:21,839 --> 00:14:23,350
+breakdown and summary, and then I I
+guess I'll just leave the video after
+
+836
+00:14:23,350 --> 00:14:23,360
+guess I'll just leave the video after
+ 
+
+837
+00:14:23,360 --> 00:14:25,110
+guess I'll just leave the video after
+the summary here, but I will I'll
+
+838
+00:14:25,110 --> 00:14:25,120
+the summary here, but I will I'll
+ 
+
+839
+00:14:25,120 --> 00:14:27,189
+the summary here, but I will I'll
+generally I'll take an idea, this is the
+
+840
+00:14:27,189 --> 00:14:27,199
+generally I'll take an idea, this is the
+ 
+
+841
+00:14:27,199 --> 00:14:28,790
+generally I'll take an idea, this is the
+baseline, and then I'll start adding
+
+842
+00:14:28,790 --> 00:14:28,800
+baseline, and then I'll start adding
+ 
+
+843
+00:14:28,800 --> 00:14:30,790
+baseline, and then I'll start adding
+exits. I'll start adding, you know, chop
+
+844
+00:14:30,790 --> 00:14:30,800
+exits. I'll start adding, you know, chop
+ 
+
+845
+00:14:30,800 --> 00:14:33,189
+exits. I'll start adding, you know, chop
+filters so it won't trade in precarious
+
+846
+00:14:33,189 --> 00:14:33,199
+filters so it won't trade in precarious
+ 
+
+847
+00:14:33,199 --> 00:14:34,550
+filters so it won't trade in precarious
+conditions. You know, when the market's
+
+848
+00:14:34,550 --> 00:14:34,560
+conditions. You know, when the market's
+ 
+
+849
+00:14:34,560 --> 00:14:35,990
+conditions. You know, when the market's
+really choppy, it'll turn off, it'll go
+
+850
+00:14:35,990 --> 00:14:36,000
+really choppy, it'll turn off, it'll go
+ 
+
+851
+00:14:36,000 --> 00:14:37,509
+really choppy, it'll turn off, it'll go
+to sleep. I'll start adding things like
+
+852
+00:14:37,509 --> 00:14:37,519
+to sleep. I'll start adding things like
+ 
+
+853
+00:14:37,519 --> 00:14:39,030
+to sleep. I'll start adding things like
+that in to see, you know, building
+
+854
+00:14:39,030 --> 00:14:39,040
+that in to see, you know, building
+ 
+
+855
+00:14:39,040 --> 00:14:40,870
+that in to see, you know, building
+stability improvements. This is the
+
+856
+00:14:40,870 --> 00:14:40,880
+stability improvements. This is the
+ 
+
+857
+00:14:40,880 --> 00:14:42,949
+stability improvements. This is the
+second version, third version of it. And
+
+858
+00:14:42,949 --> 00:14:42,959
+second version, third version of it. And
+ 
+
+859
+00:14:42,959 --> 00:14:44,310
+second version, third version of it. And
+then there's different branches it could
+
+860
+00:14:44,310 --> 00:14:44,320
+then there's different branches it could
+ 
+
+861
+00:14:44,320 --> 00:14:45,590
+then there's different branches it could
+take, right? Because I could take out
+
+862
+00:14:45,590 --> 00:14:45,600
+take, right? Because I could take out
+ 
+
+863
+00:14:45,600 --> 00:14:47,430
+take, right? Because I could take out
+some of these signals and then add in
+
+864
+00:14:47,430 --> 00:14:47,440
+some of these signals and then add in
+ 
+
+865
+00:14:47,440 --> 00:14:49,110
+some of these signals and then add in
+others and see how it does. So it'll
+
+866
+00:14:49,110 --> 00:14:49,120
+others and see how it does. So it'll
+ 
+
+867
+00:14:49,120 --> 00:14:51,350
+others and see how it does. So it'll
+kind of form a tree of all the possible
+
+868
+00:14:51,350 --> 00:14:51,360
+kind of form a tree of all the possible
+ 
+
+869
+00:14:51,360 --> 00:14:53,509
+kind of form a tree of all the possible
+configurations this bot can have on
+
+870
+00:14:53,509 --> 00:14:53,519
+configurations this bot can have on
+ 
+
+871
+00:14:53,519 --> 00:14:55,110
+configurations this bot can have on
+various coins. And the next thing is
+
+872
+00:14:55,110 --> 00:14:55,120
+various coins. And the next thing is
+ 
+
+873
+00:14:55,120 --> 00:14:57,350
+various coins. And the next thing is
+testing on various coins. So does it
+
+874
+00:14:57,350 --> 00:14:57,360
+testing on various coins. So does it
+ 
+
+875
+00:14:57,360 --> 00:14:59,590
+testing on various coins. So does it
+perform on Bitcoin like this one? Yeah,
+
+876
+00:14:59,590 --> 00:14:59,600
+perform on Bitcoin like this one? Yeah,
+ 
+
+877
+00:14:59,600 --> 00:15:01,509
+perform on Bitcoin like this one? Yeah,
+it it performs it looks like in training
+
+878
+00:15:01,509 --> 00:15:01,519
+it it performs it looks like in training
+ 
+
+879
+00:15:01,519 --> 00:15:04,310
+it it performs it looks like in training
+data, but in testing uh it might you
+
+880
+00:15:04,310 --> 00:15:04,320
+data, but in testing uh it might you
+ 
+
+881
+00:15:04,320 --> 00:15:05,509
+data, but in testing uh it might you
+might see a little bit of distortion
+
+882
+00:15:05,509 --> 00:15:05,519
+might see a little bit of distortion
+ 
+
+883
+00:15:05,519 --> 00:15:07,509
+might see a little bit of distortion
+here. It's still profitable in this out
+
+884
+00:15:07,509 --> 00:15:07,519
+here. It's still profitable in this out
+ 
+
+885
+00:15:07,519 --> 00:15:09,430
+here. It's still profitable in this out
+of sample data, but again like the win
+
+886
+00:15:09,430 --> 00:15:09,440
+of sample data, but again like the win
+ 
+
+887
+00:15:09,440 --> 00:15:11,350
+of sample data, but again like the win
+rate's dropping, uh sharp ratio is
+
+888
+00:15:11,350 --> 00:15:11,360
+rate's dropping, uh sharp ratio is
+ 
+
+889
+00:15:11,360 --> 00:15:12,629
+rate's dropping, uh sharp ratio is
+dropping. So it kind of tells you, okay,
+
+890
+00:15:12,629 --> 00:15:12,639
+dropping. So it kind of tells you, okay,
+ 
+
+891
+00:15:12,639 --> 00:15:14,550
+dropping. So it kind of tells you, okay,
+well maybe maybe Salana is just a little
+
+892
+00:15:14,550 --> 00:15:14,560
+well maybe maybe Salana is just a little
+ 
+
+893
+00:15:14,560 --> 00:15:17,189
+well maybe maybe Salana is just a little
+bit easier for this specific system. So
+
+894
+00:15:17,189 --> 00:15:17,199
+bit easier for this specific system. So
+ 
+
+895
+00:15:17,199 --> 00:15:18,790
+bit easier for this specific system. So
+it doesn't mean not as bad. It just
+
+896
+00:15:18,790 --> 00:15:18,800
+it doesn't mean not as bad. It just
+ 
+
+897
+00:15:18,800 --> 00:15:20,629
+it doesn't mean not as bad. It just
+means maybe it's less broad and
+
+898
+00:15:20,629 --> 00:15:20,639
+means maybe it's less broad and
+ 
+
+899
+00:15:20,639 --> 00:15:23,829
+means maybe it's less broad and
+generalized as uh as as I thought. And
+
+900
+00:15:23,829 --> 00:15:23,839
+generalized as uh as as I thought. And
+ 
+
+901
+00:15:23,839 --> 00:15:25,990
+generalized as uh as as I thought. And
+then yeah, for here uh Ethereum, we can
+
+902
+00:15:25,990 --> 00:15:26,000
+then yeah, for here uh Ethereum, we can
+ 
+
+903
+00:15:26,000 --> 00:15:28,230
+then yeah, for here uh Ethereum, we can
+look at the the some of the outsampled
+
+904
+00:15:28,230 --> 00:15:28,240
+look at the the some of the outsampled
+ 
+
+905
+00:15:28,240 --> 00:15:30,470
+look at the the some of the outsampled
+data here and it it's still a nice
+
+906
+00:15:30,470 --> 00:15:30,480
+data here and it it's still a nice
+ 
+
+907
+00:15:30,480 --> 00:15:33,110
+data here and it it's still a nice
+curve, right? But still the win rates
+
+908
+00:15:33,110 --> 00:15:33,120
+curve, right? But still the win rates
+ 
+
+909
+00:15:33,120 --> 00:15:34,710
+curve, right? But still the win rates
+coming down. Uh even though this one
+
+910
+00:15:34,710 --> 00:15:34,720
+coming down. Uh even though this one
+ 
+
+911
+00:15:34,720 --> 00:15:36,470
+coming down. Uh even though this one
+testing this is out as sample data, but
+
+912
+00:15:36,470 --> 00:15:36,480
+testing this is out as sample data, but
+ 
+
+913
+00:15:36,480 --> 00:15:37,910
+testing this is out as sample data, but
+because of that, you know, you want to
+
+914
+00:15:37,910 --> 00:15:37,920
+because of that, you know, you want to
+ 
+
+915
+00:15:37,920 --> 00:15:39,750
+because of that, you know, you want to
+see also bootstrapping simulations how
+
+916
+00:15:39,750 --> 00:15:39,760
+see also bootstrapping simulations how
+ 
+
+917
+00:15:39,760 --> 00:15:41,590
+see also bootstrapping simulations how
+often it holds up. So once it does that
+
+918
+00:15:41,590 --> 00:15:41,600
+often it holds up. So once it does that
+ 
+
+919
+00:15:41,600 --> 00:15:43,590
+often it holds up. So once it does that
+typically I'll I'll connect it to signal
+
+920
+00:15:43,590 --> 00:15:43,600
+typically I'll I'll connect it to signal
+ 
+
+921
+00:15:43,600 --> 00:15:46,230
+typically I'll I'll connect it to signal
+swap uh using the cratebot feature I'll
+
+922
+00:15:46,230 --> 00:15:46,240
+swap uh using the cratebot feature I'll
+ 
+
+923
+00:15:46,240 --> 00:15:48,790
+swap uh using the cratebot feature I'll
+I'll connect it here and then if it
+
+924
+00:15:48,790 --> 00:15:48,800
+I'll connect it here and then if it
+ 
+
+925
+00:15:48,800 --> 00:15:51,509
+I'll connect it here and then if it
+starts performing well then uh I might
+
+926
+00:15:51,509 --> 00:15:51,519
+starts performing well then uh I might
+ 
+
+927
+00:15:51,519 --> 00:15:53,269
+starts performing well then uh I might
+just increase you know I might have a
+
+928
+00:15:53,269 --> 00:15:53,279
+just increase you know I might have a
+ 
+
+929
+00:15:53,279 --> 00:15:54,550
+just increase you know I might have a
+paper trading account here through
+
+930
+00:15:54,550 --> 00:15:54,560
+paper trading account here through
+ 
+
+931
+00:15:54,560 --> 00:15:57,430
+paper trading account here through
+signal swap or just a really low maybe
+
+932
+00:15:57,430 --> 00:15:57,440
+signal swap or just a really low maybe
+ 
+
+933
+00:15:57,440 --> 00:16:00,230
+signal swap or just a really low maybe
+like $25 $50 something really small like
+
+934
+00:16:00,230 --> 00:16:00,240
+like $25 $50 something really small like
+ 
+
+935
+00:16:00,240 --> 00:16:03,030
+like $25 $50 something really small like
+$100 and then start start increasing it
+
+936
+00:16:03,030 --> 00:16:03,040
+$100 and then start start increasing it
+ 
+
+937
+00:16:03,040 --> 00:16:04,790
+$100 and then start start increasing it
+once it starts performing once it starts
+
+938
+00:16:04,790 --> 00:16:04,800
+once it starts performing once it starts
+ 
+
+939
+00:16:04,800 --> 00:16:07,030
+once it starts performing once it starts
+earning my trust then I'll increase the
+
+940
+00:16:07,030 --> 00:16:07,040
+earning my trust then I'll increase the
+ 
+
+941
+00:16:07,040 --> 00:16:08,949
+earning my trust then I'll increase the
+equity that that I'm willing to put into
+
+942
+00:16:08,949 --> 00:16:08,959
+equity that that I'm willing to put into
+ 
+
+943
+00:16:08,959 --> 00:16:11,350
+equity that that I'm willing to put into
+a specific system. So gen generally like
+
+944
+00:16:11,350 --> 00:16:11,360
+a specific system. So gen generally like
+ 
+
+945
+00:16:11,360 --> 00:16:14,069
+a specific system. So gen generally like
+what I have is there's I'm you know
+
+946
+00:16:14,069 --> 00:16:14,079
+what I have is there's I'm you know
+ 
+
+947
+00:16:14,079 --> 00:16:15,509
+what I have is there's I'm you know
+overnight it's claude is building
+
+948
+00:16:15,509 --> 00:16:15,519
+overnight it's claude is building
+ 
+
+949
+00:16:15,519 --> 00:16:18,069
+overnight it's claude is building
+hundreds of systems. So I have thousands
+
+950
+00:16:18,069 --> 00:16:18,079
+hundreds of systems. So I have thousands
+ 
+
+951
+00:16:18,079 --> 00:16:20,550
+hundreds of systems. So I have thousands
+of different bots and it's just about
+
+952
+00:16:20,550 --> 00:16:20,560
+of different bots and it's just about
+ 
+
+953
+00:16:20,560 --> 00:16:21,910
+of different bots and it's just about
+configuring and finding out which ones
+
+954
+00:16:21,910 --> 00:16:21,920
+configuring and finding out which ones
+ 
+
+955
+00:16:21,920 --> 00:16:23,670
+configuring and finding out which ones
+are robust. That's the idea cuz you know
+
+956
+00:16:23,670 --> 00:16:23,680
+are robust. That's the idea cuz you know
+ 
+
+957
+00:16:23,680 --> 00:16:25,189
+are robust. That's the idea cuz you know
+you don't know which one is robust. It
+
+958
+00:16:25,189 --> 00:16:25,199
+you don't know which one is robust. It
+ 
+
+959
+00:16:25,199 --> 00:16:26,949
+you don't know which one is robust. It
+might look good on trending view with
+
+960
+00:16:26,949 --> 00:16:26,959
+might look good on trending view with
+ 
+
+961
+00:16:26,959 --> 00:16:29,189
+might look good on trending view with
+one snapshot but it's about the
+
+962
+00:16:29,189 --> 00:16:29,199
+one snapshot but it's about the
+ 
+
+963
+00:16:29,199 --> 00:16:31,430
+one snapshot but it's about the
+stability scores. Like I said, that's
+
+964
+00:16:31,430 --> 00:16:31,440
+stability scores. Like I said, that's
+ 
+
+965
+00:16:31,440 --> 00:16:34,230
+stability scores. Like I said, that's
+like the gold standard is bootstrap
+
+966
+00:16:34,230 --> 00:16:34,240
+like the gold standard is bootstrap
+ 
+
+967
+00:16:34,240 --> 00:16:36,230
+like the gold standard is bootstrap
+stability of of your bot because when
+
+968
+00:16:36,230 --> 00:16:36,240
+stability of of your bot because when
+ 
+
+969
+00:16:36,240 --> 00:16:37,910
+stability of of your bot because when
+the candlesticks are randomized, you
+
+970
+00:16:37,910 --> 00:16:37,920
+the candlesticks are randomized, you
+ 
+
+971
+00:16:37,920 --> 00:16:39,509
+the candlesticks are randomized, you
+know, your bot is really going to be
+
+972
+00:16:39,509 --> 00:16:39,519
+know, your bot is really going to be
+ 
+
+973
+00:16:39,519 --> 00:16:41,590
+know, your bot is really going to be
+stress tested. And then yeah, out of
+
+974
+00:16:41,590 --> 00:16:41,600
+stress tested. And then yeah, out of
+ 
+
+975
+00:16:41,600 --> 00:16:44,310
+stress tested. And then yeah, out of
+sample testing super crucial that you
+
+976
+00:16:44,310 --> 00:16:44,320
+sample testing super crucial that you
+ 
+
+977
+00:16:44,320 --> 00:16:45,990
+sample testing super crucial that you
+guys have to be you have to get on that.
+
+978
+00:16:45,990 --> 00:16:46,000
+guys have to be you have to get on that.
+ 
+
+979
+00:16:46,000 --> 00:16:47,749
+guys have to be you have to get on that.
+That's I'm giving you guys the real the
+
+980
+00:16:47,749 --> 00:16:47,759
+That's I'm giving you guys the real the
+ 
+
+981
+00:16:47,759 --> 00:16:49,910
+That's I'm giving you guys the real the
+real secrets for this. This is the this
+
+982
+00:16:49,910 --> 00:16:49,920
+real secrets for this. This is the this
+ 
+
+983
+00:16:49,920 --> 00:16:52,069
+real secrets for this. This is the this
+is the methodology and you know, cloud
+
+984
+00:16:52,069 --> 00:16:52,079
+is the methodology and you know, cloud
+ 
+
+985
+00:16:52,079 --> 00:16:53,590
+is the methodology and you know, cloud
+can build it all for you. You don't need
+
+986
+00:16:53,590 --> 00:16:53,600
+can build it all for you. You don't need
+ 
+
+987
+00:16:53,600 --> 00:16:55,030
+can build it all for you. You don't need
+to know how to code. If you just have
+
+988
+00:16:55,030 --> 00:16:55,040
+to know how to code. If you just have
+ 
+
+989
+00:16:55,040 --> 00:16:56,710
+to know how to code. If you just have
+the time, you know, and you put your
+
+990
+00:16:56,710 --> 00:16:56,720
+the time, you know, and you put your
+ 
+
+991
+00:16:56,720 --> 00:16:58,629
+the time, you know, and you put your
+mind to it, then yeah, and this is my
+
+992
+00:16:58,629 --> 00:16:58,639
+mind to it, then yeah, and this is my
+ 
+
+993
+00:16:58,639 --> 00:17:00,389
+mind to it, then yeah, and this is my
+mission. I really believe in this. So I
+
+994
+00:17:00,389 --> 00:17:00,399
+mission. I really believe in this. So I
+ 
+
+995
+00:17:00,399 --> 00:17:02,550
+mission. I really believe in this. So I
+have a full free community. You can join
+
+996
+00:17:02,550 --> 00:17:02,560
+have a full free community. You can join
+ 
+
+997
+00:17:02,560 --> 00:17:04,630
+have a full free community. You can join
+on discord and there's some training
+
+998
+00:17:04,630 --> 00:17:04,640
+on discord and there's some training
+ 
+
+999
+00:17:04,640 --> 00:17:06,789
+on discord and there's some training
+bots here already open source community.
+
+1000
+00:17:06,789 --> 00:17:06,799
+bots here already open source community.
+ 
+
+1001
+00:17:06,799 --> 00:17:09,270
+bots here already open source community.
+People are sharing ideas and you know
+
+1002
+00:17:09,270 --> 00:17:09,280
+People are sharing ideas and you know
+ 
+
+1003
+00:17:09,280 --> 00:17:10,949
+People are sharing ideas and you know
+tuning and configuring. But again people
+
+1004
+00:17:10,949 --> 00:17:10,959
+tuning and configuring. But again people
+ 
+
+1005
+00:17:10,959 --> 00:17:12,789
+tuning and configuring. But again people
+in the in the discord I hope you know if
+
+1006
+00:17:12,789 --> 00:17:12,799
+in the in the discord I hope you know if
+ 
+
+1007
+00:17:12,799 --> 00:17:14,390
+in the in the discord I hope you know if
+you guys head over to the Python section
+
+1008
+00:17:14,390 --> 00:17:14,400
+you guys head over to the Python section
+ 
+
+1009
+00:17:14,400 --> 00:17:16,470
+you guys head over to the Python section
+you'll find more about uh like trading
+
+1010
+00:17:16,470 --> 00:17:16,480
+you'll find more about uh like trading
+ 
+
+1011
+00:17:16,480 --> 00:17:18,630
+you'll find more about uh like trading
+bots and and what I'm doing with claude
+
+1012
+00:17:18,630 --> 00:17:18,640
+bots and and what I'm doing with claude
+ 
+
+1013
+00:17:18,640 --> 00:17:22,549
+bots and and what I'm doing with claude
+in in Python um as as well. So this this
+
+1014
+00:17:22,549 --> 00:17:22,559
+in in Python um as as well. So this this
+ 
+
+1015
+00:17:22,559 --> 00:17:24,230
+in in Python um as as well. So this this
+is a place to be and you know I'm
+
+1016
+00:17:24,230 --> 00:17:24,240
+is a place to be and you know I'm
+ 
+
+1017
+00:17:24,240 --> 00:17:26,549
+is a place to be and you know I'm
+generally generally responsive here. So,
+
+1018
+00:17:26,549 --> 00:17:26,559
+generally generally responsive here. So,
+ 
+
+1019
+00:17:26,559 --> 00:17:27,909
+generally generally responsive here. So,
+if you want to find me or, you know, you
+
+1020
+00:17:27,909 --> 00:17:27,919
+if you want to find me or, you know, you
+ 
+
+1021
+00:17:27,919 --> 00:17:29,270
+if you want to find me or, you know, you
+can comment down below. I'll try to
+
+1022
+00:17:29,270 --> 00:17:29,280
+can comment down below. I'll try to
+ 
+
+1023
+00:17:29,280 --> 00:17:31,430
+can comment down below. I'll try to
+reply. But I'll I'll leave it there for
+
+1024
+00:17:31,430 --> 00:17:31,440
+reply. But I'll I'll leave it there for
+ 
+
+1025
+00:17:31,440 --> 00:17:32,950
+reply. But I'll I'll leave it there for
+you guys. I'll hand it off to you now.
+
+1026
+00:17:32,950 --> 00:17:32,960
+you guys. I'll hand it off to you now.
+ 
+
+1027
+00:17:32,960 --> 00:17:34,870
+you guys. I'll hand it off to you now.
+So, here's your chance to, you know,
+
+1028
+00:17:34,870 --> 00:17:34,880
+So, here's your chance to, you know,
+ 
+
+1029
+00:17:34,880 --> 00:17:37,110
+So, here's your chance to, you know,
+build build what you can show it off in
+
+1030
+00:17:37,110 --> 00:17:37,120
+build build what you can show it off in
+ 
+
+1031
+00:17:37,120 --> 00:17:39,029
+build build what you can show it off in
+the in the Discord if you want to post
+
+1032
+00:17:39,029 --> 00:17:39,039
+the in the Discord if you want to post
+ 
+
+1033
+00:17:39,039 --> 00:17:41,029
+the in the Discord if you want to post
+like, you know, all your gains or
+
+1034
+00:17:41,029 --> 00:17:41,039
+like, you know, all your gains or
+ 
+
+1035
+00:17:41,039 --> 00:17:42,390
+like, you know, all your gains or
+whatever. You can you can post your
+
+1036
+00:17:42,390 --> 00:17:42,400
+whatever. You can you can post your
+ 
+
+1037
+00:17:42,400 --> 00:17:44,310
+whatever. You can you can post your
+profitable bots, what what you guys are
+
+1038
+00:17:44,310 --> 00:17:44,320
+profitable bots, what what you guys are
+ 
+
+1039
+00:17:44,320 --> 00:17:46,310
+profitable bots, what what you guys are
+doing. And if it really is profitable,
+
+1040
+00:17:46,310 --> 00:17:46,320
+doing. And if it really is profitable,
+ 
+
+1041
+00:17:46,320 --> 00:17:47,830
+doing. And if it really is profitable,
+you can list it on the Signal Swap
+
+1042
+00:17:47,830 --> 00:17:47,840
+you can list it on the Signal Swap
+ 
+
+1043
+00:17:47,840 --> 00:17:49,990
+you can list it on the Signal Swap
+marketplace. Um, and you know, you can
+
+1044
+00:17:49,990 --> 00:17:50,000
+marketplace. Um, and you know, you can
+ 
+
+1045
+00:17:50,000 --> 00:17:51,430
+marketplace. Um, and you know, you can
+make some revenue that way, some extra
+
+1046
+00:17:51,430 --> 00:17:51,440
+make some revenue that way, some extra
+ 
+
+1047
+00:17:51,440 --> 00:17:53,270
+make some revenue that way, some extra
+extra side cash that way. So, thank you
+
+1048
+00:17:53,270 --> 00:17:53,280
+extra side cash that way. So, thank you
+ 
+
+1049
+00:17:53,280 --> 00:17:55,029
+extra side cash that way. So, thank you
+for watching if you watched this far,
+
+1050
+00:17:55,029 --> 00:17:55,039
+for watching if you watched this far,
+ 
+
+1051
+00:17:55,039 --> 00:17:56,789
+for watching if you watched this far,
+and I hope to have some really
+
+1052
+00:17:56,789 --> 00:17:56,799
+and I hope to have some really
+ 
+
+1053
+00:17:56,799 --> 00:17:58,310
+and I hope to have some really
+interesting content for you guys coming
+
+1054
+00:17:58,310 --> 00:17:58,320
+interesting content for you guys coming
+ 
+
+1055
+00:17:58,320 --> 00:17:59,669
+interesting content for you guys coming
+up. So, hit that subscribe button as
+
+1056
+00:17:59,669 --> 00:17:59,679
+up. So, hit that subscribe button as
+ 
+
+1057
+00:17:59,679 --> 00:18:01,840
+up. So, hit that subscribe button as
+well.
+

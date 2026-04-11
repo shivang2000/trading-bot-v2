@@ -1,0 +1,4995 @@
+1
+00:00:00,040 --> 00:00:02,230
+
+with a 90% win rate and a very tight
+
+2
+00:00:02,230 --> 00:00:02,240
+with a 90% win rate and a very tight
+ 
+
+3
+00:00:02,240 --> 00:00:04,829
+with a 90% win rate and a very tight
+stop loss this is an amazing scalping
+
+4
+00:00:04,829 --> 00:00:04,839
+stop loss this is an amazing scalping
+ 
+
+5
+00:00:04,839 --> 00:00:07,070
+stop loss this is an amazing scalping
+robot in the first two videos we did the
+
+6
+00:00:07,070 --> 00:00:07,080
+robot in the first two videos we did the
+ 
+
+7
+00:00:07,080 --> 00:00:10,270
+robot in the first two videos we did the
+coding for Forex pairs USD JPY Euro USD
+
+8
+00:00:10,270 --> 00:00:10,280
+coding for Forex pairs USD JPY Euro USD
+ 
+
+9
+00:00:10,280 --> 00:00:12,310
+coding for Forex pairs USD JPY Euro USD
+and gpp USD today we're going to look at
+
+10
+00:00:12,310 --> 00:00:12,320
+and gpp USD today we're going to look at
+ 
+
+11
+00:00:12,320 --> 00:00:13,870
+and gpp USD today we're going to look at
+the modifications required to run this
+
+12
+00:00:13,870 --> 00:00:13,880
+the modifications required to run this
+ 
+
+13
+00:00:13,880 --> 00:00:16,710
+the modifications required to run this
+EA on bitcoin gold and US indices namely
+
+14
+00:00:16,710 --> 00:00:16,720
+EA on bitcoin gold and US indices namely
+ 
+
+15
+00:00:16,720 --> 00:00:18,990
+EA on bitcoin gold and US indices namely
+NASDAQ and DOW johs so with no motion
+
+16
+00:00:18,990 --> 00:00:19,000
+NASDAQ and DOW johs so with no motion
+ 
+
+17
+00:00:19,000 --> 00:00:21,630
+NASDAQ and DOW johs so with no motion
+any guns let's
+
+18
+00:00:21,630 --> 00:00:21,640
+any guns let's
+ 
+
+19
+00:00:21,640 --> 00:00:23,750
+any guns let's
+start before we get to the coding of the
+
+20
+00:00:23,750 --> 00:00:23,760
+start before we get to the coding of the
+ 
+
+21
+00:00:23,760 --> 00:00:25,670
+start before we get to the coding of the
+modifications let's run a quick back
+
+22
+00:00:25,670 --> 00:00:25,680
+modifications let's run a quick back
+ 
+
+23
+00:00:25,680 --> 00:00:27,230
+modifications let's run a quick back
+test to have a bit of an indication of
+
+24
+00:00:27,230 --> 00:00:27,240
+test to have a bit of an indication of
+ 
+
+25
+00:00:27,240 --> 00:00:29,589
+test to have a bit of an indication of
+what the EA is all about so I'm going to
+
+26
+00:00:29,589 --> 00:00:29,599
+what the EA is all about so I'm going to
+ 
+
+27
+00:00:29,599 --> 00:00:31,509
+what the EA is all about so I'm going to
+start with PTC USD on a 5 minutes chart
+
+28
+00:00:31,509 --> 00:00:31,519
+start with PTC USD on a 5 minutes chart
+ 
+
+29
+00:00:31,519 --> 00:00:34,790
+start with PTC USD on a 5 minutes chart
+is starting from 2023 until 2024 today
+
+30
+00:00:34,790 --> 00:00:34,800
+is starting from 2023 until 2024 today
+ 
+
+31
+00:00:34,800 --> 00:00:36,069
+is starting from 2023 until 2024 today
+I'm going to run it on every take with
+
+32
+00:00:36,069 --> 00:00:36,079
+I'm going to run it on every take with
+ 
+
+33
+00:00:36,079 --> 00:00:38,310
+I'm going to run it on every take with
+,000 Euro balance to start with now I
+
+34
+00:00:38,310 --> 00:00:38,320
+,000 Euro balance to start with now I
+ 
+
+35
+00:00:38,320 --> 00:00:39,430
+,000 Euro balance to start with now I
+know there is a lot of discussion
+
+36
+00:00:39,430 --> 00:00:39,440
+know there is a lot of discussion
+ 
+
+37
+00:00:39,440 --> 00:00:41,270
+know there is a lot of discussion
+between real take and every take and
+
+38
+00:00:41,270 --> 00:00:41,280
+between real take and every take and
+ 
+
+39
+00:00:41,280 --> 00:00:43,029
+between real take and every take and
+which one is better these are just two
+
+40
+00:00:43,029 --> 00:00:43,039
+which one is better these are just two
+ 
+
+41
+00:00:43,039 --> 00:00:45,190
+which one is better these are just two
+data sets provided by your broker I
+
+42
+00:00:45,190 --> 00:00:45,200
+data sets provided by your broker I
+ 
+
+43
+00:00:45,200 --> 00:00:47,630
+data sets provided by your broker I
+don't believe in either the only real
+
+44
+00:00:47,630 --> 00:00:47,640
+don't believe in either the only real
+ 
+
+45
+00:00:47,640 --> 00:00:50,150
+don't believe in either the only real
+test is actually forward testing where
+
+46
+00:00:50,150 --> 00:00:50,160
+test is actually forward testing where
+ 
+
+47
+00:00:50,160 --> 00:00:51,910
+test is actually forward testing where
+you apply the EA in a demo account and
+
+48
+00:00:51,910 --> 00:00:51,920
+you apply the EA in a demo account and
+ 
+
+49
+00:00:51,920 --> 00:00:53,549
+you apply the EA in a demo account and
+see over the next 2 three months how the
+
+50
+00:00:53,549 --> 00:00:53,559
+see over the next 2 three months how the
+ 
+
+51
+00:00:53,559 --> 00:00:55,750
+see over the next 2 three months how the
+EA performs you will like some things
+
+52
+00:00:55,750 --> 00:00:55,760
+EA performs you will like some things
+ 
+
+53
+00:00:55,760 --> 00:00:56,990
+EA performs you will like some things
+you will not like some things you will
+
+54
+00:00:56,990 --> 00:00:57,000
+you will not like some things you will
+ 
+
+55
+00:00:57,000 --> 00:00:58,470
+you will not like some things you will
+like some periods you will not like some
+
+56
+00:00:58,470 --> 00:00:58,480
+like some periods you will not like some
+ 
+
+57
+00:00:58,480 --> 00:00:59,990
+like some periods you will not like some
+periods and that will give you a bit of
+
+58
+00:00:59,990 --> 00:01:00,000
+periods and that will give you a bit of
+ 
+
+59
+00:01:00,000 --> 00:01:01,630
+periods and that will give you a bit of
+feeling of when to apply the year and
+
+60
+00:01:01,630 --> 00:01:01,640
+feeling of when to apply the year and
+ 
+
+61
+00:01:01,640 --> 00:01:04,350
+feeling of when to apply the year and
+when not to apply it more importantly
+
+62
+00:01:04,350 --> 00:01:04,360
+when not to apply it more importantly
+ 
+
+63
+00:01:04,360 --> 00:01:06,190
+when not to apply it more importantly
+when to turn it off so those are the
+
+64
+00:01:06,190 --> 00:01:06,200
+when to turn it off so those are the
+ 
+
+65
+00:01:06,200 --> 00:01:07,590
+when to turn it off so those are the
+kind of things you will only learn
+
+66
+00:01:07,590 --> 00:01:07,600
+kind of things you will only learn
+ 
+
+67
+00:01:07,600 --> 00:01:10,390
+kind of things you will only learn
+during real testing not in a back test
+
+68
+00:01:10,390 --> 00:01:10,400
+during real testing not in a back test
+ 
+
+69
+00:01:10,400 --> 00:01:11,670
+during real testing not in a back test
+anyways we're going to run it on every
+
+70
+00:01:11,670 --> 00:01:11,680
+anyways we're going to run it on every
+ 
+
+71
+00:01:11,680 --> 00:01:15,070
+anyways we're going to run it on every
+tick and let's look at the inputs we're
+
+72
+00:01:15,070 --> 00:01:15,080
+tick and let's look at the inputs we're
+ 
+
+73
+00:01:15,080 --> 00:01:17,109
+tick and let's look at the inputs we're
+running it on bitcoin profile we're
+
+74
+00:01:17,109 --> 00:01:17,119
+running it on bitcoin profile we're
+ 
+
+75
+00:01:17,119 --> 00:01:19,190
+running it on bitcoin profile we're
+running it on 5 minutes chart starting
+
+76
+00:01:19,190 --> 00:01:19,200
+running it on 5 minutes chart starting
+ 
+
+77
+00:01:19,200 --> 00:01:20,630
+running it on 5 minutes chart starting
+at 7:00 in the
+
+78
+00:01:20,630 --> 00:01:20,640
+at 7:00 in the
+ 
+
+79
+00:01:20,640 --> 00:01:23,749
+at 7:00 in the
+morning and until 2100 hours in the
+
+80
+00:01:23,749 --> 00:01:23,759
+morning and until 2100 hours in the
+ 
+
+81
+00:01:23,759 --> 00:01:26,230
+morning and until 2100 hours in the
+evening these are the Bitcoin related
+
+82
+00:01:26,230 --> 00:01:26,240
+evening these are the Bitcoin related
+ 
+
+83
+00:01:26,240 --> 00:01:28,190
+evening these are the Bitcoin related
+crypto related inputs that I'm providing
+
+84
+00:01:28,190 --> 00:01:28,200
+crypto related inputs that I'm providing
+ 
+
+85
+00:01:28,200 --> 00:01:29,270
+crypto related inputs that I'm providing
+and we're going to go through this a
+
+86
+00:01:29,270 --> 00:01:29,280
+and we're going to go through this a
+ 
+
+87
+00:01:29,280 --> 00:01:31,630
+and we're going to go through this a
+little bit more in details so let's run
+
+88
+00:01:31,630 --> 00:01:31,640
+little bit more in details so let's run
+ 
+
+89
+00:01:31,640 --> 00:01:34,030
+little bit more in details so let's run
+the test now the first thing you're
+
+90
+00:01:34,030 --> 00:01:34,040
+the test now the first thing you're
+ 
+
+91
+00:01:34,040 --> 00:01:35,590
+the test now the first thing you're
+going to notice is that there are no
+
+92
+00:01:35,590 --> 00:01:35,600
+going to notice is that there are no
+ 
+
+93
+00:01:35,600 --> 00:01:37,230
+going to notice is that there are no
+running draw downs and that is because
+
+94
+00:01:37,230 --> 00:01:37,240
+running draw downs and that is because
+ 
+
+95
+00:01:37,240 --> 00:01:39,109
+running draw downs and that is because
+of a very TI of stop loss that we put in
+
+96
+00:01:39,109 --> 00:01:39,119
+of a very TI of stop loss that we put in
+ 
+
+97
+00:01:39,119 --> 00:01:41,270
+of a very TI of stop loss that we put in
+place the second thing to note is that
+
+98
+00:01:41,270 --> 00:01:41,280
+place the second thing to note is that
+ 
+
+99
+00:01:41,280 --> 00:01:42,670
+place the second thing to note is that
+there are periods where there are
+
+100
+00:01:42,670 --> 00:01:42,680
+there are periods where there are
+ 
+
+101
+00:01:42,680 --> 00:01:44,469
+there are periods where there are
+consecutive losses there are periods
+
+102
+00:01:44,469 --> 00:01:44,479
+consecutive losses there are periods
+ 
+
+103
+00:01:44,479 --> 00:01:46,709
+consecutive losses there are periods
+when the EA is stagnant so for example
+
+104
+00:01:46,709 --> 00:01:46,719
+when the EA is stagnant so for example
+ 
+
+105
+00:01:46,719 --> 00:01:49,910
+when the EA is stagnant so for example
+between here and here but overall if you
+
+106
+00:01:49,910 --> 00:01:49,920
+between here and here but overall if you
+ 
+
+107
+00:01:49,920 --> 00:01:51,910
+between here and here but overall if you
+let the EA run for a longer period of
+
+108
+00:01:51,910 --> 00:01:51,920
+let the EA run for a longer period of
+ 
+
+109
+00:01:51,920 --> 00:01:54,310
+let the EA run for a longer period of
+time it does have more good perod than
+
+110
+00:01:54,310 --> 00:01:54,320
+time it does have more good perod than
+ 
+
+111
+00:01:54,320 --> 00:01:56,789
+time it does have more good perod than
+bad period now this EA performs very
+
+112
+00:01:56,789 --> 00:01:56,799
+bad period now this EA performs very
+ 
+
+113
+00:01:56,799 --> 00:01:58,749
+bad period now this EA performs very
+well when the market is trending it's
+
+114
+00:01:58,749 --> 00:01:58,759
+well when the market is trending it's
+ 
+
+115
+00:01:58,759 --> 00:02:01,149
+well when the market is trending it's
+going in One Direction by the up or down
+
+116
+00:02:01,149 --> 00:02:01,159
+going in One Direction by the up or down
+ 
+
+117
+00:02:01,159 --> 00:02:03,069
+going in One Direction by the up or down
+when the market is choppy and it's going
+
+118
+00:02:03,069 --> 00:02:03,079
+when the market is choppy and it's going
+ 
+
+119
+00:02:03,079 --> 00:02:04,950
+when the market is choppy and it's going
+sideways with no clear Direction up or
+
+120
+00:02:04,950 --> 00:02:04,960
+sideways with no clear Direction up or
+ 
+
+121
+00:02:04,960 --> 00:02:06,670
+sideways with no clear Direction up or
+down that's when the year struggles a
+
+122
+00:02:06,670 --> 00:02:06,680
+down that's when the year struggles a
+ 
+
+123
+00:02:06,680 --> 00:02:08,510
+down that's when the year struggles a
+little bit if you look at the back test
+
+124
+00:02:08,510 --> 00:02:08,520
+little bit if you look at the back test
+ 
+
+125
+00:02:08,520 --> 00:02:09,990
+little bit if you look at the back test
+results we started with a balance of
+
+126
+00:02:09,990 --> 00:02:10,000
+results we started with a balance of
+ 
+
+127
+00:02:10,000 --> 00:02:12,550
+results we started with a balance of
+€1,000 we're ending up with €
+
+128
+00:02:12,550 --> 00:02:12,560
+€1,000 we're ending up with €
+ 
+
+129
+00:02:12,560 --> 00:02:15,270
+€1,000 we're ending up with €
+433,000 we have 90% win rate on short
+
+130
+00:02:15,270 --> 00:02:15,280
+433,000 we have 90% win rate on short
+ 
+
+131
+00:02:15,280 --> 00:02:17,309
+433,000 we have 90% win rate on short
+trades we have 90% win rate on Long
+
+132
+00:02:17,309 --> 00:02:17,319
+trades we have 90% win rate on Long
+ 
+
+133
+00:02:17,319 --> 00:02:19,390
+trades we have 90% win rate on Long
+trades we have a relative draw down of
+
+134
+00:02:19,390 --> 00:02:19,400
+trades we have a relative draw down of
+ 
+
+135
+00:02:19,400 --> 00:02:21,750
+trades we have a relative draw down of
+10% Now is it going to be the same in
+
+136
+00:02:21,750 --> 00:02:21,760
+10% Now is it going to be the same in
+ 
+
+137
+00:02:21,760 --> 00:02:24,670
+10% Now is it going to be the same in
+the real world don't know I mean I only
+
+138
+00:02:24,670 --> 00:02:24,680
+the real world don't know I mean I only
+ 
+
+139
+00:02:24,680 --> 00:02:25,910
+the real world don't know I mean I only
+know through the back test that there
+
+140
+00:02:25,910 --> 00:02:25,920
+know through the back test that there
+ 
+
+141
+00:02:25,920 --> 00:02:27,350
+know through the back test that there
+are indications that this year can
+
+142
+00:02:27,350 --> 00:02:27,360
+are indications that this year can
+ 
+
+143
+00:02:27,360 --> 00:02:29,910
+are indications that this year can
+perform if you look at the hourly where
+
+144
+00:02:29,910 --> 00:02:29,920
+perform if you look at the hourly where
+ 
+
+145
+00:02:29,920 --> 00:02:31,710
+perform if you look at the hourly where
+you will see is that during the overlap
+
+146
+00:02:31,710 --> 00:02:31,720
+you will see is that during the overlap
+ 
+
+147
+00:02:31,720 --> 00:02:33,390
+you will see is that during the overlap
+of New York session and the London
+
+148
+00:02:33,390 --> 00:02:33,400
+of New York session and the London
+ 
+
+149
+00:02:33,400 --> 00:02:35,350
+of New York session and the London
+session is when the EA makes most of the
+
+150
+00:02:35,350 --> 00:02:35,360
+session is when the EA makes most of the
+ 
+
+151
+00:02:35,360 --> 00:02:37,509
+session is when the EA makes most of the
+money but it is quite profitable during
+
+152
+00:02:37,509 --> 00:02:37,519
+money but it is quite profitable during
+ 
+
+153
+00:02:37,519 --> 00:02:40,270
+money but it is quite profitable during
+the London session alone as as well you
+
+154
+00:02:40,270 --> 00:02:40,280
+the London session alone as as well you
+ 
+
+155
+00:02:40,280 --> 00:02:41,990
+the London session alone as as well you
+can try it during the Asian session as
+
+156
+00:02:41,990 --> 00:02:42,000
+can try it during the Asian session as
+ 
+
+157
+00:02:42,000 --> 00:02:43,949
+can try it during the Asian session as
+well but I have not had good experience
+
+158
+00:02:43,949 --> 00:02:43,959
+well but I have not had good experience
+ 
+
+159
+00:02:43,959 --> 00:02:45,270
+well but I have not had good experience
+with the Asian session because of the
+
+160
+00:02:45,270 --> 00:02:45,280
+with the Asian session because of the
+ 
+
+161
+00:02:45,280 --> 00:02:47,509
+with the Asian session because of the
+liquidity crash during that
+
+162
+00:02:47,509 --> 00:02:47,519
+liquidity crash during that
+ 
+
+163
+00:02:47,519 --> 00:02:54,070
+liquidity crash during that
+time now let's look at
+
+164
+00:02:54,070 --> 00:02:54,080
+
+ 
+
+165
+00:02:54,080 --> 00:02:56,430
+
+gold again 5 minutes chart is starting
+
+166
+00:02:56,430 --> 00:02:56,440
+gold again 5 minutes chart is starting
+ 
+
+167
+00:02:56,440 --> 00:03:00,030
+gold again 5 minutes chart is starting
+2023 until 2024 on input stab we're
+
+168
+00:03:00,030 --> 00:03:00,040
+2023 until 2024 on input stab we're
+ 
+
+169
+00:03:00,040 --> 00:03:02,630
+2023 until 2024 on input stab we're
+going to select the profile
+
+170
+00:03:02,630 --> 00:03:02,640
+going to select the profile
+ 
+
+171
+00:03:02,640 --> 00:03:05,630
+going to select the profile
+gold and thereby we're applying these
+
+172
+00:03:05,630 --> 00:03:05,640
+gold and thereby we're applying these
+ 
+
+173
+00:03:05,640 --> 00:03:08,229
+gold and thereby we're applying these
+inputs and not the Bitcoin inputs let's
+
+174
+00:03:08,229 --> 00:03:08,239
+inputs and not the Bitcoin inputs let's
+ 
+
+175
+00:03:08,239 --> 00:03:10,670
+inputs and not the Bitcoin inputs let's
+start once again you see that there are
+
+176
+00:03:10,670 --> 00:03:10,680
+start once again you see that there are
+ 
+
+177
+00:03:10,680 --> 00:03:12,949
+start once again you see that there are
+no running draw Downs there are periods
+
+178
+00:03:12,949 --> 00:03:12,959
+no running draw Downs there are periods
+ 
+
+179
+00:03:12,959 --> 00:03:14,589
+no running draw Downs there are periods
+of stagnation there are periods of
+
+180
+00:03:14,589 --> 00:03:14,599
+of stagnation there are periods of
+ 
+
+181
+00:03:14,599 --> 00:03:16,910
+of stagnation there are periods of
+consecutive losses and draw down as well
+
+182
+00:03:16,910 --> 00:03:16,920
+consecutive losses and draw down as well
+ 
+
+183
+00:03:16,920 --> 00:03:19,350
+consecutive losses and draw down as well
+here for example between June and
+
+184
+00:03:19,350 --> 00:03:19,360
+here for example between June and
+ 
+
+185
+00:03:19,360 --> 00:03:22,149
+here for example between June and
+September it is completely stagnant but
+
+186
+00:03:22,149 --> 00:03:22,159
+September it is completely stagnant but
+ 
+
+187
+00:03:22,159 --> 00:03:23,910
+September it is completely stagnant but
+if you let it be the overall performance
+
+188
+00:03:23,910 --> 00:03:23,920
+if you let it be the overall performance
+ 
+
+189
+00:03:23,920 --> 00:03:26,390
+if you let it be the overall performance
+of the EA is up and up if you look at
+
+190
+00:03:26,390 --> 00:03:26,400
+of the EA is up and up if you look at
+ 
+
+191
+00:03:26,400 --> 00:03:28,630
+of the EA is up and up if you look at
+the back test results what you will see
+
+192
+00:03:28,630 --> 00:03:28,640
+the back test results what you will see
+ 
+
+193
+00:03:28,640 --> 00:03:30,390
+the back test results what you will see
+is we started with a balance of ,000
+
+194
+00:03:30,390 --> 00:03:30,400
+is we started with a balance of ,000
+ 
+
+195
+00:03:30,400 --> 00:03:32,270
+is we started with a balance of ,000
+we're ending with a balance of €
+
+196
+00:03:32,270 --> 00:03:32,280
+we're ending with a balance of €
+ 
+
+197
+00:03:32,280 --> 00:03:36,789
+we're ending with a balance of €
+24,000 10% draw down 93% win on short
+
+198
+00:03:36,789 --> 00:03:36,799
+24,000 10% draw down 93% win on short
+ 
+
+199
+00:03:36,799 --> 00:03:40,589
+24,000 10% draw down 93% win on short
+trades and 92% win on Long trades again
+
+200
+00:03:40,589 --> 00:03:40,599
+trades and 92% win on Long trades again
+ 
+
+201
+00:03:40,599 --> 00:03:42,550
+trades and 92% win on Long trades again
+on the timing you will see that during
+
+202
+00:03:42,550 --> 00:03:42,560
+on the timing you will see that during
+ 
+
+203
+00:03:42,560 --> 00:03:44,309
+on the timing you will see that during
+the overlap between London session and
+
+204
+00:03:44,309 --> 00:03:44,319
+the overlap between London session and
+ 
+
+205
+00:03:44,319 --> 00:03:45,589
+the overlap between London session and
+New York session is when the year
+
+206
+00:03:45,589 --> 00:03:45,599
+New York session is when the year
+ 
+
+207
+00:03:45,599 --> 00:03:47,789
+New York session is when the year
+perform better it makes more more profit
+
+208
+00:03:47,789 --> 00:03:47,799
+perform better it makes more more profit
+ 
+
+209
+00:03:47,799 --> 00:03:49,630
+perform better it makes more more profit
+during that period but it is quite
+
+210
+00:03:49,630 --> 00:03:49,640
+during that period but it is quite
+ 
+
+211
+00:03:49,640 --> 00:03:53,149
+during that period but it is quite
+decent during the London session as well
+
+212
+00:03:53,149 --> 00:03:53,159
+decent during the London session as well
+ 
+
+213
+00:03:53,159 --> 00:03:57,949
+decent during the London session as well
+now let's look at
+
+214
+00:03:57,949 --> 00:03:57,959
+
+ 
+
+215
+00:03:57,959 --> 00:04:00,390
+
+NASDAQ and I will just run NASDAQ but
+
+216
+00:04:00,390 --> 00:04:00,400
+NASDAQ and I will just run NASDAQ but
+ 
+
+217
+00:04:00,400 --> 00:04:02,710
+NASDAQ and I will just run NASDAQ but
+you can also apply it on us30 as well
+
+218
+00:04:02,710 --> 00:04:02,720
+you can also apply it on us30 as well
+ 
+
+219
+00:04:02,720 --> 00:04:04,470
+you can also apply it on us30 as well
+Dow
+
+220
+00:04:04,470 --> 00:04:04,480
+Dow
+ 
+
+221
+00:04:04,480 --> 00:04:07,110
+Dow
+Jones on the input tab we're going to go
+
+222
+00:04:07,110 --> 00:04:07,120
+Jones on the input tab we're going to go
+ 
+
+223
+00:04:07,120 --> 00:04:09,630
+Jones on the input tab we're going to go
+up and we're going to select us indices
+
+224
+00:04:09,630 --> 00:04:09,640
+up and we're going to select us indices
+ 
+
+225
+00:04:09,640 --> 00:04:12,509
+up and we're going to select us indices
+as the profile and now these inputs are
+
+226
+00:04:12,509 --> 00:04:12,519
+as the profile and now these inputs are
+ 
+
+227
+00:04:12,519 --> 00:04:14,470
+as the profile and now these inputs are
+going to be used and not the Bitcoin
+
+228
+00:04:14,470 --> 00:04:14,480
+going to be used and not the Bitcoin
+ 
+
+229
+00:04:14,480 --> 00:04:16,909
+going to be used and not the Bitcoin
+ones or the gold ones let's start the
+
+230
+00:04:16,909 --> 00:04:16,919
+ones or the gold ones let's start the
+ 
+
+231
+00:04:16,919 --> 00:04:19,789
+ones or the gold ones let's start the
+test once again no relative draw Downs
+
+232
+00:04:19,789 --> 00:04:19,799
+test once again no relative draw Downs
+ 
+
+233
+00:04:19,799 --> 00:04:21,509
+test once again no relative draw Downs
+because of the tighest stop losses
+
+234
+00:04:21,509 --> 00:04:21,519
+because of the tighest stop losses
+ 
+
+235
+00:04:21,519 --> 00:04:23,590
+because of the tighest stop losses
+periods of stagnation periods of
+
+236
+00:04:23,590 --> 00:04:23,600
+periods of stagnation periods of
+ 
+
+237
+00:04:23,600 --> 00:04:26,070
+periods of stagnation periods of
+consecutive losses but overall the
+
+238
+00:04:26,070 --> 00:04:26,080
+consecutive losses but overall the
+ 
+
+239
+00:04:26,080 --> 00:04:28,150
+consecutive losses but overall the
+performance of the EA is up and up
+
+240
+00:04:28,150 --> 00:04:28,160
+performance of the EA is up and up
+ 
+
+241
+00:04:28,160 --> 00:04:29,990
+performance of the EA is up and up
+during the trending periods the e is
+
+242
+00:04:29,990 --> 00:04:30,000
+during the trending periods the e is
+ 
+
+243
+00:04:30,000 --> 00:04:32,150
+during the trending periods the e is
+going to perform very very well during
+
+244
+00:04:32,150 --> 00:04:32,160
+going to perform very very well during
+ 
+
+245
+00:04:32,160 --> 00:04:35,350
+going to perform very very well during
+sideways Market chaotic markets sudden
+
+246
+00:04:35,350 --> 00:04:35,360
+sideways Market chaotic markets sudden
+ 
+
+247
+00:04:35,360 --> 00:04:37,390
+sideways Market chaotic markets sudden
+volatile markets where it goes up and
+
+248
+00:04:37,390 --> 00:04:37,400
+volatile markets where it goes up and
+ 
+
+249
+00:04:37,400 --> 00:04:39,110
+volatile markets where it goes up and
+down very very quickly the EA will
+
+250
+00:04:39,110 --> 00:04:39,120
+down very very quickly the EA will
+ 
+
+251
+00:04:39,120 --> 00:04:40,950
+down very very quickly the EA will
+startle if you look at the back test
+
+252
+00:04:40,950 --> 00:04:40,960
+startle if you look at the back test
+ 
+
+253
+00:04:40,960 --> 00:04:42,629
+startle if you look at the back test
+results we started with a balance of
+
+254
+00:04:42,629 --> 00:04:42,639
+results we started with a balance of
+ 
+
+255
+00:04:42,639 --> 00:04:45,629
+results we started with a balance of
+,000 we're ending up with around
+
+256
+00:04:45,629 --> 00:04:45,639
+,000 we're ending up with around
+ 
+
+257
+00:04:45,639 --> 00:04:51,230
+,000 we're ending up with around
+24,000 almost 9% relative draw down 92%
+
+258
+00:04:51,230 --> 00:04:51,240
+24,000 almost 9% relative draw down 92%
+ 
+
+259
+00:04:51,240 --> 00:04:54,670
+24,000 almost 9% relative draw down 92%
+win on short trades and 91% win on Long
+
+260
+00:04:54,670 --> 00:04:54,680
+win on short trades and 91% win on Long
+ 
+
+261
+00:04:54,680 --> 00:04:58,150
+win on short trades and 91% win on Long
+trades as well timing wise on NASDAQ as
+
+262
+00:04:58,150 --> 00:04:58,160
+trades as well timing wise on NASDAQ as
+ 
+
+263
+00:04:58,160 --> 00:05:00,230
+trades as well timing wise on NASDAQ as
+you would imagine it's Norm during the
+
+264
+00:05:00,230 --> 00:05:00,240
+you would imagine it's Norm during the
+ 
+
+265
+00:05:00,240 --> 00:05:02,070
+you would imagine it's Norm during the
+US session when the year is going to
+
+266
+00:05:02,070 --> 00:05:02,080
+US session when the year is going to
+ 
+
+267
+00:05:02,080 --> 00:05:05,430
+US session when the year is going to
+perform better because it is a US index
+
+268
+00:05:05,430 --> 00:05:05,440
+perform better because it is a US index
+ 
+
+269
+00:05:05,440 --> 00:05:07,909
+perform better because it is a US index
+but it does do okay during the London
+
+270
+00:05:07,909 --> 00:05:07,919
+but it does do okay during the London
+ 
+
+271
+00:05:07,919 --> 00:05:10,110
+but it does do okay during the London
+session as well but do your testing see
+
+272
+00:05:10,110 --> 00:05:10,120
+session as well but do your testing see
+ 
+
+273
+00:05:10,120 --> 00:05:11,790
+session as well but do your testing see
+it in a demo account whether you like
+
+274
+00:05:11,790 --> 00:05:11,800
+it in a demo account whether you like
+ 
+
+275
+00:05:11,800 --> 00:05:13,790
+it in a demo account whether you like
+the New York session alone do you like
+
+276
+00:05:13,790 --> 00:05:13,800
+the New York session alone do you like
+ 
+
+277
+00:05:13,800 --> 00:05:15,270
+the New York session alone do you like
+the overlap of the London and New York
+
+278
+00:05:15,270 --> 00:05:15,280
+the overlap of the London and New York
+ 
+
+279
+00:05:15,280 --> 00:05:17,310
+the overlap of the London and New York
+session better or do you like to run it
+
+280
+00:05:17,310 --> 00:05:17,320
+session better or do you like to run it
+ 
+
+281
+00:05:17,320 --> 00:05:18,990
+session better or do you like to run it
+overall between New York session and
+
+282
+00:05:18,990 --> 00:05:19,000
+overall between New York session and
+ 
+
+283
+00:05:19,000 --> 00:05:22,189
+overall between New York session and
+London session up to
+
+284
+00:05:22,189 --> 00:05:22,199
+London session up to
+ 
+
+285
+00:05:22,199 --> 00:05:24,430
+London session up to
+you now that we've seen the back test
+
+286
+00:05:24,430 --> 00:05:24,440
+you now that we've seen the back test
+ 
+
+287
+00:05:24,440 --> 00:05:26,029
+you now that we've seen the back test
+results we can start with the coding of
+
+288
+00:05:26,029 --> 00:05:26,039
+results we can start with the coding of
+ 
+
+289
+00:05:26,039 --> 00:05:27,990
+results we can start with the coding of
+the modifications So today we're going
+
+290
+00:05:27,990 --> 00:05:28,000
+the modifications So today we're going
+ 
+
+291
+00:05:28,000 --> 00:05:29,830
+the modifications So today we're going
+to start looking at the modifications re
+
+292
+00:05:29,830 --> 00:05:29,840
+to start looking at the modifications re
+ 
+
+293
+00:05:29,840 --> 00:05:32,430
+to start looking at the modifications re
+wired in order to run it on bitcoin gold
+
+294
+00:05:32,430 --> 00:05:32,440
+wired in order to run it on bitcoin gold
+ 
+
+295
+00:05:32,440 --> 00:05:34,670
+wired in order to run it on bitcoin gold
+and US indicis starting from the
+
+296
+00:05:34,670 --> 00:05:34,680
+and US indicis starting from the
+ 
+
+297
+00:05:34,680 --> 00:05:35,749
+and US indicis starting from the
+previous video the first thing we're
+
+298
+00:05:35,749 --> 00:05:35,759
+previous video the first thing we're
+ 
+
+299
+00:05:35,759 --> 00:05:36,950
+previous video the first thing we're
+going to do is we're going to arrange
+
+300
+00:05:36,950 --> 00:05:36,960
+going to do is we're going to arrange
+ 
+
+301
+00:05:36,960 --> 00:05:39,070
+going to do is we're going to arrange
+our variables into groups so what I've
+
+302
+00:05:39,070 --> 00:05:39,080
+our variables into groups so what I've
+ 
+
+303
+00:05:39,080 --> 00:05:41,390
+our variables into groups so what I've
+done from the last video is that I've
+
+304
+00:05:41,390 --> 00:05:41,400
+done from the last video is that I've
+ 
+
+305
+00:05:41,400 --> 00:05:43,749
+done from the last video is that I've
+created two of these sections and I have
+
+306
+00:05:43,749 --> 00:05:43,759
+created two of these sections and I have
+ 
+
+307
+00:05:43,759 --> 00:05:46,710
+created two of these sections and I have
+put the variables which are common like
+
+308
+00:05:46,710 --> 00:05:46,720
+put the variables which are common like
+ 
+
+309
+00:05:46,720 --> 00:05:49,230
+put the variables which are common like
+Risk percentage time frame magic number
+
+310
+00:05:49,230 --> 00:05:49,240
+Risk percentage time frame magic number
+ 
+
+311
+00:05:49,240 --> 00:05:51,309
+Risk percentage time frame magic number
+start Hour end hour total number of bars
+
+312
+00:05:51,309 --> 00:05:51,319
+start Hour end hour total number of bars
+ 
+
+313
+00:05:51,319 --> 00:05:52,710
+start Hour end hour total number of bars
+expiration bar because this is going to
+
+314
+00:05:52,710 --> 00:05:52,720
+expiration bar because this is going to
+ 
+
+315
+00:05:52,720 --> 00:05:54,950
+expiration bar because this is going to
+be common variables across all of the
+
+316
+00:05:54,950 --> 00:05:54,960
+be common variables across all of the
+ 
+
+317
+00:05:54,960 --> 00:05:56,510
+be common variables across all of the
+profiles so I've grouped them together
+
+318
+00:05:56,510 --> 00:05:56,520
+profiles so I've grouped them together
+ 
+
+319
+00:05:56,520 --> 00:05:58,830
+profiles so I've grouped them together
+here and then all of the Forex Trading
+
+320
+00:05:58,830 --> 00:05:58,840
+here and then all of the Forex Trading
+ 
+
+321
+00:05:58,840 --> 00:06:01,110
+here and then all of the Forex Trading
+input related like the TP Point SL Point
+
+322
+00:06:01,110 --> 00:06:01,120
+input related like the TP Point SL Point
+ 
+
+323
+00:06:01,120 --> 00:06:03,309
+input related like the TP Point SL Point
+trigger point and the TSL points that I
+
+324
+00:06:03,309 --> 00:06:03,319
+trigger point and the TSL points that I
+ 
+
+325
+00:06:03,319 --> 00:06:05,710
+trigger point and the TSL points that I
+have put against another section now
+
+326
+00:06:05,710 --> 00:06:05,720
+have put against another section now
+ 
+
+327
+00:06:05,720 --> 00:06:07,589
+have put against another section now
+after this we're going to get to the top
+
+328
+00:06:07,589 --> 00:06:07,599
+after this we're going to get to the top
+ 
+
+329
+00:06:07,599 --> 00:06:08,749
+after this we're going to get to the top
+and what we're going to do is we're
+
+330
+00:06:08,749 --> 00:06:08,759
+and what we're going to do is we're
+ 
+
+331
+00:06:08,759 --> 00:06:10,430
+and what we're going to do is we're
+going to create one more section and
+
+332
+00:06:10,430 --> 00:06:10,440
+going to create one more section and
+ 
+
+333
+00:06:10,440 --> 00:06:12,510
+going to create one more section and
+we're going to call it trading profiles
+
+334
+00:06:12,510 --> 00:06:12,520
+we're going to call it trading profiles
+ 
+
+335
+00:06:12,520 --> 00:06:14,390
+we're going to call it trading profiles
+and we'll start with an enum because
+
+336
+00:06:14,390 --> 00:06:14,400
+and we'll start with an enum because
+ 
+
+337
+00:06:14,400 --> 00:06:16,189
+and we'll start with an enum because
+we're going to create a dropdown menu
+
+338
+00:06:16,189 --> 00:06:16,199
+we're going to create a dropdown menu
+ 
+
+339
+00:06:16,199 --> 00:06:18,870
+we're going to create a dropdown menu
+for our users to select from so I'm
+
+340
+00:06:18,870 --> 00:06:18,880
+for our users to select from so I'm
+ 
+
+341
+00:06:18,880 --> 00:06:21,150
+for our users to select from so I'm
+creating an enum I'm calling it system
+
+342
+00:06:21,150 --> 00:06:21,160
+creating an enum I'm calling it system
+ 
+
+343
+00:06:21,160 --> 00:06:23,589
+creating an enum I'm calling it system
+type that's the variable type which will
+
+344
+00:06:23,589 --> 00:06:23,599
+type that's the variable type which will
+ 
+
+345
+00:06:23,599 --> 00:06:25,749
+type that's the variable type which will
+be assigned later on to a variable and
+
+346
+00:06:25,749 --> 00:06:25,759
+be assigned later on to a variable and
+ 
+
+347
+00:06:25,759 --> 00:06:27,790
+be assigned later on to a variable and
+I'm giving four inputs in within that
+
+348
+00:06:27,790 --> 00:06:27,800
+I'm giving four inputs in within that
+ 
+
+349
+00:06:27,800 --> 00:06:30,950
+I'm giving four inputs in within that
+Forex Bitcoin gold and US indices and
+
+350
+00:06:30,950 --> 00:06:30,960
+Forex Bitcoin gold and US indices and
+ 
+
+351
+00:06:30,960 --> 00:06:33,870
+Forex Bitcoin gold and US indices and
+I'm giving them 0 1 2 and three as
+
+352
+00:06:33,870 --> 00:06:33,880
+I'm giving them 0 1 2 and three as
+ 
+
+353
+00:06:33,880 --> 00:06:35,309
+I'm giving them 0 1 2 and three as
+respective
+
+354
+00:06:35,309 --> 00:06:35,319
+respective
+ 
+
+355
+00:06:35,319 --> 00:06:38,670
+respective
+identifiers now for gold because mql
+
+356
+00:06:38,670 --> 00:06:38,680
+identifiers now for gold because mql
+ 
+
+357
+00:06:38,680 --> 00:06:41,629
+identifiers now for gold because mql
+already has somewhere in their coding
+
+358
+00:06:41,629 --> 00:06:41,639
+already has somewhere in their coding
+ 
+
+359
+00:06:41,639 --> 00:06:45,550
+already has somewhere in their coding
+gold used so we cannot give it the name
+
+360
+00:06:45,550 --> 00:06:45,560
+gold used so we cannot give it the name
+ 
+
+361
+00:06:45,560 --> 00:06:47,430
+gold used so we cannot give it the name
+gold as a profile so I'm giving it
+
+362
+00:06:47,430 --> 00:06:47,440
+gold as a profile so I'm giving it
+ 
+
+363
+00:06:47,440 --> 00:06:49,430
+gold as a profile so I'm giving it
+underscore gold you can give it gold
+
+364
+00:06:49,430 --> 00:06:49,440
+underscore gold you can give it gold
+ 
+
+365
+00:06:49,440 --> 00:06:51,589
+underscore gold you can give it gold
+underscore just gold is going to give
+
+366
+00:06:51,589 --> 00:06:51,599
+underscore just gold is going to give
+ 
+
+367
+00:06:51,599 --> 00:06:53,830
+underscore just gold is going to give
+you an error the next thing we're going
+
+368
+00:06:53,830 --> 00:06:53,840
+you an error the next thing we're going
+ 
+
+369
+00:06:53,840 --> 00:06:57,189
+you an error the next thing we're going
+to do is we're going to create a
+
+370
+00:06:57,189 --> 00:06:57,199
+to do is we're going to create a
+ 
+
+371
+00:06:57,199 --> 00:06:59,110
+to do is we're going to create a
+variable and we're going to call that
+
+372
+00:06:59,110 --> 00:06:59,120
+variable and we're going to call that
+ 
+
+373
+00:06:59,120 --> 00:07:00,270
+variable and we're going to call that
+variable
+
+374
+00:07:00,270 --> 00:07:00,280
+variable
+ 
+
+375
+00:07:00,280 --> 00:07:02,589
+variable
+system type we're asking the user to
+
+376
+00:07:02,589 --> 00:07:02,599
+system type we're asking the user to
+ 
+
+377
+00:07:02,599 --> 00:07:04,029
+system type we're asking the user to
+provide the input and this is why we're
+
+378
+00:07:04,029 --> 00:07:04,039
+provide the input and this is why we're
+ 
+
+379
+00:07:04,039 --> 00:07:06,270
+provide the input and this is why we're
+going to start with input system type by
+
+380
+00:07:06,270 --> 00:07:06,280
+going to start with input system type by
+ 
+
+381
+00:07:06,280 --> 00:07:08,029
+going to start with input system type by
+assigning this variable type so that
+
+382
+00:07:08,029 --> 00:07:08,039
+assigning this variable type so that
+ 
+
+383
+00:07:08,039 --> 00:07:10,189
+assigning this variable type so that
+these drop downs are available we're
+
+384
+00:07:10,189 --> 00:07:10,199
+these drop downs are available we're
+ 
+
+385
+00:07:10,199 --> 00:07:11,670
+these drop downs are available we're
+going to create the variable ass system
+
+386
+00:07:11,670 --> 00:07:11,680
+going to create the variable ass system
+ 
+
+387
+00:07:11,680 --> 00:07:13,469
+going to create the variable ass system
+type and the default value that we are
+
+388
+00:07:13,469 --> 00:07:13,479
+type and the default value that we are
+ 
+
+389
+00:07:13,479 --> 00:07:16,710
+type and the default value that we are
+assigning to it is zero which is Forex
+
+390
+00:07:16,710 --> 00:07:16,720
+assigning to it is zero which is Forex
+ 
+
+391
+00:07:16,720 --> 00:07:18,309
+assigning to it is zero which is Forex
+and after two slashes we give it a
+
+392
+00:07:18,309 --> 00:07:18,319
+and after two slashes we give it a
+ 
+
+393
+00:07:18,319 --> 00:07:20,029
+and after two slashes we give it a
+description trading system applied Forex
+
+394
+00:07:20,029 --> 00:07:20,039
+description trading system applied Forex
+ 
+
+395
+00:07:20,039 --> 00:07:22,110
+description trading system applied Forex
+crypto gold or indices and then I'm
+
+396
+00:07:22,110 --> 00:07:22,120
+crypto gold or indices and then I'm
+ 
+
+397
+00:07:22,120 --> 00:07:24,230
+crypto gold or indices and then I'm
+creating another integer variable system
+
+398
+00:07:24,230 --> 00:07:24,240
+creating another integer variable system
+ 
+
+399
+00:07:24,240 --> 00:07:25,909
+creating another integer variable system
+choice where I will store the value
+
+400
+00:07:25,909 --> 00:07:25,919
+choice where I will store the value
+ 
+
+401
+00:07:25,919 --> 00:07:28,469
+choice where I will store the value
+whatever the user selects then we come
+
+402
+00:07:28,469 --> 00:07:28,479
+whatever the user selects then we come
+ 
+
+403
+00:07:28,479 --> 00:07:30,670
+whatever the user selects then we come
+back up here and and I'm going to create
+
+404
+00:07:30,670 --> 00:07:30,680
+back up here and and I'm going to create
+ 
+
+405
+00:07:30,680 --> 00:07:33,150
+back up here and and I'm going to create
+another section and I'm calling it
+
+406
+00:07:33,150 --> 00:07:33,160
+another section and I'm calling it
+ 
+
+407
+00:07:33,160 --> 00:07:35,189
+another section and I'm calling it
+crypto related input which are effective
+
+408
+00:07:35,189 --> 00:07:35,199
+crypto related input which are effective
+ 
+
+409
+00:07:35,199 --> 00:07:38,029
+crypto related input which are effective
+only on the Bitcoin profile and there
+
+410
+00:07:38,029 --> 00:07:38,039
+only on the Bitcoin profile and there
+ 
+
+411
+00:07:38,039 --> 00:07:39,790
+only on the Bitcoin profile and there
+like the Forex we're going to store
+
+412
+00:07:39,790 --> 00:07:39,800
+like the Forex we're going to store
+ 
+
+413
+00:07:39,800 --> 00:07:43,029
+like the Forex we're going to store
+these values but for Bitcoin we're going
+
+414
+00:07:43,029 --> 00:07:43,039
+these values but for Bitcoin we're going
+ 
+
+415
+00:07:43,039 --> 00:07:47,270
+these values but for Bitcoin we're going
+to have the values stored as percentages
+
+416
+00:07:47,270 --> 00:07:47,280
+to have the values stored as percentages
+ 
+
+417
+00:07:47,280 --> 00:07:49,710
+to have the values stored as percentages
+of the price now one thing which is
+
+418
+00:07:49,710 --> 00:07:49,720
+of the price now one thing which is
+ 
+
+419
+00:07:49,720 --> 00:07:52,950
+of the price now one thing which is
+different from Forex into Bitcoin gold
+
+420
+00:07:52,950 --> 00:07:52,960
+different from Forex into Bitcoin gold
+ 
+
+421
+00:07:52,960 --> 00:07:56,070
+different from Forex into Bitcoin gold
+and US indices is that the prices can
+
+422
+00:07:56,070 --> 00:07:56,080
+and US indices is that the prices can
+ 
+
+423
+00:07:56,080 --> 00:07:58,990
+and US indices is that the prices can
+fluctuate a lot so Bitcoin can be 10,000
+
+424
+00:07:58,990 --> 00:07:59,000
+fluctuate a lot so Bitcoin can be 10,000
+ 
+
+425
+00:07:59,000 --> 00:08:02,070
+fluctuate a lot so Bitcoin can be 10,000
+one day 15,000 and another month 60,000
+
+426
+00:08:02,070 --> 00:08:02,080
+one day 15,000 and another month 60,000
+ 
+
+427
+00:08:02,080 --> 00:08:04,950
+one day 15,000 and another month 60,000
+70,000 the prices keep changing a lot so
+
+428
+00:08:04,950 --> 00:08:04,960
+70,000 the prices keep changing a lot so
+ 
+
+429
+00:08:04,960 --> 00:08:08,070
+70,000 the prices keep changing a lot so
+we cannot assign a static stop loss we
+
+430
+00:08:08,070 --> 00:08:08,080
+we cannot assign a static stop loss we
+ 
+
+431
+00:08:08,080 --> 00:08:09,749
+we cannot assign a static stop loss we
+need to have it as a percentage of
+
+432
+00:08:09,749 --> 00:08:09,759
+need to have it as a percentage of
+ 
+
+433
+00:08:09,759 --> 00:08:11,950
+need to have it as a percentage of
+whatever is the price in the market and
+
+434
+00:08:11,950 --> 00:08:11,960
+whatever is the price in the market and
+ 
+
+435
+00:08:11,960 --> 00:08:14,029
+whatever is the price in the market and
+so we are asking the user to provide an
+
+436
+00:08:14,029 --> 00:08:14,039
+so we are asking the user to provide an
+ 
+
+437
+00:08:14,039 --> 00:08:17,830
+so we are asking the user to provide an
+input of pp as a percentage of the price
+
+438
+00:08:17,830 --> 00:08:17,840
+input of pp as a percentage of the price
+ 
+
+439
+00:08:17,840 --> 00:08:20,670
+input of pp as a percentage of the price
+SL as a percentage of the price and then
+
+440
+00:08:20,670 --> 00:08:20,680
+SL as a percentage of the price and then
+ 
+
+441
+00:08:20,680 --> 00:08:23,710
+SL as a percentage of the price and then
+we're going to use that TP and assign
+
+442
+00:08:23,710 --> 00:08:23,720
+we're going to use that TP and assign
+ 
+
+443
+00:08:23,720 --> 00:08:26,149
+we're going to use that TP and assign
+the trigger of the stop loss and the
+
+444
+00:08:26,149 --> 00:08:26,159
+the trigger of the stop loss and the
+ 
+
+445
+00:08:26,159 --> 00:08:28,430
+the trigger of the stop loss and the
+stop- loss itself or the trailing stop-
+
+446
+00:08:28,430 --> 00:08:28,440
+stop- loss itself or the trailing stop-
+ 
+
+447
+00:08:28,440 --> 00:08:32,310
+stop- loss itself or the trailing stop-
+loss itself as a percentage of that PP
+
+448
+00:08:32,310 --> 00:08:32,320
+loss itself as a percentage of that PP
+ 
+
+449
+00:08:32,320 --> 00:08:34,589
+loss itself as a percentage of that PP
+so as an example if the price is 60,000
+
+450
+00:08:34,589 --> 00:08:34,599
+so as an example if the price is 60,000
+ 
+
+451
+00:08:34,599 --> 00:08:35,750
+so as an example if the price is 60,000
+and we say
+
+452
+00:08:35,750 --> 00:08:35,760
+and we say
+ 
+
+453
+00:08:35,760 --> 00:08:39,709
+and we say
+1% of the price is our TP then 600
+
+454
+00:08:39,709 --> 00:08:39,719
+1% of the price is our TP then 600
+ 
+
+455
+00:08:39,719 --> 00:08:42,269
+1% of the price is our TP then 600
+points is going to be our TP 600 price
+
+456
+00:08:42,269 --> 00:08:42,279
+points is going to be our TP 600 price
+ 
+
+457
+00:08:42,279 --> 00:08:44,829
+points is going to be our TP 600 price
+up from the price and 600 points below
+
+458
+00:08:44,829 --> 00:08:44,839
+up from the price and 600 points below
+ 
+
+459
+00:08:44,839 --> 00:08:47,670
+up from the price and 600 points below
+from the price will be our stop loss and
+
+460
+00:08:47,670 --> 00:08:47,680
+from the price will be our stop loss and
+ 
+
+461
+00:08:47,680 --> 00:08:50,269
+from the price will be our stop loss and
+then out of the 600 if we said 10% is
+
+462
+00:08:50,269 --> 00:08:50,279
+then out of the 600 if we said 10% is
+ 
+
+463
+00:08:50,279 --> 00:08:52,750
+then out of the 600 if we said 10% is
+our trailing stop loss then 60 points
+
+464
+00:08:52,750 --> 00:08:52,760
+our trailing stop loss then 60 points
+ 
+
+465
+00:08:52,760 --> 00:08:55,710
+our trailing stop loss then 60 points
+are going to be our training stop loss
+
+466
+00:08:55,710 --> 00:08:55,720
+are going to be our training stop loss
+ 
+
+467
+00:08:55,720 --> 00:08:58,030
+are going to be our training stop loss
+we're going to do exactly the same for
+
+468
+00:08:58,030 --> 00:08:58,040
+we're going to do exactly the same for
+ 
+
+469
+00:08:58,040 --> 00:09:01,670
+we're going to do exactly the same for
+gold and for indices as well now the
+
+470
+00:09:01,670 --> 00:09:01,680
+gold and for indices as well now the
+ 
+
+471
+00:09:01,680 --> 00:09:03,150
+gold and for indices as well now the
+reason I'm creating these different
+
+472
+00:09:03,150 --> 00:09:03,160
+reason I'm creating these different
+ 
+
+473
+00:09:03,160 --> 00:09:04,870
+reason I'm creating these different
+profiles you can keep it under one
+
+474
+00:09:04,870 --> 00:09:04,880
+profiles you can keep it under one
+ 
+
+475
+00:09:04,880 --> 00:09:07,230
+profiles you can keep it under one
+because the logic is exactly the same so
+
+476
+00:09:07,230 --> 00:09:07,240
+because the logic is exactly the same so
+ 
+
+477
+00:09:07,240 --> 00:09:09,110
+because the logic is exactly the same so
+you can keep it under one but I'm
+
+478
+00:09:09,110 --> 00:09:09,120
+you can keep it under one but I'm
+ 
+
+479
+00:09:09,120 --> 00:09:10,670
+you can keep it under one but I'm
+creating it separately because I like to
+
+480
+00:09:10,670 --> 00:09:10,680
+creating it separately because I like to
+ 
+
+481
+00:09:10,680 --> 00:09:12,910
+creating it separately because I like to
+keep a track of what the percentages are
+
+482
+00:09:12,910 --> 00:09:12,920
+keep a track of what the percentages are
+ 
+
+483
+00:09:12,920 --> 00:09:14,550
+keep a track of what the percentages are
+and if I want to change and once I have
+
+484
+00:09:14,550 --> 00:09:14,560
+and if I want to change and once I have
+ 
+
+485
+00:09:14,560 --> 00:09:16,630
+and if I want to change and once I have
+found something which works on gold or
+
+486
+00:09:16,630 --> 00:09:16,640
+found something which works on gold or
+ 
+
+487
+00:09:16,640 --> 00:09:18,470
+found something which works on gold or
+which works on indices or which works on
+
+488
+00:09:18,470 --> 00:09:18,480
+which works on indices or which works on
+ 
+
+489
+00:09:18,480 --> 00:09:20,350
+which works on indices or which works on
+crypto I don't want to have to remember
+
+490
+00:09:20,350 --> 00:09:20,360
+crypto I don't want to have to remember
+ 
+
+491
+00:09:20,360 --> 00:09:22,069
+crypto I don't want to have to remember
+it and change it every time that I apply
+
+492
+00:09:22,069 --> 00:09:22,079
+it and change it every time that I apply
+ 
+
+493
+00:09:22,079 --> 00:09:23,790
+it and change it every time that I apply
+it so I'm creating three different
+
+494
+00:09:23,790 --> 00:09:23,800
+it so I'm creating three different
+ 
+
+495
+00:09:23,800 --> 00:09:25,990
+it so I'm creating three different
+profiles so now that we have the
+
+496
+00:09:25,990 --> 00:09:26,000
+profiles so now that we have the
+ 
+
+497
+00:09:26,000 --> 00:09:28,710
+profiles so now that we have the
+profiles then we can go ahead and we can
+
+498
+00:09:28,710 --> 00:09:28,720
+profiles then we can go ahead and we can
+ 
+
+499
+00:09:28,720 --> 00:09:31,710
+profiles then we can go ahead and we can
+assign the vales in the initialization
+
+500
+00:09:31,710 --> 00:09:31,720
+assign the vales in the initialization
+ 
+
+501
+00:09:31,720 --> 00:09:35,069
+assign the vales in the initialization
+and I say here that if the S type is
+
+502
+00:09:35,069 --> 00:09:35,079
+and I say here that if the S type is
+ 
+
+503
+00:09:35,079 --> 00:09:37,030
+and I say here that if the S type is
+zero which is
+
+504
+00:09:37,030 --> 00:09:37,040
+zero which is
+ 
+
+505
+00:09:37,040 --> 00:09:41,470
+zero which is
+here if the user has selected S type as
+
+506
+00:09:41,470 --> 00:09:41,480
+here if the user has selected S type as
+ 
+
+507
+00:09:41,480 --> 00:09:44,790
+here if the user has selected S type as
+zero which is Forex then this variable
+
+508
+00:09:44,790 --> 00:09:44,800
+zero which is Forex then this variable
+ 
+
+509
+00:09:44,800 --> 00:09:47,670
+zero which is Forex then this variable
+system choice is going to be zero if
+
+510
+00:09:47,670 --> 00:09:47,680
+system choice is going to be zero if
+ 
+
+511
+00:09:47,680 --> 00:09:49,590
+system choice is going to be zero if
+user has selected one which is Bitcoin
+
+512
+00:09:49,590 --> 00:09:49,600
+user has selected one which is Bitcoin
+ 
+
+513
+00:09:49,600 --> 00:09:52,150
+user has selected one which is Bitcoin
+then system choice is one if user has
+
+514
+00:09:52,150 --> 00:09:52,160
+then system choice is one if user has
+ 
+
+515
+00:09:52,160 --> 00:09:54,190
+then system choice is one if user has
+selected S type as two then system choic
+
+516
+00:09:54,190 --> 00:09:54,200
+selected S type as two then system choic
+ 
+
+517
+00:09:54,200 --> 00:09:56,110
+selected S type as two then system choic
+is two and if they have selected S type
+
+518
+00:09:56,110 --> 00:09:56,120
+is two and if they have selected S type
+ 
+
+519
+00:09:56,120 --> 00:09:58,069
+is two and if they have selected S type
+as three which is indices then the
+
+520
+00:09:58,069 --> 00:09:58,079
+as three which is indices then the
+ 
+
+521
+00:09:58,079 --> 00:10:00,590
+as three which is indices then the
+system choices three which is indexes
+
+522
+00:10:00,590 --> 00:10:00,600
+system choices three which is indexes
+ 
+
+523
+00:10:00,600 --> 00:10:01,790
+system choices three which is indexes
+now one of the difficulties we're going
+
+524
+00:10:01,790 --> 00:10:01,800
+now one of the difficulties we're going
+ 
+
+525
+00:10:01,800 --> 00:10:04,110
+now one of the difficulties we're going
+to face is that here we have all of
+
+526
+00:10:04,110 --> 00:10:04,120
+to face is that here we have all of
+ 
+
+527
+00:10:04,120 --> 00:10:06,430
+to face is that here we have all of
+these points we're collecting the input
+
+528
+00:10:06,430 --> 00:10:06,440
+these points we're collecting the input
+ 
+
+529
+00:10:06,440 --> 00:10:08,590
+these points we're collecting the input
+from the user and if you're collecting
+
+530
+00:10:08,590 --> 00:10:08,600
+from the user and if you're collecting
+ 
+
+531
+00:10:08,600 --> 00:10:10,430
+from the user and if you're collecting
+an input from the user then you cannot
+
+532
+00:10:10,430 --> 00:10:10,440
+an input from the user then you cannot
+ 
+
+533
+00:10:10,440 --> 00:10:14,030
+an input from the user then you cannot
+change the value of that variable during
+
+534
+00:10:14,030 --> 00:10:14,040
+change the value of that variable during
+ 
+
+535
+00:10:14,040 --> 00:10:16,110
+change the value of that variable during
+the operations so we need to create four
+
+536
+00:10:16,110 --> 00:10:16,120
+the operations so we need to create four
+ 
+
+537
+00:10:16,120 --> 00:10:18,550
+the operations so we need to create four
+more variables and I'm coming back up
+
+538
+00:10:18,550 --> 00:10:18,560
+more variables and I'm coming back up
+ 
+
+539
+00:10:18,560 --> 00:10:21,069
+more variables and I'm coming back up
+here into the common trading input and
+
+540
+00:10:21,069 --> 00:10:21,079
+here into the common trading input and
+ 
+
+541
+00:10:21,079 --> 00:10:23,470
+here into the common trading input and
+I'm putting here these variables as
+
+542
+00:10:23,470 --> 00:10:23,480
+I'm putting here these variables as
+ 
+
+543
+00:10:23,480 --> 00:10:25,710
+I'm putting here these variables as
+double and I'm calling them the TP point
+
+544
+00:10:25,710 --> 00:10:25,720
+double and I'm calling them the TP point
+ 
+
+545
+00:10:25,720 --> 00:10:27,710
+double and I'm calling them the TP point
+the SL point the TSL trigger point and
+
+546
+00:10:27,710 --> 00:10:27,720
+the SL point the TSL trigger point and
+ 
+
+547
+00:10:27,720 --> 00:10:29,790
+the SL point the TSL trigger point and
+the TSL point now if you would remember
+
+548
+00:10:29,790 --> 00:10:29,800
+the TSL point now if you would remember
+ 
+
+549
+00:10:29,800 --> 00:10:31,190
+the TSL point now if you would remember
+from the Forex video and if you have
+
+550
+00:10:31,190 --> 00:10:31,200
+from the Forex video and if you have
+ 
+
+551
+00:10:31,200 --> 00:10:33,790
+from the Forex video and if you have
+coded along using that video is that
+
+552
+00:10:33,790 --> 00:10:33,800
+coded along using that video is that
+ 
+
+553
+00:10:33,800 --> 00:10:36,069
+coded along using that video is that
+these are the variables that we use in
+
+554
+00:10:36,069 --> 00:10:36,079
+these are the variables that we use in
+ 
+
+555
+00:10:36,079 --> 00:10:39,870
+these are the variables that we use in
+the EA itself to send orders to modify
+
+556
+00:10:39,870 --> 00:10:39,880
+the EA itself to send orders to modify
+ 
+
+557
+00:10:39,880 --> 00:10:42,590
+the EA itself to send orders to modify
+positions and do all sorts of operations
+
+558
+00:10:42,590 --> 00:10:42,600
+positions and do all sorts of operations
+ 
+
+559
+00:10:42,600 --> 00:10:44,949
+positions and do all sorts of operations
+so I'm creating them separately and
+
+560
+00:10:44,949 --> 00:10:44,959
+so I'm creating them separately and
+ 
+
+561
+00:10:44,959 --> 00:10:46,990
+so I'm creating them separately and
+these will have zero values at the start
+
+562
+00:10:46,990 --> 00:10:47,000
+these will have zero values at the start
+ 
+
+563
+00:10:47,000 --> 00:10:49,150
+these will have zero values at the start
+of the E now if you would remember from
+
+564
+00:10:49,150 --> 00:10:49,160
+of the E now if you would remember from
+ 
+
+565
+00:10:49,160 --> 00:10:51,470
+of the E now if you would remember from
+the Forex coding video these these
+
+566
+00:10:51,470 --> 00:10:51,480
+the Forex coding video these these
+ 
+
+567
+00:10:51,480 --> 00:10:53,430
+the Forex coding video these these
+variables were called TP points SL Point
+
+568
+00:10:53,430 --> 00:10:53,440
+variables were called TP points SL Point
+ 
+
+569
+00:10:53,440 --> 00:10:55,750
+variables were called TP points SL Point
+TSL trigger point and TSL point but I've
+
+570
+00:10:55,750 --> 00:10:55,760
+TSL trigger point and TSL point but I've
+ 
+
+571
+00:10:55,760 --> 00:10:57,870
+TSL trigger point and TSL point but I've
+added the word input at the end of all
+
+572
+00:10:57,870 --> 00:10:57,880
+added the word input at the end of all
+ 
+
+573
+00:10:57,880 --> 00:10:59,990
+added the word input at the end of all
+of them so that when once we collect the
+
+574
+00:10:59,990 --> 00:11:00,000
+of them so that when once we collect the
+ 
+
+575
+00:11:00,000 --> 00:11:02,030
+of them so that when once we collect the
+value on the Forex from the user these
+
+576
+00:11:02,030 --> 00:11:02,040
+value on the Forex from the user these
+ 
+
+577
+00:11:02,040 --> 00:11:04,670
+value on the Forex from the user these
+are input variables but these are not
+
+578
+00:11:04,670 --> 00:11:04,680
+are input variables but these are not
+ 
+
+579
+00:11:04,680 --> 00:11:06,790
+are input variables but these are not
+assigned yet to these variables and
+
+580
+00:11:06,790 --> 00:11:06,800
+assigned yet to these variables and
+ 
+
+581
+00:11:06,800 --> 00:11:08,069
+assigned yet to these variables and
+these are the variable that we're going
+
+582
+00:11:08,069 --> 00:11:08,079
+these are the variable that we're going
+ 
+
+583
+00:11:08,079 --> 00:11:10,190
+these are the variable that we're going
+to use in the year so while we collect
+
+584
+00:11:10,190 --> 00:11:10,200
+to use in the year so while we collect
+ 
+
+585
+00:11:10,200 --> 00:11:12,949
+to use in the year so while we collect
+the input we keep it into the user
+
+586
+00:11:12,949 --> 00:11:12,959
+the input we keep it into the user
+ 
+
+587
+00:11:12,959 --> 00:11:15,829
+the input we keep it into the user
+provided input variables and not assign
+
+588
+00:11:15,829 --> 00:11:15,839
+provided input variables and not assign
+ 
+
+589
+00:11:15,839 --> 00:11:18,110
+provided input variables and not assign
+it to anything at this point in time
+
+590
+00:11:18,110 --> 00:11:18,120
+it to anything at this point in time
+ 
+
+591
+00:11:18,120 --> 00:11:20,030
+it to anything at this point in time
+same goes for crypto same goes for gold
+
+592
+00:11:20,030 --> 00:11:20,040
+same goes for crypto same goes for gold
+ 
+
+593
+00:11:20,040 --> 00:11:21,790
+same goes for crypto same goes for gold
+same goes for indices all of these are
+
+594
+00:11:21,790 --> 00:11:21,800
+same goes for indices all of these are
+ 
+
+595
+00:11:21,800 --> 00:11:24,150
+same goes for indices all of these are
+collected from the users but these are
+
+596
+00:11:24,150 --> 00:11:24,160
+collected from the users but these are
+ 
+
+597
+00:11:24,160 --> 00:11:26,550
+collected from the users but these are
+not assigned anywhere so now on
+
+598
+00:11:26,550 --> 00:11:26,560
+not assigned anywhere so now on
+ 
+
+599
+00:11:26,560 --> 00:11:29,310
+not assigned anywhere so now on
+initialization what we're going to do is
+
+600
+00:11:29,310 --> 00:11:29,320
+initialization what we're going to do is
+ 
+
+601
+00:11:29,320 --> 00:11:31,910
+initialization what we're going to do is
+we're going to start assigning now for
+
+602
+00:11:31,910 --> 00:11:31,920
+we're going to start assigning now for
+ 
+
+603
+00:11:31,920 --> 00:11:33,910
+we're going to start assigning now for
+the default what I'm going to do is I
+
+604
+00:11:33,910 --> 00:11:33,920
+the default what I'm going to do is I
+ 
+
+605
+00:11:33,920 --> 00:11:35,629
+the default what I'm going to do is I
+will assign to these variables the
+
+606
+00:11:35,629 --> 00:11:35,639
+will assign to these variables the
+ 
+
+607
+00:11:35,639 --> 00:11:37,310
+will assign to these variables the
+values that I have collected from the
+
+608
+00:11:37,310 --> 00:11:37,320
+values that I have collected from the
+ 
+
+609
+00:11:37,320 --> 00:11:40,310
+values that I have collected from the
+user under the Forex profile so these
+
+610
+00:11:40,310 --> 00:11:40,320
+user under the Forex profile so these
+ 
+
+611
+00:11:40,320 --> 00:11:42,750
+user under the Forex profile so these
+variables are not empty they have by
+
+612
+00:11:42,750 --> 00:11:42,760
+variables are not empty they have by
+ 
+
+613
+00:11:42,760 --> 00:11:46,550
+variables are not empty they have by
+default the Forex values into it then we
+
+614
+00:11:46,550 --> 00:11:46,560
+default the Forex values into it then we
+ 
+
+615
+00:11:46,560 --> 00:11:49,310
+default the Forex values into it then we
+go to the ontick function so this is our
+
+616
+00:11:49,310 --> 00:11:49,320
+go to the ontick function so this is our
+ 
+
+617
+00:11:49,320 --> 00:11:51,389
+go to the ontick function so this is our
+new bar section everything written
+
+618
+00:11:51,389 --> 00:11:51,399
+new bar section everything written
+ 
+
+619
+00:11:51,399 --> 00:11:53,870
+new bar section everything written
+underneath is going to be run on opening
+
+620
+00:11:53,870 --> 00:11:53,880
+underneath is going to be run on opening
+ 
+
+621
+00:11:53,880 --> 00:11:57,110
+underneath is going to be run on opening
+of every new candle and every code above
+
+622
+00:11:57,110 --> 00:11:57,120
+of every new candle and every code above
+ 
+
+623
+00:11:57,120 --> 00:11:58,829
+of every new candle and every code above
+this is going to be triggered on every
+
+624
+00:11:58,829 --> 00:11:58,839
+this is going to be triggered on every
+ 
+
+625
+00:11:58,839 --> 00:12:00,550
+this is going to be triggered on every
+tick because the system is going to come
+
+626
+00:12:00,550 --> 00:12:00,560
+tick because the system is going to come
+ 
+
+627
+00:12:00,560 --> 00:12:02,629
+tick because the system is going to come
+here on every tick it will do whatever
+
+628
+00:12:02,629 --> 00:12:02,639
+here on every tick it will do whatever
+ 
+
+629
+00:12:02,639 --> 00:12:04,230
+here on every tick it will do whatever
+is here then it's going to check whether
+
+630
+00:12:04,230 --> 00:12:04,240
+is here then it's going to check whether
+ 
+
+631
+00:12:04,240 --> 00:12:06,150
+is here then it's going to check whether
+it's a new bar and if it's not a new bar
+
+632
+00:12:06,150 --> 00:12:06,160
+it's a new bar and if it's not a new bar
+ 
+
+633
+00:12:06,160 --> 00:12:08,030
+it's a new bar and if it's not a new bar
+it's going to exit so nothing is going
+
+634
+00:12:08,030 --> 00:12:08,040
+it's going to exit so nothing is going
+ 
+
+635
+00:12:08,040 --> 00:12:10,910
+it's going to exit so nothing is going
+to be run only on a new bar everything
+
+636
+00:12:10,910 --> 00:12:10,920
+to be run only on a new bar everything
+ 
+
+637
+00:12:10,920 --> 00:12:13,710
+to be run only on a new bar everything
+below this code line this code line is
+
+638
+00:12:13,710 --> 00:12:13,720
+below this code line this code line is
+ 
+
+639
+00:12:13,720 --> 00:12:15,910
+below this code line this code line is
+going to be run so when we come down
+
+640
+00:12:15,910 --> 00:12:15,920
+going to be run so when we come down
+ 
+
+641
+00:12:15,920 --> 00:12:18,150
+going to be run so when we come down
+here once we have assigned the trading
+
+642
+00:12:18,150 --> 00:12:18,160
+here once we have assigned the trading
+ 
+
+643
+00:12:18,160 --> 00:12:20,710
+here once we have assigned the trading
+hours then what we can do is we can just
+
+644
+00:12:20,710 --> 00:12:20,720
+hours then what we can do is we can just
+ 
+
+645
+00:12:20,720 --> 00:12:23,590
+hours then what we can do is we can just
+simply go that if the system choice is
+
+646
+00:12:23,590 --> 00:12:23,600
+simply go that if the system choice is
+ 
+
+647
+00:12:23,600 --> 00:12:27,629
+simply go that if the system choice is
+one which is our Bitcoin profile then
+
+648
+00:12:27,629 --> 00:12:27,639
+one which is our Bitcoin profile then
+ 
+
+649
+00:12:27,639 --> 00:12:29,990
+one which is our Bitcoin profile then
+let's get the ask value
+
+650
+00:12:29,990 --> 00:12:30,000
+let's get the ask value
+ 
+
+651
+00:12:30,000 --> 00:12:32,110
+let's get the ask value
+by using the function symbol in for
+
+652
+00:12:32,110 --> 00:12:32,120
+by using the function symbol in for
+ 
+
+653
+00:12:32,120 --> 00:12:34,269
+by using the function symbol in for
+double sending the value of the current
+
+654
+00:12:34,269 --> 00:12:34,279
+double sending the value of the current
+ 
+
+655
+00:12:34,279 --> 00:12:36,629
+double sending the value of the current
+chart symbol and asking for the ask
+
+656
+00:12:36,629 --> 00:12:36,639
+chart symbol and asking for the ask
+ 
+
+657
+00:12:36,639 --> 00:12:39,430
+chart symbol and asking for the ask
+price and then we'll use that ask price
+
+658
+00:12:39,430 --> 00:12:39,440
+price and then we'll use that ask price
+ 
+
+659
+00:12:39,440 --> 00:12:41,750
+price and then we'll use that ask price
+as the market price and then we can go
+
+660
+00:12:41,750 --> 00:12:41,760
+as the market price and then we can go
+ 
+
+661
+00:12:41,760 --> 00:12:43,790
+as the market price and then we can go
+then the DP point is going to be ask
+
+662
+00:12:43,790 --> 00:12:43,800
+then the DP point is going to be ask
+ 
+
+663
+00:12:43,800 --> 00:12:46,829
+then the DP point is going to be ask
+price multipli by whatever TP as
+
+664
+00:12:46,829 --> 00:12:46,839
+price multipli by whatever TP as
+ 
+
+665
+00:12:46,839 --> 00:12:49,629
+price multipli by whatever TP as
+percentage the user has
+
+666
+00:12:49,629 --> 00:12:49,639
+percentage the user has
+ 
+
+667
+00:12:49,639 --> 00:12:53,550
+percentage the user has
+defined here for
+
+668
+00:12:53,550 --> 00:12:53,560
+defined here for
+ 
+
+669
+00:12:53,560 --> 00:12:55,590
+defined here for
+Bitcoin then for the stop- loss we're
+
+670
+00:12:55,590 --> 00:12:55,600
+Bitcoin then for the stop- loss we're
+ 
+
+671
+00:12:55,600 --> 00:12:57,430
+Bitcoin then for the stop- loss we're
+going to use again the market price in
+
+672
+00:12:57,430 --> 00:12:57,440
+going to use again the market price in
+ 
+
+673
+00:12:57,440 --> 00:12:59,750
+going to use again the market price in
+terms of ask variable that we have
+
+674
+00:12:59,750 --> 00:12:59,760
+terms of ask variable that we have
+ 
+
+675
+00:12:59,760 --> 00:13:01,829
+terms of ask variable that we have
+stored the ask value in and then we're
+
+676
+00:13:01,829 --> 00:13:01,839
+stored the ask value in and then we're
+ 
+
+677
+00:13:01,839 --> 00:13:03,870
+stored the ask value in and then we're
+going to multiply it by whatever is the
+
+678
+00:13:03,870 --> 00:13:03,880
+going to multiply it by whatever is the
+ 
+
+679
+00:13:03,880 --> 00:13:06,710
+going to multiply it by whatever is the
+stop loss defined as percentage under
+
+680
+00:13:06,710 --> 00:13:06,720
+stop loss defined as percentage under
+ 
+
+681
+00:13:06,720 --> 00:13:09,509
+stop loss defined as percentage under
+the crypto here is the variable so
+
+682
+00:13:09,509 --> 00:13:09,519
+the crypto here is the variable so
+ 
+
+683
+00:13:09,519 --> 00:13:12,069
+the crypto here is the variable so
+assign that value and so on and so forth
+
+684
+00:13:12,069 --> 00:13:12,079
+assign that value and so on and so forth
+ 
+
+685
+00:13:12,079 --> 00:13:14,030
+assign that value and so on and so forth
+we assigned the order distance point now
+
+686
+00:13:14,030 --> 00:13:14,040
+we assigned the order distance point now
+ 
+
+687
+00:13:14,040 --> 00:13:16,790
+we assigned the order distance point now
+for the order distance point the logic
+
+688
+00:13:16,790 --> 00:13:16,800
+for the order distance point the logic
+ 
+
+689
+00:13:16,800 --> 00:13:20,470
+for the order distance point the logic
+in the Forex was if the SL points were
+
+690
+00:13:20,470 --> 00:13:20,480
+in the Forex was if the SL points were
+ 
+
+691
+00:13:20,480 --> 00:13:22,829
+in the Forex was if the SL points were
+200 points 20 Pips then we were putting
+
+692
+00:13:22,829 --> 00:13:22,839
+200 points 20 Pips then we were putting
+ 
+
+693
+00:13:22,839 --> 00:13:25,590
+200 points 20 Pips then we were putting
+the order distant Point as 100 which is
+
+694
+00:13:25,590 --> 00:13:25,600
+the order distant Point as 100 which is
+ 
+
+695
+00:13:25,600 --> 00:13:28,389
+the order distant Point as 100 which is
+10 Pips which is half and I'm using the
+
+696
+00:13:28,389 --> 00:13:28,399
+10 Pips which is half and I'm using the
+ 
+
+697
+00:13:28,399 --> 00:13:30,790
+10 Pips which is half and I'm using the
+same logic here here by saying that
+
+698
+00:13:30,790 --> 00:13:30,800
+same logic here here by saying that
+ 
+
+699
+00:13:30,800 --> 00:13:32,790
+same logic here here by saying that
+whatever is the TP now or whatever is
+
+700
+00:13:32,790 --> 00:13:32,800
+whatever is the TP now or whatever is
+ 
+
+701
+00:13:32,800 --> 00:13:36,030
+whatever is the TP now or whatever is
+the SL now put the order distance Point
+
+702
+00:13:36,030 --> 00:13:36,040
+the SL now put the order distance Point
+ 
+
+703
+00:13:36,040 --> 00:13:38,870
+the SL now put the order distance Point
+as divided by two then for the TSL Point
+
+704
+00:13:38,870 --> 00:13:38,880
+as divided by two then for the TSL Point
+ 
+
+705
+00:13:38,880 --> 00:13:40,910
+as divided by two then for the TSL Point
+what we're going to do is we have the TP
+
+706
+00:13:40,910 --> 00:13:40,920
+what we're going to do is we have the TP
+ 
+
+707
+00:13:40,920 --> 00:13:43,150
+what we're going to do is we have the TP
+points now so we're going to multiply it
+
+708
+00:13:43,150 --> 00:13:43,160
+points now so we're going to multiply it
+ 
+
+709
+00:13:43,160 --> 00:13:46,189
+points now so we're going to multiply it
+by the TSL as a percentage of TP we're
+
+710
+00:13:46,189 --> 00:13:46,199
+by the TSL as a percentage of TP we're
+ 
+
+711
+00:13:46,199 --> 00:13:48,590
+by the TSL as a percentage of TP we're
+using this so if the user has said that
+
+712
+00:13:48,590 --> 00:13:48,600
+using this so if the user has said that
+ 
+
+713
+00:13:48,600 --> 00:13:51,310
+using this so if the user has said that
+5% of the TP is going to be my trailing
+
+714
+00:13:51,310 --> 00:13:51,320
+5% of the TP is going to be my trailing
+ 
+
+715
+00:13:51,320 --> 00:13:54,710
+5% of the TP is going to be my trailing
+stoploss and 7% of my TP is going to be
+
+716
+00:13:54,710 --> 00:13:54,720
+stoploss and 7% of my TP is going to be
+ 
+
+717
+00:13:54,720 --> 00:13:58,069
+stoploss and 7% of my TP is going to be
+my trigger of the the stop loss then we
+
+718
+00:13:58,069 --> 00:13:58,079
+my trigger of the the stop loss then we
+ 
+
+719
+00:13:58,079 --> 00:14:00,230
+my trigger of the the stop loss then we
+come down here
+
+720
+00:14:00,230 --> 00:14:00,240
+come down here
+ 
+
+721
+00:14:00,240 --> 00:14:03,110
+come down here
+and we say multiply that as a percentage
+
+722
+00:14:03,110 --> 00:14:03,120
+and we say multiply that as a percentage
+ 
+
+723
+00:14:03,120 --> 00:14:04,990
+and we say multiply that as a percentage
+so first converting into a percent and
+
+724
+00:14:04,990 --> 00:14:05,000
+so first converting into a percent and
+ 
+
+725
+00:14:05,000 --> 00:14:06,749
+so first converting into a percent and
+then multiplying it by the TP point so
+
+726
+00:14:06,749 --> 00:14:06,759
+then multiplying it by the TP point so
+ 
+
+727
+00:14:06,759 --> 00:14:10,670
+then multiplying it by the TP point so
+the TP points were I don't know 600 and
+
+728
+00:14:10,670 --> 00:14:10,680
+the TP points were I don't know 600 and
+ 
+
+729
+00:14:10,680 --> 00:14:14,030
+the TP points were I don't know 600 and
+TSL as a percentage of TP is 10 then
+
+730
+00:14:14,030 --> 00:14:14,040
+TSL as a percentage of TP is 10 then
+ 
+
+731
+00:14:14,040 --> 00:14:15,749
+TSL as a percentage of TP is 10 then
+it's basically 60
+
+732
+00:14:15,749 --> 00:14:15,759
+it's basically 60
+ 
+
+733
+00:14:15,759 --> 00:14:19,150
+it's basically 60
+points then we go to the next line and
+
+734
+00:14:19,150 --> 00:14:19,160
+points then we go to the next line and
+ 
+
+735
+00:14:19,160 --> 00:14:23,389
+points then we go to the next line and
+we repeat the same process for Gold by
+
+736
+00:14:23,389 --> 00:14:23,399
+we repeat the same process for Gold by
+ 
+
+737
+00:14:23,399 --> 00:14:26,189
+we repeat the same process for Gold by
+saying if system Choice equals two and
+
+738
+00:14:26,189 --> 00:14:26,199
+saying if system Choice equals two and
+ 
+
+739
+00:14:26,199 --> 00:14:28,389
+saying if system Choice equals two and
+if you put two equal signs that's a
+
+740
+00:14:28,389 --> 00:14:28,399
+if you put two equal signs that's a
+ 
+
+741
+00:14:28,399 --> 00:14:30,430
+if you put two equal signs that's a
+condition check so if system Choice
+
+742
+00:14:30,430 --> 00:14:30,440
+condition check so if system Choice
+ 
+
+743
+00:14:30,440 --> 00:14:34,269
+condition check so if system Choice
+equals 2 then get the ask price then
+
+744
+00:14:34,269 --> 00:14:34,279
+equals 2 then get the ask price then
+ 
+
+745
+00:14:34,279 --> 00:14:36,870
+equals 2 then get the ask price then
+multiply the T or get the TP points by
+
+746
+00:14:36,870 --> 00:14:36,880
+multiply the T or get the TP points by
+ 
+
+747
+00:14:36,880 --> 00:14:38,710
+multiply the T or get the TP points by
+multiplying the ask price which is the
+
+748
+00:14:38,710 --> 00:14:38,720
+multiplying the ask price which is the
+ 
+
+749
+00:14:38,720 --> 00:14:41,629
+multiplying the ask price which is the
+market price by whatever is the TP as a
+
+750
+00:14:41,629 --> 00:14:41,639
+market price by whatever is the TP as a
+ 
+
+751
+00:14:41,639 --> 00:14:44,829
+market price by whatever is the TP as a
+percentage gold so use this variable
+
+752
+00:14:44,829 --> 00:14:44,839
+percentage gold so use this variable
+ 
+
+753
+00:14:44,839 --> 00:14:47,350
+percentage gold so use this variable
+instead and then the same for SL then
+
+754
+00:14:47,350 --> 00:14:47,360
+instead and then the same for SL then
+ 
+
+755
+00:14:47,360 --> 00:14:49,110
+instead and then the same for SL then
+the same for trigger point following
+
+756
+00:14:49,110 --> 00:14:49,120
+the same for trigger point following
+ 
+
+757
+00:14:49,120 --> 00:14:51,829
+the same for trigger point following
+exactly the same logic we go then the SL
+
+758
+00:14:51,829 --> 00:14:51,839
+exactly the same logic we go then the SL
+ 
+
+759
+00:14:51,839 --> 00:14:54,389
+exactly the same logic we go then the SL
+Point equals this variable multiply by
+
+760
+00:14:54,389 --> 00:14:54,399
+Point equals this variable multiply by
+ 
+
+761
+00:14:54,399 --> 00:14:56,189
+Point equals this variable multiply by
+price and then the TSL points and the
+
+762
+00:14:56,189 --> 00:14:56,199
+price and then the TSL points and the
+ 
+
+763
+00:14:56,199 --> 00:14:57,590
+price and then the TSL points and the
+TSL trigger points are going to be
+
+764
+00:14:57,590 --> 00:14:57,600
+TSL trigger points are going to be
+ 
+
+765
+00:14:57,600 --> 00:15:00,069
+TSL trigger points are going to be
+whatever is the TP points multiply it by
+
+766
+00:15:00,069 --> 00:15:00,079
+whatever is the TP points multiply it by
+ 
+
+767
+00:15:00,079 --> 00:15:02,310
+whatever is the TP points multiply it by
+whatever is the trigger of the stop loss
+
+768
+00:15:02,310 --> 00:15:02,320
+whatever is the trigger of the stop loss
+ 
+
+769
+00:15:02,320 --> 00:15:04,829
+whatever is the trigger of the stop loss
+as a percentage of pp
+
+770
+00:15:04,829 --> 00:15:04,839
+as a percentage of pp
+ 
+
+771
+00:15:04,839 --> 00:15:08,310
+as a percentage of pp
+gold then if the choice is indicis then
+
+772
+00:15:08,310 --> 00:15:08,320
+gold then if the choice is indicis then
+ 
+
+773
+00:15:08,320 --> 00:15:10,629
+gold then if the choice is indicis then
+exactly the same process get the ask
+
+774
+00:15:10,629 --> 00:15:10,639
+exactly the same process get the ask
+ 
+
+775
+00:15:10,639 --> 00:15:12,590
+exactly the same process get the ask
+value by sending the symbol value and
+
+776
+00:15:12,590 --> 00:15:12,600
+value by sending the symbol value and
+ 
+
+777
+00:15:12,600 --> 00:15:14,829
+value by sending the symbol value and
+asking for ask and this time around we
+
+778
+00:15:14,829 --> 00:15:14,839
+asking for ask and this time around we
+ 
+
+779
+00:15:14,839 --> 00:15:17,910
+asking for ask and this time around we
+multiply the ask value with the TP as a
+
+780
+00:15:17,910 --> 00:15:17,920
+multiply the ask value with the TP as a
+ 
+
+781
+00:15:17,920 --> 00:15:19,990
+multiply the ask value with the TP as a
+percentage or stop- loss as a
+
+782
+00:15:19,990 --> 00:15:20,000
+percentage or stop- loss as a
+ 
+
+783
+00:15:20,000 --> 00:15:23,230
+percentage or stop- loss as a
+percentage but this time indicis section
+
+784
+00:15:23,230 --> 00:15:23,240
+percentage but this time indicis section
+ 
+
+785
+00:15:23,240 --> 00:15:24,990
+percentage but this time indicis section
+now these are the values that I have
+
+786
+00:15:24,990 --> 00:15:25,000
+now these are the values that I have
+ 
+
+787
+00:15:25,000 --> 00:15:26,829
+now these are the values that I have
+used in the back test that I've shown
+
+788
+00:15:26,829 --> 00:15:26,839
+used in the back test that I've shown
+ 
+
+789
+00:15:26,839 --> 00:15:28,670
+used in the back test that I've shown
+you but by creating these separate
+
+790
+00:15:28,670 --> 00:15:28,680
+you but by creating these separate
+ 
+
+791
+00:15:28,680 --> 00:15:30,150
+you but by creating these separate
+profile files that gets you the
+
+792
+00:15:30,150 --> 00:15:30,160
+profile files that gets you the
+ 
+
+793
+00:15:30,160 --> 00:15:33,069
+profile files that gets you the
+flexibility of creating different
+
+794
+00:15:33,069 --> 00:15:33,079
+flexibility of creating different
+ 
+
+795
+00:15:33,079 --> 00:15:36,150
+flexibility of creating different
+scenarios optimizing differently and
+
+796
+00:15:36,150 --> 00:15:36,160
+scenarios optimizing differently and
+ 
+
+797
+00:15:36,160 --> 00:15:37,829
+scenarios optimizing differently and
+remembering and putting that value and
+
+798
+00:15:37,829 --> 00:15:37,839
+remembering and putting that value and
+ 
+
+799
+00:15:37,839 --> 00:15:39,430
+remembering and putting that value and
+hardcoding it so that you don't have to
+
+800
+00:15:39,430 --> 00:15:39,440
+hardcoding it so that you don't have to
+ 
+
+801
+00:15:39,440 --> 00:15:41,309
+hardcoding it so that you don't have to
+remember it all the time so this is it
+
+802
+00:15:41,309 --> 00:15:41,319
+remember it all the time so this is it
+ 
+
+803
+00:15:41,319 --> 00:15:42,829
+remember it all the time so this is it
+Guys these are all the modifications
+
+804
+00:15:42,829 --> 00:15:42,839
+Guys these are all the modifications
+ 
+
+805
+00:15:42,839 --> 00:15:45,110
+Guys these are all the modifications
+that you're going to use to convert the
+
+806
+00:15:45,110 --> 00:15:45,120
+that you're going to use to convert the
+ 
+
+807
+00:15:45,120 --> 00:15:47,309
+that you're going to use to convert the
+Forex EA that we created in the previous
+
+808
+00:15:47,309 --> 00:15:47,319
+Forex EA that we created in the previous
+ 
+
+809
+00:15:47,319 --> 00:15:51,069
+Forex EA that we created in the previous
+video to apply it on bitcoin gold and US
+
+810
+00:15:51,069 --> 00:15:51,079
+video to apply it on bitcoin gold and US
+ 
+
+811
+00:15:51,079 --> 00:15:53,749
+video to apply it on bitcoin gold and US
+indices now this is not limited to this
+
+812
+00:15:53,749 --> 00:15:53,759
+indices now this is not limited to this
+ 
+
+813
+00:15:53,759 --> 00:15:55,430
+indices now this is not limited to this
+because once you follow the logic that
+
+814
+00:15:55,430 --> 00:15:55,440
+because once you follow the logic that
+ 
+
+815
+00:15:55,440 --> 00:15:58,230
+because once you follow the logic that
+now we're using TPS stoploss trigger
+
+816
+00:15:58,230 --> 00:15:58,240
+now we're using TPS stoploss trigger
+ 
+
+817
+00:15:58,240 --> 00:16:01,069
+now we're using TPS stoploss trigger
+points and stop L coins as a percentage
+
+818
+00:16:01,069 --> 00:16:01,079
+points and stop L coins as a percentage
+ 
+
+819
+00:16:01,079 --> 00:16:03,030
+points and stop L coins as a percentage
+of the price now you can check this on
+
+820
+00:16:03,030 --> 00:16:03,040
+of the price now you can check this on
+ 
+
+821
+00:16:03,040 --> 00:16:05,710
+of the price now you can check this on
+other things as well like don't know oil
+
+822
+00:16:05,710 --> 00:16:05,720
+other things as well like don't know oil
+ 
+
+823
+00:16:05,720 --> 00:16:08,150
+other things as well like don't know oil
+whatever else you trade you can try this
+
+824
+00:16:08,150 --> 00:16:08,160
+whatever else you trade you can try this
+ 
+
+825
+00:16:08,160 --> 00:16:10,749
+whatever else you trade you can try this
+percentage method and see what values
+
+826
+00:16:10,749 --> 00:16:10,759
+percentage method and see what values
+ 
+
+827
+00:16:10,759 --> 00:16:14,590
+percentage method and see what values
+work and what values do not
+
+828
+00:16:14,590 --> 00:16:14,600
+work and what values do not
+ 
+
+829
+00:16:14,600 --> 00:16:17,110
+work and what values do not
+work before I go just a few very
+
+830
+00:16:17,110 --> 00:16:17,120
+work before I go just a few very
+ 
+
+831
+00:16:17,120 --> 00:16:20,230
+work before I go just a few very
+important points number one no EA makes
+
+832
+00:16:20,230 --> 00:16:20,240
+important points number one no EA makes
+ 
+
+833
+00:16:20,240 --> 00:16:22,550
+important points number one no EA makes
+money every day every week every month
+
+834
+00:16:22,550 --> 00:16:22,560
+money every day every week every month
+ 
+
+835
+00:16:22,560 --> 00:16:24,110
+money every day every week every month
+there will be times when the will make
+
+836
+00:16:24,110 --> 00:16:24,120
+there will be times when the will make
+ 
+
+837
+00:16:24,120 --> 00:16:25,430
+there will be times when the will make
+money and then there will be times when
+
+838
+00:16:25,430 --> 00:16:25,440
+money and then there will be times when
+ 
+
+839
+00:16:25,440 --> 00:16:27,350
+money and then there will be times when
+the will not make money or even lose
+
+840
+00:16:27,350 --> 00:16:27,360
+the will not make money or even lose
+ 
+
+841
+00:16:27,360 --> 00:16:29,710
+the will not make money or even lose
+money we just hope that the periods in
+
+842
+00:16:29,710 --> 00:16:29,720
+money we just hope that the periods in
+ 
+
+843
+00:16:29,720 --> 00:16:32,710
+money we just hope that the periods in
+which the year makes money far outweigh
+
+844
+00:16:32,710 --> 00:16:32,720
+which the year makes money far outweigh
+ 
+
+845
+00:16:32,720 --> 00:16:34,389
+which the year makes money far outweigh
+and are more frequent than the times
+
+846
+00:16:34,389 --> 00:16:34,399
+and are more frequent than the times
+ 
+
+847
+00:16:34,399 --> 00:16:37,470
+and are more frequent than the times
+when the year loses money or is stagnant
+
+848
+00:16:37,470 --> 00:16:37,480
+when the year loses money or is stagnant
+ 
+
+849
+00:16:37,480 --> 00:16:39,590
+when the year loses money or is stagnant
+the second point is this this year at
+
+850
+00:16:39,590 --> 00:16:39,600
+the second point is this this year at
+ 
+
+851
+00:16:39,600 --> 00:16:41,350
+the second point is this this year at
+least in my experience works better when
+
+852
+00:16:41,350 --> 00:16:41,360
+least in my experience works better when
+ 
+
+853
+00:16:41,360 --> 00:16:44,110
+least in my experience works better when
+the market is trending either up or down
+
+854
+00:16:44,110 --> 00:16:44,120
+the market is trending either up or down
+ 
+
+855
+00:16:44,120 --> 00:16:46,230
+the market is trending either up or down
+when the market is chaotic volatile or
+
+856
+00:16:46,230 --> 00:16:46,240
+when the market is chaotic volatile or
+ 
+
+857
+00:16:46,240 --> 00:16:47,990
+when the market is chaotic volatile or
+is stagnant that's when the year
+
+858
+00:16:47,990 --> 00:16:48,000
+is stagnant that's when the year
+ 
+
+859
+00:16:48,000 --> 00:16:49,949
+is stagnant that's when the year
+struggles the third point is because
+
+860
+00:16:49,949 --> 00:16:49,959
+struggles the third point is because
+ 
+
+861
+00:16:49,959 --> 00:16:52,030
+struggles the third point is because
+it's a scalping robot the volume of the
+
+862
+00:16:52,030 --> 00:16:52,040
+it's a scalping robot the volume of the
+ 
+
+863
+00:16:52,040 --> 00:16:53,949
+it's a scalping robot the volume of the
+trade is going to be massive so you
+
+864
+00:16:53,949 --> 00:16:53,959
+trade is going to be massive so you
+ 
+
+865
+00:16:53,959 --> 00:16:56,430
+trade is going to be massive so you
+require really tight spreads so if your
+
+866
+00:16:56,430 --> 00:16:56,440
+require really tight spreads so if your
+ 
+
+867
+00:16:56,440 --> 00:16:58,309
+require really tight spreads so if your
+broker does not have very tight spreads
+
+868
+00:16:58,309 --> 00:16:58,319
+broker does not have very tight spreads
+ 
+
+869
+00:16:58,319 --> 00:16:59,470
+broker does not have very tight spreads
+offered
+
+870
+00:16:59,470 --> 00:16:59,480
+offered
+ 
+
+871
+00:16:59,480 --> 00:17:01,189
+offered
+then I would suggest you to try it on
+
+872
+00:17:01,189 --> 00:17:01,199
+then I would suggest you to try it on
+ 
+
+873
+00:17:01,199 --> 00:17:02,710
+then I would suggest you to try it on
+different Brokers and see which ones it
+
+874
+00:17:02,710 --> 00:17:02,720
+different Brokers and see which ones it
+ 
+
+875
+00:17:02,720 --> 00:17:04,949
+different Brokers and see which ones it
+works on which ones it doesn't work on
+
+876
+00:17:04,949 --> 00:17:04,959
+works on which ones it doesn't work on
+ 
+
+877
+00:17:04,959 --> 00:17:06,949
+works on which ones it doesn't work on
+Fourth important point is that your
+
+878
+00:17:06,949 --> 00:17:06,959
+Fourth important point is that your
+ 
+
+879
+00:17:06,959 --> 00:17:09,990
+Fourth important point is that your
+broker needs to allow es scalloping and
+
+880
+00:17:09,990 --> 00:17:10,000
+broker needs to allow es scalloping and
+ 
+
+881
+00:17:10,000 --> 00:17:12,350
+broker needs to allow es scalloping and
+by that I mean setting the trailing a
+
+882
+00:17:12,350 --> 00:17:12,360
+by that I mean setting the trailing a
+ 
+
+883
+00:17:12,360 --> 00:17:15,189
+by that I mean setting the trailing a
+stop loss extremely close to the price I
+
+884
+00:17:15,189 --> 00:17:15,199
+stop loss extremely close to the price I
+ 
+
+885
+00:17:15,199 --> 00:17:17,230
+stop loss extremely close to the price I
+know some Brokers do not allow setting
+
+886
+00:17:17,230 --> 00:17:17,240
+know some Brokers do not allow setting
+ 
+
+887
+00:17:17,240 --> 00:17:19,390
+know some Brokers do not allow setting
+the stop loss very close to the price
+
+888
+00:17:19,390 --> 00:17:19,400
+the stop loss very close to the price
+ 
+
+889
+00:17:19,400 --> 00:17:21,189
+the stop loss very close to the price
+and if that is the case then the trailer
+
+890
+00:17:21,189 --> 00:17:21,199
+and if that is the case then the trailer
+ 
+
+891
+00:17:21,199 --> 00:17:23,189
+and if that is the case then the trailer
+stop loss is not going to work and if
+
+892
+00:17:23,189 --> 00:17:23,199
+stop loss is not going to work and if
+ 
+
+893
+00:17:23,199 --> 00:17:24,870
+stop loss is not going to work and if
+the trail stop loss is not going to work
+
+894
+00:17:24,870 --> 00:17:24,880
+the trail stop loss is not going to work
+ 
+
+895
+00:17:24,880 --> 00:17:26,309
+the trail stop loss is not going to work
+then this strategy is not going to work
+
+896
+00:17:26,309 --> 00:17:26,319
+then this strategy is not going to work
+ 
+
+897
+00:17:26,319 --> 00:17:28,110
+then this strategy is not going to work
+because this strategy completely banks
+
+898
+00:17:28,110 --> 00:17:28,120
+because this strategy completely banks
+ 
+
+899
+00:17:28,120 --> 00:17:29,909
+because this strategy completely banks
+on the idea that as the price moves in
+
+900
+00:17:29,909 --> 00:17:29,919
+on the idea that as the price moves in
+ 
+
+901
+00:17:29,919 --> 00:17:32,230
+on the idea that as the price moves in
+our favorable Direction then we start to
+
+902
+00:17:32,230 --> 00:17:32,240
+our favorable Direction then we start to
+ 
+
+903
+00:17:32,240 --> 00:17:34,390
+our favorable Direction then we start to
+Trail the stop loss extremely
+
+904
+00:17:34,390 --> 00:17:34,400
+Trail the stop loss extremely
+ 
+
+905
+00:17:34,400 --> 00:17:36,909
+Trail the stop loss extremely
+aggressively so since the entire year is
+
+906
+00:17:36,909 --> 00:17:36,919
+aggressively so since the entire year is
+ 
+
+907
+00:17:36,919 --> 00:17:39,549
+aggressively so since the entire year is
+based on that there is no getting around
+
+908
+00:17:39,549 --> 00:17:39,559
+based on that there is no getting around
+ 
+
+909
+00:17:39,559 --> 00:17:42,029
+based on that there is no getting around
+it so when you run the test and you get
+
+910
+00:17:42,029 --> 00:17:42,039
+it so when you run the test and you get
+ 
+
+911
+00:17:42,039 --> 00:17:45,430
+it so when you run the test and you get
+60% or 50% win rate the first thing to
+
+912
+00:17:45,430 --> 00:17:45,440
+60% or 50% win rate the first thing to
+ 
+
+913
+00:17:45,440 --> 00:17:46,789
+60% or 50% win rate the first thing to
+check is whether or not your trailing a
+
+914
+00:17:46,789 --> 00:17:46,799
+check is whether or not your trailing a
+ 
+
+915
+00:17:46,799 --> 00:17:48,549
+check is whether or not your trailing a
+stop loss is working and if it's not
+
+916
+00:17:48,549 --> 00:17:48,559
+stop loss is working and if it's not
+ 
+
+917
+00:17:48,559 --> 00:17:50,190
+stop loss is working and if it's not
+working well after checking the codes
+
+918
+00:17:50,190 --> 00:17:50,200
+working well after checking the codes
+ 
+
+919
+00:17:50,200 --> 00:17:51,710
+working well after checking the codes
+that the codes are correct what you need
+
+920
+00:17:51,710 --> 00:17:51,720
+that the codes are correct what you need
+ 
+
+921
+00:17:51,720 --> 00:17:53,950
+that the codes are correct what you need
+to check is that your broker actually
+
+922
+00:17:53,950 --> 00:17:53,960
+to check is that your broker actually
+ 
+
+923
+00:17:53,960 --> 00:17:55,630
+to check is that your broker actually
+allows the trailing stop loss to be
+
+924
+00:17:55,630 --> 00:17:55,640
+allows the trailing stop loss to be
+ 
+
+925
+00:17:55,640 --> 00:17:58,149
+allows the trailing stop loss to be
+Trail very very aggressively now further
+
+926
+00:17:58,149 --> 00:17:58,159
+Trail very very aggressively now further
+ 
+
+927
+00:17:58,159 --> 00:18:00,750
+Trail very very aggressively now further
+points again I will keep talking about
+
+928
+00:18:00,750 --> 00:18:00,760
+points again I will keep talking about
+ 
+
+929
+00:18:00,760 --> 00:18:02,830
+points again I will keep talking about
+them in the frequently ask questions run
+
+930
+00:18:02,830 --> 00:18:02,840
+them in the frequently ask questions run
+ 
+
+931
+00:18:02,840 --> 00:18:04,789
+them in the frequently ask questions run
+it on every take run it on real take see
+
+932
+00:18:04,789 --> 00:18:04,799
+it on every take run it on real take see
+ 
+
+933
+00:18:04,799 --> 00:18:06,110
+it on every take run it on real take see
+what you like see you don't what you
+
+934
+00:18:06,110 --> 00:18:06,120
+what you like see you don't what you
+ 
+
+935
+00:18:06,120 --> 00:18:08,789
+what you like see you don't what you
+don't like the real test is forward
+
+936
+00:18:08,789 --> 00:18:08,799
+don't like the real test is forward
+ 
+
+937
+00:18:08,799 --> 00:18:10,430
+don't like the real test is forward
+testing because that's the only time
+
+938
+00:18:10,430 --> 00:18:10,440
+testing because that's the only time
+ 
+
+939
+00:18:10,440 --> 00:18:11,950
+testing because that's the only time
+when you're actually applying the EA
+
+940
+00:18:11,950 --> 00:18:11,960
+when you're actually applying the EA
+ 
+
+941
+00:18:11,960 --> 00:18:14,070
+when you're actually applying the EA
+into the real market conditions and
+
+942
+00:18:14,070 --> 00:18:14,080
+into the real market conditions and
+ 
+
+943
+00:18:14,080 --> 00:18:15,470
+into the real market conditions and
+that's the only way to know whether or
+
+944
+00:18:15,470 --> 00:18:15,480
+that's the only way to know whether or
+ 
+
+945
+00:18:15,480 --> 00:18:18,149
+that's the only way to know whether or
+not you like it and even if you like it
+
+946
+00:18:18,149 --> 00:18:18,159
+not you like it and even if you like it
+ 
+
+947
+00:18:18,159 --> 00:18:19,750
+not you like it and even if you like it
+which parts of it you like and which
+
+948
+00:18:19,750 --> 00:18:19,760
+which parts of it you like and which
+ 
+
+949
+00:18:19,760 --> 00:18:21,430
+which parts of it you like and which
+parts of it you want to twe so back
+
+950
+00:18:21,430 --> 00:18:21,440
+parts of it you want to twe so back
+ 
+
+951
+00:18:21,440 --> 00:18:24,029
+parts of it you want to twe so back
+testing is good but back testing is not
+
+952
+00:18:24,029 --> 00:18:24,039
+testing is good but back testing is not
+ 
+
+953
+00:18:24,039 --> 00:18:26,549
+testing is good but back testing is not
+real
+
+954
+00:18:26,549 --> 00:18:26,559
+
+ 
+
+955
+00:18:26,559 --> 00:18:28,549
+
+testing now in the next video I will
+
+956
+00:18:28,549 --> 00:18:28,559
+testing now in the next video I will
+ 
+
+957
+00:18:28,559 --> 00:18:30,549
+testing now in the next video I will
+come back with a few filters which we're
+
+958
+00:18:30,549 --> 00:18:30,559
+come back with a few filters which we're
+ 
+
+959
+00:18:30,559 --> 00:18:32,070
+come back with a few filters which we're
+going to apply on this year to tighten
+
+960
+00:18:32,070 --> 00:18:32,080
+going to apply on this year to tighten
+ 
+
+961
+00:18:32,080 --> 00:18:34,190
+going to apply on this year to tighten
+the trading even further so for example
+
+962
+00:18:34,190 --> 00:18:34,200
+the trading even further so for example
+ 
+
+963
+00:18:34,200 --> 00:18:36,270
+the trading even further so for example
+if the price is too far away from the
+
+964
+00:18:36,270 --> 00:18:36,280
+if the price is too far away from the
+ 
+
+965
+00:18:36,280 --> 00:18:38,310
+if the price is too far away from the
+moving average we don't want to trade if
+
+966
+00:18:38,310 --> 00:18:38,320
+moving average we don't want to trade if
+ 
+
+967
+00:18:38,320 --> 00:18:41,070
+moving average we don't want to trade if
+the RSI is above 75 below 25 we don't
+
+968
+00:18:41,070 --> 00:18:41,080
+the RSI is above 75 below 25 we don't
+ 
+
+969
+00:18:41,080 --> 00:18:43,750
+the RSI is above 75 below 25 we don't
+want to trade if there is a major news
+
+970
+00:18:43,750 --> 00:18:43,760
+want to trade if there is a major news
+ 
+
+971
+00:18:43,760 --> 00:18:45,950
+want to trade if there is a major news
+event upcoming then we not only want to
+
+972
+00:18:45,950 --> 00:18:45,960
+event upcoming then we not only want to
+ 
+
+973
+00:18:45,960 --> 00:18:47,630
+event upcoming then we not only want to
+not trade but we also want to turn off
+
+974
+00:18:47,630 --> 00:18:47,640
+not trade but we also want to turn off
+ 
+
+975
+00:18:47,640 --> 00:18:50,270
+not trade but we also want to turn off
+the EA and we want to delete any order
+
+976
+00:18:50,270 --> 00:18:50,280
+the EA and we want to delete any order
+ 
+
+977
+00:18:50,280 --> 00:18:51,750
+the EA and we want to delete any order
+which is sitting so those kind of
+
+978
+00:18:51,750 --> 00:18:51,760
+which is sitting so those kind of
+ 
+
+979
+00:18:51,760 --> 00:18:53,510
+which is sitting so those kind of
+filters I will come back in the next
+
+980
+00:18:53,510 --> 00:18:53,520
+filters I will come back in the next
+ 
+
+981
+00:18:53,520 --> 00:18:55,789
+filters I will come back in the next
+video leave me a comment if there's
+
+982
+00:18:55,789 --> 00:18:55,799
+video leave me a comment if there's
+ 
+
+983
+00:18:55,799 --> 00:18:57,430
+video leave me a comment if there's
+something that I didn't explain well or
+
+984
+00:18:57,430 --> 00:18:57,440
+something that I didn't explain well or
+ 
+
+985
+00:18:57,440 --> 00:18:59,230
+something that I didn't explain well or
+if there are any questions frequently
+
+986
+00:18:59,230 --> 00:18:59,240
+if there are any questions frequently
+ 
+
+987
+00:18:59,240 --> 00:19:00,630
+if there are any questions frequently
+asked questions I will continue to put
+
+988
+00:19:00,630 --> 00:19:00,640
+asked questions I will continue to put
+ 
+
+989
+00:19:00,640 --> 00:19:02,270
+asked questions I will continue to put
+them together into a frequently Asked
+
+990
+00:19:02,270 --> 00:19:02,280
+them together into a frequently Asked
+ 
+
+991
+00:19:02,280 --> 00:19:04,870
+them together into a frequently Asked
+question segment and we will continue to
+
+992
+00:19:04,870 --> 00:19:04,880
+question segment and we will continue to
+ 
+
+993
+00:19:04,880 --> 00:19:07,470
+question segment and we will continue to
+come back with more and more stuff uh so
+
+994
+00:19:07,470 --> 00:19:07,480
+come back with more and more stuff uh so
+ 
+
+995
+00:19:07,480 --> 00:19:10,950
+come back with more and more stuff uh so
+stay tuned and until next time guys stay
+
+996
+00:19:10,950 --> 00:19:10,960
+stay tuned and until next time guys stay
+ 
+
+997
+00:19:10,960 --> 00:19:18,430
+stay tuned and until next time guys stay
+safe fade safe
+
+998
+00:19:18,430 --> 00:19:18,440
+
+ 
+
+999
+00:19:18,440 --> 00:19:21,549
+
+[Music]
+

@@ -1,0 +1,62 @@
+smartmoneyconcepts not installed — SMC confluence disabled
+2026-04-01 05:04:02 [INFO    ] backtest_scalping              Loading primary M5 data from data/backtest_cache/XAUUSD_M5_all.csv
+2026-04-01 05:04:02 [INFO    ] src.backtesting.data_loader    Loaded 100000 bars from data/backtest_cache/XAUUSD_M5_all.csv (2024-10-23 13:55:00+00:00 → 2026-03-24 18:45:00+00:00)
+2026-04-01 05:04:02 [INFO    ] backtest_scalping              Primary data: 86741 bars after date filter
+2026-04-01 05:04:02 [INFO    ] backtest_scalping              Loading supplemental M1 data from data/backtest_cache/XAUUSD_M1_all.csv
+2026-04-01 05:04:02 [INFO    ] src.backtesting.data_loader    Loaded 100000 bars from data/backtest_cache/XAUUSD_M1_all.csv (2025-12-09 19:51:00+00:00 → 2026-03-24 18:48:00+00:00)
+2026-04-01 05:04:02 [INFO    ] backtest_scalping              M1 data: 100000 bars
+2026-04-01 05:04:02 [INFO    ] backtest_scalping              Instrument XAUUSD: point_size=0.01, tick_value=1.0
+2026-04-01 05:04:02 [INFO    ] src.analysis.news_filter       Loaded 64 default news events (FOMC + NFP + CPI)
+2026-04-01 05:04:02 [INFO    ] src.risk.prop_firm_guard       PropFirmGuard: phase=step1, account=$5000, floor=$4500 (buffer=$4507), daily_limit=$250 (buffer=$243), target=$500
+2026-04-01 05:04:02 [INFO    ] src.backtesting.scalping_engine MTF pre-computed: M5=86741, M15=28917, H1=7236 bars
+2026-04-01 05:04:02 [INFO    ] src.backtesting.scalping_engine Scalping backtest: XAUUSD on M5 (86741 M5 bars, 1 strategies)
+2026-04-01 05:04:24 [INFO    ] src.backtesting.scalping_engine   Bar 10000/86741 (12%)
+2026-04-01 05:04:49 [INFO    ] src.backtesting.scalping_engine   Bar 20000/86741 (23%)
+2026-04-01 05:05:18 [INFO    ] src.backtesting.scalping_engine   Bar 30000/86741 (35%)
+2026-04-01 05:05:54 [INFO    ] src.backtesting.scalping_engine   Bar 40000/86741 (46%)
+2026-04-01 05:06:37 [INFO    ] src.backtesting.scalping_engine   Bar 50000/86741 (58%)
+2026-04-01 05:07:21 [INFO    ] src.backtesting.scalping_engine   Bar 60000/86741 (69%)
+2026-04-01 05:09:02 [INFO    ] src.backtesting.scalping_engine   Bar 80000/86741 (92%)
+2026-04-01 05:09:39 [INFO    ] src.backtesting.scalping_engine Scalping backtest done: 897 trades, -8.60% return, 8.76% DD, 0.0% WR
+
+Backtest Results: M5VwapMeanReversionStrategy on XAUUSD
+  Period: 2025-01-02 → 2026-03-24
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │       $5,000.00 │
+│ Final Equity              │       $4,570.24 │
+│ Total Return              │          -8.60% │
+│ Max Drawdown              │           8.76% │
+│ Total Trades              │             897 │
+│ Win Rate                  │            0.0% │
+│ Profit Factor             │            0.00 │
+│ Avg Trade P&L             │          $-0.48 │
+│ Sharpe Ratio              │           -0.11 │
+│ Max Consecutive Losses    │             897 │
+│ Avg Trade Duration        │            2.3h │
+└───────────────────────────┴─────────────────┘
+2026-04-01 05:09:39 [INFO    ] backtest_scalping              Results saved to data/backtest_results/scalp_XAUUSD_v4r1_m5_vwap_mean_reversion_20260401_050939.json
+
+Backtest Results: M5VwapMeanReversionStrategy on XAUUSD
+  Period: 2025-01-02 → 2026-03-24
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │       $5,000.00 │
+│ Final Equity              │       $4,570.24 │
+│ Total Return              │          -8.60% │
+│ Max Drawdown              │           8.76% │
+│ Total Trades              │             897 │
+│ Win Rate                  │            0.0% │
+│ Profit Factor             │            0.00 │
+│ Avg Trade P&L             │          $-0.48 │
+│ Sharpe Ratio              │           -0.11 │
+│ Max Consecutive Losses    │             897 │
+│ Avg Trade Duration        │            2.3h │
+└───────────────────────────┴─────────────────┘
+

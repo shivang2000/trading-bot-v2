@@ -1,0 +1,88 @@
+smartmoneyconcepts not installed — SMC confluence disabled
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              Loading primary M5 data from data/backtest_cache/XAUUSD_M5_all.csv
+2026-04-01 04:22:46 [INFO    ] src.backtesting.data_loader    Loaded 100000 bars from data/backtest_cache/XAUUSD_M5_all.csv (2024-10-23 13:55:00+00:00 → 2026-03-24 18:45:00+00:00)
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              Primary data: 86741 bars after date filter
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              Loading supplemental M1 data from data/backtest_cache/XAUUSD_M1_all.csv
+2026-04-01 04:22:46 [INFO    ] src.backtesting.data_loader    Loaded 100000 bars from data/backtest_cache/XAUUSD_M1_all.csv (2025-12-09 19:51:00+00:00 → 2026-03-24 18:48:00+00:00)
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              M1 data: 100000 bars
+2026-04-01 04:22:46 [INFO    ] backtest_scalping              Instrument XAUUSD: point_size=0.01, tick_value=1.0
+2026-04-01 04:22:46 [INFO    ] src.analysis.news_filter       Loaded 64 default news events (FOMC + NFP + CPI)
+2026-04-01 04:22:46 [INFO    ] src.risk.prop_firm_guard       PropFirmGuard: phase=step1, account=$5000, floor=$4500 (buffer=$4507), daily_limit=$250 (buffer=$243), target=$500
+2026-04-01 04:22:46 [INFO    ] src.backtesting.scalping_engine MTF pre-computed: M5=86741, M15=28917, H1=7236 bars
+2026-04-01 04:22:46 [INFO    ] src.backtesting.scalping_engine Scalping backtest: XAUUSD on M5 (86741 M5 bars, 1 strategies)
+2026-04-01 04:23:23 [INFO    ] src.backtesting.scalping_engine   Bar 10000/86741 (12%)
+2026-04-01 04:23:34 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 2920.84000 (squeeze range=5.65507, ADX=27.1)
+2026-04-01 04:23:53 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3076.42000 (squeeze range=3.57311, ADX=23.8)
+2026-04-01 04:24:08 [INFO    ] src.backtesting.scalping_engine   Bar 20000/86741 (23%)
+2026-04-01 04:24:14 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3489.47000 (squeeze range=11.50121, ADX=26.8)
+2026-04-01 04:24:27 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3319.74000 (squeeze range=8.91632, ADX=51.6)
+2026-04-01 04:24:31 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3333.41000 (squeeze range=11.22551, ADX=26.0)
+2026-04-01 04:24:38 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3181.51000 (squeeze range=7.18056, ADX=35.2)
+2026-04-01 04:24:42 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3238.25000 (squeeze range=5.65905, ADX=32.0)
+2026-04-01 04:24:56 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3349.29000 (squeeze range=6.96211, ADX=50.2)
+2026-04-01 04:24:57 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3359.09000 (squeeze range=5.09269, ADX=32.8)
+2026-04-01 04:25:00 [INFO    ] src.backtesting.scalping_engine   Bar 30000/86741 (35%)
+2026-04-01 04:25:05 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3325.18000 (squeeze range=4.81162, ADX=21.3)
+2026-04-01 04:25:19 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3391.72000 (squeeze range=7.14816, ADX=36.2)
+2026-04-01 04:25:23 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3333.81000 (squeeze range=9.05385, ADX=21.2)
+2026-04-01 04:25:29 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3342.85000 (squeeze range=3.43567, ADX=30.7)
+2026-04-01 04:25:37 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3304.86000 (squeeze range=8.01970, ADX=29.4)
+2026-04-01 04:25:59 [INFO    ] src.backtesting.scalping_engine   Bar 40000/86741 (46%)
+2026-04-01 04:26:01 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3310.65000 (squeeze range=5.77342, ADX=27.0)
+2026-04-01 04:26:08 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3341.15000 (squeeze range=11.30055, ADX=22.5)
+2026-04-01 04:26:21 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3346.03000 (squeeze range=5.64565, ADX=20.0)
+2026-04-01 04:26:42 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3418.53000 (squeeze range=3.94736, ADX=26.6)
+2026-04-01 04:26:44 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3480.61000 (squeeze range=7.06622, ADX=40.6)
+2026-04-01 04:27:04 [INFO    ] src.backtesting.scalping_engine   Bar 50000/86741 (58%)
+2026-04-01 04:27:09 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 3658.64000 (squeeze range=13.77538, ADX=22.3)
+2026-04-01 04:27:20 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 3749.57000 (squeeze range=4.30111, ADX=22.1)
+2026-04-01 04:27:38 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4031.66000 (squeeze range=7.93466, ADX=25.1)
+2026-04-01 04:27:54 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4339.65000 (squeeze range=11.13751, ADX=25.3)
+2026-04-01 04:28:17 [INFO    ] src.backtesting.scalping_engine   Bar 60000/86741 (69%)
+2026-04-01 04:29:41 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4317.18000 (squeeze range=25.45811, ADX=42.9)
+2026-04-01 04:30:52 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: BUY breakout @ 4937.57000 (squeeze range=19.35053, ADX=21.2)
+2026-04-01 04:30:53 [INFO    ] src.analysis.strategies.m5_bb_squeeze M5 BB Squeeze [XAUUSD]: SELL breakout @ 4927.75000 (squeeze range=9.69058, ADX=43.1)
+2026-04-01 04:30:53 [INFO    ] src.backtesting.scalping_engine   Bar 80000/86741 (92%)
+2026-04-01 04:31:35 [INFO    ] src.backtesting.scalping_engine Scalping backtest done: 26 trades, -8.62% return, 10.75% DD, 19.2% WR
+
+Backtest Results: M5BbSqueezeStrategy on XAUUSD
+  Period: 2025-01-02 → 2026-03-24
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │       $5,000.00 │
+│ Final Equity              │       $4,568.89 │
+│ Total Return              │          -8.62% │
+│ Max Drawdown              │          10.75% │
+│ Total Trades              │              26 │
+│ Win Rate                  │           19.2% │
+│ Profit Factor             │            0.49 │
+│ Avg Trade P&L             │         $-16.58 │
+│ Sharpe Ratio              │           -0.07 │
+│ Max Consecutive Losses    │              10 │
+│ Avg Trade Duration        │            0.9h │
+└───────────────────────────┴─────────────────┘
+2026-04-01 04:31:35 [INFO    ] backtest_scalping              Results saved to data/backtest_results/scalp_XAUUSD_v4_m5_bb_squeeze_20260401_043135.json
+
+Backtest Results: M5BbSqueezeStrategy on XAUUSD
+  Period: 2025-01-02 → 2026-03-24
+
+              Performance Metrics              
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Metric                    ┃           Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ Initial Capital           │       $5,000.00 │
+│ Final Equity              │       $4,568.89 │
+│ Total Return              │          -8.62% │
+│ Max Drawdown              │          10.75% │
+│ Total Trades              │              26 │
+│ Win Rate                  │           19.2% │
+│ Profit Factor             │            0.49 │
+│ Avg Trade P&L             │         $-16.58 │
+│ Sharpe Ratio              │           -0.07 │
+│ Max Consecutive Losses    │              10 │
+│ Avg Trade Duration        │            0.9h │
+└───────────────────────────┴─────────────────┘
+

@@ -1,0 +1,1763 @@
+in the summer of last year I shared my
+ 
+scalloping robot and then there were a
+lot of requests if I could add
+additional features to the EA to make it
+more suitable for Prof fform so 2 weeks
+ago I shared a video which includes
+those additional features that make it
+more suitable for Prof fform challenges
+including a panel so you can track all
+of the stats in one go in one place and
+all the quotes shared in the videos and
+fully explained in details and now there
+are a lot of requests if the same
+scalping year written in metat trater 5
+language can be converted into metat
+trater 4 so here we go in this video we
+will take the scalping robot script that
+we wrote from metat Trader 5 and we will
+convert it into metat Trader 4 and this
+method is universal so if you follow the
+video and learn it you will be able to
+take any metat Trader 5 script and
+convert it into metat Trader 4 following
+the same logic with no more Shenanigans
+let's
+start now I will not go through the full
+back testing of the EA because I've
+already shared the back testing in
+several videos that I've made before but
+let's do take a look at the actual
+performance of the EO over the last two
+months I have used this EA in my
+portfolio over many many years which for
+NDA reasons I cannot show but to compare
+my results with the results that people
+were sending to me after I released this
+EA I created a small account and applied
+the EA with the setting that I have
+shared so that when people are sending
+their results to me I at least have a
+comparative base to compare it against
+so let's log on to the VPS and here we
+have our results for the last 2
+months so if I go currencies by
+currencies so starting with Bitcoin we
+have made about 7 % profit we've had a
+few TPS hit because when Bitcoin moves
+fast it moves really fast if I go to
+Euro USD a similar story we had one loss
+in the beginning and since then the EA
+has been performing quite decent there
+are a couple of pp hits one this one and
+this one very close probably as well and
+we have about 9% profit on Euro USD so
+Euro USD has also been performing really
+really well then go to Gold so far we
+have not had any loss one TP hit the
+rest are aggressive trailing of the stop
+losses so small profits overall
+amounting to about 8% profit as well
+then going to
+gbpusd this one has had two different
+losses and one near TP hit and all
+together about
+1.6% of profit then we look at us Tech
+and this one has had two different
+losses and it's slightly negative but
+very close to break even depending on I
+mean it's not too many trades so far and
+then to USD JPY which is around 6% in
+profit one is stop- loss hit versus all
+of these are aggressive trailing of the
+stop losses so resulting in either small
+profits or a very small loss because of
+slippage probably all together 32%
+profit in the last 2 months if we look
+at the report we can see the EA has made
+about €3,000 in profit and have lost
+about half of it looking at the symbol
+Euro USD has been doing the best
+followed by by gold Bitcoin and USD JPY
+now the last time when I shared the
+result Bitcoin was doing amazingly well
+and was here so probably Bitcoin has
+taken a few yeah Bitcoin has taken a
+loss and came down here if we look at
+month by month we started in the middle
+of December but I shut off the EA during
+the Christmas period and over the new
+year so nothing major in December
+January we had about ,000 or 20% profit
+approximately and this month in February
+in the first 22 days we're about 8% in
+profit now coming back to the settings
+I'll not go through them in very much
+detail but yeah it's 3% with 100 bars in
+this for the Forex profile and this for
+the crypto profile gold profile and US
+indices news filter is true avoiding
+these news for USD currency only RSI
+filter is on I'm not using the moving
+average filter currently and the last
+thing that I want to say is up until now
+I had been uploading my code files into
+the store as well I've seen way too many
+times my codes appearing on Telegram
+Channel where people are trying to sell
+it for five times the price 10 times the
+price I don't have any problem with
+people selling my code under their name
+but then at least put an effort and take
+an evening or two to actually sit down
+and actually follow the video and code
+it for yourself before you start to call
+it your own and try to sell it so going
+forward I will be uploading the working
+EA EX file so the people who do not
+either have time to sit down and Cote
+for themselves or do not have
+understanding enough or they just want
+to use the EA and not want to learn
+learn the algorithm behind it they can
+still download it but I'm not putting up
+my code file for people to download and
+try and sell it and of course I will
+still share all of the codes in the
+videos so if anybody wants to actually
+take the time to learn all of the codes
+with full details will still be
+available for free so if you're one of
+those people fill up a flask with coffee
+get something to eat sit down and let's
+start
+coding we start in the metat trader 4
+terminal and I'll start by going to the
+meta course language editor which is
+here if if you click on that this screen
+should open up for you so this is a
+blank screen now I've already created a
+folder YouTube shared where I'm going to
+create these files So within meta editor
+4 we're going to create a new year and
+it's an expert advisor and I'm just
+going to call I'm going to call this
+regular disc scalping
+PA and then if I press next next and
+finish we get this opening template now
+we have all these codes from the time
+that we wrote the scalping robot
+including the gold Bitcoin and us
+indicis with news filter RSI filter and
+Ma so I'm basically talking about this
+video here so we're going to start from
+that so this is the mq5 file which is
+valid for metat Trader 5 I'm just simply
+going to copy everything and go to meta
+editor 4 select everything delete and
+paste everything from mq5 file so our
+starting point for the conversion is
+starting from an mq5 written code and
+then we're only going to make the
+changes required to convert it into mt4
+so even though today we're converting
+the scalping robot from mt5 to mt4 but
+you can follow the same process to
+convert any metat Trader 5 file into a
+metat Trader 4 now the first thing which
+I'm going to do is I'm going to delete
+all of this the reference to the trade.
+mq file and within that we had the C
+trade C position info and c order info
+because metat Trader 4 does not work
+like that so I'm going to delete all of
+that and now if I compile I should get a
+lot of Errors so I'll go up to the top
+and I'll start from what are the issues
+and I'm going to continue to solve them
+until the time that we have our year
+perfectly running so I'll start with the
+first one which is the group declaration
+is without type which is basically this
+and to remove this you basically Define
+a property which is is strict so if you
+define that property then all of this
+messages should be gone so if I compile
+again and go up now I don't have those
+Errors By the name group so that one is
+taken care of then the next one I see is
+that this identifier has already been
+defined which is I am defining the start
+hour and end hour separately and then
+assigning it to start our sh input and
+eh input even though the number of hours
+are practically the same so I can
+combine it together and this is what I'm
+getting here as well that this has
+already been defined underscore 100
+toore 100 one way you can resolve this
+is by putting an underscore after
+instead of before but what we're going
+to do is we don't need two different
+enums we're happy with just one so I'm
+going to delete this one and I'm just
+going to call this
+one enum
+hour and then if this is enum hour then
+I'm assigning enum hour
+to these two
+variables and this should now take care
+of all of these error messages so if I
+compile I have 94 errors remaining so I
+go up but all of those are gone now now
+the next one is that the trade is an
+Undeclared identifier and that is
+because we deleted the reference to the
+trade. mq file so this we're going to
+correct later next I go to set expert
+magic number that function doesn't work
+because we don't have the trade variable
+anymore so I'm just going to delete this
+and we're going to assign the magic
+number to the trade when we're opening
+or closing the trade manually this is
+all fine I don't need the S Choice
+equals s input so I'm going to remove
+them and because I don't need them so
+I'm going to go up here and I'm also
+going to remove the variable definitions
+I'm changing the bars end to 100 because
+that's what I'm currently using now if I
+compile again I still have 94 errors
+let's go up to the top and now I see
+that irsi wrong parameter mq5 deals with
+indicators through handles and those are
+defined in the onit function but mt4
+does not do it that way I can't use
+these anymore but I can still copy paste
+this formula and I'll go down where the
+RSI filter function is and here instead
+of using the copy buffer method which is
+particular to
+md5 and I can't use this in
+md4 I'm going to just simply Define
+RSI as irsi which is Prov by providing
+the symbol value RSI time frame
+everything else remains exactly the same
+the only thing is here it asks for a
+shift in mt4 as well so I need to put a
+shift I can give it the last candle or I
+can give it the current candle I'm going
+to give it the current candle and then
+I'm going to remove this double colon
+and then because now I'm calling this
+RSI either I can change the name to RSI
+now because here we're checking RSI now
+is above RSI level up and RSI now I'm
+going to change the name of the variable
+from RSI to RSI now the rest of the
+function remains okay to me so I can go
+back up and then the second one was the
+IMA and we cannot use it through a
+handle method because that is particular
+to mt5 so I'm going to copy this formula
+and then I'm going to delete both of
+these because I don't need them and then
+I go down to ma function is ma filter
+and here again I cannot use these mt5
+functions so I'm just going to remove
+them and I'm going to call this variable
+as moving average now because that is
+the variable that we're going to be
+testing here and I can assign it the
+value by pasting now the formula that we
+copied from above providing the symbol
+the time frame everything else Remains
+the Same the only thing I now need to
+provide additionally is the integer
+shift like which candle are we copying
+are we copying the current candle or the
+previous candle or I'm just going to
+copy the current candle I'm going to
+make it a little bit bigger so you guys
+can see now if I compile I should have
+fewer errors so now I have 91 errors so
+let's go up and now this s choice we
+deleted the asset Choice before we were
+assigning the value of the sh input and
+eh
+input to S choice and eh choice but now
+we can directly use them we don't need
+to assign them so I'm just going to go
+here and instead of s Choice I'm going
+to type sh input and here I'm going to
+go eh input and eh input so we basic
+Bally directly assigning that if the
+hours now is less than the sh input so
+whatever hour has been selected then
+close all the orders and if the hours
+now is greater than eh input and is not
+zero meaning it's not inactive then
+close all the orders so then we can only
+trade during the trading period allowed
+if I compile now these two should also
+disappear and now I have 89
+errors I go up and now these two are
+also gone now I go to O
+issue and this has to do with the way
+that metatrader 5 Loops through all the
+positions and all the orders is
+different from metatrader 4 in metat
+Trader 5 you have orders total and
+positions total but in MP4 you only have
+orders total and then you have the order
+type which is either op buy or op sell
+so we're going to have to change the way
+that we we Loop through these to find
+the total number of buys and sell which
+are currently open I'm going to delete
+all of this and I'm going to write the
+code for metatrader 4 where you still
+have the four function but now you're
+only going through the orders total
+exactly the same way which is orders
+total minus
+one but then you order select by index I
+whichever is the I index that is looping
+through and then you go select by
+position and then you provide more
+trades and then you go if it's op buy or
+it's op buy stop so if it's a open
+position by or if it's a pending by stop
+order in both cases if the order symbol
+equals symbol and Order magic number
+equals input magic number in that case
+our byy total is by total + one
+otherwise if the order type is open
+position cell or it's a cell stop order
+and the symbol is our symbol and the
+input magic number is our input magic
+number in that case we say that the cell
+total is increased by one so is exactly
+the the same thing that we did in
+metadata 5 but doing it in a different
+way and orders in mt4 include open
+positions as well now if I compile again
+now I have 70 errors left now the bul of
+the errors I can very simply remove
+because metat Trader 4 does not have a
+built-in calendar so I'm going to go
+down to the is upcoming news and I can
+either delete the entire function or I
+can just put a forward SL
+asterisk and then at the end and asteris
+forward slash so md4 is going to treat
+all of the codes written here as Commons
+thereby we're basically disabling this
+entire function of is upcoming news and
+if I'm disabling it here then up here
+where we were checking for is upcoming
+news I'm also going to have to remove
+that or I can do the same thing as
+this and then here as that so I'm making
+this this portion here as a comment now
+if I file now I am only left with 36
+errors so let's go back up to the top
+once again there is somewhere we're
+using the trade function and that trade
+function cannot be used because we don't
+really have the reference to the the the
+trade. mq file it doesn't work in
+metatrader 4 so I'm going to have to
+write the the order send command to send
+the bias stop to in metat tra 4 I'm
+going to write it below first so that
+you guys can see what is happen
+happening in in metadata 4 we send we
+use the order send command instead of
+using the trade. mq files C trade class
+so we order send by sending the symbol
+and this you can check as well so if you
+say order
+send and this is case sensitive so if
+you say order s is small you're not
+going to get anything so you have to
+know well you can write a start writing
+order but then you can select by going
+down to order send but this is very case
+sensitive so it is s as a capital and
+then SC and d and then when I open the
+bracket it asks me for the symbol which
+is the symbol then it asks me what kind
+of order am I sending so I am sending an
+OP buy stop because we're sending a buy
+order a buy a stop order so I say buy
+stop and then I provide the values of
+lots and
+entry and then if there is a slipage
+factor but that's useless so just put
+zero and then the stop loss then the
+take profit what is the a string that I
+want to put I'll say
+Mr cap
+free then input magic number which is
+the input magic number that be sending
+and this is where it's also different
+between metat data 5 and metat data 4 in
+metad data 5 you already in
+initialization assign a magic number to
+the trade class by saying trade. set
+magic number but here you have to send
+it with the order I'm sending the magic
+number as the variable input magic
+number and then what is the expiration
+and then what color Arrow to put on the
+chart so I'm going to delete this and
+now we can delete the old mty 5 function
+and the reason I'm doing this if is
+because if you remove
+this then you're going to get a warning
+that the order send should be
+checked the return value of order send
+should be checked so you should check
+whether or not it has s be successful
+and this is why I'm saying that if it is
+successful that if order send happens
+then just return meaning exit this
+function so this this is how I'm
+checking now when I'm changing the buy
+function then I also need to change the
+sell function because here again this is
+using the trade. mq file the trade class
+so I'm going to write the function as it
+is written in metat Trader 4 which is
+order send providing the symbol and now
+it is a sell stop type again entry LS
+sltp let's call it Mr
+Cape input magic number expiration and
+the green color and then I'm checking it
+and this Mr Caffrey is because I'm
+trying to move my channel from no
+shanigan which is a faceless channel to
+a channel where I also show my face
+because YouTube has been giving me a lot
+of issues with the with the faceless
+Channel motion anigan I will be slowly
+transitioning so for a while I will put
+all of the videos that I put on Mr cfre
+also here in noan andigan but I would
+suggest to already start using the Mr
+cafrey channel uh because slowly and
+gradually I will transition everything
+there okay I can remove this because
+this is MP5 related
+and let's check here as well on the top
+now in metatrader 5 you get the asked
+value by using the symbol info double
+and asking for the symbol ask value in
+metat Trader five ask and bid prices are
+automatically given so I can remove that
+and just change this
+to Capital ask and now you can see that
+it changed to Pink which basically means
+that it is an assigned metat trator 4
+variable which which is a predefined
+variable so this is the ask the TP and
+SL I don't need to change anything like
+now double Lots so we start with the
+whatever is the broker's minimum value
+so as a matter of fact instead of
+putting a 0.01 I can say get the symbol
+through simple info double get the
+symbol's volume minimum so whatever is
+the minimum volume for that we start
+with that and then if the risk
+percentage is greater than Z then we use
+the function calculate Lots as in metad
+data 5 now I'm going to do the same
+thing here as well in the cell we don't
+need to get the bid value it comes
+automatically as a bid variable with a
+capital
+B I don't need to change the tpnl
+setting and again here I'm going to copy
+paste from
+here that lets start as a
+default with the symbol info double
+getting the symbol volume minimum and if
+you are using the metat trader 5 version
+as well then you can potentially change
+that as well because say for Bitcoin the
+minimum value is
+0.001 on many Brokers so maybe it's a
+better idea to start the lot size as
+default from a 0.01 on bitcoin and not
+0.01
+hardcore the rest seems fine to me so
+let's compile and see how many errors do
+we have now and we have 30 errors left
+so let's go back up once again there is
+somewhere we have used the OD function
+which is to get the order information so
+here on close all orders what we were
+doing was we were going through all of
+the orders total which is an mt5
+terminology now we need to write in
+metat Trader 4 format so I'll write it
+above and then I'll delete the the one
+at the bottom and this is the method for
+checking the same
+thing in metat Trader 4 orders total in
+metat Trader 4 in includes both open
+positions and orders in metat trat five
+they are different positions total and
+orders total so when we are going
+through the total orders exactly the way
+that we are going
+here and the selection method is
+different it's not or select by index it
+is order select providing the index
+value then select by position and more
+trade but now we need to check that it
+is a buy stop and it's a sell stop
+because it can also be a position open
+and in case the trading period has
+finished so it's 9:00 in the night and
+the trading period has finished we don't
+want to close the open positions so this
+is the additional thing that we add on
+top of because here we check for the
+symbol is our symbol and magic number is
+our magic number we're checking this
+here as well that the order magic number
+is input magic number and Order symbol
+is symbol in metat Trader 4 language but
+now we are adding one more condition
+which is it needs to be buy a stop or
+sell stop because if it is an OP
+buy just this then it's a position which
+is open and we don't want to close and
+open position we only want to delete the
+orders which are pending on the server
+once the trading period is finished so
+we check for that as well then we get
+the ticket number exactly the same way
+as here but not using the or ticket but
+like I showed before you start typing
+order and then you get order ticket so
+this is the way it works in matter Traer
+four so we get that put it into ticket
+and then we use the order delete command
+by sending the ticket number and giving
+it a color for the arrow because you
+need to give a color for the arrow as
+well which you don't need to do for
+matter
+file and then again I'm checking if this
+was successful otherwise I'm going to
+get a warning message here that this
+should be checked so I'm just checking
+if it is successful then just exit the
+function return so I can now delete the
+metat trader five part which is this
+part so now this function has been
+converted into metat Trader 4 as well
+now if I compile before I had 30 errors
+and now if I compile I have 23 errors
+left let's go back up and somewhere we
+have the same issue with the positions
+total because somewhere we were checking
+for position total which is in the
+trailing stop and positions total does
+not exist in metat Trader 4 it's orders
+to total and then sub selection through
+op sell and op buy as order type so we
+will have to change that but I'm going
+to come back to the trailing stop later
+let's see if there was something else
+that we can potentially take care of
+before I don't know what this
+is and it's coming from here so
+somewhere something is wrong here yeah
+there is an
+additional closing bracket that I
+mistakenly typed here so I'm going to
+remove that and if I
+compile now we only have these 20 errors
+and these are between line number
+350 and line number
+367 so they are definitely only related
+to the trailing stop because it starts
+at 350 so the errors start
+here and they go all the way to
+367 which is here so all of these errors
+are definitely coming from trailing stop
+which then tells me that the rest of the
+EA has been converted into metat TR 4
+and now we need to convert the trailing
+stop uh this one is going to take a
+little bit of care so follow it properly
+now once again we don't need to to get
+the ask and bid value it comes in mt4 as
+ask and bid so I can delete
+that then we know that we don't use the
+loop as positions total in metadata 4 we
+use orders total so I'll start with that
+by replacing this with with this and I
+need to have an opening
+bracket so instead of positions total
+now I'm going orders total well that's
+the way metat Trader rules then we
+cannot select position by select by
+using the C-Class position from trade.
+mq so now we need to change that as well
+and the way to do that in metat Trader
+is to say if order select index I
+whatever is the index currently select
+by position and more trades once that is
+selected in metad data 4 you don't
+really need the ticket number because
+that's not how metat trator rolls so I
+delete this and then if position magic
+number equals input magic number and
+position symbol equal symbol that we
+will need to change as if order Magic
+number equals input magic
+number and Order symbol equals
+symbol then if position type equals
+position type by we need to then change
+it into metatrader 4 language is
+order type equals
+op
+by then if bid is less than position
+price open well this again position that
+function doesn't exist in meta 4 so we
+need to get the price open so order open
+price is greater than trigger stop- loss
+so this is fine then PP equals order
+take
+profit SL equals bid and bid is now with
+that Capital so it's a pink value so
+it's the generic
+MP4 variable so SL equals this the rest
+is fine if a stop loss is bigger than
+the current stop loss so again we now
+need to find to get
+order a stop
+loss and the stop loss is not equal to
+zero so that is fine and in that case
+modify the position and you modify the
+position in meta Trader 4 not by
+referencing to the trade trade C class
+but by sending a direct order saying
+order
+modify sending it the order ticket
+number and this is why we didn't have to
+get it here Order open price so you need
+to send the order ticket number which is
+again whatever is the selected order
+order ticket from there and then the
+open price then the stop loss that we
+have calculated here then you can either
+write the TP down here or you can just
+simply send the order take profit which
+is the value that we're assigning here
+anyways then no expiration and then
+color none because we don't want to
+really assign an arrow every time there
+is a modification otherwise you're going
+to get too many too many arrows and
+because we're sending the order take
+profit directly so we also don't need
+this DP here and once again why I'm
+checking this if is because if I don't
+check this if then I'm going to get a
+warning down below that the auto
+modifier should be checked now it should
+be checked properly but I'm I'm happy
+with just checking it and if it is okay
+then saying continue like continue
+meaning go
+next to the rest of of the code I'm not
+saying return because return will mean
+exit the
+function continue means continue the
+same thing I'm going to have to do here
+so instead of
+position position type I'm going to have
+to say order
+type and instead of position type cell
+I'm going to have to say op
+cell and then ask is with a capital so
+it's the generic mql4 variable this
+looks fine to me now position open we
+need to get in metat Trader differently
+so it's order open price and we're not
+going to need the TP so I can delete it
+this again is going to be ask and did we
+here change because this is this
+ask is also here as bid so I need to
+change this as well to bid okay and then
+stoploss is order stop loss and then I'm
+going to modify the position by using
+the order modif if and once again
+sending the order ticket number order
+open price the new SL because that's the
+only change which is practically going
+to change and then returning back
+whatever was the original order take
+profit keep it no change to expiry and
+then color none meaning I don't want to
+see an arrow and then I'm checking it
+just so that I don't get a warning and
+then I say
+continue so this should take care of
+everything okay I'm missing a few
+parentheses es so I'm going to put them
+here so this parenthesis is
+fine and this is this
+one so I'm going to line it up with
+four then this one I open the
+parenthesis here and then it should
+close all the way down here so what we
+can do is we can potentially move this
+up here and this one back so this one
+becomes for four
+and then this one becomes for if then
+here I have an open is fine because it
+should close here because all of these
+codes are checked within this so this is
+this one that one is okay I'm just going
+to line it up properly so that I don't
+conf get confused later then this if is
+if it is aut type bu then it is
+correctly ending up here because then we
+go if it is aut type cell then this one
+is if it is this one then this is also
+closing correctly and this
+if is this one and that is fine as well
+and then if it is order type cell then
+all of these codes so fine this should
+be closing here and this one is opening
+here and then all of these codes so yeah
+this one is closing correctly as well
+and then this one is closing here
+correctly as well so I think now we have
+all of the parenthesis correctly formed
+so if I compile and I really hope that
+there are no errors remaining and voila
+we don't have any errors remaining so
+now this metad data 5 code has been
+converted into metadata 4 for the part
+which we wrote in these three First
+videos now that we have finished the
+basic year now let's start looking at
+the two additional modifications I a to
+the e in this video which has two parts
+two additional filters and then the
+entire prop for modification so let's
+first finish the additional features
+which were to have different ways of
+putting the lot sizes and then we will
+add the trading is allowed on certain
+week days and not allowed on certain
+week days or over the weekend so these
+two modifications now so if you have
+written the mq5 E with me that one is
+this with the additional features
+where we added is trading Allowed by day
+function so I'll start by copying this
+function so I'll copy this function and
+I'll go to met tra 4 go down to the
+bottom and I'll add this function here
+and let's see if we have any errors by
+compiling and I think the only errors
+I'm getting is that these fun these
+variables are not declared so I go back
+to meta editor 5 and go back up to the
+top and this is where we defined all of
+these functions for the trading Allowed
+by days section so I'll copy this go
+back to meta editor 4 and here at the
+bottom I'm going to add this section so
+all of these are now variables also
+defined here so if I compile now there
+are no errors so basically we have added
+this function and convert it we didn't
+have to convert anything for meta editor
+4 here then going back to meta editor 5
+for the lot sizes we change the lot size
+we Chang the stuff around here where we
+added another enum for lot type whether
+it we want fixed Lots percentage of
+balance percentage of equity or
+percentage of free margin so I'm going
+to copy that enum go to meta editor 4
+and then up here at the top I'm going to
+add this enum and what we had also done
+was we moved all the enums in one place
+I'm going to take all of the
+enums and put
+them and put them in one place as well I
+don't think I have any other enum well
+the news filter we're not going to be
+using the news filter in metadata for
+anyways because it's not available I
+mean there are ways to put news filters
+as well but there is no generic calendar
+in metat trator 4 so you can't really
+use that as a generic function so these
+are all the enums so now that we have
+enum lot type as well I go back to to
+meta Trader 5 and now we need these
+three variables so I copy them and then
+here I will put here these three
+variables but now I don't need the risk
+percentage twice so I'm going to remove
+one so now what we're going to have is a
+drop- down button which is the enum lot
+type so you can select whether it's
+fixed lot balance Equity or free margin
+and if it is fixed lot then you have
+have to Define here or the user has to
+Define here what is the fixed loss and
+if it is part of the percentage of
+balance or Equity or free margin then
+we're going to use the risk percentage
+method so now that we have these trading
+inputs we go down to the calculate Lots
+part because this is where we're going
+to decide whether what the lot size is
+going to be and there again as a
+precaution we will start
+with a default value of whatever is the
+the minimum symbol volume which comes
+from the broker so we start with that
+and because I'm defining the Lots
+variable here so I cannot redefine it
+here so I remove the part double in
+front of it and then I will exactly the
+same way as we have in meta Trader 5 I
+will have these three the account
+balance the equity balance and the free
+margin I think if it is blue it probably
+is a default variable anyway so it will
+get the value from metat Trader anyway
+but doesn't hurt to get the value as in
+account in for double account balance
+account equity and account free margin
+we get those Valu in here and then we
+say the risk in the beginning is zero as
+a default value and then switch through
+the lot type the variable that we
+created
+here this lot type which is fixed slots
+as zero balance as one Equity as two and
+margin as three so switch through them
+and if you find that the case is zero
+which is the fixed Lots then in that
+case simply Lots is going to be equal to
+fixed Lots the variable that we are
+asking the user to provide their input
+in and if it is not and if it is case
+one then it is based on account balance
+so then account balance time the risk
+percent divided by 100 if it is case two
+then it is equity balance and then if
+it's case three then it's free margin so
+we assign the risk based on account
+balance Equity or free margin based on
+what's selected divide it by 100 because
+it's a percentage and then we say break
+so that if it if if it finds if it finds
+that the case is zero then assign the
+fixed loss and just return with the Lots
+meaning exit the function you don't need
+to do anything else but if it is not
+zero then you look for one and in that
+case break if it's not one then two and
+if you find the two then break break
+meaning break this function but go here
+and then if it's three then break
+meaning break the switch function and
+then come down here so now the risk has
+been defined and the rest of the
+function is basically the same function
+as metat 4 there is no language
+difference between metadata 4 and
+metadata 5 here so this should be okay
+if I compile I'm getting
+this as I'm I already defined it here so
+I cannot redefine it I'm just going to
+remove the word double in front and now
+we should be good to go now one thing
+which I forgot to do and which wasn't
+which wasn't caught by metat Trader in
+the errors is because once again metat
+Trader only looks for syntax error it
+doesn't look for logical errors so we
+Define this is trading Allowed by day
+function and we put all of the variables
+here but we didn't use that function
+anywhere but a metat is not going to
+force us to use it so there are no
+errors but there is a logical error
+and for that we go to the ontick
+function and here where we were checking
+is RSI filter is upcoming news filter is
+ma filter now we also need to check that
+is trading allowed does not return a
+true value and this is why I'm saying
+not is trading allowed so as long as the
+value coming here is
+false then run these codes and if it
+comes back as true then don't run these
+codes so this is why we're saying not so
+only run these codes course if is
+trading allowed returns are false and
+that is because if it is allowed on
+Monday and today is Monday then return
+true and trading is allowed on Monday
+and and today is Monday so in that case
+trading is allowed and this is why we're
+seeing here if it's not meaning if it
+returns a false then close all the
+orders disable the trading and
+everything else so if I compile now I
+don't have any syntax error and I
+hopefully do not have a logical error as
+well so this completes our regular
+version of the scalping e including the
+ma filter the RSI filter the different
+modifications required for Bitcoin gold
+and US indices and also the new features
+that I added which are the lot types and
+also defining whether or not trading is
+allowed on a certain day and now we can
+move on to the prop F part so we go back
+to meta editor 5 and now I'm going to
+open up the prop firm version that we
+had written and also we have had written
+an include file by the name of prop from
+panel now this prop from panel file is
+written in a language which is allowed
+by both met trater 5 and met trater 4 so
+we don't really need to change anything
+here except for when we will be
+referencing where is the file located
+for our mq4 so I can copy this go back
+here and then I can select new and this
+time I'm going to say I want an include
+file file by the name mq and then I can
+call it prop fir panel and then if I
+finish it the file is going to open but
+the file is not going to open here
+because I have already written this file
+as include here as prop from panel but
+the file would open what you will do is
+it will open with the default value you
+can just simply select the entire thing
+and delete and then just paste what you
+have copied from metatrader 5
+because it's the same mq file you can
+also copy the file by going to the
+folder open the folder in the include
+folder you can copy this prop from panel
+close then go to meta editor 4 and here
+also open up the include folder and just
+paste it here or you can create the file
+and copy paste the stuff but here we're
+not going to be changing anything except
+the reference back to our meta mq4 file
+you look for where this file is saved so
+my file is saved in YouTube shared this
+is where this EA is currently saved
+regular scalping year if I open this
+folder I can get
+the value from expert onwards so I copy
+this part come back to meta editor 4 in
+the prop form go up to the top and I'm
+going to write it here but you can see
+what happen so you start start with
+include and then dot dot means whichever
+folder I am in in the include folder so
+here is the include folder dot dot means
+go up one folder so come out of this
+folder then go into the experts folder
+and within the expert folders go to
+YouTube shared folder and then here is
+the name of my file and I should
+have and this is what I'm going to do
+now I'm going to close this because I'm
+going to change the
+name and put underscores here because
+metat Trader for some stupid reason
+cannot deal with spaces so now this is
+the file name with underscore so I can
+open it again so this is my file metat
+tror 4 and then I copy the name of the
+EA put it here and then
+mq4 and then close this so this is where
+my metat Trader four file is saved and
+I'm referencing it here in the mq folder
+because when it will come to update
+these it will be looking for the
+beginning of day balance beginning of
+week balance the all of these variable
+values are going to come from the
+scalping EA so I need to reference it
+back by providing this here now one
+thing which I'm going to do is because
+this is the regular scalping e which we
+have written so far let's compile it
+again and it is all fine and now I'm
+going to save a copy by going to file
+save as in the same folder now I'm going
+to call it prop
+formore scalping here and I'm going to
+copy this name as well so we're creating
+a copy here and now our prop from panel
+needs to be linked to the prop form
+version so I'm keeping these two
+versions separate from each other now if
+I compile I will get thousands of Errors
+because we still haven't created all of
+the stuff which is prop firm related in
+our nq4 file so let's start on that I'll
+compile and I will have a lot of Errors
+which is funny uh because we are still
+not calling any yeah because we're still
+not calling anything from the perform
+panel and this is why we don't have any
+error so
+far also I think because up here now we
+need to
+reference to the prop file so I'm going
+to say include and within the include
+folder it is prop from panel file which
+is this one so I'm referencing to it now
+and within that I'm going to reference
+to cop from Panel class and I'm
+referencing it to a variable by the name
+of panel now if I compile I should have
+a lot of errors and that is because all
+of these variables which this prop fun
+panel is trying to use in the update
+function all of these variables are not
+really defined anywhere so let's go back
+to the mq4 file the actual EA and let's
+start adding these variables so these
+variables we created in meta data 5 and
+now we can copy paste
+them into meta data 4 as well I don't
+need this integer system choice because
+we are using the system system type
+directly or if we not then we're going
+to get an error but I'm deleting it for
+now and if I get the error then I'm
+going to solve it later and then from
+metat Trader 5 file at the end we had
+this input group where we had all of the
+Prof from Rules settings variables so
+I'm going to copy
+them and at the bottom here I'm going to
+add all of them then on the
+initialization function we had the panel
+initialization
+so let's copy
+that and I'll come down here and after
+the chart set integer I'm going to
+create I'm going to copy paste or I'm
+going to paste the panel
+initialization then you would remember
+in the profor metatrader 5 variation we
+got rid of all of the shabang about
+these profiles as crypto gold and
+indices because they're practically the
+same profile it's all percentage as a
+percentage of price so why not combine
+all of these so what I did in metat
+Trader 5 and I'll do it here as well
+which is I got rid of all of these
+profiles and we replaced it with one
+profile which is as a percentage of
+profile
+input and we don't need
+this so I'm going to take this and then
+copy
+paste to meta Trader four so now we have
+two profiles the Forex
+profile and the percentage profile
+exactly the same way as we have it here
+the other thing was we had added an
+order distance Point input here as well
+and an order distance Point variable
+here so I'm going to copy
+this and paste this
+here and then all of these
+variables I'm going to paste them below
+as
+well in metadata 4 okay if I compile
+now I have 20 errors left because it is
+still looking for all of the gold and
+indices and shabang like this and system
+choices that we need to
+change
+so first of all this TP Point trigger
+point is an order distance point this is
+already defined somewhere else so let's
+take a
+look and it is defined here here so I'm
+going to remove them from here so
+they're only defined
+here if you see these are exactly the
+same variables but I just moved them
+from here down to here and added the
+order distance points as well because
+these are all related to Forex Trading
+input so I'm going to combine them
+here if I compile again I have 16 errors
+to fight with and the first one is order
+distance Point variable is already
+defined where is that one
+defined see previous
+declaration and it is defined here so uh
+this we put this here as order distance
+Point input in the Forex so we can't
+have it double so let's move this down
+here and if I compile now I don't have
+that and now I have the system Choice
+issue because here on initialization
+what we were doing was if you select
+Forex or Bitcoin or gold or us indices
+then we have system choices so we
+assigned it to a variable but now we
+have gotten rid of all of that shebang
+so I'm just simply going to delete
+this then we go back to metat Trader 5
+and instead of these we're going to
+switch through the cases of what system
+type has the user
+selected so we
+say we select this and then we paste it
+here which is switch to the system type
+what has the user selected here
+as system type which is either he has
+selected and we need to change this as
+well because it's still the old stuff
+so I'm going to go back to metat Trader
+5 and system
+type enum system type is this one now so
+fix Pips profile or percentage of price
+profile so I select that back to metat
+trater
+4 and paste it here so now we have these
+two types instead of the previous ones
+where we had four different profiles so
+now user can s here as enum system type
+the type whether it's fixed or
+percentage of price and depending on
+whether it's fixed or percentage of
+price we're going to Loop through if
+it's case Zero it's fixed Pips in that
+case TP points become normal input by
+the user and in case if it is as a
+percentage then we need to calculate it
+and we calculate it based on ask and in
+metadata 4 you don't get the value of
+ask by using the symbol in for double
+method you basically simply get it as
+calling the function calling the
+variable ask then we don't need this
+because we have already assigned these
+here I'm going to delete them and then
+if I go back to metat Trader we wrote
+all of these codes for prop form
+functions I'm going to copy
+them and I'm going to paste them here as
+well which are all
+fine no need for any changes
+because of metat Trader
+4 and these ones as well we can just
+simply copy paste them from metat Trader
+5 into metat Trader 4 no need for any
+conversion because it works exactly the
+same way in metat Trader 4 as well then
+these functions we already replaced the
+RSI and moving
+average and these two trailing type ones
+are the ones that we're going to have to
+write later so I'm going to leave them
+for
+now and then we created the panel up
+here and on De initialization we're
+going to destroy the panel so in metat
+Trader 4 as well I will do exactly the
+same thing which is destroy the panel
+later then here one of the things which
+I Chang was I move the is new bar to
+after trailing the stop- loss because I
+don't want to do all of this I don't
+want to run all of these codes on every
+tick I only want to run them on every
+new candle except for the trailing stop
+which should be run on every tick so I'm
+going to move this here then in
+metatrader 5 we had on the onti function
+before the is new before checking for
+all these filters we
+added these four functions which is
+initialization update the initial
+initial balances update the prop form
+values update the panel and if trading
+allow prop form values these four
+functions which we're going to create
+now so let's go down to the bottom and
+this is where we're going to create
+those four
+functions if I come back to metat Trader
+5 I can just simply copy paste these
+four
+functions which is after the is trading
+allowed all of the functions that we
+wrote for meta Trader
+5 I can just simply copy paste them here
+and now if I
+compile I have these 11 errors
+left so the first one is system choice
+because here
+on onti because here on onti we are
+still going through the system choices
+which we don't need to anymore because
+we have already put the system choices
+by looping through the system type
+whether it's fixed Pips or as a
+percentage of price already here on
+initialization so now we don't need to
+do that again so all of these
+scores I'll just simply delete
+them compile again and voila I don't
+have any errors I think when we will run
+the test we will see if there are some
+errors still which we need to figure out
+because not having an error here means
+that there are no syntax errors
+but there can still be logical errors
+because one for example one of the
+things is we also had the is trading
+Allowed by prop form values we created
+this function to check but we didn't
+update it up here we didn't use it
+anywhere we have to use that up here so
+I'll go back to metat Trader 5 and here
+you can see is RSI filter news filter ma
+filter trading allow filter as a knot
+and then I need to add this as a knot
+again and is trading allowed prop form
+values as well so this is another
+condition that we're going to check for
+which is if the value returned from is
+prop form function we have just created
+if it is
+false meaning that the trading is not
+allowed because of the prop form values
+then in that case close all the orders
+and do all of these things now one more
+thing which we will add here is that if
+the per the profit alltime percentage is
+greater than the profit
+Target which is the profit Target we are
+asking the user to Define what the
+profit Target is if it's 10% then as
+soon as the overall profit becomes
+greater than this 10% then set the chart
+to Green so we know that the target has
+been achieved and if you go down to the
+bottom where you will see here is that
+if it is bigger than profit Target the
+trading comment is hoay the target has
+been achieved so coming back up here
+where we're checking the
+values if any of that returns as false
+meaning the trading is disabled then the
+color is going to change to purple but
+then only in case if the The Profit
+overall has exceeded the target profit
+then we change it to Green so you're
+going to get a green screen if the
+profit has been if the profit target has
+been achieved I'm going to compile it
+again and we don't have any errors so
+there seems to be no syntax error but we
+need to run some test to see whether or
+not the EA is working as we intended it
+to work and if it is not then we need to
+come back and see where it went wrong
+but before we start doing that in the
+prop firm we also added for trailing
+stop a lot of other functions as well we
+created a separate section for trailing
+stop management which is you need to to
+select which trailing type it is based
+on a drop- down which is going to come
+from what is the type which is the
+default which is the aggressive one or
+on previous candle or on fast moving
+average or on ten
+conson so I'm going to take this enum go
+back and paste this enum here as well
+then I'm going to come down here and
+take this entire input section below the
+percentage of price profile and paste it
+in the same place here so we are asking
+what is the trail type and in case if
+the user selects previous candle or the
+fast moving average then he needs to say
+okay well how many candles to Trail it
+on and in case of fast moving average
+trailing what is the fast moving average
+period so that is five in case of 10
+consent line we know it's a 10 consent
+line so we don't need to use we don't
+need to ask the user for anything and
+then we go to the trailing stoploss
+function now this function is going to
+become very comp liated because now we
+need to add many different types of
+trading stop losses depending on uh
+which one the user has selected so I'm
+going to try and go one by one if I
+compare
+it so if I put this side by side this is
+my metat Trad 4 this is my metat Trader
+five and I go to the trailing stop loss
+now we can see we started with stop loss
+equals 0 tpals 0 fine we don't need to
+get the ask price but we do need to get
+the stop levels here because that's what
+we're going to check on the
+initialization that what is the minimum
+stop-loss distance Allowed by your
+broker between the stop level between
+where you're putting the stop loss and
+the price we don't need the indicator
+buffer because we're going to use direct
+because metat Trader 4 uses the
+indicators directly and not going
+through a buffer mechanism then we have
+this line is corresponding to this line
+then we have selection which is fine
+here then we have the magic number and
+the symbol that we get here then we have
+the open when then we have the position
+type which we getting here then we say
+if bid is bigger than this trigger stop
+loss which is this
+line then we
+set then we get the TP but you remember
+in metad data 4 you can use the
+order you can use the order take Prof it
+as a command so we don't really need
+this
+line and then comes the part which is if
+position
+info is bigger than this then in that
+case set this so this is what we need to
+add
+now so we're going to take these
+lines and from here I'm starting and I'm
+going all the way down to where the
+switching is finishing
+and then also these two so all the way
+down to
+here which is within this if
+function you see this one which
+is where we getting whether it's bigger
+than the trigger stoploss so it's bigger
+than this and below that we need this
+these functions so I'm going to copy
+them and then I'm going to come back
+here and I'm going to
+paste the this here and I'm going to
+indent
+it so that we can see more
+clearly So within the function of
+trigger stoploss point within the
+function of trigger stop-loss point
+we're copying this entire section which
+is if the stop loss is less than the
+open price because they're in the buy
+that means that it's the initial stop
+loss in which case we aggressively Trail
+it as soon as we are in profit but then
+if that is not the case then in that
+case we switch through the trailing type
+which is 0 equals aggressive one equals
+on previous candle two equals on on
+moving average and three equals on 10
+consent so we have these and
+then depending on what is the SL that
+comes out of here then we go if SL is
+bigger than the current stop loss then
+modify the stop loss so now we have
+copied this this
+logic but now we need to change the way
+that the logic is written because met
+tror 4 has a different language so now
+position info is stoploss is order
+stoploss and open
+price is called order open
+price then bid is with a capital and the
+way to modify the trade
+in metad data 4 is through order modify
+function sending it the order ticket
+number order open price the new SL then
+order take
+profit no change in the expiration and
+color none because we don't want to see
+the arrow and then we continue meaning
+exit the fun exit this small snippet of
+the function and move to the next and
+then through the switch Trail type again
+this is going to be bid
+the rest is fine so in case the user has
+selected aggressive trailing type then
+SL is just going to be bid minus the TSL
+so we are continuing to to aggressively
+Trail the stop loss at a distance of
+whatever the user has defined in the
+trailing stop- loss points then in case
+it's one which is the user wants to
+Trail it on the low of the last candle
+it is it Remains the Same no changes
+required so on the previous candle using
+the iow function and then when we come
+to the moving average we cannot use the
+copy buffer function because that is
+particular to metatrader 5 so we delete
+this part and then the stop loss is just
+going to be whatever is the moving
+average by getting the moving average
+value through the IMA function providing
+the symbol value time frame fast moving
+average period that the user has
+defined the ma mode the ma applied price
+which the user has selected and then
+providing a shift of zero so it's
+basically the current candle and then
+the same is true for 10 consent line so
+we delete the copy buffer way and we set
+the value of the stop-loss by using the
+IH muku function providing the symol
+time frame the default settings of the
+Juku cloud and then saying get the mode
+10 consent get the 10 consent line for
+the shift zero so on the current candle
+and then break so what will happen is
+that when the EA is going through once
+the bid has gone above the trigger of
+the stop-loss point then the first thing
+it will do is it will set the stop loss
+to break even or add the TSL points once
+it has moved to break even that's when
+we start looking at case 0 1 2 and three
+and depending on which case the user has
+selected for the method of the stoploss
+trailing we assign the stop-loss value
+and then we go that if SL is bigger than
+the profit in for stop loss and now we
+change this to order stop- loss in MP4
+language and that the stop loss is
+bigger than the the open price so order
+open price and stop loss is is smaller
+than the bid meaning that it's still
+below the bid so it is a valid stop loss
+in that case we will modify the position
+again so I can copy the modification
+function from here and paste it here
+which is modify the order by sending the
+order ticket number open price stop loss
+take profit no change to the expiration
+and color none and then continue so this
+is how we will go through four different
+methods of trailing the stop- loss based
+on what the user has selected and then
+we go on to the next part which is else
+if the order type is op cell then once
+again once we have checked that this
+trigger stop loss Point once we have
+checked that the that the that the trade
+has moved in profit more than the
+trigger stoploss Point by checking if
+the ask plus trigger stop- loss point is
+lower than the open price that's when we
+will do exactly the same thing as we did
+in the function before so I'm copying
+the entire thing up until here so within
+the trailing stop-loss trigger portion
+of the if I'm copying the entire thing
+and I'm coming back here and if and
+within this if function everything that
+is within this if function I'm going to
+delete it and then replace it with what
+we have just
+copied and I'm going to indent it so we
+can read it more easily and again the
+same thing so stop loss becomes order
+stop loss position info price open
+becomes order open price ask becomes ask
+with a capital this is fine and then
+again we modify the trade by using the
+Met Trader 4
+method so order modify sending it all of
+the
+information this is where we bring the
+stop loss to break even and then once it
+is break even then we switch through the
+trailing type once again this is fine
+this is also fine now it's on I high
+instead of I low because it's a sell
+trade so we are trailing the stop loss
+on the high of the previous candles we
+cannot use the copy buffer so I'm going
+to delete it and I'm going to pay paste
+the IMA value I can actually copy it
+from here as
+well and then come
+below and paste it we are now changing
+the stop loss to fast moving average
+once it is above break even in case the
+user has selected that method and then
+once again we need to delete this part
+and we can copy the
+ichimoku function from above as well so
+in case the user has selected ichimoku
+then we are assigning the stop loss to
+whatever is the 10 consent of the
+ichimoku and then again we check that if
+the stop loss or that if the new stop
+loss is a smaller now
+then whatever is the stop loss currently
+on this position because we only want to
+Trail the stop loss downwards and the
+stop loss is not equal to zero because
+that means that the calculations have
+gone wrong and that the stop loss is
+below the open
+price because we only want to Trail it
+when we are in profit and that the stop
+loss is bigger than ask so changing it
+to Capital a then again we modify the
+position I can copy it from here and
+then just paste it here I'll make it
+bigger again and I'll show you the
+function from top to the bottom once so
+that if you want to actually type it you
+can so this is the first
+page this is the second
+page and this is the end of the function
+so if I compile
+now I have one error which is somewhere
+the ask is still without the capital so
+I'm going to double click on it and here
+I forgot to
+change it to a capital ask if I compile
+it now we don't have any error and this
+brings us to to the end of the entire
+modification remember to have this
+reference exactly to where this file is
+saved and once you have made this
+reference now you cannot compile it from
+here anymore you need to compile
+everything from the mq4 file so this is
+it I'll apply the EA ones I'll open up
+the Euro USD
+chart because you cannot apply it to a
+visual chart the one that says visual
+you cannot apply to it because that's
+coming out of a back test so you need to
+open a fresh chart and then if I apply
+year these are all of the
+inputs now one thing you will notice in
+metad data 4 you don't have the sections
+anymore so these are the benefits of
+using met data 5 but all of the
+variables are here now please do
+remember to put this initial balance to
+whatever you are putting in your testing
+or whatever is the balance of your
+account and then set the profit Target
+correctly as
+well if I click okay here is my
+panel and once the once the candle is
+going to change the values here are also
+going to appear let's run a back
+test so let's run a few tests in meta
+Trader 4 just to see that our CES are
+working properly so I have loaded the
+prop from scalping EA from the YouTube
+shared folder where we saved it I'm
+going to run it on gold from 1st of June
+last year until today if I go to
+properties and this is where metat
+Trader fold looks horrible because you
+don't have the sections anymore one what
+one thing we can do is here in instead
+of using the input group what we could
+potentially do is we say input a string
+and call it a v
+variable by the same name as this and
+then if I
+compile and I need to put an a colon
+here and then if I compile now this
+should appear as trading profile into a
+bit of a separator here so if I go back
+here all of a sudden I see trading
+profiles and then with this dash dash
+dash so this is one way to do it it
+doesn't look as neat as it looks in
+mattera 5 but if this is the best we can
+have then that's the best we can have
+let's put a lot of dashes and then I'm
+going to do this here as a string common
+inputs equals and then put a lot of
+dashes and then the next one is input
+again as a string let's call it
+Forex inputs equals
+let's make it more
+prominent same for this the
+string call it percentage profile
+equals I'm making this prominent through
+the dashes then the string
+trailing stop
+equals and the News fil we can just
+simply
+delete or I'll put
+asterisk
+and asterisk backs slash to make it not
+available and then his string again as
+RSI filter
+string
+prop form or prop
+rules settings
+equals this is some this is where we can
+somehow all these errors because we
+needed a colon after all of them because
+these are now variables definition
+r
+r I think it should be okay now yeah and
+now it is okay so if I go back to meta
+Trader and now if we go to expert
+properties at least we have some
+semblance of sections so it is not as
+chaotic as it used to
+be okay so I'm going to choose the
+percentage of price profile because it's
+gold I'm using the percentage of balance
+to start with with 2% I'm going to go
+with bars number 10 because I'd want to
+see some trades if I put 100 then there
+will be very few trades this is fine
+this is
+fine starting with default
+Trail and then RSI and moving every
+filter as false trading allowed on every
+day and then 10,000 because my initial
+deposit here in the test is 10,000 so I
+need to put 10,000 here as well and have
+the same date as the tester so this is
+fine let's run it visually so we can see
+so here the first trade is placed if I
+go here I see that the stop loss is
+about
+$10 and $10 TP which makes sense because
+we put as 0.4% of the price so if you do
+the calculation it should be around $9
+$10 so the trade is placed correctly
+there is a sell trade as well so we can
+pause and go and check what the sell
+trade is and I think one of them is
+already triggered but the sell is stop
+was also with this price about
+$10 stop loss and about $10 TP which
+sounds about right for 0.4% off the
+price then we had a buy here and it
+started trailing very aggressively I can
+see
+that here and then let's also see if the
+the aggressive trailing also happens for
+a sell trade yeah here as well so I can
+pause it and here we had the cell trade
+which aggressively was trailed and close
+down here same here and I think here as
+well now one thing which we need to see
+still is a loss trade and if we go to
+the graph so far we have only wins I'm
+waiting for a loss trade and this one
+was a uh a stop loss hit so if I go back
+I should see a loss trade as well now at
+the bottom down down down yeah here is
+the loss trade and it is about 2% of the
+balance so the calculation of the lot
+size is also working
+correctly so I'll go back I'll stop this
+test now the next thing I'm going to
+check is changing it from percentage of
+balance to fixed loss to see that we
+should get
+0.01 and at the same time I'm also going
+to check for the RSI filter so we turn
+this to
+true I'm going to change this to 5
+minutes so we can see it on the screen
+and I'm going to change it to
+40 and 60 so we don't have to wait a lot
+as soon as it is 40 and
+60 we get the pink chart if I start now
+yeah I'm getting the pink very very
+quickly and I'm getting some trades as
+well in between and the value is 0.01
+and the pink basically means that it is
+changing to
+uh that the trading is being disabled
+and we should be getting this error of
+trading is disabled because the RSI is
+below 40 above 60 so RSI portion is
+working as well and I'll quickly
+check I'll turn this off and then turn
+the moving average filter as true and
+once again on 5 minutes and I'll change
+this to only 0
+5 or even 0.3 just to quickly check that
+once the price has moved
+above the moving average by more than
+0.3% that we get a pinky screen and a
+disabled Journal yeah so we are getting
+that as well so price is as a percentage
+of ma is outside of our range and this
+is why it's turning it off so I'll stop
+the test we go again to
+experts I'll turn this to false as
+well and then the last thing I want to
+check is let's say on a
+Tuesday the trading is not
+allowed so let's start so on Tuesday it
+should become Pink as well so today is
+whatever day trading is allowed and I
+think now it's Tuesday so it's pink and
+then when it comes Wednesday it could
+start trading again so on Tuesday it was
+disabled and then back again on
+Wednesday it starts trading again so
+that portion is working as well so this
+is it for our testing uh do your own
+thorough testing of the stuff as well
+and then in case there are any errors do
+send a comment and I will update it into
+the comment section in a pinned comment
+if there are any modifications that need
+to be made so until next time guys stay
+safe and trade safe
+[Music]
+oh

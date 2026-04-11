@@ -1,0 +1,2234 @@
+We're building this amazing grid
+ 
+management system. It is inspired by
+this trading robot on the MQL
+marketplace and it has been there for
+quite a long time now.
+It sells for $2,800, boasts quite a bit
+of profit, consecutive months in profit,
+and comes with a full documentation
+including features, how to install,
+requirement, risk settings, strategy,
+and all that good stuff. But we will
+build it ourselves step by step with all
+the functionality and this pretty
+looking panel. In the very first video
+in this series, we dissected the entire
+EA trying to understand how it exactly
+works, how does it open trade, how does
+it form grids, how does it manage lot
+sizes, how does it manage TP and SL, and
+what are the small nuances there. And
+what we discovered were quite a lot of
+smart features built into this. Be it
+the lot sizing, be it the TP management,
+be it the SL management, be it the grid
+management, there were always something
+which either had to do with the
+volatility in the market or it gave the
+user quite a lot of flexibility in terms
+of how does he manage the entire grid
+system. And then in the second video, we
+started building the basis structure for
+the coding including all the input
+parameters, the input variables, the
+global variables, and the basis
+structure in itself. And we wrote the
+code until this part in the settings
+which was the RSI value which determines
+where the base trades are going to open
+for both buy and sell. And today what
+we're going to start to look at is the
+lot sizing method. We're going to build
+the entire methodology around the low
+risk profile, the medium risk profile,
+significant risk, high risk based on
+either equity or balance, or on deposit
+load or fixed lots. And then we will
+also handle the function around auto
+splitting or in case your lot size
+becomes bigger than what the broker
+allows, then how do we split it into
+many different orders and then send them
+one after the other. We will include the
+handling of the spreads and slippages
+when we're sending the orders and then
+we will continue with the development of
+grids, how do we open them, at what
+distances, and then do we or do we not
+apply a smart grading, which is if it is
+false, then your grid levels are open at
+a fixed distance from each other. Always
+defined by the user. But in case you
+select the smart distance to be true,
+then in that case it's not just this 35
+that determines the distance in the
+grid, it is also based on ATR values,
+the short period and the long period.
+And then we look at the short period to
+determine the volatility in the market.
+If there is more volatility in the
+market in the short run than the longer
+run, then we increase the size of the
+distance in the grid. Quite a smart
+feature. Then we will build the coding
+around the trade multipliers. So when
+you're using these trade multipliers,
+your opening trade is open at a certain
+lot, but then the lot size continues to
+increase depending on what you have
+selected here. So for the second trade,
+it's going to be a multiplier. So if
+you're starting from a lot size one as
+the base trade, then you have the option
+for the second trade to either go the
+same lot size or increase it. And then
+you have the flexibility for the third
+to the fifth trade to define a different
+multiplier. And then from the sixth
+trade onward, you have an even different
+multiplier that you can use. And in the
+subsequent video, we will add a custom
+multiplier as well where you can
+actually define for level one, level
+two, level three, level four, level
+five, all of them separately custom
+multipliers. And then we will also start
+on the grid level to start
+functionality, which is a very smart
+feature. Now the idea is the entire grid
+management system works on this RSI
+value, which is from the mean of 50, 15
+above and 15 below. That's where you
+open the buy and the sell trades. And
+then your grading is managed with trade
+distances and the smart distancing. But
+what if you didn't want to start trading
+from the very first level in a stronger
+momentum where you're expecting the
+price to go against you for quite some
+time, why start at the base level? So
+what this very cunning grid level to
+start system does is if you put here a
+three, then that basically means because
+we're starting at level three, that for
+the first two trade, we're going to put
+a dummy trade or a bookmark trade if you
+will. The minimum lot sizes here and
+here and then only start our grading
+from level three, which is quite a smart
+actually. Now within that, you have two
+different possibilities, which is to
+keep or not keep the original profit
+level and lot sizing. Which if you
+select it to be false, your first two
+trades are going to be dummy trades with
+the minimum lot size. But when you open
+the third trade, it's going to open as
+the first lot size calculation based on
+the profile that you have selected here.
+But if you actually change it to true,
+then that's where it gets even more
+clever. Now we're going to place dummy
+trades, the bookmark trades of minimum
+values for the first two trades, yes,
+but we will in the background store the
+value of those lot sizing as if those
+two trades were open with the proper lot
+sizing. When we open the third trade, we
+open it as if these two were also
+properly open and were not just
+bookmarked. That's very clever as well.
+That is what we're going to cover in
+this video.
+And then in the next video, we will
+start to look at all of the TP settings
+including the weighted take profit, the
+smart take profit, whether or not to
+hide the take profit, and if we hide the
+take profit, then to use the OPO method
+to actually realize the TPs. Look at the
+stop loss settings, once again, whether
+or not to hide it from the broker and in
+case hidden, then use the OPO method.
+And then we will also look at all of the
+drawdown controls as well. So basically
+by the end of next video, we should be
+able to build up all of these settings.
+And then in the last video, we will
+build up the entire panel. If you're
+joining us from here, I would strongly
+urge you to start from the first video
+because trying to build something
+without fully understanding what it is
+that we're trying to build is probably
+not the best idea. Now obviously these
+codes are going to be available in the
+store as a reference, but please do
+understand. I cannot emphasize enough
+the importance of taking the time,
+following these videos, and actually
+coding these for yourselves. This way
+you will learn about the EA and its
+intricacies as well. And you will also
+learn how to do these kind of things. So
+if you have a strategy of your own, you
+can later build it yourself. And that
+will make me very happy. So with no more
+shenanigans, let's start coding the
+calculation of the lot sizing. Now
+before we start writing the calculation
+of the lot size functions,
+one thing which people forget and MQL
+does not like it
+is that the initialization function.
+Because all of these calculations and
+the indicators, those are loaded into
+the memory and then they're stuck there
+until you release them. So we're going
+to do three things here. The first one
+is we're going to go through the array
+of any handle because that's going to
+equal the number of indexes as the
+symbols. So we're going to go through
+this and they're going to be the same
+for everyone. And then we're going to
+release these indicators by using the I.
+So loop through the three iterations and
+release for all three symbols, these
+indicators.
+And then we're going to be writing an on
+timer function where we're going to
+update every 5 seconds. This is what we
+have done here in the initialization.
+Event set timer.
+So let's release that event time key,
+event kill timer.
+And then if it is not the tester and
+it's not the optimization,
+so it's live trading, so delete all of
+the objects on the chart as well. And in
+the end, I mean when we're going to
+create the panel,
+we're going to create a lot of objects.
+So at the end of it or the
+initialization, remove all of the stuff
+from the chart as well. So delete all
+objects. If you still want to continue
+having the panel even when you close the
+EA, just remove this part. I'm going to
+hit compile
+and it's fine. So let's go down to our
+calculation of the lot size function and
+let's start building it. So we get a lot
+of information from our broker, so we
+get the volume steps, the minimum
+volume, the maximum volume, and the
+volume limit. And if the step is less
+than 0.0001, which is going to be a very
+funny step, most brokers have 0.01, then
+in that case we set it to 0.001. So I
+think in case of Bitcoin is where you
+can have 0.001 as well on certain
+brokers. Then we also get the value of
+free margin, the balance, and the
+equity.
+And then in the tester, if the user has
+selected to use fixed initial deposit
+and the initial balance is greater than
+epsilon, meaning we're checking that
+it's a valid value here,
+fixed initial deposit.
+And for the initial balance, we come
+back up here in the initialization
+function.
+And before the in succeed, we write
+initial balance is equal to account
+balance. So in tester, this is going to
+be equal
+to whatever you put as the initial
+deposit. So if this is greater than
+epsilon, so it is a valid value, and the
+fixed initial deposit is true, which is
+basically the user is asking that run
+the tester as if whatever profit is
+made, I'm going to take it out and I'm
+always going to have the initial
+deposit, the initial balance, this
+10,000 always in the tester.
+Then in that case, free margin becomes
+initial balance, balance becomes initial
+balance, equity becomes initial balance
+because that's never going to change.
+But that's only in the tester. Then
+we're going to get the margin
+requirement.
+We're going to write a function get
+margin required sending it the symbol
+and get leverage
+sending it symbol. And then we start
+with a lot size equals zero. So let's go
+down again to the bottom where we're
+going to have our helper functions. And
+here we're going to have get margin
+required for the symbol where we're
+going to start with the margin zero,
+attempt zero, and then while the margin
+remains less than epsilon, so as long as
+it remains zero, and the attempt is less
+than three, and the symbol is not equal
+to question mark, question mark,
+question mark. I mean normally in MQL5,
+if the symbol is blank, then it comes
+back as blank. But it's more valid for
+MT4 where sometimes the symbol value can
+actually come back to be question mark
+question mark question mark. So, as long
+as less than three attempts and the
+margin is zero, we increase the number
+of attempts so that the next time it's
+attempt two.
+So, if it's attempt one, sleep for 100
+seconds. Attempt two, it sleep for 1,000
+second. Attempt three, sleep for 2,000
+second. And then we're going to
+calculate order margin
+by sending buy type order for the
+symbol, one lot size on ask, and store
+the value into this variable margin.
+But, because we're saying not, meaning
+if it fails,
+if you are able to put in the margin
+here, great, but if it fails, then
+margin equals zero.
+So, that the next time the margin is
+still below the epsilon and we do.
+Now, if the attempt becomes three and
+the margin is still below epsilon, then
+failed to get the margin
+after three attempts. Otherwise, return
+the margin. And then we're going to do
+the same thing for leverage. So, we
+start with leverage. We get the leverage
+because here we had to calculate and
+here we can just simply get the
+leverage. But, if the leverage turns out
+to be less than epsilon, then we do
+exactly the same thing, three attempts.
+So, exactly the same thing and set
+trying to set the leverage to account
+leverage.
+And after three attempts, if it's still
+below epsilon, then we failed to get the
+account leverage after three attempts.
+Otherwise, return leverage. So, we go
+back to our calculate lot size function.
+So, now we have this and we have this.
+We got the leverage and we got the
+margin. And then we're going to switch
+through lot size method, which is going
+to look through the members from this
+enum. So, it's going to look through all
+of these three, three, six, eight
+different possibilities. So, we need to
+look through all these eight different
+possibilities. So, we're going to start
+with switch lot size method, switch
+through all of the possibilities. Now,
+if the case is fixed lots,
+then in that case, lots become the lot
+size fixed value, which the user has
+provided. If it is lots balance, then
+we're going to calculate base from value
+by sending the balance value, margin
+required leverage and step. If it is
+based on equity, then we're going to
+calculate from value by sending the
+equity. Then if it's deposit load,
+then we're going to calculate from
+deposit load, sending free margin,
+margin requirement, leverage and step.
+And then if it is based on risk
+percentage, 1.5% load,
+we're going to create a function which
+we're going to call calculate from risk,
+sending in the free margin, margin
+required leverage and 1.5. If it is
+high, then we're going to send one. If
+it's mid, then we're going to send 0.5.
+And if it's low, then we're going to
+send 0.25. This is what we had
+put in the enum here. 0.25% load, 0.5%
+load, 1% load, and 1.5% load. We're
+going to create all of these functions.
+So, let's come down here and we're going
+to create the first one, which is
+to calculate the lots from value, either
+balance or equity. We come down here
+outside the loop and then we create this
+function. And we're going to send to it
+the account value from here, which we
+have already calculated, the balance,
+the equity. So, we can send the balance
+or the equity, the divisor, which is
+going to be the lot size dynamic value.
+So, up here the user defines lot sizing
+dynamic values, a dynamic lot. So,
+balance equity base, meaning for a
+$10,000
+you open one lot. So, that's the
+divisor. Then the margin required,
+which we calculated, get margin
+required, and then the leverage
+that we also got here,
+and then the step, the value that we got
+from the broker.
+So, we're going to send all of these
+values. So, in case of lots balance,
+we're going to send the balance. And
+then we take the divisor and make it
+absolute because in case of equity, it
+might be a negative value, so we want an
+absolute number.
+And then the lots are going to become
+account value divided by the absolute
+divisor. So, if the account value is
+1,000, then divided by 10,000 that the
+user has input,
+so we get one.
+And then we multiply it by 0.01 because
+that is the lot size that we're going to
+get for every one every 10,000
+every 10,000 balance. And then divide by
+step, multiply by step, and then round
+it. And then return the lots. So, this
+is how we're going to calculate the lots
+from value, whether equity or balance.
+Then the next function we're going to
+write is from deposit load
+that the user can specify here himself
+of what that load is.
+So, we write that formula. Once again,
+we're going to check margin required is
+not less than 0.0001, so it is a
+definite value. This is a definite value
+and this is a definite value that the
+user has provided.
+Otherwise, we cannot calculate and we
+return zero.
+Otherwise, what we do is
+we take the free margin divided by
+margin,
+which is going to give us the maximum
+number of lots one can open
+because if the margin required is 500
+and you have 1,000 as free margin, you
+can open two lots.
+But, the margin required depends on
+This is why we're going to normalize for
+leverage and because you're multiplying
+these two together, so these will cancel
+each other out. So, in case of 500
+leverage, your margin required is going
+to be smaller,
+but so will your
+normalizer. That will also be smaller.
+So, the multiplication of that So, for
+example, I mean, let me give you a very
+quick example. So, let's say you have
+100 leverage and you have 500 leverage.
+Now, free margin divided by margin
+required, in case of 100 leverage,
+you're going to require more margin, so
+let's suppose the maximum trades that
+you can open is two. And in case of 500
+leverage, the max number of trades that
+you can open is 10 because you have more
+leverage. So, your margin requirement is
+is smaller. Then this 100 divided by
+leverage is going to be equals to one,
+but this 100 divided by leverage in case
+of a 500 leverage is going to be 0.2.
+So, your actual is going to turn out to
+be this normalizer multiplied by the
+maximum lots that you can open. So, two
+multiplied by one will equal two.
+And in this case, 10 multiplied by 0.2
+is also going to equal two because we
+are calculating for deposit load. So, we
+need to cancel out the effect of the
+margin and the leverage.
+So, leverage is going to impact the
+margin and five times the margin is
+basically means that you can open five
+times the number of trades. If with one
+to one hundred, you could open two
+trades,
+but then if you have a five times
+leverage, 500, then you can open five
+times the trade.
+But, that is then normalized by 100
+divided by the leverage because 100
+divided by 100 is going to be one, but
+100 divided by 500 is going to be 0.2,
+which is five times less.
+So, five times higher because of the
+margin required, but five times smaller
+because of the
+leverage normalizer will give you
+exactly the same result.
+So, this is where we are neutralizing
+the leverage and then it is just down to
+lot size deposit load divided by 100.
+So, if the user has set 2.5, so 2.5
+divided by 100 to get a 2.5%.
+And then we divide by step, multiply by
+step to round it up to to to do a proper
+rounding. And then we math floor it, so
+we always round it down because we don't
+want to over leverage. So, this is the
+calculation of the lots from deposit
+load. And then we're going to create a
+calculation from risk. So, calculation
+from risk. Once again, we're going to
+check if this is a valid value, a valid
+value.
+Otherwise, once again, this is the
+leverage normalizer.
+This is the maximum number of trades you
+can open based on the margin required.
+But, this time instead of the lot size
+deposit that the user can specify, we
+are sending
+preset risk settings
+and then doing exactly the same, divide
+by 100 to convert it into a percentage
+and then divide by step, multiply by
+step, and math floor. So, these two
+formulas are practically the same.
+The only thing is here we're sending the
+values and here we're not sending a
+value, so the it comes from lot sizing
+lot size deposit load that the user can
+specify.
+So, these are the functions that we are
+using here. And then we're going to do a
+quick check
+that our maximum multiplier
+on any of the symbol
+run all the way to the maximum number of
+trades that you can have in a grid is
+not going to exceed the broker's maximum
+number of lots allowed. I mean, for now,
+type this, but then once we have written
+all the functions, then I'll come back
+and explain what is happening here. So,
+that the lot size throughout the entire
+grid all together cannot exceed the
+maximum number of lots that you can
+have.
+So, this max grid multiplier, let's go
+down in our helper functions and we
+write it
+here, the total function, which is
+basically we're going to loop through
+the symbol arrays, all three of them or
+all four of them, however many
+currencies. And then we are trying to
+get the maximum multiplier
+between those three symbols.
+So, if symbol one has a multiplier of X,
+but
+symbol two has a multiplier which is
+larger than X, then we want to get the
+maximum multiplier.
+So, what we're going to do is we're
+going to loop through the symbol arrays,
+all currencies, and then we're going to
+check. We start with a zero value and
+then if the max lot multiplier max grid
+lot multiplier on that symbol
+is bigger than whatever is currently
+stored in max multiplier, then we
+increase it or we change the max
+multiplier to the higher multiplier.
+And and we loop through all of the
+currencies. So, in the end, the max
+multiplier is going to be the max grid
+lot multiplier of whichever currency has
+the biggest value and then we return
+that max multiplier. So, that's how
+we're going to get the max grid
+multiplier. And then we're going to
+calculate, this is just to get it,
+but then we're also going to calculate
+the grid lot multiplier. So, we're going
+to start with a
+a starting lot of 0.1
+where the total lots is also 0.1.
+And then we're going to go through from
+level one to level maximum number of
+trades that the user has allowed in a
+grid
+minus one because it always starts at
+zero. And then what we're going to do is
+we're going to calculate the grid lot
+size for that level starting at the
+starting lot
+going all the way up to the level that
+we're going to
+that we are checking here and then add
+it to the total lots of 0.1 because that
+is our starting lot. And then if we
+divide the total lots that we're going
+to get here by the starting lot that's
+going to give us the multiplier. So, for
+example, if the starting lot is 0.1 and
+looping through all of the levels and
+adding it to the total lots, we're
+starting at 0.1 but then we're adding
+after calculating for the next level
+what the lot size should be. So, in the
+end the total lots is going to be the
+total sum of the lot for all the levels
+hypothetically if all of them were
+placed. So, if we get that total and if
+we divide it by the start lot then we're
+going to get the multiplier. So, this is
+how we're going to calculate the
+multiplier for the currency pair that
+we're sending to this function. So, this
+is how we will calculate and store the
+value of the max lot multiplier and this
+function we're going to use to get the
+value that we have stored in these
+through this this function. Now, in
+order to calculate the max grid lot
+multiplier we're using this function
+where we're going to be sending the
+value of the start lot and
+what level that we are getting it for
+to get the lot size back.
+So, we need to create that function as
+well.
+But for now I will just stub it at the
+end
+that calculate the grid lot.
+And by the way, these three functions
+we can take them from here. I'm going to
+cut it.
+And we put
+probably the best place for them is
+going to be in the section of lot size
+functions
+because these are related to lot sizes
+even the multiplier. So, I'm going to
+paste it here. So, for now I'm just
+going to stub it at 0.1 but what this
+function is supposed to do later on is
+that we're going to send to it a level
+and we're going to get back for that
+level
+what the lot size should be. And this is
+what we're going to use here in the
+calculate max grid lot starting at 0.1
+but then looping through the levels from
+level one all the way to the maximum
+trades minus one
+and then getting the lot size of what
+that level lot size should be
+adding it back to the total lots which
+is the same value as lots starting
+so that we get the total lots for the
+entire grid to the maximum.
+And then we divide one by the other to
+get the multiplier. Then we're going to
+store the multiplier into that symbol
+currencies max grid lot multiplier max
+grid lot multiplier for every currency
+and then we will be able to get the max
+grid multiplier across the year for all
+the currencies by looping through all of
+the currencies
+comparing their max grid lot multiplier
+and then getting whatever is the highest
+of the those multipliers. So, for now
+let's go back to
+our calculate lot size function which we
+are writing. But before that, now that
+we have written this function even
+though it is a stub for now, but this is
+first time going to be called in the
+parse and initialize symbols.
+So, after this line
+we're going to also assign the max lot
+grid multiplier
+to the functions while we are parsing
+and initializing them by using the
+calculate max grid lot multiplier that
+we have created. We haven't written the
+codes within it but at least now we have
+created that function. And that
+function's job is to calculate for the
+symbol what is the max grid lots
+multiplier is and then is store that
+value into the symbol array. And this we
+should also do here. So, in after
+initializing the symbol data, we're
+going to do the same as well. So, if it
+is not a tester then it's live
+environment so we're doing this but if
+it is the tester then it's just one
+symbol so we're going to send that
+symbol. Now, back again to calculate lot
+size. After doing this check we're going
+to do another check which is the grid
+level to start. Remember we had
+an option for the user to say grid level
+to start is one or what? I mean one is a
+default value but the user might also
+say it's like okay, well the normally
+with the RSI value the grid should open
+here
+and then then the first level should be
+here and then second level should be
+here and the third level should be here
+but I don't want to trade the level
+zero, level one and level two. I want to
+start from level three because I'm in
+any case expecting the price to go
+against me
+so I would rather start opening the
+trades later.
+But in order to calculate all of the lot
+sizing properly
+we will still have to stub
+a 0.01 the minimum lot size at the base
+at the level one at level two before
+this level that the user has defined has
+hit. And this is why here in our
+calculation of the lot sizes, if the
+grid level to start is greater than one
+meaning the user has specified that we
+should actually start lot sizing like
+from level three or level four then
+level zero, one and two we need to set
+the lot size to minimum lot to just
+place a trade so that we have a grid
+but not with the actual lots but just a
+placeholder with the minimum amount
+possible. And then we normalize the lot
+size by creating a function normalize
+lot size
+sending into it the symbol and the lot
+size because it can be different digits
+or different requirements for the steps
+and then we just return the lot size.
+So, this is our calculate lot size
+function and now we need to write this
+normalize the lot size function so let's
+maybe come down here before the get
+multiplier.
+This is where we're going to create this
+function which is again we're going to
+get the step and the minimum volume.
+And the lot size is going to be lot size
+divided by step multiplied by step so
+that's just a rounding and math round.
+And then if the lot size turns out to be
+less than the minimum lot acceptable by
+the broker then in that case lot size
+become minimum lot. And then we get the
+digits and then we normalize the lot
+size to the number of digits. So, this
+is how we will normalize the lot size.
+Let's compile. We seem to be okay. Now,
+we can run and check whether or not our
+lot sizing is working.
+And now you can see that our lot sizes
+are now being calculated
+based on the values that we
+have selected in our input. But by the
+way, let's go back again and we're going
+to remove the commented out tester hide
+indicators
+so that we don't end up seeing the
+indicators. So, if I run now we see that
+the lot sizes are working.
+For the initial trade we still haven't
+written the grid
+so it's 0.03 coming out here but if I go
+back to the input and I let's suppose
+change it to higher risk setting
+then we get a different lot size.
+And then if I go fixed lots
+then that case we're getting fixed lots.
+If I go based on balance but let's
+change this to I don't know a thousand
+is 0.1 lot per thousand and our balance
+is
+10,000.
+So, we should be getting a 0.1.
+If it was based on every I don't know
+500 then we should be getting 0.2.
+And we're getting 0.2.
+At this point we have written opening up
+of the first trade based on RSI and we
+have written the calculation of the lot
+sizes for the first trade. And now in
+the next section we will start to write
+grid related functions where we're going
+to open up the grids based on the
+distances that the user has specified.
+And then also do the calculation of the
+lot sizes
+for the next layers in the grid. So, now
+we're going to continue with our grid
+management so we're going to open up the
+grids
+and manage all the levels for the lot
+size and everything. Remember we wrote a
+special magic number for every trade.
+So, now we need a helper function for us
+to be able to decode it as well. So,
+we're going to go up and just below the
+structure we're going to create
+a class and there are going to be four
+elements in the class which is M base,
+UID, magic base and digits. Then we will
+be calling its functions magic helpers
+we're going to be sending it the base
+value and the UID value and we're going
+to assign the base value to M underscore
+base the one that we have created here,
+UID to UID, M magic base is going to be
+equal to base plus the UID because UID
+is the instance so if we have 84570
+then 84570 plus one and then M digits is
+the number of digits in this magic base.
+So, we're going to convert it to string
+and then we're going to get the length
+of that string
+and store it here. And then we're going
+to write a few helper functions within
+this class which we can call upon. So,
+the first one is get base.
+So, whenever we will call get base
+we're basically asking for the magic
+number for base plus UID so just return
+the magic base. And then the second
+function we're going to create is get
+direction magic
+meaning get base only or get the
+direction plus the base
+and we're going to send it the direction
+so whether it's a buy or it's a sell,
+and in that case, return the 10 raised
+to the power 7 because M digit is equal
+to 5. Our days is 84570, so it's five
+digits plus two times the direction, so
+whatever we're going to send, either
+we're going to send one or two, and then
+plus to it the magic base times 100,
+meaning this number. So, for buy, it's
+going to become 1
+10 raised to the power five times the
+direction, so times one, and plus the
+times 100. So, it's going to be
+18457000.
+So, we're getting a magic number with
+direction like this without the levels.
+So, the levels are going to be zero.
+Then, get level magic, meaning this time
+around we're asking for the level as
+well. So, we're going to send direction
+and the level. So, now our calculation
+is going to be this plus this, but then
+plus the level as well. Let's say if the
+level is two, then what we are going to
+get in the end is this number. So, now
+we have the direction, the base magic
+number including the UID and the level
+digits. Exactly the same way, but here
+we're including the level as well. Then,
+another function we're going to create
+that we can call upon is is our order.
+And we're going to send the magic
+number. I mean, when we get from the
+position the magic number, we can send
+it here to check if it is our order. And
+then we start with if the magic number
+is less than or equal to zero, then just
+return false, that it's not ours, it
+might be a manual trade. And then the
+prefix is going to be magic number
+divided by 100 because, for example, if
+this is the magic number that comes
+back, if this was the magic number, then
+we're basically saying this divided by
+100, and it will return 184570.
+So, it will be without the level, the
+prefix. So, dividing it by 100, as we
+are creating it as an int, so it's going
+to be rounded down. So, you're going to
+get 184570,
+and that's going to be our buy prefix.
+And then buy prefix is magic base plus
+the 10 raised to the power five, the
+number of digits. So, the buy prefix
+becomes the magic number base, so 84570
+plus 100000,
+10 raised to the power five, so it's
+going to become 184570.
+And that will always be our prefix for
+buy, no matter what magic number we're
+going to create, because of the way we
+we create the magic numbers.
+Here, for example, the prefix is always
+going to be for the buy 184570
+because the last two digits are level.
+So, this is our buy prefix, and in case
+of sell, we multiply the 10 raised to
+the power five by two, so then it
+becomes 84570 plus 1 10 raised to the
+power five, but this one is times two.
+So, this is going to become 284570.
+So, this is always going to be our
+prefix for a sell trade. Our sell trade
+will always have this number, and our
+buy trade is going to have this number
+depending on the UID instance, but the
+UID is going to become constant, so it's
+either going to be 870 or 871, 872 up to
+nine. But this is how we we're going to
+create the magic number. So, now we can
+read the magic number exactly the same
+way as well. So, when we send the magic
+number, we divide it by 100 to get the
+prefix,
+and then we can check it against the
+prefix. So, if the prefix is equal to
+this prefix or the prefix that we're
+getting from the magic number is equal
+to this prefix, then it is our order.
+So, in that case, either or, in that
+case, this is our order, so we're going
+to return a true. So, this is how we're
+going to check the magic numbers. Now,
+if we get the magic number from a
+position and we want to check the
+direction from the magic number, we're
+going to send to it the magic number,
+then we're going to check if it is our
+magic number
+by running this function. And if it is
+not, then we return zero, but if it is,
+then prefix is equals to magic divided
+by 100, that we have done here as well,
+so you basically remove the last two
+digits, and then it is the prefix.
+Then, if it is the buy prefix or the
+sell prefix. So, we create the buy and
+sell prefix again exactly the same way
+as we have done here. If the prefix
+equals buy prefix, then return one,
+meaning it's a buy because we're trying
+to get the direction from the magic. And
+if the prefix equals sell prefix,
+meaning this prefix, then return two.
+So, we can send the magic number, remove
+the two digits, and then it's going to
+be either this or this.
+So, we can check versus the buy prefix
+and sell prefix
+whether it's this number or this number.
+If it is this number, then we know that
+it's a buy, so we return one. If it's
+this number, then we know that it is a
+sell, so we return two.
+So, this way, by using this function and
+sending to it the magic number, we can
+check whether or not it's our magic
+first, and then if it is our magic
+number, then we can check what is the
+direction, whether it's a buy or it's a
+sell. And then the last thing we're
+going to create here is to get the level
+from the magic number, which is very
+simple. We're going to send to it the
+magic number. We're going to first check
+whether or not this magic number which
+is coming is our order by using this
+And then if it is, then it's basically
+magic percentage two, which is get the
+last two digits of the magic number. So,
+whatever is the magic number, the
+percentage two basically means in MQL
+that get the last two digits. So, get
+this these two. So, this is how we're
+going to get the level numbers as well.
+So, these are all the functions that we
+have created in this helper class, magic
+helper, which we can use, and then we
+close the class. And because it's a
+class, so you don't just close it with a
+curly bracket, you also put a semicolon
+just like a coding statement. So, this
+is our class. And we compile,
+and everything is fine. Now that we have
+created this class, we need to
+initialize it in a way, and we can do it
+here just after we have written all of
+these global variables. We're going to
+initiate this here by sending to it
+the magic number base and UID. And why
+we are eating writing it here is because
+this is after the magic number base and
+the UID value.
+So, once we have established these two
+values, this is where we initialize it
+so that these values can be sent back to
+this magic helper because that's what we
+said we're going to send it to base and
+we're going to send it to UID.
+So, here we can send it because we have
+already established them
+and here.
+I'll compile it again just to make sure,
+and it's fine. And now we can go back
+down to our grids part because now we're
+going to start creating all the
+functions which are going to be related
+to opening of the grids and management
+of the grids. So, the first one, grid
+exists. What we're going to send to it
+is the symbol,
+the level,
+and the direction. And we're basically
+asking if the grid exists at this level
+for this direction. Now, if we send
+minus one, it's going to be we're asking
+for a sell. If we are sending it a plus
+one, then we are asking for a buy. So,
+what we're going to do is we're going to
+loop through all of the positions,
+looping through all positions total, and
+then we say if position by select sales,
+then print this, that order select
+failed. Otherwise, you have selected the
+first position. We're going from zero
+all the way to the total number of
+positions minus one because we're saying
+less than positions total. Then we're
+sending it the symbol ourselves, so we
+can check if the position info symbol,
+so the position which is selected, if
+the symbol of that position is not equal
+to our symbol, then it's not a position
+that we are interested in, so continue.
+So, go to the next position. Don't do
+anything below, just go to the next
+iteration. Then we're going to get the
+magic number, so we create a magic
+number, and we say position info magic
+number, so we get that and store it into
+this variable. And then using our helper
+class, we can check whether or not it's
+our magic number. So, this helper class
+that we have created is magic is our
+order, that's what we're going to use
+here.
+Is our order and send it the magic
+number. So, if the return value is
+false, so it is not our magic number,
+then it's not a position opened by this
+instance of the EA, so we're not
+interested in this. So, continue,
+meaning go to the next position, but if
+it is our magic number, then get the
+direction from magic.
+Remember, we just created the helper
+class to get the direction from the
+magic number. So, get the direction
+whether it's a buy or it's a sell, and
+we store it into order direction. And
+then we say that the direction that we
+are sending here, if that is one,
+and the direction that we got from the
+magic number is not one, then it's also
+a trade we're not interested in. Go to
+the next position. Then if the direction
+is minus one, what we're sending here,
+because we're going to send one for buy
+and minus one for sell. If we're sending
+the direction as sell, minus one,
+and
+what has returned from get the direction
+of the magic is not two because for the
+sell, the the value that returns here is
+two. Look back at the magic function
+that we created. So, when we get the
+direction, if it is a sell prefix, then
+return two. So, when we're asking here,
+we're going to send minus one if it's a
+sell.
+We're checking for a sell grid, plus one
+if we are checking for a buy grid, and
+zero if we are checking for any grid,
+sell or buy. So, if it is not equal to,
+then continue as well. Continue meaning
+go to the next position. And then we're
+going to check for the order level once
+again by using our helper function.
+We're going to send to it the magic, and
+we're going to ask for the level.
+That's also something we created in the
+helper function here to get the level
+from the magic. So, we're going to send
+the magic number and ask for the level.
+And then we say if the level is greater
+than zero, meaning it is a valid value,
+but the order level isn't the level that
+we are sending to be checked, then leave
+this position and go next as well. And
+if all of that matches, then in that
+case, return true, that there is a grid
+that exists with that level, with that
+direction. And if you loop through all
+of the positions and you haven't
+returned true, which means you couldn't
+find a position for that level and
+direction, in that case return false.
+So now with this function, for any
+symbol,
+we can send a specific level number, or
+we can send minus one, which basically
+means we're not interested in the
+levels, we're just interested in if the
+grid exists up to whatever level, and we
+can send the direction by saying minus
+one if you're only looking for sell, if
+it exists,
+plus one if you're only a buy grid, if
+or zero if we are looking for any grid
+exists, whether it's a buy or sell. And
+then we can run through this loop, and
+it's going to return true if our
+conditions are met.
+So this is our grid exists function.
+Let's compile to see everything is fine,
+and yes, we're okay. And now we're going
+to go back to our on tick function, and
+here after the symbol updates, we're
+going to check and if trading is
+allowed, which is the first function
+that we created in the helper function,
+if trading is allowed, then in that
+case,
+run this function, check and open grid
+orders for the index that we are
+currently on. So this is where we're
+going to start writing the codes for
+opening of the grid orders. So let's go
+back to our grid related functions, and
+we're going to create a function by the
+name check and open grid orders. And
+we're only going to send to it the
+symbol index.
+The first thing we're going to do is
+we're going to convert the symbol index
+into the proper symbol name by getting
+the symbol name for that index from that
+structure variables that we have created
+and we have looked at many, many times.
+And then we're going to do a quick
+validation that if the maximum number of
+trades is less than one, which basically
+means that is the maximum number of
+trade on a symbol allowed is just one or
+less, so you cannot open a grid, or the
+trade multiplier third is less than or
+equal to zero, which means that the user
+has not provided a valid value for the
+trade multiplier, or the trade distance
+is zero, which is less than the epsilon,
+which means the trade distance is not
+there. So in that case return as well,
+just exit the function because the
+values are not correct. And then we're
+going to get the spread, the point, and
+the digits from the broker for the for
+our symbol, and then we're going to do a
+check grid direction. So we're going to
+write this function,
+and we're going to send to it symbol
+index, the order type buy, because we're
+going to check for a buy grid, and then
+open a buy grid if we need to open up
+another level. We're going to send to it
+the spreads, which we're getting here.
+We're going to send to it the point that
+we're getting here, and we're going to
+send to it the digits that we're getting
+And we're going to do the same for the
+sell as well, because we don't want to
+to complicate everything within this
+function, so now we're going to go for a
+check grid direction for buy and for
+sell separately into separate functions.
+So we will start with check grid
+direction. We're only going to write one
+function, and we can run it twice for
+buy and for sell. So we're sending to it
+in symbol index, order type, spread,
+point, and digits. So as always, we're
+going to convert the symbol index to
+symbol name, then we're going to set the
+direction
+because we're
+sending this value here as order type.
+So if order type is order type buy, so
+the value sent to this function is order
+type buy, then the direction is one,
+otherwise it's minus one. So for sell,
+it's minus one, for buy, it's one. And
+now we can check if the grid exists. So
+if we have sent a buy order, then in
+that case this is going to be buy, so we
+get a grid exists check for current
+symbol, level zero meaning we don't
+really care for the levels, and then
+sending it the direction one meaning
+check if a buy grid exists for level
+zero that we don't care. I mean there
+needs to be just one trade, and if
+nothing exists, there is no trade at
+all, a buy trade, and in that case just
+simply return.
+And if we are sending the next time as
+sell, then order type is going to be
+sell, so it's going to be minus one. So
+we're going to be sending minus one
+here. So we're checking if the grid
+exists for sell. Even if there is one
+position for sell, and this is why I'm
+saying zero. And if zero positions are
+there, then in that case, not even the
+first position is there, so what are we
+going to build the grid on? So we don't
+need to do anything, just return meaning
+exit this function. But if the grid does
+exist, whether it's just the initial
+um position, or there is a grid with one
+or two levels, or three levels, or
+whatever number of levels,
+so we come down here,
+and then we get the total lots by
+getting the total lots in the grid by
+sending in the symbol, level zero,
+direction, and this false. And when we
+will create the function, we will see
+what this false is. And then the current
+price is equal to from the symbol array,
+we get the close price. Remember we set
+the close price,
+I think in the update symbol
+information, we set the close price here
+to the last candle's close,
+and that's what we're getting here as
+well. So get that value back for the
+And then for the average price, we're
+going to create a function get weighted
+average price by sending in the symbol,
+level, and direction. So for now, I'm
+going to come down, so let's close this
+function. So we close down this
+function, and then below this, I'm going
+to create the get weighted average
+price. We're going to send to it symbol,
+level, and direction. And for now, I'm
+just saying return zero.
+And the get total lots in grid function
+that we have already stopped before, so
+that's the function that we're going to
+get here, we're using here. We're going
+to write this function later. We're
+going to check for what levels are
+already there, so that we can know that
+the next one that we are creating is
+going to be level last plus one.
+So we're going to start at level one,
+and we're going to loop through
+every time increasing the value of the
+level by one until the maximum trades
+minus one.
+So the first thing we're going to do is
+we're going to check whether that level
+already exists,
+and we can check it in the grid exists
+by this time sending the symbol and the
+actual value of the level, because now
+we're going to check that this level
+exists, so level one exists, level two
+exists, and sending it the direction
+that we have. So if it's a buy order, we
+send the buy direction. So if grid
+exists, meaning this level already
+exists, or we actually check for this
+bar if the grid is already open, because
+remember we wrote in our open market
+order, we wrote that for the symbol
+index
+uh after opening the trade, grid open
+becomes true. So if on this bar, if the
+grid has already been open on this bar,
+then we don't want to do it again. We
+don't want to open another grid on the
+same bar.
+So if this is true, or if this is true,
+that the grid already exists for this
+level, then in that case, continue,
+meaning check the next level then. So
+we're going to continue looping until,
+let's say if there are already two grid
+two levels open, then level one, we're
+going to continue, go back to level two,
+then continue, and then it's going to be
+level three, and level three doesn't
+exist.
+So if level three doesn't exist, we're
+going to come down to this line, and
+we're going to start
+putting together the data which is
+required for opening the trade level
+three. So first we're going to get the
+required distance, which is going to be
+the trade distance times the level. So
+for the level zero, it was zero, but the
+next the level one is going to be 35 *
+1, then level two is going to be 35 * 2,
+then 35 * 3 for level three. So how far
+it needs to be
+based on what the user has defined in
+the trade distance times the number of
+level which we're going to create.
+That's the required distance. And then
+we're going to actually change this
+required distance into the price
+distance by saying required distance
+times point, then get the multiplier, so
+whether it's five digits or three
+digits, then it's 10, otherwise it's
+one, and multiply it by the smart
+distance multiplier, so that if the
+volatility is 1.2, we take the 35, and
+we actually multiply it by 1.2 as well
+to to create the additional distance.
+Remember we stopped it between one and
+1.5. And then the price difference
+variable is going to be current price
+minus the average price, and the average
+price we're going to get from this
+function, and the current price we're
+going to get from the close of the last
+bar on this symbol. So now we know what
+is the price difference between the
+average price of our grid, which we're
+going to get from here, and what the
+current price is in the market. So then
+we can create a bool that has the price
+reached the level that we want to, and
+then if it's the order type buy, then
+the price reach is going to be if the
+price difference is less than minus
+price distance. And if it is a sell,
+then it's greater than the price
+distance, because sell trades, the
+levels are going to be above, and for
+the buy, the levels are going to be
+below. And in this case, it needs to be
+smaller than the negative price
+distance. So negative 35, negative 42.
+If the price has dropped negative 42,
+then it has definitely passed minus 35.
+So this is why we're checking that it is
+a smaller than the negative price
+distance. And in case of the sell, we're
+going to be putting the levels above, so
+it is from the whatever last level, plus
+35 is the
+the price distance that needs to be
+there. And if the price has gone even
+above, so it is above the price
+distance. And then if it's not price
+reached, then in that case just continue
+uh because we haven't reached the level,
+so what's the point?
+So we just continue. And then we have
+this is special function of grid level
+to start where we were going to put 0.01
+0.01 0.01 until whatever the user has a
+specified that this is the level from
+which to start the actual grading. So
+this is why we say initial stop loss is
+zero. We create a variable and then if
+the grid level to start is greater than
+one and in that case initial lot is
+going to be get total lots for the
+symbol is starting at grid level to
+start minus one because that's where the
+actual lot size starts sending in the
+direction and then saying false. We are
+still to create this function so we're
+going to come back to it as well. And
+then we say that the lot size is going
+to be equal to calculate the grid lot
+size sending to its symbol total lots
+level and the initial lot. And then from
+this function if the lot size turns back
+to be zero then basically we couldn't
+calculate the lot size so continue go to
+the next level and then if everything
+has been successful so far then in that
+case open the grid order of another
+function we will create by sending to it
+the symbol index order type level and
+lot size.
+And in that case again the grid open is
+going to turn to true
+and the op triggered is going to be
+equals to true as well and then sleep
+for 5,000 seconds. So this is if
+everything checks out we actually open
+the grid order by calling upon this
+function that we're going to create. So
+now we're going to start creating the
+functions that we need to create so
+let's start with calculate grid lot size
+which is going to be the lot size for
+the grids. We already have one for the
+calculate lot size which is for the
+initial trade and now we're going to
+write one for the grid. So let's write
+it and what we're going to be sending to
+it we're going to need to send to it the
+symbol the current total lots which are
+already on the grid so if it is at level
+three how many how many lots are there
+in the grid already what is the level
+and what is the initial lot because
+remember here in the grid distance
+multiplier so you had the multipliers so
+depending on which level it is we're
+going to have to multiply it by the lot
+multiplier. So we create this function
+and we're going to get the value of the
+step minimum volume maximum volume and
+volume limit for the symbol from the
+broker and then we're going to check if
+the step from the broker turns out to be
+0.0001
+then we change it to 0.001 which is the
+Bitcoin lowest step just to streamline
+the stepping. And then we're going to
+create two variables one is the result
+and we're going to start it with the
+minimum lot and the base lot is whatever
+lots we have sent here as the total
+lots. So this is going to be the base on
+which we're going to do our calculation
+and then we're going to have to do that
+a special function grid level to start
+if the user has put it as more than one
+then if the initial lot that we're
+sending here is less than 0.099
+then in that case we calculate the lot
+size by sending the symbol to calculate
+lot size as false based on if it is an
+initial order or not and come down here
+if the grid level to start was greater
+than one and initial order then the lot
+size was minimum lot. But because here
+we're sending the next level in the grid
+so it's not an initial order so we're
+going to go false for the if it is
+initial order because it is not the
+initial order so we're going to send to
+it the false. And then we're going to
+check if the current level for which we
+are because we're going to be sending
+this from here the level number after
+checking here how many levels have been
+achieved
+or already are there in the grid we're
+creating the next level so the level
+value is going to come here.
+And then if that level is still below
+where to start the grid level properly
+then in that case we take the base lot
+which is the current lot times the
+multiplier and the multiplier we're
+going to get it from multiplier for the
+level function. Otherwise if we are
+saying keep original profit lot size and
+it's not auto split then if the level is
+grid level to start minus one meaning we
+have reached the level where we are
+going to start creating the lots
+then the result is going to be initial
+lots otherwise
+we get the multiplier for the level grid
+level to start minus one and then level
+multiplier is for that level we get the
+multiplier for level from there and then
+the result is going to become initial
+lot divided by the start multiplier
+times the level multiplier. Otherwise
+the level start if level minus the grid
+start minus one and then double
+multiplier is going to be equal to get
+the multiplier for level from start and
+lot
+times the multiplier and then we close
+this else loop and we close this else
+loop and then we close
+the if the grid level to start. So if
+you have changed
+this from one to maybe two maybe three
+maybe four this is what we're accounting
+for here. I suppose that this is a
+complex one so maybe what I will do is I
+will make a separate video to explain
+the working of if you were wanting to
+start the grid level from more than one
+what exactly every step is doing. For
+now if you don't understand it just
+write it like this
+and then we'll come back in another
+video because that's this one is
+probably going to take half an hour to
+an hour just to explain this function
+because if you are not changing this
+value if if you are using the EA as a
+normal grid which is is start wherever
+start but not like it start from level
+three level four
+then this else is what you are more
+interested to get the multiplier for
+this specific level that we are going to
+create and then the result becomes base
+lot whatever is the lot size from the
+base times that multiplier for that
+level and then we close the function. So
+we're going to get the multiplier for
+the level and then we're going to
+multiply it with the base lot because
+that's what we are supposed to be doing
+here which is you get whatever is the
+base lot and then the second time the
+multiplier is going to be one
+then from there it's going to be
+multiplied by two so get the multiplier
+for that particular level and then we're
+going to do the multiplication of the
+So let's write that function get
+multiplier for level. So what we're
+going to send to it is the level we're
+just going to send to it the level and
+then we're going to try and get what
+should be the multiplier for that level.
+So now if the level is less than or
+equal to zero then just return one
+because then the multiplier is simply
+one you don't make any change to the
+actual lot size but then we go double a
+multiplier equals one so we start with a
+value of one and then we're going to
+loop through from I until whatever
+number of level which has been sent. So
+we're going to loop through it then if I
+equals one so if it is level one
+then the multiplier is equal to trade
+multiplier two times the multiplier one
+which is this one.
+So second trade multiplier whatever the
+user has chosen here that is going to be
+the multiplier which we're going to
+multiply with one which is basically
+mean multiplied by one means that number
+itself. If it's between two and four
+which is here from third to fifth trade
+and why we're saying two to four is
+because the first trade that we open is
+level zero second trade that we open
+it's level one so the third to fifth
+trade is actually level two to three in
+that case we're going to use the trade
+multiplier third
+which is this one otherwise which means
+it is bigger than five which is this one
+so six trade onward we're going to use
+this multiplier. So we're sending this
+multiplier back.
+We close the for loop and then we return
+the multiplier. So once again level zero
+like the first time the trade opens and
+that we calculate in the calculate lot
+size
+but when it comes down to the level we
+can get the multiplier for the level by
+sending the level. We're going to loop
+through all the levels and if it is one
+then it's the multiplier second this one
+between the third and the fifth trade
+once again the index starts at zero so
+it's third to fifth trade is this one
+and then sixth trade onward so this is
+why else it is this one. So this is what
+we're doing here get the multiplier for
+level. So now we can go back to
+calculate
+grid lot size and we were here.
+We going to round the result to the step
+size which is basically result divided
+by step multiplied by step. We're going
+to apply the limit so if the result
+turns out to be less than the minimum
+lot allowed by the broker then results
+becomes the minimum lot. So these are
+validation checks and then if the result
+is greater than the max lot
+and it's not auto split we're not
+allowed to split the lots into two then
+in that case result becomes the max lot.
+If the result is bigger than the limit
+lot then result becomes limit lot.
+So these are all the validation that
+we're doing against these values that we
+got from the broker for the symbol. And
+then we basically do this where we're
+saying that if the step is very close to
+0.01 meaning it's between this value and
+this value it's very close to 0.01 then
+normalize to three decimal places if it
+is close to 0.1 meaning it is between
+this number and this number
+then normalize to two decimal places if
+it is very close to 0.1
+then normalize to one decimal place and
+if the step is very close to one
+so it's between this number and this
+number then normalize to zero because on
+certain brokers you might get the value
+of the step not exactly a 0.01 but you
+get 0.0100000001.
+I mean sometimes there is a very small
+decimal because it is not written to the
+specific digits so this is why we're
+normalizing based on digits that if the
+step is very close to one 0.01 then
+normalize to three otherwise two
+otherwise one otherwise zero. So now
+from here we go down to our get weighted
+average price
+function and now we're going to write
+that function as well. So we're going to
+start by with two variables total lots
+and total price because we're going to
+get weighted average price so we're
+going to get the total price and then
+divide it by total lots to get the
+average price. Now when we are going to
+be calling this function we will have
+the ability to ask for direction so
+whether we want for the buy grid or for
+the sell grid, so we need to take that
+direction and then store the direction
+into a target direction. If the function
+is being called for buy orders, then the
+target direction is one buy, otherwise
+it is two sell. So, this gives us the
+flexibility of using the same function
+for both buy and sell
+to get the weighted average price for
+the buy grid or for the sell grid. Now,
+we're going to start looping through all
+of the positions, so we're going to loop
+through all of the positions total.
+Then we're going to try to select and if
+we're not able to select the position,
+then we say, "Well, order select
+failed."
+But if we are able to select the
+position, then we're basically going to
+loop through exactly the same as before,
+so we're going to get the position
+symbol info and check it versus the
+symbol that we are sending.
+If it is not matching, then that
+position is not what we are interested
+in, so continue, go to the next
+position.
+Then get the magic number from position
+info magic. So, from this position, get
+the magic number
+and compare that magic number by using
+our is our order function to see whether
+or not this is our trade. And if it is
+not our trade, then continue to the next
+position because we're not interested in
+this position.
+Then get the direction and check the
+direction by sending the magic number of
+the position
+and we check it versus our target
+direction. If it is not matching, if the
+user has called this function for buy,
+but the actual position that we are
+currently looping is sell,
+then we're going to drop that position
+and go to the next position to see and
+then check the level. If it's not equal
+to our level, then in that case continue
+as well. And this is why we're saying if
+level is greater than zero, so the user
+or whoever is calling the function is
+interested in getting the level, then in
+that case, get the level from the magic
+and check it versus the level. And if it
+is not matching, then continue, meaning
+go to the next position as well. And if
+all of this is fine, then in that case
+for this position that we're currently
+in, get the volume and it into the total
+lots variable, get the price times the
+lot and add it to the total price.
+So, we're getting the total price times
+the lot because it is weighted price, so
+that we can later divide it by the total
+lots and then we say if we're not
+allowed to do a splitting, then in that
+case break
+break this function, only just take the
+first order and then we can calculate
+the average if the total lots is greater
+than epsilon, so we're just doing a
+validation that it is a valid number,
+then total price divided by the total
+lots is going to be our average.
+So, then return that.
+So, this is how we're going to calculate
+the weighted average price.
+And this is weighted average price.
+We're multiplying the lots into the open
+price every time when we're adding the
+total price for every position which
+matches our symbol, our magic, our
+direction and our level. So, if we have
+a valid total lots, then we return the
+value of the average price, otherwise,
+we just return zero.
+So, now we can go ahead and open the
+grid order. So, I'm going to come down
+here and here we're going to actually
+open the grid order. So, we're going to
+create a function open grid order. We're
+going to send to it the symbol index,
+what type of order we are sending, what
+is the level and what is the lot size
+from here. So, we calculated all of
+this, the lots getting the total lots in
+the grid. So, first we're going to take
+our symbol index and change it into a
+symbol name like by getting the symbol
+name from our index versus the symbol
+array
+number symbol name. Then like the first
+trade, we're going to check for spreads
+and if the spreads are bigger than the
+maximum spread, then we say spreads are
+too high
+for the grid order
+and then return false that we couldn't
+open. And then like the first time we
+opened the base trade,
+here again, we're going to check the
+margins, we're starting the margin
+using the order calculate margin
+based on either ask or bid depending on
+whether it's an order type buy or sell
+and it store it into the margin.
+Now, if that function fails
+or the margin return is zero
+or the margin return is bigger than what
+is available
+as free margin, then in that case there
+is not enough money.
+We did that before as well. Then we're
+going to handle the auto splitting if
+auto split is allowed and the lot size
+turns out to be bigger than the maximum
+lot allowed by the broker on this
+then in that case we're going to write
+another function where we're going to
+split and open the order, otherwise,
+we're just going to send the single
+order, send grid order and we're going
+to send the level lot size and
+everything. So, here we're going to open
+the order
+and now we're going to send the order.
+But for this is splitting,
+let's go down to our helper function
+section and let's stub it for now.
+But we need to come back to it. For now,
+just return false. Okay, let's come
+back. So, here we were and now we're
+going to send the grid order. So, let's
+create that function and once again,
+we're going to take the symbol index,
+convert it into the symbol.
+Then we're going to calculate the magic
+number. But this time we're going to
+calculate the magic number for the grid.
+So, we're going to create another
+function where we're going to calculate
+the grid magic number because here we
+need to also put the level. In the first
+trade, the base trade, we didn't have to
+calculate for the level, we only had to
+just add a double zero in the end
+because that was the base trade. Before
+we continue, let's write that function
+because it's a very small function to
+write, which is we're going to send to
+it the level and the order type. We're
+going to start with magic base, which is
+going to be equal to magic number
+base 84570 plus UID. Let's suppose the
+UID is zero, so it equals
+84570. Then we're going to get the
+digits, which are five
+in the magic base. Then we're going to
+get the direction, so if we are asking
+to create a buy order, then it's one,
+otherwise two, so it's one or
+two.
+And then exactly like before, we're
+going to do this, which is we're going
+to take 10 raised to the power seven, so
+seven zeros, times the direction, so in
+case of buy, it's going to be one, plus
+the magic base times 100, so 84570
+but double zero
+plus the level that we are sending here.
+So, if the level was two, so it's going
+to become two.
+So, then the magic number we're going to
+get is 18457002.
+So, this is for the buy.
+And for the sell, it is going to be one
+these zeros times two
+plus 84570
+double zero
+and then plus two if the level is two,
+so it will become 84570
+02. So, we're creating a magic number
+simply sending the level number and the
+order type and then using our magic
+number and UID
+if it is the order type
+buy, it's going to return this with the
+level number that we send.
+Otherwise, if it's sell, then it's going
+to create this with the level number
+that we send. So, this is just creating
+the grid
+uh magic number. So, we create that
+unique magic number for that order, for
+that level number. And then like before,
+we create the comment, which is equal to
+trade comment, and then if level is
+greater than zero, then the comment is
+we're going to add to it a hash
+and the level number, so that we can see
+it in the comment that it's open the
+trade hash one, hash two. And just like
+before, set
+the expert magic number to this magic
+number that we just calculated.
+Set the standard deviation in points,
+which is slippage times get the
+multiplier, so for five and three
+decimal points, it's 10, for everything
+else it's one.
+And then try to open if it is the buy
+order that we are sending, then in that
+case trade.buy, sending the lots,
+current price, no stop loss, no TP and
+the comment from here. If it's not order
+type buy, then in that case it's order
+type sell.
+Once again,
+send the trade.sell. And then like
+before, if it is a success, then we say
+grid order opened, level this. And if
+the order type was order type buy, then
+the last grid time last buy grid time is
+set to current time, which is whenever
+was the last trade opened on this
+symbol. And if it was sell, then we
+update the last sell grid time to time
+current and then we return true that
+this function was successful, which is
+comes here and then we return the bool
+open grid back here so that we can check
+if the open grid returns are true, in
+that case the grid opened is true and O
+P O triggered is true.
+But if it fails, then we print failed to
+open the grid, get the red code and the
+red code description and return false.
+So, that this returns a false here,
+which then returns a false back here.
+And now we can go back to the bottom
+where we wrote the split and open orders
+and we're going to write it. So, we're
+going to be sending in the symbol index,
+the order type, the level and the total
+lot size and then we're going to get the
+symbol exactly the same way and then
+we're going to get the max lot by using
+the get max lot for this symbol function
+that we created earlier. And then we're
+going to look at the number of ceilings,
+so we're going to look at, "Okay, what
+is the total lot size that we're trying
+to open
+divided by the max lot uh so, what's
+allowed by the broker?" So, if our lot
+size turns out to be 230 lots, for
+example, which I hope never happens,
+but the broker allows 100,
+so the number of orders that we will
+have to send is 230 / 100
+and take it, round it up by using
+math.ceiling, so it's going to be three
+orders that we're going to have to send.
+For a starter, we're going to set the
+remaining lots equals to total lots that
+we're sending, so 230.
+And we set all success to true. And then
+we're going to start looping through the
+total number of orders that we need to
+send, so starting at zero,
+going zero, one and two. And then we're
+going to take the lot size is the math
+min of max lots versus the remaining
+lots. So, remaining lots is 230, the max
+lots allowed is 100. So, the lot size
+will become 100 because we're going math
+minimum. So, select the lesser of the
+So, it's going to be 100. Then we
+normalize it
+by using our normalized lot size
+function. And then we send this to our
+send grid order function
+sending this lots.
+100 lots. If it is not successful, then
+all success becomes false.
+Otherwise, if we are able to send this,
+then remove the order that we have, that
+lot size from the remaining lots. So,
+from 230 lots, we have already opened a
+trade of 100 lots. So, now the remaining
+lots is 130. Now, let's close the loop.
+So, then it's going to come back again
+for the second order.
+And now we have 130 remaining lots, 100
+maximum lots. So, once again, it's math
+minimum. So, 100 lot is going to become
+the lot size. And then we're going to
+send another order for 100 lots.
+And then we're going to remove these 100
+lots from the remaining lots. So, the
+remaining lots will become 30.
+And then we're going to come back again
+for the third order.
+And now this is 100, but this is not 30.
+So, the lot size becomes 30. And then we
+send a 30 lot size
+uh to send grid order.
+And then we come down here and then we
+remove 30 from 30, which will make it
+zero.
+So, remaining lot becomes zero, but in
+any case, the total number of orders
+have already been run.
+And we're sleeping in between so that we
+don't bombard all three orders one after
+the other to the broker. So, we take
+500 seconds before we send the next
+order. And then if all goes tickety-boo,
+then we say return all success, that it
+was successful. So, this is how we're
+going to do the split and open orders as
+Uh I realize
+that here we are calling the function
+get max lots for the symbol, but we
+didn't write that function.
+So, let's write that function. We're
+going to send to it the symbol and then
+the max lot is equal to the max lot we
+get it from the broker. And then the
+limit volume. Now, if the limit max is
+greater than zero and the limit max is
+less than max, then max is equal to
+limit max. And then we send between the
+maximum lot that the user has specified
+and the max lot. So, what we're doing
+here is we're getting the max value and
+this is the max value per order. And
+this is the max value that the broker
+allows per symbol. So, what's the limit
+that you can have on this symbol and
+what is the maximum volume that you can
+send in one lot? So, we're going to
+return back the max lot
+that is allowed per order
+and the maximum lot that the user has
+specified. Because it might also be the
+user has put 100
+and the broker has the limit of 200. In
+which case, the user's restriction
+supersedes.
+And this is why we are creating a
+separate function. Otherwise, we could
+have just simply gotten this. We send
+back the minimum between the max lot
+allowed by the broker and the max lot
+allowed by the user
+of the EA.
+But in between, we're going to do this
+check, which is if which is going to be
+funny that the maximum value per symbol
+is less than maximum value per order, in
+that case, max lot becomes
+the limit because if this is smaller
+than this, then the max lot needs to be
+this and not that.
+Which is not going to happen, but just
+in case
+if there is a stupid broker. So, this is
+how we're going to get the max lot
+value, which we're going to use here,
+max lot for the symbol. And if I compile
+now, we created this is the function
+already.
+And now we have created this function
+again is the one where we have already
+written.
+And this one is the one which we
+stopped, but never came back to write.
+So, if I delete this one
+and combine,
+then we
+are looking for here.
+Yeah, calculate grid lot size.
+We calculated everything, but after
+normalizing the results, we should have
+sent the result back. So, we return the
+results.
+Let's pick calculate grid lot size. So,
+once we have calculated the grid lot
+size, we should return it.
+Now, if I compile,
+everything seems fine. And now we go get
+the total lots in grid,
+which is still stubbed as zero.
+So, let's start writing it.
+And we're going to start by creating two
+variables, total equals zero and base
+lot equals zero. And then the direction
+which is going to be sent to this is
+either going to be a buy or a sell. So,
+we're going to convert this. So, if the
+direction is buy or it is any direction,
+then in that case, it's buy, otherwise
+it's minus one. So, any direction.
+Otherwise, if the direction sent here is
+minus one, which is sell, or zero, which
+every grid, then in that case, it's
+going to be sell.
+Otherwise, it's minus one. And then if
+we are using the original profit lot
+sizing or the grid level start is
+greater than one and it's not auto
+split, then we need to find the base lot
+for the grid, which is back again to
+this function to start instead of at the
+levels one, we start at level three or
+four. So, we are only placing a marker
+for
+base level and the level one and the
+level two until the actual I mean, if
+the value is three, then we only start
+from level three onwards to create
+actual values.
+So, in that case,
+we're going to find the base for the
+grid by sending the symbol and
+direction. And for now, I'm just going
+to stub it to zero. And then we're going
+to come back up here.
+And then we're going to loop through all
+of the positions which are currently
+open.
+Again, selected by index. If you're not
+able to select it by index, then go to
+the next position.
+Then check that this is a symbol
+matches. If they don't match, then go to
+the next position. Then get the magic
+number. Check if it is our magic number.
+If it is not our magic number, then go
+to the next position.
+Then check the direction based on the
+direct target direction that we have put
+If it doesn't match, then go to the next
+position. Then check for the level. If
+it doesn't match, then go to the next
+But if all of that matches, then in that
+case, get the lots from this position
+because this position is our position
+and it is in the same direction that we
+want and at the same level that we want
+to check. And then once again, if we are
+using the original lot sizes or and the
+base lot is greater than zero, then use
+this function we're going to create,
+calculate lot from the base based on the
+order level that we're going to be
+sending and using the base lot. And then
+add these lots to the total variable
+that we have initiated here as zero. So,
+loop through all of the position,
+continue adding this. And then if it if
+the order split is not allowed and the
+level is greater than or equal to zero,
+then in that case, break, meaning just
+take the first trade and then return the
+total. In this function, calculate the
+lot from base by sending the order
+level. Let's create that one as well.
+So, we're going to send the base. If the
+base is less than zero, then return zero
+because there is no base.
+Otherwise, take the base lot and
+multiply it by the multiplier for this
+level.
+And you remember we created the get
+multiplier, get multiplier for the
+level, which was again going through
+these. So, for the second trade, it's
+one. For third to fifth trade, it's two.
+And for sixth trade onwards, it's one
+and a half. So, this is what we created
+here. And now we're basically getting
+that multiplier and multiplying it with
+the base lot and returning it based on
+what level we are creating. So, now if I
+compile again,
+we don't have any errors.
+And now if I run the test, what we're
+going to see here is that our grid are
+now going to be opening at the distance
+that we've wanted. So, this is our
+first trade.
+And then here is our first grid.
+And it is open at exactly the same value
+because
+So, it follows the same logic. And then
+for the next one, it's multiplied by
+two, multiplied by two because that is
+the multiplier for the trade third to
+fifth. And then we have a buy trade in
+between.
+So, I'm going to speed it up a little
+until we have more trades. So, if I look
+through all of the sell trades, trade
+was 0.3, the second trade was 0.3
+because the second trade multiplier is
+one. Then from third to fifth, it should
+be multiplied by two.
+So, here it's multiplied by two, then
+multiplied by two, and then multiplied
+by two.
+And then from the sixth trade onward, it
+should be multiplied by one and a half.
+So, we're seeing that from here, it is
+multiplied by one and a half, multiplied
+by one and a half, multiplied by one and
+a half, and multiplied by one and a
+half. So, we now have our grid functions
+done
+with the proper lot sizing, with the
+comments, with grid levels, and the grid
+levels actually happening at the
+distance that we want, the 35 or the
+smart distance if the smart distance is
+enabled. So, with that done,
+now we can start looking at adding the
+TPs and stop losses. So, we go back up
+to the on tick function. And after the
+check and open the grids, we're going to
+add to it
+modify grid TP and stop loss function,
+which we're going to come down here in
+the segment that we have created for
+stop loss and TP. And this is where
+we're going to start writing the modify
+grid TP and SL. Oh, by the way, I see I
+left this function empty. So, let's
+write that one as well.
+Which is find the base for the grid.
+Which is again, we're going to take the
+direction and we're going to convert the
+direction. So, if the direction is one,
+then it is buy, otherwise it's sell. And
+then we're going to loop through all of
+the position exactly the same way. So,
+select and if you're not able to select
+the position, then continue, go to the
+next position. Check the symbols.
+Get the magic number. Check if it's our
+magic number.
+Check that the direction match.
+Get the level from the magic number. And
+then if the level is equal to grid level
+to start minus one, which is coming back
+here if the user has selected grid level
+to start as five, so the first four
+trades are going to be dummy trades,
+0.10 0.01 0.01 0.01 0.01.
+So, then we're going to start
+at the level which is grid level to
+start minus one, because it always start
+as zero. So, 0 1 2 3 4 is five.
+So, start at 0.1. And if the level
+matches, then in that case get the lots
+of that position.
+Get the multiplier for that level. And
+then if the multiplier is greater than
+zero, return the lot divided by the
+Otherwise, just return zero. And then
+close the loop
+and return zero.
+If we couldn't find any position, then
+we just simply return a zero. Let's
+compile again to see everything is fine.
+So, now we have filled out this is top
+function as well.
+And now we can start writing our
+modified grid TP and SL.
+>> [music]

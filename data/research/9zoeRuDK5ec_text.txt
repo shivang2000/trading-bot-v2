@@ -1,0 +1,968 @@
+we started the series by looking at this
+ 
+amazing escalin robot with more than 90%
+win rate and a very tight stop loss we
+applied it on Forex pairs namely USD JPY
+gpp USD and Euro USD then in the second
+part we looked at all the modifications
+required to run the year on bitcoin gold
+and US indices and today we're going to
+look at additional filters which we can
+apply to the EA to tighten the trading
+even further and potentially make it
+even more
+profitable so with no motion arrogance
+let's start
+for those of you who haven't watched the
+first two videos where have you been and
+for those who have you know what time it
+is it's time to get your laptop and
+start coding but just very quickly for
+the newcomers a very quick recap in the
+first part we coded this EA for Forex
+pairs namely usdjpy gbpusd and Euro USD
+we ran the back test and found this year
+to be performing extremely well with
+more than 90% win rate with a very tight
+stop loss then in the second video we
+did the modifications for gold oil and
+Bitcoin we ran the back test and we
+again found the EA to be more than 90%
+wind weight and with a very tighter stop
+loss but that's not enough what we said
+in the first two videos is that during
+volatile time chaotic time and during
+news events especially the important
+ones the ca does not do very well and
+today what we're going to look at is
+additional filters that we can apply to
+the year to tighten the trading a little
+bit more as we go along you will see
+what filters those are now these filters
+are not specific to this year these
+filters you can apply to any EA that you
+already have it just provides you the
+filter to turn off the trading when
+those conditions exist in the market so
+where we ended last time if I look at
+the input tab where we were is that we
+had the Forex profile the Bitcoin
+profile the gold profile and the US
+indicis profile we had the time that we
+could set for the trading between start
+hour and end hour we also had the take
+profit stop loss and other settings for
+Forex paays and then for crypto gold and
+US indices we defined these parameters
+as a percentage of the prevailing market
+prices instead of hardcoded numbers so
+this is where we ended up last time by
+the end of this video you will be able
+to add three more filters to this EA the
+first one a news filter the second one
+an RSI filter and the third one a moving
+average filter now let's take a look at
+each one of them the first one the news
+filter now we all know for scalping news
+can be very good as well if it goes in
+the direction that you are actually
+hoping it to go but most of the time the
+market becomes so chaotic during big
+news events that you have no idea
+whether the price is going to Simply
+shoot up simply shoot down go sideways
+go up and then down and how will it
+behave also the second problem during
+the news events is slipage normally the
+spreads go very high and also the price
+moves so quickly that by the time your
+order is hit the price already has slit
+up or slit down more than I don't know
+four or five Pips so then you end up
+getting a position that you didn't
+really want to get so in order to avoid
+those situations we're going to put a
+news filter now what we're going to have
+in the news filter is you can Define by
+a part of the name of the news so for
+example you could say NFP jels if I go
+to tools and then the toolbox here you
+can see the calendar now you can also
+write a filter which Goes By Priority
+level one two or three so low impact
+medium impact and high impact but I
+prefer to do it by name because then I
+can really specify what news I want to
+avoid so for example if I wanted to
+avoid this ECB board member I could just
+simply use for example the word lane
+from this news and then put it into my
+EA here as that and then if it is
+applicable to that currency so if I have
+Euro selected as well then the news
+filter will look at that will look at
+the combination and will avoid that news
+then I also want to limit this news
+filter by currency so only applicable to
+USD news Euro News GBP news and JPY news
+you can add more you can subtract and
+then I want to stop the trading 30
+minutes before and I only want to resume
+the trading 30 minutes after when that
+critical period and the crazy period is
+over and during that period I not only
+want to stop trading but if there are
+any pending orders on the server I want
+to delete those orders as well in case
+of open positions I will let those open
+positions run then we go to the RSI
+filter and again it will start with the
+whether or not this filter is applied so
+you will give an option so you will give
+an option to the user to either select
+it or not select it as true or false now
+for the RSI it's a scalping robot I mean
+I'm not that concerned when I'm applying
+it to a five M whether the RS I is above
+80 or below 20 on a 5 minute chart per
+se but if on a higher time frame let's
+say 1 hour chart or 4 Hour charts if the
+RSI is in extremes so for example here
+on the RSI when the RSI is extremely low
+on even a 1hour chart it's at 12 I do
+not want to trade here now this trade is
+of course because I have turned off the
+RSI filter so this trade is taken but I
+actually wouldn't want to take this
+trade because already the RSI is so
+stretched that on a shorter time frame
+it might not be a good idea to take the
+trade because it actually might be
+reversing from here you could use it on
+a 1hour chart you could also use it on a
+4-Hour chart in our example we are
+putting it on 1 hour chart I'm very
+comfortable with 1 hour chart normally
+but you can also put it on 4our chart up
+to
+you then you can Define the RSI levels
+on which the trading to stop I normally
+prefer to do it above 80 and below 20
+then we go on to the moving average
+filter what I mean by that is that on a
+higher time frame say 4 hours chart if
+the price is too far away from the
+moving average then it might be due for
+a small pullback and that's not a point
+where I actually want to place my order
+so if this was the high at this point in
+time I wouldn't Place Another buy order
+here because even if the price comes
+back and takes that order because it is
+too far away from the moving average
+there is a very good chance that the
+price might actually take a bit of a
+breather and return a little before
+going in the same direction so I'm not
+debating whether or not it will continue
+in the general direction of the trend
+but I'm allowing for the market to take
+a small breath and take a step back
+before continuing in the general
+direction of the trend so in these
+extreme conditions I would be deleting
+the order so I would want to stop and
+the way we're going to do it is that one
+we're going to Define where to apply
+this moving average so I'm applying it
+on 4our charts and then I'm going to
+Define in percentage of the moving
+average price itself so if the moving
+average is one then 3% would mean above
+1.03
+and Below 97 so you will have to
+calculate what you feel comfortable with
+so for example the price here is around
+1.47 so that's around 4 and a
+half% which will mean that the 3% would
+already be here but is that far enough
+already I normally like to Define it as
+3% but you will have to take a look on
+the chart now on 1 hour chart 3% would
+be a lot on a 5 minute chart 3% is going
+to be too much and will probably never
+even happen so look at the time frame
+look at the moving average and then just
+eyeball what levels are you comfortable
+with and what levels do you think is too
+far stretched and you might want to
+avoid trading at those levels and back
+calculate what those percentages are
+that you want to
+apply here in this example we're going
+to start with 3% and then you can twak
+it up or down to see how you like it so
+now that we have seen what filters we're
+going to apply today on our EA you know
+what time it is it's time to get your
+laptop sit down get a coffee and let's
+start coding
+so back in meta editor this is where we
+finished our coding in the second part
+of the video so the first thing we're
+going to do is we're going to go up to
+the section where we have the common
+trading inputs and there at the bottom
+I'm going to start adding a few more
+variables that I'm going to require for
+one of the filters now the first thing
+we're going to do is add two handles for
+RSI and moving averages these are the
+two filters so we need the indicators
+for them the next thing I'm going to add
+are two colors so when the trading is
+off what do I want the chart to look
+like I don't want to see it as black I
+want to see it as pink or yellow or
+green or whatever fits your eyes so I'm
+going to change the color when the
+trading is off and I also want to change
+the color back again to when the trading
+is on then I'm going to create two bu
+variables and buol variables are yes or
+no variabl so they're going to store the
+value whether it's yes or no so when the
+trading is enabled I want this variable
+to be true and when it's not then I want
+it to be false then the next one is to
+hide indicators so I want to give the
+possibility for to the user so when
+they're back testing if they don't want
+to show the indicators they can also
+hide the indicators in the chart window
+and then the last one I'm going to need
+is a string variable so it can store
+text because when the trading is enabled
+or disabled I want to print something
+either in the expert tab or as a comment
+on the chart something so I'm going to
+use this variable for that then we go
+down until we come down to the bottom of
+our section and this is where we're
+going to create our first input group
+and we're going to call it news filter
+and this is where we're we're going to
+keep all of our variables which are
+related to news filter so the first one
+I'm creating is a bu so it's a yes or a
+no variable and I'm calling it news
+filter on and for now the value is true
+and this is where the user now has the
+ability to select whether or not he
+wants to apply the filter as a yes or a
+no and then if I go back to metat Trader
+and now we should have the chart
+colors chart when the is active hide the
+indicators the three ones that we
+applied and also a filter for news
+coming back to meta editor the next
+variables that I'm going to Define are
+one a separated do down so it's an enum
+and if you have followed in the first
+two videos you know what an enum does so
+I'm creating a drop down here and I'm
+calling that in numerator separator drop
+down and I'm putting two values in it
+comma and semicolon because I want to
+give my user the ability to select
+whether he wants to separate the news
+names by comma or
+semicolon and then I'm using that enum
+that I have created to create a variable
+as an input variable and I'm starting
+with zero which basically means comma so
+now if I compile and go back to
+metatrader now I can see that the
+separator to separate the key news words
+is comma but he can also use semicolons
+now that I have that I can now ask for
+an input variable and I'm calling it key
+news and this is where he can Define
+separated by comma or semicolon whatever
+he ches here the keywords for the news
+is to avoid so if that keyword appears
+in the news typle it then the system
+will know to avoid that news and I'm
+calling it through two forward slashes
+keywords in the news to avoid and now if
+I compile and go back to metat Trader I
+will see that this variable has also
+appeared here and the user can type
+whatever they want in it the next thing
+I want to know from the user is what
+currencies in the calendar to look at
+because the calendar also has Brazilian
+REI Pakistani Rupees Indian rupees and
+all sorts of news so we want to avoid
+all of that by giving our us user an
+ability to specify only what news to
+look for then the next thing I'm asking
+is for the user to Define how many days
+in the calendar to look but the way that
+we're going to write the EA is that as
+soon as the EA finds the next news it
+doesn't look any forward and then we're
+asking the user to provide input of how
+many minutes before that news event to
+stop the trading and how many minutes
+after that event to start the trading
+again and then I'm creating a bu
+variable again and I'm saying trading
+disabled news because I also want to
+know whether the trading has been
+disabled because of the RSI filter
+because of the moving average filter or
+the news filter so if it is because of
+the news filter that the trading is
+disabled then I w't to know so I'm going
+to store the value yes for the beginning
+we're going to create it as false
+because the trading is enabled and it's
+not disabled and then I also need three
+more variables that we will see when we
+write the function for the news filter
+for now I'm just going to keep it as you
+short uh as a separate code variable
+name then a string so I can store text
+and that's news to avoid and then date
+time where I can store the value of date
+and time which is last news avoided
+which is self-explanatory in the sense
+that whenever the last whatever there's
+a last news avoided whatever time it was
+I want to store that time so that then I
+can see how far it has been since that
+time so now that we have all of these
+inputs we can then go to the bottom of
+our EA from last time just below the
+trail stop and this is where we're going
+to start creating our new functions so
+the first function that I'm going to
+create whether or not there is an
+upcoming news this is a bull function so
+it's going to return back true or false
+whether or not there is a news coming
+yes or no we start this function by
+saying if the news filter on if it is
+disabled if the user has selected it to
+be false then we don't want to do
+anything further we just return a false
+but if it is enabled then the first
+thing I'm going to do is I'm going to
+check if there is already a news event
+that has recently passed and it hasn't
+more than 15 minutes or 30 minutes
+whatever the user has defined and I'm
+going to check that by saying that if
+the trading disabled news equals to true
+you can write it like that but if you
+just leave it like this because it's a
+bull function so it basically is saying
+that if trading disabled is true and the
+current time minus the last news avoided
+the variable that we created where we're
+going to store the time of the last news
+that we avoided if the time between that
+and the current time is less than
+however much time the user has defined
+as the trading to start after the news
+is that if the user has set 15 minutes
+before the trading can resume again and
+the time difference between now and the
+last news is less than 15 minutes then
+also return true because the news is
+still too recent and we don't want to
+resume the trading so in a way the
+trading should be disabled now if that
+is not the case then we know that the
+trading disabled news is false or if it
+is not set it to false then we go and we
+look at the separator so we create a
+separator a string variable and let's
+call it SE and remember the separator
+that we asked the user to create
+here this separator which is either
+colon or seic colon now we need to check
+which one is selected so I'm using the
+switch and switch is basically going
+through the separator and seeing which
+value is selected so I'm getting switch
+and then I'm providing the value of the
+variable to check and I'm checking for
+in the separator variable and then I say
+if the case is zero meaning if is comma
+then separator that I'm creating here
+is comma and then if it is already found
+the case Zero then it doesn't need to
+contines to break this function and go
+out but if the case is not zero then it
+needs to check whether the case is one
+which will be the case in case of
+semicolon and then in that case the set
+variable that have defined here is going
+to be storing the value as colon now
+that we know that that is comma or colon
+now we need to find out what is the code
+for that separator because mql uses a
+certain code like 05 0252
+0357 it doesn't recognize commas and
+semicolons it recognizes a code behind
+it this is where I'm using this variable
+SE code that we created in the beginning
+and I'm going at a string get the
+character value what is the character
+value of what separator whether it's
+comma or
+semicolon now that we have the separator
+code I'm going to use the string split
+function to split the key
+news this is string that we where we
+asking the user to provide us with a
+string of how many or what news to avoid
+and there are in total
+nine and what I'm doing here
+now is I'm telling and ql to take that
+string and using this separator
+code split it and store it into the
+variable that we created as news to
+avoid here and these two brackets they
+basically mean it's an array so it can
+store more than one value so it can now
+Store Nine values from that string and I
+also want to create a variable and I'm
+calling it K where I'm going to store
+the total number because this function
+is string is split it returns a value of
+how many when it is when it is split the
+string by comma or semicolon how many
+values it got so the value of K would
+now become nine next I'm going to create
+three variables the first one is mql
+calendar value and I'm creating the
+variable by the name of values and it's
+an array variable by putting two
+brackets in front of it so it can store
+more than one value at a time then I'm
+creating two date time variables where
+I'm going to store dates and times the
+first one is start time which will be
+the current time so whatever time it is
+right now that's the start time and then
+the end time will be whatever is the
+start time so whatever is the current
+time plus convert into period seconds
+using how many seconds in a day so using
+period D1 and multiplied by numbers of
+news look up days news look up which is
+how many days to look up for news so if
+it is 10 days then look for 10 days so
+the end date is going to be or the end
+time is going to be start time plus 10
+days then I can fetch the values from
+the calendar by using the calendar value
+history function and I'm saying store
+the values in this variable that I've
+just created values starting at the
+start time and then ending at the end
+time and for now the country code I'm
+just leaving as null and the currency
+code I'm leaving as null we could Define
+it here but I would rather do it
+separately then I'm going to go through
+a for function so as long as integer I
+is starting from zero is less than the
+array size of the values that we have
+stored here as long as the I is smaller
+than that and go by increment of i1
+create an event variable and then get
+the value of that event so by I'm using
+the calendar event by ID and get the
+value of the event by using whatever is
+the I so if it is 1 2 3 4 5 and get the
+event ID and store it into this variable
+event that I've just created and then by
+using the function calendar country by
+ID I'm using the event that I've created
+or stored get the event country ID and
+store it into this country variable that
+I'm creating here and then I'm saying
+that if you try to find the string of
+this currency because now we have a
+country so we can find the country's
+currency so for example USD if you find
+that events currency to be USD then look
+it into the news
+currencies a string the ones that we
+defined here so whatever is the news
+event that you have found look it up and
+match it with the currencies that we
+want to look up and if the value is less
+than zero meaning that you couldn't find
+it then just continue meaning
+go through the loop again don't do
+anything between here and here come down
+here and then loop again because if it
+is for example Brazilian RI then I don't
+want to do anything with that news event
+so just circle through until you find a
+USD or Euro or GBP whatever has been
+defined and then if you do find that the
+currency that you have found in the
+event is in the list of the currency
+that we are looking for then start
+another for Loop and here here we're
+going to create a current event which is
+the news to avoid of J because I've
+already used the I here so I need to use
+something different so Loop through the
+K again so these
+values Loop through that however many
+you have found here like nine in our
+example do the loop again nine times
+every time increasing the value of the J
+by one is starting at zero and every
+time create the current create a
+variable called current event and then
+whatever news to avoid you have found
+put that into the current event and then
+the name of the event into current news
+and then try to find whether that
+current event is in the news so for
+example if the total news says us Jools
+openings whatever or non Farm payroll
+and we have said in our news to avoid
+Farm then that matches
+and if it doesn't match then continue
+meaning go to the next Loop don't do
+anything below just run through again
+and take the next news item to avoid and
+then match that with the news and then
+take the next item until you find one
+which matches and if it does match then
+first of all write a comment saying that
+the next news is whatever is the
+currency so US dollar and then saying
+the event name and the time of
+that event by using the value function
+that by using the value variable that we
+had defined here so that it will appear
+here that the next news is on gpp it's I
+can hardly read it it's consumer
+confidence and it is on the 25th of
+October at whatever
+time so print it there by using comment
+and then if the
+Value Stein so whatever is the event if
+it's time minus the current
+time meaning like if it is at 2:00 and
+currently it is: 145 or
+146 then it's 14 minutes left and if
+that is less than the stop before
+minutes the variable that we defined
+where we ask the user to provide us the
+input of when to stop the trading or how
+far in advance to stop the trading so if
+it is less than that so if it is 14
+minutes while the stop before time is 15
+minutes and that again because we
+collected the value in minutes from the
+user so now we're converting into
+seconds by saying period seconds of
+period 1
+minute so if it is less than that then
+we know that this is the time to disable
+the trade so we say that the last news
+avoided is the values time so we
+immediately store the time of the
+upcoming event into the last news
+avoided so then later on we can then
+reference and see how much time has
+passed after the news event and then we
+also say that the trading disabled news
+is now true so that we know that it is
+coming out of the news filter and not
+from the RSI filter or ma filter okay
+and then if the trading enable common
+that variable that we defined where we
+were going to store the commment if it's
+either blank or it's not equal to
+printed
+then we want to change it to trading is
+disabled due to upcoming news and the
+name of that news by saying event. n and
+then then because we have disabled the
+trade so we want the function to exit by
+saying return a True Value back for the
+entire function otherwise return false
+and then at the bottom of the function
+we again say return false so that if
+nothing has happened then eventually we
+want the function to return the value of
+false that it couldn't find a news
+upcoming let's compile it so now if I go
+back to metatrader I can see that my
+news filter section is completely done
+you can select true or false whether or
+not it's active then I would change this
+from filters for level three news to
+just filter for news and compile it
+because what we are actually doing here
+is just looking at the key words within
+the news and not the importance
+levels so whether filter for news true
+or false and then here you can provide
+by comma separated the the the the
+keywords then the the currencies within
+the calendar to look at how many days to
+look for and so on and so forth now you
+cannot run a back test on this so once
+you have written the code what you will
+have to do is for a couple of days you
+need to put it in a demo account attach
+the chart select the news which are
+upcoming whatever are the upcoming news
+maybe like three or four hours separated
+and then see whether or not the system
+performs perfectly meaning like it
+should stop it should stop trading 15
+minutes before 15 minutes after it
+should start it should print a message
+and then it should change to next news
+and the next news and the next news that
+you have put here so you will have to do
+it in live chart in a demo account and
+there are ways to do it in a demo test
+as well but those are extremely
+complicated and it will take forever to
+write those codes here
+here so let's go up again to the top and
+below the news
+filter I'll add two more groups the RSI
+filter and the moving average filter now
+for the RSI filter I'm starting with a
+bu again exactly the same way as a news
+filter where I'm starting with an RSI
+filter on variable and whether it's true
+or false then we have the RSI time frame
+and I'm setting it to hour one because I
+don't want to apply it on a 5 minute
+chart 5 minute RSI doesn't mean anything
+you can apply to the same chart time
+frame as your EA is applied to and then
+what's the lower level and the upper
+level I normally like to have 80 and 20
+but you can also go 30 and 70 up to you
+and then when it comes to the the moving
+average filter I like to use the moving
+average time phrase at 4 hours because
+if the price is too far away from the
+moving average on a 4 Hour chart that
+basically gives me a little bit of a
+feeling that maybe the price is going to
+take a bit of a breath and might
+actually reverse a little bit now that
+we have our variables we go down to the
+initialization function and the first
+thing that we give the user the ability
+is to hide the indicator on the chart in
+the test environment and because we are
+applying the RSI and moving average
+indicator in the EA so we need to create
+the handles for them now I have two
+separate videos which go into details of
+how to use handles to get the value of
+indicators in mql you can check them out
+but this is the way you basically create
+a handle and then copy the values of
+that indicator into a variable so in the
+initialization the handle RSI that we
+have created we will assign it the value
+of irsi by giving the symbol the time
+frame the RSM moving average and the
+applied price and for the moving average
+we will use the IMA by giving it the
+symbol the moving average time frame the
+periods 20 150 moving average the mode
+and the price once we have created these
+two handles then we'll go down to the
+bottom under our news filter we will
+create another function for the RSI
+filter and this is going to feel like a
+breeze which is this is the entire
+function so we create another bull
+function so it's going to return the
+value of either a yes or a no and we
+start with exactly the same way as the
+news filter that if the user has
+selected the RSI filter to on to be
+false meaning he doesn't want to apply
+the filter then just return meaning exit
+the RSI filter function by returning the
+value false if he has selected the value
+as true then we create a variable RSI
+and it's an array variable that's why
+I'm putting two brackets in front of it
+so I can store more than one value in it
+even though I'm only going to need one
+value and then we use the function copy
+buffer to copy the value from the handle
+RSI that we have generated in the
+initialization we get the value of the
+main line starting on the current candle
+and we only ask for one value so only go
+back one candle or start from the
+current candle and only get the value of
+the current candle and store it into
+this variable that we have created and
+then we create create another variable
+RSI now and we store the value of the
+RSI on the Zero candle which we have
+stored here into the RSI now I don't
+need this
+comment and then we can check for the
+condition that if RSI now which is the
+RSI on the current candle if it is above
+the upper level as the user has defined
+or it is below the lower level as the
+user has defined for the time frame that
+the user has defined then if the trading
+Ena commment is blank or it is not
+printed then make the trading enabl
+commment as trading is disabled due to
+RSI filter because we want to
+differentiate whether the trading has
+been disabled because of RSI moving
+average or news filter now we will do
+the actual disablement in the ontick
+function but here I'm only going to
+establish that the trading enabl comment
+is no longer what it used to be whether
+blank printed or any other value that it
+becomes trading is disabled due to RSI
+filter so that I can check it in be take
+function and then disable the
+trading and because this function is
+saying well it is either above the upper
+level or it is lower than the lower
+level therefore the value is true or the
+condition has been met so I want to exit
+the function and return the value true
+back to the wherever I'm calling the
+functions wrong and if it doesn't happen
+then basically the RSI is within the
+range and in that case return the value
+of false then we go on to the moving
+average function and this is again very
+similar to the RSI function we start
+with the bull so it's going to return
+the value of either true or or false
+depending on whether the condition has
+been met we start by checking whether or
+not the user has enabled this so if the
+user has selected false then it
+basically means he doesn't want to apply
+this filter in this case return and just
+return the value of false but if he has
+turned it on then we create a variable
+moving average exactly the same way as
+RSI then we use the copy buffer function
+to copy the value of the moving average
+from the handle of the main line is
+starting at current candle only one
+value and store it into this variable
+then we create a variable calling it m&
+now and we store the value of the
+current moving average from this moving
+average variable into M&L by using the
+index zero and then we also get the
+current market price by getting ask
+through the symbol input double function
+asking for the symbol's ask price and
+then we can check the condition so if
+ask is greater than whatever is the ma
+now times whatever is the upper
+threshold so if it's 3% then take the M
+now multiply it by 1.03 to create the
+upper threshold and then check if it is
+if ask is greater than that or if ask is
+lower than whatever is the lower
+threshold so use the M now and multiply
+it by 0.97 which is 1 minus the 3% to
+create the lower threshold so now if any
+of these two conditions is met that
+means that the price is currently above
+the threshold of the moving average or
+or below the threshold of the lower
+moving average and in that case if the
+trading enable commment is either empty
+or it's printed then make it trading is
+disabled due to moving average filter so
+we're not disabling the trading within
+this function we're only getting the
+value or basically getting a a true back
+from this m filter check into our ontick
+function to see whether or not it is
+true and also getting a commment in the
+trading enable common variable that we
+have created so that we can
+differentiate where is the disablement
+coming from and if none of this is true
+then just return false so that's the end
+of our ma filter and now we can go back
+up to the ontick function to actually
+start testing
+this so we come back here now you have
+the choice to either write it below that
+is new bar check in which case these
+conditions are going to be checked on
+every new candle or you can check it on
+every t for this yeara it wouldn't
+really make much of a difference but for
+some other EA if you want to check
+whether or not to enable or disable the
+trading on every take then I would
+suggest to do it here let's do it here
+above the is new bar so we're checking
+it on every take so we say if RSI
+filter and you can write as like this
+that is if is RSI filter function
+returns a True Value but you can also
+write it simply like this which
+basically means the same thing so we're
+checking that if is RSI filter function
+returns a true value or if is upcoming
+news function returns a true value or if
+is ma filter returns of a True Value
+then in all of these cases we need to
+disable the tra and that we do by saying
+close all the orders so all the pending
+order which are sitting on the server we
+delete them by calling our
+function close all orders where it Loops
+through all of the orders and closes
+them then we say that the trading enabl
+is false so the trading is not enabled
+anymore so we disable it and and then we
+say chart set integer and then we change
+the value of the chart color to whatever
+is the chart color trading of the user
+has selected in the variables above and
+then we check if the trading enabled
+comment is not equal to printed then
+print trading enable commment and this
+we are doing because if it is blank that
+means that there is no message from one
+of those functions and also if we have
+already printed which we're going to do
+with here once we have printed then we
+store the value in trading enable common
+as printed so the next time when the EA
+comes here the value is printed so it
+doesn't keep printing it again and again
+on everything and once we have printed
+whatever is the value that is coming
+back so trading is disabled because of
+RSI trading is disabled because of
+upcoming news or trading is disabled
+because of moving averages we print that
+common and then we change the value of
+the trading enable comment to print it
+so that it doesn't print again and then
+we we just exit the function now why do
+we exit the function is because we have
+already closed all of the orders which
+are sitting on the server and because we
+are returning here so none of the coures
+below are going to be run as long as the
+trading is disabled as long as the RSI
+filter or the news filter or the ma
+filter is R return the value true we're
+going to return from here and we're not
+going to go below so the system is not
+going to do anything it will just close
+the orders if there are any orders and
+then just
+return come back again on the next sck
+if the if the values are still true
+again return and again return and again
+return then we have to wait for when
+that condition is not true anymore so
+let's say if the RSI was below 20 so
+when it comes back above 20 so this will
+become false if it was because of news
+coming so once that amount of time has
+lapsed what the user has defined then
+this will become false and once the
+price comes back into the range of the
+moving averages that we have
+provided then we then all of these are
+going to be false so the system is not
+going to run this it's not going to exit
+the function so it's going to come here
+and if it comes here then we know that
+none of the filters are true and in that
+case we start with enable the trading
+Again by saying true and then we print
+that the trading is enabled again and
+then we set the trading enabled comment
+to blank so now when we're checking in
+the RSI filter or the moving average
+filter or the news filter whether or not
+the trading enable common is is either
+blank or printed it's neither and then
+the last thing we do we change back the
+the color of the chart back again to
+whatever is the color of the chart
+selected by the user when the trading is
+on so back to black in in our case so
+this is it let's compile it and we don't
+have any errors so now if I go back to
+metatrader what I will see is we have
+the entire trading profiles now we have
+the chart colors to be selected the user
+can select whether or not to hide the
+indicators on the chart
+then you have down here the news filters
+then here the RSI filters and you can
+choose whether to apply the RSI filter
+on 1 hour chart 4our chart whatever
+chart and then for the moving averages
+as well the same
+thing so now this concludes our entire
+journey of writing this EA now there are
+many suggestions which have come up in
+the comment section by the followers of
+the channel I will compile it together
+and if there are enough suggestions then
+I'll probably make one more video to go
+well how do you implement those
+suggestions as we said already before
+the news filter you cannot test it into
+a visual test run you need to apply it
+in live environment on a demo account
+for a couple of days so that you can see
+whether or not the EA is performing how
+it is supposed to perform the RSI filter
+and the moving average filter you can
+test it into the visual mode as well so
+leave a comment if there's anything in
+the video which was confusing and not
+clear and I might make another video to
+explain it better we will come back with
+a lot more stuff in in the future as
+well other EAS and other General stuff
+we started on the machine Learning
+Journey as well so we'll continue to do
+that so until next time guys stay safe
+trade safe
+[Music]

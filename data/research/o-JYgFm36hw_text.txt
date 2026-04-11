@@ -1,0 +1,300 @@
+over the years I've developed 14
+ 
+different years that I use in my own
+portfolio in the summer of last year I
+started sharing them one by one with
+full explanations of the code on YouTube
+the scalping year that I shared as the
+first year I thought it was a very
+simple year to understand and the inputs
+and the rules are very simple to follow
+and set but I've learned from all the
+comments in the YouTube section that it
+wasn't that obvious what surprised me is
+when people started to share with me
+their results following the settings
+that I use and those results were
+extremely different I realized answering
+some of the questions that there are
+some fundamental settings that are
+probably not clear and that is what's
+driving the differences in result so
+today we're going to look at the most
+important settings of the EA and if you
+change them up or down how does that
+change the behavior of the EA we will
+also look at the fundamental
+requirements of this EA and lastly I
+will speak about the use of this
+scalloping robot on Prop forms and what
+can we do to make it more suitable to
+prop form challenges so with no motion
+enam let's
+[Music]
+start let's start with the results so I
+created this account on the 18th of
+December last year specifically because
+when people are sharing their results
+with me then at least I have something
+to compare with so if we look around we
+do have a few losses where the initial
+stop- loss was hit most of the time the
+EA starts trailing the stop loss very
+aggressively once we are in the
+profitable territory so therefore you
+see that all those trades are closed
+upon hitting the stop loss but in profit
+and occasionally the year also hits a TP
+here or there when the market Moves In
+One Direction quite quickly especially
+on bitcoin that happens a lot more
+overall the EM made about 30 18% profit
+in 1 month on a € 5,000 deposit now if
+you look symol by symbol Bitcoin made
+around 7% €350 in total on bitcoin you
+will also have a few times the TP is hit
+despite aggressive trailing of the stop-
+loss as Bitcoin when it goes fast it
+really goes fast in One Direction then
+on Euro USD we have about 3% return €150
+which is break even in my Bulls because
+if the next trade goes into lws that's
+going to hit 3% negative so it's going
+to come back to zero gold made around 2
+and 1.2% in profit a bit below the break
+even as one stop loss hit of 3% will
+wipe that out but it is so far without
+any loss gbpusd took two losses so
+around 1 and a half% in negative NASDAQ
+also a very similar story one loss trade
+of 3% almost covered by five profit
+trades now banking on the 90% win rate
+it is heading in the right direction and
+lastly the usdjpy which is also around
+3% in profit so far no losing trade so
+in my book it is at break even because
+if the next trade goes to hit the stop-
+loss all of this profit is going to be
+wiped out so non Forex payers are sort
+of doing okay carrying their own weight
+Bitcoin doing quite well because it has
+recently been a very strong trend on
+another account that I set up only for
+Bitcoin gold and NASDAQ as a trial now
+here one of the key settings which is
+different than the other account is how
+many number of bars are used to
+determine the highs and lows so on the
+previous account that we saw it was 100
+bars n and here we're using only five
+and overall we have 15% return return
+return in the month which is quite
+similar but the number of Trades taken
+are very different and the behavior of
+the EA is also very different which goes
+to show how one setting change can
+completely change the behavior of the E
+now on gold we have 7% return on bitcoin
+around 11% and NASDAQ is doing poorly
+here as well with ative -2% return so
+these settings have made similar
+percentage returns even though no Forex
+pair was applied and the trading
+patterns and the style are also very
+different between the two years with
+just one setting change okay these are
+only one month of results so take them
+with a grain of salt but the main thing
+is that one setting can change the
+behavior of the E quite dramatically and
+therefore I want to go over the most
+important settings within this EA and
+explain what to expect if you change one
+of those settings up or down and you
+will need to change those settings from
+time to time because the market keeps
+changing so with the €5,000 account I
+have set it up on Euro USD gbpusd usdjpy
+NASDAQ gold and Bitcoin for the settings
+I'm using the same settings that I've
+shared in the videos so 200 2 20 and 10
+for the Forex paays and 0.4 0.45 and 10
+for the non Forex pair which corresponds
+to the Forex settings in terms of price
+now I'm using the news filter and I'm
+avoiding NFP JS non-farm and interest
+rate but only for the USD currency
+because that is what moves the market
+suddenly and is prone to slip pages and
+I normally do not like to trade in those
+kind of conditions I'm using the RSI
+filter on 4our chart with 20 and 80 so
+when the price is an extreme on 4our
+chart I don't want to be trading I'm
+currently not using the moving average
+filter but depending on how markets turn
+out to be in the future I might be using
+it in the coming months now one big
+setting that I've changed here from
+default is the number of bars to
+identify the highs and lows and I moved
+it to 100 from five that I shared in the
+videos now let's go through what every
+setting does and what impact it will
+have on the behavior of the EA if you
+change those
+settings most of the settings are
+self-explanatory for example time frames
+lot sizes trading hours and those kind
+of things but there are two settings
+which are most likely causing a little
+bit of confusion the first one is the
+number of bars to Define highs and lows
+if you remember from the very first
+video in the series we said that if
+there are five candles on the right and
+the five candles on the left all below
+the middle candle that's a valid High
+and the reverse is true for the low but
+what if you were to set that setting to
+50 or 100 then there will need to be a
+100 candles to the left and 100 candles
+to the right all below the middle candle
+for it to be a valid high so what
+difference does it make with five bars
+on the left and five bars on the right
+that's going to happen quite a lot so
+every time the market breaks a previous
+high and goes up and then comes back
+down you will have a new high to trade
+but with a 100 candle now the EA not
+only has to find the 100 candles to the
+left but also 100 candles to the right
+and that's quite rare and therefore the
+highs and lows established are going to
+be on more established prices so when
+the markets have a very strong Trend I
+tend to move the bars end value lower
+because I want to trade every new high
+that's forming in the market Market but
+if the markets are less Dynamic I do not
+want to trade every single small low
+that's forming because if the market is
+zigzagging it's going to come back and
+hit my stop loss so for example between
+December and January I know normally the
+markets have lower liquidity and
+therefore I crank the value up all the
+way to 100 because I didn't want to
+trade every single high and low only the
+most established ones now if a pair will
+start showing me strong Trend again or
+if there is a news or interest rate
+decision or something that changes the
+market on the fundamental level then I
+might the value down back again to maybe
+50 25 20 or 5 even but that will all
+depend on how strong the markets are
+trending I hope that this clarifies it
+but if it's still confusing leave me
+comments and then I might make one video
+entirely explaining the bar's n function
+and the second confusion is normally
+coming from setting stop losses take
+profits the trigger of the stop- loss
+and the trailing stop loss as a
+percentage of price rather than fixed
+values the idea basically came from
+Bitcoin was $20,000 and it was $40,000
+and $50,000 and $100,000
+so fixed values do not mean much and
+therefore we link everything to the
+current prices in the market say if
+Bitcoin is trading at $100,000 and we
+set the value as TP and stop loss at
+0.4% of the price and triggered of the
+stop loss as 10% of the stop loss and
+trailing stop loss as 5% of the stop
+loss then if a trade is taken on bitcoin
+at 100,000 Mark exactly our TP and it
+stop loss is going to be set at 0.4% of
+100,000 so 400 points away from the
+price so at 100, 1400 and 96,6 00 10% of
+that is the trigger of our stop loss so
+once the market moves in our favorable
+Direction by that much points that's
+when the trailing of the stop loss will
+start so price will need to be above
+10040 Mark before the trading stop loss
+will trigger and the trading stop loss
+itself is 5% of 400 so it's 20 so at any
+point in time once it has been triggered
+it will Trail the current prices in the
+market by 20 points I hope this
+clarifies it now that we understand
+these two confusing settings of the EA
+let's look at some of the requirements
+of the year as well this year will work
+on any pair as long as the spreads are
+tight and this is true for every
+scalping year because of the number of
+Trades so if the spreads are not tight
+then you're paying the broker a lot of
+money so the broker is getting rich then
+best to use a standard account because
+the EA starts trailing the stop loss
+once you are in profit and if you're
+using a commission based account I
+haven't written the code in a way so the
+EA doesn't know about the commission so
+it will start trailing the stop loss
+even though you are still in negative
+now if you have to use a commission
+based account then at least increase the
+trigger of the stop- loss setting by at
+least 5 Points more to compensate for
+that commission and as we already spoke
+this year is a trend based year low
+zigzagging currencies like Australian
+dollar New Zealand dollar Swiss frank or
+Canadian dollar are not that conducive
+for this year and the last one is the
+ability to Trail the stop loss very very
+close many Brokers do not allow a
+trailing stop- loss very close to the
+price they might have a requirement of
+two or three tips away from the price
+and this is very true for prop firms as
+well and this is why the year is not
+going to work on those and this brings
+us to our last point of discussion which
+is about prop Firs now most of the prop
+FS as far as I understand them do not
+allow for a trailing stop loss very
+close to the price or they might have a
+requirement on how frequently you can
+update the stop loss and in that case
+this e is not going to Trail the stop
+loss and that kills the entire strategy
+so over the last few weeks I've been
+thinking and I've come up with some
+ideas on how to circumvent these
+requirements and use a different method
+for the trailing of the stop- loss while
+still keeping the win rate close to our
+current setup I'm finishing the final
+touches on that and hopefully within the
+next two weeks I will be releasing
+another version of this scalping robot
+but with a different trailing mechanism
+that suits the prop forms better or the
+Brokers that do not allow aggressive
+trailing Cas being xes and OCTA FX for
+example remember an EA is just to it's
+like a helicopter it can take you places
+but you need to know how to fly it so
+take the time to understand and get to
+know this EA properly and its settings
+so you can fly this helicopter without
+crashing it into the side Hill so until
+next time guys stay safe trade safe

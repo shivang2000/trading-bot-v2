@@ -1,0 +1,2237 @@
+We're building this trading robot. It's
+ 
+a multi-currency grid management system
+with quite a lot of advanced features.
+It's been there on MQL marketplace for
+quite some time now.
+It sells for $2,800.
+It boasts a very strong performance,
+consecutive months in profit, and it
+comes with full documentation including
+features, how to install, requirements,
+risk settings, the strategy, and all
+that good stuff. But, we will build it
+ourselves and step-by-step with all the
+functionality and this pretty looking
+panel. Now, this will be a series of
+videos as the trading robot is quite
+advanced and we need to build a lot of
+functionality. And it seems to have been
+very intelligently built. In the first
+video, we tried to dissect the
+functionality of the EA. We tried to
+figure out how does the EA work, how's
+the initial trade opened, how are the
+grids formed and maintained, how's the
+TPs and stop loss calculated, and some
+other really cool features like starting
+the grid from a certain level, placing
+both mark trades in the beginning, a
+smart TPs, a smart stop losses, a smart
+distancing of the grid depending on the
+volatility in the market at that point
+in time. And then also looked at some
+additional features like news filter,
+drawdown controls, additional
+restrictions, and a lot more. If you're
+joining us from this video, I would
+strongly urge you to start from the
+first video because building what we are
+trying to build without understanding
+what it is that we are trying to build
+is like getting into calculus without
+first understanding arithmetic. I would
+not recommend. We don't want trauma of
+logging in the end. Now, like always, I
+will make the course available in the
+store for anybody who wants to download
+it for reference, but please understand
+this. I am making the code file
+available for reference. I am in no way
+saying that you're going to make Elon
+Musk look like a baker from the 3rd
+century by simply downloading and
+applying it on the EA. I don't suppose
+this is going to make multi-millionaires
+overnight. In the same breath, it is a
+very good EA as long as you know how to
+use it properly. An EA is like a tool,
+just like a hammer is a tool. Now, if
+you don't know how to use it, evolution
+is not going to be happy with its
+generosity of blessing us with thumbs.
+With that out of the way, let's start
+building first the backbone of the EA.
+Then we're going to put a skeleton, then
+some meat around it, and eventually a
+very pretty smooth skin all over. video,
+we're going to write the fundamental
+structure on which the entire EA is
+going to be built. And we're going to
+get to a position where we open up the
+first trade. Then in the later videos,
+we will open up grids, we will do the
+smart distancing, then we're going to do
+all the lot sizing methods, different
+types of calculations for the lot sizes
+for the grid based on various different
+ways that you can manage the grid. Then
+we're going to look at TPs and stop
+losses, and also additional
+functionalities like not sending the TPs
+and a stop loss to the broker, but
+managing it internally. Then we're going
+to put some really cool flavors and
+colors on the EA in terms of drawdown
+controls, FTMO stuff, news filters,
+other sorts of restrictions, margins,
+safety measures, and this extremely
+pretty looking panel. Once again, I'm
+not going to build it with a green
+Pac-Man, I'm going to build it with a
+yellow Pac-Man because I just couldn't
+find a green Pac-Man. And in the end,
+it's going to be a journey, so buckle
+up. And for the faint of heart, use of
+discretion is advised. Now, with no more
+shenanigans, let's start. Okay, so we
+start here and in the YouTube folder,
+I'm going to create another folder.
+And let's call it Waka
+Waka by Mr. Caffrey.
+Now, copy the name.
+And then within this folder, we're going
+to create
+a new MQL5 file, Waka Waka by Mr.
+Caffrey. Next, next, and next. And here
+we have the opening template.
+I'll clean it up.
+Okay, so here we are with the clean
+template. We have the on initialization
+function, which is going to be run on
+every time the EA is initialized.
+Then the deinitialization, which is the
+opposite. So, when the EA is
+deinitialized or it's removed from the
+chart, that's what all the codes here
+are going to be run at.
+And then you have the on tick function,
+which is every time there is a price
+change or a new price data arrives.
+All the codes which we are going to
+write here are going to be triggered
+then.
+So, we're going to start at the top and
+we're going to add a few properties.
+So, we're going to add a strict property
+and a description property. The
+description property is
+self-explanatory. The strict property
+basically asks when we compile, we ask
+the MQL to do a very strict compilation.
+So, go through the codes and properly uh
+look through for any errors or
+warnings and stuff like that.
+Then we are going to include a trade.mqh
+file, which is the file that you have
+here in the include folder. Trade
+trade.mqh.
+And these are all the codes which are
+which come pre-written with MQL,
+which help us with all the trading
+operations.
+So, in in terms of opening trades,
+modifying trades, getting information on
+the positions, getting information on
+the order, and things like those.
+So, for trading operations, we're going
+to use the class CTrade and we are
+linking it to a variable trade.
+For position information, we're going to
+create we're we're linking this class to
+a variable by the name position info.
+So, we're going to use position info to
+get all the position related
+information.
+And then COrderInfo class, which we're
+linking to order information variable,
+which I think we are not going to use
+within this EA, but this is just my
+general practice to create this so I
+have all the trading operations in
+trade, all the position information in
+position, and all the order information
+which are the sell stop, buy stop, limit
+sell limit, and those kind of things in
+in this variable.
+And then we're going to create a few
+enums.
+So, the first enum that we're going to
+create is the lot sizing enum. And enums
+are basically if, for example, I go back
+to my scalping EA
+and I'll put and I pull down here, if I
+go to my scalping EA and go to the
+input, what you can see is, for example,
+here the trading system applied,
+you can select from this drop down of
+fixed pips or percentage. So, that's an
+enum that we're using. Or here, for
+example, you can choose fixed lots,
+percentage of balance, equity, or free
+margin, but that's only because to this
+variable I have assigned an enum which
+has these four values.
+So, that's what we're doing here. We're
+going to create we're creating an enum
+which is going to have these members.
+So, low risk, 20% mid risk, significant
+risk, high risk, dynamic lots based on
+equity, dynamic lot based on balance,
+lots based on deposit load, and fixed
+lots. So, these are the options that
+we're going to give to our user.
+We're creating the enum by the name lot
+sizing enum and we're going to assign
+this enum to a variable which then in
+turn will make all of this available in
+the drop down.
+So, that's the first enum. Then I'm
+going to create three more enums, which
+is allow buy sell enum, where we're
+going to give the user the ability to
+select only sell,
+only buy, or allow both buy and sell.
+And then in case the drawdown is hit,
+it's triggered, what action do we want?
+So, we're giving four different
+possibilities to the user. So, to
+prohibit the new grid until restart,
+prohibit opening up a new grid,
+close all the trades and stop trading
+until restart, and close the trade and
+stop trading for 24 hours. So, these are
+the options that we are giving.
+And then, how are we going to calculate
+the drawdown? Is it going to be only for
+this strategy? So, not calculate the
+drawdown for the entire account, but
+only for trades which are opened by this
+strategy because you can also have
+somebody who applies this
+in the charts,
+but then also open manual trades, or on
+the same account there are multiple EAs.
+So, do we want to calculate the drawdown
+for the entire account or only for the
+strategy? So, these are the enums I'm
+creating. And then I'm going to create a
+structure.
+And we're creating a structure by the
+name symbol information so we can assign
+the symbol information is structure to a
+variable.
+And then within that variable, you will
+have all of these sub variable
+available. So, you can, for example, if
+we create a variable by the name array
+size,
+and then we assign to it this, then we
+can use array size.symbol name, array
+size.last
+main time frame update, array size.
+uh OPO time frame update. So, all of
+these then become available as a dot
+later on,
+which we can use to assign different
+properties of that variable.
+I'm not going to go through all of them,
+but just a few main ones. For example,
+the main time frame, the last time frame
+updating this. So, what is the time?
+Then can buy and can sell as a bool,
+which is true or false.
+And this is going to use to see whether
+or not we buy or we place a sell order.
+And then various properties like has the
+grid opened, has the OPO been triggered,
+what's the smart multiplier, what is the
+Bollinger bandwidth on this symbol,
+other things like days of the week,
+average price, last buy average price,
+last sell average price, last buy TP,
+last sell TP.
+Uh last time the grid was open on buy,
+last time the grid was open on sell, and
+those kind of properties we can store in
+one variable then using a dot and using
+all of these sub members of the those
+variables. So, we create this.
+And now we can go ahead and actually
+create variables,
+which are going to be available for the
+user to select from. So, these are all
+input variables.
+We start by saying input group so as a
+header, select the risk setting. And
+here we are creating all of these
+variables.
+So, for example, if I compile now
+and hit the play button,
+stop.
+Then I can see here now
+our EA has been created.
+Waka Waka by Mr. Caffrey. And within
+that EA now we have the select the risk
+setting
+and all of these. And now because we
+assigned
+this lot size enum to lot sizing method,
+this enum,
+therefore,
+now we have this drop down available to
+select the lowest setting, medium,
+significant, high, dynamic lots, fixed
+lots, and those kind of things.
+And here we allowed the allowed to buy
+and sell
+this enum.
+So, allowed to buy sell has now sell
+only,
+buy only, or buy and sell. So, these
+enums are also populated. So, we
+ask the user if we can allow opening a
+new grid,
+true or false.
+And then the lot sizing, depending on
+what method is chosen. Now, if it is
+fixed lots, then what is the value of
+the fixed lots? If he has chosen dynamic
+value based on equity or balance, then
+what is that on dynamic lot size?
+Then if he has chosen load percentage of
+deposit load, then what is that
+percentage? Then the fixed initial
+deposit,
+which is only for tester, because what
+can happen with the grid, if I mean, one
+way to use the grid strategies is you
+start with a 5,000 balance,
+and as it makes profit, you take that
+profit out. So, you always keep the
+initial balance at 5,000.
+Because one day I mean, it's not a
+question of when It's not a question of
+if, it's a question of when the grid is
+going to
+like bite the dust and the strategy is
+going to blow.
+So, what you're banking on is that you
+make enough profit and take it out
+before the account is blown.
+So, if you have a starting balance of
+1,000 euros and you're constantly taking
+the profit out, keeping the initial
+balance at 1,000,
+so that is all what that 1,000 is all
+that you're risking
+on the strategy.
+And if you want to test it like this,
+then the user can select here a true,
+and in that case we will keep the fixed
+initial deposit for lot size
+calculation, and instead of using
+the equity or the current balance after
+the profit, we're always going to revert
+back to fixed initial deposit.
+Then what's the maximum lot?
+Do we allow auto split?
+Which basically means and on larger
+accounts, let's suppose
+if the lot size calculation is giving us
+200 lots,
+but the broker is only allowing 100 lot
+size.
+So, in that case, do we allow auto split
+so that 200 calculation is then auto is
+split into two trades and we open two
+trades instead of one?
+Or do we revert back to if it is false,
+then we revert back to whatever is the
+maximum allowed by the broker? So, even
+though our calculation is giving us 200
+lot size, we still go with the 100
+instead of dividing it into two.
+Then the max is spread and slippage, and
+then how many symbols the user is
+allowing the grids to open at. So, even
+though there might be four currencies
+that you're applying it on, but as soon
+as there are two grids on two
+currencies, you don't allow
+opening of the grids on more currencies.
+So, how many maximum symbols at one time
+can have grids?
+Then allow hedging, meaning if there is
+a buy grid open, do you allow a sell
+grid
+to open as well? Or if there is a buy
+grid, then you don't allow a sell grid.
+Do you allow trading on holidays? And
+holidays here basically mean between the
+25th of December and the 3rd of January.
+So, do you allow trading during that
+time?
+Then allow to best buy sells like Well,
+we have already seen buy only, sell
+only, and both. Minimum free margin in
+percentage,
+uh zero is disabled.
+Maximum drawdown
+in percentage,
+and maximum drawdown in money.
+So, that we trigger the drawdown once
+that level of maximum drawdown is hit.
+And then what's the action, which is out
+of these four?
+And then how do we calculate based on
+strategy or on account?
+Then we go to the strategy settings,
+which is how many symbols, what are the
+symbols separated by comma,
+the time to start trading, time to stop
+trading.
+What's the hour?
+Then Bollinger Band period, as we saw in
+this in in the strategy testing, the
+Bollinger bands are going to be used
+primarily for TP setting,
+but we need to create the Bollinger
+bands.
+So, what's the period for Bollinger
+band?
+And then the RSI period and the RSI
+value. And as we saw in the actual EA,
+the RSI value is what determines from
+50, the middle RSI,
+how much higher and lower do we place
+the buy and the sell order?
+So, the default position is 15, so
+that's going to give you 65 and 35 as
+the ranges for RSI where the trades are
+going to open. And then you have the TP
+settings. So, what's the initial TP?
+Which is the TP that's initiated on the
+first trade.
+Then do you use weighted TP? And by
+weighted TP I will mean that once there
+is a grid
+and it's going to open at different lot
+sizes,
+do we weigh
+uh the lot sizes as well from the
+average price? Then the grid TP, meaning
+initial TP was 10,
+but for the grid TP, do you want to set
+a different value? Break even after
+this, so ignore all the TP settings of
+how much TP do we want
+after a certain level. So, grid opens
+level one grid trade, then the level two
+grid trade, and maybe you say that after
+level three, enough is enough. Let's set
+it to break even so that at least we can
+get out. Hide TP, which is like a lot of
+people want to like, "No, I don't want
+to send the TP to the broker because
+there's going to be a TP or stop loss
+hunt."
+So, no, I'm going to just calculate it
+and keep it inside. So, that's the hide
+TP.
+Use the OPO method, which is
+as If you have sent the TP to the
+broker, then it doesn't really matter
+because as soon as the price gets there,
+the TP is going to be triggered.
+But if you have chosen the hide TP, then
+you're keeping the TPs and the stop
+losses internally.
+In which case, we can have the OPO
+method, which is on only on open price
+which means that we're only going to
+close the trade once a full candle has
+closed above the TP.
+I don't know why you would want to do
+that,
+because if the TP is hit, the TP is hit.
+I mean, on the stop loss I understand,
+but on the TP to use the OPO method,
+uh for me just doesn't make any sense.
+But because this is part of the EA, so
+I'll I'll build it and will I'll explain
+it.
+But I'll not spend too much time on
+that.
+Then the OPO time frame, which can be
+different,
+because you want to see a candle closing
+above the TP in order to close the
+position.
+Then do we
+want to do it on the 15-minute chart
+itself, which the EA is going to run at,
+or do you want to use a 5-minute chart
+or a
+10-minute chart or become, you know,
+like be fancy about it?
+Then a smart TP is going to be based on
+Bollinger bands instead of these initial
+TP situation. We're going to calculate
+TP based on Bollinger band because that
+gives us a dynamic TP. So, when the
+Bollinger bands expand, our TP also
+expand
+because the market is volatile and then
+we want to have a higher TP. But when
+the market is ranging and is very dull,
+then the Bollinger band is going to
+shrink,
+and so our TP also shrinks down and
+comes closer to
+to the actual trade
+uh to give us more chances of hitting
+the TP
+in a less volatile market as well.
+>> [clears throat]
+>> Do not change or adjust the TP unless
+there is a new grid level that opens,
+and only when a new grid level opens,
+then you do the calculation of the TP
+and then adjust the TP.
+Then you have the stop loss setting.
+Again, hide and grid stop loss is like,
+do you want to set a stop loss? If
+nothing, then we're going to use a 1,000
+pips.
+Then we look at the grid settings and
+multiplier. So, what is the distance
+between the grids? So, it's 35 points or
+35 pips.
+So, if the initial trade is here, and
+the next trade is going to open at a
+distance of 35 pips.
+But because we're going to be opening
+trades only on new candles, so it might
+not be exactly 35 pips, but it's a
+minimum of 35 pips.
+Then a smart distance, and then the lot
+multiplier.
+So, the first lot is going to be
+whatever the lot size calculation gives
+based on
+the risk that we have chosen here, lot
+sizing method.
+But then the third one
+the second one is going to be the same,
+for example, multiplied by one. But then
+for the third to fifth trade, you might
+want to apply a different multiplier.
+So, like we start increasing and
+martingaling.
+If you set it to one,
+then it's not a martingale, it's just a
+grid. If you set it to a value higher
+than one, then you're martingaling, so
+you're increasing the size every time by
+a factor of two. And then from the sixth
+trade onward,
+you apply a 1.5. These are the default
+values.
+And then what are the maximum number of
+trades?
+And then the question is grid level to
+start. And this is These two are the
+complex settings,
+which basically means that the first
+trade is going to open here, for
+example.
+But do you want to open it already? I
+mean, if you're expecting that the price
+is going to go against you
+and then you're going to open the first
+level
+and then it's going to go against you
+again and you're going to open the
+second level and the third level
+then if you're already expecting that,
+why not
+start from the level three? So, in that
+case, you place a very small minimum
+0.01 trade at the base level at the one
+zero level at the second level at the
+first level
+and then only from level two, we start
+to go if like, okay, now we actually
+enter the full lot size then. Let's
+place a marker so that we can actually
+calculate the lot sizing, but let's just
+put minimum lot, minimum lot, minimum
+lot and then go from level three
+the actual lot sizing. And then we have
+the last one which is the trade comment
+and a UID which is a unique identifier
+for this particular instance of the EA
+because we're going to create magic
+numbers based on a base magic number
+that we're going to not ask the user
+for.
+Um
+and then we're going to create we're
+and then we're going to change that
+magic number or base magic number add to
+it
+a direction so it can tell us whether
+it's a buy or a sell and then also the
+levels at the end which is well, is it
+the first trade? Is it the second trade?
+Is it the third trade? Is it the fourth
+trade within the grid?
+So, we're going to create a separate
+magic number for every trade.
+But then if the user wants to apply the
+same
+EA
+on the same account twice
+that's where the UID comes into place
+which is a different instance so that
+you're going to change this if you're
+going to change
+if you're going to apply more than one
+instance on the same account.
+So, these are our input variables. If I
+compile now
+and we go back, now we have all of this
+appearing in the input step. These are
+all the variables which we are asking
+the user to provide us information on.
+And then come global variables. So,
+we're going to create a tick counter
+variable. What is the main time frame
+that we're going to apply this EA on?
+We're not giving this to the user to
+decide. It is fixed within the EA.
+And this is a symbol array
+variable. So, it's an array because it's
+going to have more than one currency.
+You could call it currency array.
+I'm calling it symbols array.
+So, symbols array
+so, it's going to store all these
+symbols one, two, three.
+And this is the symbol where we are
+using the structure. So, this symbol
+array is going to have the sub members
+by clicking by using the dot and then
+you can choose one of these properties
+within that.
+So, this is a very dynamic variable that
+we're creating. Not only that it can
+have
+these three currencies so, it can be
+Australian New Zealand, Australian
+Canadian dollar, New Zealand Canadian
+dollar. But within within that currency
+with the dot then you can access all of
+these members of the variable as well.
+And then the magic number base. So, this
+is the actual magic number but we're
+going to be using this base to convert
+it into a different magic number for
+every single trade so we can find the
+direction of the trade
+and also the level of the trade within
+that grid.
+Then epsilon is just a value 0.0001
+which is just above of the zeros and
+this we're going to use throughout the
+year to check whether or not the value
+is a valid value so, it's bigger than
+one.
+And then you have the current hour. I
+mean, we're just creating these
+variables and we're setting it to an
+initial value
+whether or not there is a symbol error
+list, whether or not the drawdown has
+been triggered so, it's false, whether
+we want to stop trading until restart is
+false, how many cool down hours in case
+the drawdown has triggered zero
+initial balance zero
+and initialize as true.
+So, these are the global variables that
+we're going to use. And then the
+indicators that we're going to use
+within the EA are the moving average and
+the standard deviation which we're going
+to use to create the Bollinger Band
+calculation.
+And we're going to do manual
+calculations of Bollinger Band because
+on multi-currency EAs
+MQL struggles with updating the
+Bollinger Band values for every currency
+so, we're going to manually calculate
+And then RSI because our EA grading is
+based on RSI. And then the ATR 96 and
+which we're going to use to determine
+whether there is more volatility in the
+market by dividing faster ATR
+divided by
+the slower ATR to see whether or not
+there is more volatility in the market
+right now
+because then the value is going to be
+above one. Then we go to initialization
+and here we're going to start by
+printing
+trade comment initializing. So, when the
+EA is loaded, we're going to get a
+message.
+Then I'm going to set the chart integer
+the grid to false
+because I like to see no grid on my this
+just looks cleaner.
+If you want to see the grid like this
+then
+then you can skip this
+or set it to true.
+Then tester hide indicator. I want to
+hide all the indicators. I don't want to
+see it on the chart
+in the tester.
+And then a comment which is going to be
+printed here.
+And then as a start we set the drawdown
+cool down hour is zero.
+Stop trading until we start is false and
+drawdown trigger is false so, there is
+no drawdown
+at the initialization of the EA.
+I mean, hopefully.
+And then we're going to be using the on
+timer function so, unless so, if not MQL
+tester and not optimization so, it's not
+a tester
+and it's not we're not in the
+optimization mode or testing mode back
+testing.
+So, we are in the real live environment
+in which case the events at timer is 5
+seconds because we're going to be using
+the on timer to refresh the data every 5
+seconds. And then we're going to set the
+last check timer check to current time
+so, initial initializing this variable.
+And then we get to our first function.
+So, we're going to call this function
+and if this function fails
+then in that case we say, well, we
+failed to initialize the symbols
+and in that case the entire
+initialization fails. We're going to
+write this function but here we're
+calling that function and using if not,
+then print.
+Then we created these five handles so,
+we need to resize them.
+And we're going to resize them to the
+array size in the parsing and
+initialization of the symbol, we will
+create the symbol arrays for these
+currencies so, it's going to be one,
+two, and three.
+So, then now we can resize the array to
+the number of members within the symbols
+array which is going to happen here in
+this function.
+So, it's going to be three because there
+are three currencies.
+And then we initialize all of the
+handles
+but for every single currency in the
+symbol array. So, we're going to loop
+through all the currencies starting at
+zero
+going through zero, one, and two
+because there are three currencies and
+for every one of them we're going to
+create an instant of instance of the MA,
+standard deviation, RSI 96 ATR, and 672
+ATR for that particular symbol index.
+So, there are going to be three handles
+of MA, three handles of the standard
+deviation, three standards of RSI, and
+so on and so forth. Now, because we're
+going to be using the MA standard
+deviation to to create or calculate the
+Bollinger Bands and this is why we're
+sending here the Bollinger Band period
+to get the standard deviation and MA.
+Now guys, I have to go a little bit
+quicker because if I explain every
+single line in detail, this video is
+probably going to be like 7 hours long
+and nobody's going to watch it then.
+So, that kills the entire purpose. If
+you have written the other EAs with me,
+then you probably are at a level where
+you can understand these.
+Now, we're going to check if the RSI
+handle fails or the standard deviation
+handle fails. If any of them fail, then
+we just print that we failed to create
+the indicator for this symbol.
+And the initialization fails then. So,
+now we have
+called this function so, let's go and
+create this one. I'm going to create a
+few sections. So, the first section is
+I'm going to call it symbol related
+functions.
+Then let's have another section
+which we're going to be using for let's
+say lot size functions.
+Then let's have one for
+grid related
+TP
+and SL
+related
+One for
+closing
+the grids
+and trades
+slash drawdowns.
+And then at the end
+some general
+helping functions.
+So, that we have
+sort of a structure.
+So, now this parse and
+initialize symbol, we're going to put it
+here under under symbol related
+functions. So, we create it here.
+Okay, so let's first create a sim
+a variable by the name symbols and it's
+an array.
+And then we're going to get the symbols
+from this symbols variable that we
+created here.
+Symbols, so there are three of them.
+So we're going to take that and we're
+going to split it by using the character
+comma
+and store these values into this symbol
+array that we have created.
+So there are going to be three members
+here.
+And that's going to return the count of
+three which we're going to store in
+this variable symbol count. And then we
+say if the symbol count turns out to be
+greater than zero, so there is a value
+which is coming back and it is not the
+tester,
+then in that case we resize the array of
+the symbol array to symbol count. The
+symbol array, remember the variable
+which has all the
+sub members from the structure, we
+resize that here to the symbol count and
+this is why
+in our initialization, after doing the
+parsing, we could resize the moving
+average, standard deviation, RSI arrays
+to the symbol arrays because here we
+have already
+resized the symbols array
+to the number of symbols which are
+available or what the user has inputted
+in the symbols variable.
+And then we're going to loop through all
+of the symbol counts. So starting at
+zero, going all the way up to two. So
+three, zero, one, two.
+And then we say symbol name is equal to
+whatever is the symbols I get the value
+of the index from because this is where
+we stored all the symbols.
+So we take this, we loop through it, and
+for every index we create the symbol
+name.
+And then we trim it left and right
+because somebody might have put a blank
+like
+a space.
+So in that case, we need to to to trim
+So we trim it left and we trim it light
+right.
+And then if it is if it comes back to be
+blank, then we print that the symbols is
+incorrect, check for extra commas and
+ like that. And the symbol error
+like that. And the symbol error
+list is true.
+And we return false that we're not able
+to parse it.
+Otherwise, we run a function by the name
+initialize symbol data
+for this index in the symbol
+and send to it the symbol name which is
+coming out of here.
+And then we close this if.
+That if the count was greater than zero
+and it wasn't the tester. Well,
+otherwise, if if it wasn't tester here,
+then we are in a tester and in that case
+the tester is only going to run it on
+whatever pair is selected here. So it's
+the single currency then.
+So in that case
+the symbol array becomes one.
+The symbol name becomes symbol, so
+whatever is the symbol
+selected here.
+And then initialize the symbol data that
+what we're doing here as well, but here
+we're sending the index in the symbol
+name, but here we said just zero as the
+index and the symbol name which is the
+symbol which is selected here.
+And for now, I'm deleting this and we're
+going to come back to this.
+So only this and then we just return
+true. So we have initialized the
+symbols, we have parsed it. We have put
+them into this array.
+We have populated the array of the
+symbols array. So now the symbols array
+variable has all of the the currencies
+and therefore all of these
+are now available to be updated by
+currency as well.
+Let's compile
+and we have two one two errors.
+Which is the unexpected end of program
+and unbalanced parentheses.
+Let's check here.
+Did we close yeah properly?
+Let's go back on initialization.
+We're not closing it properly
+because we did not close this for loop.
+So we need to close this for loop.
+So if I close it
+and now if I compile
+still a error.
+Oh, because we said
+because we have created Oh, we we wrote
+this function symbol initialize symbol
+data here and here, but we haven't still
+created this.
+So now we are in this symbol data
+function, so let's create this function.
+So we're going to create this function.
+And to this, we're going to be sending
+the index and the symbol name to
+initialize the data.
+Let's hit compile
+and now we are okay. It was just missing
+the initialization of the symbol data.
+So let's just initialize
+all of the values
+that we have created in the structure
+in this structure.
+So what we're doing here is in the
+parsing, we're going through the symbol
+count
+and for every one of them we're getting
+the symbol name and then we're passing
+that symbol name index and the symbol
+name here, so it's going to be done
+three times
+for each of the currencies.
+Which is going to store the symbol name
+the last time frame. I mean, currently
+we're just storing zero zero zeros and
+falses and trues.
+But now we are able to
+for example, for can buy and can sell
+for every individual currency
+within the symbol array, the three
+currencies, we can set the can buy, can
+sell and other parameters separately for
+all three of them.
+So all of these variables are available
+three times because there are three
+currencies.
+Compile once again, no issues. Okay, so
+let's go back up and on the
+initialization I want to make one change
+which is here.
+Instead of printing that command
+failed to indicator, I'm going to add
+this part as well which is check that
+all the input currencies are visible
+within the market watch window
+because the most common reason
+that this these handles can fail
+for different currencies
+is that you have here these three
+currencies input
+but these are not available here. So if
+AUDCAD wasn't here, MQL is not going to
+be able to load load the indicators. If
+Australian New Zealand and New Zealand
+CAD are not here in the market watch,
+you will get the error message that it
+failed because it's not going to be able
+to load the indicators. This is the most
+common reason that these can fail, so
+let's say that check all the input
+currencies are available in the market
+watch window.
+Let's hit compile once again, no issues
+and then we go to the on tick function.
+Here we're going to start by creating a
+a bool variable where we're going to
+check if it's a a new bar on the main
+time frame.
+And then we're going to loop through
+all of the symbol arrays, so all three
+currencies, starting at zero, then going
+one and then two. So loop through the
+three currencies. And then we're going
+to check that if we sent the symbol
+array symbol name
+once again, we're using these
+sub members
+of the currencies. So if I'm sending the
+first currency,
+the zero index currency, and dot symbol
+name, it is getting the value from that
+For the main time frame current candle,
+get the I time.
+And if the I time is lower
+than or equal to whatever we had updated
+before in that currency symbol array as
+last main time frame update time, then
+in that case
+the time it's it's not a new candle.
+So we set the new time frame new bar for
+the main time frame variable to false.
+Otherwise, it's a new candle and then we
+set this variable
+to
+the time
+of the current candle opening time
+and we set it to true. So the next time
+it's going to come, then unless there is
+a new candle,
+this is going to fail and then it's
+going to be false. And then if it is
+true, the new time frame, then we're
+going to update symbol information. We
+initialized the symbols and now we're
+going to update the symbol information.
+And then we close the for loop
+and this is our on tick function for
+now. Now if I compile, I'm going to get
+an error because I haven't created the
+update symbol information sending it the
+index value. So let's go down here and
+create this function.
+So this function, we're going to send
+the symbol index from this looping
+on on tick
+because we're looping through, so we're
+going to send the index value to this
+update symbol info. And if I close
+and compile
+everything is fine so far. So let's
+start updating it. We get the value of
+the symbol name and store it into the
+symbol.
+And then we go for that symbol array,
+update the counter plus plus, so
+increase it by one. So we're increasing
+the value which we initiated here as
+zero will now become one. So now this is
+keeping track of how many times
+uh the counter has updated. And then
+we're going to create an MQL datetime
+variable
+by the name TM current and within the TM
+current we're going to store the value
+of the current time
+by using the time current. So we're
+storing the value of the current time
+into the TM current. And what the TM
+current basically does is now with TM
+current you can hit the dot and for the
+time current that you have stored here,
+you can get the value of the day, the
+day of the week, the day of the year,
+hour. So it creates a full structure.
+And this is why we are
+putting the current time into this is
+structured time variable, so we can get
+the value of the current hour and the
+current minute. And then we're going to
+store the value of the time into the
+current bar time and also into the
+previous bar time.
+We update this
+and then we update the value of the
+current bar time into the previous bar
+time.
+And this is on update of the symbol
+information. And then we create a bool
+variable by the name can trade
+and we're going to check if the trading
+is allowed and if the user has allowed
+opening new grids.
+And we're going to store the value into
+can trade. So, if trading is allowed and
+the user has allowed the opening of the
+new grid, then can trade becomes
+true, otherwise it's false.
+And then we apply this value to can buy
+and can sell. So, if it is allowed, then
+can buy is true and can sell is also
+true. Now, let's go down to our
+general helping function and here we're
+going to write this function is trading
+allowed.
+And here we're basically going to be
+checking four things.
+First of all, if it's MQL tester or it's
+MQL optimization, then return true
+because in tester and optimization,
+trading is always allowed.
+Otherwise, if it's live environment, we
+create a variable allowed
+and we store in this the value of the
+terminal trade allowed, meaning here is
+that turned on
+or is that turned off. If it is not
+allowed,
+if allowed is zero, so if it's not
+allowed, then return false for the
+trading allowed.
+Otherwise, check account trade expert is
+allowed. And if it's not allowed, then
+return false,
+Check if this is allowed.
+If it's not allowed,
+then return false because the trading is
+not allowed.
+And then the third thing is check that
+the broker side trading is allowed. So,
+the broker is allowing trade.
+And then if it's not allowed, then
+return false.
+And if none of them,
+then just return true.
+Compile and we're fine.
+So, let's go go back up. So, here we're
+checking that everything is allowed and
+the grid opening is allowed.
+So, this is allowed and then can buy is
+allowed and can sell is true as well.
+And now we're going to run through a lot
+of different conditions.
+So, we're going to check
+if the main time frame has less than
+1,000 symbols,
+then in that case not enough historical
+data
+and can buy and can sell are both false.
+So, we were true here, but if this
+happens, then set it to false. Let's put
+a comment.
+Check historical data.
+And then we're going to check the
+account balance or free margin, which is
+we go over get the free margin and if
+it's less than 10, then in that case
+we say it's low margin.
+Print the uh margin value
+and we
+uh because we don't want to print the
+message is many like every single tick,
+so we're going to start with last
+message as a date time variable
+and then here we're going to print and
+then we're going to set the last print
+message to time current.
+And then the next time we're going to
+check that the time current minus at
+last time message is greater than 60
+minutes. So, we're only printing it
+every 60 minutes.
+This 3,600 is in seconds.
+So, we only print this message every 60
+minutes and because the margin was
+lower, so we set the can buy and can
+sell to false.
+So, if this is true, then can false. If
+this happens, can false. And then we're
+going to check the UID.
+Remember, the user can select the UID
+between zero and nine.
+So, we check here that if the UID is
+less than zero or greater than nine, so
+it's not in between,
+then in that case again we print this
+message and we only print it once. So,
+we start with a false value for UID
+printed
+and then if it's false, then we print,
+but then we set it to true, in which
+case the message is not going to be
+printed again because it's never going
+to be false again once we have printed.
+And then can buy and can sell becomes
+false.
+So, we're not allowed to sell or buy.
+And then we don't want to start trading
+on the very first bar when the
+initialization happens, so we're going
+to go through if the symbol array update
+counter is less than two.
+Remember, we were updating the counter,
+the update counter plus plus. So,
+starting from zero, it's going to get
+updated, but it's happening on every new
+bar. So, at least two bars
+after the initialization before we can
+start to trade. And this is why if it is
+less than two, then can buy and can sell
+becomes false. And then we're going to
+check at the broker level by getting the
+trade mode for this symbol and asking
+for trade mode.
+And trade mode is whether or not the
+trading is allowed.
+Now, if the trade mode comes back to be
+disabled,
+then we're going to say can buy and can
+sell are both false.
+If the trade mode comes back that long
+only are allowed, then can sell becomes
+false. And if short only is allowed on
+the broker for this symbol, then can buy
+is false.
+After checking at the broker level, we
+are going to check user level because
+remember we had the possibility to
+select
+allow buy, allow sell or buy both or
+allow both.
+So, we're going to check if
+the allow to buy sell is one, then only
+buy is allowed, so can sell is false.
+And if it is two, then only can sell is
+then can buy is false. If it is zero,
+then both are allowed, so we don't need
+to do anything. And then we're going to
+get bar times after doing all of these
+checks.
+So, we'll start by creating a variable
+date bar time and we're going to get the
+current bar time from the symbol index
+which we just updated
+with the current bar.
+And then we create a variable by the
+name TM bar
+and then we put this time which is in
+the regular time format into this MQL
+date time format TM bar, so that now we
+can get the dot hour, dot minute, dot
+day, dot month and dot year and assign
+it to hour, minute, day, month and the
+year for the bar.
+And now we can check the trading hours
+check, which is
+we're going to first get the
+bar minute and bar hour and multiply it
+by 100. So, for example, 14:30
+becomes
+14:30 like this.
+And then we can take the start hour
+multiplied by 100, so
+if the user has selected one, that
+becomes 100.
+And it's top trading
+uh which becomes So, for example,
+if the user has selected 23, then that
+is going to become
+because we take 23 multiplied by 100 and
+then add 20 and 59. And if the user, for
+example, had selected one, so one will
+become
+100. So, one
+hour becomes 100.
+So, now we can check.
+We start with the time okay bool
+variable creating it.
+And then we check if the stop time is
+greater than the start time, then it's a
+normal day. So, because this is greater
+than this, so the trading is starts
+earlier and finishes later.
+So, in that case, we're going to check
+that if the current time
+here is greater than or equal to the
+start time
+and the current time is smaller than or
+equal to the end time.
+So, in that case,
+time is okay.
+But if
+this is not true, meaning the time is
+start time is bigger than the stop time,
+which means the user is starting at 1700
+hours in the evening and finishing at
+600 hours in the morning.
+In that case, we need to check that the
+start time that the current time is
+bigger than the start time
+or
+the current time is smaller than
+uh the stop time because we're starting
+at 1700 and going until 6:00 in the
+morning,
+so we cannot check for the end, we check
+for the or.
+So, we get the time okay and then we do
+a holiday check, which is to say if
+the month is 12 and the day is greater
+than 25
+or the month is one, January, and the
+day bar is equal to or less than three,
+so it's
+from 25th of December until the 23rd, in
+that case time okay is false. So, even
+though if it was okay here, it becomes
+false. And then we do one more
+validation check for the 15-minute
+boundaries because our main time frame
+is 15 minutes and time okay and the bar
+minute is either zero or 20 or 15 or 30
+or 45. That's just an additional check
+that we have the correct bar minute
+coming back from this current bar time.
+And then we can integrate the can buy
+and can sell by saying if can buy was
+true and can time is true, then can buy
+stays true. But if any if can buy was
+true, but the time okay is false, then
+also can buy becomes false. And same for
+the can sell. So, we combine these two
+together to see
+whether or not both are true, in which
+case can buy is true, otherwise
+if either of them is false, then can buy
+becomes false. We're not allowed to buy
+or sell. Then we're going to update the
+value of within that symbol array for
+whatever is the current index, the
+closing price and we
+assign to it the I close for the current
+symbol because that is the index symbol
+for the main time frame last candle.
+Okay, that done, now we can go ahead
+with the indicators.
+So, we're going to calculate the
+indicators. We create two buffer
+variables with size one because we're
+only going to store one value in them.
+Then we get from the moving average for
+the current index symbol index. So,
+whether three currencies, so it's the
+zero currency or the one currency or the
+or the second currency.
+Get the moving average, the main line
+because it's moving average, so main
+line is starting position one meaning
+the previous candle
+and only get one value.
+And then the same for the standard
+deviation as well and copy these values
+into these buffers that we have created.
+So, get from these and copy into these.
+Once we have this populated and it's
+only one value, so we can now take that
+value and assign it to a variable by the
+name Bollinger Band Moving Average and
+then Bollinger Band and Standard
+Deviation assigning this value here.
+Zero index because there is only one
+value.
+And offers on the way to start with 0 1
+2. So, if it's only one value, then it's
+going to be at index zero.
+And then we can calculate the Bollinger
+Band upper, which is going to be the
+moving average plus
+two times the standard deviation.
+That's the Bollinger Band upper
+and minus two times the standard
+deviation is going to be the Bollinger
+Band lower.
+If you understand the Bollinger Band,
+you understand this logic as well. And
+then we have the highest bar check.
+Let's first get the count of the highest
+bar. Where is it?
+By getting the highest function sending
+it the symbol mean time frame mode high
+for the Bollinger Band period.
+And the lowest bar. So, now the EA is
+going to go back like 1 2 3 4 5 6 7 8
+and then for example, if this was the
+high, it will go like 5 10 whatever 15
+that Let's say this is bar number 19.
+And this is the lowest, which is bar
+number I don't know, 23.
+So, it's going to return the value of 19
+and 23 here. And then using that we can
+get the value of the actual high in
+price by using the iHigh function and
+iLow function by sending to it the value
+19 and 23
+to get the recent high price value of
+this candle
+and this candle.
+So, we get the recent high and recent
+low and then we create a digits variable
+where we store the value of the digits
+for the current symbol.
+And then we say we up date the value of
+the Bollinger Band width
+for the symbols, all three of them, one
+after the other
+by saying BB upper minus BB lower
+and normalizing it to the level number
+of digits for the symbol. So, we update
+this value
+for all three symbols.
+So, these members are going to be
+updated. And then we're going to use the
+RSI filter to see whether or not we
+should place the trade.
+So, if RSI period is greater than zero
+and RSI value is greater than zero, so
+the user has input proper values, then
+we create a buffer for RSI and then we
+copy from RSI handle for the current
+symbol index
+only one value and put it into this
+buffer.
+And then take that value from the index
+zero and assign it to an RSI
+so that we have the RSI value for the
+last bar.
+And then we say if can buy
+whatever was the can buy, so if it was
+true now you need to also check that the
+RSI is less than
+50 minus the RSI value because for our
+buy, we want to have the value of the
+RSI below
+35 or below 40.
+So, if the user has selected 15, then
+it's 50 minus that 15 and for the sell
+is the opposite, so it's 50 plus the RSI
+value. Whatever the user has input
+here, the RSI value. So, if he puts 20,
+then it's 30 and 70. If it's If he puts
+15, then it's 35 and 65 and that is what
+we are checking here.
+That for the can buy, RSI needs to be
+lower than 35 and for the sell, it needs
+to be higher than 65. And then we create
+a variable by the name close and we
+update the value of the close price from
+the symbol index. Again, remember that
+array and then that is structure, so we
+get the value for the current array
+member
+but for the sub member close period
+price that we updated up here.
+We get the close price and then we're
+going to do the at the close, I mean, if
+the can buy is still true, then check
+that if
+close is below the recent low
+and the recent low has a value.
+And for get sell, the close is above the
+recent high
+and the recent high high has a value, so
+it's not a an invalid recent high. So,
+we check that again and update the can
+buy and can sell. And then we're going
+to do a maximum symbol check.
+So, we're going to start with active
+symbol as zero.
+And then we're going to check
+by looping through the symbol arrays,
+all three symbols that we have in the
+currencies
+looping through all of them and we're
+going to check whether or not a grid
+exists. And if the grid exist, we need
+to write this function. And if the grid
+exist then we're going to
+make the active symbol increase it by
+one, so there is a grid on one symbol or
+two symbol or three symbol.
+And if the active symbols become more
+than the maximum symbols that the user
+has allowed, then in that case the can
+buy and can sell becomes false as well.
+Remember here we had this
+maximum symbols.
+So, how many symbols can have active
+grid at one point in time?
+We're going to write this function.
+But for now
+let's go down to grid related functions
+and we're just going to stop it.
+So, we're just going to say for now
+just return false.
+And what we're going to be sending to to
+this grid is the symbol
+the level and the direction because what
+we might want to check
+So, you can you can use this
+uh function in different ways.
+So, you can send it
+for
+buy direction, does a grid exist
+for buy
+does a sell grid exist
+or does any grid exist? So, this is what
+we're going to control from here.
+And then we can say level, so
+we can also check has this grid now
+gotten to level two or has this grid now
+gotten to level three?
+So, we can differentiate.
+And the third one is of course symbol.
+So, for which symbol are we checking?
+So, these are the three values we're
+going to send to this grid exist.
+What we are checking here is send the
+symbol
+of whatever is the current symbol in
+this iteration
+by sending the name, but then zero and
+zero meaning we don't care about levels
+and we don't care
+about the direction, the buy and sell.
+So, if it's buy or sell, we don't care.
+If it's level if if the grid has opened
+up to level two or three or four or
+five, don't care.
+As long as the grid exist
+we say that the active symbol goes up by
+one. And then based on the ATR values,
+we're going to apply a smart distance,
+which is basically
+we're going to get the ATR buffer.
+Again, from the ATR handles, we're going
+to copy the values into ATR buffer 96
+and ATR 672, so we can assign it to the
+variables ATR 96 and ATR 672.
+And then if it is a valid value, so ATR
+672 is greater than epsilon
+if it is a valid value
+then we're going to update the symbols
+smart distance multiplier
+with ATR 96 divide by ATR 672.
+Which means that if the current
+volatility is bigger than the longer
+term volatility
+then in that case the value of this is
+going to turn out to be more than one
+and we store that into smart distance
+multiplier so that even though the
+user has said the distance of the grid
+is to be 35 but if he selects a smart
+distance then that 35 is now going to be
+multiplied by this volatility factor as
+well.
+Now, this is a question mark. I mean,
+you might want to write it, you might
+not want to write it, which is the
+clamping of that multiplier between one
+and 1.5. So, if this turns out to be a
+less than one value meaning it's more
+volatile in 672 than in
+in that case we don't really want to do
+a smaller multiplier. We don't want to
+reduce the grid size from 35 downwards.
+So, we
+clamp it to one
+by saying choose between whichever is
+the higher, one
+or the multiplier, which is here
+which we have stored here.
+So, if the if the multiplier turns out
+to be 0.9 for example, then which one is
+bigger, one or 0.9? One is bigger. So,
+use one.
+But if this is bigger than one, if it is
+1.3, then use 1.3. So, using math max
+we have clamped the lower value down to
+And then this is
+the value which is going to come here.
+So, for example, it might come back to
+For example, if this was 1.8
+then the math max is going to be 1.8.
+And then we use math min to say choose
+between 1.5 and if this turns out to be
+higher, 1.8, then it's math minimum, so
+take 1.5. In this way we are clamping
+the value of this smart distance
+multiplier between one and 1.5. So, it
+never becomes like 2.3. Because we don't
+want to increase the distance of the
+grid to like ridiculous levels.
+So, here we had calculated it.
+And here we're clamping it by updating
+the value of the smart distance
+multiplier by of whatever turns out to
+be.
+If it is between
+1 and 1.5, then the smart distance
+multiplier will become or will it stay
+that value. But if it is bigger than
+1.5,
+then it's going to become 1.5. And if it
+turns out to be less than 1.5, then it's
+going to become 1. So, we're clamping.
+And then we're going to do a day
+tracking,
+which is we're going to get the day of
+the week from the TM bar variable that
+we had created before.
+The TM bar.
+So, we get the day of the week.
+And then if
+day of the week is not equal to the last
+day of the week,
+so we check again.
+And the symbol there is not zero, so
+it's not a first update.
+Then in that case, we
+change the trading day allowed today to
+whatever was the previous day. So, if it
+was allowed to trade yesterday, we allow
+it to to
+to today, so we roll it over.
+And then we change the previous day to
+true as well. So, we're basically
+rolling over
+uh
+the period allowed
+from one day to another day. So, if it
+is can So, later on if can buy was true
+on one day, then it is can true on the
+next day as well.
+And then can buy becomes whatever is
+whatever in the end comes out to be
+trading day allowed today versus this.
+So, if it is allowed today and can buy
+is also true from all the previous
+conditions, then it remains true. If it
+wasn't allowed today, then can buy even
+though all the previous conditions were
+true,
+but because of the drawdown, for
+example, if this becomes false,
+then this becomes false as well.
+Then we do a margin level check. That if
+the minimum free margin that the user
+has set is greater than epsilon, so
+there is a value
+that the user has selected here
+is minimum free margin
+is greater than epsilon. And remember
+the epsilon value is 0.000, so it's
+greater than that, so it is a valid
+And the account margin level is less
+than whatever the user has put.
+So, the margin level has dropped below.
+So, in that [clears throat] case, we
+will also set the can buy and can sell
+to false.
+But before that, we print this message
+once every 60 minutes or
+I don't know, 180 seconds.
+So, we say this is zero.
+First time because it's a static
+variable, so the first time when we're
+creating it is zero.
+Then if the current time minus this is
+greater than 1800 seconds, then print
+this.
+And then set this
+to time current. So, the next time when
+we come back, unless the time current
+has now become again greater by 1800,
+we don't print it again.
+And then we're going to check for the
+maximum drawdowns, and we're going to
+create that function.
+But let's suppose if the drawdown is
+triggered,
+then we say if drawdown is triggered
+or the stop trading until restart has
+triggered
+or cool down hours is greater than zero,
+then we're going to print a message and
+we're going to loop through the reason.
+So, if the if the drawdown is triggered,
+then the reason is drawdown triggered.
+If this is true,
+then the reason is drawdown restart
+required. And if this is true, then
+drawdown cool down period these many
+number of hours.
+And then we print this that the trading
+is blocked and the reason is
+whatever one of these three.
+And then again, we set this in a way
+like before so that this message is only
+printed every 60 minutes.
+And then the can buy and can sell
+becomes false.
+So, this is the drawdown check.
+And we're actually going to create this
+separately. But for now, let's go down
+to drawdowns
+greater trades and drawdowns section,
+and I'm going to just a stub it for now.
+So, for now
+I don't know, return false.
+Well, in fact, it's a void, so it
+doesn't have to return anything. So, I'm
+just going to stub it for now.
+We come back and we are going to look at
+the last process hour. If the last
+process hour is less than the current
+hour,
+then the cool down hours, which once it
+has been triggered, we drop it down by
+And then if the cool down hour become
+less than zero,
+because once it gets to zero on the next
+turn by saying minus one, it's going to
+become minus one. In that case, we reset
+it back to zero.
+And then if the drawdown was triggered,
+but now
+when we're looping through the array
+size and getting the total lots
+in the grid,
+and that turns out to be zero, so less
+than epsilon,
+then in that case, drawdown trigger
+becomes false again. So, this is just
+resetting that, and we're going to write
+There Well, well, but what we're
+basically doing here is that if the
+drawdown was triggered during the check
+of the max drawdown,
+then we are rechecking or because in the
+next one in the next one in the next
+loop,
+we're going to get the total lots
+on the current by looping through all
+the currencies,
+the total lots in grids. And then if the
+total lots come back as a smaller than
+epsilon, so it's zero,
+then in that case, well, there is no
+position, so there is no drawdown.
+And this can happen because we close all
+the position or something like this. And
+because we will be calling this
+function, so let's go down to the grid
+related function, and for now I'm just
+going to stub it. We can get the total
+lots in a grid for only buy, for only
+sell, or both,
+for levels above two or above three, or
+all the levels.
+And use original lot size that we're
+going to come back to when
+when I'm going to explain to you
+this setting of grid level to start.
+Cuz I don't know if you remember grid
+level to start meaning like we put dummy
+trades 0.01 minimum loss until a certain
+level, and then we go proper lotting.
+So, do we use original, and that this is
+related to that one.
+But you will understand this as we go
+down through the the functions
+and write this function. But let's come
+back here to
+where we were.
+And now we can actually update the
+symbol array for this currency.
+The sub member can buy to whatever now
+is the value of the coin can buy after
+all of these checks. If it is still
+true, then it's true, otherwise false.
+And for the can sell, and then we set
+the value of the grid open for the
+currency
+as false.
+We update the tick counter.
+We These are the global variables
+which we created here.
+Last update minute, last time we
+checked, and those kind of things.
+So, we update it by one.
+And the last process hour becomes
+current hour.
+And then we send the initial order.
+And we're sending the initial order, not
+the grid levels, the initial order
+by sending the symbol index.
+Because if can buy is true
+and can sell is true,
+then we send the initial order.
+If I compile now,
+I have this send initial order. Okay,
+let's remove this line for now.
+And if I compile, everything is fine.
+And because now we're calling this
+function, which we're going to write
+next,
+uh this is why we got this error. So,
+everything is fine for now.
+We compile.
+And now we're going to go ahead and try
+and send the initial order. So, let's
+create it.
+And it's a void, so it's not going to
+return any value.
+And then what we're going to be sending
+to it is just a symbol index. So, that's
+the only thing we send to it. Now, from
+that symbol index, we can get the name
+of the symbol by using symbol array
+symbol index dot, so the member sub
+members,
+and assign it to symbol.
+And then we're going to do a very quick
+check if trading is allowed. That is the
+function we wrote here.
+And then we're going to also check this
+condition, which is can buy is false.
+Because we're checking for not
+and can sell is also false, which
+basically means that you cannot buy, you
+cannot sell, so what the are we
+doing here? So, we just return, we exit
+the function.
+And if not trading allowed, then also
+return because if trading is not
+allowed, then
+what's the point of continuing forward?
+But if trading is allowed and either can
+buy is true or can sell is true or both
+are true,
+then we're going to check
+the
+total number of active symbols,
+which we also did here. I know
+just like before coming here, we did
+But by the time we come here, it might
+also be that you have another symbol
+which opens up the trade.
+And in that case, the maximum the active
+number of active symbols might change.
+So, we do a check quick check here as
+well. Then we do a check for the
+spreads. So, let's get the spread as
+symbol is spread.
+And then if if the spread is greater
+than the maximum spread that the user
+has provided, but the user has provided
+the spread in pips,
+while the spreads here are in points.
+So, we need to get a multiplier for the
+symbol so that we can convert it into
+we can convert both into the same apple
+to apple comparison.
+And then if the maximum spread is
+bigger than epsilon, so the user has
+provided a value, then if the spread is
+bigger
+current spreads, then we basically
+spreads are too high, so we're not going
+to open up a trade.
+And we're going to write this function.
+So let's go down to the bottom where we
+have the helper functions and here
+let's just write get pip multiplier and
+it's a very simple one. You get the
+digits
+from the broker and if the digit is five
+or three, then return 10.
+Because five basically means let's say
+US Euro USD, GBP USD, they have five
+decimals.
+And the last decimal is a point and the
+pip value is actually 10.
+10 points. So this is why we're
+returning 10 in case of five and three.
+And three because of the JPY pairs. So
+you have USD JPY, GBP JPY and they have
+three digits.
+But in all other cases, return one
+because on all other in all other cases,
+your pip and your points are exactly the
+same.
+So that's our pip multiplier. So we
+check the spread.
+So we try to open the buy order.
+We check the symbol array can buy. So
+whatever is the symbol array symbol
+index can buy.
+Meaning on the current currency, if the
+can buy is true, so we can buy, so all
+of the conditions that we wrote are are
+basically all of them are met. Then
+we're going to check very quickly allow
+hedging and we're going to create a bool
+variable, so true or false and we're
+going to check for allow hedging. If the
+user has selected allow hedging as true,
+which means you can trade both buy and
+sell direction at the same time.
+Then if it is true, then we're going to
+check if the grid exist by sending the
+value of one, which is the value of the
+buy. We're going to write this function,
+but what we're going to write in this
+function is three things. Symbol, level
+and direction, so we can specify what
+we're checking.
+So we're checking for buys then. And
+minus one basically here for the level
+means we don't care. We don't care about
+levels. But we do care about buy, so if
+hedging is allowed, then we check if
+there is already a buy grid existing and
+if
+hedging is not allowed, then we check if
+there is any grid at all for the hash
+position that if hedging is allowed,
+then check that the grid doesn't exist
+for buys because we're saying not grid
+exist.
+And if the grid doesn't exist for buy,
+that means hash position is true.
+And if hedging is not allowed, then we
+are going to look for anything at all.
+Then in that case, we check if no grid
+is available because we're saying not
+grid exist. So if no grid exist at all,
+either buy or sell, then hash position
+becomes true.
+And if hash position becomes hash
+position comes out to be true, then we
+send the order by using the function
+open market order, which we will write,
+sending it again the symbol index so
+that it knows which symbol and then
+telling it that we're going to open the
+buy order. And then we say try to open
+the sell order, which is the reverse
+logic, so hash position if allow
+hedging, but now we're going to check
+for sell grids.
+And all of the grids.
+So if hedging is allowed, then we check
+that the sell doesn't exist. If the sell
+doesn't exist, then hash position is
+true.
+And if hedging is not allowed, then any
+grid at all,
+if it exist, then it's false.
+And if it doesn't exist, then it's true.
+And then we're going to open the market
+order by sending it the order type sell.
+And now we're going to go to open the
+market order. So what we are sending to
+the open market order is symbol index
+and order type
+as enum order type. And then once again,
+we convert the index into the name of
+the symbol.
+And then we start with the max attempt
+of 10. So this is for every order, we're
+only going to try it 10 times and if it
+fails after 10 times, we give up. And
+then what we're going to do is we're
+going to start at attempt zero going all
+the way to as long as attempt is less
+than max attempts and attempt plus plus.
+So 10 times we're going to do this loop.
+We're going to start by saying well, the
+lot size is going to be calculate lot
+size. And then if lot size from here
+turns out to be less than epsilon, so
+it's less than 0.0001, so then it's too
+small, so we print this.
+And then we're going to check for
+margins.
+So we're going to start by saying double
+margin, creating a variable, assigning
+it the value zero.
+And then we're going to check a few
+things.
+The first one is run the order calculate
+margin, sending the order type, which we
+know from here,
+the symbol, the lot size, which we're
+going to calculate here.
+And then we're going to say if it's
+order buy, order type buy, then use ask,
+otherwise use bid.
+And copy paste the value into this
+margin
+Now if this function fails, and this is
+what we're saying, if not, if this
+function fails
+or if the margin that we stored here
+comes out to be less than or equal to
+zero,
+or if the margin that comes out here is
+bigger than what is available as free
+margin, then in that case, we say not
+enough money.
+And then if the order type was order
+type buy, then we change the can buy to
+false and can sell to false, otherwise
+for the symbol index
+that we have currently sent here.
+So for that currency, we change the can
+buy and can sell to false because
+there's not enough money.
+By the way, we are here calling this
+function, so let's go down and for now,
+we're just going to stub it
+to return 0.01.
+Coming back,
+we're going to calculate the unique
+magic number for that particular trade.
+And this is what we are going to do here
+is we're going to start with the base
+magic number,
+which is 84570 in our case, which is
+hardcoded in the EA. We don't ask the
+user to provide it. 84570.
+And then let's suppose the user has
+selected the UID as zero.
+So it's the very first instance that
+he's running.
+So this is going to become
+plus zero,
+so it will remain as 84570.
+Then what we're going to do is we're
+going to get the number of digits in
+this magic base.
+So 1 2 3 4 5, so it has five digits. And
+then we're going to say if the order
+type is buy, then one, otherwise two. So
+let's say in case of buy, it's going to
+be one. In case of sell,
+it's going to be two.
+And then we create the magic number by
+saying take
+10 raised to the power digits plus two,
+so 10 raised to the power
+seven.
+Five digits plus two, so raised to the
+power seven, which is going to be equal
+to 10 million.
+Well, without the commas, so 10 million.
+Then
+multiply it with the direction. So for
+buy, it's going to be one.
+And then add to it the magic number
+84570,
+but multiplied by 100.
+So it's actually going to be 8457000.
+So for the sell for the buy, it's going
+to turn out to be 184570
+and then 00.
+And this is where this is the magic
+number for the EA.
+This one is the direction.
+And this 00 is the grid. So this is the
+00 level, so base level, then level one,
+level two, level three, level four,
+level five.
+And in the same breath, for the sell
+order, because for the sell order, the
+direction equals two, so when we
+multiply it by two, it will become this
+value is going to be multiplied by two
+instead of one.
+So in that case,
+the value which is going to come out to
+be is 2457000.
+So our buy is going to be one
+and our sell is going to be two.
+So this is going to be the unique ID for
+that trade, which has the magic number,
+which has the direction and which has
+the level.
+So this is how we will create the magic
+numbers.
+And this is how we will read them as
+well. And here we are doing the base
+trade and not opening up a grid yet. And
+then let's prepare a comment. So we say
+comment equals to trade comment and then
+we print that we are sending a buy or
+the sell order and attempt number,
+whatever is the attempt number.
+Plus one because the loop is starts at
+zero. And then we're going to set the
+trade expert magic number to the magic
+number that we have just created.
+And set the standard deviation to
+whatever is the max slippage, get the
+multiplier, so get the max slippage that
+the user has provided and use our get
+pip multiplier at the bottom
+to do the multiplication, get it at the
+right pip value for that symbol. And
+then we actually send the trade. So we
+create a success variable bool.
+And then we send if the order type,
+check if the order type is buy. If it is
+buy, then trade.buy, send the lot size,
+symbol, no TP, no SL and comment.
+And if the trade is sell, then
+trade.sell, lot size, symbol, well, no
+price, no stop loss
+and no TP.
+Current price, no stop loss, no TP and
+the comment. And then we're going to
+check if success, meaning like if the
+order went through,
+then in that case, we print the comment
+that this order has opened. And in that
+case, we update the status
+that if the order type was buy,
+then the for the current in symbol
+index, can buy becomes false because we
+have already bought.
+And the last grid time becomes current
+time so that we are updating when was
+the last trade taken.
+Otherwise,
+can sell. So this was for order type
+buy, so this is for order type sell. So,
+we change the can sell to false because
+we have already sold, and we update the
+last sell grid time to time current,
+meaning this is when the last trade in
+the grid for this symbol was taken. And
+then we change the grid open value to
+true because now there is a grid open,
+and O P O trigger is also true. And O P
+O trigger is open price only, and this
+we're going to use in the closing when
+when we when we're going to look at the
+closing.
+So, here we close this function of if.
+If it's successful, then do this.
+But if the trade was not successful, so
+if it was successful, do this, but if it
+was not successful, then we print that
+failed to open this,
+get the description and the result code.
+But remember we were going to do this 10
+times,
+this entire thing we're going to do 10
+attempts.
+But in case if it's a fatal error,
+meaning if the red code is invalid,
+or invalid volume, or no money, or
+market closed, or trade disabled, if one
+of these come back from the broker, then
+there is no point in doing a retry.
+So, in that case we just set the can buy
+to false and can sell to false, and
+return, meaning exit the function. And
+then just sleep for 5,000 seconds.
+And here we close this else because this
+So, if it failed,
+sleep for 5,000 before attempting again,
+and then we close this entire for loop
+as well.
+And then we close the function.
+Okay, if we compile,
+I don't have any errors.
+Now, there are some stub functions.
+So, we're going to get a 0.01 calculate
+lot size, so things like those.
+But at least now we have a working EA.
+Let's go back
+to the top initialization function, and
+here we're going to remove or we're
+going to comment out the tester.
+So, don't hide the Don't hide the
+indicators.
+And then if I run,
+now we're going to see the indicators as
+So, when we get our first trade,
+here
+we get our first trade, and we can see
+the value of the RSI has gone up to 65,
+I think.
+Uh let's run it a little bit more.
+Yeah.
+So, here the value of RSI went above 65,
+and this is why the first trade was
+opened here. Now, we still haven't built
+the grid logic, so it's just going to
+continue to open trades after trades
+after trades
+on every new candle,
+every time the RSI is greater than 70.
+But at least this is working.
+So, we have a working EA now
+on the lot size 0.01.
+And now we can start to work on the
+volume or lot sizes, and then we're
+going to work on the grading system.
+This is all the rationale of opening the
+trades, and now we come down to lot
+sizing functions.
+>> [music]
+[music]

@@ -1,0 +1,37 @@
+In this video, I demonstrate how to build a self-improving AI backtesting workflow using:
+
+Claude Code + OpenAlgo + DuckDB + VectorBT
+
+I use a very simple EMA crossover strategy to explain how an AutoResearch-style loop works in trading.
+
+The setup:
+
+OpenAlgo fetches broker-side historical data
+data is stored locally in DuckDB
+VectorBT handles the backtest
+Claude Code iterates on the strategy logic
+prepare.py, program.md, and strategy.py define the autonomous research workflow
+
+This is a practical example of how AI can:
+
+modify strategy logic
+run backtests
+evaluate results
+keep improvements
+and repeat the loop in a structured way
+
+The goal is not complexity.
+The goal is to clearly understand how autonomous AI-driven backtesting improvement works.
+
+GitHub:
+https://github.com/marketcalls/emacrossover-autoresearch
+
+https://github.com/marketcalls/emacrossover-autoresearch/tree/autoresearch/apr5
+
+Andrej Karpathy AutoResearch GitHub:
+https://github.com/karpathy/autoresearch
+
+VectorBT Skill:
+https://skills.sh/marketcalls/vectorbt-backtesting-skills/vectorbt-expert
+
+#AutoResearch #ClaudeCode #OpenAlgo #VectorBT #DuckDB #Backtesting #AlgoTrading #QuantTrading #AITrading

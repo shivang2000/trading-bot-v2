@@ -1,0 +1,1737 @@
+Very good morning everyone. This is
+ 
+Rajendran here joining from Open Algo.
+So today's session right it's going to
+be a very interesting session I would
+say.
+We're going to talk about an uh evolving
+topic a very hot topic in uh the AI
+world called auto research.
+So this is from uh Andra Karpati I mean
+Andre Karpati he is a very well-known uh
+person in the AI field right so Andre
+Karpati one of the core member of openAI
+right and then he also uh worked as a
+Tesla director as well right so you his
+videos in YouTube is quite famous for
+explaining the LLMs a lot more things
+right so we can say like he's the goat
+of uh the LLM models
+now very recently right so probably an
+around a month back probably 3 to four
+weeks from here before to that so he
+released an uh very interesting uh AI
+workflow called auto research
+so what he had done uh he had an um he
+built an model called nanohat some time
+back.
+So he was doing hyper tuning using H. So
+basically instead of he doing the hyper
+tuning he allowed the model to do the
+hyper tuning iteratively. Right? So this
+is something like an ML model doing the
+hyperparameter tuning. So initially he
+used H00 GPUs. Right?
+and uh he
+set the goal for the AI to do the
+tuning. So you see that the numbers keep
+reducing over here. So what does that
+means is every single time
+every dot here represents a new
+experiment which is conducted by AI. He
+haven't said what to do but he had uh
+said only what should be the end goal of
+the model. So maybe he was talking about
+getting a better model, getting a better
+hyperparameter optimization.
+So the AI has been continuously
+iteratively doing various experiments.
+Whichever the experiments are
+successful, it is recording it.
+Whichever the whichever the experiments
+are not successful, it is discarding
+those experiments. So over a period of
+time after multiple experiments probably
+you can even run hundreds of experiments
+also which I'm going to show you very
+shortly
+you can see that the numbers has been
+keep on getting down and down and down
+so lower the score better the model is
+going to be right.
+So in this he used three important files
+one is prepare.py
+and then train.py Pi and also the
+instructions how to run the program
+right how to run the experiments so that
+has been run uh using the auto research
+so this this programm contains the
+instructions how to run the experiment
+how to conduct the experimentation all
+those details in a in a markdown format
+so then I got like I mean not I'm not
+the only one who's thinking about it
+many people probably would have already
+thought about is
+many people
+try to use this workflow in their own
+domain to improve its something. So
+whatever they want to improve
+iteratively
+without a human thinking an AI can kind
+of think through that and then uh
+improve the models.
+So that what I had done um I had
+probably the code which however the
+experiment which I had conducted is like
+uh probably if you go to market calls
+github.com/market calls if you go to the
+repositories you'll be finding this back
+testing auto research.
+I had given a simple EMA crossover
+strategy and I asked the model to come
+up with an iterative experiment. I
+haven't said what should be the model
+should do right or what the model should
+do
+but I just given couple of goals so I'll
+show you if you go to the auto back test
+branch so there is an April 85 is there
+you can see various commits over here
+all each and every commit is a
+experiment successful experiment
+conducted by AI Okay. So, initially the
+back testing results was something like
+this. Initially I I used a simple State
+Bank of India
+and the goal is to uh probably can you
+can see like
+where I can get the details.
+So if you do a simple back testing right
+you would have got something like an 10%
+CAGGR
+sharp ratio was like 0.52 and max draw
+was 46.51 this is the initial simple 10
+and 30 MA crossover right so I just want
+to know like how things are performing
+or how the experiments are conducted
+right so I thought like I I'll try to do
+always I'll I'll start with something
+simple right and then later on we can
+always extend so just to get an idea how
+things works
+So I said like I want to improve the
+CAGR. I want to improve the sharp ratio
+of the buck testing and the max draw
+down. So basically I want to increase my
+reward and reduce my risk and improve
+the reliability of the uh smooth equity
+curve. So that's what three things I
+want to perform by the model.
+So by default the model values as I said
+like 10% caggr and 0.52 and 100.
+So I want the model to conduct the
+experiments. So I have to write these
+three files again. So if you could see
+in this code right
+um I would like to show you something
+like if you go to this folder you'll be
+finding this program. MD. So this will
+be containing the instructions
+how to conduct various u details. So it
+has a back test.py it has a fixed
+harness like it has how to load the data
+portfolio simulation how to do the
+scoring output right which it cannot
+modify it and then there is something
+called strategy.py Pi this is where the
+file it can modify it can generate the
+signal logic right so the programm
+is the one right now that we are
+watching out over here it contains a
+goal so the goal is to do what the goal
+is to
+improve the caggr improve the sharp
+ratio improve the max draw down so how
+we had done is like we had taken a
+weighted score of it
+so means 40%age caggr and 30%age option
+cap ratio and 30%age of max draw down
+I'll be getting a number so initially
+the number was something like 28 or
+something if you combine everything
+that is a number you would have seen in
+the read me section also right now what
+it can do every time it can conduct a
+new experiment on top of EMA it can add
+some filters maybe it can add another
+200 EMA as a filter or it can use an RSA
+as a filter or a combination of RSA and
+volume I don't say what the model has to
+do I just have to say right so what the
+end goal is that that's what I have to
+say over here and then I have to start
+the application probably we'll we'll run
+a similar experiment right so that we
+can get an idea
+so that it comes up with various
+experiments so some of the experiments
+I'll show you if you go to the readme
+section you can see some of the
+experiments conducted
+so here are some of the experiments
+different multiple experiments conducted
+almost 24 experiments conducted. Some
+experiments passed through, some
+experiment failed.
+So it added ADX as an experiment,
+momentum filter as an experiment, exit
+strategies. It was using how to exit ATR
+based exits. It was using volume
+filters. It was trying to use it was not
+only trying to optimize the entry, it is
+also trying to optimize exit also,
+right? It is also trying to use some
+sort of an ML as well, but it it haven't
+worked well. So I tried with random
+forex and it got discarded. Right? Of
+course I haven't given very clearcut
+rules for ML but it tried with a little
+bit of ML and then it failed. That
+doesn't means like ML doesn't works but
+I haven't given any deeper instructions.
+I thought like okay let it just a simple
+experiment. So I just have to discard
+it.
+So here are some of the discarded
+experiments. What experiments failed?
+Which experiments gone through? Right?
+Over a period of time it was slowly
+improving the results. You can see like
+the improve the results has been
+improved. Not in many cases. Some cases
+the overall score improved. You can see
+that this is the initial score. The
+score has been keep on improvising over
+a period of time. So if the score is
+improving what does that means is your
+CG is improving. Your sharp ratio is
+improving. Your max draw down is
+reducing that that's what it means
+right. So something similar experiment
+is what I'm going to show you right now.
+So I'm going to use open algo for it.
+Right?
+So I I'll try to explain for for the
+people who are very new to what we are
+going to do over here. Right? So what
+we're going to do is we're going to have
+a strategy, right?
+Say an EMA crossover strategy. EMA
+crossover strategy.
+So with this EMA crossover strategy, we
+will be getting three different metrics.
+So one of the metrics that we're going
+to get is like CAGR, right? We'll be
+getting an CAGR. Oh, C AGR.
+And we will be getting another metric
+which is sharp ratio
+which says how much smoother your equity
+curve is. And then there is a third
+third metric which is max draw down. So
+these are like very important metrics in
+any trend following systems. So max DD
+right.
+So what we do is like we combine these
+things and we try to create a collective
+composite metric composite score
+let's say the composite score initially
+is like 28 because the C is like
+something like a 10
+C is 10 and sharp ratio is like some 14
+and then max do is four so you put
+everything together and you put the
+formula for that which is nothing but
+CGR multiplied by the C. I mean the
+let's say we'll be giving weightage to
+that. I'll give 40% weightage to that
+because C is very important. Sharp ratio
+is also important. How much important is
+like I I'll give 30% weightage to that
+30% weightage to that. Right? So it is
+who is giving me the who is giving the
+weightage is like I'm the one who is
+allocating weightage to that because
+yes net profit is more important.
+Equally what is also important is like
+max draw is also important. Sharp ratio
+is also important. So I'll give equal
+weightage to sharp ratio on max. So 30
+30 percentage is what the weightage I'm
+going to give right. So whatever the
+number that we are getting over here it
+will be get multiplied by the percentage
+and everything will be get summed up and
+we'll get this composite score right.
+There are different ways you can do the
+uh composite score. You need to come up
+with some sort of composite score. The
+whole idea is to increase you increase
+the composite score.
+So as long as the composite score is
+less than your threshold. Let's say your
+composite score you want to improve
+drastically. You are setting a goal. So
+the goal is to
+improve
+the composite score CS. CS is nothing
+but composite score to something like
+40.
+So we try to check in every experiment
+we try to check is the goal is improved.
+If it is yes
+uh if it is no
+again the experiments will be conducted.
+So maybe we'll be adding more filters.
+We'll be adding more uh uh context.
+Of course,
+let's say
+what we'll be do trying to do is like
+we'll be uh
+conducting
+unlimited experiments. We cannot say
+unlimited experiments but multiple
+experiments. It can be like hundreds of
+experiments
+running without any human intervention.
+Right? So there's no human to intervene
+over here. We keep on running those
+by adding
+various filters.
+So every time the experiment is
+conducted, the composite score will be
+calculated. If the composite score is
+increasing, it's well and good. It will
+continue. It will keep those strategies.
+If the score is not good, it's going to
+discard those things. And every time it
+is going to do the score, it's going to
+commit to the git, right? So locally,
+it's going to commit, not to the remote.
+Locally, it's going to commit.
+So in order to do this, I hope you're
+able to understand this so that we can
+proceed. If you have any questions, you
+can also ask me. There is a
+hand button is there. You can ask me. I
+can unmute you and you can speak back as
+well.
+If you guys [clears throat] are clear,
+just type clear.
+Or is it too complex?
+Vishnu says clear. Crypto info says
+clear.
+How about others?
+Adwin,
+Arun, DH, Karthik, Lucky, Ansari, Rajes.
+Yeah, Karthik says clear. D says where
+to find historical data. I mean you can
+download that from Yahoo Finance or from
+open go via the broker. Right.
+So Rajes says clear and crisp and clear.
+That's what Johan is saying.
+All right, great. So let's move little
+forward. So what I had done is like I'm
+running open algo over here, right? It's
+running in an analyzer mode. So what I'm
+going to do, I'll go to histoy. I'm
+going to download the historical data.
+Right? So I'll go to histoy.
+From here I'm going to take the same
+state bank of India. I'll try to
+download locally. So if I try to
+download, it'll get downloaded
+via duct DB, right? So I'll add the
+symbol. I select the symbol and I ensure
+that daily data. I want to download for
+the last let's say since 200. I don't
+know how far the data is there, but let
+me try to download the data from 2000 to
+2026. Let me download the data.
+Hopefully it should get downloaded.
+Yeah, I think it is throwing some
+errors. Why is it so?
+If it is throwing error then we can try
+with it says too many request
+to give one more try. Maybe
+I try with only last 15 10 15 years
+maybe.
+2015 onwards. Otherwise there is another
+way is like directly use Yahoo Finance.
+I think this got succeeded last I think
+some 2000 onwards it's not able to
+download but 2015 onwards we are able to
+download. It's also go and check it out
+like I'll go to the charts. Yeah the
+data is there right? So statement of
+India the data is there. So we're going
+to conduct experiments.
+We're going to do the back testing. So
+for the back testing, what we are going
+to do is this is the process that we're
+going to follow, right? We're going to
+use a vector BT is what we're going to
+follow. So most likely this is what
+we're going to do here. So we're going
+to have an historical data. We're going
+to render it in a pandas data frame
+format from duck db. It's stored in duct
+db inside open algo. And we're going to
+generate the signals using strategy.py.
+As you remember the strategy.py Pi is
+the one which we're going to modify it.
+What it cannot modify is like the
+vectorbd back testing engine like back
+test.py. It'll be loading the data.
+It'll be back testing. This is the one
+which will be back testing it. Apply the
+entry and exit signals. This file we
+cannot modify. Right? The the AI cannot
+modify this file. Why? So that the AI
+cannot mix up the results. AI cannot say
+hey I improved the results. Right? So
+this is a standard template which is the
+one which will be evaluating which will
+be applying the realistic commission
+slippages everything it'll be
+calculating the equity metrics and
+vector BD and all those things it's
+going to do right and then this is a
+file it'll be calculating the score as
+well. So it will be calculating the
+score on every signal generation it will
+be every experiment which is conducted
+it will be calculating the score and as
+long we compare with the metrics as long
+as the metric is not done it'll be
+running in a very iterative loop right
+this will be keep on going on every now
+and then so that's how the pipeline
+works so we need to we're going to set
+up the pipeline from the scratch so far
+I just installed only open algo I
+downloaded the data but that is Not more
+than enough but we need to go and set up
+from the skills. If you remember we have
+skills right? So skills.sh. If you go
+here and then search for vector BT
+vector BT you can also find the same
+thing the vectorb expert market calls
+this one. You can also find this in our
+uh documentation as well. You can also
+find this skills. It's called skills. We
+already done some couple of videos about
+it. Right? Right? I'm not going to
+explain what a skill is all about. So
+here are the skills. Right? So for back
+testing, we have skills for back
+testing. You just have to just copy this
+and you have to install it. So I'm going
+to open an new
+one. I'm going to paste it. Oops. I'm
+sorry.
+This is Mac Mini. I'm using a Windows
+keyboard. It's it's a mixed up one.
+So
+go back, right click probably copy and
+the the keyboards are a little different
+here. I hope I'm Yeah, I got it now.
+Yes, I'm going to install the skill. So
+the skill what it does is like it's an
+expert in back testing. You don't need
+to write any Python codes. We just have
+to tell hey this is my strategy and I'm
+going to back implement all this setups
+right enter and cla code is what I'm
+going to use. So the AI tool what I'm
+going to use is like claudic code.
+However you can also consider using uh
+um
+anti-gravity or cursor or maybe you can
+also consider using codex as well. So
+codex codeex and uh cla code is what I
+would highly recommend right. So I use
+cladic code a lot and as a backup I use
+codex right
+however probably the next version uh it
+can be like you can consider using
+client or codex or anti-gravity. So
+these are the one which many people are
+using it. So I'm going to first of all
+I'm going to fire up cla code and in the
+meantime what I'm going to do I'll try
+to pull up my
+uh this we need some examples about
+Andra Karpati's
+let's go to Andre Karpati
+auto research
+So, I'm just going to copy this link.
+I'm going to clone it. So, a lot of
+cloning that we're going to do here.
+Now, one good thing these LLMs are
+really it can do is like it can imitate
+things. So, we also going to do a lot of
+imitation today. So, I'm going to clone
+the andra. Oh, come on. It's not copied
+yet.
+We're just going to clone Andesh
+Karpati's research.
+Right. I'm going to uh fire up Claude.
+And then first thing I'm going to do is
+like I'm going to do a setup, right? So
+that's what I'm going to do here. I'll
+say like / setup. That will be setting
+up the
+vectorbt environment with open algo and
+everything.
+So what this does is like it'll analyze
+my what version of Python which is
+installed, what operating system I had
+used. So it'll try to create a virtual
+environment. It create an back testing
+folder. So a lot of things it'll be
+doing
+and I'm going to enable something called
+sandbox mode and this sandbox mode is
+available only in Linux or uh Mac
+machine. So that I don't need to provide
+yes yes every single time. So it auto
+allows
+and this process will take anywhere
+around maybe we can say like 2 to 3
+minutes
+maybe for time being I'll disable the
+sandbox because is facing some issues.
+I'll just disable the sandbox.
+Maybe I may have to provide couple of
+yes yes yes yes sort of stuff.
+What I'm thinking is like uh the way the
+AI is going to conduct experiments and
+it's going to make your strategy better
+maybe the creativity
+of the strategy itself going to become
+much better in the next couple of years
+right probably I think I would say like
+this is the starting point of
+how to build an very interesting and
+meaningful strategies like even an how
+an reasonable strategy which is having a
+reasonable edge
+can be made even more much better right
+so it is creating an back testing folder
+as you could see this is a folder I'm
+going to commit not right now so I'm
+going to say like I'm going to use uh
+Indian markets like I I'll use Indian
+markets is what I'm going to use I'm
+going to use open algo I'm going to use
+duck DB [clears throat] uh and then I'm
+going to submit it's going to ask me it
+is asking me a couple of uh details like
+which market I'm going to back test
+and then uh yeah I'm going to use open
+I'll go for it submit the answers
+maybe if you're using codeex you may not
+be asked this kind of questions
+enter your open algo API key so I'm
+going to enter the key here
+and it's also asking for a path as well.
+So the path we can get it from here. So
+the path is where my duck db is there.
+So my duck db lies inside open algo
+inside duck db I mean db that is an
+histoy duck db is there. So that's the
+one uh I'm going to right click and copy
+that
+and I'm going to paste it.
+What happened?
+Copy path right? copy part and then
+paste it. That's my DB path.
+So what it does is like inside the back
+testing folder it will be creating an
+env file. So I have to enter my uh key.
+So the key I have to enter is
+let me go and get the key from open
+alyso.
+Here's
+the AP key. Copy it
+and paste it over here.
+All right.
+So, there are a couple of questions
+here. Manu is saying like, I'm late to
+this live show. Is there a chance to get
+a recorded session? Yes, the session
+entire session is getting recorded,
+right? and it'll be available in YouTube
+as well.
+So in the meantime what I'm going to do
+is like I'm going to say like I want to
+build a simple uh I'm going to reconduct
+the same experiments itself right maybe
+this time the experiments might be a
+little different but I'm going to say
+like I want to uh back test or we can
+use slashback test over here slback test
+I'm going to say like I'm just going to
+say what strategy I want to implement I
+want to uh back test statement of India
+for the last let's say like uh 11 years
+uh that that's a data that we are having
+from the last 10 years
+on a daily time frame
+a simple 10 and 20 MA crossover is what
+I want to do right uh simple 10 and 20
+30 MA crossover
+strategy
+is what I want to back test is what I
+want to back test.
+So you can see that lot of things has
+been already installed right. So these
+are the packages which has been already
+installed uh inside everything is
+available uh in as an virtual
+environment. So here all the libraries
+has been installed. So we having an back
+testing right now there is nothing
+inside back testing. So I'm going to
+create my very first strategy. So I'll
+say like /back test followed by that I'm
+just saying what strategy that I want to
+back test. a simple 10 and 20 MA
+crossover for the last 10 years. We know
+that the data is already there in duct
+DB. So it should not be taking much of a
+time. Now what it does is the moment I
+say it will start writing the code
+and it'll try to fetch the data from
+Doug DB or if Doug DB is not available
+it'll try to fetch the data from uh the
+directly from the API itself. Right?
+So it is trying to load the vector BD
+skill. So the back test itself will be
+invoking the back testing skills inside
+vector BD. Vector BD has lot of skills.
+It can do back testing. It can do
+optimization. It can do a lot of other
+things right. And uh among that we are
+just simply using 10 and 30 MA crossover
+strategy. So we just first of all we are
+just simply building this uh strategy.
+So it is trying to use duct DB with
+source equal to DB or what it does is
+like it will be automatically
+able to
+create a strategy. It creates a folder
+name called EMA crossover inside the MA
+crossover it will be writing the Python
+code. Not just that it will execute the
+code also and it'll give you the summary
+of out of it as well. Right
+now like 3 weeks back we had conducted a
+lot of experiments in our live sessions.
+We built uh strategies like uh portfolio
+level strategies complex uh uh
+strategies right so combination of
+multiple strategies like four five
+strategies combined together you'll be
+able to build an equity curve. So a lot
+of things we built using this.
+So I'm going to say like uh run the
+strategy right I just want to get an uh
+result right so what is the result I'm
+getting for the last 10 years it's a
+simple long only strategy
+you can also see the source code over
+here right so how the strategy is
+everything is written in Python
+what is the reliability of the strategy
+if you ask me like very very high right
+so because it follows the best
+principles
+from the the skills itself. So we have
+like a lot of skills for back testing
+optimization with a lot of examples, a
+lot of working examples we had built and
+we converted that into a strategy set.
+Of course, what I forget to do is uh
+just give me a sec. I'll say like no uh
+because I forget to download for uh
+Nifty index because Nifty will be used
+as a benchmark. So I forgot to download
+for Nifty index. So I'll go and select
+index and type nifty.
+I'll add it and for nifty also I'll
+download the same uh last set 2015
+onwards. I'll try to download
+for nifty.
+I ensure that the interval is daily. You
+can also download 1 minute as well. So
+brokers like zeroda provide for like 10
+years and five years of done and of
+stocks like they are providing like five
+plus years of uh historical data they
+are providing. I'll download for nifty
+as well
+and hopefully that also should be get
+downloaded. Yeah got downloaded. So let
+me also verify whether the data is there
+or not. Yeah the data is there up to
+date right. So um I'll just say like
+yeah
+can you try now I just added
+nifty oh db
+it was not there so I was trying a
+different method to try to download from
+yahoo finance. Yeah that would have
+worked but better I try to keep
+everything in one place itself.
+So now it is trying to run the code and
+we're going to get a very basic back
+testing results. So this is a back
+testing results that we got right. So um
+and if you could see the
+this is a benchmark that we are getting
+right. So this is a strategy.
+This is a plain vanilla strategy, right?
+So there no filters, nothing. Uh plain
+vanilla returns for the last 10 years.
+Sharp ratio, sautino ratio, max draw
+down, right? Whereas nifty if you could
+have seen that the the returns has been
+pretty much bigger and sharp ratio is
+going to be like 93 again bigger sino
+ratio. Yes, pretty much good. uh max
+draw down comparatively for the strategy
+it is minus 24 percentage here it is
+like minus 38.44 44. Now this time what
+I'm going to do is like I'm going to u
+implement an uh uh similar metric but
+slightly a different uh experiment is
+what I'm going to conduct over here.
+Right? [clears throat]
+So I'll say like uh I'm know I want to
+understand this auto research right. So
+can you understand
+the auto research stuff which is from
+Andra Karpati because I'm going to
+create something similar. I I want
+something similar for that.
+Yeah. So it had understand what is what
+right? So I'm going to say like now I
+want to
+um conduct similar uh automated
+workflow
+for uh uh we can we can say like uh now
+even before doing this right I would
+like to commit this to GitHub.
+So whatever that back testing that we
+had I'm going to commit this to GitHub.
+So I'll say like add
+uh readme.
+So we want readme, we want g ignore
+and MIT license
+from it calls GitHub link,
+right? Um to the
+EMA crossover folder.
+First we'll push it to GitHub.
+Once this is pushed up to GitHub, uh
+then we will add the experimentation
+loop.
+Push this to get up.
+I don't know what what is trying to do.
+So I just want to say like I want to uh
+push only the EMA crossover strategy
+into a new uh GitHub uh
+project.
+If not, we'll try to do it manually.
+That's not a big deal.
+So, what should be the GitHub repository
+name should be? So, I'll say like EMA
+crossover-
+auto research. That's the name I want to
+give.
+It's going to be a public one. I'll
+submit.
+Hopefully, it'll be adding more controls
+to it
+saying like I should authenticate first.
+walking with the web browser.
+Oh man.
+Enter the code display in the app and go
+and get the app.
+Okay. The details will be provided over
+here. Yeah.
+Right.
+Again, one more layer of confirmation.
+Yes.
+So that should be pushing it to GitHub,
+right? That is done,
+right? So which means
+um yes, you can uh try now. So what I'm
+going to say so now it can push it
+automatically to GitHub. So whatever the
+code is there it gets
+it's checking whether I'm connected or
+not. Yes, I'm logged in. So it should be
+pushing it to the GitHub.
+So all these are like boring one time
+setup but once you're done with the
+setup right next time it's not going to
+happen. It's going to happen seamlessly
+for you.
+reading all the files.
+It's kind of annoying to approve every
+single time. That's why it's better to
+use a sandbox.
+So I guess it created the GitHub link.
+So let's go to this link, right?
+So here is the link. I just
+So what we done is like we just simply
+published this uh state bank of India
+simple moving average crossover. There
+is no auto research nothing as of now we
+haven't added but that's what we're
+going to do now. We're going to add auto
+research to that.
+once again what I'm going to do I'll ask
+it to read the auto research. Let's say
+like understand
+understand
+auto research right I want to um
+auto
+improve my uh trading strategy my EMA
+crossover strategy crossover strategy
+want to apply the auto research workflow
+uh to my EMA crossover project
+where I want to enhance the I'm just
+setting the goal uh enhance the CAGGR to
+let's say like 15%age at least because
+if you remember the previous CAGR was
+how much
+CAGR was like we we don't get to know
+the CAGGR but let's say like strategy
+was like having a return of like 171%
+percentage maybe I can set an total
+return of a different numbers right or
+we'll say like we have a total return
+rate right so I'll say like total
+return of
+250%age
+and let's say I want to draw use a draw
+down so here I'm going to use only
+three things total return uh we don't
+have a CG metric over here. So I instead
+I use a total return and then sharp
+ratio it was like8 I would like to go
+with like something like 1 1.2. So I'll
+say like sharp ratio
+to at least 1
+uh two which is little greedy.
+And then the last one is like uh we want
+to improve the max draw down. Let's say
+something like around like less than 18
+percentage
+and max draw down
+less than 18%age
+right this is the target this is the
+goal I am setting to the AI model. So
+the AI model have to figure out it has
+to conduct various experiments. Right?
+So these are the three goals I'm setting
+over here for my the simple AMA
+crossover. Your strategy can be anything
+right? Your strategy can be anything.
+Your goals can be anything
+and your uh goals can go as deep as uh
+possible but in order to make you to
+understand I'm just taking with simple
+examples.
+So it is preparing the prepare.py Pi
+which is fixet which is the where the
+back testing evaluation happens
+strategy.py P. This is where the
+experiment is going to happen. It's
+going to have like indicators, entry
+exit logic, filters, parameters. Going
+to change the parameters. It's going to
+try with different filters. It's going
+to try with entry different entry exit
+logics, right? And uh it's going to add
+couple of more indicators as well. And
+programm this is like where the we set
+the goals, we set the agent
+instructions, how it should run the
+experiments.
+Since it should run the experiment,
+right? I'll also enable the sandbox
+mode. Now it's a time to enable the
+sandbox mode so that I I don't need to
+press the yes multiple times. And there
+is something called Ralph loop. I don't
+know how many of you guys had heard
+about it. Ralph loop is like kind of an
+infinite loop.
+You don't need to give any instruction.
+The AI model itself will be keep on
+conducting multiple experiments. So you
+run it overnight.
+uh during the night you'll be conducting
+hundreds of experiments. So you wake up
+in the morning the end goal would have
+been more or less it tried to achieve
+it. It would have tell you like what
+happened whether the model has been
+succeeded or not.
+So as you can see that it is writing the
+strategy.py. So this is where the uh
+strategy it is going to conduct various
+So it's here like strategy.py file. This
+file is going to likely to get changed,
+right? So you can see like this file is
+likely to get changed
+and in this case we are putting in 75%
+allocation is what we are making over
+here.
+This particular strategy uses 75%
+allocation.
+Likewise, it is also likely to write the
+program.m MD as well. So, let's go and
+read the programm.
+This is a program.md instruction.
+Going to open up the preview.
+In the meantime, I'll say yes. So, let's
+go and read it. So, it says like this is
+an experiment. This is the main
+instruction file like the program.md
+EMA crossover auto research. This is an
+experiment to have the LLM autonomously
+improve a trading strategy. So to set up
+a new experiment workflow with a user to
+agree on a running tag. So propose a tag
+based on today's date and create the
+branch. So all these things are later to
+GitHub and read in the scope files. The
+repo is small. Read these files for full
+context. You have to read the readme.md
+prepare.py
+where the fixed data loading back
+testing execution and evaluation scoring
+everything will be happening. You should
+not modify that and strategy is where
+the file you can modify indicators entry
+and exit logic filters and parameters
+right and then uh initialize the
+results. You'll be getting the results
+in results.tsv files and then uh confirm
+step looks good. So once you're uh get
+confirmation kick off the
+experimentation once uh you have to get
+the confirmation from the human. I'm the
+one uh who's going to give the
+confirmation over here. Once I give the
+confirmation the experimentation should
+start. So here are the experimentation
+instruction. Right? And uh here is the
+goal which I had provided. So total
+return should be like 250%age. Sharp
+ratio should be greater than 1.2. Max
+draw down should be less than 1.8%age.
+So it should build a score out of it.
+Right? So I don't know how it is it's
+here is what it comes out with the
+composite score. So the composite score
+lower is better. So in this case lower
+the value is going to be better like
+combined distance from all these three
+targets score equal to 0.00 means all
+targets has been met like how closer are
+we to this numbers I mean these numbers
+how closer are we to the sharp ratio.
+How closer are we to the targets? So it
+is going to derive a score. Maybe by
+reducing these numbers we'll get a
+number right. If that number is bigger
+that means we are not still far away
+from the targets.
+If the numbers are closer to zero
+that means your target is achieved.
+Right? So means your total return
+percentage what you expect has been
+achieved or sharp ratio has been
+achieved or maxed drawn has been
+achieved then the experiment will stop
+until then the iteration will be keep on
+happening.
+So Karthik is asking what is the data
+setup for the back testing here like was
+it downloaded by cloud? It's not
+downloaded by cloud. We are taking it
+from histo. We are taking state bank of
+India and benchmark nifty both we are
+getting it from the uh open algo duck db
+itself. It'll be automatically getting
+from there. Right.
+So DH is asking is the auto research
+itself running in your locally u is
+there a need for a GPU? So there is no
+need for a GPU here because we are not
+doing any ML experiments. It is going to
+be uh done by the LLMs. Yes, AI is used
+but are we using GPUs? Not in my local
+machine, right? So probably I am using
+cloud code and cla uh it'll be called so
+cloud code will be using uh GPUs at the
+anthropic data centers. I'm not running
+any GPUs over here. Even though my
+machine has some GPUs,
+right? I guess that clarifies the next
+question.
+So you understand the score. The score
+is a little different from what I showed
+you an example, right? So now let's go
+and run the experiment. Right? So all
+these files has been ready. The program
+files has been ready and lot of other
+things are there. What has get logged?
+What details the AI will be looking into
+that. So this is how it'll be running
+those experiments. any experiment each
+and every line is experiment over here
+the sample code how the report should be
+prepared every single line it measures
+the score so if the score is improved
+it'll keep if the score is lesser it is
+going to discard over here right so
+that's how it is so it's going to
+conduct a lot of experiments so let's
+run that
+I'll say Yes,
+that's preparing the prepare.py as well.
+That's the main thing.
+The max draw is trying to take it as an
+absolute number because max will be
+always in a negative number but in our
+case we want positive number so it's we
+are taking the absolute value of that
+order number
+so that the score will be always
+we try to achieve the score close to
+zero
+so means I'll try to uh explain you see
+that it's trying to add an
+get commit
+it's not committing but it's just adding
+it to that
+and it's also committed to that as well
+automatically it's committing right and
+I'm pushing it to the origin so that we
+can uh get the link to this file
+right now I'm going to say like I'm
+going to start the experiment right so
+let's say like uh this is The current
+value this is our current value then
+this is what we want to achieve right
+the sharp ratio this is a one and we
+want to achieve at least 1.2 and greater
+draw down we want to reduce it to 18%
+okay the score current score is like
+0.98 we want to bring it to 0.0 zero if
+all the things are met. Right? So let's
+say like I'll say like start the
+experiment.
+It's kicking off the experiment. I'm
+going to say it's asking me for a human
+confirmation.
+It's going to create a new branch. It's
+going to create a new branch called like
+auto research with April 5 today's date.
+And I just type yes.
+So means uh we are already having an
+main commit along with that a main
+branch along with that a new branch is
+getting created and that is where we're
+going to run the experiments
+and now it will be keep on running in a
+loop right so now it is doing the first
+set of uh
+experiment
+still not started yet but it it's
+getting the results so now it's
+conducting the second experiment it's
+combining you can see that's using EMA
+821 and SMA 200 trend filter.
+It's changing the strategy.py. So you
+can see like it is changing the
+strategy.py, right? So because
+strategy.py is where we can it can
+automatically modify the code.
+So score is going to 1.95 means it has
+to discard.
+Let me keep this.
+It's running experiment number three.
+How many experiments it can run? I think
+Andrah Karpati right in his one uh every
+5 minutes one experiment will be
+conducted in our case every 30 seconds
+an experiment will be conducted a new
+experiment so we don't need to wait for
+a very long time because data is there
+it's not going to take much of a time so
+within every 30 seconds a new experiment
+will be conducted
+again now it is checking with like EMA 9
+and 36 with an allocation 0.90.
+So it says like draw down exploded to
+37.9. It is discarding. So it is
+discarding if any experiment which is
+failing by the draw down is increasing.
+It is discarding those experiments.
+Now it is trying with EMA plus RSI 75
+with overbought levels.
+Sharp return reduced sharp ratio is good
+max on reduced so still the score is not
+good enough it's discarding
+so it's it's coming with different ideas
+as you can see like right even though
+some of the experiments are not going
+good so far
+this is [clears throat] experiment
+number 5
+1030 plus ATR trailing with an
+allocation of like 0.95 percentage.
+So 190.86
+is sharp ratio. Max draw down is 30.96.
+Again the return went up slightly but
+draw down jumped to 30.95. So the
+rolling window trailing stop isn't
+working well. So it is discarding again.
+So multiple experiments are getting
+discarded.
+Now how it's going with experiment
+number six. It's using ADX as an entry
+filter.
+So far none of the experiments is going
+good so far.
+37.81k 81. Totally terrible experiment
+and this time it is adding like EMA 1025
+with 8% stop-loss exit and uh allocation
+is like 9 90 means 90% of the money is
+part in that strategy
+every single time.
+As you can see like every experiment
+right it is committing and if it is not
+working it is also discarding the those
+So 177
+so it is thinking like things are not
+working good. So the real problem during
+draw periods the AMA crossover stays in
+the losing period. So it's trying to
+think slightly in a different way.
+I think so far not even a single success
+yet
+the model is struggling a bit. I think
+now the return is much better 203%age
+return jumped. So what it says like
+return jumped button also went from 24
+to 27 but slight score slightly worse
+right. Um yeah so let's see slight
+improvement but still not enough which
+means again it is discarded right. So
+the numbers are not improving the
+overall number has to improve.
+I don't know why it is asking yes every
+single time it says unandboxed
+but I already enabled sandbox right
+it's already sandbox is enabled
+almost like eight experiments so far. Uh
+no improvements at all. Everywhere the
+draw is somewhat increasing.
+Next time total returns are not that
+great.
+That is also failing.
+It was using uh EMA 13 with wider
+separation.
+Now experiment number 11. EMA 825 plus
+MC histogram greater than zero. Entry
+condition. It's adding some filters.
+I think when I tried in the morning with
+15 years of data in state bank of India
+um I was using a different uh goal right
+in the morning. So there
+probably out of 10 experiments three
+failed and seven passed right but here
+everything is failing.
+We'll see in which experiment it's going
+to conduct which is going to pass
+it is having an entry with a different
+EMA and exit with a different EMA
+like first time the score improved right
+so you can see like from this is the old
+score the new score is like 939 return
+jumped from 172 to 194 draw down was
+almost similar and we still have 29
+trades. This is the first improvement.
+Keep this commit. So it's going to keep
+the commit over here. Rest all the
+commits would have been ignored.
+So where all these commits are there?
+All these commits are still locally
+only. It is not pushed to the GitHub
+yet. Unless we want to push it, it's
+still visiting in your local commit
+only.
+Maybe one more improvement. I think
+it's a higher return but draw on went
+higher. So draw on is something which is
+is not getting down. So so far we got
+only one little success.
+Let's keep trying with different
+numbers, different allocations.
+Yeah, we could have done the
+optimization but it is not only changing
+the values, it is also changing
+different filters,
+different uh uh different indicators
+it's trying to bring as a filter Okay.
+Or you can also give diverse set of uh
+indicators which are the indicators you
+can consider using as a filter. More
+instructions, more powerful instructions
+you're going to give uh more improvement
+it can do. So now it is trying to use
+Ballinger band with expanding entry
+Total return is 5.95. I think it's going
+to get discarded. It's a terrible one.
+entry filters consistently hurt. So it
+says like what it says it's now it says
+let me focus purely on asymmetric EMA
+tuning and allocation. The winning combo
+was 10 30 and 50 at 80. Let me try
+slightly different exits
+again. A little bit improvement in the
+returns
+but EMA 60 exit is too slow
+so far. Only one positive commit is what
+we got.
+So where I can see the commits you can
+go and see over here. Right? So this is
+what the auto research asymmetric EMA
+and every one every yellow one what
+you're going to see is like a positive
+commits
+improved strategy still the strategy
+same 10 30 MA crossover only but
+slightly an enhanced strategy
+now I'm not interfering anything like
+it's keep on conducting experiments it
+keeps on going in a loop right so let's
+say if it is sandboxed as of now it is
+not sandboxed yet I don't know why it
+says unsandboxed if it sandbox it will
+not even ask for this yes kind of thing
+it keeps on running in a loop. We'll be
+keep on running like conducting hundreds
+of experiments.
+Identical score to the base symmetric.
+The second entry didn't fire. So this is
+also almost similar score. So it's going
+to discard that as well.
+So we want the overall value to go down.
+again it's going to discard I think
+yeah I know EMA crossover is a pathetic
+strategy but
+on a daily scale it makes it's okay to
+have such kind of strategies
+I'm not trying to justify you should use
+EMA crossover but just consider this as
+an experiment right
+I just little curious like how the AI
+models are trying to figure out on its
+own like what works what doesn't works
+rather than we trying to break our heads
+the AI will be breaking the heads for
+you
+experiment number 21 right
+I don't know how long this is going to
+keep going on.
+So when is the loop expected to end?
+Until the goal is not met, right? It
+keeps on going in a loop.
+So so far uh not much.
+Yeah, it it got a first new best score.
+Slight improvement return dropped like
+from
+here the return dropped but draw down
+improved significantly like from 24 it
+went to like 22 right so the moment of
+exit is protecting capital during draw
+downs I'm going to keep this that's what
+it's going to say it is also learning
+from the past experiment as well which
+worked which doesn't work so it'll try
+to figure out like from there it'll try
+to enhance it by increasing the
+allocation or something like that of
+course if you increase allocation rate
+automatically draw also increase that's
+the problem
+return increases but raon also increases
+parallel
+so that's what I said like return
+increases but ra also goes higher so
+that's not a great idea by the way
+it cannot touch the allocation
+It's trying to reduce the momentum look
+It can even conduct thousands of
+experiments also.
+And that's what a Ralph loop is all
+about. Let me try to get you what a
+Ralph loop is all about.
+Probably we can go to CLA.
+What is a Ralph loop?
+So the Ralph loop also called as Ralph
+vigum technique is an autonomous
+iterative development methodology for
+claudia code name after persistent never
+give up character from the Simpsons
+right
+so as it is simplest as Joffrey Huntley
+describes is Ralph is a bash loop a
+simple while loop while true so that
+keeps on repeating feeds an AI agent a
+prom file allowing it to iteratively
+improve its working work until
+completion so how long it's going to go
+on it's going to keep on going on until
+the target is achieved or unless you say
+like boss stop right you just press an
+escape key. It's going to keep going in
+a loop. So means it's going to consume a
+lot of tokens.
+In my case, it's fine.
+So far only we have like two successful
+It's trying with a different momentum
+look back. Maybe we should have said
+like you should you should use optimize
+to figure out the fastest way rather
+than changing the values one by one
+and now the return improved I think yeah
+huge improvement you see that there is a
+huge improvement in the score like from
+0.93 7.99 means return jumped sharp
+ratio also jumped draw down to 26.66 66
+draw down was worse but overall score is
+getting better right um yes so overall
+score is coming down means we're getting
+very closer to zero it's a great
+progress
+so we have like three successful
+experiments so let me keep pushing it
+just trying to uh
+see whether it is able to reduce further
+or
+You see that it's adding the commit
+again one more improvement score now
+gone down to like 228 that's a massive
+improvement return jump to 292 one of
+the target is met sharp ratio 1.04 04
+second target is also met. Only the draw
+down is not met, right? So like
+this is crazy. I don't know what changes
+it had done but let's see like this is a
+very close
+it's trying small variation in the
+momentum look back to see like so it
+knows how much to adjust depends upon
+the strategy right so it's seeing like
+whether if I can change the momentum
+look back to like nine or maybe it might
+try to come back to seven and see like
+will there be any drastic improvement or
+not even a better score one more
+enhanced score right so your draw down
+gone from like 20 to 19 very close to
+the 18% Say target
+very close again 290 sharp ratio is
+like.996 draw down is like 19.
+So it is trying to work very closer
+using this
+can end here but let's see like whether
+it's able to achieve all the three
+targets or not. Almost two has been met.
+So score went up. So now the score is
+going up. So that means uh look back 10
+is loose. So it's going to discard it
+obviously
+because we already had a better score
+ratio still 1.2 need to be achieved that
+is also that is one more thing is there
+right but it's able to maybe 1.2 two is
+too big number. I should have maybe I I
+should have set to like one.
+Let's see
+allocation. It should not increase
+because it's going to increase the draw
+down. That's a bad idea. Return is
+jumping but at the same time your draw
+down also will be jumping higher.
+Yeah, it's the same thing like return
+jumped but uh draw on goes to like 20
+sharp ratio barely moved right it's one
+now score is worse so it's going to
+discard it yeah even I will discard just
+because return went up but the other
+parameters are not going up it's not a
+good idea
+so the sharp ratio and drawon are the
+remaining gaps I need to reduce volat
+it's trying to see like what if I try to
+reduce the volatility of the equity
+curve. Let me try.
+it's trying a different methodology.
+It says like I I can't do dynamic
+allocation since prepare.py uses a fixed
+allocation float. So I cannot change the
+prepare.py.
+Let me focus on what I can change. It
+can change only the signals, right? You
+cannot change uh fixed allocation
+allocation fixed over here. Means uh you
+can either use an 70% allocation or 80%
+allocation. You cannot keep on changing
+the allocation every single time
+dynamically.
+Of course it if it have been that it
+could have been a better one.
+Again returns are going down. The new
+experiment is failing
+but it's this time draw down is less
+than 16%. we are able to achieve but
+returns are dropping right so now it's
+need to find a middle ground the
+strategy has to find a middle ground
+somewhere in between
+experiment number 30 right so 3day
+so it's it's checking whether 3day if it
+is rising uh whether the signals are are
+we able to reduce unwanted bad trades or
+something like that it's adding couple
+of more filters that way 3day rising
+slope entry
+total returns are 211
+still not enough we need 250 is the
+number I given right
+better returns higher allocation but
+draw down went back to 18.93 sharp ratio
+still at84
+score is 050 50.
+The current best score is 212. return to
+90%age.
+This time score is 27 return is good
+but maybe other values could be not good
+enough.
+again it's trying a different approach
+again once again return is good
+very close so current best is 212 but we
+got like 215 draw down dropped to 18.44
+44 almost at 18.8 target and return is
+like 264 but sharp ratio is like 96 very
+slightly lower
+I know getting into 1.2 two is very
+tough I would say somewhere we may need
+to stop
+because getting an ratio on a trend
+following model that two with an EMA
+crossover that is very difficult I know
+but let's see if at all the model is
+able to figure out maybe if I run
+throughout the day the model somewhere
+it'll be able to figure out but all
+these are very simple experiments only
+nothing
+It's ready trying to reduce allocation.
+Yeah, that's a good idea. Trying to
+reduce an allocation is a good idea
+because your RON gets reduced. your uh
+return will reduce a little bit but
+that's fine but your radon also get
+controlled
+and draw on is below uh below 18%age but
+return dropped sharp ratio is like 987
+it's getting middle ground right 75 it's
+trying to adjust so that uh returns also
+able to pass and draw down is also able
+to get around like 18
+the total return is 262%age
+I think new best score like.169 right
+you can see that um the new best score
+is a.169 that means almost target is met
+sharp ratio 1.2 2 as I said it's very
+difficult max draw down we are able to
+get like 18% so I'm going to stop here
+right so I'll say like I'll say no to
+or maybe I'll say
+um yes and I'll say like let it commit
+and then I'll stop here because I know
+right the sharp ratio is not going to
+happen from 1.2 two it need to push
+sharp ratio it's it's going to figure
+out but uh
+um it says like shen ratio is 1.52 it's
+but I'm going to say first let's let it
+add and then I'm going to say like let's
+stop here and uh tell me what is the
+strategy last experiment that you had
+conducted
+it it's coming with more uh it's it got
+one more best score so sharp ratio is
+now jumping but ra is like 18.26 26 it's
+going to keep it up but because it's a
+new best score numbers are still keep
+reducing more lesser the number better
+the strategy is going to be slightly
+changing the variation in allocation so
+that we can bring down the draw down we
+can bring down best score I mean we can
+we can produce more best scores
+so new best score yeah so as I said like
+new best score is there draw down is
+17.82 82 and return is 273. Sharp ratio
+improved to one. So I'll say like I I'll
+escape here right I'll say an escape.
+So I want to say like uh
+u can we use the sharp ratio target to
+one
+um cuz it is a trend following system.
+My bad
+that score I mean my bad that
+I should never said 1.2
+So it's adjusting the sharp ratio
+because I said so otherwise it cannot
+adjust unless I I'm the one who is
+modifying the targets.
+Now once again it is trying to conduct
+the experiments. All targets are met.
+So,
+so we'll we'll say like uh what is the
+last score
+I mean last uh strategy
+where all the targets are met
+37 experiments out of that only eight
+successful one where we They're slowly
+able to reduce lot of failed one.
+So you can see that. So what was the
+strategy is all about is
+same instead of 10 and 30 EMA crossover
+we using 12 and 30 the standard EMA
+crossover that's the entry but exit. So
+we have two conditions. EMA 12 crosses
+below EMA 50
+and uh EMA 12 has been declining for
+nine consecutive days and closes below
+EMA 12. That's a momentum exit cut
+losses before they become big draw
+downs.
+Allocation 73% of the capital per trade
+nothing much right. So there's a the
+exit is little different and allocation
+initially it was like 75 allocation we
+are just reducing it to 73%age so that
+all the three targets are getting met
+right [clears throat] so what is the
+effect
+holding winning trades 40% longer
+compared to the previous one it was here
+in this case it was holding the winning
+trades boosting total returns
+earlier it was having an uh 9-day
+momentum exit it is happening. So if it
+is declining for nine consecutive day
+the EMA is declining it going to cut
+down the positions pretty much faster
+and uh allocation also fine- tuned
+that's what the final result is this was
+the baseline what we had earlier and
+after conducting multiple experiments
+what was the improvement so improvement
+is done across the scale there has been
+an improvement is here minor improvement
+in the win rate profit factor huge
+improvement max draw down yes definitely
+a huge improvement
+total return a huge improvement sharp
+ratio reasonable improvement even 8 to1
+is like it's a decent improvement so I'm
+going to say like can you provide the
+equity curve
+and tier sheets point tier sheets
+because vectorb right it's not just only
+do the back test it also provides you
+various metrics as well I can provide
+you the equity curve and the quanter
+sheets so all those things you can find
+inside
+um you can you can find inside
+the vector BT skills.
+Now what is likely to go away is like
+people going and doing a manual back
+testing that is going to be gone.
+So these are you can see these are the
+list of experiments succeeded
+experiments. It was discarding all the
+unsuccessful experiment it was
+discarding.
+So that any strategy each and everyone
+is every commit is a strategy over here.
+Now all these are still holding locally
+and this is a final enhanced equity
+curve and draw down around like
+17.66%age
+max draw down. You can also get the
+quant tier sheets as well. So let's go
+and get the quant sheets.
+So inside crossover
+we have here. Yeah. So here is the
+quantity sheets final.
+Come on
+reveal in the finder. I'll try to open
+up the quantity sheets. Right. you'll
+get very comprehensive metrics including
+the benchmark results. Right?
+So what I'm going to do I'm going to
+commit um
+commit the experiment
+to
+GitHub.
+So it will be committed as a separate
+branch as I said right it'll be pushed
+So you may have to install GitHub CLA
+for this right. So you have to install
+GitHub CLA, you have to have NodeJS for
+installing the vectorBD skills. You need
+to have Python
+and you need to have open algo or even
+if you don't have open algo you can
+consider using Yahoo Finance right
+because the vector BT skills supports Y
+finance if you don't have open algo.
+All right. So the link has been pushed
+over here. Let me controlclick.
+So we have an separate branch. It has
+been pushed to separate branch. We have
+two branches over here. main branch
+which contains what our uh simple EMA
+crossover and we have three files
+prepare.py strategy.py Pi and programm
+explain what is what right and then we
+have the final experiment which has been
+conducted all the 17 experiment this
+doesn't contains any experiments you can
+see there is only two commits this
+doesn't contains any experiments all the
+experiments are in the auto research APR
+5 branch right so here almost each and
+every commit is a successful
+improvement in the results right finally
+um we are able to bring down because uh
+I should have said sharp ratio as one
+itself it's my bad like I have to change
+it to from 1.2 to 1 so that all targets
+are met otherwise
+I don't know maybe uh after a long maybe
+another 1 hour or 2 hour later that 1.2
+into target also would have met somehow
+right but it it would have been doing a
+lot of iterative search without any
+human intervention right this is a basic
+example but I'm sure like you you guys
+know how to enhance it with your own
+strategy you want to enhance your
+strategy maybe you can say like what to
+use what not to use you don't want to
+use a simple RSI simple EMA as a filter
+you can just simply say that so that
+your preparepy will be or programm will
+we return the rules accordingly right so
+or how what kind of filters that you
+want to use what kind of experiment that
+you want to conduct what experiment you
+don't want to conduct if you give such
+kind of things you'll be getting an
+complete enhanced output probably you'll
+get wide variety of ideas that's what
+you can get mostly
+so are you guys clear about what we had
+done so
+Is there a way to ensure you don't burn
+out lot of tokens?
+Maybe you have to monitor it if it is um
+it's better to go with codeex or cloud
+code so that you go with an a fixed
+plans. So if you are don't try to use
+directly the APIs API key don't directly
+use use codex GPT plan or maybe
+anti-gravity ensure that you're in a
+fixed plan trying to use in cursor um
+maybe it could be a good idea because a
+single thread conversation
+I'm I'm still not sure like how cursor
+will be conducting because your tokens
+will your your each and every
+conversation will be consumed so you'll
+be running out of credits. it's very
+faster but something like cloud code and
+codeex where you have unlimited access
+not exactly unlimited access but kind of
+an unlimited access um still they'll be
+having a rate limit
+so as long as that is uh not hit yes you
+can go and try this out right
+but don't try this loop experiment if
+with an real uh direct APIs I'm not
+using direct API here I'm having a Mac
+subscription So uh even I can run like
+this this kind of experiments I can run
+another 100 experiments also I'll be
+able to run for the day.
+So again Ganesh is asking when the loop
+is expected to end
+infinite experiments as long as the
+target is not met they'll be keep on
+running in a loop no matter what.
+So be aware of those things. So try to
+set reasonable targets. Don't try to set
+miracles in your back testing report.
+You may get but that will be super
+overoptimized. Not necessarily it has to
+work. So try to set some some reasonable
+goals right. So what is possible? What
+is not possible? You might have an idea
+about it. So based on that you set the
+target goals and the AI should be able
+to conduct various experiment and it
+should be able to met.
+Any other questions before we calling it
+a day?
+Are you guys able to understand the uh
+EMA crossover and auto research?
+If yes, please type yes so that I get an
+idea that you guys are able to
+understand the context and what is going
+behind the scenes.
+All right. Arun said yes and Ganesh says
+yes.
+Mun says yes.
+All right, great. So, let me pause here.
+We'll come back in yet another session
+and we'll talk more about it. Thank you.
