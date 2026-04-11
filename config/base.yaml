@@ -4,10 +4,16 @@ mt5:
   connection_timeout: 30
 
 account:
-  initial_balance: 30
-  risk_per_trade_pct: 2.0       # was 1.0 — 2x more risk per trade
-  max_lot_per_trade: 0.50       # was 0.10 — allow bigger lots as account grows
+  initial_balance: 100
+  mode: "demo"
+  risk_per_trade_pct: 1.0
+  max_lot_per_trade: 0.50
   min_lot_size: 0.01
+  balance_adjustments:
+    - date: "2026-03-27"
+      type: "deposit"
+      amount: 100.0
+      note: "Initial deposit"
 
 instruments:
   - symbol: XAUUSD
@@ -34,11 +40,47 @@ instruments:
     min_lot: 0.01
     max_lot: 100.0
     lot_step: 0.01
+  - symbol: USDJPY
+    point_size: 0.001      # MT5: point=0.001 (3-digit JPY pair)
+    tick_value: 0.01       # Approximate — verify from MT5 symbol_info
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: GBPJPY
+    point_size: 0.001      # MT5: point=0.001 (3-digit JPY pair)
+    tick_value: 0.01       # Approximate — verify from MT5 symbol_info
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: NZDUSD
+    point_size: 0.00001    # MT5: point=0.00001 (5-digit broker)
+    tick_value: 1.0        # Standard forex: $1 per pip per lot
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: GBPUSD
+    point_size: 0.00001    # MT5: point=0.00001 (5-digit broker)
+    tick_value: 1.0        # Standard forex: $1 per pip per lot
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: EURUSD
+    point_size: 0.00001    # MT5: point=0.00001 (5-digit broker)
+    tick_value: 1.0        # Standard forex: $1 per pip per lot
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
+  - symbol: US30
+    point_size: 0.01       # MT5: point=0.01 (index CFD)
+    tick_value: 0.1        # MT5: trade_tick_value=0.1 (FundedNext confirmed)
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
 
 risk:
-  max_open_positions: 2         # reduced for $30 account (was 5)
-  max_positions_per_symbol: 1   # no pyramiding on small account (was 2)
-  max_daily_trades: 10          # conservative (was 20)
+  max_open_positions: 10
+  max_positions_per_symbol: 5
+  max_daily_trades: 200
   max_daily_loss_pct: 8.0
   max_drawdown_pct: 20.0
 
@@ -104,6 +146,40 @@ strategies:
     liquidity_sweep_boost: 0.10
     opposing_ob_penalty: 0.15
     lookback_bars: 100
+    fvg_entry_zone_boost: 0.15
+    anchored_vwap_bounce_boost: 0.10
+    volume_profile_poc_boost: 0.10
+  scalping:
+    enabled: true
+    max_trades_per_strategy: 1
+    max_total_open_positions: 10
+    max_daily_trades_per_strategy: 50
+    max_daily_trades_total: 200
+    daily_loss_limit_pct: 5.0
+    risk_per_trade_pct: 1.0
+    profit_growth_factor: 0.50
+    use_tiered_lot_caps: false
+    lot_cap_tiers:
+      - [0, 0.50]
+      - [500, 1.00]
+      - [2000, 2.00]
+      - [5000, 5.00]
+      - [10000, 10.00]
+    scan_interval_seconds: 15
+    strategies_enabled:
+      # WINNERS (deploy these)
+      - m5_mtf_momentum         # PF 1.36, DD 10%
+      - m5_keltner_squeeze      # PF 1.20, DD 19%
+      - m5_dual_supertrend      # PF 1.15, high return
+      # DISABLED (not profitable with costs)
+      # - m5_vwap_mean_reversion
+      # - m5_stochrsi_adx
+      # - m5_bb_squeeze
+      # - m5_mean_reversion
+      # - m1_heikin_ashi_momentum
+      # - m1_rsi_scalp
+      # - m1_supertrend_scalp
+      # - m1_ema_micro
 
 position_monitor:
   poll_interval_seconds: 30
@@ -127,3 +203,29 @@ telegram_listener:
 
 database:
   path: "data/trading_bot_v2.db"
+
+prop_firm:
+  enabled: false                   # Set true (or use fundingpips.yaml overlay)
+  provider: "fundingpips"
+  account_size: 5000
+  phase: "step1"
+  leverage_metals: 30
+  commission_per_lot_metals: 5.0
+  daily_loss_limit_pct: 5.0
+  max_overall_dd_pct: 10.0
+  max_risk_per_trade_pct: 2.0
+  profit_target_pct: 8.0          # FundingPips Step1=8%, Step2=5%
+  safety_buffer_daily_pct: 1.0
+  safety_buffer_dd_pct: 1.0
+  friday_auto_close: true
+  friday_close_hour_utc: 21
+  news_filter_enabled: true
+  max_directional_positions: 3
+  min_trading_days: 3
+  inactivity_limit_days: 30
+
+claude_filter:
+  enabled: false                   # Enable in fundingpips.yaml overlay
+  model: "claude-haiku-4-5-20251001"
+  confidence_threshold: 0.65
+  timeout_seconds: 5.0

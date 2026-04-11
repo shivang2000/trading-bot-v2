@@ -83,19 +83,21 @@ class TradingSession:
 class SessionManager:
     """Manages trading sessions and provides session-aware functionality.
 
-    Session times are in UTC:
-    - Asian: 00:00 - 08:00 UTC
-    - London: 08:00 - 17:00 UTC
-    - New York: 13:00 - 22:00 UTC
-    - London/NY Overlap: 13:00 - 17:00 UTC (BEST for gold)
+    Session times are in UTC (from babypips.com):
+    - Sydney/Asian: 21:00 - 09:00 UTC (spans midnight)
+    - London: 07:00 - 16:00 UTC
+    - New York: 12:00 - 21:00 UTC
+    - London/NY Overlap: 12:00 - 16:00 UTC (BEST for gold)
+    - Tokyo/London Overlap: 07:00 - 09:00 UTC
+    - Market open: Sunday 21:00 UTC / close: Friday 21:00 UTC
     """
 
     # Define sessions (all times in UTC)
     SESSIONS: list[dict[str, Any]] = [
         {
             "name": SessionName.LONDON_NY_OVERLAP,
-            "start": time(13, 0),
-            "end": time(17, 0),
+            "start": time(12, 0),
+            "end": time(16, 0),
             "priority": SessionPriority.BEST,
             "volatility": 2.0,
             "spread_mult": 0.8,  # Lower spreads due to high liquidity
@@ -103,8 +105,8 @@ class SessionManager:
         },
         {
             "name": SessionName.LONDON,
-            "start": time(8, 0),
-            "end": time(13, 0),
+            "start": time(7, 0),
+            "end": time(12, 0),
             "priority": SessionPriority.HIGH,
             "volatility": 1.5,
             "spread_mult": 0.9,
@@ -112,8 +114,8 @@ class SessionManager:
         },
         {
             "name": SessionName.NEW_YORK,
-            "start": time(13, 0),
-            "end": time(22, 0),
+            "start": time(12, 0),
+            "end": time(20, 59),  # Ends just before 21:00 so Asian takes over
             "priority": SessionPriority.HIGH,
             "volatility": 1.5,
             "spread_mult": 0.9,
@@ -121,7 +123,7 @@ class SessionManager:
         },
         {
             "name": SessionName.ASIAN_LONDON_OVERLAP,
-            "start": time(8, 0),
+            "start": time(7, 0),
             "end": time(9, 0),
             "priority": SessionPriority.MEDIUM,
             "volatility": 1.2,
@@ -130,8 +132,8 @@ class SessionManager:
         },
         {
             "name": SessionName.ASIAN,
-            "start": time(0, 0),
-            "end": time(8, 0),
+            "start": time(21, 0),  # Sydney opens 21:00 UTC Sunday — spans midnight
+            "end": time(9, 0),     # Tokyo closes 09:00 UTC
             "priority": SessionPriority.LOW,
             "volatility": 0.7,
             "spread_mult": 1.3,  # Higher spreads
@@ -161,16 +163,35 @@ class SessionManager:
         if dt is None:
             dt = datetime.utcnow()
 
-        # Check weekend
-        if not self.weekend_trading and dt.weekday() >= 5:  # Saturday = 5, Sunday = 6
-            return TradingSession(
-                name=SessionName.CLOSED,
-                start_time=time(0, 0),
-                end_time=time(0, 0),
-                priority=SessionPriority.LOW,
-                volatility_rating=0.0,
-                recommended_for_gold=False,
-            )
+        # Check weekend — Saturday fully closed, Sunday closed until 22:00 UTC (Sydney open)
+        if not self.weekend_trading:
+            if dt.weekday() == 5:  # Saturday = fully closed
+                return TradingSession(
+                    name=SessionName.CLOSED,
+                    start_time=time(0, 0),
+                    end_time=time(0, 0),
+                    priority=SessionPriority.LOW,
+                    volatility_rating=0.0,
+                    recommended_for_gold=False,
+                )
+            if dt.weekday() == 4 and dt.hour >= 21:  # Friday after 21:00 UTC = market closed
+                return TradingSession(
+                    name=SessionName.CLOSED,
+                    start_time=time(0, 0),
+                    end_time=time(0, 0),
+                    priority=SessionPriority.LOW,
+                    volatility_rating=0.0,
+                    recommended_for_gold=False,
+                )
+            if dt.weekday() == 6 and dt.hour < 21:  # Sunday before 21:00 UTC = closed (Sydney opens 21:00)
+                return TradingSession(
+                    name=SessionName.CLOSED,
+                    start_time=time(0, 0),
+                    end_time=time(0, 0),
+                    priority=SessionPriority.LOW,
+                    volatility_rating=0.0,
+                    recommended_for_gold=False,
+                )
 
         current_time = dt.time()
 

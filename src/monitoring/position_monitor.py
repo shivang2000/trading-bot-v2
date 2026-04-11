@@ -16,10 +16,11 @@ from typing import Any, Callable
 
 import pandas_ta as ta
 
-from src.config.schema import TrailingStopConfig
+from src.config.schema import PartialProfitConfig, TrailingStopConfig
 from src.core.enums import OrderSide, OrderType
 from src.core.events import EventBus, ModifyOrderEvent, OrderEvent, PositionClosedEvent
 from src.core.models import ModifyOrder, Order, Position
+from src.monitoring.partial_profit_manager import PartialProfitManager, PartialProfitState
 from src.mt5.client import AsyncMT5Client
 from src.risk.trailing_stop import TrailingStopManager
 from src.safety.emergency import EmergencyStop
@@ -41,6 +42,8 @@ class PositionMonitor:
         trailing_stop_config: TrailingStopConfig | None = None,
         positions_callback: Callable[[list], None] | None = None,
         initial_balance: float = 30.0,
+        prop_firm_guard=None,
+        partial_profit_config: PartialProfitConfig | None = None,
     ) -> None:
         self._mt5 = mt5_client
         self._event_bus = event_bus
@@ -56,6 +59,8 @@ class PositionMonitor:
             max_drawdown_usd=initial_balance * 0.20,     # 20% of initial
         )
         self._emergency_triggered = False
+        self._prop_firm_guard = prop_firm_guard
+        self._friday_close_triggered = False
 
         # Trailing stop management
         self._ts_config = trailing_stop_config
@@ -65,6 +70,14 @@ class PositionMonitor:
                 atr_multiplier=trailing_stop_config.atr_multiplier,
                 activation_pct=trailing_stop_config.activation_pct,
             )
+        # Partial profit manager (multi-TP partial closes)
+        pp_cfg = partial_profit_config
+        self._partial_profit: PartialProfitManager | None = None
+        if pp_cfg and pp_cfg.enabled:
+            self._partial_profit = PartialProfitManager(
+                breakeven_buffer=pp_cfg.breakeven_buffer_points,
+            )
+
         # Cache ATR values per symbol to avoid recalculating every poll
         self._atr_cache: dict[str, tuple[float, datetime]] = {}
 
@@ -139,6 +152,10 @@ class PositionMonitor:
                     ticket, pos.side.value, pos.symbol, pos.volume, pos.open_price,
                 )
 
+        # Check partial profit levels (close portions at each TP)
+        if self._partial_profit and current_tickets:
+            await self._check_partial_profits(current_tickets)
+
         # Update trailing stops for open positions
         if self._trailing_manager and current_tickets:
             await self._update_trailing_stops(current_tickets)
@@ -156,8 +173,11 @@ class PositionMonitor:
                 account = self._account_state_func()
                 if self._emergency.check(account):
                     self._emergency_triggered = True
-                    logger.critical("EMERGENCY STOP TRIGGERED — closing all positions")
+                    logger.critical("EMERGENCY STOP TRIGGERED — closing bot positions")
                     for pos in list(current_tickets.values()):
+                        if not self._is_bot_position(pos):
+                            logger.info("Skipping manual position ticket=%d on emergency close", pos.ticket)
+                            continue
                         close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
                         order = Order(
                             symbol=pos.symbol, side=close_side,
@@ -169,6 +189,58 @@ class PositionMonitor:
                         )
             except Exception:
                 logger.debug("Emergency check skipped", exc_info=True)
+
+        now = datetime.now(timezone.utc)
+
+        # Friday auto-close — actually close open positions before weekend gap
+        if self._prop_firm_guard and current_tickets:
+            if now.weekday() != 4:
+                self._friday_close_triggered = False  # reset on non-Friday
+            elif not self._friday_close_triggered and self._prop_firm_guard.should_friday_close(now):
+                self._friday_close_triggered = True
+                logger.warning(
+                    "FRIDAY AUTO-CLOSE: closing %d position(s) before weekend gap",
+                    len(current_tickets),
+                )
+                for pos in list(current_tickets.values()):
+                    if not self._is_bot_position(pos):
+                        logger.info("Skipping manual position ticket=%d on Friday close", pos.ticket)
+                        continue
+                    close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+                    order = Order(
+                        symbol=pos.symbol, side=close_side,
+                        order_type=OrderType.MARKET, volume=pos.volume,
+                        magic=200000, comment="FRIDAY_CLOSE",
+                    )
+                    await self._event_bus.publish(
+                        OrderEvent(timestamp=datetime.now(timezone.utc), order=order)
+                    )
+
+        # Periodic PropFirmGuard equity check — catches rapid drawdown between signals
+        if self._prop_firm_guard and self._account_state_func and current_tickets:
+            try:
+                account = self._account_state_func()
+                can_trade, reason = self._prop_firm_guard.can_trade(account.equity, now)
+                if not can_trade and ("DANGER:" in reason or "Daily loss" in reason):
+                    logger.critical(
+                        "PROPFIRM GUARD (periodic): %s — closing all %d position(s)",
+                        reason, len(current_tickets),
+                    )
+                    for pos in list(current_tickets.values()):
+                        if not self._is_bot_position(pos):
+                            logger.info("Skipping manual position ticket=%d on propfirm guard close", pos.ticket)
+                            continue
+                        close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+                        order = Order(
+                            symbol=pos.symbol, side=close_side,
+                            order_type=OrderType.MARKET, volume=pos.volume,
+                            magic=200000, comment="PROPFIRM_GUARD",
+                        )
+                        await self._event_bus.publish(
+                            OrderEvent(timestamp=datetime.now(timezone.utc), order=order)
+                        )
+            except Exception:
+                logger.debug("PropFirm periodic check skipped", exc_info=True)
 
     async def _handle_close(self, position: Position) -> None:
         """Handle a detected position close."""
@@ -229,6 +301,14 @@ class PositionMonitor:
             except Exception:
                 pass
 
+        # Clean up partial profit tracking
+        if self._partial_profit:
+            self._partial_profit.remove(position.ticket)
+            try:
+                await self._db.delete_partial_profit_state(position.ticket)
+            except Exception:
+                pass
+
         # Close in bot_positions table
         try:
             await self._db.close_bot_position(
@@ -237,12 +317,93 @@ class PositionMonitor:
         except Exception:
             pass
 
+    @staticmethod
+    def _is_bot_position(pos) -> bool:
+        """Check if a position was opened by the bot (comment starts with 'tg:')."""
+        return bool(pos.comment and pos.comment.startswith("tg:"))
+
+    async def _check_partial_profits(
+        self, positions: dict[int, Position]
+    ) -> None:
+        """Check and execute partial profit closes for tracked positions."""
+        for ticket, pos in positions.items():
+            try:
+                if not self._is_bot_position(pos):
+                    continue
+                if not self._partial_profit.is_tracked(ticket):
+                    continue
+
+                current_price = pos.current_price or pos.open_price
+                actions = self._partial_profit.check(ticket, current_price, pos.symbol)
+
+                for action in actions:
+                    # 1. Partial close: send counter-direction market order
+                    close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+                    close_order = Order(
+                        symbol=pos.symbol,
+                        side=close_side,
+                        order_type=OrderType.MARKET,
+                        volume=action.close_volume,
+                        magic=200000,
+                        comment=f"partial:TP{action.level_idx + 1}",
+                        position_ticket=ticket,
+                    )
+                    await self._event_bus.publish(
+                        OrderEvent(
+                            timestamp=datetime.now(timezone.utc),
+                            order=close_order,
+                        )
+                    )
+
+                    # 2. Move SL to breakeven / previous TP level
+                    modify = ModifyOrder(
+                        ticket=ticket,
+                        symbol=pos.symbol,
+                        stop_loss=action.new_sl,
+                        take_profit=pos.take_profit,  # keep original final TP
+                    )
+                    await self._event_bus.publish(
+                        ModifyOrderEvent(
+                            timestamp=datetime.now(timezone.utc),
+                            modify_order=modify,
+                        )
+                    )
+
+                    logger.info(
+                        "Partial close: ticket=%d TP%d close %.2f lots, SL→%.2f",
+                        ticket, action.level_idx + 1,
+                        action.close_volume, action.new_sl,
+                    )
+
+                    # 3. Persist updated state
+                    state = self._partial_profit.get_state(ticket)
+                    if state:
+                        try:
+                            await self._db.save_partial_profit_state(
+                                ticket=ticket,
+                                tp_levels=state.tp_levels,
+                                levels_hit=state.levels_hit,
+                                original_volume=state.original_volume,
+                                entry_price=state.entry_price,
+                                side=state.side.value,
+                            )
+                        except Exception:
+                            pass
+
+            except Exception:
+                logger.warning(
+                    "Partial profit check failed for ticket %d",
+                    ticket, exc_info=True,
+                )
+
     async def _update_trailing_stops(
         self, positions: dict[int, Position]
     ) -> None:
-        """Update trailing stops for all open positions."""
+        """Update trailing stops for bot-opened positions only."""
         for ticket, pos in positions.items():
             try:
+                if not self._is_bot_position(pos):
+                    continue  # Skip manual positions
                 atr = await self._get_atr(pos.symbol)
                 if atr is None or atr <= 0:
                     continue
@@ -256,6 +417,22 @@ class PositionMonitor:
                     take_profit=pos.take_profit,
                     open_price=pos.open_price,
                 )
+
+                # Also check profit-based trailing (tighter)
+                profit_sl = self._trailing_manager.update_profit_trail(
+                    ticket=ticket,
+                    side=pos.side,
+                    current_price=pos.current_price or pos.open_price,
+                    open_price=pos.open_price,
+                )
+                if profit_sl is not None:
+                    # Use the tighter SL (profit trail or ATR trail)
+                    if new_sl is None:
+                        new_sl = profit_sl
+                    elif pos.side == OrderSide.BUY:
+                        new_sl = max(new_sl, profit_sl)  # higher SL = tighter for BUY
+                    else:
+                        new_sl = min(new_sl, profit_sl)  # lower SL = tighter for SELL
 
                 if new_sl is not None:
                     # Persist trailing stop to DB (survives restart)

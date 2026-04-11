@@ -20,6 +20,9 @@ import pandas_ta as ta
 from src.analysis.regime import MarketRegime, RegimeDetector, detect_regime_from_ohlcv
 from src.analysis.strategies.ema_pullback import EmaPullbackStrategy
 from src.analysis.strategies.london_breakout import LondonBreakoutStrategy
+from src.analysis.strategies.m1_ema_micro import M1EmaMicroStrategy
+from src.analysis.strategies.m5_bb_squeeze import M5BbSqueezeStrategy
+from src.analysis.strategies.m5_mean_reversion import M5MeanReversionStrategy
 from src.analysis.strategies.ny_momentum import NyMomentumStrategy, NyRangeBreakoutStrategy
 from src.backtesting.account import BacktestAccountManager
 from src.backtesting.result import BacktestResult, calculate_metrics
@@ -38,11 +41,12 @@ class BacktestEngine:
     def __init__(
         self,
         symbol: str,
-        strategy: str = "both",  # "ema_pullback" | "london_breakout" | "both"
+        strategy: str = "both",
         initial_capital: float = 10_000.0,
         volume: float = 0.01,
         config: AppConfig | None = None,
         point_size: float = 0.01,
+        use_strategy_sl_tp: bool = False,
     ) -> None:
         self._symbol = symbol
         self._strategy_name = strategy
@@ -51,6 +55,11 @@ class BacktestEngine:
         self._point_size = point_size
         self._risk_pct = config.account.risk_per_trade_pct if config else 2.0
         self._max_lot = config.account.max_lot_per_trade if config else 0.50
+
+        # Scalping mode: use strategy's own SL/TP, disable trailing stops
+        self._use_strategy_sl_tp = use_strategy_sl_tp or strategy in (
+            "m5_mean_reversion", "m5_bb_squeeze", "m1_ema_micro", "m5_scalp", "all_scalp"
+        )
 
         # Instrument specs for P&L calculation
         self._tick_value = 0.01  # default for Gold
@@ -79,13 +88,31 @@ class BacktestEngine:
             max_trades_per_day=ny_cfg.momentum_max_trades_per_day if ny_cfg else 1,
         ) if strategy in ("ny_momentum", "all") else None
 
+        # Scalping strategies (M5/M1)
+        self._m5_mean_rev = M5MeanReversionStrategy() if strategy in ("m5_mean_reversion", "m5_scalp", "all_scalp") else None
+        self._m5_bb_squeeze = M5BbSqueezeStrategy() if strategy in ("m5_bb_squeeze", "m5_scalp", "all_scalp") else None
+        self._m1_ema_micro = M1EmaMicroStrategy() if strategy in ("m1_ema_micro", "all_scalp") else None
+
         # Regime detector
         self._regime_detector = RegimeDetector()
+
+        # Optional M5/M1 data for scalping strategies (set via set_scalping_data)
+        self._m5_data: pd.DataFrame | None = None
+        self._m1_data: pd.DataFrame | None = None
 
         # Trailing stop (use config values if available)
         ts_mult = config.trailing_stop.atr_multiplier if config else 1.5
         ts_act = config.trailing_stop.activation_pct if config else 0.5
         self._trailing_mgr = TrailingStopManager(atr_multiplier=ts_mult, activation_pct=ts_act)
+
+    def set_scalping_data(
+        self,
+        m5_data: pd.DataFrame | None = None,
+        m1_data: pd.DataFrame | None = None,
+    ) -> None:
+        """Set actual M5/M1 data for scalping strategies (instead of using M15)."""
+        self._m5_data = m5_data
+        self._m1_data = m1_data
 
     def run(
         self,
@@ -126,8 +153,9 @@ class BacktestEngine:
                 # 1. Check SL/TP on open positions FIRST
                 account.check_sl_tp(self._symbol, bar_high, bar_low, bar_time)
 
-                # 2. Update trailing stops
-                self._update_trailing(account, m15_data, i, bar_close)
+                # 2. Update trailing stops (skip for scalping — use fixed SL/TP)
+                if not self._use_strategy_sl_tp:
+                    self._update_trailing(account, m15_data, i, bar_close)
 
                 # 3. Get regime from H1 data (no lookahead)
                 regime = self._get_regime(h1_data, bar_time, bar_close)
@@ -288,6 +316,57 @@ class BacktestEngine:
                     symbol=self._symbol,
                     m15_bars=m15_window,
                     regime_is_ranging=is_ranging,
+                    as_of=bar_time,
+                )
+            )
+            if sig:
+                return sig
+
+        # Build M5 window: use actual M5 data if available, otherwise fall back to M15
+        if self._m5_data is not None:
+            m5_window = self._m5_data[self._m5_data["time"] <= bar_time].tail(100).copy()
+        else:
+            m5_window = m15_window
+
+        # Build M1 window: use actual M1 data if available, otherwise fall back to M15
+        if self._m1_data is not None:
+            m1_window = self._m1_data[self._m1_data["time"] <= bar_time].tail(100).copy()
+        else:
+            m1_window = m15_window
+
+        # M5 Mean Reversion RSI Extreme
+        if self._m5_mean_rev:
+            sig = loop.run_until_complete(
+                self._m5_mean_rev.scan(
+                    symbol=self._symbol,
+                    m5_bars=m5_window,
+                    point_size=self._point_size,
+                    as_of=bar_time,
+                )
+            )
+            if sig:
+                return sig
+
+        # M5 Bollinger Band Squeeze
+        if self._m5_bb_squeeze:
+            sig = loop.run_until_complete(
+                self._m5_bb_squeeze.scan(
+                    symbol=self._symbol,
+                    m5_bars=m5_window,
+                    point_size=self._point_size,
+                    as_of=bar_time,
+                )
+            )
+            if sig:
+                return sig
+
+        # M1 EMA Micro Pullback
+        if self._m1_ema_micro:
+            sig = loop.run_until_complete(
+                self._m1_ema_micro.scan(
+                    symbol=self._symbol,
+                    m1_bars=m1_window,
+                    point_size=self._point_size,
                     as_of=bar_time,
                 )
             )

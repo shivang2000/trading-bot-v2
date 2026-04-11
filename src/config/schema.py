@@ -24,11 +24,31 @@ class InstrumentConfig(BaseModel):
     lot_step: float = 0.01
 
 
+class BalanceAdjustment(BaseModel):
+    date: str
+    type: str = "deposit"  # "deposit" or "withdrawal"
+    amount: float = 0.0
+    note: str = ""
+
+
 class AccountConfig(BaseModel):
-    initial_balance: float = 30.0
+    initial_balance: float = 100.0
+    mode: str = "demo"
     risk_per_trade_pct: float = 1.0
-    max_lot_per_trade: float = 0.10
+    max_lot_per_trade: float = 100.0
     min_lot_size: float = 0.01
+    balance_adjustments: list[BalanceAdjustment] = Field(default_factory=list)
+
+
+def get_adjusted_initial_capital(config: AccountConfig) -> float:
+    """Calculate effective initial capital from deposits minus withdrawals."""
+    capital = 0.0
+    for adj in config.balance_adjustments:
+        if adj.type == "deposit":
+            capital += adj.amount
+        elif adj.type == "withdrawal":
+            capital -= adj.amount
+    return max(capital, 0.01)
 
 
 class RiskConfig(BaseModel):
@@ -58,7 +78,13 @@ class TrailingStopConfig(BaseModel):
 
 
 class PositionMonitorConfig(BaseModel):
-    poll_interval_seconds: int = 30
+    poll_interval_seconds: int = 1
+
+
+class PartialProfitConfig(BaseModel):
+    enabled: bool = True
+    min_levels_for_partial: int = 2  # need at least 2 TPs to trigger partial closes
+    breakeven_buffer_points: float = 1.0  # SL offset above/below entry on breakeven move
 
 
 class TelegramNotificationConfig(BaseModel):
@@ -143,6 +169,63 @@ class SmcConfluenceConfig(BaseModel):
     liquidity_sweep_boost: float = 0.10
     opposing_ob_penalty: float = 0.15
     lookback_bars: int = 100
+    fvg_entry_zone_boost: float = 0.15
+    anchored_vwap_bounce_boost: float = 0.10
+    volume_profile_poc_boost: float = 0.10
+
+
+class InstrumentStrategyOverride(BaseModel):
+    """Per-instrument, per-strategy risk configuration."""
+    risk_pct: float = 1.0
+
+
+class ScalpingConfig(BaseModel):
+    enabled: bool = True
+    max_trades_per_strategy: int = 1
+    max_total_open_positions: int = 10
+    max_daily_trades_per_strategy: int = 50
+    max_daily_trades_total: int = 200
+    daily_loss_limit_pct: float = 5.0
+    risk_per_trade_pct: float = 1.0
+    profit_growth_factor: float = 0.50  # use only 50% of profits for risk sizing
+    use_tiered_lot_caps: bool = False
+    lot_cap_tiers: list[list[float]] = Field(default_factory=lambda: [
+        [0, 0.50], [500, 1.00], [2000, 2.00], [5000, 5.00], [10000, 10.00]
+    ])
+    scan_interval_seconds: int = 15
+    instruments: list[str] = Field(default_factory=list)  # empty = use signal_generator.instruments
+    strategies_enabled: list[str] = Field(default_factory=lambda: [
+        "m5_dual_supertrend", "m5_keltner_squeeze", "m5_vwap_mean_reversion",
+        "m5_stochrsi_adx", "m5_mtf_momentum", "m5_bb_squeeze", "m5_mean_reversion",
+        "m1_heikin_ashi_momentum", "m1_rsi_scalp", "m1_supertrend_scalp", "m1_ema_micro",
+    ])
+    instrument_strategy_overrides: dict[str, dict[str, InstrumentStrategyOverride]] = Field(
+        default_factory=dict,
+        description="Per-instrument strategy whitelist with optimal risk. Key=symbol, Value=dict of strategy→override",
+    )
+
+
+class PropFirmConfig(BaseModel):
+    enabled: bool = False
+    provider: str = "fundingpips"
+    account_size: float = 5000.0
+    phase: str = "step1"  # step1, step2, master
+    leverage_metals: float = 30.0
+    commission_per_lot_metals: float = 5.0
+    daily_loss_limit_pct: float = 5.0
+    max_overall_dd_pct: float = 10.0
+    max_risk_per_trade_pct: float = 2.0
+    profit_target_pct: float = 10.0
+    safety_buffer_daily_pct: float = 1.0
+    safety_buffer_dd_pct: float = 1.0
+    safety_buffer_daily_usd: float = 0.0  # when > 0, overrides pct buffer
+    safety_buffer_dd_usd: float = 0.0     # when > 0, overrides pct buffer
+    friday_auto_close: bool = True
+    friday_close_hour_utc: int = 21
+    news_filter_enabled: bool = True
+    max_directional_positions: int = 3
+    min_trading_days: int = 3
+    inactivity_limit_days: int = 30
 
 
 class StrategiesConfig(BaseModel):
@@ -150,6 +233,7 @@ class StrategiesConfig(BaseModel):
     london_breakout: LondonBreakoutConfig = Field(default_factory=LondonBreakoutConfig)
     ny_momentum: NyMomentumConfig = Field(default_factory=NyMomentumConfig)
     smc_confluence: SmcConfluenceConfig = Field(default_factory=SmcConfluenceConfig)
+    scalping: ScalpingConfig = Field(default_factory=ScalpingConfig)
 
 
 class InstrumentOverride(BaseModel):
@@ -167,6 +251,15 @@ class SignalGeneratorConfig(BaseModel):
         default_factory=lambda: ["london", "new_york", "london_ny_overlap"]
     )
     instrument_overrides: dict[str, InstrumentOverride] = Field(default_factory=dict)
+
+
+class ClaudeFilterConfig(BaseModel):
+    """Config for Claude AI pre-trade signal filter."""
+
+    enabled: bool = False
+    model: str = "claude-haiku-4-5-20251001"
+    confidence_threshold: float = 0.65
+    timeout_seconds: float = 5.0
 
 
 class AppConfig(BaseModel):
@@ -189,3 +282,6 @@ class AppConfig(BaseModel):
     )
     channels: list[ChannelConfig] = Field(default_factory=list)
     database: DatabaseConfig = Field(default_factory=DatabaseConfig)
+    prop_firm: PropFirmConfig = Field(default_factory=PropFirmConfig)
+    partial_profit: PartialProfitConfig = Field(default_factory=PartialProfitConfig)
+    claude_filter: ClaudeFilterConfig = Field(default_factory=ClaudeFilterConfig)

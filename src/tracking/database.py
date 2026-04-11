@@ -11,6 +11,8 @@ import logging
 from datetime import datetime
 from pathlib import Path
 
+import json
+
 import aiosqlite
 
 logger = logging.getLogger(__name__)
@@ -120,7 +122,25 @@ CREATE TABLE IF NOT EXISTS daily_state (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Generic bot state key-value store (peak equity, session flags, etc.)
+CREATE TABLE IF NOT EXISTS bot_state (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE INDEX IF NOT EXISTS idx_bot_positions_status ON bot_positions(status);
+
+-- Partial profit tracking (multi-TP partial closes, survives restart)
+CREATE TABLE IF NOT EXISTS partial_profit_tracking (
+    mt5_ticket INTEGER PRIMARY KEY,
+    tp_levels TEXT NOT NULL,
+    levels_hit TEXT DEFAULT '[]',
+    original_volume REAL NOT NULL,
+    entry_price REAL NOT NULL,
+    side TEXT NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 """
 
 
@@ -497,6 +517,71 @@ class TrackingDB:
         )
         row = await cursor.fetchone()
         return row["trade_count"] if row else 0
+
+    async def reset_daily_state(self) -> None:
+        """Clear daily state on bot restart. Prevents stale trade counts
+        from previous sessions/accounts blocking new trades."""
+        today = datetime.utcnow().strftime("%Y-%m-%d")
+        await self._db.execute("DELETE FROM daily_state WHERE date = ?", (today,))
+        await self._db.commit()
+        logger.info("Daily trade counter reset for %s", today)
+
+    # --- Bot State (generic key-value, survives restart) ---
+
+    async def save_bot_state(self, key: str, value: str) -> None:
+        """Persist a bot state value by key."""
+        await self._db.execute(
+            """INSERT OR REPLACE INTO bot_state (key, value, updated_at) VALUES (?, ?, ?)""",
+            (key, value, datetime.utcnow()),
+        )
+        await self._db.commit()
+
+    async def get_bot_state(self, key: str) -> str | None:
+        """Retrieve a persisted bot state value."""
+        cursor = await self._db.execute(
+            "SELECT value FROM bot_state WHERE key = ?", (key,)
+        )
+        row = await cursor.fetchone()
+        return row["value"] if row else None
+
+    # --- Partial Profit Tracking ---
+
+    async def save_partial_profit_state(
+        self, ticket: int, tp_levels: list[float], levels_hit: list[int],
+        original_volume: float, entry_price: float, side: str,
+    ) -> None:
+        """Persist partial profit tracking state."""
+        await self._db.execute(
+            """INSERT OR REPLACE INTO partial_profit_tracking
+               (mt5_ticket, tp_levels, levels_hit, original_volume,
+                entry_price, side, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            (ticket, json.dumps(tp_levels), json.dumps(levels_hit),
+             original_volume, entry_price, side, datetime.utcnow()),
+        )
+        await self._db.commit()
+
+    async def get_partial_profit_states(self) -> list[dict]:
+        """Load all partial profit tracking states."""
+        cursor = await self._db.execute(
+            "SELECT * FROM partial_profit_tracking"
+        )
+        rows = await cursor.fetchall()
+        result = []
+        for row in rows:
+            d = dict(row)
+            d["tp_levels"] = json.loads(d["tp_levels"])
+            d["levels_hit"] = json.loads(d["levels_hit"])
+            result.append(d)
+        return result
+
+    async def delete_partial_profit_state(self, ticket: int) -> None:
+        """Remove partial profit tracking when position closes."""
+        await self._db.execute(
+            "DELETE FROM partial_profit_tracking WHERE mt5_ticket = ?",
+            (ticket,),
+        )
+        await self._db.commit()
 
     async def get_daily_stats(self) -> dict:
         """Get today's trading statistics."""

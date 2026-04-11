@@ -1,0 +1,95 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Vantage $50 Micro Account — Optimal Configuration
+# Generated from 160-cell backtesting matrix (Apr 2026)
+#
+# OPTIMAL RISK: 1% per trade (lots at minimum 0.01 regardless — risk % barely matters)
+#   - Dual Supertrend: ✓ +8441%, R:R 1:1.76, 901 trades (compounding effect)
+#   - London Breakout: ✓ +4898%, R:R 1:1.31, 79 trades
+#   - Keltner Squeeze: ✓ +1511%, R:R 1:5.46, 242 trades
+#   - MTF Momentum:    ✓ +301%, R:R 1:1.77, 54 trades
+#
+# DISABLED (lose money on $50):
+#   - Box Theory:   ✗ -8.9%
+#   - StochRSI ADX: ✗ -9.5% (only 1 trade)
+#   - EMA Pullback: ✗ -13.3% (SL too wide for $50)
+#   - AMD Cycle:    ✗ -14.3%
+#
+# NOTE: On $50, all trades are minimum lot (0.01). Growth comes from
+# compounding — profits increase equity → position sizes grow.
+# This is a long-term growth account, not a quick income source.
+# ═══════════════════════════════════════════════════════════════════════
+
+account:
+  initial_balance: 50
+  mode: "live"
+  risk_per_trade_pct: 1.0
+  max_lot_per_trade: 0.50
+  min_lot_size: 0.01
+  balance_adjustments: []
+
+risk:
+  max_open_positions: 4
+  max_positions_per_symbol: 3
+  max_daily_trades: 50
+  max_daily_loss_pct: 8.0           # More relaxed for personal account (no prop firm rules)
+  max_drawdown_pct: 20.0            # No prop firm — wider DD tolerance
+
+# No prop firm guard for Vantage personal account
+prop_firm:
+  enabled: false
+
+strategies:
+  scalping:
+    risk_per_trade_pct: 1.0
+    profit_growth_factor: 0.50
+    max_total_open_positions: 4
+    daily_loss_limit_pct: 8.0
+    instruments: [XAUUSD, USDJPY, GBPJPY]
+    strategies_enabled:
+      - m5_dual_supertrend         # XAUUSD only
+      - m5_keltner_squeeze         # XAUUSD only
+      - m5_mtf_momentum            # XAUUSD + USDJPY + GBPJPY
+      - m5_amd_cycle               # XAUUSD + USDJPY + GBPJPY
+      - m5_stochrsi_adx            # GBPJPY only
+    # ── Per-instrument optimal risk (from 4-risk backtest matrix) ──
+    instrument_strategy_overrides:
+      XAUUSD:
+        m5_mtf_momentum: { risk_pct: 1.0 }        # +301%
+        m5_keltner_squeeze: { risk_pct: 1.0 }      # +1511%
+        m5_dual_supertrend: { risk_pct: 1.0 }      # +8441%
+        london_breakout: { risk_pct: 1.0 }          # +4898%
+        m5_amd_cycle: { risk_pct: 1.0 }             # +4.5% (P3 tuned)
+        ema_pullback: { risk_pct: 1.0 }              # live proven ($30→$376)
+      USDJPY:
+        m5_mtf_momentum: { risk_pct: 2.0 }          # +22.9% at 2% (best)
+        m5_amd_cycle: { risk_pct: 0.25 }             # +1.1% at 0.25% (best)
+        ema_pullback: { risk_pct: 2.0 }              # +2.1% at 2%
+        london_breakout: { risk_pct: 0.25 }          # +3.0% at 0.25% (best)
+      GBPJPY:
+        m5_mtf_momentum: { risk_pct: 1.0 }          # +22.5% at 1% (best)
+        m5_amd_cycle: { risk_pct: 2.0 }              # +4.2% at 2% (best)
+        m5_stochrsi_adx: { risk_pct: 2.0 }           # +2.0% at 2%
+        ema_pullback: { risk_pct: 2.0 }              # +1.9% at 2%
+  london_breakout:
+    enabled: true
+    asian_start_hour: 0
+    asian_end_hour: 7
+    breakout_buffer_pips: 3.0
+    max_trades_per_day: 2
+    tp_multiplier: 5.0
+    timeframe: "M15"
+  ema_pullback:
+    enabled: true                   # Enabled for XAUUSD + USDJPY + GBPJPY (via overrides)
+
+claude_filter:
+  enabled: false
+
+signal_generator:
+  instruments: [XAUUSD, BTCUSD, ETHUSD, USDJPY, GBPJPY]  # Gold + Crypto + profitable forex pairs
+  instrument_overrides: {}
+  allowed_sessions:
+    - asian
+    - london
+    - new_york
+    - london_ny_overlap
+    - asian_london_overlap
