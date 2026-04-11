@@ -78,7 +78,13 @@ class TrailingStopConfig(BaseModel):
 
 
 class PositionMonitorConfig(BaseModel):
-    poll_interval_seconds: int = 30
+    poll_interval_seconds: int = 1
+
+
+class PartialProfitConfig(BaseModel):
+    enabled: bool = True
+    min_levels_for_partial: int = 2  # need at least 2 TPs to trigger partial closes
+    breakeven_buffer_points: float = 1.0  # SL offset above/below entry on breakeven move
 
 
 class TelegramNotificationConfig(BaseModel):
@@ -277,4 +283,5 @@ class AppConfig(BaseModel):
     channels: list[ChannelConfig] = Field(default_factory=list)
     database: DatabaseConfig = Field(default_factory=DatabaseConfig)
     prop_firm: PropFirmConfig = Field(default_factory=PropFirmConfig)
+    partial_profit: PartialProfitConfig = Field(default_factory=PartialProfitConfig)
     claude_filter: ClaudeFilterConfig = Field(default_factory=ClaudeFilterConfig)

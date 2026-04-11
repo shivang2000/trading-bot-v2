@@ -222,6 +222,9 @@ class OrderExecutor:
             request["sl"] = order.stop_loss
         if order.take_profit is not None:
             request["tp"] = order.take_profit
+        # For partial closes: link to existing position
+        if order.position_ticket is not None:
+            request["position"] = order.position_ticket
 
         return request
 

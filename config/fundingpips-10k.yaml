@@ -18,7 +18,7 @@
 account:
   initial_balance: 10000
   mode: "live"
-  risk_per_trade_pct: 0.5          # ★ OPTIMAL for $10k
+  risk_per_trade_pct: 1.0          # ★ OPTIMAL for $10k — backtested: 2-3 week pass vs 6 weeks at 0.5%
   max_lot_per_trade: 1.00
   min_lot_size: 0.01
   balance_adjustments: []
@@ -54,7 +54,7 @@ prop_firm:
 
 strategies:
   scalping:
-    risk_per_trade_pct: 0.5
+    risk_per_trade_pct: 1.0
     profit_growth_factor: 0.50
     max_total_open_positions: 4
     daily_loss_limit_pct: 4.0
@@ -83,6 +83,14 @@ strategies:
     tp_multiplier: 5.0
     timeframe: "M15"
 
+position_monitor:
+  poll_interval_seconds: 1
+
+partial_profit:
+  enabled: true
+  min_levels_for_partial: 2
+  breakeven_buffer_points: 1.0
+
 claude_filter:
   enabled: false
 
@@ -90,6 +98,7 @@ signal_generator:
   instruments: [XAUUSD, XAGUSD, BTCUSD, ETHUSD]
   instrument_overrides: {}
   allowed_sessions:
+    - asian
     - london
     - new_york
     - london_ny_overlap

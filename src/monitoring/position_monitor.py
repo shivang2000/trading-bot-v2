@@ -16,10 +16,11 @@ from typing import Any, Callable
 
 import pandas_ta as ta
 
-from src.config.schema import TrailingStopConfig
+from src.config.schema import PartialProfitConfig, TrailingStopConfig
 from src.core.enums import OrderSide, OrderType
 from src.core.events import EventBus, ModifyOrderEvent, OrderEvent, PositionClosedEvent
 from src.core.models import ModifyOrder, Order, Position
+from src.monitoring.partial_profit_manager import PartialProfitManager, PartialProfitState
 from src.mt5.client import AsyncMT5Client
 from src.risk.trailing_stop import TrailingStopManager
 from src.safety.emergency import EmergencyStop
@@ -42,6 +43,7 @@ class PositionMonitor:
         positions_callback: Callable[[list], None] | None = None,
         initial_balance: float = 30.0,
         prop_firm_guard=None,
+        partial_profit_config: PartialProfitConfig | None = None,
     ) -> None:
         self._mt5 = mt5_client
         self._event_bus = event_bus
@@ -68,6 +70,14 @@ class PositionMonitor:
                 atr_multiplier=trailing_stop_config.atr_multiplier,
                 activation_pct=trailing_stop_config.activation_pct,
             )
+        # Partial profit manager (multi-TP partial closes)
+        pp_cfg = partial_profit_config
+        self._partial_profit: PartialProfitManager | None = None
+        if pp_cfg and pp_cfg.enabled:
+            self._partial_profit = PartialProfitManager(
+                breakeven_buffer=pp_cfg.breakeven_buffer_points,
+            )
+
         # Cache ATR values per symbol to avoid recalculating every poll
         self._atr_cache: dict[str, tuple[float, datetime]] = {}
 
@@ -141,6 +151,10 @@ class PositionMonitor:
                     "New position detected: ticket=%d %s %s %.2f lots @ %.5f",
                     ticket, pos.side.value, pos.symbol, pos.volume, pos.open_price,
                 )
+
+        # Check partial profit levels (close portions at each TP)
+        if self._partial_profit and current_tickets:
+            await self._check_partial_profits(current_tickets)
 
         # Update trailing stops for open positions
         if self._trailing_manager and current_tickets:
@@ -287,6 +301,14 @@ class PositionMonitor:
             except Exception:
                 pass
 
+        # Clean up partial profit tracking
+        if self._partial_profit:
+            self._partial_profit.remove(position.ticket)
+            try:
+                await self._db.delete_partial_profit_state(position.ticket)
+            except Exception:
+                pass
+
         # Close in bot_positions table
         try:
             await self._db.close_bot_position(
@@ -299,6 +321,80 @@ class PositionMonitor:
     def _is_bot_position(pos) -> bool:
         """Check if a position was opened by the bot (comment starts with 'tg:')."""
         return bool(pos.comment and pos.comment.startswith("tg:"))
+
+    async def _check_partial_profits(
+        self, positions: dict[int, Position]
+    ) -> None:
+        """Check and execute partial profit closes for tracked positions."""
+        for ticket, pos in positions.items():
+            try:
+                if not self._is_bot_position(pos):
+                    continue
+                if not self._partial_profit.is_tracked(ticket):
+                    continue
+
+                current_price = pos.current_price or pos.open_price
+                actions = self._partial_profit.check(ticket, current_price, pos.symbol)
+
+                for action in actions:
+                    # 1. Partial close: send counter-direction market order
+                    close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+                    close_order = Order(
+                        symbol=pos.symbol,
+                        side=close_side,
+                        order_type=OrderType.MARKET,
+                        volume=action.close_volume,
+                        magic=200000,
+                        comment=f"partial:TP{action.level_idx + 1}",
+                        position_ticket=ticket,
+                    )
+                    await self._event_bus.publish(
+                        OrderEvent(
+                            timestamp=datetime.now(timezone.utc),
+                            order=close_order,
+                        )
+                    )
+
+                    # 2. Move SL to breakeven / previous TP level
+                    modify = ModifyOrder(
+                        ticket=ticket,
+                        symbol=pos.symbol,
+                        stop_loss=action.new_sl,
+                        take_profit=pos.take_profit,  # keep original final TP
+                    )
+                    await self._event_bus.publish(
+                        ModifyOrderEvent(
+                            timestamp=datetime.now(timezone.utc),
+                            modify_order=modify,
+                        )
+                    )
+
+                    logger.info(
+                        "Partial close: ticket=%d TP%d close %.2f lots, SL→%.2f",
+                        ticket, action.level_idx + 1,
+                        action.close_volume, action.new_sl,
+                    )
+
+                    # 3. Persist updated state
+                    state = self._partial_profit.get_state(ticket)
+                    if state:
+                        try:
+                            await self._db.save_partial_profit_state(
+                                ticket=ticket,
+                                tp_levels=state.tp_levels,
+                                levels_hit=state.levels_hit,
+                                original_volume=state.original_volume,
+                                entry_price=state.entry_price,
+                                side=state.side.value,
+                            )
+                        except Exception:
+                            pass
+
+            except Exception:
+                logger.warning(
+                    "Partial profit check failed for ticket %d",
+                    ticket, exc_info=True,
+                )
 
     async def _update_trailing_stops(
         self, positions: dict[int, Position]

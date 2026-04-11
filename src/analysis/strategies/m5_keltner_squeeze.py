@@ -23,7 +23,7 @@ from src.analysis.strategies.scalping_base import ScalpingStrategyBase
 
 logger = logging.getLogger(__name__)
 
-ACTIVE_HOURS = list(range(8, 22))
+ACTIVE_HOURS = list(range(0, 24))
 
 
 class M5KeltnerSqueezeStrategy(ScalpingStrategyBase):
@@ -274,7 +274,14 @@ class M5KeltnerSqueezeStrategy(ScalpingStrategyBase):
             tp = curr_close - tp_dist
 
         # ----------------------------------------------------------
-        # 9. Emit signal
+        # 9. RSI overbought/oversold filter
+        # ----------------------------------------------------------
+        if not self._check_rsi_filter(m5_bars, direction):
+            logger.debug("M5 KC Squeeze [%s]: %s blocked by RSI filter", symbol, direction)
+            return None
+
+        # ----------------------------------------------------------
+        # 10. Emit signal
         # ----------------------------------------------------------
         self._increment_daily_count(symbol, now)
         self._in_squeeze[symbol] = False

@@ -1,0 +1,139 @@
+# ═══════════════════════════════════════════════════════════════════════
+# FundedNext Competition Account — $100,000 Demo
+# VALIDATED CONFIG — 9-month backtested (50k bars, Jul 2025 - Apr 2026)
+#
+# Competition rules:
+#   - Daily Loss Limit: 5% ($5,000)
+#   - Max Loss Limit: 10% ($10,000)
+#   - No profit target (maximize P&L to win)
+#   - Max lot: 5 lots forex, 3 lots indices/metals
+#   - EAs technically banned — USE AT YOUR OWN RISK
+#
+# Server: FundedNext-Server3
+# Login: 33717072
+#
+# XAUUSD strategies (backtested on 101k M5 bars, 9 months):
+#   - Keltner Squeeze:  +262% at 1%, 24h trading
+#   - Tight SL Scalp:   +202% at 1%, 52% WR, 3099 trades
+#   - Dual Supertrend:  +31.5% at 1%, London+NY only
+#
+# US30 strategies (backtested on 50k M5 bars, 9 months Vantage):
+#   - AMD Cycle:        +24.8% at 1%, 2.7% DD, 62% WR — CHAMPION
+#   - NY ORB:           +28.0% at 1%, 10.5% DD (15min retrace)
+#   - MTF Momentum:     +4.3% at 1%, marginal but safe
+#
+# DISABLED on US30 (9-month validation FAILED):
+#   - Mean Reversion:   -27% (overfit to 60-day data)
+#   - Keltner Squeeze:  -18% (gold-only strategy)
+#   - Dual Supertrend:  +232% but 36% DD (violates 10% DD limit)
+# ═══════════════════════════════════════════════════════════════════════
+
+account:
+  initial_balance: 100000
+  mode: "live"
+  risk_per_trade_pct: 1.0
+  max_lot_per_trade: 3.00
+  min_lot_size: 0.01
+  balance_adjustments: []
+
+risk:
+  max_open_positions: 6
+  max_positions_per_symbol: 3
+  max_daily_trades: 50
+  max_daily_loss_pct: 4.0
+  max_drawdown_pct: 9.0
+
+prop_firm:
+  enabled: true
+  provider: "fundednext"
+  account_size: 100000
+  phase: "master"
+  leverage_metals: 100
+  commission_per_lot_metals: 5.0
+  daily_loss_limit_pct: 5.0
+  max_overall_dd_pct: 10.0
+  safety_buffer_daily_pct: 1.0
+  safety_buffer_dd_pct: 1.0
+  safety_buffer_daily_usd: 50
+  safety_buffer_dd_usd: 50
+  profit_target_pct: 0.0
+  max_risk_per_trade_pct: 3.0
+  friday_auto_close: false
+  friday_close_hour_utc: 21
+  news_filter_enabled: false
+  max_directional_positions: 3
+  min_trading_days: 5
+  inactivity_limit_days: 30
+
+strategies:
+  scalping:
+    risk_per_trade_pct: 1.0
+    profit_growth_factor: 0.50
+    max_total_open_positions: 6
+    daily_loss_limit_pct: 4.0
+    instruments: [XAUUSD, US30]
+    strategies_enabled:
+      # XAUUSD — all 3 validated on 9-month data
+      - m5_keltner_squeeze         # XAUUSD: +262%, 24h, RSI filtered
+      - m5_dual_supertrend         # XAUUSD: +31.5%, London+NY, RSI filtered
+      - m5_tight_sl_scalp          # XAUUSD: +202%, 52% WR, RSI filtered
+      # US30 — 9-month validated winners only
+      - m5_amd_cycle               # US30: +24.8%, 2.7% DD, 62% WR — BEST
+      - m5_ny_orb                  # US30: +28.0%, 10.5% DD (15min retrace)
+      - m5_mtf_momentum            # US30: +4.3%, safe, RSI filtered
+      # REMOVED: m5_mean_reversion — overfit to 60-day data, -27% on 9 months
+    instrument_strategy_overrides:
+      US30:
+        m5_amd_cycle:
+          risk_pct: 1.0
+        m5_ny_orb:
+          risk_pct: 1.0
+        m5_mtf_momentum:
+          risk_pct: 1.0
+      XAUUSD:
+        m5_keltner_squeeze:
+          risk_pct: 1.0
+        m5_dual_supertrend:
+          risk_pct: 1.0
+        m5_tight_sl_scalp:
+          risk_pct: 1.0
+  ema_pullback:
+    enabled: true
+    fast_ema: 8
+    slow_ema: 21
+    trend_ema: 50
+    pullback_max_candles: 5
+    entry_window_candles: 2
+    atr_sl_multiplier: 3.5
+    atr_tp_multiplier: 10.0
+    entry_timeframe: "M15"
+    regime_timeframe: "H1"
+  london_breakout:
+    enabled: true
+    asian_start_hour: 0
+    asian_end_hour: 7
+    breakout_buffer_pips: 3.0
+    max_trades_per_day: 2
+    tp_multiplier: 5.0
+    timeframe: "M15"
+
+position_monitor:
+  poll_interval_seconds: 1
+
+partial_profit:
+  enabled: true
+  min_levels_for_partial: 2
+  breakeven_buffer_points: 1.0
+
+claude_filter:
+  enabled: false
+
+signal_generator:
+  instruments: [XAUUSD, XAGUSD, US30]
+  instrument_overrides: {}
+  allowed_sessions:
+    - asian
+    - london
+    - new_york
+    - london_ny_overlap
+    - asian_london_overlap

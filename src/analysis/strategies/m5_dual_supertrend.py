@@ -192,6 +192,11 @@ class M5DualSupertrendStrategy(ScalpingStrategyBase):
         if action == "SELL" and sl <= curr_close:
             return None
 
+        # RSI overbought/oversold filter
+        if not self._check_rsi_filter(m5_bars, action):
+            logger.debug("Dual ST [%s]: %s blocked by RSI filter", symbol, action)
+            return None
+
         # Confidence scales with ADX strength (0.60 base, up to 0.80)
         confidence = min(0.60 + (curr_adx - self._adx_threshold) * 0.005, 0.80)
 

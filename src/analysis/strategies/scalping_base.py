@@ -14,6 +14,7 @@ from abc import ABC, abstractmethod
 from datetime import datetime, timezone
 
 import pandas as pd
+import pandas_ta as ta
 
 from src.core.models import StrategySignal
 
@@ -104,6 +105,52 @@ class ScalpingStrategyBase(ABC):
                 return "engulfing_bear"
 
         return ""
+
+    @staticmethod
+    def _check_rsi_filter(
+        bars: pd.DataFrame,
+        direction: str,
+        period: int = 14,
+        overbought: float = 75.0,
+        oversold: float = 25.0,
+    ) -> bool:
+        """Opt-in RSI extreme filter. Returns True if entry is allowed.
+
+        Block BUY when RSI > overbought (likely to reverse down).
+        Block SELL when RSI < oversold (likely to reverse up).
+        Strategies that trade mean-reversion should NOT use this filter.
+        """
+        if bars is None or len(bars) < period + 2:
+            return True
+        rsi = ta.rsi(bars["close"], length=period)
+        if rsi is None or rsi.empty:
+            return True
+        rsi_val = float(rsi.iloc[-1])
+        if direction == "BUY" and rsi_val > overbought:
+            return False
+        if direction == "SELL" and rsi_val < oversold:
+            return False
+        return True
+
+    @staticmethod
+    def _calculate_pct_sl_tp(
+        current_price: float,
+        direction: str,
+        sl_pct: float,
+        tp_pct: float,
+    ) -> tuple[float, float]:
+        """Calculate SL/TP as percentage of current price.
+
+        Use for Gold, US30, BTC, and other instruments where fixed-pip
+        SL/TP doesn't work due to large price changes over time.
+        Returns (stop_loss, take_profit).
+        """
+        sl_dist = current_price * sl_pct / 100.0
+        tp_dist = current_price * tp_pct / 100.0
+        if direction == "BUY":
+            return current_price - sl_dist, current_price + tp_dist
+        else:
+            return current_price + sl_dist, current_price - tp_dist
 
     @abstractmethod
     async def scan(self, symbol: str, **kwargs) -> StrategySignal | None:

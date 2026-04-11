@@ -70,6 +70,12 @@ instruments:
     min_lot: 0.01
     max_lot: 100.0
     lot_step: 0.01
+  - symbol: US30
+    point_size: 0.01       # MT5: point=0.01 (index CFD)
+    tick_value: 0.1        # MT5: trade_tick_value=0.1 (FundedNext confirmed)
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
 
 risk:
   max_open_positions: 10

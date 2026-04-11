@@ -342,6 +342,7 @@ class RiskManager:
             volume=volume,
             stop_loss=signal.stop_loss,
             take_profit=signal.take_profit,
+            take_profit_levels=signal.take_profit_levels,
             magic=200000,
             comment=f"tg:{signal.source[:20]} {signal.action.value}",
             signal_id=signal_id,

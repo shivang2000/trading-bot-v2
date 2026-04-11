@@ -68,6 +68,7 @@ class TradingBot:
         self._shutdown_event = asyncio.Event()
         self._cached_positions: list = []
         self._cached_account_state = None
+        self._live_symbol_info: dict[str, dict] = {}  # symbol → MT5 symbol_info
 
         # Core
         self._event_bus = EventBus()
@@ -140,6 +141,7 @@ class TradingBot:
             positions_callback=self._update_cached_positions,
             initial_balance=config.account.initial_balance,
             prop_firm_guard=self._risk_manager._prop_firm_guard,
+            partial_profit_config=config.partial_profit,
         )
 
         # Signal generator (own technical signals)
@@ -164,10 +166,17 @@ class TradingBot:
     # ── Sync wrappers for callback-based interfaces ──
 
     def _sync_symbol_info(self, symbol: str) -> dict:
-        """Return symbol info from config (non-blocking).
+        """Return symbol info — live MT5 data preferred, config as fallback.
 
-        No MT5 call needed — instrument specs are in config.
+        Live data is cached at startup via _cache_live_symbol_info().
+        This avoids the stale tick_value problem (e.g. USDJPY tick_value
+        changes with the exchange rate, US30 tick_value=0.1 not 1.0).
         """
+        # Prefer live MT5 data
+        if symbol in self._live_symbol_info:
+            return self._live_symbol_info[symbol]
+
+        # Fallback to config
         for inst in self._config.instruments:
             if inst.symbol == symbol:
                 return {
@@ -200,6 +209,53 @@ class TradingBot:
     def _update_cached_positions(self, positions: list) -> None:
         """Called by PositionMonitor every 30s with current MT5 positions."""
         self._cached_positions = positions
+
+    async def _cache_live_symbol_info(self) -> None:
+        """Fetch and cache symbol info from MT5 for all configured instruments.
+
+        Live tick_value, point, contract_size etc. are essential for accurate
+        lot sizing and P&L calculation. Config values are only fallbacks.
+        """
+        symbols = set()
+        for inst in self._config.instruments:
+            symbols.add(inst.symbol)
+        # Also add signal_generator instruments
+        if self._config.signal_generator:
+            for sym in self._config.signal_generator.instruments:
+                symbols.add(sym)
+
+        for symbol in symbols:
+            try:
+                info = await self._mt5.symbol_info(symbol)
+                if info and isinstance(info, dict):
+                    self._live_symbol_info[symbol] = {
+                        "symbol": symbol,
+                        "point": float(info.get("point", 0.01)),
+                        "trade_tick_value": float(info.get("trade_tick_value", 1.0)),
+                        "trade_tick_size": float(info.get("trade_tick_size", 0.01)),
+                        "trade_contract_size": float(info.get("trade_contract_size", 100)),
+                        "volume_min": float(info.get("volume_min", 0.01)),
+                        "volume_max": float(info.get("volume_max", 100.0)),
+                        "volume_step": float(info.get("volume_step", 0.01)),
+                        "digits": int(info.get("digits", 2)),
+                    }
+                    logger.info(
+                        "Live symbol info: %s point=%s tick_value=%s contract=%s vol_max=%s",
+                        symbol,
+                        self._live_symbol_info[symbol]["point"],
+                        self._live_symbol_info[symbol]["trade_tick_value"],
+                        self._live_symbol_info[symbol]["trade_contract_size"],
+                        self._live_symbol_info[symbol]["volume_max"],
+                    )
+                else:
+                    logger.warning("No MT5 symbol_info for %s — using config fallback", symbol)
+            except Exception:
+                logger.warning("Failed to fetch symbol_info for %s", symbol, exc_info=True)
+
+        logger.info(
+            "Cached live symbol info for %d/%d instruments",
+            len(self._live_symbol_info), len(symbols),
+        )
 
     async def _account_cache_loop(self) -> None:
         """Background loop: refresh account state every 30s."""
@@ -243,6 +299,14 @@ class TradingBot:
         order = event.order
         source = order.comment or ""
 
+        # Skip partial close fills (don't re-register or double-count)
+        if source.startswith("partial:"):
+            logger.info(
+                "Partial close filled: %s %s %.2f lots @ %.2f",
+                order.side.value, order.symbol, event.fill_volume, event.fill_price,
+            )
+            return
+
         # Track in our database (survives restart)
         try:
             ticket = getattr(order, "ticket", 0) or 0
@@ -255,6 +319,27 @@ class TradingBot:
                     source=source,
                 )
                 await self._db.increment_daily_trades()
+
+                # Register with partial profit manager if multi-TP signal
+                tp_levels = getattr(order, "take_profit_levels", [])
+                pp = self._position_monitor._partial_profit
+                if tp_levels and len(tp_levels) >= 2 and pp:
+                    pp.register(
+                        ticket=ticket,
+                        side=order.side,
+                        volume=event.fill_volume,
+                        entry_price=event.fill_price,
+                        tp_levels=tp_levels,
+                    )
+                    # Persist to DB
+                    await self._db.save_partial_profit_state(
+                        ticket=ticket,
+                        tp_levels=tp_levels,
+                        levels_hit=[],
+                        original_volume=event.fill_volume,
+                        entry_price=event.fill_price,
+                        side=order.side.value,
+                    )
         except Exception:
             logger.debug("Failed to persist bot position", exc_info=True)
 
@@ -335,6 +420,10 @@ class TradingBot:
             logger.error("Could not connect to MT5 — bot will start but cannot trade")
             logger.error("Make sure the metatrader5 container is running and MT5 is logged in via VNC")
 
+        # 2b. Cache live symbol info from MT5 (accurate tick values for lot sizing)
+        if mt5_connected:
+            await self._cache_live_symbol_info()
+
         # 3. Initialize event-driven components
         await self._risk_manager.initialize()
         await self._executor.initialize()
@@ -353,6 +442,27 @@ class TradingBot:
             trailing_stops = await self._db.get_trailing_stops()
             if trailing_stops and self._position_monitor._trailing_manager:
                 self._position_monitor._trailing_manager.restore(trailing_stops)
+
+            # Restore partial profit states
+            pp = self._position_monitor._partial_profit
+            if pp:
+                pp_rows = await self._db.get_partial_profit_states()
+                if pp_rows:
+                    from src.core.enums import OrderSide
+                    from src.monitoring.partial_profit_manager import PartialProfitState
+                    states = {}
+                    for row in pp_rows:
+                        side = OrderSide.BUY if row["side"] == "BUY" else OrderSide.SELL
+                        state = PartialProfitState(
+                            ticket=row["mt5_ticket"],
+                            side=side,
+                            entry_price=row["entry_price"],
+                            original_volume=row["original_volume"],
+                            tp_levels=row["tp_levels"],
+                            levels_hit=row["levels_hit"],
+                        )
+                        states[row["mt5_ticket"]] = state
+                    pp.restore(states)
 
             daily_count = await self._db.get_daily_trade_count()
             self._risk_manager.set_daily_trade_count(daily_count)

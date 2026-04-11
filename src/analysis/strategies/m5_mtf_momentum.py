@@ -319,6 +319,11 @@ class M5MtfMomentumStrategy(ScalpingStrategyBase):
             f"ATR={curr_atr:.5f}"
         )
 
+        # RSI overbought/oversold filter
+        if not self._check_rsi_filter(m5_bars, h1_bias):
+            logger.debug("M5 MTF Momentum [%s]: %s blocked by RSI filter", symbol, h1_bias)
+            return None
+
         logger.info(
             "M5 MTF Momentum [%s]: %s @ %.5f  SL=%.5f  TP=%.5f  (ATR=%.5f)",
             symbol, h1_bias, curr_close, sl, tp, curr_atr,

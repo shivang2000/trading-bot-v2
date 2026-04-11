@@ -49,6 +49,8 @@ from src.analysis.strategies.m1_supertrend_scalp import M1SupertrendScalpStrateg
 from src.analysis.strategies.m1_ema_micro import M1EmaMicroStrategy
 from src.analysis.strategies.m5_box_theory import M5BoxTheoryStrategy
 from src.analysis.strategies.m5_amd_cycle import M5AmdCycleStrategy
+from src.analysis.strategies.m5_ny_orb import M5NyOrbStrategy
+from src.analysis.strategies.m5_tight_sl_scalp import M5TightSlScalpStrategy
 
 from src.analysis.claude_signal_filter import ClaudeSignalFilter
 from src.config.schema import AppConfig
@@ -73,6 +75,8 @@ SCALPING_REGISTRY: dict[str, type] = {
     "m1_ema_micro": M1EmaMicroStrategy,
     "m5_box_theory": M5BoxTheoryStrategy,
     "m5_amd_cycle": M5AmdCycleStrategy,
+    "m5_ny_orb": M5NyOrbStrategy,
+    "m5_tight_sl_scalp": M5TightSlScalpStrategy,
 }
 
 

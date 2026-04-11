@@ -41,7 +41,7 @@ RULES:
 4. If the message updates SL/TP for a previously sent signal, mark it as an amendment.
 5. Map instrument names to MT5 symbols: gold/xau→XAUUSD, silver/xag→XAGUSD, btc/bitcoin→BTCUSD, eth/ethereum→ETHUSD.
 6. Extract entry price, stop loss (SL), and take profit (TP) if provided. Some signals don't include all values.
-7. If multiple TPs are given (TP1, TP2, TP3), use the FIRST one as the primary take_profit.
+7. If multiple TPs are given (TP1, TP2, TP3, TP4), extract ALL of them into take_profit_levels array. Set take_profit to the LAST (furthest) TP.
 
 RESPOND WITH JSON ONLY. No explanation, no markdown, just the JSON object:
 {
@@ -52,6 +52,7 @@ RESPOND WITH JSON ONLY. No explanation, no markdown, just the JSON object:
   "entry_price": float | null,
   "stop_loss": float | null,
   "take_profit": float | null,
+  "take_profit_levels": [float, ...] | [],
   "confidence": 0.0-1.0,
   "reason": "brief extraction note"
 }"""
@@ -92,7 +93,7 @@ class SignalParser:
     )
     _PRICE_RE = re.compile(r"(?:@|price|entry|at)\s*[:=]?\s*(\d+\.?\d*)", re.IGNORECASE)
     _SL_RE = re.compile(r"(?:sl|stop\s*loss|stop)\s*[:=]?\s*(\d+\.?\d*)", re.IGNORECASE)
-    _TP_RE = re.compile(r"(?:tp1?|take\s*profit|target)\s*[:=]?\s*(\d+\.?\d*)", re.IGNORECASE)
+    _TP_RE = re.compile(r"(?:tp\d?|take\s*profit\d?|target\d?)\s*[:=]?\s*(\d+\.?\d*)", re.IGNORECASE)
 
     def _parse_with_regex(self, message_text: str) -> dict[str, Any] | None:
         """Fallback regex parser for when Claude API is unavailable.
@@ -118,11 +119,14 @@ class SignalParser:
 
         price_match = self._PRICE_RE.search(message_text)
         sl_match = self._SL_RE.search(message_text)
-        tp_match = self._TP_RE.search(message_text)
+        tp_matches = self._TP_RE.findall(message_text)
 
         entry_price = float(price_match.group(1)) if price_match else None
         stop_loss = float(sl_match.group(1)) if sl_match else None
-        take_profit = float(tp_match.group(1)) if tp_match else None
+
+        # Extract all TP levels (deduplicated, sorted)
+        tp_levels = sorted(set(float(tp) for tp in tp_matches)) if tp_matches else []
+        take_profit = tp_levels[-1] if tp_levels else None
 
         # If no explicit entry price, check for a standalone number near the action
         if entry_price is None:
@@ -133,8 +137,8 @@ class SignalParser:
             if standalone:
                 entry_price = float(standalone.group(2))
 
-        logger.info("Regex fallback parsed: %s %s entry=%s SL=%s TP=%s",
-                     action, symbol, entry_price, stop_loss, take_profit)
+        logger.info("Regex fallback parsed: %s %s entry=%s SL=%s TP=%s levels=%s",
+                     action, symbol, entry_price, stop_loss, take_profit, tp_levels)
 
         return {
             "is_signal": True,
@@ -144,6 +148,7 @@ class SignalParser:
             "entry_price": entry_price,
             "stop_loss": stop_loss,
             "take_profit": take_profit,
+            "take_profit_levels": tp_levels,
             "confidence": 0.6,
             "reason": "regex fallback (Claude unavailable)",
         }
@@ -356,6 +361,11 @@ class SignalParser:
             )
             return
 
+        # Extract TP levels (from Claude or regex)
+        tp_levels = parsed.get("take_profit_levels", [])
+        if tp_levels:
+            tp_levels = [float(tp) for tp in tp_levels]
+
         channel_name = self._registry.get_channel_name(channel_id)
         signal = Signal(
             source=f"telegram:{channel_name}",
@@ -366,6 +376,7 @@ class SignalParser:
             entry_price=entry_price,
             stop_loss=stop_loss,
             take_profit=take_profit,
+            take_profit_levels=tp_levels,
             channel_id=channel_id,
             metadata={"signal_id": signal_id, "reason": parsed.get("reason", "")},
         )
