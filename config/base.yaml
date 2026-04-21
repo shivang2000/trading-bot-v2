@@ -76,6 +76,12 @@ instruments:
     min_lot: 0.01
     max_lot: 100.0
     lot_step: 0.01
+  - symbol: DJ30.r
+    point_size: 0.01       # Vantage: DJ30.r (same as US30 on other brokers)
+    tick_value: 0.01       # MT5: trade_tick_value=0.01 (Vantage confirmed)
+    min_lot: 0.01
+    max_lot: 100.0
+    lot_step: 0.01
 
 risk:
   max_open_positions: 10

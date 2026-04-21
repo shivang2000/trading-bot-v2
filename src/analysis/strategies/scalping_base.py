@@ -152,6 +152,108 @@ class ScalpingStrategyBase(ABC):
         else:
             return current_price + sl_dist, current_price - tp_dist
 
+    @staticmethod
+    def _detect_sr_levels(
+        bars: pd.DataFrame,
+        lookback: int = 100,
+        touch_threshold: int = 3,
+        tolerance_pct: float = 0.1,
+    ) -> list[float]:
+        """Detect support/resistance levels with N+ touches.
+
+        Scans the last `lookback` bars for price levels that have been
+        touched (within tolerance) at least `touch_threshold` times.
+        Returns levels sorted by touch count (most-touched first).
+        """
+        if bars is None or len(bars) < 20:
+            return []
+
+        window = bars.tail(lookback)
+        highs = window["high"].values
+        lows = window["low"].values
+        closes = window["close"].values
+
+        # Collect all pivot points (local highs and lows)
+        pivots: list[float] = []
+        for i in range(2, len(window) - 2):
+            if highs[i] > highs[i - 1] and highs[i] > highs[i - 2] and \
+               highs[i] > highs[i + 1] and highs[i] > highs[i + 2]:
+                pivots.append(float(highs[i]))
+            if lows[i] < lows[i - 1] and lows[i] < lows[i - 2] and \
+               lows[i] < lows[i + 1] and lows[i] < lows[i + 2]:
+                pivots.append(float(lows[i]))
+
+        if not pivots:
+            return []
+
+        # Cluster pivots within tolerance
+        avg_price = float(closes[-1])
+        tol = avg_price * tolerance_pct / 100.0
+
+        levels: list[tuple[float, int]] = []
+        used = [False] * len(pivots)
+
+        for i, p in enumerate(pivots):
+            if used[i]:
+                continue
+            cluster = [p]
+            used[i] = True
+            for j in range(i + 1, len(pivots)):
+                if not used[j] and abs(pivots[j] - p) <= tol:
+                    cluster.append(pivots[j])
+                    used[j] = True
+            avg_level = sum(cluster) / len(cluster)
+            levels.append((avg_level, len(cluster)))
+
+        # Filter by touch threshold and sort by touches
+        levels = [(lvl, cnt) for lvl, cnt in levels if cnt >= touch_threshold]
+        levels.sort(key=lambda x: x[1], reverse=True)
+
+        return [lvl for lvl, _ in levels]
+
+    @staticmethod
+    def _score_trade_quality(
+        has_ob: bool = False,
+        has_fvg: bool = False,
+        has_bos_choch: bool = False,
+        has_liquidity_sweep: bool = False,
+        has_fib_alignment: bool = False,
+        in_session: bool = False,
+    ) -> tuple[int, str]:
+        """Score a trade setup from 0-6 (D to A+).
+
+        Returns (score, grade) where grade is A+/A/B/C/D.
+        Only trade A+ (6) or A (5) setups for best results.
+        """
+        score = sum([
+            has_ob,
+            has_fvg,
+            has_bos_choch,
+            has_liquidity_sweep,
+            has_fib_alignment,
+            in_session,
+        ])
+        grades = {6: "A+", 5: "A", 4: "B+", 3: "B", 2: "C", 1: "D", 0: "D"}
+        return score, grades.get(score, "D")
+
+    @staticmethod
+    def _fibonacci_entry(
+        high: float,
+        low: float,
+        direction: str,
+        level: float = 0.618,
+    ) -> float:
+        """Calculate Fibonacci retracement entry price.
+
+        For BUY: entry at high - (high - low) * level (retracement from high)
+        For SELL: entry at low + (high - low) * level (retracement from low)
+        """
+        fib_range = high - low
+        if direction == "BUY":
+            return high - fib_range * level
+        else:
+            return low + fib_range * level
+
     @abstractmethod
     async def scan(self, symbol: str, **kwargs) -> StrategySignal | None:
         """Scan bars and return a signal or None."""

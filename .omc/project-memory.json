@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1774212457006,
+  "lastScanned": 1775959894318,
   "projectRoot": "/Users/shivang/dev/advanced-trading-bot/trading-bot-v2",
   "techStack": {
     "languages": [
@@ -40,61 +40,94 @@
     "isMonorepo": false,
     "workspaces": [],
     "mainDirectories": [
+      "docs",
       "scripts",
       "src",
       "tests"
     ],
-    "gitBranches": null
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
   },
   "customNotes": [],
   "directoryMap": {
     "config": {
       "path": "config",
       "purpose": "Configuration files",
-      "fileCount": 2,
-      "lastAccessed": 1774212456999,
+      "fileCount": 9,
+      "lastAccessed": 1775959894312,
       "keyFiles": [
         "base.yaml",
-        "channels.yaml"
+        "channels.yaml",
+        "fundednext-comp.yaml",
+        "fundingpips-100k.yaml",
+        "fundingpips-10k.yaml"
       ]
     },
     "data": {
       "path": "data",
       "purpose": "Data files",
       "fileCount": 2,
-      "lastAccessed": 1774212456999,
+      "lastAccessed": 1775959894313,
       "keyFiles": [
         "telegram_session.session",
         "trading_bot_v2.db"
+      ]
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 6,
+      "lastAccessed": 1775959894313,
+      "keyFiles": [
+        "DEPLOYMENT-GUIDE.md",
+        "DEPLOYMENT_GUIDE.md",
+        "PROJECT_KNOWLEDGE.md",
+        "SCALPING_DEPLOYMENT.md",
+        "strategy-guide.md"
       ]
     },
     "logs": {
       "path": "logs",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1774212457000,
+      "lastAccessed": 1775959894313,
       "keyFiles": [
         "trading.log"
+      ]
+    },
+    "reports": {
+      "path": "reports",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1775959894314,
+      "keyFiles": [
+        "comparison_20260327_123142.html",
+        "comparison_20260327_135653.html",
+        "comparison_20260327_161333.html",
+        "master_dashboard_20260327_165750.html",
+        "master_dashboard_20260327_171816.html"
       ]
     },
     "scripts": {
       "path": "scripts",
       "purpose": "Build/utility scripts",
-      "fileCount": 8,
-      "lastAccessed": 1774212457001,
+      "fileCount": 25,
+      "lastAccessed": 1775959894314,
       "keyFiles": [
-        "deploy.sh",
-        "ec2-logs.sh",
-        "ec2-restart.sh",
-        "ec2-status.sh",
-        "healthcheck.sh"
+        "analyze_trades.py",
+        "backtest.py",
+        "backtest_scalping.py",
+        "backtest_unified.py",
+        "deploy-propfirm.sh"
       ]
     },
     "src": {
       "path": "src",
       "purpose": "Source code",
       "fileCount": 2,
-      "lastAccessed": 1774212457002,
+      "lastAccessed": 1775959894314,
       "keyFiles": [
         "__init__.py",
         "main.py"
@@ -104,7 +137,7 @@
       "path": "tests",
       "purpose": "Test files",
       "fileCount": 1,
-      "lastAccessed": 1774212457002,
+      "lastAccessed": 1775959894314,
       "keyFiles": [
         "__init__.py"
       ]
@@ -113,7 +146,7 @@
       "path": "src/config",
       "purpose": "Configuration files",
       "fileCount": 3,
-      "lastAccessed": 1774212457003,
+      "lastAccessed": 1775959894315,
       "keyFiles": [
         "__init__.py",
         "loader.py",
@@ -123,303 +156,129 @@
   },
   "hotPaths": [
     {
-      "path": "src/backtesting/scalping_engine.py",
-      "accessCount": 39,
-      "lastAccessed": 1774725103094,
-      "type": "file"
+      "path": "data/research/2026-04-12/ADnslyKOwFE_text.txt",
+      "accessCount": 4,
+      "lastAccessed": 1775959918584,
+      "type": "directory"
     },
     {
-      "path": "config/base.yaml",
-      "accessCount": 33,
-      "lastAccessed": 1774725121429,
-      "type": "file"
-    },
-    {
-      "path": "src/main.py",
-      "accessCount": 32,
-      "lastAccessed": 1774602199012,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/signal_generator.py",
-      "accessCount": 32,
-      "lastAccessed": 1774725041703,
-      "type": "file"
-    },
-    {
-      "path": "src/backtesting/engine.py",
-      "accessCount": 31,
-      "lastAccessed": 1774637060729,
-      "type": "file"
-    },
-    {
-      "path": "src/config/schema.py",
-      "accessCount": 22,
-      "lastAccessed": 1774725120754,
-      "type": "file"
-    },
-    {
-      "path": "src/monitoring/position_monitor.py",
-      "accessCount": 20,
-      "lastAccessed": 1774603241307,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/strategies/m5_mtf_momentum.py",
-      "accessCount": 15,
-      "lastAccessed": 1774608717716,
-      "type": "file"
-    },
-    {
-      "path": "scripts/backtest.py",
-      "accessCount": 13,
-      "lastAccessed": 1774725022128,
-      "type": "file"
-    },
-    {
-      "path": "scripts/generate_report.py",
-      "accessCount": 12,
-      "lastAccessed": 1774610831102,
-      "type": "file"
-    },
-    {
-      "path": "src/backtesting/unified_engine.py",
-      "accessCount": 10,
-      "lastAccessed": 1774623197953,
-      "type": "file"
-    },
-    {
-      "path": "",
-      "accessCount": 10,
-      "lastAccessed": 1774725156550,
+      "path": "data/research/2026-04-12/XxhON6lgs_U_text.txt",
+      "accessCount": 4,
+      "lastAccessed": 1775959919606,
       "type": "directory"
     },
     {
       "path": "scripts/backtest_scalping.py",
-      "accessCount": 9,
-      "lastAccessed": 1774637059806,
+      "accessCount": 4,
+      "lastAccessed": 1776193511596,
       "type": "file"
     },
     {
-      "path": "src/risk/manager.py",
-      "accessCount": 8,
-      "lastAccessed": 1774610766169,
+      "path": "data/research/2026-04-12",
+      "accessCount": 3,
+      "lastAccessed": 1775959898182,
+      "type": "directory"
+    },
+    {
+      "path": "config/fundednext-comp.yaml",
+      "accessCount": 3,
+      "lastAccessed": 1776201717942,
       "type": "file"
     },
     {
-      "path": "src/risk/trailing_stop.py",
-      "accessCount": 8,
-      "lastAccessed": 1774612916647,
+      "path": "src/analysis/strategies/scalping_base.py",
+      "accessCount": 3,
+      "lastAccessed": 1776213013706,
       "type": "file"
     },
     {
-      "path": "src/backtesting/cost_model.py",
-      "accessCount": 7,
-      "lastAccessed": 1774637025918,
+      "path": "data/research/2026-04-12/G9itT05pGvc_text.txt",
+      "accessCount": 2,
+      "lastAccessed": 1775959922608,
+      "type": "directory"
+    },
+    {
+      "path": "data/research/2026-04-12/a03Vmo_d9Tk_text.txt",
+      "accessCount": 2,
+      "lastAccessed": 1775959923202,
+      "type": "directory"
+    },
+    {
+      "path": "src/analysis/signal_generator.py",
+      "accessCount": 2,
+      "lastAccessed": 1776041496487,
       "type": "file"
     },
     {
-      "path": "src/backtesting/account.py",
-      "accessCount": 7,
-      "lastAccessed": 1774724981162,
+      "path": "src/backtesting/scalping_engine.py",
+      "accessCount": 2,
+      "lastAccessed": 1776193466416,
+      "type": "directory"
+    },
+    {
+      "path": "data/research/2026-04-12/xlkkSAAHDiM_text.txt",
+      "accessCount": 1,
+      "lastAccessed": 1775959911598,
+      "type": "file"
+    },
+    {
+      "path": "src/analysis/strategies/m5_180_reversal.py",
+      "accessCount": 1,
+      "lastAccessed": 1776040992463,
+      "type": "file"
+    },
+    {
+      "path": "src/analysis/strategies/m5_ema_833.py",
+      "accessCount": 1,
+      "lastAccessed": 1776041011022,
+      "type": "file"
+    },
+    {
+      "path": "src/analysis/strategies/m5_liquidity_sweep.py",
+      "accessCount": 1,
+      "lastAccessed": 1776041449515,
+      "type": "file"
+    },
+    {
+      "path": "src/analysis/strategies/m30_fvg_ema.py",
+      "accessCount": 1,
+      "lastAccessed": 1776041481134,
       "type": "file"
     },
     {
       "path": "src/monitoring/slack.py",
-      "accessCount": 6,
-      "lastAccessed": 1774603257535,
-      "type": "file"
-    },
-    {
-      "path": "src/monitoring/notifier.py",
-      "accessCount": 6,
-      "lastAccessed": 1774603258149,
-      "type": "file"
-    },
-    {
-      "path": "src/backtesting/report_generator.py",
-      "accessCount": 6,
-      "lastAccessed": 1774613012232,
-      "type": "file"
-    },
-    {
-      "path": "src/backtesting/result.py",
-      "accessCount": 5,
-      "lastAccessed": 1774637076250,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/strategies/ny_momentum.py",
-      "accessCount": 4,
-      "lastAccessed": 1774282907710,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/strategies/m5_mean_reversion.py",
-      "accessCount": 4,
-      "lastAccessed": 1774376502337,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/strategies/m5_stochrsi_adx.py",
-      "accessCount": 4,
-      "lastAccessed": 1774592343594,
-      "type": "directory"
-    },
-    {
-      "path": "src",
-      "accessCount": 4,
-      "lastAccessed": 1774603279346,
-      "type": "directory"
-    },
-    {
-      "path": "src/analysis/strategies",
-      "accessCount": 4,
-      "lastAccessed": 1774612962317,
-      "type": "directory"
-    },
-    {
-      "path": "src/telegram/parser.py",
-      "accessCount": 3,
-      "lastAccessed": 1774212966646,
-      "type": "file"
-    },
-    {
-      "path": "pyproject.toml",
-      "accessCount": 3,
-      "lastAccessed": 1774269743795,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/strategies/m1_ema_micro.py",
-      "accessCount": 3,
-      "lastAccessed": 1774403499600,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/strategies/m1_supertrend_scalp.py",
-      "accessCount": 2,
-      "lastAccessed": 1774592364114,
-      "type": "file"
-    },
-    {
-      "path": "docs/SCALPING_DEPLOYMENT.md",
-      "accessCount": 2,
-      "lastAccessed": 1774610805170,
-      "type": "file"
-    },
-    {
-      "path": "src/backtesting/multi_engine.py",
-      "accessCount": 2,
-      "lastAccessed": 1774612983271,
-      "type": "file"
-    },
-    {
-      "path": "src/backtesting/data_loader.py",
-      "accessCount": 2,
-      "lastAccessed": 1774612995476,
-      "type": "file"
-    },
-    {
-      "path": "src/backtesting",
-      "accessCount": 2,
-      "lastAccessed": 1774637031932,
-      "type": "directory"
-    },
-    {
-      "path": "src/core/models.py",
-      "accessCount": 2,
-      "lastAccessed": 1774725083737,
-      "type": "directory"
-    },
-    {
-      "path": "src/analysis/__init__.py",
       "accessCount": 1,
-      "lastAccessed": 1774214368799,
+      "lastAccessed": 1776212909011,
       "type": "file"
     },
     {
-      "path": "src/analysis/strategies/__init__.py",
+      "path": "src/monitoring/slack_logger.py",
       "accessCount": 1,
-      "lastAccessed": 1774214369542,
+      "lastAccessed": 1776212944803,
       "type": "file"
     },
     {
-      "path": "src/analysis/strategies/ema_pullback.py",
+      "path": "src/analysis/smc_scanner.py",
       "accessCount": 1,
-      "lastAccessed": 1774214457004,
+      "lastAccessed": 1776212980870,
       "type": "file"
     },
     {
-      "path": "src/analysis/strategies/london_breakout.py",
+      "path": "src/mt5/tick_stream.py",
       "accessCount": 1,
-      "lastAccessed": 1774214493366,
+      "lastAccessed": 1776212998077,
       "type": "file"
     },
     {
-      "path": "src/mt5/client.py",
+      "path": "src/analysis/hmm_regime.py",
       "accessCount": 1,
-      "lastAccessed": 1774214508115,
-      "type": "directory"
-    },
-    {
-      "path": "scripts/run_all_backtests.sh",
-      "accessCount": 1,
-      "lastAccessed": 1774244081492,
+      "lastAccessed": 1776213945953,
       "type": "file"
     },
     {
-      "path": "src/logging_/daily_summary.py",
+      "path": "config/vantage-10k-demo.yaml",
       "accessCount": 1,
-      "lastAccessed": 1774269450636,
-      "type": "file"
-    },
-    {
-      "path": "src/safety/emergency.py",
-      "accessCount": 1,
-      "lastAccessed": 1774269450815,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/smc_confluence.py",
-      "accessCount": 1,
-      "lastAccessed": 1774269597963,
-      "type": "file"
-    },
-    {
-      "path": "scripts/run_comprehensive_backtests.sh",
-      "accessCount": 1,
-      "lastAccessed": 1774283001944,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/strategies/m5_bb_squeeze.py",
-      "accessCount": 1,
-      "lastAccessed": 1774367243741,
-      "type": "file"
-    },
-    {
-      "path": "src/analysis/strategies/mtf_confluence.py",
-      "accessCount": 1,
-      "lastAccessed": 1774403056775,
-      "type": "file"
-    },
-    {
-      "path": "src/core/events.py",
-      "accessCount": 1,
-      "lastAccessed": 1774602428044,
-      "type": "file"
-    },
-    {
-      "path": "src/tracking/performance.py",
-      "accessCount": 1,
-      "lastAccessed": 1774602932880,
-      "type": "file"
-    },
-    {
-      "path": "src/config/loader.py",
-      "accessCount": 1,
-      "lastAccessed": 1774612947054,
+      "lastAccessed": 1776252323452,
       "type": "file"
     }
   ],

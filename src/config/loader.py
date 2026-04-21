@@ -41,12 +41,32 @@ def load_config(config_dir: Path | None = None) -> AppConfig:
         if "channels" in channels_data:
             base["channels"] = channels_data["channels"]
 
+    # Merge overlay config if CONFIG_OVERLAY env var is set
+    overlay_name = os.environ.get("CONFIG_OVERLAY", "")
+    if overlay_name:
+        overlay_path = config_dir / f"{overlay_name}.yaml"
+        if overlay_path.exists():
+            overlay_data = _load_yaml(overlay_path)
+            _deep_merge(base, overlay_data)
+
     resolved = _resolve_env_vars(base)
 
     try:
         return AppConfig(**resolved)
     except Exception as e:
         raise ConfigError(f"Config validation failed: {e}") from e
+
+
+def _deep_merge(base: dict, overlay: dict) -> None:
+    """Recursively merge overlay into base. Overlay values win.
+
+    For dicts: recurse. For everything else (lists, scalars): replace.
+    """
+    for key, value in overlay.items():
+        if key in base and isinstance(base[key], dict) and isinstance(value, dict):
+            _deep_merge(base[key], value)
+        else:
+            base[key] = value
 
 
 def _load_yaml(path: Path) -> dict:

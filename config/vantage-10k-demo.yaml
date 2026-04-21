@@ -1,0 +1,134 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Vantage $10,000 Demo Account — Practice Run (1 Month)
+# V3 Config — Backtested on 80 strategy runs, optimized for prop firm safety
+#
+# Server: VantageInternational-Demo
+# Login: 24503407
+#
+# Strategy Selection (all DD < 10% on backtests):
+#   XAUUSD:
+#     - Keltner Squeeze:    +76% at 0.25%, 6.9% DD
+#     - Tight SL Scalp:     +40% at 0.25%, 5.1% DD
+#     - Liquidity Sweep:    +5.4% at 0.5%, 4.9% DD
+#   US30 (DJ30.r on Vantage):
+#     - AMD Cycle:           +24.8% at 1.0%, 2.7% DD — CHAMPION
+#     - NY ORB:              +14.4% at 0.5%, 6.7% DD
+#     - Tight SL Scalp:     +8.8% at 0.25%, 9.8% DD
+#   Both: EMA Pullback + London Breakout at 1.0%
+#
+# DISABLED (backtest failures):
+#   - m5_ema_833: loses money everywhere
+#   - m5_dual_supertrend: DD 33-54%, instant breach
+#   - m30_fvg_ema: 0% WR on gold
+#   - m5_180_reversal: DD 15-25%, too risky for prop
+#   - m5_ny_orb on XAUUSD: loses money on gold
+#   - m5_keltner_squeeze on US30: loses money on indices
+# ═══════════════════════════════════════════════════════════════════════
+
+account:
+  initial_balance: 10000
+  mode: "demo"
+  risk_per_trade_pct: 0.5
+  max_lot_per_trade: 1.00
+  min_lot_size: 0.01
+  balance_adjustments: []
+
+risk:
+  max_open_positions: 4
+  max_positions_per_symbol: 2
+  max_daily_trades: 30
+  max_daily_loss_pct: 4.0
+  max_drawdown_pct: 9.0
+
+prop_firm:
+  enabled: true
+  provider: "practice"
+  account_size: 10000
+  phase: "step1"
+  leverage_metals: 100
+  commission_per_lot_metals: 5.0
+  daily_loss_limit_pct: 5.0
+  max_overall_dd_pct: 10.0
+  safety_buffer_daily_pct: 1.0
+  safety_buffer_dd_pct: 1.0
+  safety_buffer_daily_usd: 7
+  safety_buffer_dd_usd: 7
+  profit_target_pct: 10.0
+  max_risk_per_trade_pct: 2.0
+  friday_auto_close: true
+  friday_close_hour_utc: 21
+  news_filter_enabled: true
+  max_directional_positions: 2
+  min_trading_days: 3
+  inactivity_limit_days: 30
+
+strategies:
+  scalping:
+    risk_per_trade_pct: 0.5
+    profit_growth_factor: 0.50
+    max_total_open_positions: 4
+    daily_loss_limit_pct: 4.0
+    instruments: [XAUUSD, DJ30.r]
+    strategies_enabled:
+      # XAUUSD — conservative risk for prop firm safety
+      - m5_keltner_squeeze         # +76% at 0.25%, 6.9% DD
+      - m5_tight_sl_scalp          # +40% at 0.25%, 5.1% DD, 52% WR
+      - m5_liquidity_sweep         # +5.4% at 0.5%, 4.9% DD — ultra safe
+      # US30 — backtested champions
+      - m5_amd_cycle               # +24.8% at 1.0%, 2.7% DD, 62% WR
+      - m5_ny_orb                  # +14.4% at 0.5%, 6.7% DD (15min retrace)
+    instrument_strategy_overrides:
+      DJ30.r:
+        m5_amd_cycle:
+          risk_pct: 1.0
+        m5_ny_orb:
+          risk_pct: 0.5
+        m5_tight_sl_scalp:
+          risk_pct: 0.25
+      XAUUSD:
+        m5_keltner_squeeze:
+          risk_pct: 0.25
+        m5_tight_sl_scalp:
+          risk_pct: 0.25
+        m5_liquidity_sweep:
+          risk_pct: 0.5
+  ema_pullback:
+    enabled: true
+    fast_ema: 8
+    slow_ema: 21
+    trend_ema: 50
+    pullback_max_candles: 5
+    entry_window_candles: 2
+    atr_sl_multiplier: 3.5
+    atr_tp_multiplier: 10.0
+    entry_timeframe: "M15"
+    regime_timeframe: "H1"
+  london_breakout:
+    enabled: true
+    asian_start_hour: 0
+    asian_end_hour: 7
+    breakout_buffer_pips: 3.0
+    max_trades_per_day: 2
+    tp_multiplier: 5.0
+    timeframe: "M15"
+
+position_monitor:
+  poll_interval_seconds: 1
+
+partial_profit:
+  enabled: true
+  min_levels_for_partial: 2
+  breakeven_buffer_points: 1.0
+
+claude_filter:
+  enabled: false
+
+signal_generator:
+  instruments: [XAUUSD, XAGUSD, DJ30.r]
+  instrument_overrides: {}
+  allowed_sessions:
+    - asian
+    - london
+    - new_york
+    - london_ny_overlap
+    - asian_london_overlap

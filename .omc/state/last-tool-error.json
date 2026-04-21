@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"rm -f .git/index.lock && git add -A .omc/ && git commit --no-edit 2>&1\",\"description\":\"Remove lock file and complete merge commit\"}",
-  "error": "Exit code 1\nThe following paths are ignored by one of your .gitignore files:\n.omc\nhint: Use -f if you really want to add them.\nhint: Disable this message with \"git config set advice.addIgnoredFile false\"",
-  "timestamp": "2026-04-11T21:22:32.413Z",
-  "retry_count": 3
-}

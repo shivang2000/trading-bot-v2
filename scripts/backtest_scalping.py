@@ -46,6 +46,10 @@ _IMPORTS: list[tuple[dict, str, str, str]] = [
     (M5_STRATEGIES, "m5_amd_cycle", "src.analysis.strategies.m5_amd_cycle", "M5AmdCycleStrategy"),
     (M5_STRATEGIES, "m5_ny_orb", "src.analysis.strategies.m5_ny_orb", "M5NyOrbStrategy"),
     (M5_STRATEGIES, "m5_tight_sl_scalp", "src.analysis.strategies.m5_tight_sl_scalp", "M5TightSlScalpStrategy"),
+    (M5_STRATEGIES, "m5_180_reversal", "src.analysis.strategies.m5_180_reversal", "M5180ReversalStrategy"),
+    (M5_STRATEGIES, "m5_ema_833", "src.analysis.strategies.m5_ema_833", "M5Ema833Strategy"),
+    (M5_STRATEGIES, "m5_liquidity_sweep", "src.analysis.strategies.m5_liquidity_sweep", "M5LiquiditySweepStrategy"),
+    (M5_STRATEGIES, "m30_fvg_ema", "src.analysis.strategies.m30_fvg_ema", "M30FvgEmaStrategy"),
     (M5_STRATEGIES, "ema_pullback", "src.analysis.strategies.backtest_adapters", "EmaPullbackBacktestAdapter"),
     (M5_STRATEGIES, "london_breakout", "src.analysis.strategies.backtest_adapters", "LondonBreakoutBacktestAdapter"),
     (M1_STRATEGIES, "m1_heikin_ashi_momentum", "src.analysis.strategies.m1_heikin_ashi_momentum", "M1HeikinAshiMomentumStrategy"),
@@ -274,7 +278,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label, m1_
                 point_size=point_size, tick_value=tick_value,
             )
             logger.info("Running period %s (%s to %s, %d bars)", pname, ps, pe, len(pdata))
-            result = engine.run(pdata, h1_data, m1_data=m1_data)
+            result = engine.run(pdata, h1_data)
             rd = _result_to_dict(result)
             rd["period"], rd["strategy"] = pname, f"{label}_{pname}"
             all_results.append(rd)
@@ -297,7 +301,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label, m1_
                 point_size=point_size, tick_value=tick_value,
             )
             logger.info("Running strategy: %s", name)
-            result = engine.run(primary_data, h1_data, m1_data=m1_data)
+            result = engine.run(primary_data, h1_data)
             rd = _result_to_dict(result)
             rd["strategy"] = name
             all_results.append(rd)
@@ -315,7 +319,7 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label, m1_
         args.profit_growth, args.max_lot, args.tiered_caps,
         prop_firm_config=prop_firm_config,
     )
-    result = engine.run(primary_data, h1_data, m1_data=m1_data)
+    result = engine.run(primary_data, h1_data)
     print(result.summary())
     rd = _result_to_dict(result)
     _save_results(rd, args.symbol, label)

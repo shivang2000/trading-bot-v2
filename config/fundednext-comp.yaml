@@ -81,7 +81,9 @@ strategies:
       - m5_amd_cycle               # US30: +24.8%, 2.7% DD, 62% WR — BEST
       - m5_ny_orb                  # US30: +28.0%, 10.5% DD (15min retrace)
       - m5_mtf_momentum            # US30: +4.3%, safe, RSI filtered
-      # REMOVED: m5_mean_reversion — overfit to 60-day data, -27% on 9 months
+      # New strategies from video research (2026-04-12)
+      - m5_180_reversal            # XAUUSD: +92% at 0.25%, US30: +60% at 0.25%
+      - m5_liquidity_sweep         # XAUUSD: +5.4% at 0.5%, 4.9% DD — safe prop add-on
     instrument_strategy_overrides:
       US30:
         m5_amd_cycle:
@@ -90,6 +92,10 @@ strategies:
           risk_pct: 1.0
         m5_mtf_momentum:
           risk_pct: 1.0
+        m5_180_reversal:
+          risk_pct: 0.25            # +60% at 0.25%, 15% DD
+        m5_liquidity_sweep:
+          risk_pct: 0.5
       XAUUSD:
         m5_keltner_squeeze:
           risk_pct: 1.0
@@ -97,6 +103,10 @@ strategies:
           risk_pct: 1.0
         m5_tight_sl_scalp:
           risk_pct: 1.0
+        m5_180_reversal:
+          risk_pct: 0.25            # +92% at 0.25%, 25% DD
+        m5_liquidity_sweep:
+          risk_pct: 0.5             # +5.4% at 0.5%, 4.9% DD — safest
   ema_pullback:
     enabled: true
     fast_ema: 8

@@ -51,6 +51,10 @@ from src.analysis.strategies.m5_box_theory import M5BoxTheoryStrategy
 from src.analysis.strategies.m5_amd_cycle import M5AmdCycleStrategy
 from src.analysis.strategies.m5_ny_orb import M5NyOrbStrategy
 from src.analysis.strategies.m5_tight_sl_scalp import M5TightSlScalpStrategy
+from src.analysis.strategies.m5_180_reversal import M5180ReversalStrategy
+from src.analysis.strategies.m5_ema_833 import M5Ema833Strategy
+from src.analysis.strategies.m5_liquidity_sweep import M5LiquiditySweepStrategy
+from src.analysis.strategies.m30_fvg_ema import M30FvgEmaStrategy
 
 from src.analysis.claude_signal_filter import ClaudeSignalFilter
 from src.config.schema import AppConfig
@@ -77,6 +81,10 @@ SCALPING_REGISTRY: dict[str, type] = {
     "m5_amd_cycle": M5AmdCycleStrategy,
     "m5_ny_orb": M5NyOrbStrategy,
     "m5_tight_sl_scalp": M5TightSlScalpStrategy,
+    "m5_180_reversal": M5180ReversalStrategy,
+    "m5_ema_833": M5Ema833Strategy,
+    "m5_liquidity_sweep": M5LiquiditySweepStrategy,
+    "m30_fvg_ema": M30FvgEmaStrategy,
 }
 
 
