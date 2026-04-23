@@ -1,0 +1,84 @@
+{
+  "symbol": "XAUUSD",
+  "start_date": "2025-07-18 14:10:00+00:00",
+  "end_date": "2026-03-26 23:55:00+00:00",
+  "initial_capital": 5000.0,
+  "final_equity": 4938.625234001061,
+  "total_return_pct": -1.2274953199787888,
+  "max_drawdown_pct": 2.24064863086426,
+  "win_rate": 33.33333333333333,
+  "profit_factor": 0.3555969270883808,
+  "total_trades": 6,
+  "avg_trade_pnl": -10.229127666489907,
+  "sharpe_ratio": -0.04345316869408434,
+  "sortino_ratio": -0.00265913307087108,
+  "max_consecutive_losses": 3,
+  "max_consecutive_wins": 1,
+  "avg_trade_duration_hours": 2.2916666666666665,
+  "best_trade_pnl": 18.821984374832937,
+  "worst_trade_pnl": -31.422086423078326,
+  "expectancy": -10.229127666489905,
+  "strategy": "EmaPullbackBacktestAdapter",
+  "trades": [
+    {
+      "ticket": 1,
+      "side": "SELL",
+      "open_price": 3310.739314727892,
+      "close_price": 3317.2457381697336,
+      "open_time": "2025-07-29 07:15:00+00:00",
+      "close_time": "2025-07-29 07:55:00+00:00",
+      "pnl": -13.012846883682869,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 2,
+      "side": "BUY",
+      "open_price": 4354.991699298504,
+      "close_price": 4370.037769108112,
+      "open_time": "2025-12-22 01:45:00+00:00",
+      "close_time": "2025-12-22 03:00:00+00:00",
+      "pnl": 15.046069809608525,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 3,
+      "side": "SELL",
+      "open_price": 4870.712564255355,
+      "close_price": 4902.134650678433,
+      "open_time": "2026-02-17 15:45:00+00:00",
+      "close_time": "2026-02-17 15:50:00+00:00",
+      "pnl": -31.422086423078326,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 4,
+      "side": "BUY",
+      "open_price": 5016.028200673291,
+      "close_price": 4987.8067692740005,
+      "open_time": "2026-02-19 17:15:00+00:00",
+      "close_time": "2026-02-19 19:35:00+00:00",
+      "pnl": -28.22143139929085,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 5,
+      "side": "BUY",
+      "open_price": 5215.410937063317,
+      "close_price": 5192.824481585988,
+      "open_time": "2026-03-11 03:45:00+00:00",
+      "close_time": "2026-03-11 08:30:00+00:00",
+      "pnl": -22.586455477328855,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 6,
+      "side": "SELL",
+      "open_price": 4396.791984374833,
+      "close_price": 4377.97,
+      "open_time": "2026-03-26 19:15:00+00:00",
+      "close_time": "2026-03-26 23:55:00+00:00",
+      "pnl": 18.821984374832937,
+      "close_reason": "END_OF_BACKTEST"
+    }
+  ]
+}

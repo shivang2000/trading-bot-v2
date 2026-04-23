@@ -1,0 +1,54 @@
+{
+  "symbol": "GBPUSD",
+  "start_date": "2025-08-04 01:15:00+00:00",
+  "end_date": "2026-03-27 00:00:00+00:00",
+  "initial_capital": 50.0,
+  "final_equity": 48.38627036762938,
+  "total_return_pct": -3.227459264741242,
+  "max_drawdown_pct": 3.227459264741242,
+  "win_rate": 0.0,
+  "profit_factor": 0.0,
+  "total_trades": 3,
+  "avg_trade_pnl": -0.5379098774568766,
+  "sharpe_ratio": -0.11787822403256659,
+  "sortino_ratio": -0.004284854698417423,
+  "max_consecutive_losses": 3,
+  "max_consecutive_wins": 0,
+  "avg_trade_duration_hours": 3.4166666666666665,
+  "best_trade_pnl": -0.4958444473528969,
+  "worst_trade_pnl": -0.6209946463229299,
+  "expectancy": -0.5379098774568766,
+  "strategy": "EmaPullbackBacktestAdapter",
+  "trades": [
+    {
+      "ticket": 1,
+      "side": "SELL",
+      "open_price": 1.3265775082948439,
+      "close_price": 1.3365935509774718,
+      "open_time": "2025-09-03 02:30:00+00:00",
+      "close_time": "2025-09-03 05:35:00+00:00",
+      "pnl": -0.6209946463229299,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 2,
+      "side": "BUY",
+      "open_price": 1.3308996421669586,
+      "close_price": 1.3171261852960447,
+      "open_time": "2025-11-26 04:00:00+00:00",
+      "close_time": "2025-11-26 09:45:00+00:00",
+      "pnl": -0.4958444473528969,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 3,
+      "side": "BUY",
+      "open_price": 1.3763081687948848,
+      "close_price": 1.3677410905415261,
+      "open_time": "2026-01-27 08:30:00+00:00",
+      "close_time": "2026-01-27 09:55:00+00:00",
+      "pnl": -0.496890538694803,
+      "close_reason": "STOP_LOSS"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "symbol": "USDJPY",
+  "start_date": "2025-08-04 02:00:00+00:00",
+  "end_date": "2026-03-27 00:00:00+00:00",
+  "initial_capital": 50.0,
+  "final_equity": 51.03684412350529,
+  "total_return_pct": 2.0736882470105797,
+  "max_drawdown_pct": 1.0834113191909294,
+  "win_rate": 100.0,
+  "profit_factor": 999.99,
+  "total_trades": 1,
+  "avg_trade_pnl": 1.0368441235052899,
+  "sharpe_ratio": 0.10543998561310394,
+  "sortino_ratio": 0.006334852931682659,
+  "max_consecutive_losses": 0,
+  "max_consecutive_wins": 1,
+  "avg_trade_duration_hours": 7.416666666666667,
+  "best_trade_pnl": 1.0368441235052899,
+  "worst_trade_pnl": 1.0368441235052899,
+  "expectancy": 1.0368441235052899,
+  "strategy": "EmaPullbackBacktestAdapter",
+  "trades": [
+    {
+      "ticket": 1,
+      "side": "BUY",
+      "open_price": 150.16657491246073,
+      "close_price": 150.51218962029583,
+      "open_time": "2025-10-06 19:45:00+00:00",
+      "close_time": "2025-10-07 03:10:00+00:00",
+      "pnl": 1.0368441235052899,
+      "close_reason": "TAKE_PROFIT"
+    }
+  ]
+}

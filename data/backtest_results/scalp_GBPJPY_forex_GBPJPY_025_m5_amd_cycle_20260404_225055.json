@@ -1,0 +1,44 @@
+{
+  "symbol": "GBPJPY",
+  "start_date": "2025-08-04 01:35:00+00:00",
+  "end_date": "2026-03-27 00:00:00+00:00",
+  "initial_capital": 50.0,
+  "final_equity": 50.76265803947652,
+  "total_return_pct": 1.5253160789530398,
+  "max_drawdown_pct": 0.09593201937232833,
+  "win_rate": 100.0,
+  "profit_factor": 999.99,
+  "total_trades": 2,
+  "avg_trade_pnl": 0.38132901973825994,
+  "sharpe_ratio": 0.10795411549341291,
+  "sortino_ratio": 0.018547146314841497,
+  "max_consecutive_losses": 0,
+  "max_consecutive_wins": 2,
+  "avg_trade_duration_hours": 0.4166666666666667,
+  "best_trade_pnl": 0.4792263722813175,
+  "worst_trade_pnl": 0.2834316671952024,
+  "expectancy": 0.38132901973825994,
+  "strategy": "M5AmdCycleStrategy",
+  "trades": [
+    {
+      "ticket": 1,
+      "side": "BUY",
+      "open_price": 198.73156833280478,
+      "close_price": 199.015,
+      "open_time": "2025-09-03 10:30:00+00:00",
+      "close_time": "2025-09-03 11:15:00+00:00",
+      "pnl": 0.2834316671952024,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 2,
+      "side": "BUY",
+      "open_price": 209.38908655058114,
+      "close_price": 209.86831292286246,
+      "open_time": "2026-02-11 15:40:00+00:00",
+      "close_time": "2026-02-11 15:45:00+00:00",
+      "pnl": 0.4792263722813175,
+      "close_reason": "STOP_LOSS"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "symbol": "NZDUSD",
+  "start_date": "2025-08-04 02:00:00+00:00",
+  "end_date": "2026-03-27 00:00:00+00:00",
+  "initial_capital": 50.0,
+  "final_equity": 48.42505062551035,
+  "total_return_pct": -3.149898748979297,
+  "max_drawdown_pct": 3.149898748979297,
+  "win_rate": 0.0,
+  "profit_factor": 0.0,
+  "total_trades": 3,
+  "avg_trade_pnl": -0.5249831248298819,
+  "sharpe_ratio": -0.11266005389198268,
+  "sortino_ratio": -0.004925068993988914,
+  "max_consecutive_losses": 3,
+  "max_consecutive_wins": 0,
+  "avg_trade_duration_hours": 20.63888888888889,
+  "best_trade_pnl": -0.5011105983280696,
+  "worst_trade_pnl": -0.5707224583970845,
+  "expectancy": -0.5249831248298819,
+  "strategy": "EmaPullbackBacktestAdapter",
+  "trades": [
+    {
+      "ticket": 1,
+      "side": "SELL",
+      "open_price": 0.579651320846083,
+      "close_price": 0.5852466390656622,
+      "open_time": "2025-09-19 14:30:00+00:00",
+      "close_time": "2025-09-22 01:00:00+00:00",
+      "pnl": -0.5707224583970845,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 2,
+      "side": "BUY",
+      "open_price": 0.6148906519699037,
+      "close_price": 0.6013471222853612,
+      "open_time": "2026-02-09 01:30:00+00:00",
+      "close_time": "2026-02-09 03:25:00+00:00",
+      "pnl": -0.5011105983280696,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 3,
+      "side": "SELL",
+      "open_price": 0.5856559311700353,
+      "close_price": 0.5973563106529305,
+      "open_time": "2026-02-19 07:00:00+00:00",
+      "close_time": "2026-02-19 08:30:00+00:00",
+      "pnl": -0.5031163177644915,
+      "close_reason": "STOP_LOSS"
+    }
+  ]
+}

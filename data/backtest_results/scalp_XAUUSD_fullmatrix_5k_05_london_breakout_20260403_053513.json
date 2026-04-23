@@ -1,0 +1,964 @@
+{
+  "symbol": "XAUUSD",
+  "start_date": "2025-07-18 14:10:00+00:00",
+  "end_date": "2026-03-26 23:55:00+00:00",
+  "initial_capital": 5000.0,
+  "final_equity": 5333.960469201792,
+  "total_return_pct": 6.679209384035839,
+  "max_drawdown_pct": 15.6403606164157,
+  "win_rate": 44.680851063829785,
+  "profit_factor": 1.1074772960391235,
+  "total_trades": 94,
+  "avg_trade_pnl": 3.5527709489552532,
+  "sharpe_ratio": 0.03325686748223891,
+  "sortino_ratio": 0.02731220904467453,
+  "max_consecutive_losses": 6,
+  "max_consecutive_wins": 4,
+  "avg_trade_duration_hours": 37.2854609929078,
+  "best_trade_pnl": 508.94190990987863,
+  "worst_trade_pnl": -309.592215419847,
+  "expectancy": 3.5527709489552493,
+  "strategy": "LondonBreakoutBacktestAdapter",
+  "trades": [
+    {
+      "ticket": 1,
+      "side": "SELL",
+      "open_price": 3384.831587670281,
+      "close_price": 3402.97,
+      "open_time": "2025-07-22 10:00:00+00:00",
+      "close_time": "2025-07-22 15:40:00+00:00",
+      "pnl": -18.138412329718903,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 2,
+      "side": "SELL",
+      "open_price": 3418.201521064271,
+      "close_price": 3388.4649999999992,
+      "open_time": "2025-07-23 08:30:00+00:00",
+      "close_time": "2025-07-23 19:00:00+00:00",
+      "pnl": 29.736521064271983,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 3,
+      "side": "SELL",
+      "open_price": 3372.2612565444038,
+      "close_price": 3344.4750000000004,
+      "open_time": "2025-07-24 09:15:00+00:00",
+      "close_time": "2025-07-25 12:05:00+00:00",
+      "pnl": 27.786256544403386,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 4,
+      "side": "SELL",
+      "open_price": 3358.3885559132727,
+      "close_price": 3336.245,
+      "open_time": "2025-07-25 07:30:00+00:00",
+      "close_time": "2025-07-25 17:15:00+00:00",
+      "pnl": 22.14355591327285,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 5,
+      "side": "BUY",
+      "open_price": 3321.0877362303972,
+      "close_price": 3308.03,
+      "open_time": "2025-07-29 09:15:00+00:00",
+      "close_time": "2025-07-30 16:15:00+00:00",
+      "pnl": -26.11547246079408,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 6,
+      "side": "BUY",
+      "open_price": 3303.998670991916,
+      "close_price": 3341.07,
+      "open_time": "2025-07-31 10:40:00+00:00",
+      "close_time": "2025-08-01 15:45:00+00:00",
+      "pnl": 37.071329008084376,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 7,
+      "side": "SELL",
+      "open_price": 3371.8783749379613,
+      "close_price": 3356.545,
+      "open_time": "2025-08-05 07:30:00+00:00",
+      "close_time": "2025-08-05 13:05:00+00:00",
+      "pnl": 30.666749875922505,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 8,
+      "side": "BUY",
+      "open_price": 3385.117748945059,
+      "close_price": 3365.23,
+      "open_time": "2025-08-07 09:30:00+00:00",
+      "close_time": "2025-08-11 09:30:00+00:00",
+      "pnl": -19.887748945058775,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 10,
+      "side": "BUY",
+      "open_price": 3318.8527531790405,
+      "close_price": 3329.8499999999995,
+      "open_time": "2025-08-20 07:00:00+00:00",
+      "close_time": "2025-08-20 14:15:00+00:00",
+      "pnl": 32.991740462876805,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 9,
+      "side": "SELL",
+      "open_price": 3366.3918246306016,
+      "close_price": 3405.05,
+      "open_time": "2025-08-11 09:15:00+00:00",
+      "close_time": "2025-08-28 14:30:00+00:00",
+      "pnl": -38.65817536939858,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 12,
+      "side": "SELL",
+      "open_price": 3407.421315942355,
+      "close_price": 3418.36,
+      "open_time": "2025-08-29 10:20:00+00:00",
+      "close_time": "2025-08-29 16:00:00+00:00",
+      "pnl": -21.877368115290665,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 11,
+      "side": "BUY",
+      "open_price": 3400.8778385999262,
+      "close_price": 3423.4449999999997,
+      "open_time": "2025-08-28 11:45:00+00:00",
+      "close_time": "2025-08-29 16:35:00+00:00",
+      "pnl": 22.567161400073473,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 13,
+      "side": "BUY",
+      "open_price": 3487.8179920181847,
+      "close_price": 3561.5199999999995,
+      "open_time": "2025-09-01 09:30:00+00:00",
+      "close_time": "2025-09-03 17:20:00+00:00",
+      "pnl": 73.70200798181486,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 14,
+      "side": "SELL",
+      "open_price": 3582.3111754091497,
+      "close_price": 3597.22,
+      "open_time": "2025-09-08 08:00:00+00:00",
+      "close_time": "2025-09-08 09:40:00+00:00",
+      "pnl": -14.908824590850145,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 15,
+      "side": "BUY",
+      "open_price": 3655.4118835238623,
+      "close_price": 3628.04,
+      "open_time": "2025-09-09 07:30:00+00:00",
+      "close_time": "2025-09-09 18:15:00+00:00",
+      "pnl": -27.37188352386238,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 16,
+      "side": "BUY",
+      "open_price": 3643.7574427269356,
+      "close_price": 3617.49,
+      "open_time": "2025-09-10 09:15:00+00:00",
+      "close_time": "2025-09-11 12:15:00+00:00",
+      "pnl": -26.26744272693577,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 17,
+      "side": "BUY",
+      "open_price": 3655.0015314145503,
+      "close_price": 3630.44,
+      "open_time": "2025-09-12 07:15:00+00:00",
+      "close_time": "2025-09-15 04:00:00+00:00",
+      "pnl": -24.561531414550245,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 18,
+      "side": "BUY",
+      "open_price": 3689.7374709286223,
+      "close_price": 3674.49,
+      "open_time": "2025-09-16 09:30:00+00:00",
+      "close_time": "2025-09-17 05:35:00+00:00",
+      "pnl": -15.247470928622533,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 19,
+      "side": "SELL",
+      "open_price": 3651.451347886034,
+      "close_price": 3672.18,
+      "open_time": "2025-09-18 08:45:00+00:00",
+      "close_time": "2025-09-18 12:25:00+00:00",
+      "pnl": -20.728652113965836,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 20,
+      "side": "BUY",
+      "open_price": 3698.2577763644085,
+      "close_price": 3719.2649999999994,
+      "open_time": "2025-09-22 08:30:00+00:00",
+      "close_time": "2025-09-22 09:45:00+00:00",
+      "pnl": 21.00722363559089,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 22,
+      "side": "BUY",
+      "open_price": 3773.0676859197,
+      "close_price": 3750.59,
+      "open_time": "2025-09-24 10:00:00+00:00",
+      "close_time": "2025-09-24 17:50:00+00:00",
+      "pnl": -22.47768591969998,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 21,
+      "side": "BUY",
+      "open_price": 3770.338537460145,
+      "close_price": 3736.82,
+      "open_time": "2025-09-23 11:30:00+00:00",
+      "close_time": "2025-09-24 19:40:00+00:00",
+      "pnl": -33.51853746014467,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 23,
+      "side": "BUY",
+      "open_price": 3799.772085238388,
+      "close_price": 3857.57,
+      "open_time": "2025-09-29 07:15:00+00:00",
+      "close_time": "2025-09-30 06:25:00+00:00",
+      "pnl": 57.79791476161199,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 24,
+      "side": "BUY",
+      "open_price": 3867.3680222806843,
+      "close_price": 3825.5,
+      "open_time": "2025-09-30 08:15:00+00:00",
+      "close_time": "2025-09-30 11:20:00+00:00",
+      "pnl": -41.86802228068427,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 25,
+      "side": "BUY",
+      "open_price": 3879.0875446876316,
+      "close_price": 3854.58,
+      "open_time": "2025-10-01 10:45:00+00:00",
+      "close_time": "2025-10-02 04:00:00+00:00",
+      "pnl": -24.507544687631707,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 26,
+      "side": "BUY",
+      "open_price": 3871.677622290454,
+      "close_price": 3852.59,
+      "open_time": "2025-10-02 09:20:00+00:00",
+      "close_time": "2025-10-02 17:35:00+00:00",
+      "pnl": -19.087622290453965,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 28,
+      "side": "SELL",
+      "open_price": 3955.291420233332,
+      "close_price": 3977.63,
+      "open_time": "2025-10-07 09:45:00+00:00",
+      "close_time": "2025-10-07 15:50:00+00:00",
+      "pnl": -22.338579766668317,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 27,
+      "side": "BUY",
+      "open_price": 3933.4316122174123,
+      "close_price": 4005.855,
+      "open_time": "2025-10-06 07:15:00+00:00",
+      "close_time": "2025-10-08 05:15:00+00:00",
+      "pnl": 72.42338778258772,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 29,
+      "side": "BUY",
+      "open_price": 4019.8508358109707,
+      "close_price": 3983.02,
+      "open_time": "2025-10-08 07:00:00+00:00",
+      "close_time": "2025-10-09 19:40:00+00:00",
+      "pnl": -36.83083581097071,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 30,
+      "side": "SELL",
+      "open_price": 3947.997801159567,
+      "close_price": 3994.55,
+      "open_time": "2025-10-10 07:00:00+00:00",
+      "close_time": "2025-10-10 11:45:00+00:00",
+      "pnl": -46.55219884043299,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 31,
+      "side": "BUY",
+      "open_price": 4062.667388469104,
+      "close_price": 4141.98,
+      "open_time": "2025-10-13 08:00:00+00:00",
+      "close_time": "2025-10-14 04:15:00+00:00",
+      "pnl": 79.31261153089554,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 32,
+      "side": "BUY",
+      "open_price": 4167.21154734726,
+      "close_price": 4106.34,
+      "open_time": "2025-10-14 07:00:00+00:00",
+      "close_time": "2025-10-14 09:20:00+00:00",
+      "pnl": -60.871547347260275,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 33,
+      "side": "BUY",
+      "open_price": 4192.427915390355,
+      "close_price": 4267.945000000001,
+      "open_time": "2025-10-15 08:15:00+00:00",
+      "close_time": "2025-10-16 18:05:00+00:00",
+      "pnl": 75.51708460964528,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 34,
+      "side": "SELL",
+      "open_price": 4331.341262666096,
+      "close_price": 4267.42,
+      "open_time": "2025-10-21 10:00:00+00:00",
+      "close_time": "2025-10-21 11:10:00+00:00",
+      "pnl": 63.92126266609557,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 36,
+      "side": "BUY",
+      "open_price": 4129.758526345741,
+      "close_price": 4065.61,
+      "open_time": "2025-10-23 09:00:00+00:00",
+      "close_time": "2025-10-24 11:00:00+00:00",
+      "pnl": -64.14852634574117,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 37,
+      "side": "SELL",
+      "open_price": 4104.802110073432,
+      "close_price": 4046.73,
+      "open_time": "2025-10-24 08:45:00+00:00",
+      "close_time": "2025-10-24 14:00:00+00:00",
+      "pnl": 58.07211007343221,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 35,
+      "side": "BUY",
+      "open_price": 4159.388138007358,
+      "close_price": 4003.65,
+      "open_time": "2025-10-22 09:30:00+00:00",
+      "close_time": "2025-10-27 17:05:00+00:00",
+      "pnl": -155.73813800735797,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 38,
+      "side": "SELL",
+      "open_price": 4057.4576002080694,
+      "close_price": 3980.6850000000004,
+      "open_time": "2025-10-27 07:00:00+00:00",
+      "close_time": "2025-10-27 18:00:00+00:00",
+      "pnl": 76.77260020806898,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 39,
+      "side": "SELL",
+      "open_price": 3971.3987323850456,
+      "close_price": 3901.51,
+      "open_time": "2025-10-28 07:15:00+00:00",
+      "close_time": "2025-10-28 11:40:00+00:00",
+      "pnl": 69.88873238504539,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 40,
+      "side": "BUY",
+      "open_price": 3995.028005722086,
+      "close_price": 3915.28,
+      "open_time": "2025-10-29 10:00:00+00:00",
+      "close_time": "2025-10-30 01:00:00+00:00",
+      "pnl": -79.74800572208596,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 41,
+      "side": "BUY",
+      "open_price": 4016.0086848603305,
+      "close_price": 3962.14,
+      "open_time": "2025-11-03 08:15:00+00:00",
+      "close_time": "2025-11-04 16:25:00+00:00",
+      "pnl": -53.86868486033063,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 42,
+      "side": "SELL",
+      "open_price": 3973.3084385217944,
+      "close_price": 4005.9,
+      "open_time": "2025-11-04 07:45:00+00:00",
+      "close_time": "2025-11-06 09:20:00+00:00",
+      "pnl": -32.591561478205676,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 44,
+      "side": "BUY",
+      "open_price": 3991.7084125888873,
+      "close_price": 4030.954999999999,
+      "open_time": "2025-11-06 08:45:00+00:00",
+      "close_time": "2025-11-10 03:15:00+00:00",
+      "pnl": 39.246587411111705,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 43,
+      "side": "BUY",
+      "open_price": 3976.0017135877056,
+      "close_price": 4042.5149999999994,
+      "open_time": "2025-11-05 07:15:00+00:00",
+      "close_time": "2025-11-10 03:20:00+00:00",
+      "pnl": 66.51328641229384,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 45,
+      "side": "BUY",
+      "open_price": 4006.6874723356696,
+      "close_price": 4051.7699999999995,
+      "open_time": "2025-11-07 08:45:00+00:00",
+      "close_time": "2025-11-10 03:25:00+00:00",
+      "pnl": 45.08252766432997,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 46,
+      "side": "BUY",
+      "open_price": 4062.690773734903,
+      "close_price": 4148.825,
+      "open_time": "2025-11-10 07:30:00+00:00",
+      "close_time": "2025-11-11 06:00:00+00:00",
+      "pnl": 86.13422626509691,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 47,
+      "side": "BUY",
+      "open_price": 4219.747794091008,
+      "close_price": 4179.77,
+      "open_time": "2025-11-13 09:45:00+00:00",
+      "close_time": "2025-11-13 20:30:00+00:00",
+      "pnl": -39.97779409100713,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 48,
+      "side": "SELL",
+      "open_price": 4064.368679720756,
+      "close_price": 4005.8950000000004,
+      "open_time": "2025-11-17 07:15:00+00:00",
+      "close_time": "2025-11-18 06:20:00+00:00",
+      "pnl": 58.47367972075563,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 49,
+      "side": "SELL",
+      "open_price": 4002.2916853499996,
+      "close_price": 4055.37,
+      "open_time": "2025-11-18 09:15:00+00:00",
+      "close_time": "2025-11-18 15:35:00+00:00",
+      "pnl": -53.078314650000266,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 50,
+      "side": "BUY",
+      "open_price": 4096.858398862456,
+      "close_price": 4055.46,
+      "open_time": "2025-11-19 08:00:00+00:00",
+      "close_time": "2025-11-20 04:15:00+00:00",
+      "pnl": -41.398398862455906,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 51,
+      "side": "SELL",
+      "open_price": 4031.5311673401075,
+      "close_price": 4088.7,
+      "open_time": "2025-11-21 08:15:00+00:00",
+      "close_time": "2025-11-21 18:50:00+00:00",
+      "pnl": -57.16883265989236,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 52,
+      "side": "SELL",
+      "open_price": 4184.2292362356575,
+      "close_price": 4216.78,
+      "open_time": "2025-12-04 07:30:00+00:00",
+      "close_time": "2025-12-04 18:15:00+00:00",
+      "pnl": -32.550763764342264,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 53,
+      "side": "BUY",
+      "open_price": 4225.548593735737,
+      "close_price": 4194.63,
+      "open_time": "2025-12-05 08:00:00+00:00",
+      "close_time": "2025-12-08 01:10:00+00:00",
+      "pnl": -30.918593735736977,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 54,
+      "side": "SELL",
+      "open_price": 4181.869093617834,
+      "close_price": 4198.79,
+      "open_time": "2025-12-09 07:30:00+00:00",
+      "close_time": "2025-12-09 11:05:00+00:00",
+      "pnl": -16.920906382166322,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 55,
+      "side": "BUY",
+      "open_price": 4285.728542270972,
+      "close_price": 4313.754999999999,
+      "open_time": "2025-12-12 09:00:00+00:00",
+      "close_time": "2025-12-12 11:00:00+00:00",
+      "pnl": 28.026457729027243,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 56,
+      "side": "BUY",
+      "open_price": 4338.920836772617,
+      "close_price": 4295.71,
+      "open_time": "2025-12-15 07:30:00+00:00",
+      "close_time": "2025-12-15 18:20:00+00:00",
+      "pnl": -43.21083677261686,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 57,
+      "side": "SELL",
+      "open_price": 4280.657519288902,
+      "close_price": 4317.93,
+      "open_time": "2025-12-16 07:15:00+00:00",
+      "close_time": "2025-12-16 16:00:00+00:00",
+      "pnl": -37.27248071109807,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 58,
+      "side": "BUY",
+      "open_price": 4332.561000604796,
+      "close_price": 4377.385,
+      "open_time": "2025-12-17 07:00:00+00:00",
+      "close_time": "2025-12-22 03:35:00+00:00",
+      "pnl": 44.82399939520383,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 59,
+      "side": "BUY",
+      "open_price": 4401.150978830064,
+      "close_price": 4495.400000000001,
+      "open_time": "2025-12-22 07:00:00+00:00",
+      "close_time": "2025-12-23 04:40:00+00:00",
+      "pnl": 94.2490211699369,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 60,
+      "side": "SELL",
+      "open_price": 4470.11139322908,
+      "close_price": 4352.76,
+      "open_time": "2025-12-29 10:30:00+00:00",
+      "close_time": "2025-12-29 17:00:00+00:00",
+      "pnl": 117.3513932290798,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 61,
+      "side": "BUY",
+      "open_price": 4372.381294730632,
+      "close_price": 4323.12,
+      "open_time": "2025-12-30 07:15:00+00:00",
+      "close_time": "2025-12-31 07:40:00+00:00",
+      "pnl": -49.26129473063247,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 62,
+      "side": "SELL",
+      "open_price": 4324.767499541009,
+      "close_price": 4373.48,
+      "open_time": "2025-12-31 07:30:00+00:00",
+      "close_time": "2026-01-02 05:40:00+00:00",
+      "pnl": -48.71250045899069,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 63,
+      "side": "BUY",
+      "open_price": 4378.760999996493,
+      "close_price": 4324.35,
+      "open_time": "2026-01-02 07:30:00+00:00",
+      "close_time": "2026-01-02 18:00:00+00:00",
+      "pnl": -54.41099999649305,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 65,
+      "side": "BUY",
+      "open_price": 4469.790738126063,
+      "close_price": 4427.34,
+      "open_time": "2026-01-06 07:15:00+00:00",
+      "close_time": "2026-01-07 17:10:00+00:00",
+      "pnl": -42.45073812606279,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 67,
+      "side": "SELL",
+      "open_price": 4427.338335981136,
+      "close_price": 4466.41,
+      "open_time": "2026-01-08 07:00:00+00:00",
+      "close_time": "2026-01-08 22:25:00+00:00",
+      "pnl": -39.071664018863885,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 66,
+      "side": "SELL",
+      "open_price": 4452.519066645298,
+      "close_price": 4500.52,
+      "open_time": "2026-01-07 07:30:00+00:00",
+      "close_time": "2026-01-09 17:20:00+00:00",
+      "pnl": -48.00093335470228,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 64,
+      "side": "BUY",
+      "open_price": 4424.167653023462,
+      "close_price": 4536.479999999999,
+      "open_time": "2026-01-05 08:15:00+00:00",
+      "close_time": "2026-01-12 01:25:00+00:00",
+      "pnl": 112.3123469765369,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 68,
+      "side": "BUY",
+      "open_price": 4633.91149344777,
+      "close_price": 4587.8,
+      "open_time": "2026-01-14 07:00:00+00:00",
+      "close_time": "2026-01-15 03:30:00+00:00",
+      "pnl": -46.111493447770044,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 69,
+      "side": "BUY",
+      "open_price": 4699.621518732546,
+      "close_price": 4755.874999999998,
+      "open_time": "2026-01-20 07:00:00+00:00",
+      "close_time": "2026-01-20 18:55:00+00:00",
+      "pnl": 56.253481267452116,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 70,
+      "side": "BUY",
+      "open_price": 4871.597831974967,
+      "close_price": 4757.86,
+      "open_time": "2026-01-21 08:00:00+00:00",
+      "close_time": "2026-01-21 21:50:00+00:00",
+      "pnl": -113.73783197496778,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 71,
+      "side": "BUY",
+      "open_price": 5095.257857717396,
+      "close_price": 5001.71,
+      "open_time": "2026-01-26 09:15:00+00:00",
+      "close_time": "2026-01-26 23:35:00+00:00",
+      "pnl": -93.54785771739625,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 72,
+      "side": "BUY",
+      "open_price": 5088.227368130466,
+      "close_price": 5191.045,
+      "open_time": "2026-01-27 11:15:00+00:00",
+      "close_time": "2026-01-28 03:05:00+00:00",
+      "pnl": 102.81763186953413,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 73,
+      "side": "BUY",
+      "open_price": 5253.881249935086,
+      "close_price": 5391.420000000001,
+      "open_time": "2026-01-28 07:00:00+00:00",
+      "close_time": "2026-01-28 22:45:00+00:00",
+      "pnl": 137.5387500649149,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 74,
+      "side": "SELL",
+      "open_price": 5095.811909909878,
+      "close_price": 4586.869999999999,
+      "open_time": "2026-01-30 10:30:00+00:00",
+      "close_time": "2026-02-02 03:10:00+00:00",
+      "pnl": 508.94190990987863,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 75,
+      "side": "SELL",
+      "open_price": 4575.377784580153,
+      "close_price": 4884.97,
+      "open_time": "2026-02-02 07:30:00+00:00",
+      "close_time": "2026-02-03 08:40:00+00:00",
+      "pnl": -309.592215419847,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 77,
+      "side": "BUY",
+      "open_price": 5083.260963056683,
+      "close_price": 4908.59,
+      "open_time": "2026-02-04 07:00:00+00:00",
+      "close_time": "2026-02-04 17:35:00+00:00",
+      "pnl": -174.67096305668292,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 76,
+      "side": "BUY",
+      "open_price": 4871.978600918524,
+      "close_price": 4666.27,
+      "open_time": "2026-02-03 08:15:00+00:00",
+      "close_time": "2026-02-06 02:15:00+00:00",
+      "pnl": -205.7086009185232,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 79,
+      "side": "BUY",
+      "open_price": 5062.700775334675,
+      "close_price": 5119.045,
+      "open_time": "2026-02-11 07:30:00+00:00",
+      "close_time": "2026-02-11 14:00:00+00:00",
+      "pnl": 56.34422466532487,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 80,
+      "side": "SELL",
+      "open_price": 4900.968150070316,
+      "close_price": 5001.57,
+      "open_time": "2026-02-17 07:15:00+00:00",
+      "close_time": "2026-02-18 17:00:00+00:00",
+      "pnl": -100.60184992968334,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 81,
+      "side": "BUY",
+      "open_price": 4990.742649975661,
+      "close_price": 5041.13,
+      "open_time": "2026-02-19 07:00:00+00:00",
+      "close_time": "2026-02-20 11:15:00+00:00",
+      "pnl": 50.38735002433896,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 82,
+      "side": "BUY",
+      "open_price": 5016.197977150432,
+      "close_price": 5067.234999999999,
+      "open_time": "2026-02-20 08:00:00+00:00",
+      "close_time": "2026-02-20 18:30:00+00:00",
+      "pnl": 51.03702284956671,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 78,
+      "side": "BUY",
+      "open_price": 4867.907936749265,
+      "close_price": 5156.5599999999995,
+      "open_time": "2026-02-06 10:15:00+00:00",
+      "close_time": "2026-02-23 01:40:00+00:00",
+      "pnl": 288.6520632507345,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 84,
+      "side": "BUY",
+      "open_price": 5200.131929665299,
+      "close_price": 5155.08,
+      "open_time": "2026-02-26 07:15:00+00:00",
+      "close_time": "2026-02-26 16:30:00+00:00",
+      "pnl": -45.05192966529921,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 83,
+      "side": "BUY",
+      "open_price": 5195.601753136069,
+      "close_price": 5306.02,
+      "open_time": "2026-02-25 07:15:00+00:00",
+      "close_time": "2026-03-02 01:00:00+00:00",
+      "pnl": 110.41824686393102,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 85,
+      "side": "BUY",
+      "open_price": 5405.7779507602845,
+      "close_price": 5300.36,
+      "open_time": "2026-03-02 09:00:00+00:00",
+      "close_time": "2026-03-02 18:00:00+00:00",
+      "pnl": -105.41795076028484,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 86,
+      "side": "SELL",
+      "open_price": 5289.712469810387,
+      "close_price": 5167.77,
+      "open_time": "2026-03-03 08:00:00+00:00",
+      "close_time": "2026-03-03 13:05:00+00:00",
+      "pnl": 121.94246981038668,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 87,
+      "side": "SELL",
+      "open_price": 5131.902175258009,
+      "close_price": 5041.445,
+      "open_time": "2026-03-05 08:00:00+00:00",
+      "close_time": "2026-03-09 03:10:00+00:00",
+      "pnl": 90.45717525800956,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 88,
+      "side": "BUY",
+      "open_price": 5189.798764084266,
+      "close_price": 5116.31,
+      "open_time": "2026-03-10 11:30:00+00:00",
+      "close_time": "2026-03-12 18:10:00+00:00",
+      "pnl": -73.48876408426531,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 89,
+      "side": "SELL",
+      "open_price": 5181.602364047247,
+      "close_price": 5120.41,
+      "open_time": "2026-03-11 11:30:00+00:00",
+      "close_time": "2026-03-12 18:10:00+00:00",
+      "pnl": 61.19236404724688,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 90,
+      "side": "SELL",
+      "open_price": 5070.812247139326,
+      "close_price": 4985.484999999999,
+      "open_time": "2026-03-13 11:15:00+00:00",
+      "close_time": "2026-03-16 02:20:00+00:00",
+      "pnl": 85.32724713932748,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 91,
+      "side": "SELL",
+      "open_price": 4984.407789897502,
+      "close_price": 5015.94,
+      "open_time": "2026-03-18 07:30:00+00:00",
+      "close_time": "2026-03-18 09:35:00+00:00",
+      "pnl": -31.53221010249763,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 92,
+      "side": "SELL",
+      "open_price": 4786.042304871824,
+      "close_price": 4691.850000000001,
+      "open_time": "2026-03-19 09:30:00+00:00",
+      "close_time": "2026-03-19 11:40:00+00:00",
+      "pnl": 94.19230487182267,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 93,
+      "side": "SELL",
+      "open_price": 4310.331923604373,
+      "close_price": 4535.82,
+      "open_time": "2026-03-23 08:45:00+00:00",
+      "close_time": "2026-03-25 02:35:00+00:00",
+      "pnl": -225.4880763956271,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 94,
+      "side": "SELL",
+      "open_price": 4483.041720556882,
+      "close_price": 4400.910000000002,
+      "open_time": "2026-03-26 08:30:00+00:00",
+      "close_time": "2026-03-26 19:20:00+00:00",
+      "pnl": 82.13172055688028,
+      "close_reason": "TAKE_PROFIT"
+    }
+  ]
+}

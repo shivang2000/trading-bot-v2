@@ -1,0 +1,114 @@
+{
+  "symbol": "NZDUSD",
+  "start_date": "2025-08-04 02:00:00+00:00",
+  "end_date": "2026-03-27 00:00:00+00:00",
+  "initial_capital": 50.0,
+  "final_equity": 48.79542981393949,
+  "total_return_pct": -2.4091403721210156,
+  "max_drawdown_pct": 2.4091403721210156,
+  "win_rate": 0.0,
+  "profit_factor": 0.0,
+  "total_trades": 9,
+  "avg_trade_pnl": -0.13384113178450124,
+  "sharpe_ratio": -0.19444532809289644,
+  "sortino_ratio": -0.005099588084828638,
+  "max_consecutive_losses": 9,
+  "max_consecutive_wins": 0,
+  "avg_trade_duration_hours": 0.16666666666666666,
+  "best_trade_pnl": -0.12187366504397734,
+  "worst_trade_pnl": -0.200047549598803,
+  "expectancy": -0.13384113178450124,
+  "strategy": "M5AmdCycleStrategy",
+  "trades": [
+    {
+      "ticket": 1,
+      "side": "SELL",
+      "open_price": 0.5909566397812833,
+      "close_price": 0.5976248914345768,
+      "open_time": "2025-09-17 21:10:00+00:00",
+      "close_time": "2025-09-17 21:15:00+00:00",
+      "pnl": -0.200047549598803,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 2,
+      "side": "SELL",
+      "open_price": 0.5685264236077672,
+      "close_price": 0.5754508859131686,
+      "open_time": "2025-12-03 17:25:00+00:00",
+      "close_time": "2025-12-03 17:30:00+00:00",
+      "pnl": -0.12464032149722604,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 3,
+      "side": "SELL",
+      "open_price": 0.5674765939252446,
+      "close_price": 0.5754979654914576,
+      "open_time": "2025-12-03 17:30:00+00:00",
+      "close_time": "2025-12-03 17:35:00+00:00",
+      "pnl": -0.12834194505940744,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 4,
+      "side": "BUY",
+      "open_price": 0.6119802849745697,
+      "close_price": 0.6045492374404638,
+      "open_time": "2026-02-11 16:20:00+00:00",
+      "close_time": "2026-02-11 17:10:00+00:00",
+      "pnl": -0.12632780807979926,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 5,
+      "side": "BUY",
+      "open_price": 0.6136680315488333,
+      "close_price": 0.6047211180862326,
+      "open_time": "2026-02-11 17:10:00+00:00",
+      "close_time": "2026-02-11 17:15:00+00:00",
+      "pnl": -0.12525678847640953,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 6,
+      "side": "BUY",
+      "open_price": 0.6119203688247444,
+      "close_price": 0.6051496096556346,
+      "open_time": "2026-02-11 17:15:00+00:00",
+      "close_time": "2026-02-11 17:20:00+00:00",
+      "pnl": -0.12187366504397734,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 7,
+      "side": "SELL",
+      "open_price": 0.5889856881885436,
+      "close_price": 0.5962608380617329,
+      "open_time": "2026-02-20 17:05:00+00:00",
+      "close_time": "2026-02-20 17:10:00+00:00",
+      "pnl": -0.12367754784421871,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 8,
+      "side": "SELL",
+      "open_price": 0.5760926088252881,
+      "close_price": 0.5827223699189996,
+      "open_time": "2026-03-23 15:15:00+00:00",
+      "close_time": "2026-03-23 15:20:00+00:00",
+      "pnl": -0.1259654607805184,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 9,
+      "side": "SELL",
+      "open_price": 0.5755462698375409,
+      "close_price": 0.5826817753753271,
+      "open_time": "2026-03-23 15:30:00+00:00",
+      "close_time": "2026-03-23 15:35:00+00:00",
+      "pnl": -0.12843909968015144,
+      "close_reason": "STOP_LOSS"
+    }
+  ]
+}

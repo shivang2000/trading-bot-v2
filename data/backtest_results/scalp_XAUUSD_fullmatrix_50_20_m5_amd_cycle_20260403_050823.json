@@ -1,0 +1,64 @@
+{
+  "symbol": "XAUUSD",
+  "start_date": "2025-07-18 14:10:00+00:00",
+  "end_date": "2026-03-26 23:55:00+00:00",
+  "initial_capital": 50.0,
+  "final_equity": 42.83557763449062,
+  "total_return_pct": -14.32884473101876,
+  "max_drawdown_pct": 58.21426967085224,
+  "win_rate": 25.0,
+  "profit_factor": 0.045229520792715715,
+  "total_trades": 4,
+  "avg_trade_pnl": -1.7911055913773453,
+  "sharpe_ratio": 0.013997924798117694,
+  "sortino_ratio": 0.001474299861542858,
+  "max_consecutive_losses": 2,
+  "max_consecutive_wins": 1,
+  "avg_trade_duration_hours": 5.5625,
+  "best_trade_pnl": 0.3393940191967886,
+  "worst_trade_pnl": -4.384560135360061,
+  "expectancy": -1.7911055913773453,
+  "strategy": "M5AmdCycleStrategy",
+  "trades": [
+    {
+      "ticket": 1,
+      "side": "BUY",
+      "open_price": 3349.626534988972,
+      "close_price": 3347.0015677682845,
+      "open_time": "2025-08-12 15:55:00+00:00",
+      "close_time": "2025-08-12 16:05:00+00:00",
+      "pnl": -2.6249672206872674,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 2,
+      "side": "BUY",
+      "open_price": 3642.0675186706444,
+      "close_price": 3641.5732296419856,
+      "open_time": "2025-09-09 17:30:00+00:00",
+      "close_time": "2025-09-09 17:35:00+00:00",
+      "pnl": -0.49428902865884083,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 3,
+      "side": "BUY",
+      "open_price": 3641.9178906389893,
+      "close_price": 3642.257284658186,
+      "open_time": "2025-09-09 17:35:00+00:00",
+      "close_time": "2025-09-09 17:40:00+00:00",
+      "pnl": 0.3393940191967886,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 4,
+      "side": "BUY",
+      "open_price": 3646.6673959162413,
+      "close_price": 3642.282835780881,
+      "open_time": "2025-09-09 17:40:00+00:00",
+      "close_time": "2025-09-10 15:35:00+00:00",
+      "pnl": -4.384560135360061,
+      "close_reason": "STOP_LOSS"
+    }
+  ]
+}

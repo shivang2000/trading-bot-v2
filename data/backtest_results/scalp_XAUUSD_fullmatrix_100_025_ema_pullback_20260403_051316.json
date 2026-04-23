@@ -1,0 +1,64 @@
+{
+  "symbol": "XAUUSD",
+  "start_date": "2025-07-18 14:10:00+00:00",
+  "end_date": "2026-03-26 23:55:00+00:00",
+  "initial_capital": 100.0,
+  "final_equity": 174.4760691701781,
+  "total_return_pct": 74.4760691701781,
+  "max_drawdown_pct": 448.2919626522719,
+  "win_rate": 75.0,
+  "profit_factor": 12.44349695695483,
+  "total_trades": 4,
+  "avg_trade_pnl": 18.619017292544527,
+  "sharpe_ratio": 0.09314447128388817,
+  "sortino_ratio": 0.12335589635298619,
+  "max_consecutive_losses": 1,
+  "max_consecutive_wins": 3,
+  "avg_trade_duration_hours": 179.8125,
+  "best_trade_pnl": 47.11498459371978,
+  "worst_trade_pnl": -6.508156505858551,
+  "expectancy": 18.619017292544527,
+  "strategy": "EmaPullbackBacktestAdapter",
+  "trades": [
+    {
+      "ticket": 1,
+      "side": "SELL",
+      "open_price": 3310.737581663875,
+      "close_price": 3317.2457381697336,
+      "open_time": "2025-07-29 07:15:00+00:00",
+      "close_time": "2025-07-29 17:05:00+00:00",
+      "pnl": -6.508156505858551,
+      "close_reason": "STOP_LOSS"
+    },
+    {
+      "ticket": 2,
+      "side": "BUY",
+      "open_price": 4354.991135240772,
+      "close_price": 4370.037769108112,
+      "open_time": "2025-12-22 01:45:00+00:00",
+      "close_time": "2025-12-22 03:00:00+00:00",
+      "pnl": 15.04663386734046,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 3,
+      "side": "SELL",
+      "open_price": 4870.713008576072,
+      "close_price": 4823.598023982352,
+      "open_time": "2026-02-17 15:45:00+00:00",
+      "close_time": "2026-03-18 23:15:00+00:00",
+      "pnl": 47.11498459371978,
+      "close_reason": "TAKE_PROFIT"
+    },
+    {
+      "ticket": 4,
+      "side": "SELL",
+      "open_price": 4396.792607214977,
+      "close_price": 4377.97,
+      "open_time": "2026-03-26 19:15:00+00:00",
+      "close_time": "2026-03-26 23:55:00+00:00",
+      "pnl": 18.822607214976415,
+      "close_reason": "END_OF_BACKTEST"
+    }
+  ]
+}
