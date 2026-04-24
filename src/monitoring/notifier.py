@@ -57,6 +57,28 @@ class TelegramNotifier:
             logger.exception("Telegram send error")
             return False
 
+    async def send_foreign_position(
+        self,
+        ticket: int,
+        symbol: str,
+        side: str,
+        volume: float,
+        entry_price: float,
+        magic: int,
+        comment: str = "",
+        account_label: str = "",
+    ) -> bool:
+        """Telegram alert for foreign positions. Companion to SlackNotifier."""
+        acct = f" — {account_label}" if account_label else ""
+        msg = (
+            f"<b>FOREIGN POSITION{acct}</b>\n"
+            f"Bot did NOT place this trade.\n"
+            f"Ticket: <code>{ticket}</code> | {symbol} {side} {volume} @ {entry_price}\n"
+            f"Magic: <code>{magic}</code> (expected <code>200000</code>)\n"
+            f"Comment: <code>{comment or '&lt;empty&gt;'}</code>"
+        )
+        return await self.send(msg)
+
     async def send_trade_opened(
         self,
         symbol: str,

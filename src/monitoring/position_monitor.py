@@ -11,20 +11,33 @@ from __future__ import annotations
 
 import asyncio
 import logging
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Any, Callable
 
 import pandas_ta as ta
 
+from src.analysis.news_filter import NewsEventFilter
 from src.config.schema import PartialProfitConfig, TrailingStopConfig
 from src.core.enums import OrderSide, OrderType
-from src.core.events import EventBus, ModifyOrderEvent, OrderEvent, PositionClosedEvent
+from src.core.events import (
+    EventBus,
+    ForeignPositionEvent,
+    ModifyOrderEvent,
+    OrderEvent,
+    PositionClosedEvent,
+)
 from src.core.models import ModifyOrder, Order, Position
 from src.monitoring.partial_profit_manager import PartialProfitManager, PartialProfitState
 from src.mt5.client import AsyncMT5Client
 from src.risk.trailing_stop import TrailingStopManager
 from src.safety.emergency import EmergencyStop
 from src.tracking.database import TrackingDB
+
+# Bot's magic number — orders placed by RiskManager._signal_to_order use this
+# value. Foreign-position detection uses magic != BOT_MAGIC as the primary
+# signal (more reliable than comment prefix, since some MT5 servers truncate
+# or reformat comments on round-trip).
+BOT_MAGIC = 200000
 
 logger = logging.getLogger(__name__)
 
@@ -44,6 +57,8 @@ class PositionMonitor:
         initial_balance: float = 30.0,
         prop_firm_guard=None,
         partial_profit_config: PartialProfitConfig | None = None,
+        news_filter: NewsEventFilter | None = None,
+        pre_news_flat_minutes: int = 5,
     ) -> None:
         self._mt5 = mt5_client
         self._event_bus = event_bus
@@ -61,6 +76,18 @@ class PositionMonitor:
         self._emergency_triggered = False
         self._prop_firm_guard = prop_firm_guard
         self._friday_close_triggered = False
+
+        # Pre-news FLAT — close bot positions if a high-impact event is
+        # within `pre_news_flat_window` of "now". Tracks handled events to
+        # avoid re-firing.
+        self._news_filter = news_filter
+        self._pre_news_flat_window = timedelta(minutes=pre_news_flat_minutes)
+        self._pre_news_flat_handled: set[datetime] = set()
+
+        # Foreign-position monitor — alert (don't auto-close) on any MT5
+        # position whose magic != BOT_MAGIC. De-dup by ticket so we don't
+        # re-alert every poll cycle.
+        self._foreign_alerted_tickets: set[int] = set()
 
         # Trailing stop management
         self._ts_config = trailing_stop_config
@@ -110,9 +137,107 @@ class PositionMonitor:
         while self._running:
             await asyncio.sleep(self._poll_interval)
             try:
+                # Pre-news FLAT and foreign-position scan run BEFORE the main
+                # _check_positions so close-orders queued here are emitted on
+                # the same cycle as detection.
+                await self._check_pre_news_flat()
+                await self._check_foreign_positions()
                 await self._check_positions()
             except Exception:
                 logger.exception("Position monitor poll error (will retry next cycle)")
+
+    async def _check_pre_news_flat(self) -> None:
+        """Close bot positions ≤ pre_news_flat_window before a high-impact event.
+
+        Uses NewsEventFilter.time_until_next_event() to find the next
+        scheduled event. If that event is within the window AND the bot has
+        open positions, queue close orders (counter-direction MARKET).
+        Foreign positions are deliberately skipped — racing the human is
+        dangerous; the user is alerted via _check_foreign_positions instead.
+        """
+        if self._news_filter is None:
+            return
+        next_event, delta = self._news_filter.time_until_next_event()
+        if next_event is None or delta is None:
+            return
+        if delta > self._pre_news_flat_window:
+            return
+        if next_event.datetime_utc in self._pre_news_flat_handled:
+            return  # already handled this event
+
+        try:
+            positions = await self._mt5.positions_get()
+        except Exception:
+            logger.warning("Pre-news FLAT: failed to fetch positions")
+            return
+
+        bot_positions = [p for p in (positions or []) if self._is_bot_position(p)]
+        if not bot_positions:
+            self._pre_news_flat_handled.add(next_event.datetime_utc)
+            return
+
+        logger.warning(
+            "Pre-news FLAT: closing %d bot positions before %s (in %s)",
+            len(bot_positions),
+            next_event.name,
+            delta,
+        )
+        for pos in bot_positions:
+            close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+            order = Order(
+                symbol=pos.symbol,
+                side=close_side,
+                order_type=OrderType.MARKET,
+                volume=pos.volume,
+                magic=BOT_MAGIC,
+                comment=f"pre_news:{next_event.name[:20]}",
+            )
+            await self._event_bus.publish(
+                OrderEvent(timestamp=datetime.now(timezone.utc), order=order)
+            )
+        self._pre_news_flat_handled.add(next_event.datetime_utc)
+
+    async def _check_foreign_positions(self) -> None:
+        """Detect manually-placed (non-bot-magic) positions and alert.
+
+        Bot does NOT auto-close — the user may have intentionally placed
+        the trade and racing them is unsafe. Slack/Telegram notifiers
+        subscribe to ForeignPositionEvent for the alert.
+        """
+        try:
+            positions = await self._mt5.positions_get()
+        except Exception:
+            logger.warning("Foreign-position check: failed to fetch positions")
+            return
+
+        positions = positions or []
+        foreign = [p for p in positions if not self._is_bot_position(p)]
+
+        if not foreign:
+            # Reset tracking — if user closed the manual trade, re-alert on any new one
+            self._foreign_alerted_tickets.clear()
+            return
+
+        new_foreign = [p for p in foreign if p.ticket not in self._foreign_alerted_tickets]
+        for pos in new_foreign:
+            logger.error(
+                "FOREIGN POSITION: ticket=%s symbol=%s side=%s vol=%s "
+                "entry=%s magic=%s comment=%r",
+                pos.ticket,
+                pos.symbol,
+                pos.side.value,
+                pos.volume,
+                pos.open_price,
+                getattr(pos, "magic", "?"),
+                pos.comment,
+            )
+            await self._event_bus.publish(
+                ForeignPositionEvent(
+                    timestamp=datetime.now(timezone.utc),
+                    position=pos,
+                )
+            )
+            self._foreign_alerted_tickets.add(pos.ticket)
 
     async def _sync_positions(self) -> None:
         """Fetch current MT5 positions and populate known_tickets."""
@@ -319,7 +444,16 @@ class PositionMonitor:
 
     @staticmethod
     def _is_bot_position(pos) -> bool:
-        """Check if a position was opened by the bot (comment starts with 'tg:')."""
+        """Check if a position was opened by the bot.
+
+        Primary check: magic number (most reliable; brokers don't mutate it).
+        Fallback: comment prefix `tg:` for legacy positions opened before
+        magic-based detection landed, or in test fixtures that don't set
+        magic. Both must be checked because foreign EAs sometimes set magic=0.
+        """
+        magic = getattr(pos, "magic", None)
+        if magic is not None and magic != 0:
+            return magic == BOT_MAGIC
         return bool(pos.comment and pos.comment.startswith("tg:"))
 
     async def _check_partial_profits(

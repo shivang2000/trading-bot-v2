@@ -17,6 +17,7 @@ import logging
 from datetime import datetime, timezone
 from typing import Any, Callable
 
+from src.analysis.news_filter import NewsEventFilter
 from src.config.schema import AppConfig
 from src.core.enums import OrderSide, OrderType, SignalAction
 from src.core.events import (
@@ -50,6 +51,7 @@ class RiskManager:
         symbol_info_func: Callable[[str], Any],
         account_state_func: Callable[[], AccountState],
         positions_func: Callable[[str | None], list[Position]],
+        news_filter: NewsEventFilter | None = None,
     ) -> None:
         self._config = config
         self._event_bus = event_bus
@@ -57,6 +59,10 @@ class RiskManager:
         self._account_state_func = account_state_func
         self._positions_func = positions_func
         self._sizer = PositionSizer(config.account)
+        # Central news-window gate. Closes the bypass where Telegram + M15
+        # strategy signals previously skipped the filter that only ran in M5
+        # scalping. See docs/post-mortem-5k.md and orchestration-plan-v2.md.
+        self._news_filter = news_filter
 
         # Prop firm guard (enforces funded account breach rules)
         self._prop_firm_guard = None
@@ -229,6 +235,18 @@ class RiskManager:
     def _validate_risk_limits(self, signal: Signal) -> None:
         """Check all risk limits. Raises RiskLimitExceeded on failure."""
         risk = self._config.risk
+
+        # 0. News-window gate (central choke-point for ALL signal sources:
+        #    Telegram, M15 strategies, M5 scalping, future sources). Honors
+        #    config.signal_parser.news_filter_enabled.
+        if (
+            self._news_filter is not None
+            and self._config.signal_parser.news_filter_enabled
+        ):
+            signal_ts = signal.timestamp or datetime.now(timezone.utc)
+            blocked, reason = self._news_filter.is_blocked(signal_ts)
+            if blocked:
+                raise RiskLimitExceeded("news_window", reason, "flat")
 
         # 1. Max open positions
         positions = self._positions_func(None)

@@ -67,6 +67,11 @@ class SignalParserConfig(BaseModel):
     atr_sl_multiplier: float = 2.0
     atr_tp_multiplier: float = 3.0
     amendment_window_minutes: int = 5
+    # Central news-filter switch read by RiskManager + SignalGenerator
+    news_filter_enabled: bool = True
+    # Pre-news FLAT window (minutes). PositionMonitor closes bot positions if a
+    # high-impact event is within this window.
+    pre_news_flat_minutes: int = 5
 
 
 class TrailingStopConfig(BaseModel):
