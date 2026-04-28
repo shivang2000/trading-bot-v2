@@ -1,0 +1,78 @@
+# Funded Trader Markets (FTM) rulebook.
+#
+# IMPORTANT: bot_allowed=unknown until written confirmation is obtained from
+# FTM support. Do NOT activate any FTM account in accounts.yaml until
+# bot_allowed_evidence points to a saved support ticket. See
+# orchestration-plan-v2.md → Spec 2 (prop-firm support templates).
+
+name: Funded Trader Markets
+slug: ftm
+homepage: https://fundedtradermarkets.com
+
+variants:
+  1-step:
+    phases:
+      evaluation:
+        target_pct: 10
+        daily_dd_pct: 4
+        overall_dd_pct: 6
+        min_trading_days: 3
+      master:
+        target_pct: null
+        daily_dd_pct: 4
+        overall_dd_pct: 6
+    profit_split: 0.90
+    bot_allowed: unknown
+    bot_allowed_evidence: docs/propfirm-approvals/ftm.md  # PENDING — fill before use
+    platforms: [mt5, ctrader, match-trader, tradelocker]
+
+  2-step:
+    phases:
+      step1:
+        target_pct: 10
+        daily_dd_pct: 4
+        overall_dd_pct: 6
+        min_trading_days: 3
+      step2:
+        target_pct: 10
+        daily_dd_pct: 4
+        overall_dd_pct: 6
+        min_trading_days: 3
+      master:
+        target_pct: null
+        daily_dd_pct: 4
+        overall_dd_pct: 6
+    profit_split: 0.90
+    bot_allowed: unknown
+    bot_allowed_evidence: docs/propfirm-approvals/ftm.md
+    platforms: [mt5, ctrader, match-trader, tradelocker]
+
+  instant-funding:
+    phases:
+      master:
+        target_pct: null
+        daily_dd_pct: 4
+        overall_dd_pct: 6
+    profit_split: 0.80
+    bot_allowed: unknown
+    bot_allowed_evidence: docs/propfirm-approvals/ftm.md
+    platforms: [mt5, ctrader, match-trader, tradelocker]
+
+news_policy:
+  flat_before_high_impact_min: 15
+  no_new_trades_after_min: 30
+  enforce_on_phases: [evaluation, step1, step2, master]
+  notes: |
+    FTM publishes generic drawdown limits but no specific news rule on
+    their public page. Confirm with support before live use; conservative
+    default is 15/30 min until clarified.
+
+friday_auto_close:
+  enabled: true
+  hour_utc: 21
+
+regional_restrictions:
+  notes: |
+    FTM does not offer MT5 or cTrader to US residents (per their web copy).
+    Not relevant for ap-south-1 / India hosting; flag if ever migrating users
+    or accounts to a US jurisdiction.

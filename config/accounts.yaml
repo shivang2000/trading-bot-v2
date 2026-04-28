@@ -1,0 +1,67 @@
+# Multi-account ladder — one entry per slot in the FundingPips/FTM ladder.
+# Read by Management (CEO) Agent for auto-promotion and by Deployment Agent
+# for MT5 credential resolution. See orchestration-plan-v2.md → Artifact 1.
+#
+# After buying a new challenge:
+#   1. Add a new entry below with status: pending
+#   2. Populate AWS SSM:
+#        aws ssm put-parameter --name /trading-bot/<id>/mt5_login    --value "..." --type SecureString
+#        aws ssm put-parameter --name /trading-bot/<id>/mt5_master_password --value "..." --type SecureString
+#        aws ssm put-parameter --name /trading-bot/<id>/mt5_investor_password --value "..." --type SecureString
+#   3. Set CONFIG_OVERLAY in .env to the overlay name
+#   4. Deployment Agent will activate it on next dispatch
+
+accounts:
+  # Placeholder — replace after purchasing the next challenge.
+  - id: fp-5k-step1-NEXT
+    kind: propfirm
+    propfirm: fundingpips
+    broker: FundingPips-Demo
+    size_usd: 5000
+    variant: 2-step
+    phase: step1
+    status: pending
+    overlay: fundingpips-5k-step1
+    creds_ssm_prefix: /trading-bot/fp-5k-step1-NEXT
+    next_on_pass: fp-5k-step2-NEXT
+    target_pct: 8
+    trading_days_min: 3
+    prohibits_manual_trading: true
+
+  - id: fp-5k-step2-NEXT
+    kind: propfirm
+    propfirm: fundingpips
+    broker: FundingPips-Demo
+    size_usd: 5000
+    variant: 2-step
+    phase: step2
+    status: pending
+    overlay: fundingpips-5k-step2
+    creds_ssm_prefix: /trading-bot/fp-5k-step2-NEXT
+    next_on_pass: fp-5k-master-NEXT
+    target_pct: 5
+    trading_days_min: 3
+    prohibits_manual_trading: true
+
+  - id: fp-5k-master-NEXT
+    kind: propfirm
+    propfirm: fundingpips
+    broker: FundingPips-Live
+    size_usd: 5000
+    variant: 2-step
+    phase: master
+    status: pending
+    overlay: fundingpips-5k-master
+    creds_ssm_prefix: /trading-bot/fp-5k-master-NEXT
+    payouts_fund: fp-10k-step1-NEXT
+    target_pct: null  # master has no profit target
+    prohibits_manual_trading: true
+
+  # Personal accounts (kept for reference; flip status to 'active' to use)
+  - id: vantage-personal
+    kind: personal
+    broker: Vantage-Live
+    size_usd: 100
+    status: paused
+    overlay: vantage-10k-demo
+    prohibits_manual_trading: false
