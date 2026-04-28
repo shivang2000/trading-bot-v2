@@ -1,0 +1,98 @@
+# ─────────────────────────────────────────────────────────
+# Paperclip overlay — adds the AI orchestration layer.
+#
+# Compose with the platform overlay:
+#   ./scripts/run.sh up -d  (auto-detects)
+# Or directly:
+#   docker compose -f docker-compose.yml \
+#                  -f docker-compose.macbook.override.yml \
+#                  -f docker-compose.paperclip.override.yml up -d
+#
+# This file ships as a SCAFFOLD. Paperclip itself is brought up in P1
+# infra work (see orchestration-plan-v2.md → "Multi-account ladder" and
+# "Spec 4 — docker-compose.paperclip.yml"). The volumes + image
+# placeholder are committed now so the launcher can detect & include
+# the overlay automatically once paperclip is installed.
+#
+# RISK-10 ENFORCEMENT — bot tree is mounted READ-ONLY into paperclip.
+# The single attack vector that Lewis Jackson's OpenClaw demonstrated
+# (agent autonomously redeploying its own risk service to bypass exposure
+# limits) is mitigated at the Docker mount layer, not just by prompt.
+# ─────────────────────────────────────────────────────────
+
+services:
+  paperclip:
+    # Replace with the real image when paperclip is provisioned.
+    # `image: paperclipai/paperclip:latest` if a public image exists,
+    # or build from a cloned repo. Profile keeps it disabled by default.
+    image: paperclipai/paperclip:latest
+    profiles: ["paperclip"]
+    container_name: paperclip
+    restart: unless-stopped
+    depends_on:
+      - trading-bot
+    environment:
+      - NODE_ENV=production
+      - PAPERCLIP_DB_URL=${PAPERCLIP_DB_URL:-}      # Railway Postgres (warm tier)
+      - PAPERCLIP_DB_PATH=/paperclip/data/paperclip.db  # PGlite fallback
+      - CLAUDE_CODE_PATH=/usr/local/bin/claude
+      - SLACK_WEBHOOK=${SLACK_WEBHOOK:-}
+      - SLACK_APP_TOKEN=${SLACK_APP_TOKEN:-}
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN:-}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_USER_CHAT_ID=${TELEGRAM_USER_CHAT_ID:-}
+      - GH_REPO=shivang2000/trading-bot-v2
+      - GH_TOKEN=${GH_TOKEN:-}
+      - AWS_REGION=${AWS_REGION:-ap-south-1}
+      - PYTHONUNBUFFERED=1
+
+    ports:
+      # Bind to localhost only — reach via Tailscale or SSH tunnel.
+      - "127.0.0.1:3000:3000"   # Paperclip UI
+      - "127.0.0.1:8731:8731"   # CI webhook + agent IPC
+
+    volumes:
+      # ── Claude Code OAuth shared from host (EC2 is the primary login) ──
+      - ${HOME}/.claude:/root/.claude:ro
+      - ${HOME}/.config/claude-code:/root/.config/claude-code:ro
+
+      # ── RISK-10 MOUNTS: bot tree is READ-ONLY ──
+      - ./config:/mnt/bot/config:ro
+      - ./src:/mnt/bot/src:ro
+      - ./docker-compose.yml:/mnt/bot/docker-compose.yml:ro
+      - ./docker-compose.ec2.yml:/mnt/bot/docker-compose.ec2.yml:ro
+      - ./docker-compose.macbook.override.yml:/mnt/bot/docker-compose.macbook.override.yml:ro
+      - ./docker-compose.paperclip.override.yml:/mnt/bot/docker-compose.paperclip.override.yml:ro
+      - ./.env:/mnt/bot/.env:ro
+      - ./scripts:/mnt/bot/scripts:ro
+      - ./pyproject.toml:/mnt/bot/pyproject.toml:ro
+      - ./data:/mnt/bot/data:ro
+      - ./logs:/mnt/bot/logs:ro
+
+      # ── Paperclip's own state (read-write, bind-mounted for S3 backup) ──
+      - ${PAPERCLIP_DATA_DIR:-./paperclip-data}:/paperclip/data
+      - ${PAPERCLIP_LOG_DIR:-./paperclip-logs}:/paperclip/logs
+
+      # ── Docker socket: Deployment Agent uses docker exec / compose ──
+      # See orchestration-plan-v2.md "Docker-socket alternative (P2 hardening)"
+      # for the GHA-dispatch / sidecar-proxy alternatives that remove this.
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    deploy:
+      resources:
+        limits:
+          memory: 700M
+          cpus: "1.0"
+
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:3000/health"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"

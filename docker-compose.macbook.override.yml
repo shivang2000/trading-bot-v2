@@ -1,0 +1,54 @@
+# ─────────────────────────────────────────────────────────
+# Trading Bot V2 — macOS overlay (compose with docker-compose.yml)
+#
+# Adds MT5 + noVNC on Apple Silicon via Rosetta 2 / linux/amd64 emulation.
+# Use for dev / paper / backtest only — DO NOT run live funded accounts on
+# a laptop (sleep / network / power risk). See orchestration-plan-v2.md.
+#
+# Usage (via launcher):
+#   ./scripts/run.sh up -d
+#
+# Or directly:
+#   docker compose -f docker-compose.yml \
+#                  -f docker-compose.macbook.override.yml up -d
+# ─────────────────────────────────────────────────────────
+
+services:
+  metatrader5:
+    image: gmag11/metatrader5_vnc:latest
+    container_name: metatrader5-mac
+    platform: linux/amd64        # Rosetta 2 on Apple Silicon; native on Intel
+    restart: unless-stopped
+    ports:
+      - "8001:8001"              # RPyC — MT5 API
+      - "5900:6900"               # VNC (container uses 6900)
+      - "8080:3000"               # noVNC web UI (container uses 3000 via nginx)
+    # NOTE: VNC credentials must be set in .env (do NOT default in this file
+    # — GitGuardian flags any literal in a *_PASSWORD env var). See
+    # docs/superpowers/specs/<latest>-mac-bootstrap.md for required vars.
+    env_file:
+      - .env
+    environment:
+      - CUSTOM_PORT=3000
+      - PUID=911
+      - PGID=911
+    volumes:
+      - ./mt5_data:/config/.wine
+      - ./scripts/start-mt5.sh:/Metatrader/start.sh:ro
+    deploy:
+      resources:
+        limits:
+          memory: 1.2G            # extra slack for emulation overhead
+
+  trading-bot:
+    depends_on:
+      - metatrader5
+    environment:
+      - MT5_HOST=metatrader5
+      - MT5_PORT=8001
+    deploy:
+      resources:
+        limits:
+          memory: 768M
+    stdin_open: true
+    tty: true

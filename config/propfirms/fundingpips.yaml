@@ -1,0 +1,44 @@
+# FundingPips rulebook. Read by RiskManager via accounts.yaml → propfirm.
+# Source of truth for per-phase targets, drawdown limits, and consistency rules.
+
+name: FundingPips
+slug: fundingpips
+homepage: https://fundingpips.com
+
+variants:
+  2-step:
+    phases:
+      step1:
+        target_pct: 8
+        daily_dd_pct: 5
+        overall_dd_pct: 10
+        min_trading_days: 3
+      step2:
+        target_pct: 5
+        daily_dd_pct: 5
+        overall_dd_pct: 10
+        min_trading_days: 3
+      master:
+        target_pct: null
+        daily_dd_pct: 5
+        overall_dd_pct: 10
+    profit_split: 0.80
+    consistency_rule:
+      max_single_day_pct_of_profit: 40
+    bot_allowed: true
+    bot_allowed_evidence: docs/propfirm-approvals/fundingpips.md
+    platforms: [mt5]
+
+# News-trading restriction. RiskManager applies these on top of news_calendar.csv.
+news_policy:
+  flat_before_high_impact_min: 15
+  no_new_trades_after_min: 30
+  enforce_on_phases: [step1, step2, master]
+  notes: |
+    FundingPips master phase further restricts news trading to a 5-min
+    blackout window. Verified 2026-04-25 in writing; see approvals doc.
+
+# Friday close — fundingpips requires positions flat before weekend gap risk
+friday_auto_close:
+  enabled: true
+  hour_utc: 21
