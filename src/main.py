@@ -282,14 +282,30 @@ class TradingBot:
         )
 
     async def _account_cache_loop(self) -> None:
-        """Background loop: refresh account state every 30s."""
+        """Background loop: refresh account state every 30s.
+
+        Persists peak_equity AND session_start_equity (the daily-loss
+        baseline) so a mid-day restart resumes the same window. Closes
+        the gap that contributed to the $5k bust — without persistence,
+        every restart cleared the baseline to live equity, masking up
+        to a full daily limit's drawdown.
+        """
+        from datetime import datetime, timezone
         while not self._shutdown_event.is_set():
             await self._refresh_account_cache()
-            # Persist peak equity so it survives restarts
             try:
                 await self._db.save_bot_state(
                     "peak_equity", str(self._risk_manager.peak_equity)
                 )
+                today_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                if self._risk_manager.current_date == today_utc:
+                    await self._db.save_bot_state(
+                        "session_start_equity",
+                        str(self._risk_manager.session_start_equity),
+                    )
+                    await self._db.save_bot_state(
+                        "session_start_equity_date", today_utc
+                    )
             except Exception:
                 pass
             await asyncio.sleep(30)
@@ -493,10 +509,10 @@ class TradingBot:
 
         # 5. Restore persisted state from database
         try:
-            # Reset daily trade counter on restart (prevents stale count from
-            # previous sessions/accounts blocking trades)
-            await self._db.reset_daily_state()
-
+            # Do NOT clear daily_state here — wiping daily counts on every
+            # restart silently bypasses prop-firm daily-loss limits. Counter
+            # rolls over on UTC date change inside RiskManager._reset_if_new_day.
+            # See Diff 8 in orchestration-plan-v2.md.
             trailing_stops = await self._db.get_trailing_stops()
             if trailing_stops and self._position_monitor._trailing_manager:
                 self._position_monitor._trailing_manager.restore(trailing_stops)
@@ -528,6 +544,26 @@ class TradingBot:
             saved_peak = await self._db.get_bot_state("peak_equity")
             if saved_peak:
                 self._risk_manager.set_peak_equity(float(saved_peak))
+
+            # Diff 8: persist + restore session_start_equity (daily-loss
+            # baseline). Date-stamped so a stale entry from a previous UTC
+            # day doesn't keep the wrong baseline alive.
+            from datetime import datetime, timezone
+            today_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            saved_sse = await self._db.get_bot_state("session_start_equity")
+            saved_sse_date = await self._db.get_bot_state("session_start_equity_date")
+            if saved_sse and saved_sse_date == today_utc:
+                self._risk_manager.set_session_start_equity(float(saved_sse))
+            elif mt5_connected:
+                # Fresh day or first run: seed from live equity
+                try:
+                    state = await self._mt5.account_info()
+                    if state and state.equity:
+                        self._risk_manager.set_session_start_equity(state.equity)
+                        await self._db.save_bot_state("session_start_equity", str(state.equity))
+                        await self._db.save_bot_state("session_start_equity_date", today_utc)
+                except Exception:
+                    logger.warning("Could not seed session_start_equity from live equity")
         except Exception:
             logger.warning("Failed to restore persisted state", exc_info=True)
 

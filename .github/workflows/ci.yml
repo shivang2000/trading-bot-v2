@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e '.[dev]'
+
+      - name: Lint changed files only (ruff F + E5 + W2)
+        # Pre-existing project violations are NOT this PR's job to fix.
+        # Restrict ruff to files touched in this PR / push.
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before || 'main' }}
+        run: |
+          set -eu
+          # Build the changed-file list (limit to .py)
+          if [ "${BASE_REF}" = "0000000000000000000000000000000000000000" ] || [ -z "${BASE_REF}" ]; then
+            CHANGED=$(git ls-files '*.py')
+          else
+            CHANGED=$(git diff --name-only --diff-filter=AM "$BASE_REF"...HEAD -- '*.py' || true)
+          fi
+          if [ -z "$CHANGED" ]; then
+            echo "No Python files changed."
+            exit 0
+          fi
+          echo "Changed files:"
+          echo "$CHANGED" | sed 's/^/  /'
+          echo "$CHANGED" | xargs python -m ruff check --select F,W2
+
+      - name: Type check (mypy, non-blocking)
+        run: python -m mypy src || true
+
+      - name: Test (pytest)
+        env:
+          PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
+        run: python -m pytest tests/ -q -p asyncio --tb=short

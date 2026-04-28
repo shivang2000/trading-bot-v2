@@ -96,19 +96,27 @@ class RiskManager:
         self._current_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     async def initialize(self) -> None:
-        """Subscribe to events and sync initial state."""
+        """Subscribe to events. Do NOT clobber session_start_equity / peak_equity
+        from live equity here — main.py restores from DB before this runs.
+        Overwriting on every restart resets the daily-loss baseline (the
+        $5k bust hole). See orchestration-plan-v2.md Diff 8.
+        """
         self._event_bus.subscribe("SIGNAL", self._on_signal)
         self._event_bus.subscribe("SIGNAL_AMENDMENT", self._on_amendment)
-
-        # Get actual account state
-        try:
-            account = self._account_state_func()
-            self._session_start_equity = account.equity
-            self._peak_equity = account.equity
-        except Exception:
-            logger.warning("Could not sync initial account state")
-
         logger.info("RiskManager initialized")
+
+    def set_session_start_equity(self, equity: float) -> None:
+        """Restore persisted daily-loss baseline (called on startup)."""
+        self._session_start_equity = equity
+        logger.info("Restored session-start equity: $%.2f", equity)
+
+    @property
+    def session_start_equity(self) -> float:
+        return self._session_start_equity
+
+    @property
+    def current_date(self) -> str:
+        return self._current_date
 
     def set_daily_trade_count(self, count: int) -> None:
         """Restore daily trade count from persisted state."""
