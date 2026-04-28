@@ -65,6 +65,26 @@ class NewsEventFilter:
 
         return False, ""
 
+    def time_until_next_event(
+        self, now: datetime | None = None
+    ) -> tuple[NewsEvent | None, timedelta | None]:
+        """Return (next_event, delta_until_it) or (None, None) if calendar is exhausted.
+
+        Used by PositionMonitor to drive pre-news FLAT (close open positions
+        before a high-impact event lands).
+        """
+        now = now or datetime.now(timezone.utc)
+        if now.tzinfo is None:
+            now = now.replace(tzinfo=timezone.utc)
+        # Events are kept sorted by datetime_utc in load_calendar / _load_default_calendar
+        for event in self._events:
+            event_time = event.datetime_utc
+            if event_time.tzinfo is None:
+                event_time = event_time.replace(tzinfo=timezone.utc)
+            if event_time > now:
+                return event, event_time - now
+        return None, None
+
     def load_calendar(self, csv_path: str) -> None:
         """Load event calendar from CSV file.
 

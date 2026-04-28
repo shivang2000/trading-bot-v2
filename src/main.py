@@ -17,9 +17,16 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from src.analysis.news_filter import NewsEventFilter
 from src.config.loader import load_config
 from src.config.schema import AppConfig
-from src.core.events import EventBus, Event, FillEvent, PositionClosedEvent
+from src.core.events import (
+    Event,
+    EventBus,
+    FillEvent,
+    ForeignPositionEvent,
+    PositionClosedEvent,
+)
 from src.execution.executor import OrderExecutor
 from src.logging_.daily_summary import DailySummary
 from src.logging_.journal import TradeJournal
@@ -109,6 +116,19 @@ class TradingBot:
             tracking_db=self._db,
         )
 
+        # Shared news filter — one instance read by RiskManager (central
+        # signal gate), PositionMonitor (pre-news FLAT), and SignalGenerator
+        # (M5 scalping pre-check, defense-in-depth). Single calendar source.
+        self._news_filter: NewsEventFilter | None = None
+        if config.signal_parser.news_filter_enabled:
+            self._news_filter = NewsEventFilter(
+                calendar_path="config/news_calendar.csv"
+            )
+            logger.info(
+                "NewsEventFilter active: %d events loaded",
+                self._news_filter.event_count,
+            )
+
         # Risk manager — uses callback functions for MT5 access
         self._risk_manager = RiskManager(
             config=config,
@@ -116,6 +136,7 @@ class TradingBot:
             symbol_info_func=self._sync_symbol_info,
             account_state_func=self._sync_account_state,
             positions_func=self._sync_positions,
+            news_filter=self._news_filter,
         )
 
         # Executor
@@ -142,6 +163,8 @@ class TradingBot:
             initial_balance=config.account.initial_balance,
             prop_firm_guard=self._risk_manager._prop_firm_guard,
             partial_profit_config=config.partial_profit,
+            news_filter=self._news_filter,
+            pre_news_flat_minutes=config.signal_parser.pre_news_flat_minutes,
         )
 
         # Signal generator (own technical signals)
@@ -149,6 +172,7 @@ class TradingBot:
             config=config,
             event_bus=self._event_bus,
             mt5_client=self._mt5,
+            news_filter=self._news_filter,
         )
 
         # Journal + Summary
@@ -362,6 +386,39 @@ class TradingBot:
             source=source,
         )
 
+    async def _on_foreign_position_notify(self, event: Event) -> None:
+        """Fan out ForeignPositionEvent alerts to Slack + Telegram.
+
+        The bot does not auto-close foreign positions (racing the human is
+        unsafe). The user should investigate via noVNC and either close
+        manually or rotate the MT5 master password.
+        """
+        if not isinstance(event, ForeignPositionEvent) or event.position is None:
+            return
+        pos = event.position
+        magic = getattr(pos, "magic", 0)
+        account_label = self._config.prop_firm.provider if self._config.prop_firm.enabled else ""
+        await self._slack_notifier.send_foreign_position(
+            ticket=pos.ticket,
+            symbol=pos.symbol,
+            side=pos.side.value,
+            volume=pos.volume,
+            entry_price=pos.open_price,
+            magic=magic,
+            comment=pos.comment or "",
+            account_label=account_label,
+        )
+        await self._telegram_notifier.send_foreign_position(
+            ticket=pos.ticket,
+            symbol=pos.symbol,
+            side=pos.side.value,
+            volume=pos.volume,
+            entry_price=pos.open_price,
+            magic=magic,
+            comment=pos.comment or "",
+            account_label=account_label,
+        )
+
     async def _on_position_closed_notify(self, event: Event) -> None:
         """Send notifications when a position is closed."""
         if not isinstance(event, PositionClosedEvent) or event.position is None:
@@ -432,6 +489,7 @@ class TradingBot:
         # 4. Register notification handlers
         self._event_bus.subscribe("FILL", self._on_fill_notify)
         self._event_bus.subscribe("POSITION_CLOSED", self._on_position_closed_notify)
+        self._event_bus.subscribe("FOREIGN_POSITION", self._on_foreign_position_notify)
 
         # 5. Restore persisted state from database
         try:

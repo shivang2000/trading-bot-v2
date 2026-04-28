@@ -51,15 +51,28 @@ class RiskError(TradingBotError):
 
 
 class RiskLimitExceeded(RiskError):
-    """A risk limit has been breached."""
+    """A risk limit has been breached.
 
-    def __init__(self, limit_name: str, current_value: float, limit_value: float):
+    Values may be numeric (drawdown %, lot count) or string-typed (direction
+    label, news-window reason). Format adapts to the value's type so the
+    exception never crashes on construction.
+    """
+
+    def __init__(self, limit_name: str, current_value, limit_value):
         super().__init__(
-            f"Risk limit '{limit_name}' exceeded: {current_value:.4f} > {limit_value:.4f}"
+            f"Risk limit '{limit_name}' exceeded: "
+            f"{_format_value(current_value)} > {_format_value(limit_value)}"
         )
         self.limit_name = limit_name
         self.current_value = current_value
         self.limit_value = limit_value
+
+
+def _format_value(v) -> str:
+    """Render a numeric value with 4 decimals; pass strings through verbatim."""
+    if isinstance(v, (int, float)) and not isinstance(v, bool):
+        return f"{v:.4f}"
+    return str(v)
 
 
 # --- Execution Errors ---

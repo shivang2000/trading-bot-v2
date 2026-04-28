@@ -86,6 +86,21 @@ class PositionClosedEvent(Event):
     close_reason: str = ""
 
 
+@dataclass
+class ForeignPositionEvent(Event):
+    """Emitted when a position is detected on MT5 that the bot did not place.
+
+    Detection: position whose `magic` field is not the bot's magic number
+    (200000). Comes from manual placement, another EA, or a leaked master
+    password. Bot does NOT auto-close — racing the human is dangerous.
+    Alert-only is the P1 behaviour; Slack/Telegram notifiers handle it.
+    """
+
+    event_type: str = field(default="FOREIGN_POSITION", init=False)
+    position: Position | None = None
+    message: str = "Foreign position detected — not placed by bot"
+
+
 class EventBus:
     """Async publish-subscribe event bus.
 

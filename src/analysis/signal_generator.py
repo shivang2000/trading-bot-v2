@@ -96,6 +96,7 @@ class SignalGenerator:
         config: AppConfig,
         event_bus: EventBus,
         mt5_client: AsyncMT5Client,
+        news_filter: NewsEventFilter | None = None,
     ) -> None:
         self._config = config
         self._event_bus = event_bus
@@ -103,8 +104,13 @@ class SignalGenerator:
         self._running = False
         self._task: asyncio.Task | None = None
 
-        # News event filter
-        self._news_filter = NewsEventFilter(calendar_path="config/news_calendar.csv")
+        # News event filter — share a single instance across the bot if
+        # provided (so RiskManager + PositionMonitor + SignalGenerator
+        # observe the same calendar). Falls back to creating one locally
+        # for tests / backwards-compat.
+        self._news_filter = news_filter or NewsEventFilter(
+            calendar_path="config/news_calendar.csv"
+        )
 
         # Regime detection
         self._regime_detector = RegimeDetector()

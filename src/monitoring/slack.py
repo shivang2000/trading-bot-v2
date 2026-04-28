@@ -46,6 +46,34 @@ class SlackNotifier:
             logger.exception("Slack send error")
             return False
 
+    async def send_foreign_position(
+        self,
+        ticket: int,
+        symbol: str,
+        side: str,
+        volume: float,
+        entry_price: float,
+        magic: int,
+        comment: str = "",
+        account_label: str = "",
+    ) -> bool:
+        """Alert on a position not placed by the bot (magic != BOT_MAGIC).
+
+        Bot does NOT auto-close (racing the human is unsafe). This is the
+        primary alarm for the system-enforced single-owner pattern from the
+        $5k post-mortem. See docs/post-mortem-5k.md.
+        """
+        acct = f" — {account_label}" if account_label else ""
+        msg = (
+            f":rotating_light: *FOREIGN POSITION DETECTED*{acct}\n"
+            f"Bot did *NOT* place this trade.\n"
+            f"Ticket: `{ticket}` | {symbol} {side} {volume} lots @ {entry_price}\n"
+            f"Magic: `{magic}` (expected `200000`)\n"
+            f"Comment: `{comment or '<empty>'}`\n"
+            f"\nPossible causes: manual trade, leaked master password, or another EA running."
+        )
+        return await self.send(msg)
+
     async def send_trade_opened(
         self,
         symbol: str,
