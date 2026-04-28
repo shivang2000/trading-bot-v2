@@ -1,0 +1,76 @@
+name: Deploy (manual / agent-dispatched)
+
+# Never triggered on push. Always agent-dispatched (Paperclip Deployment Agent
+# decides timing — no open positions, MT5 healthy) or human-triggered for
+# emergency rollback. See orchestration-plan-v2.md Spec 3.
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: 'Commit SHA to deploy (default: current main)'
+        required: false
+        default: ''
+      reason:
+        description: 'Why this deploy (audit trail)'
+        required: true
+
+  repository_dispatch:
+    types: [agent-deploy]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    timeout-minutes: 10
+
+    env:
+      DEPLOY_SHA: ${{ inputs.sha || github.event.client_payload.sha || 'main' }}
+      DEPLOY_REASON: ${{ inputs.reason || github.event.client_payload.reason || 'agent-dispatch' }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.DEPLOY_SHA }}
+
+      - name: Tag :previous before deploying :latest
+        run: docker tag trading-bot-v2:latest trading-bot-v2:previous || true
+
+      - name: Build new image
+        run: docker build -t trading-bot-v2:latest .
+
+      - name: Compose up
+        working-directory: /home/ec2-user/trading-bot-v2
+        run: docker compose -f docker-compose.ec2.yml up -d trading-bot
+
+      - name: Healthcheck (30s settle)
+        id: healthcheck
+        run: |
+          sleep 30
+          /home/ec2-user/trading-bot-v2/scripts/healthcheck.sh
+
+      - name: Audit log
+        if: always()
+        env:
+          REASON: ${{ env.DEPLOY_REASON }}
+          OUTCOME: ${{ steps.healthcheck.outcome }}
+        run: |
+          echo "deploy sha=$DEPLOY_SHA outcome=$OUTCOME reason=$REASON" \
+            | tee -a /home/ec2-user/trading-bot-v2/logs/deploy.log
+
+      - name: Rollback on failure
+        if: failure() && steps.healthcheck.outcome == 'failure'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          docker tag trading-bot-v2:previous trading-bot-v2:latest
+          cd /home/ec2-user/trading-bot-v2
+          docker compose -f docker-compose.ec2.yml up -d trading-bot
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            curl -X POST -H 'Content-Type: application/json' \
+              -d '{"text":"DEPLOY ROLLBACK: healthcheck failed. Restored :previous."}' \
+              "$SLACK_WEBHOOK"
+          fi
+          exit 1
