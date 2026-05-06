@@ -92,6 +92,29 @@ class PartialProfitConfig(BaseModel):
     breakeven_buffer_points: float = 1.0  # SL offset above/below entry on breakeven move
 
 
+class TickEngineConfig(BaseModel):
+    """Tick-driven exit-management engine.
+
+    When enabled, TickStream polls MT5 every poll_interval_ms and routes
+    each tick to TickPositionManager which runs trailing-stop and
+    partial-profit logic on every price update (no longer waiting for
+    the 30s position-monitor poll). Entry signals are unaffected.
+    """
+
+    enabled: bool = False  # off-by-default; opt in per account config
+    poll_interval_ms: int = 200
+    symbols: list[str] = Field(default_factory=list)  # empty = use signal_generator.instruments
+    modify_rate_limit_seconds: float = 2.0  # min seconds between SL modifies per ticket
+    drop_unchanged_modifies: bool = True
+    # Distance below which we don't bother sending a modify (avoids broker rejection
+    # and pointless RPC). Expressed in MT5 points.
+    min_sl_change_points: float = 5.0
+    # When tick engine owns trailing/partial work, suppress duplicate logic in
+    # PositionMonitor's poll loop. Position close-detection + foreign-position
+    # scan + pre-news flat all stay on the poll path.
+    suppress_poll_position_management: bool = True
+
+
 class TelegramNotificationConfig(BaseModel):
     enabled: bool = False
     bot_token: str = ""
@@ -289,4 +312,5 @@ class AppConfig(BaseModel):
     database: DatabaseConfig = Field(default_factory=DatabaseConfig)
     prop_firm: PropFirmConfig = Field(default_factory=PropFirmConfig)
     partial_profit: PartialProfitConfig = Field(default_factory=PartialProfitConfig)
+    tick_engine: TickEngineConfig = Field(default_factory=TickEngineConfig)
     claude_filter: ClaudeFilterConfig = Field(default_factory=ClaudeFilterConfig)

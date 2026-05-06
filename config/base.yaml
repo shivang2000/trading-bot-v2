@@ -190,6 +190,15 @@ strategies:
 position_monitor:
   poll_interval_seconds: 30
 
+tick_engine:
+  enabled: false              # opt in per account overlay (vantage-50.yaml etc.)
+  poll_interval_ms: 200
+  symbols: []                 # empty = use signal_generator.instruments[0]
+  modify_rate_limit_seconds: 2.0
+  drop_unchanged_modifies: true
+  min_sl_change_points: 5.0
+  suppress_poll_position_management: true
+
 monitoring:
   log_level: INFO
   log_file: logs/trading.log

@@ -59,6 +59,7 @@ class PositionMonitor:
         partial_profit_config: PartialProfitConfig | None = None,
         news_filter: NewsEventFilter | None = None,
         pre_news_flat_minutes: int = 5,
+        suppress_position_management: bool = False,
     ) -> None:
         self._mt5 = mt5_client
         self._event_bus = event_bus
@@ -69,6 +70,11 @@ class PositionMonitor:
         self._known_tickets: dict[int, Position] = {}
         self._running = False
         self._task: asyncio.Task | None = None
+        # Suppress poll-driven trailing-stop and partial-profit updates when
+        # the tick engine owns those code paths. Health work (close-detection,
+        # foreign-position scan, pre-news flat, emergency stop, Friday close,
+        # propfirm equity check) still runs every poll cycle.
+        self._suppress_position_management = suppress_position_management
         self._emergency = EmergencyStop(
             max_daily_loss_usd=initial_balance * 0.08,   # 8% of initial
             max_drawdown_usd=initial_balance * 0.20,     # 20% of initial
@@ -277,13 +283,18 @@ class PositionMonitor:
                     ticket, pos.side.value, pos.symbol, pos.volume, pos.open_price,
                 )
 
-        # Check partial profit levels (close portions at each TP)
-        if self._partial_profit and current_tickets:
-            await self._check_partial_profits(current_tickets)
+        # Skip poll-driven trailing/partial when tick engine owns them. Both
+        # the tick path and the poll path share `_partial_profit._tracked`
+        # and `_trailing_manager._trailing_stops`, so duplicate work would
+        # double-fire modify events for the same SL change.
+        if not self._suppress_position_management:
+            # Check partial profit levels (close portions at each TP)
+            if self._partial_profit and current_tickets:
+                await self._check_partial_profits(current_tickets)
 
-        # Update trailing stops for open positions
-        if self._trailing_manager and current_tickets:
-            await self._update_trailing_stops(current_tickets)
+            # Update trailing stops for open positions
+            if self._trailing_manager and current_tickets:
+                await self._update_trailing_stops(current_tickets)
 
         # Update known state
         self._known_tickets = current_tickets
