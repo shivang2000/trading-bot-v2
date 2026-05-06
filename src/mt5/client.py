@@ -196,6 +196,89 @@ class MT5Client:
         rates = self._mt5.copy_rates_range(symbol, tf, date_from, date_to)
         return self._rates_to_dataframe(rates)
 
+    def copy_ticks_from(
+        self,
+        symbol: str,
+        date_from: datetime,
+        count: int = 1000,
+        flags: int | None = None,
+    ) -> pd.DataFrame:
+        """Get the last `count` ticks starting at `date_from`.
+
+        Used by the tick backtester (`src/backtesting/tick_engine.py`).
+        flags=None defaults to MT5 COPY_TICKS_ALL via `mt5.COPY_TICKS_ALL`.
+        Returns DataFrame columns: timestamp, bid, ask, last, volume, flags.
+        """
+        self._ensure_connected()
+        if flags is None:
+            flags = int(getattr(self._mt5, "COPY_TICKS_ALL", -1))
+        ticks = self._mt5.copy_ticks_from(symbol, date_from, count, flags)
+        return self._ticks_to_dataframe(ticks)
+
+    def copy_ticks_range(
+        self,
+        symbol: str,
+        date_from: datetime,
+        date_to: datetime,
+        flags: int | None = None,
+    ) -> pd.DataFrame:
+        """Bulk download ticks within a date range.
+
+        Used to build tick history datasets for backtesting. May return
+        large DataFrames — callers should chunk by day for multi-month pulls.
+        """
+        self._ensure_connected()
+        if flags is None:
+            flags = int(getattr(self._mt5, "COPY_TICKS_ALL", -1))
+        ticks = self._mt5.copy_ticks_range(symbol, date_from, date_to, flags)
+        return self._ticks_to_dataframe(ticks)
+
+    def _ticks_to_dataframe(self, ticks: Any) -> pd.DataFrame:
+        """Convert MT5 tick array to DataFrame."""
+        if ticks is None or len(ticks) == 0:
+            return pd.DataFrame(
+                columns=["bid", "ask", "last", "volume", "flags"]
+            )
+        ticks_native = _to_native(ticks)
+        df = pd.DataFrame(ticks_native)
+        if "time_msc" in df.columns:
+            df["timestamp"] = pd.to_datetime(df["time_msc"], unit="ms", utc=True)
+            df = df.set_index("timestamp")
+        elif "time" in df.columns:
+            df["timestamp"] = pd.to_datetime(df["time"], unit="s", utc=True)
+            df = df.set_index("timestamp")
+        for col in ["bid", "ask", "last", "volume", "flags"]:
+            if col not in df.columns:
+                df[col] = 0.0
+        return df[["bid", "ask", "last", "volume", "flags"]]
+
+    def position_modify(
+        self,
+        ticket: int,
+        stop_loss: float | None = None,
+        take_profit: float | None = None,
+        symbol: str | None = None,
+    ) -> dict[str, Any]:
+        """Update an open position's SL/TP without closing it.
+
+        Wraps MT5's TRADE_ACTION_SLTP via `order_send`. Returns the same
+        result dict as `order_send`. Used by TickPositionManager's
+        rate-limited modify queue. Logging is intentionally lighter than
+        `order_send` because trailing modifies can fire ~once/2s per ticket.
+        """
+        self._ensure_connected()
+        request: dict[str, Any] = {
+            "action": 3,  # TRADE_ACTION_SLTP
+            "position": ticket,
+        }
+        if symbol:
+            request["symbol"] = symbol
+        if stop_loss is not None:
+            request["sl"] = stop_loss
+        if take_profit is not None:
+            request["tp"] = take_profit
+        return self._execute_order("order_send", request)
+
     def _rates_to_dataframe(self, rates: Any) -> pd.DataFrame:
         """Convert MT5 rates to DataFrame."""
         if rates is None or len(rates) == 0:
@@ -423,6 +506,30 @@ class AsyncMT5Client:
     ) -> pd.DataFrame:
         return await self._call_with_reconnect(
             self._sync.get_bars_range, symbol, timeframe, date_from, date_to
+        )
+
+    async def copy_ticks_from(
+        self, symbol: str, date_from: datetime, count: int = 1000,
+        flags: int | None = None,
+    ) -> pd.DataFrame:
+        return await self._call_with_reconnect(
+            self._sync.copy_ticks_from, symbol, date_from, count, flags
+        )
+
+    async def copy_ticks_range(
+        self, symbol: str, date_from: datetime, date_to: datetime,
+        flags: int | None = None,
+    ) -> pd.DataFrame:
+        return await self._call_with_reconnect(
+            self._sync.copy_ticks_range, symbol, date_from, date_to, flags
+        )
+
+    async def position_modify(
+        self, ticket: int, stop_loss: float | None = None,
+        take_profit: float | None = None, symbol: str | None = None,
+    ) -> dict[str, Any]:
+        return await self._call_with_reconnect(
+            self._sync.position_modify, ticket, stop_loss, take_profit, symbol
         )
 
     async def order_send(self, request: dict[str, Any]) -> dict[str, Any]:

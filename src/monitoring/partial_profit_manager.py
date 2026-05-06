@@ -189,6 +189,21 @@ class PartialProfitManager:
 
         return actions
 
+    def evaluate_on_tick(
+        self, ticket: int, current_price: float, symbol: str
+    ) -> list[PartialCloseAction]:
+        """Tick-driven equivalent of `check()`.
+
+        Identical contract to `check()` (returns same `PartialCloseAction`
+        list); kept as a separate name so the call site is explicit about
+        the trigger source — callers wired into `TickStream.on_tick` use
+        this entry point, the legacy 30s poll loop uses `check()`. Both
+        share the same internal `_tracked` state, so a tick-driven hit on
+        TP1 marks the level as fired and a subsequent poll-driven check
+        will skip it.
+        """
+        return self.check(ticket, current_price, symbol)
+
     def is_tracked(self, ticket: int) -> bool:
         """Check if a position is being tracked for partial profit."""
         return ticket in self._tracked

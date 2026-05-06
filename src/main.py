@@ -33,7 +33,9 @@ from src.logging_.journal import TradeJournal
 from src.monitoring.notifier import TelegramNotifier
 from src.monitoring.position_monitor import PositionMonitor
 from src.monitoring.slack import SlackNotifier
+from src.monitoring.tick_position_manager import TickPositionManager
 from src.mt5.client import AsyncMT5Client
+from src.mt5.tick_stream import TickStream
 from src.risk.manager import RiskManager
 from src.safety.emergency import EmergencyStop
 from src.telegram.channel_config import ChannelRegistry
@@ -152,6 +154,9 @@ class TradingBot:
         )
 
         # Monitoring
+        # Tick engine — when enabled, owns trailing/partial; PositionMonitor
+        # is told to suppress its poll-driven duplicates of that work.
+        self._tick_engine_enabled = config.tick_engine.enabled
         self._position_monitor = PositionMonitor(
             mt5_client=self._mt5,
             event_bus=self._event_bus,
@@ -165,7 +170,37 @@ class TradingBot:
             partial_profit_config=config.partial_profit,
             news_filter=self._news_filter,
             pre_news_flat_minutes=config.signal_parser.pre_news_flat_minutes,
+            suppress_position_management=(
+                self._tick_engine_enabled
+                and config.tick_engine.suppress_poll_position_management
+            ),
         )
+
+        # Tick engine: subscribes to TickStream and runs trailing/partial on
+        # every tick. Symbols default to signal_generator.instruments if the
+        # tick_engine.symbols list is empty.
+        self._tick_stream: TickStream | None = None
+        self._tick_pm: TickPositionManager | None = None
+        if self._tick_engine_enabled:
+            tick_symbols = list(config.tick_engine.symbols) or list(
+                config.signal_generator.instruments
+            )
+            self._tick_stream = TickStream(
+                mt5_client=self._mt5,
+                symbols=tick_symbols,
+                poll_interval_ms=config.tick_engine.poll_interval_ms,
+                enabled=True,
+            )
+            self._tick_pm = TickPositionManager(
+                event_bus=self._event_bus,
+                tracking_db=self._db,
+                trailing_manager=self._position_monitor._trailing_manager,
+                partial_profit_manager=self._position_monitor._partial_profit,
+                positions_func=self._sync_positions,
+                atr_func=self._position_monitor._get_atr,
+                config=config.tick_engine,
+            )
+            self._tick_stream.on_tick(self._tick_pm.handle_tick)
 
         # Signal generator (own technical signals)
         self._signal_generator = SignalGenerator(
@@ -506,6 +541,8 @@ class TradingBot:
         self._event_bus.subscribe("FILL", self._on_fill_notify)
         self._event_bus.subscribe("POSITION_CLOSED", self._on_position_closed_notify)
         self._event_bus.subscribe("FOREIGN_POSITION", self._on_foreign_position_notify)
+        if self._tick_pm is not None:
+            self._event_bus.subscribe("POSITION_CLOSED", self._tick_pm.on_position_closed)
 
         # 5. Restore persisted state from database
         try:
@@ -619,6 +656,12 @@ class TradingBot:
             await self._position_monitor.start()
             # Start account cache refresh loop (avoids deadlock in RiskManager)
             asyncio.create_task(self._account_cache_loop())
+            if self._tick_stream is not None:
+                await self._tick_stream.start()
+                logger.info(
+                    "TickPositionManager: subscribed to tick stream (rate-limit %.1fs)",
+                    self._config.tick_engine.modify_rate_limit_seconds,
+                )
             if self._config.signal_generator.enabled:
                 await self._signal_generator.start()
             else:
@@ -690,6 +733,8 @@ class TradingBot:
 
         await self._daily_summary.stop()
         await self._signal_generator.stop()
+        if self._tick_stream is not None:
+            await self._tick_stream.stop()
         await self._position_monitor.stop()
         await self._listener.stop()
         await self._mt5.disconnect()
