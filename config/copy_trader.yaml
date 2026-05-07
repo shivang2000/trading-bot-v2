@@ -1,0 +1,48 @@
+# copy-trader-bot — mirrors trades from source MT5 account → dest MT5 account.
+#
+# Hard rule: this stack never runs strategies, news filter, or signal
+# generator. Pure mimicry of the source account's actions.
+#
+# Boot reads this file. Secrets via ${VAR} substitution from env (e.g.
+# SLACK_WEBHOOK_URL set in .env or AWS SSM).
+
+source:
+  name: source
+  rpyc_host: ${MT5_SOURCE_HOST:mt5-source}
+  rpyc_port: ${MT5_SOURCE_PORT:8001}
+  connection_timeout: 30
+  # Optional: set to source MT5 login number — bot refuses to start if
+  # source and dest report the same login (sanity guard).
+  expected_account_login: ${MT5_SOURCE_LOGIN:0}
+
+dest:
+  name: dest
+  rpyc_host: ${MT5_DEST_HOST:mt5-dest}
+  rpyc_port: ${MT5_DEST_PORT:8001}
+  connection_timeout: 30
+  expected_account_login: ${MT5_DEST_LOGIN:0}
+
+copy_trader:
+  enabled: true
+  poll_interval_ms: 100        # source poll cycle
+  lot_mode: "exact"             # 1:1 mirror
+  lot_multiplier: 1.0
+  lot_min: 0.01
+  lot_max: 100.0
+  ignore_existing_at_boot: true # do NOT mirror positions already open at startup
+  reconcile_on_restart: true
+  sl_change_min_points: 1.0
+  tp_change_min_points: 1.0
+  order_send_max_retries: 1
+  order_send_retry_delay_seconds: 0.5
+
+slack:
+  enabled: true
+  webhook_url: ${SLACK_WEBHOOK_URL:}
+  channel_label: "copy-trader"
+
+journal:
+  db_path: "data/mirror_journal.db"
+  retention_days: 90
+
+log_level: INFO

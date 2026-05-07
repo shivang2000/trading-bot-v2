@@ -1,0 +1,88 @@
+# Copy-trader stack — fully isolated from the existing trading-bot-v2 stack.
+#
+# Two MT5 containers (source + dest) + one copy-trader-bot container.
+# Run with: docker compose -f docker-compose.copytrader.yml up -d
+#
+# First-time setup:
+#   1. Open noVNC for source: http://<host>:8081  (pwd: botpass)
+#      Log into Vantage Account A with master pwd.
+#      Click AutoTrading button (green) — required even though we only READ.
+#   2. Open noVNC for dest: http://<host>:8082  (pwd: botpass)
+#      Log into Vantage Account B with master pwd. Click AutoTrading.
+#   3. docker compose -f docker-compose.copytrader.yml restart copy-trader-bot
+#   4. Verify: docker logs copy-trader-bot
+#      Expect: "[source] connected", "[dest] connected", "Boot snapshot: N positions ignored"
+#
+# Different ports than docker-compose.ec2.yml so the two stacks can co-exist
+# on a single host if needed.
+
+services:
+  mt5-source:
+    image: gmag11/metatrader5_vnc:latest
+    container_name: mt5-source
+    restart: unless-stopped
+    ports:
+      - "8011:8001"     # RPyC (different port from existing 8001)
+      - "8081:3000"     # noVNC web UI for source-account first-login
+    environment:
+      - VNC_PASSWORD=${MT5_VNC_PASSWORD:-botpass}
+      - CUSTOM_PORT=3000
+      - PUID=911
+      - PGID=911
+    volumes:
+      - ./mt5_data_source:/config/.wine
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: "1.0"
+
+  mt5-dest:
+    image: gmag11/metatrader5_vnc:latest
+    container_name: mt5-dest
+    restart: unless-stopped
+    ports:
+      - "8012:8001"     # RPyC
+      - "8082:3000"     # noVNC for dest-account
+    environment:
+      - VNC_PASSWORD=${MT5_VNC_PASSWORD:-botpass}
+      - CUSTOM_PORT=3000
+      - PUID=911
+      - PGID=911
+    volumes:
+      - ./mt5_data_dest:/config/.wine
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: "1.0"
+
+  copy-trader-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.copytrader
+    container_name: copy-trader-bot
+    restart: unless-stopped
+    depends_on:
+      - mt5-source
+      - mt5-dest
+    environment:
+      # MT5 endpoints — bot connects to these via Docker network
+      - MT5_SOURCE_HOST=mt5-source
+      - MT5_SOURCE_PORT=8001
+      - MT5_DEST_HOST=mt5-dest
+      - MT5_DEST_PORT=8001
+      # Source/dest login numbers (sanity check — not for auth, MT5 itself
+      # is logged in interactively via noVNC)
+      - MT5_SOURCE_LOGIN=${MT5_SOURCE_LOGIN:-0}
+      - MT5_DEST_LOGIN=${MT5_DEST_LOGIN:-0}
+      # Slack
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL:-}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.5"
