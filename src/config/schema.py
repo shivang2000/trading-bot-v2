@@ -57,6 +57,12 @@ class RiskConfig(BaseModel):
     max_daily_trades: int = 10
     max_daily_loss_pct: float = 5.0
     max_drawdown_pct: float = 15.0
+    # When the bot is inside a high-impact news window (NewsEventFilter +/-
+    # window minutes), PositionSizer reduces the calculated lot by this
+    # percentage. Research: spreads widen 50+ pips on NFP/CPI/FOMC; experienced
+    # news traders cut lot by 50% on gold (per FXNX, MarketPulse, Vantage).
+    news_window_lot_reduction_pct: float = 50.0
+    news_window_minutes: int = 30
 
 
 class SignalParserConfig(BaseModel):
@@ -104,7 +110,11 @@ class TickEngineConfig(BaseModel):
     enabled: bool = False  # off-by-default; opt in per account config
     poll_interval_ms: int = 200
     symbols: list[str] = Field(default_factory=list)  # empty = use signal_generator.instruments
-    modify_rate_limit_seconds: float = 2.0  # min seconds between SL modifies per ticket
+    # Tightened from 2.0 → 8.0 after research: FTMO publishes 2,000
+    # server-requests/day cap. 2s/ticket = 30/min/ticket; with 3 open positions
+    # that's ~5,400 mods/hour, above the cap. 8s/ticket gives ~1,350/hr safe
+    # envelope. See plan section 5 + airis:deep-research finding.
+    modify_rate_limit_seconds: float = 8.0  # min seconds between SL modifies per ticket
     drop_unchanged_modifies: bool = True
     # Distance below which we don't bother sending a modify (avoids broker rejection
     # and pointless RPC). Expressed in MT5 points.
@@ -256,12 +266,83 @@ class PropFirmConfig(BaseModel):
     inactivity_limit_days: int = 30
 
 
+class XauusdNyOrbConfig(BaseModel):
+    """NY Open Range Breakout — bar-armed, tick-fired XAUUSD strategy.
+
+    Evidence: Zarattini SSRN 4729284, IEEE TORB, yulz008/GOLD_ORB.
+    Off-by-default until walk-forward gate clears (RUNBOOK §5).
+    """
+
+    enabled: bool = False
+    consolidation_bars: int = 3
+    velocity_window_ticks: int = 30
+    velocity_atr_mult: float = 0.5
+    stale_buffer_pips: float = 3.0
+    adx_min: float = 22.0
+    atr_m1_period: int = 14
+    atr_m5_period: int = 14
+    pdh_pdl_confluence_atr_pct: float = 0.30
+    pdh_pdl_confluence_score: float = 0.20
+    sl_atr_m1_mult: float = 1.0
+    risk_pct: float = 1.0
+    daily_max_entries: int = 3
+    hold_time_floor_seconds: int = 120
+    london_secondary: bool = True
+
+
+class XauusdPullbackWindowConfig(BaseModel):
+    """4-phase EMA pullback state machine — research-only until walk-forward
+    + DSR > 0.5 gate passes. Port of ilahuerta-IA/backtrader-pullback-window.
+
+    DO NOT enable in production until validation gate clears.
+    """
+
+    enabled: bool = False
+    fast_ema: int = 1
+    medium_ema: int = 14
+    confirm_ema: int = 18
+    slow_ema: int = 24
+    pullback_max_bars: int = 3
+    entry_window_bars: int = 2
+    sl_atr_mult: float = 2.5
+    tp_atr_mult: float = 12.0
+    risk_pct: float = 1.0
+    timeframe: str = "M5"
+
+
+class StrategyHealthConfig(BaseModel):
+    """Live-account early-warning thresholds. See StrategyHealthMonitor."""
+
+    enabled: bool = True
+    spread_baseline_window: int = 20
+    spread_multiplier: float = 1.5
+    spread_consecutive_breach: int = 3
+    slippage_avg_points_max: float = 10.0
+    slippage_window: int = 20
+    modify_rejection_pct_max: float = 5.0
+    modify_window: int = 100
+    atr_expansion_multiplier: float = 2.5
+    atr_session_window: int = 20
+    wr_window: int = 20
+    wr_floor_pct: float = 40.0
+    hold_time_floor_seconds: int = 120
+    hold_time_breach_pct_max: float = 10.0
+    hold_time_window: int = 20
+    dd_proximity_pct_of_limit: float = 60.0
+    trade_frequency_window_minutes: int = 15
+    trade_frequency_max_entries: int = 3
+
+
 class StrategiesConfig(BaseModel):
     ema_pullback: EmaPullbackConfig = Field(default_factory=EmaPullbackConfig)
     london_breakout: LondonBreakoutConfig = Field(default_factory=LondonBreakoutConfig)
     ny_momentum: NyMomentumConfig = Field(default_factory=NyMomentumConfig)
     smc_confluence: SmcConfluenceConfig = Field(default_factory=SmcConfluenceConfig)
     scalping: ScalpingConfig = Field(default_factory=ScalpingConfig)
+    xauusd_ny_orb: XauusdNyOrbConfig = Field(default_factory=XauusdNyOrbConfig)
+    xauusd_pullback_window: XauusdPullbackWindowConfig = Field(
+        default_factory=XauusdPullbackWindowConfig
+    )
 
 
 class InstrumentOverride(BaseModel):
@@ -314,3 +395,4 @@ class AppConfig(BaseModel):
     partial_profit: PartialProfitConfig = Field(default_factory=PartialProfitConfig)
     tick_engine: TickEngineConfig = Field(default_factory=TickEngineConfig)
     claude_filter: ClaudeFilterConfig = Field(default_factory=ClaudeFilterConfig)
+    strategy_health: StrategyHealthConfig = Field(default_factory=StrategyHealthConfig)

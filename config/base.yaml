@@ -89,6 +89,11 @@ risk:
   max_daily_trades: 200
   max_daily_loss_pct: 8.0
   max_drawdown_pct: 20.0
+  # Lot-size reduction inside the news window (NewsEventFilter +/- window).
+  # Research: spreads widen 50+ pips on NFP/CPI/FOMC; experienced gold news
+  # traders cut size by 50%. See plan section "Microstructure facts".
+  news_window_lot_reduction_pct: 50.0
+  news_window_minutes: 30
 
 signal_parser:
   model: "claude-haiku-4-5-20251001"
@@ -187,6 +192,45 @@ strategies:
       # - m1_supertrend_scalp
       # - m1_ema_micro
 
+  # ----- New evidence-gated XAUUSD strategies -----
+  # Both off by default until walk-forward + DSR > 0.5 gate passes per
+  # docs/RUNBOOK.md §5. Opt in per account overlay only after gate clears.
+
+  # NY Open Range Breakout — peer-reviewed family edge (Zarattini SSRN
+  # 4729284, IEEE TORB). Reference impl: yulz008/GOLD_ORB (216 stars).
+  xauusd_ny_orb:
+    enabled: false
+    consolidation_bars: 3
+    velocity_window_ticks: 30
+    velocity_atr_mult: 0.5
+    stale_buffer_pips: 3.0
+    adx_min: 22.0
+    atr_m1_period: 14
+    atr_m5_period: 14
+    pdh_pdl_confluence_atr_pct: 0.30
+    pdh_pdl_confluence_score: 0.20
+    sl_atr_m1_mult: 1.0
+    risk_pct: 1.0
+    daily_max_entries: 3
+    hold_time_floor_seconds: 120
+    london_secondary: true
+
+  # 4-phase EMA pullback state machine — DO_NOT_DEPLOY until walk-forward
+  # + DSR > 0.5 passes. Same author's USDJPY companion repo is an
+  # explicit overfitting case study (PF 2.04→1.15 on date extension).
+  xauusd_pullback_window:
+    enabled: false
+    fast_ema: 1
+    medium_ema: 14
+    confirm_ema: 18
+    slow_ema: 24
+    pullback_max_bars: 3
+    entry_window_bars: 2
+    sl_atr_mult: 2.5
+    tp_atr_mult: 12.0
+    risk_pct: 1.0
+    timeframe: "M5"
+
 position_monitor:
   poll_interval_seconds: 30
 
@@ -194,10 +238,38 @@ tick_engine:
   enabled: false              # opt in per account overlay (vantage-50.yaml etc.)
   poll_interval_ms: 200
   symbols: []                 # empty = use signal_generator.instruments[0]
-  modify_rate_limit_seconds: 2.0
+  # Tightened from 2.0 → 8.0 after research: FTMO publishes 2,000 server
+  # request/day cap. 2s/ticket × 3 positions = 5,400/hr (above cap). 8s/ticket
+  # gives ~1,350/hr safe envelope. Research: airis:deep-research finding,
+  # propfirmtrap.com FTMO May-2025 retroactive ban case study.
+  modify_rate_limit_seconds: 8.0
   drop_unchanged_modifies: true
   min_sl_change_points: 5.0
   suppress_poll_position_management: true
+
+# Live-account early-warning thresholds. Always-on; consumes telemetry from
+# PositionMonitor + RiskManager + fill events; latches a SUSPEND_ENTRIES /
+# AUTO_FLAT signal when thresholds breach. Operator clears manually after
+# verifying conditions returned to normal — auto-clear would cause oscillation.
+strategy_health:
+  enabled: true
+  spread_baseline_window: 20
+  spread_multiplier: 1.5
+  spread_consecutive_breach: 3
+  slippage_avg_points_max: 10.0
+  slippage_window: 20
+  modify_rejection_pct_max: 5.0
+  modify_window: 100
+  atr_expansion_multiplier: 2.5
+  atr_session_window: 20
+  wr_window: 20
+  wr_floor_pct: 40.0
+  hold_time_floor_seconds: 120
+  hold_time_breach_pct_max: 10.0
+  hold_time_window: 20
+  dd_proximity_pct_of_limit: 60.0
+  trade_frequency_window_minutes: 15
+  trade_frequency_max_entries: 3
 
 monitoring:
   log_level: INFO
