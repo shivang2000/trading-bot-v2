@@ -120,7 +120,9 @@ When the NewsEventFilter flags a high-impact event ≤30 min away:
 
 ---
 
-## 5. Tick Engine Promotion Checklist
+## 5. Promotion Checklist (Tick Engine + New Strategies)
+
+### 5.1 Tick engine baseline (existing)
 
 Before flipping `tick_engine.enabled: true` on a live account:
 
@@ -132,6 +134,60 @@ Before flipping `tick_engine.enabled: true` on a live account:
 - [ ] News blackout caught all events in `config/news_calendar.csv`
 - [ ] Slippage logged in `tick_execution_log` table averages ≤ 0.5 pip on XAUUSD
 - [ ] Master password rotated since any prior leak
+- [ ] `tick_engine.modify_rate_limit_seconds` is 8.0 or higher
+      (FTMO publishes 2,000 server-request/day cap; 2s/ticket is too aggressive)
+
+### 5.2 Per-strategy walk-forward gate
+
+Before flipping `strategies.<name>.enabled: true` on a live account, EACH new
+strategy (`xauusd_ny_orb`, `xauusd_pullback_window`) must independently:
+
+- [ ] Pass `pytest tests/unit/ -k "<strategy_name>"` (all green)
+- [ ] Walk-forward script clears the gate:
+      ```bash
+      python3 scripts/backtest_evidence_gated.py \
+          --strategy <name> --years 2018-2025 \
+          --report-html reports/<name>_walkforward.html
+      ```
+      Required:
+      - DSR > 0.5 (Bailey & López de Prado)
+      - aggregate trade count ≥ 385 (95% confidence band)
+      - rolling 12-train/3-test PF avg > 1.3
+      - max DD < 8%
+- [ ] **Pullback strategy specifically**: 2018-2020 OOS metrics within 70%
+      of 2020-2025 in-sample. The author's own USDJPY companion repo is an
+      overfitting case study — degradation > 30% kills the strategy.
+- [ ] 14-day demo run on Vantage with the strategy enabled in a demo
+      overlay YAML (NOT base.yaml; never base.yaml for live untested strategies)
+
+### 5.3 Live-account health monitoring (always on)
+
+`strategy_health.enabled: true` from base.yaml. The 8 signals enforce:
+
+| Signal | Threshold | Action on breach |
+|---|---|---|
+| Spread regime shift | rolling-20 avg > 1.5x baseline, 3 consecutive | SUSPEND_ENTRIES |
+| Slippage drift | avg > 10 points over 20 trades | SUSPEND_ENTRIES |
+| Modify-rejection rate | > 5% over 100 attempts | ALERT_ONLY (broker throttle precursor) |
+| ATR expansion | M5 ATR > 2.5x 20-session median | SUSPEND_ENTRIES |
+| WR degradation | rolling-20 WR < 40% | ALERT_ONLY |
+| Hold-time floor breach | > 10% of 20 trades close < 2 min | ALERT_ONLY (FundingPips toxic-flow risk) |
+| Daily DD proximity | floating DD ≥ 60% of daily limit | AUTO_FLAT + halt session |
+| Trade frequency spike | > 3 entries / 15-min window / symbol | ALERT_ONLY |
+
+Latched alerts do not auto-clear; operator must run `clear_latched()` after
+verifying conditions returned to normal. This is intentional — auto-clear
+would cause oscillation in a degraded regime.
+
+### 5.4 Concentration risk acknowledgment
+
+XAUUSD-only single-instrument is a **documented vulnerability**. The April-May
+2026 ATH volatility regime broke many single-instrument retail EAs (see
+post-mortem-5k.md addendum). No documented case of a XAUUSD-only retail EA
+surviving 6+ months on a funded account; the credible FTMO survivor (159
+trades, 68% WR, 1.64 R:R, $36k profit on $200k) ran an 8-instrument
+portfolio. Phase 2 candidate: add XAGUSD or US30 once Strategy 1 demo
+clears §5.2.
 
 ---
 

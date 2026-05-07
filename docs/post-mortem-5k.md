@@ -85,3 +85,36 @@ Both are documented in `docs/NEXT_CHALLENGE_SAFETY_GATE.md`.
 | Decision audit trail per signal | `signal_executions` table — captures rejected_news, rejected_risk, executed for every signal per account |
 
 This document is itself a lesson — recovered information about the bust now lives in the repo where the next maintainer (or next AI agent) can read it.
+
+---
+
+## Addendum (2026-05-07): Concentration risk on single-instrument XAUUSD
+
+When designing the next batch of strategies (NY ORB, EMA pullback window —
+see plan `~/.claude/plans/working-directory-is-advanced-trading-bo-humming-clover.md`), three parallel research agents (airis:deep-research, researcher,
+ce-web-researcher) surfaced a recurring failure pattern that complements
+this post-mortem:
+
+**No documented retail EA survived 6+ months on a funded prop account
+trading XAUUSD as its only instrument.** The single credible FTMO
+survivor case publicly available (159 trades, 68% WR, 1.64 R:R, $36k
+profit on $200k) ran an 8-instrument portfolio. The April-May 2026
+all-time-high volatility regime is documented to have broken many
+single-instrument retail XAUUSD EAs ([MQL5 blog: "Why Most XAUUSD EAs
+Failed at ATH"](https://www.mql5.com/en/blogs/post/769250)).
+
+Lessons to add to the canonical list:
+
+| Lesson | Where it lives now |
+|---|---|
+| Single-instrument concentration is a documented vulnerability | RUNBOOK §5.4; Phase 2 hedge candidate (XAGUSD or US30) tracked in plan |
+| Modify-rate-limit must respect FTMO's 2,000-request/day published cap | base.yaml `tick_engine.modify_rate_limit_seconds: 8.0` (was 2.0) |
+| Live monitoring beats post-hoc analysis | `src/monitoring/strategy_health_monitor.py` — 8 always-on signals |
+| Walk-forward + Deflated Sharpe Ratio is the only honest validation | `src/backtesting/walk_forward_validator.py` — gates new strategies |
+| Don't trust headline backtest metrics from any single repo author | The pullback strategy has DO_NOT_DEPLOY marker until OOS gate clears |
+
+The user's locked constraint is XAUUSD-only for this batch (per plan
+"User decisions"). This addendum exists so the *next* maintainer reading
+the post-mortem stack knows the concentration risk was acknowledged
+explicitly and is being mitigated through monitoring (not symbol
+diversification — that's Phase 2).

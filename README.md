@@ -1,213 +1,290 @@
-# Trading Bot V2 — FundingPips Prop Firm Edition
+# Trading Bot V2
 
-Automated XAUUSD trading bot built for FundingPips 2-Step challenges. Runs 5 strategies simultaneously across M5 scalping and M15 swing timeframes with prop firm safety guardrails.
+Two independent trading systems on a shared codebase, both targeting MT5/Vantage:
 
-## Current Status
+1. **`trading-bot-v2`** — automated XAUUSD strategy bot with 6 active strategies, prop-firm safety guard, news filter, and tick-driven exit engine.
+2. **`copy-trader-bot`** — pure-mirror system that copies trades from Account A (operated by a human partner) onto Account B in real-time. No strategies, no signals, no automated decisions — pure replication.
 
-- **$5k Account**: Step 1 PASSED (10% target hit Day 1). Waiting 3-day minimum.
-- **Deployed on EC2**: 5 strategies live, prop firm guard active.
-- **$30 Vantage Account**: Grew from $30 to $376 (12.5x in 10 days) — proof the strategies work.
+Both stacks share the read-only utilities (`src/mt5/client.py`, `src/core/`) but run as separate Docker stacks with no cross-talk.
 
-## Architecture
+---
 
-```
-Signal Generator (dual-loop)
-├── _scan_loop (60s) ─── EMA Pullback + London Breakout (M15, 4 instruments)
-├── _scalping_loop (15s) ── MTF Momentum + Keltner Squeeze + Dual Supertrend (M5, XAUUSD)
-│
-├── Claude AI Filter (optional, confidence gate 0.65)
-├── SMC Confluence Layer (order blocks, FVGs, liquidity sweeps)
-│
-└── RiskManager
-    ├── PropFirmGuard ($7 safety buffers, drawdown tiers, profit target halt)
-    ├── Directional Exposure Check (max 2 same-direction)
-    ├── Position Limits (max 4 total)
-    └── PositionSizer (risk-based lot calculation with leverage)
-```
+## Quick Index
 
-## Strategies
+| Want to… | Go to |
+|---|---|
+| Deploy the strategy bot to EC2/Hetzner | [`docs/AWS_DEPLOYMENT.md`](docs/AWS_DEPLOYMENT.md) + [`docs/RUNBOOK.md`](docs/RUNBOOK.md) |
+| Set up the copy-trader bot (mirror A→B) | [`docs/COPY_TRADER_RUNBOOK.md`](docs/COPY_TRADER_RUNBOOK.md) |
+| Understand the design / decisions | [`docs/superpowers/specs/`](docs/superpowers/specs/) |
+| Read the post-mortem of the $5k bust | [`docs/post-mortem-5k.md`](docs/post-mortem-5k.md) |
+| Run a backtest | `python3 scripts/backtest_scalping.py …` (legacy) or `python3 scripts/backtest_evidence_gated.py …` (new walk-forward) |
+| Pull tick history | `python3 scripts/download_dukascopy_xauusd_ticks.py …` |
+| Run unit tests | `pytest tests/unit/` (148 tests, ~3s) |
 
-| Strategy | Type | Timeframe | Instruments | R:R | Best Risk |
-|---|---|---|---|---|---|
-| **MTF Momentum** | Scalping | M5 | XAUUSD | 1:1.95 | 1% |
-| **Keltner Squeeze** | Scalping | M5 | XAUUSD | 1:4.00 | 0.5-1% |
-| **Dual Supertrend** | Scalping | M5 | XAUUSD | 1:1.92 | 1% |
-| **EMA Pullback** | Swing | M15 | All 4 | 1:1.50 | 1% |
-| **London Breakout** | Session | M15 | All 4 | 1:1.50 | 1% |
+---
 
-## Backtesting Results (18 months, Oct 2024 - Apr 2026)
+## System 1 — Trading Bot V2 (strategy bot)
 
-### Optimal Configuration Per Account Size
+### Active strategies (live-deployable)
 
-| Account | Config | Risk | Monthly (80% split) | Annual |
+| Strategy | Type | TF | Backtest | Config flag |
 |---|---|---|---|---|
-| **$5,000** | `fundingpips-5k` | 1% | ~$284/mo | $3,408/yr |
-| **$10,000** | `fundingpips-10k` | 0.5% | ~$574/mo | $6,888/yr |
-| **$100,000** | `fundingpips-100k` | 1% | ~$5,739/mo | $68,858/yr |
+| **m5_mtf_momentum** | Scalping | M5 | PF 1.36, DD 10% | `strategies.scalping.strategies_enabled[m5_mtf_momentum]` |
+| **m5_keltner_squeeze** | Scalping | M5 | PF 1.20, DD 19% | `strategies.scalping.strategies_enabled[m5_keltner_squeeze]` |
+| **m5_dual_supertrend** | Scalping | M5 | PF 1.15 | `strategies.scalping.strategies_enabled[m5_dual_supertrend]` |
+| **ema_pullback** | Swing | M15 | (live tested) | `strategies.ema_pullback.enabled` |
+| **london_breakout** | Session | M15 | 65-70% directional historically | `strategies.london_breakout.enabled` |
+| **smc_confluence** | Booster (not standalone) | M15 | confidence boost +0.10-0.15 | `strategies.smc_confluence.enabled` |
 
-Full matrix: 36 backtests (3 accounts x 4 risk levels x 3 strategies). See the HTML report.
+### Tick-driven exit engine (PR #4, off-by-default)
 
-## Key Files
+`tick_engine.enabled: true` activates:
+- Tick-rate trailing stops (was 30s poll → now per-tick)
+- Tick-rate partial profit closes
+- Modify-rate-limited (8s/ticket, FTMO 2k req/day cap headroom)
+- Promotion gated by [`docs/RUNBOOK.md` §5](docs/RUNBOOK.md)
 
-### Configuration
+### Strategies built but archived (DO_NOT_DEPLOY)
 
-| File | Purpose |
+| Strategy | Reason |
 |---|---|
-| `config/base.yaml` | Base config (all strategies, 4 instruments) |
-| `config/fundingpips.yaml` | Current deployed config (active $5k account) |
-| `config/fundingpips-5k.yaml` | Optimal $5k config: 1% risk, all 5 strategies |
-| `config/fundingpips-10k.yaml` | Optimal $10k config: 0.5% risk, NO MTF (loses money on $10k) |
-| `config/fundingpips-100k.yaml` | Optimal $100k config: 1% risk, all 5 strategies |
+| `xauusd_ny_orb_tick_breakout` | 8-yr backtest: 831 trades, 36.5% WR, PF 0.34, **-$45,250 P&L**. Documented failure modes in module docstring. |
+| `xauusd_pullback_window_state_machine` | Phase machine too restrictive — 1 trade in 8 years. Cannot validate edge or no-edge with N=1. |
+| `tick_velocity_breakout` | Scaffold, never validated |
 
-### Reports
+### Disabled scalping strategies (in pool but unset)
 
-| File | Purpose |
-|---|---|
-| `reports/propfirm_analysis.html` | Full backtesting matrix with charts and recommendations |
-| `docs/DEPLOYMENT-GUIDE.md` | Step-by-step deployment instructions per account size |
+`m5_vwap_mean_reversion`, `m5_stochrsi_adx`, `m5_bb_squeeze`, `m5_mean_reversion`, `m1_heikin_ashi_momentum`, `m1_rsi_scalp`, `m1_supertrend_scalp`, `m1_ema_micro` — all backtested negative with cost model.
 
-### Core Source
+### Architecture (strategy bot)
 
-| File | Purpose |
-|---|---|
-| `src/analysis/signal_generator.py` | Dual-loop signal scanner (M15 + M5) |
-| `src/analysis/strategies/` | All strategy implementations |
-| `src/analysis/smc_confluence.py` | SMC confidence booster (order blocks, FVGs, sweeps) |
-| `src/analysis/claude_signal_filter.py` | Claude AI pre-trade evaluation (optional) |
-| `src/risk/manager.py` | Risk manager with directional exposure check |
-| `src/risk/prop_firm_guard.py` | FundingPips breach prevention + payout reset |
-| `src/risk/position_sizer.py` | Leverage-aware lot sizing |
-| `src/mt5/client.py` | MT5 RPyC connection to the trading terminal |
-| `src/main.py` | Bot entry point, startup, daily counter reset |
+```
+                Telegram listener (parses signal channels)
+                        │
+                        ▼
+                Signal Generator (dual loop)
+                ├── _scan_loop (60s)     → ema_pullback, london_breakout (M15)
+                ├── _scalping_loop (15s) → m5_mtf_momentum, m5_keltner_squeeze, m5_dual_supertrend
+                ├── Claude AI Filter     → optional pre-trade gate (claude_filter.enabled)
+                └── SMC Confluence       → confidence booster
+                        │
+                        ▼
+                RiskManager
+                ├── PropFirmGuard        → daily DD, overall DD, profit-target halt, payout reset
+                ├── NewsEventFilter      → 142 events, +/- pre-news flat
+                ├── PositionSizer        → leverage-aware lot sizing
+                └── Directional Cap      → max 2 same-direction
+                        │
+                        ▼
+                OrderExecutor → AsyncMT5Client (RPyC) → MT5 container → Vantage
+                        │
+                        ▼
+                PositionMonitor (30s poll)
+                ├── Trailing stops       (off when tick_engine ON)
+                ├── Partial-profit ladder (off when tick_engine ON)
+                └── Foreign-position alert
+                        │
+                        ▼
+                TickStream (200ms, when tick_engine.enabled)
+                └── TickPositionManager → trailing/partial at tick rate
+                        │
+                        ▼
+                StrategyHealthMonitor (always on)
+                └── 8 signals: spread regime, slippage drift, modify rejection,
+                    ATR expansion, WR degradation, hold-time floor breach,
+                    DD proximity, trade frequency spike
+```
 
-### Scripts
+### Tools
 
-| File | Purpose |
-|---|---|
-| `scripts/deploy-propfirm.sh` | Interactive deployment setup wizard |
-| `scripts/backtest_scalping.py` | Scalping strategy backtester with prop firm mode |
-| `scripts/run_propfirm_matrix.sh` | Run full 32-scenario backtest matrix |
-| `scripts/generate_propfirm_report.py` | Generate HTML report from backtest results |
+- **Walk-forward validator + DSR** ([`src/backtesting/walk_forward_validator.py`](src/backtesting/walk_forward_validator.py)): rolling train/test windows, Bailey & López de Prado Deflated Sharpe Ratio, ship/no-ship gate
+- **Tick replay** ([`src/backtesting/ny_orb_replay_adapter.py`](src/backtesting/ny_orb_replay_adapter.py), [`pullback_window_replay_adapter.py`](src/backtesting/pullback_window_replay_adapter.py)): drives strategy from Dukascopy tick CSVs
+- **Dukascopy downloader** ([`scripts/download_dukascopy_xauusd_ticks.py`](scripts/download_dukascopy_xauusd_ticks.py)): rate-limited bi5 fetcher, gap detection, 8-year XAUUSD ≈ 3.6 GB compressed
+- **AWS provisioner** ([`scripts/aws-provision.sh`](scripts/aws-provision.sh)): one-shot EC2 + EBS + IAM + SSM + S3 + SG + auto-public-IP
 
-### Tests
-
-| File | Purpose |
-|---|---|
-| `tests/unit/test_prop_firm_guard.py` | PropFirmGuard: payout reset + directional exposure |
-
-## Quick Start
-
-### 1. Deploy to EC2 (existing server)
+### Quick start (strategy bot on AWS)
 
 ```bash
-# Set account config
+# One-time
+aws configure   # IAM user with admin access
+[ -f ~/.ssh/id_ed25519 ] || ssh-keygen -t ed25519
+
+# Deploy
+export AWS_REGION=ap-south-1
+export ACCOUNT_NAME=vantage-50
+export REPO_URL=https://github.com/shivang2000/trading-bot-v2.git
+./scripts/aws-provision.sh
+```
+
+Outputs Elastic-IP-free public IP. Cost ~$42/mo on t3.medium → 2.4 months runway on $100 AWS credit. See [`docs/AWS_DEPLOYMENT.md`](docs/AWS_DEPLOYMENT.md) for full step-by-step + Hetzner migration plan.
+
+### Quick start (strategy bot locally)
+
+```bash
 echo "CONFIG_OVERLAY=fundingpips-5k" > .env
-echo "ANTHROPIC_API_KEY=your-key" >> .env
-
-# Sync to EC2
-rsync -avz --exclude '.git' --exclude 'data/' --exclude '.env' \
-  ./ ec2-user@<EC2-IP>:~/trading-bot-v2/
-
-# On EC2: build and run
-docker build -t trading-bot-v2-trading-bot .
-docker-compose -f docker-compose.ec2.yml up -d
+echo "ANTHROPIC_API_KEY=your-key" >> .env  # optional
+docker compose -f docker-compose.ec2.yml up -d
+docker logs -f trading-bot-v2
 ```
 
-### 2. Switch between accounts
+---
+
+## System 2 — Copy-Trader Bot
+
+Mirrors trades from one Vantage account to another. Pure replicator — **no strategies run on either account**.
+
+### Use case
+
+A human partner trades Account A. You own both A and B (same Vantage broker). The copy-trader detects every trade A places and replicates it on B 1:1, with SL/TP modifications synced too. Profit on A is split with the partner; profit on B is fully yours.
+
+### Architecture
+
+```
+                Process: copy-trader-bot   (NEW container, no strategy code)
+                ├── AsyncMT5Client (source) ──► mt5-source container :8001 ──► Vantage A
+                ├── AsyncMT5Client (dest)   ──► mt5-dest   container :8001 ──► Vantage B
+                ├── CopyTrader.poll_loop()         (100ms cycle)
+                │     ├── on_new_position(A)        → open(B)
+                │     ├── on_modified_position(A)   → modify(B)
+                │     └── on_closed_position(A)     → close(B)
+                ├── MirrorJournal (SQLite, audit + restart-recovery)
+                └── SlackNotifier (per-event)
+```
+
+### Hard isolation
+
+- **Different docker-compose stack** (`docker-compose.copytrader.yml`)
+- **Different Docker image** (`Dockerfile.copytrader`) — `src/analysis/` (where all strategies live) is NOT copied into the image, so strategies physically cannot run
+- **Different config** (`config/copy_trader.yaml`) with no `strategies` section
+- **Different SQLite** (`data/mirror_journal.db`)
+
+### Mirror guarantees (verified by 19 unit tests)
+
+- Pre-existing positions on A at boot are NOT mirrored
+- New positions on A mirror to B within ~300ms
+- SL/TP changes on A propagate to B (with min-points threshold to ignore decimal noise)
+- A close → immediate B close
+- Bot restart restores `mirror_map` from journal — no double-mirroring
+- Volume below `lot_min` permanently ignored (alert + add to ignored set)
+- All events audited in `mirror_journal.db` with success/failure + raw broker response
+
+### Quick start (copy-trader)
 
 ```bash
-# In .env on EC2:
-CONFIG_OVERLAY=fundingpips-5k    # For $5k account
-CONFIG_OVERLAY=fundingpips-10k   # For $10k account
-CONFIG_OVERLAY=fundingpips-100k  # For $100k account
+cat > .env <<EOF
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
+MT5_SOURCE_LOGIN=12345678
+MT5_DEST_LOGIN=87654321
+EOF
+
+./scripts/start-copytrader.sh
+
+# Then once for each MT5:
+#   http://<host>:8081 → noVNC for source → log in Account A → AutoTrading
+#   http://<host>:8082 → noVNC for dest   → log in Account B → AutoTrading
+
+docker compose -f docker-compose.copytrader.yml restart copy-trader-bot
+./scripts/start-copytrader.sh logs
 ```
 
-### 3. Run backtests locally
+See [`docs/COPY_TRADER_RUNBOOK.md`](docs/COPY_TRADER_RUNBOOK.md) for promotion checklist + recovery scenarios.
 
-```bash
-# Single strategy
-python3 scripts/backtest_scalping.py --symbol XAUUSD --timeframe M5 \
-  --prop-firm --account-size 5000 --risk-pct 1.0 --strategy m5_mtf_momentum
+---
 
-# Full matrix
-bash scripts/run_propfirm_matrix.sh
+## Key files
 
-# Generate report
-python3 scripts/generate_propfirm_report.py
-open reports/propfirm_analysis.html
-```
+### Strategy bot
+- [`src/main.py`](src/main.py) — entrypoint
+- [`src/analysis/signal_generator.py`](src/analysis/signal_generator.py) — dual-loop scanner
+- [`src/analysis/strategies/`](src/analysis/strategies/) — all strategy implementations
+- [`src/risk/manager.py`](src/risk/manager.py) — risk gate + central news filter
+- [`src/risk/prop_firm_guard.py`](src/risk/prop_firm_guard.py) — FundingPips safety
+- [`src/monitoring/tick_position_manager.py`](src/monitoring/tick_position_manager.py) — tick-driven exits
+- [`src/monitoring/strategy_health_monitor.py`](src/monitoring/strategy_health_monitor.py) — 8 early-warning signals
+- [`src/mt5/client.py`](src/mt5/client.py), [`src/mt5/tick_stream.py`](src/mt5/tick_stream.py) — MT5 connectivity
+- [`config/base.yaml`](config/base.yaml) — full strategy config, prop-firm overrides via `fundingpips*.yaml`
+- [`docker-compose.ec2.yml`](docker-compose.ec2.yml) — EC2 deployment stack
 
-## FundingPips Rules
+### Copy-trader bot
+- [`src/copy_trader/copy_trader.py`](src/copy_trader/copy_trader.py) — core poll + mirror logic
+- [`src/copy_trader/mirror_journal.py`](src/copy_trader/mirror_journal.py) — SQLite audit + state
+- [`src/copy_trader/notifier.py`](src/copy_trader/notifier.py) — Slack
+- [`src/copy_trader/main.py`](src/copy_trader/main.py) — entrypoint
+- [`src/config/copy_trader_schema.py`](src/config/copy_trader_schema.py) — pydantic config
+- [`config/copy_trader.yaml`](config/copy_trader.yaml) — sample config
+- [`Dockerfile.copytrader`](Dockerfile.copytrader), [`docker-compose.copytrader.yml`](docker-compose.copytrader.yml) — stack
+- [`scripts/start-copytrader.sh`](scripts/start-copytrader.sh) — helper
+
+### Backtesting + research
+- [`src/backtesting/walk_forward_validator.py`](src/backtesting/walk_forward_validator.py) — rolling train/test + DSR gate
+- [`src/backtesting/ny_orb_replay_adapter.py`](src/backtesting/ny_orb_replay_adapter.py), [`pullback_window_replay_adapter.py`](src/backtesting/pullback_window_replay_adapter.py) — tick-replay strategy adapters
+- [`scripts/backtest_evidence_gated.py`](scripts/backtest_evidence_gated.py) — CLI walker
+- [`scripts/download_dukascopy_xauusd_ticks.py`](scripts/download_dukascopy_xauusd_ticks.py) — bi5 fetcher
+
+### Docs
+- [`docs/RUNBOOK.md`](docs/RUNBOOK.md) — strategy bot ops (MT5 password discipline, EBS recovery, news discipline, tick-engine promotion)
+- [`docs/COPY_TRADER_RUNBOOK.md`](docs/COPY_TRADER_RUNBOOK.md) — copy-trader ops
+- [`docs/AWS_DEPLOYMENT.md`](docs/AWS_DEPLOYMENT.md) — AWS provisioning + migration to Hetzner
+- [`docs/post-mortem-5k.md`](docs/post-mortem-5k.md) — $5k bust analysis + concentration risk addendum
+- [`docs/superpowers/specs/`](docs/superpowers/specs/) — design specs
+
+---
+
+## FundingPips Rules (for strategy bot)
 
 | Rule | Value |
 |---|---|
-| Daily Loss Limit | 5% of starting balance |
-| Overall Drawdown | 10% from initial balance |
-| Max Risk/Trade ($5k-$10k) | 3% |
+| Daily Loss Limit | 5% |
+| Overall Drawdown | 10% |
+| Max Risk/Trade ($5k-$10k) | 3% (we cap at 2%) |
 | Max Risk/Trade ($50k+) | 2% |
 | Min Trading Days | 3 |
-| Profit Split (Funded) | 80/20 (you keep 80%) |
-| Step 1 Target | 8% or 10% |
-| Step 2 Target | 5% |
+| HFT, tick scalping, sub-2min holds | **PROHIBITED** — toxic-flow flag triggers retroactive ban |
+| Profit Split (Funded) | 80/20 |
 
-## Safety Features
+Per `docs/post-mortem-5k.md` — strategy bot's tick engine modify rate-limit is 8s/ticket (was 2s) to stay below FTMO's 2,000 server-request/day cap (FundingPips backend likely similar).
 
-- **PropFirmGuard**: $7 USD safety buffers before daily/DD hard limits
-- **Directional Limit**: Max 2 same-direction positions
-- **Position Cap**: Max 4 open simultaneously
-- **Drawdown Tiers**: Risk auto-reduces at -4% (50%) and -8% (30%)
-- **Profit Target Halt**: Stops trading when challenge target reached
-- **Friday Auto-Close**: All positions closed at 21:00 UTC
-- **Daily Counter Reset**: Auto-resets on restart (prevents stale block)
-- **Payout Reset**: `reset_after_payout()` for funded account withdrawals
+---
 
-## Scaling Roadmap
+## Tests
 
-```
-$5k Step 1 ✓ → Step 2 (bot) → Funded (~$284/mo)
-                                    ↓ save profits
-$10k Step 1 → Step 2 (bot) → Funded (~$574/mo)
-                                    ↓ save profits
-$100k Step 1 → Step 2 (bot) → Funded (~$5,739/mo = $68,858/yr)
+```bash
+pytest tests/unit/                  # 148 tests, ~3s
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+    python3 -m pytest -p pytest_asyncio.plugin tests/unit/   # if global pytest plugins are broken
 ```
 
-## Directory Structure
+Modules:
+- `test_news_filter.py`, `test_news_filter_enabled_flag.py` — central news gate
+- `test_partial_profit_on_tick.py`, `test_tick_position_manager.py` — tick-driven exits
+- `test_prop_firm_guard.py` — FundingPips safety
+- `test_risk_manager_state_persistence.py` — daily-loss baseline survives restart
+- `test_dukascopy_downloader.py` — tick CSV fetcher
+- `test_strategy_health_monitor.py` — 8 early-warning signals
+- `test_xauusd_ny_orb_tick_breakout.py`, `test_xauusd_pullback_window_state_machine.py` — archived strategies
+- `test_walk_forward_validator.py` — DSR + rolling windows
+- `test_copy_trader.py`, `test_mirror_journal.py` — copy-trader system
 
-```
-trading-bot-v2/
-├── config/
-│   ├── base.yaml                 # Base configuration
-│   ├── fundingpips.yaml          # Active deployment config
-│   ├── fundingpips-5k.yaml       # Optimal $5k config
-│   ├── fundingpips-10k.yaml      # Optimal $10k config
-│   ├── fundingpips-100k.yaml     # Optimal $100k config
-│   └── news_calendar.csv         # High-impact news events
-├── src/
-│   ├── analysis/
-│   │   ├── signal_generator.py   # Dual-loop scanner
-│   │   ├── strategies/           # All strategy implementations
-│   │   ├── smc_confluence.py     # SMC confidence booster
-│   │   └── claude_signal_filter.py
-│   ├── risk/
-│   │   ├── manager.py            # Risk limits + directional check
-│   │   ├── prop_firm_guard.py    # FundingPips safety guard
-│   │   └── position_sizer.py    # Lot calculation
-│   ├── mt5/client.py             # MT5 RPyC connection
-│   ├── main.py                   # Entry point
-│   └── tracking/database.py      # Trade tracking DB
-├── scripts/
-│   ├── backtest_scalping.py      # Backtester
-│   ├── run_propfirm_matrix.sh    # Full matrix runner
-│   ├── generate_propfirm_report.py # Report generator
-│   └── deploy-propfirm.sh        # Deployment wizard
-├── tests/unit/
-│   └── test_prop_firm_guard.py
-├── reports/
-│   └── propfirm_analysis.html    # Full backtest report
-├── docs/
-│   └── DEPLOYMENT-GUIDE.md       # Deployment instructions
-├── data/
-│   ├── backtest_cache/           # Historical price data
-│   └── backtest_results/         # Backtest JSON outputs
-└── docker-compose.ec2.yml        # EC2 deployment
-```
+---
+
+## Hard rules carried across the project
+
+1. **Live trading bot NEVER on AWS spot / preemptible** — interruption = loss
+2. **Master MT5 password lives only in SSM/SecureString** — humans use the investor (read-only) password for any VNC inspection
+3. **EBS DeleteOnTermination=false** on data volume; nightly S3 sync; per `docs/RUNBOOK.md` §2-§3
+4. **Tick-engine promotion gated** by RUNBOOK §5 checklist (latency baseline + 14d demo)
+5. **Strategies marked DO_NOT_DEPLOY stay off** until walk-forward + DSR > 0.5 gate clears
+6. **News window**: bot pre-flats positions ≤5 min before high-impact events; copy-trader does NOT (mirror copies through, accepted risk)
+7. **Concentration**: XAUUSD-only is documented vulnerability per April-May 2026 ATH break; XAGUSD/US30 hedge candidates for Phase 2
+
+---
+
+## Status (May 2026)
+
+| System | Live? | Last result |
+|---|---|---|
+| Strategy bot (existing 6 strategies) | Not currently deployed | $5k Step 1 PASSED prior; $30→$376 prior demo win |
+| Copy-trader bot | Code complete, 19/19 tests pass | Awaiting Vantage A + B credentials + first demo run |
+| NY ORB tick strategy | Archived | 8yr OOS backtest: -$45,250 / 36.5% WR. DO_NOT_DEPLOY. |
+| Pullback window strategy | Archived | 1 trade in 8yr — phase machine too tight. DO_NOT_DEPLOY. |
+| Tick infra (TickStream + TickPositionManager) | Code complete (PR #4 merged) | Off-by-default; Phase 1 ops (latency baseline, demo run) on user |
