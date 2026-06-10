@@ -68,6 +68,20 @@ class OrderExecutor:
             return
 
         order = event.order
+
+        # Naked-trade guard: never OPEN a new position without a broker-side stop loss.
+        # Closes set position_ticket and are exempt. This is the safety net that prevents a
+        # disconnected/crashed bot from leaving an unmanaged, unprotected position open
+        # (root cause of the +$965 gold trade that ran with SL=0).
+        is_opening = order.position_ticket is None
+        if is_opening and not order.stop_loss:
+            logger.error(
+                "REJECTED naked entry: %s %s %.2f lots has no stop loss (sl=%s) — "
+                "refusing to open an unprotected position",
+                order.side.value, order.symbol, order.volume, order.stop_loss,
+            )
+            return
+
         logger.info(
             "Executing: %s %s %.2f lots (magic=%d)",
             order.side.value, order.symbol, order.volume, order.magic,
@@ -175,31 +189,86 @@ class OrderExecutor:
         request: dict[str, Any] = {
             "action": 3,  # TRADE_ACTION_SLTP
             "position": modify.ticket,
+            "symbol": modify.symbol,  # required by MT5 for SLTP
         }
-        if modify.symbol:
-            request["symbol"] = modify.symbol
         if modify.stop_loss is not None:
             request["sl"] = modify.stop_loss
         if modify.take_profit is not None:
             request["tp"] = modify.take_profit
 
+        # Clamp the proposed SL to the broker's minimum stop distance instead of
+        # skipping. Brokers reject (retcode 10013) an SL closer to market than
+        # trade_stops_level. The previous version *skipped* such ticks AND ran an
+        # order_check pre-flight that, on VT Markets, returns a non-DONE code for
+        # TRADE_ACTION_SLTP — so EVERY trailing modify was silently skipped and a
+        # +$11 winner reverted to its entry SL (6 trail updates logged, 0 applied,
+        # closed at the original stop). We now clamp-and-send and trust
+        # order_send's real retcode. Trailing fires on the 30s poll, so a genuine
+        # reject logs at most ~1/30s per ticket — not the old 258-line spam.
+        # Fetch symbol_info once — used for both SL clamping and filling-mode choice.
         try:
-            result = await self._mt5.order_send(request)
+            info = await self._mt5.symbol_info(modify.symbol)
+        except Exception:
+            info = None
+
+        if modify.stop_loss and isinstance(info, dict):
+            point = float(info.get("point") or 0.0)
+            stops_level = int(info.get("trade_stops_level") or 0)
+            bid = float(info.get("bid") or 0.0)
+            ask = float(info.get("ask") or 0.0)
+            digits = int(info.get("digits") or 5)
+            if point > 0 and bid > 0 and ask > 0:
+                min_dist = (stops_level + 1) * point
+                mid = (bid + ask) / 2.0
+                sl = float(modify.stop_loss)
+                # Infer the protective side from SL vs market: an SL below
+                # market protects a BUY; above market protects a SELL. If the
+                # stop sits inside the min-distance band, push it just outside
+                # so the broker accepts the modify rather than rejecting it.
+                if sl < mid:  # BUY-side stop (below market)
+                    max_sl = bid - min_dist
+                    if sl > max_sl:
+                        sl = max_sl
+                else:         # SELL-side stop (above market)
+                    min_sl = ask + min_dist
+                    if sl < min_sl:
+                        sl = min_sl
+                request["sl"] = round(sl, digits)
+
+        # TRADE_ACTION_SLTP per MT5 spec needs only {action, symbol, position,
+        # sl, tp}. VT Markets REJECTS SLTP requests that carry type_filling with
+        # retcode 10014 "Invalid volume" (observed live 2026-06-10: every trail
+        # update on NZDUSD + US30 failed; profit-lock never engaged). The
+        # type_filling was added for an earlier broker that answered a bare
+        # SLTP with 10030 "Unsupported filling mode" — keep that as a FALLBACK:
+        # send the bare spec-compliant request first, and only when the broker
+        # complains about the filling mode retry with each supported mode.
+        last_rc, last_comment = -1, "Unknown"
+        attempts: list[dict[str, Any]] = [request] + [
+            {**request, "type_filling": mode}
+            for mode in preferred_filling_modes(info if isinstance(info, dict) else None)
+        ]
+        for req in attempts:
+            try:
+                result = await self._mt5.order_send(req)
+            except Exception:
+                logger.exception("Error modifying position ticket=%d", modify.ticket)
+                return
             retcode = result.get("retcode", -1)
             comment = str(result.get("comment", "Unknown"))
-
             if retcode == 10009:  # TRADE_RETCODE_DONE
                 logger.info(
                     "Position modified: ticket=%d SL=%s TP=%s",
-                    modify.ticket, modify.stop_loss, modify.take_profit,
+                    modify.ticket, request.get("sl"), modify.take_profit,
                 )
-            else:
-                logger.warning(
-                    "Position modify FAILED: ticket=%d retcode=%d comment=%s",
-                    modify.ticket, retcode, comment,
-                )
-        except Exception:
-            logger.exception("Error modifying position ticket=%d", modify.ticket)
+                return
+            last_rc, last_comment = retcode, comment
+            if not self._is_unsupported_filling(retcode, comment):
+                break  # genuine error (not a filling-mode issue) — stop trying modes
+        logger.warning(
+            "Position modify FAILED: ticket=%d retcode=%s comment=%s",
+            modify.ticket, last_rc, last_comment,
+        )
 
     def _build_mt5_request(self, order: Order, type_filling: int = 1) -> dict[str, Any]:
         """Convert Order model to MT5 request dict."""
