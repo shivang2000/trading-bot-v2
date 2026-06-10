@@ -528,3 +528,61 @@ def get_regime_filter_for_strategy(strategy_type: str) -> list[MarketRegime]:
         "all": [MarketRegime.TRENDING_UP, MarketRegime.TRENDING_DOWN, MarketRegime.RANGING, MarketRegime.VOLATILE_TREND],
     }
     return filters.get(strategy_type, filters["all"])
+
+
+# ── Scalping strategy → regime gating ──────────────────────────────────────
+# Behavioural type of each scalping strategy, used to decide which regimes it
+# may trade in. Keyed by a NORMALISED name so both the registry key
+# ("m5_keltner_squeeze") and the class name ("M5KeltnerSqueezeStrategy") resolve
+# to the same entry. Unlisted strategies default to "all" (any non-CHOPPY regime).
+SCALPING_STRATEGY_TYPES: dict[str, str] = {
+    "m5keltnersqueeze": "breakout",        # volatility-squeeze breakout
+    "m5dualsupertrend": "trend_following",  # dual Supertrend = trend
+    "m5vwapmeanreversion": "mean_reversion",
+    "m30rsi2meanreversion": "all",  # self-gates via internal ADX<25 on M30; don't double-gate with H1 regime
+    "m5nyorb": "all",               # ORB validated UNGATED (US30 PF 1.70 incl. ranging days;
+                                    # one trade/day + EOD flat is its own regime control) —
+                                    # H1-regime-gating it would be an unvalidated deviation.
+                                    # CHOPPY is still always blocked upstream.
+    "m5boxtheory": "mean_reversion",  # prev-day range fade — skip trends (fights the move)
+    "m5bbsqueeze": "breakout",
+    "m5stochrsiadx": "trend_following",
+    "m5mtfmomentum": "trend_following",
+    "m5meanreversion": "mean_reversion",
+    "m5tightslscalp": "all",
+    "m1rsiscalp": "mean_reversion",
+    "m1supertrendscalp": "trend_following",
+    "m1emamicro": "trend_following",
+    "m1heikinashimomentum": "trend_following",
+}
+
+
+def _normalise_strategy_name(name: str) -> str:
+    """Normalise a strategy name/class for type lookup (drop '_' and 'strategy')."""
+    return name.lower().replace("_", "").replace("strategy", "")
+
+
+def is_strategy_allowed_in_regime(
+    strategy, regime: MarketRegime, enabled: bool = True
+) -> bool:
+    """Whether a scalping strategy should run under the current regime.
+
+    CHOPPY is ALWAYS blocked (no edge, just whipsaw). When ``enabled``, the core
+    win-rate filter applies: breakout/trend strategies are blocked in RANGING
+    (they whipsaw on false breakouts — the live failure mode) and mean-reversion
+    strategies are blocked in trends (they fight the move). ``strategy`` may be a
+    strategy instance or a name string. Unknown strategies default to "all" and
+    are allowed in any non-CHOPPY regime.
+    """
+    if regime == MarketRegime.CHOPPY:
+        return False
+    if not enabled:
+        return True
+    if isinstance(strategy, str):
+        name = strategy
+    else:
+        name = getattr(strategy, "strategy_name", "") or strategy.__class__.__name__
+    stype = SCALPING_STRATEGY_TYPES.get(_normalise_strategy_name(name), "all")
+    if stype == "all":
+        return True
+    return regime in get_regime_filter_for_strategy(stype)

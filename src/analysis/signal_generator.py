@@ -28,6 +28,7 @@ from src.analysis.regime import (
     MarketRegime,
     RegimeDetector,
     detect_regime_from_ohlcv,
+    is_strategy_allowed_in_regime,
 )
 from src.analysis.sessions import SessionManager, SessionName, SessionPriority
 from src.analysis.smc_confluence import adjust_confidence as smc_adjust
@@ -39,6 +40,7 @@ from src.analysis.strategies.ny_momentum import NyMomentumStrategy, NyRangeBreak
 from src.analysis.strategies.m5_dual_supertrend import M5DualSupertrendStrategy
 from src.analysis.strategies.m5_keltner_squeeze import M5KeltnerSqueezeStrategy
 from src.analysis.strategies.m5_vwap_mean_reversion import M5VwapMeanReversionStrategy
+from src.analysis.strategies.m30_rsi2_mean_reversion import M30Rsi2MeanReversionStrategy
 from src.analysis.strategies.m5_stochrsi_adx import M5StochRsiAdxStrategy
 from src.analysis.strategies.m5_mtf_momentum import M5MtfMomentumStrategy
 from src.analysis.strategies.m5_bb_squeeze import M5BbSqueezeStrategy
@@ -85,6 +87,7 @@ SCALPING_REGISTRY: dict[str, type] = {
     "m5_ema_833": M5Ema833Strategy,
     "m5_liquidity_sweep": M5LiquiditySweepStrategy,
     "m30_fvg_ema": M30FvgEmaStrategy,
+    "m30_rsi2_mean_reversion": M30Rsi2MeanReversionStrategy,
 }
 
 
@@ -159,9 +162,13 @@ class SignalGenerator:
         # Scalping strategies (instantiate from config)
         self._scalping_strategies = []
         self._scalping_enabled = False
+        self._regime_filter_enabled = True
         if hasattr(config.strategies, 'scalping') and config.strategies.scalping.enabled:
             self._scalping_enabled = True
             self._scalping_interval = config.strategies.scalping.scan_interval_seconds
+            self._regime_filter_enabled = getattr(
+                config.strategies.scalping, "regime_filter_enabled", True
+            )
             for name in config.strategies.scalping.strategies_enabled:
                 cls = SCALPING_REGISTRY.get(name)
                 if cls:
@@ -451,8 +458,12 @@ class SignalGenerator:
             return
 
         try:
+            # start_pos=1 skips the currently-FORMING bar: strategies treat
+            # bars.iloc[-1] as a CLOSED bar (signal-on-close semantics, same as
+            # the backtests). start_pos=0 fed them the live bar and inflated
+            # M30 MR signals ~70% (intra-bar RSI spikes that never closed).
             m5_bars = await asyncio.wait_for(
-                self._mt5.get_bars(symbol, "M5", count=200), timeout=30
+                self._mt5.get_bars(symbol, "M5", count=200, start_pos=1), timeout=30
             )
         except (asyncio.TimeoutError, Exception):
             return
@@ -460,17 +471,43 @@ class SignalGenerator:
         if m5_bars is None or m5_bars.empty or len(m5_bars) < 50:
             return
 
-        # Resample M5 to M15 for MTF context
-        m15_bars = m5_bars.set_index("time").resample("15min").agg({
+        # Resample M5 to M15 for MTF context. get_bars() frames are indexed by a
+        # tz-aware DatetimeIndex ("timestamp") with NO "time" column, so resample
+        # on the index directly. Keep the DatetimeIndex result — consumers read
+        # named columns m15_bars["open"/"high"/"low"/"close"], not the index.
+        m15_bars = m5_bars.resample("15min").agg({
             "open": "first", "high": "max", "low": "min", "close": "last",
             "tick_volume": "sum",
-        }).dropna(subset=["open"]).reset_index()
+        }).dropna(subset=["open"])
+
+        # M30 bars for strategies that need deep M30 history (e.g. SMA200) —
+        # can't be resampled from 200 M5 bars. Fetched once, only when an M30
+        # strategy is active. Validated edge: m30_rsi2_mean_reversion.
+        m30_bars = None
+        if any("m30rsi2" in s.__class__.__name__.lower() for s in self._scalping_strategies):
+            try:
+                m30_bars = await asyncio.wait_for(
+                    self._mt5.get_bars(symbol, "M30", count=300, start_pos=1), timeout=30
+                )
+            except Exception:
+                m30_bars = None
 
         current_price = float(m5_bars["close"].iloc[-1])
         regime = detect_regime_from_ohlcv(h1_bars, self._regime_detector, current_price)
         point_size = self._point_sizes.get(symbol, 0.01)
 
         for strategy in self._scalping_strategies:
+            # Regime gate (ADR: trade the right tool for the regime). Breakout/
+            # trend strats skip RANGING (false-breakout whipsaw); mean-reversion
+            # skips trends; nothing trades CHOPPY.
+            if not is_strategy_allowed_in_regime(
+                strategy, regime, self._regime_filter_enabled
+            ):
+                logger.debug(
+                    "Regime gate: skip %s in %s",
+                    strategy.__class__.__name__, regime.value,
+                )
+                continue
             try:
                 kwargs = {"symbol": symbol, "point_size": point_size, "as_of": datetime.now(timezone.utc)}
 
@@ -480,7 +517,7 @@ class SignalGenerator:
                     # Fetch M1 bars for M1 strategies
                     try:
                         m1_bars = await asyncio.wait_for(
-                            self._mt5.get_bars(symbol, "M1", count=200), timeout=30
+                            self._mt5.get_bars(symbol, "M1", count=200, start_pos=1), timeout=30
                         )
                         if m1_bars is None or len(m1_bars) < 30:
                             continue
@@ -493,6 +530,7 @@ class SignalGenerator:
 
                 kwargs["m15_bars"] = m15_bars
                 kwargs["h1_bars"] = h1_bars
+                kwargs["m30_bars"] = m30_bars
                 kwargs["regime"] = regime
 
                 signal = await strategy.scan(**kwargs)
@@ -507,6 +545,25 @@ class SignalGenerator:
 
         action = SignalAction.BUY if signal.action == "BUY" else SignalAction.SELL
 
+        # Per-instrument strategy whitelist + risk override — same contract as
+        # _publish_signal Filter 5, which never applied to this (scalping)
+        # path: every enabled strategy ran on every scalping instrument, and
+        # per-instrument risk_pct overrides were silently ignored. With the
+        # whitelist, an instrument listed under instrument_strategy_overrides
+        # only trades the strategies named there (e.g. US30 -> m5_ny_orb only,
+        # gold/FX -> m30_rsi2 only).
+        risk_pct_override = None
+        overrides = self._config.strategies.scalping.instrument_strategy_overrides
+        if symbol in overrides:
+            sym_overrides = overrides[symbol]
+            if signal.strategy_name not in sym_overrides:
+                logger.info(
+                    "Instrument override: %s on %s not in whitelist — rejected",
+                    signal.strategy_name, symbol,
+                )
+                return
+            risk_pct_override = sym_overrides[signal.strategy_name].risk_pct
+
         sig = Signal(
             source=f"scalping:{signal.strategy_name}",
             symbol=symbol,
@@ -516,7 +573,11 @@ class SignalGenerator:
             entry_price=signal.entry_price,
             stop_loss=signal.stop_loss,
             take_profit=signal.take_profit,
-            metadata={"strategy": signal.strategy_name, "reason": signal.reason},
+            metadata={
+                "strategy": signal.strategy_name,
+                "reason": signal.reason,
+                "risk_pct_override": risk_pct_override,
+            },
         )
 
         logger.info(

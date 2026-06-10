@@ -1,0 +1,90 @@
+# ═══════════════════════════════════════════════════════════════════════
+# VT Markets $10k demo (VTMarkets-Demo, account 1122440)
+#
+# Same gold-focused, evidence-based strategy set as vtmarkets-50, but sized for
+# a $10k account: tighter per-trade risk + tighter daily-loss/DD. See
+# vtmarkets-50.yaml header for the backtest/live rationale.
+#
+# Symbols CANONICAL; SymbolMapper (MT5_BROKER=vtmarkets) → VIP VT names.
+# Pending walk-forward DSR validation before real money.
+# ═══════════════════════════════════════════════════════════════════════
+
+account:
+  initial_balance: 10000
+  mode: "demo"
+  risk_per_trade_pct: 0.5
+  max_lot_per_trade: 1.00
+  min_lot_size: 0.01
+  balance_adjustments: []
+
+risk:
+  max_open_positions: 7        # 5-instrument MR basket
+  max_positions_per_symbol: 2
+  max_positions_per_direction: 2   # anti-stacking: ≤2 same-direction (was: 5 longs → −$235)
+  max_daily_trades: 30
+  max_daily_loss_pct: 50.0      # raised for demo validation — RESTORE to ~6 before real money
+  max_drawdown_pct: 30.0      # max-DD circuit breaker: auto-flatten+halt at 30% trailing-from-peak (catastrophe cap; strategies normally swing ~35-42%)
+  min_rr_ratio: 1.5             # external (Telegram/manual) junk-signal guard
+  min_rr_ratio_scalping: 0.4    # internal strategies: backtest-validated geometry (M30 MR = R:R 0.5 BY DESIGN, WR carries expectancy)
+
+# Profit-lock (exit management). $10k sizes ~0.40 lot → splittable. Breakeven +
+# trail at +$5 (SL floored at entry), PLUS a one-time partial-close of half the
+# lot at a +$10 favorable move (your "+$10 / 100-pip → book some" rule). The
+# runner then trails to capture the rest.
+trailing_stop:
+  activation_profit_points: 5.0
+  giveback_pct: 0.10
+  max_giveback_points: 12.0
+  partial_book_enabled: true
+  partial_book_trigger_points: 10.0
+  partial_book_fraction: 0.5
+
+prop_firm:
+  enabled: false
+
+strategies:
+  scalping:
+    regime_filter_enabled: true   # gate breakout strats out of RANGING (backtested win)
+    risk_per_trade_pct: 0.5
+    profit_growth_factor: 0.50
+    max_total_open_positions: 7
+    daily_loss_limit_pct: 50.0
+    instruments: [XAUUSD, USDJPY, NZDUSD, US30]   # EURUSD+GBPUSD PRUNED 2026-06-08; US30 added 2026-06-10 (ORB only, see whitelist)
+    strategies_enabled:
+      # M5 scalpers REMOVED 2026-06-03 — cost-killed, lost -$930 in 4 days live.
+      # EURUSD+GBPUSD PRUNED 2026-06-08: 0W/5L live (−$222) — tight-TP MR on
+      # low-ATR FX is cost-fragile (spread ~16-20% of a 1×ATR TP). Confirmed by
+      # 3 lines: strict-cost backtest (PF 0.93/not-robust), live-fill spread
+      # forensics, and the live 0/5. Gold/USDJPY/NZDUSD stay on probation.
+      - m30_rsi2_mean_reversion   # forming-bar bug FIXED 2026-06-10 (start_pos=1 — strategies now see closed bars only)
+      - m5_ny_orb                 # US30-only via whitelist below. Spec re-validated 2026-06-10 with
+                                  # conservative fills (SL-wins-ties, 2pt r/t spread, 1 trade/day, EOD flat):
+                                  # PF 1.26, WR 56%, 504 trades/2yr, 3-period [1.27/1.32/1.19], 3x-spread PF 1.19.
+                                  # (Recorded research PF 1.70 NOT reproduced under conservative fills — sized
+                                  # to the 1.26 number.) Avg +$16/day @ 0.10 lot, worst day -$985 @ 0.10 lot.
+    instrument_strategy_overrides:
+      XAUUSD:                              # gold: spread only ~2-4% of TP — the cost-robust leg (1 live trade, won)
+        m30_rsi2_mean_reversion: { risk_pct: 0.5 }
+      USDJPY:                              # probation (1 live loss; backtest PF 1.46 loose / 1.25 @2x)
+        m30_rsi2_mean_reversion: { risk_pct: 0.5 }
+      NZDUSD:                              # probation (live 2W/2L)
+        m30_rsi2_mean_reversion: { risk_pct: 0.5 }
+      US30:                                # index leg: ORB ONLY (M30 MR never validated on indices;
+                                           # Keltner/DST lose on indices). VT DJ30. min lot 0.1 →
+                                           # effective risk is min-lot-bound on narrow-range days.
+        m5_ny_orb: { risk_pct: 0.5 }
+  london_breakout:
+    enabled: false
+  ema_pullback:
+    enabled: false
+
+claude_filter:
+  enabled: false
+
+signal_generator:
+  instruments: [XAUUSD]
+  instrument_overrides: {}
+  allowed_sessions:
+    - london
+    - new_york
+    - london_ny_overlap

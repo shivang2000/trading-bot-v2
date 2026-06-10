@@ -9,7 +9,15 @@ Configurable parameters:
 - retrace_entry: wait for price to retrace into the range before entering
 - retrace_pct: how deep into the range to wait (0.5 = mid-range)
 
-Session: 14:30-21:00 UTC only. Max 2 trades/day (one per direction).
+Session: 14:30-21:00 UTC only.
+
+DEFAULTS = the validated US30 spec (docs/pinescripts/ny_orb.pine, Python
+backtest on cached VT data: US30 PF 1.70, 3-period robust, maxDD $207 @ 0.10
+lot, 504 trades; robust to 3x spread; Zarattini/Aziz ORB, SSRN 4729284):
+range 14:30-15:00 UTC (30 min), IMMEDIATE entry on a closed-bar breakout, SL =
+opposite side of range, TP = 1.5x range width, ONE trade/day, no RSI filter.
+PositionMonitor force-flats ORB positions at 21:00 UTC (EOD flat is part of
+the validated spec — nothing held overnight).
 """
 
 from __future__ import annotations
@@ -40,14 +48,14 @@ class M5NyOrbStrategy(ScalpingStrategyBase):
 
     def __init__(
         self,
-        range_minutes: int = 15,
-        tp_multiplier: float = 2.0,
+        range_minutes: int = 30,
+        tp_multiplier: float = 1.5,
         min_range_points: float = 5.0,
-        retrace_entry: bool = True,
+        retrace_entry: bool = False,
         retrace_pct: float = 0.5,
         retrace_timeout_bars: int = 24,
-        max_trades_per_day: int = 2,
-        use_rsi_filter: bool = True,
+        max_trades_per_day: int = 1,
+        use_rsi_filter: bool = False,
     ) -> None:
         super().__init__(max_trades_per_day=max_trades_per_day)
         self._range_minutes = range_minutes

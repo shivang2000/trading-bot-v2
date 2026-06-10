@@ -41,6 +41,41 @@ BOT_MAGIC = 200000
 
 logger = logging.getLogger(__name__)
 
+# MT5 deal reason → our close_reason label. Lets us attribute WHY a position
+# closed instead of tagging everything "market" (which previously masked that
+# the SL/TP/trailing exits never actually fired).
+_DEAL_REASON_LABELS = {
+    4: "SL_HIT",     # DEAL_REASON_SL
+    5: "TP_HIT",     # DEAL_REASON_TP
+    6: "STOP_OUT",   # DEAL_REASON_SO
+    3: "BOT_CLOSE",  # DEAL_REASON_EXPERT (our own order_send close)
+    0: "MANUAL",     # DEAL_REASON_CLIENT
+    1: "MANUAL",     # DEAL_REASON_MOBILE
+    2: "MANUAL",     # DEAL_REASON_WEB
+}
+
+
+def _classify_close(deals: list[dict]) -> tuple[str, float | None, float | None]:
+    """From a position's deals, return (close_reason, close_price, realized_pnl).
+
+    Picks the closing (DEAL_ENTRY_OUT == 1) deal and maps its reason; sums
+    profit + commission + swap across all deals for the realized P&L. Returns
+    ("market", None, None) when no closing deal is available.
+    """
+    out = [d for d in deals if d.get("entry") == 1]
+    if not out:
+        return "market", None, None
+    last = out[-1]
+    reason = _DEAL_REASON_LABELS.get(last.get("reason"), "market")
+    price = last.get("price")
+    pnl = sum(
+        float(d.get("profit", 0) or 0)
+        + float(d.get("commission", 0) or 0)
+        + float(d.get("swap", 0) or 0)
+        for d in deals
+    )
+    return reason, (float(price) if price else None), pnl
+
 
 class PositionMonitor:
     """Polls MT5 for position status and detects closes."""
@@ -55,6 +90,8 @@ class PositionMonitor:
         trailing_stop_config: TrailingStopConfig | None = None,
         positions_callback: Callable[[list], None] | None = None,
         initial_balance: float = 30.0,
+        emergency_daily_loss_pct: float = 8.0,
+        emergency_drawdown_pct: float = 20.0,
         prop_firm_guard=None,
         partial_profit_config: PartialProfitConfig | None = None,
         news_filter: NewsEventFilter | None = None,
@@ -75,13 +112,18 @@ class PositionMonitor:
         # foreign-position scan, pre-news flat, emergency stop, Friday close,
         # propfirm equity check) still runs every poll cycle.
         self._suppress_position_management = suppress_position_management
+        # Percent-of-live-equity limits (auto-scale to the real account size).
+        # Previously initial_balance * 0.08 → a $4 limit on a $50 config running a
+        # $10k account, which tripped constantly and spawned orphan positions.
         self._emergency = EmergencyStop(
-            max_daily_loss_usd=initial_balance * 0.08,   # 8% of initial
-            max_drawdown_usd=initial_balance * 0.20,     # 20% of initial
+            max_daily_loss_pct=emergency_daily_loss_pct,
+            max_drawdown_pct=emergency_drawdown_pct,
         )
         self._emergency_triggered = False
         self._prop_firm_guard = prop_firm_guard
         self._friday_close_triggered = False
+        # NY ORB EOD flat — the validated ORB spec never holds overnight.
+        self._orb_eod_close_triggered = False
 
         # Pre-news FLAT — close bot positions if a high-impact event is
         # within `pre_news_flat_window` of "now". Tracks handled events to
@@ -102,6 +144,13 @@ class PositionMonitor:
             self._trailing_manager = TrailingStopManager(
                 atr_multiplier=trailing_stop_config.atr_multiplier,
                 activation_pct=trailing_stop_config.activation_pct,
+                giveback_pct=getattr(trailing_stop_config, "giveback_pct", 0.10),
+                max_giveback=getattr(
+                    trailing_stop_config, "max_giveback_points", 10.0
+                ),
+                activation_profit=getattr(
+                    trailing_stop_config, "activation_profit_points", 5.0
+                ),
             )
         # Partial profit manager (multi-TP partial closes)
         pp_cfg = partial_profit_config
@@ -113,6 +162,10 @@ class PositionMonitor:
 
         # Cache ATR values per symbol to avoid recalculating every poll
         self._atr_cache: dict[str, tuple[float, datetime]] = {}
+
+        # Tickets that have already had their one-time partial profit-book, so we
+        # don't re-book on every poll. Discarded when the position closes.
+        self._partial_booked: set[int] = set()
 
     async def start(self) -> None:
         """Start the position monitoring loop."""
@@ -319,6 +372,7 @@ class PositionMonitor:
                             symbol=pos.symbol, side=close_side,
                             order_type=OrderType.MARKET, volume=pos.volume,
                             magic=200000, comment="EMERGENCY_STOP",
+                            position_ticket=pos.ticket,  # close THIS position, don't open a new one
                         )
                         await self._event_bus.publish(
                             OrderEvent(timestamp=datetime.now(timezone.utc), order=order)
@@ -347,10 +401,42 @@ class PositionMonitor:
                         symbol=pos.symbol, side=close_side,
                         order_type=OrderType.MARKET, volume=pos.volume,
                         magic=200000, comment="FRIDAY_CLOSE",
+                        position_ticket=pos.ticket,  # close THIS position, don't open a new one
                     )
                     await self._event_bus.publish(
                         OrderEvent(timestamp=datetime.now(timezone.utc), order=order)
                     )
+
+        # NY ORB end-of-day flat — the validated ORB spec (docs/pinescripts/
+        # ny_orb.pine) holds nothing overnight: force-close ORB positions at
+        # 21:00 UTC. Matches by position comment ("tg:scalping:m5_ny_orb ...",
+        # set in RiskManager._signal_to_order). One-shot per day, reset when
+        # the clock rolls back below 21:00 UTC.
+        if current_tickets:
+            if now.hour < 21:
+                self._orb_eod_close_triggered = False
+            elif not self._orb_eod_close_triggered:
+                orb_positions = [
+                    pos for pos in current_tickets.values()
+                    if "scalping:m5_ny_orb" in (pos.comment or "")
+                ]
+                if orb_positions:
+                    self._orb_eod_close_triggered = True
+                    logger.warning(
+                        "ORB EOD FLAT: closing %d position(s) at %02d:%02d UTC",
+                        len(orb_positions), now.hour, now.minute,
+                    )
+                    for pos in orb_positions:
+                        close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+                        order = Order(
+                            symbol=pos.symbol, side=close_side,
+                            order_type=OrderType.MARKET, volume=pos.volume,
+                            magic=200000, comment="ORB_EOD_CLOSE",
+                            position_ticket=pos.ticket,  # close THIS position, don't open a new one
+                        )
+                        await self._event_bus.publish(
+                            OrderEvent(timestamp=datetime.now(timezone.utc), order=order)
+                        )
 
         # Periodic PropFirmGuard equity check — catches rapid drawdown between signals
         if self._prop_firm_guard and self._account_state_func and current_tickets:
@@ -395,13 +481,30 @@ class PositionMonitor:
             except (OSError, ValueError):
                 pass
 
+        # Classify the close from the actual MT5 closing deal (reason/price/pnl),
+        # falling back to the poll snapshot + "market" if deal history is unavailable.
+        close_reason = "market"
+        try:
+            deals = await self._mt5.history_deals_by_position(position.ticket)
+            reason, deal_price, deal_pnl = _classify_close(deals)
+            close_reason = reason
+            if deal_price:
+                close_price = deal_price
+            if deal_pnl is not None:
+                pnl = deal_pnl
+        except Exception:
+            logger.debug(
+                "Could not fetch closing deal for ticket %d", position.ticket, exc_info=True
+            )
+
         logger.info(
-            "Position CLOSED: ticket=%d %s %s %.2f lots | P&L: $%.2f | Duration: %.1fh",
+            "Position CLOSED: ticket=%d %s %s %.2f lots | P&L: $%.2f | %s | Duration: %.1fh",
             position.ticket,
             position.side.value,
             position.symbol,
             position.volume,
             pnl,
+            close_reason,
             duration_seconds / 3600,
         )
 
@@ -413,7 +516,7 @@ class PositionMonitor:
                     trade_id=trade["id"],
                     close_price=close_price,
                     pnl=pnl,
-                    close_reason="market",
+                    close_reason=close_reason,
                 )
         except Exception:
             logger.warning("Could not update tracking DB for ticket %d", position.ticket)
@@ -430,6 +533,7 @@ class PositionMonitor:
         )
 
         # Clean up trailing stop tracking
+        self._partial_booked.discard(position.ticket)
         if self._trailing_manager:
             self._trailing_manager.remove(position.ticket)
             try:
@@ -549,6 +653,11 @@ class PositionMonitor:
             try:
                 if not self._is_bot_position(pos):
                     continue  # Skip manual positions
+
+                # Mean-reversion strategies (m30_rsi2) exit on fixed SL/TP only —
+                # trailing whipsaws MR (backtested PF 1.17 -> 0.72). Skip trailing.
+                if "m30_rsi2" in (pos.comment or "").lower():
+                    continue
                 atr = await self._get_atr(pos.symbol)
                 if atr is None or atr <= 0:
                     continue
@@ -600,11 +709,87 @@ class PositionMonitor:
                         )
                     )
 
+                # One-time partial profit-book for splittable lots — runs even
+                # when the SL didn't move this tick.
+                await self._maybe_book_partial(ticket, pos)
+
             except Exception:
                 logger.warning(
                     "Trailing stop update failed for ticket %d", ticket,
                     exc_info=True,
                 )
+
+    async def _maybe_book_partial(self, ticket: int, pos: Position) -> None:
+        """Book a one-time partial profit at a fixed favorable move.
+
+        Implements the "+$10 / 100-pip → take some off" rule. A partial *close*
+        is a counter-direction MARKET order which — unlike an SLTP modify — has
+        no stops_level constraint and always fills, so profit is banked even if a
+        trailing modify would be rejected. Only fires when the lot can be split
+        (volume >= 2x the broker minimum); the $50 / 0.01-lot account can't, so
+        it no-ops there. The trailing stop (floored at entry) protects the runner.
+        """
+        cfg = self._ts_config
+        if cfg is None or not getattr(cfg, "partial_book_enabled", False):
+            return
+        if ticket in self._partial_booked:
+            return
+
+        trigger = float(getattr(cfg, "partial_book_trigger_points", 10.0))
+        fraction = float(getattr(cfg, "partial_book_fraction", 0.5))
+        cur = pos.current_price or pos.open_price
+        profit = (
+            cur - pos.open_price
+            if pos.side == OrderSide.BUY
+            else pos.open_price - cur
+        )
+        if profit < trigger:
+            return
+
+        # Broker lot constraints; default to gold's 0.01 min/step.
+        vmin, vstep = 0.01, 0.01
+        try:
+            info = await self._mt5.symbol_info(pos.symbol)
+            if isinstance(info, dict):
+                vmin = float(info.get("volume_min") or vmin)
+                vstep = float(info.get("volume_step") or vstep)
+        except Exception:
+            pass
+
+        # Need a splittable lot (must leave >= vmin on the runner).
+        if pos.volume < 2 * vmin:
+            self._partial_booked.add(ticket)  # can't split — don't re-check
+            return
+
+        steps = max(1, round((pos.volume * fraction) / vstep))
+        close_vol = round(steps * vstep, 2)
+        if pos.volume - close_vol < vmin:
+            close_vol = round(pos.volume - vmin, 2)
+        if close_vol < vmin:
+            self._partial_booked.add(ticket)
+            return
+
+        close_side = OrderSide.SELL if pos.side == OrderSide.BUY else OrderSide.BUY
+        order = Order(
+            symbol=pos.symbol,
+            side=close_side,
+            order_type=OrderType.MARKET,
+            volume=close_vol,
+            magic=200000,
+            comment="partial:profit_book",
+            position_ticket=ticket,  # close THIS position, don't open a new one
+        )
+        await self._event_bus.publish(
+            OrderEvent(
+                timestamp=datetime.now(timezone.utc),
+                order=order,
+            )
+        )
+        self._partial_booked.add(ticket)
+        logger.info(
+            "Profit book: ticket=%d closed %.2f/%.2f lots at +%.2f (trigger +%.2f)",
+            ticket, close_vol, pos.volume, profit, trigger,
+        )
 
     async def _get_atr(self, symbol: str) -> float | None:
         """Get ATR for a symbol, cached for 5 minutes."""
