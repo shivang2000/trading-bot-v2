@@ -187,7 +187,12 @@ class OrderExecutor:
         )
 
         request: dict[str, Any] = {
-            "action": 3,  # TRADE_ACTION_SLTP
+            # TRADE_ACTION_SLTP = 6 (verified against the live MT5 module
+            # 2026-06-10). This was 3 — an UNDEFINED action value — so every
+            # SL/TP modify the bot ever sent was malformed; brokers rejected
+            # it with assorted retcodes (10013/10030/10014) that were each
+            # misread as broker quirks. Do not "fix" back to 3.
+            "action": 6,
             "position": modify.ticket,
             "symbol": modify.symbol,  # required by MT5 for SLTP
         }

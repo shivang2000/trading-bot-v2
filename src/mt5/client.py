@@ -23,6 +23,7 @@ import rpyc
 from src.core.enums import Timeframe
 from src.core.exceptions import MT5APIError, MT5ConnectionError
 from src.core.models import AccountState, Position, Tick
+from src.mt5.symbol_mapper import SymbolMapper
 
 logger = logging.getLogger(__name__)
 
@@ -52,11 +53,18 @@ def _named_tuple_to_dict(nt: Any) -> dict[str, Any]:
 class MT5Client:
     """Synchronous MT5 client via RPyC connection to gmag11 Docker container."""
 
-    def __init__(self, host: str = "localhost", port: int = 8001) -> None:
+    def __init__(
+        self,
+        host: str = "localhost",
+        port: int = 8001,
+        symbol_mapper: SymbolMapper | None = None,
+    ) -> None:
         self._host = host
         self._port = port
         self._conn: rpyc.Connection | None = None
         self._mt5: Any = None
+        # Translates canonical <-> broker symbol names at the MT5 boundary.
+        self._symmap = symbol_mapper or SymbolMapper()
 
     def connect(self) -> None:
         """Connect to the MT5 RPyC SlaveService and initialize."""
@@ -147,7 +155,7 @@ class MT5Client:
     def symbol_info(self, symbol: str) -> dict[str, Any]:
         """Get symbol specification (point, digits, trade sizes, etc.)."""
         self._ensure_connected()
-        info = self._mt5.symbol_info(symbol)
+        info = self._mt5.symbol_info(self._symmap.to_broker(symbol))
         if info is None:
             raise MT5APIError(f"symbol_info({symbol}) returned None — symbol may not exist")
         return _named_tuple_to_dict(info)
@@ -155,7 +163,7 @@ class MT5Client:
     def symbol_info_tick(self, symbol: str) -> Tick:
         """Get latest tick for a symbol."""
         self._ensure_connected()
-        tick = self._mt5.symbol_info_tick(symbol)
+        tick = self._mt5.symbol_info_tick(self._symmap.to_broker(symbol))
         if tick is None:
             raise MT5APIError(f"symbol_info_tick({symbol}) returned None")
         d = _named_tuple_to_dict(tick)
@@ -180,7 +188,15 @@ class MT5Client:
         """Get the last N bars as a DataFrame."""
         self._ensure_connected()
         tf = self._resolve_timeframe(timeframe)
-        rates = self._mt5.copy_rates_from_pos(symbol, tf, start_pos, count)
+        b = self._symmap.to_broker(symbol)
+        # Ensure the symbol is selected in Market Watch — non-visible symbols
+        # (e.g. some VT FX pairs like NZDUSD-VIP) return no rates until selected.
+        # Idempotent + cheap once selected.
+        try:
+            self._mt5.symbol_select(b, True)
+        except Exception:
+            pass
+        rates = self._mt5.copy_rates_from_pos(b, tf, start_pos, count)
         return self._rates_to_dataframe(rates)
 
     def get_bars_range(
@@ -193,7 +209,8 @@ class MT5Client:
         """Get bars within a date range."""
         self._ensure_connected()
         tf = self._resolve_timeframe(timeframe)
-        rates = self._mt5.copy_rates_range(symbol, tf, date_from, date_to)
+        b = self._symmap.to_broker(symbol)
+        rates = self._mt5.copy_rates_range(b, tf, date_from, date_to)
         return self._rates_to_dataframe(rates)
 
     def copy_ticks_from(
@@ -212,7 +229,8 @@ class MT5Client:
         self._ensure_connected()
         if flags is None:
             flags = int(getattr(self._mt5, "COPY_TICKS_ALL", -1))
-        ticks = self._mt5.copy_ticks_from(symbol, date_from, count, flags)
+        ticks = self._mt5.copy_ticks_from(self._symmap.to_broker(symbol), date_from,
+                                          count, flags)
         return self._ticks_to_dataframe(ticks)
 
     def copy_ticks_range(
@@ -230,7 +248,8 @@ class MT5Client:
         self._ensure_connected()
         if flags is None:
             flags = int(getattr(self._mt5, "COPY_TICKS_ALL", -1))
-        ticks = self._mt5.copy_ticks_range(symbol, date_from, date_to, flags)
+        ticks = self._mt5.copy_ticks_range(self._symmap.to_broker(symbol), date_from,
+                                           date_to, flags)
         return self._ticks_to_dataframe(ticks)
 
     def _ticks_to_dataframe(self, ticks: Any) -> pd.DataFrame:
@@ -268,7 +287,7 @@ class MT5Client:
         """
         self._ensure_connected()
         request: dict[str, Any] = {
-            "action": 3,  # TRADE_ACTION_SLTP
+            "action": 6,  # TRADE_ACTION_SLTP (=6; was wrongly 3, an undefined action — see executor._on_modify_order)
             "position": ticket,
         }
         if symbol:
@@ -314,6 +333,8 @@ class MT5Client:
     def _execute_order(self, func_name: str, request: dict[str, Any]) -> dict[str, Any]:
         """Execute an order function remotely to avoid RPyC dict serialization issues."""
         import json
+        if request.get("symbol"):
+            request = {**request, "symbol": self._symmap.to_broker(request["symbol"])}
         request_json = json.dumps(request)
         self._conn.execute(
             "import json, MetaTrader5 as mt5\n"
@@ -340,7 +361,7 @@ class MT5Client:
         """Get open positions."""
         self._ensure_connected()
         if symbol:
-            positions = self._mt5.positions_get(symbol=symbol)
+            positions = self._mt5.positions_get(symbol=self._symmap.to_broker(symbol))
         else:
             positions = self._mt5.positions_get()
         if positions is None:
@@ -352,7 +373,7 @@ class MT5Client:
             d = _named_tuple_to_dict(p)
             result.append(Position(
                 ticket=int(d.get("ticket", 0)),
-                symbol=str(d.get("symbol", "")),
+                symbol=self._symmap.to_canonical(str(d.get("symbol", ""))),
                 side=OrderSide.BUY if d.get("type", 0) == 0 else OrderSide.SELL,
                 volume=float(d.get("volume", 0)),
                 open_price=float(d.get("price_open", 0)),
@@ -389,6 +410,19 @@ class MT5Client:
             return []
         return [_named_tuple_to_dict(d) for d in deals]
 
+    def history_deals_by_position(self, ticket: int) -> list[dict[str, Any]]:
+        """Get all historical deals for a specific position ticket.
+
+        Used to classify WHY a position closed (deal ``reason``: SL/TP/expert/
+        client) and to read the real close price/profit, instead of guessing
+        from a stale poll snapshot.
+        """
+        self._ensure_connected()
+        deals = self._mt5.history_deals_get(position=ticket)
+        if deals is None:
+            return []
+        return [_named_tuple_to_dict(d) for d in deals]
+
     # --- Helpers ---
 
     def _resolve_timeframe(self, timeframe: Timeframe | str) -> int:
@@ -418,8 +452,9 @@ class AsyncMT5Client:
         port: int = 8001,
         max_reconnect_attempts: int = 10,
         max_backoff_seconds: float = 60.0,
+        symbol_mapper: SymbolMapper | None = None,
     ) -> None:
-        self._sync = MT5Client(host, port)
+        self._sync = MT5Client(host, port, symbol_mapper=symbol_mapper)
         self._host = host
         self._port = port
         self._max_attempts = max_reconnect_attempts
@@ -549,4 +584,9 @@ class AsyncMT5Client:
     ) -> list[dict[str, Any]]:
         return await self._call_with_reconnect(
             self._sync.history_deals_get, date_from, date_to
+        )
+
+    async def history_deals_by_position(self, ticket: int) -> list[dict[str, Any]]:
+        return await self._call_with_reconnect(
+            self._sync.history_deals_by_position, ticket
         )
