@@ -43,6 +43,17 @@ class TrailingStopManager:
         self._activation_profit: float = activation_profit  # default 5.0
         self._peak_prices: dict[int, float] = {}  # ticket → peak price
 
+    def get_tracked(self, ticket: int) -> float | None:
+        """The SL this manager believes the position should have.
+
+        Used by PositionMonitor to reconcile against the ACTUAL broker SL:
+        the ratchet in update() only reports a value when it MOVES, so if a
+        modify failed at the broker (e.g. the 2026-06-10 retcode-10014 streak)
+        or state was restored after a restart that happened mid-failure, the
+        broker SL goes stale forever without this read-back.
+        """
+        return self._trailing_stops.get(ticket)
+
     def update(
         self,
         ticket: int,

@@ -688,6 +688,28 @@ class PositionMonitor:
                     else:
                         new_sl = min(new_sl, profit_sl)  # lower SL = tighter for SELL
 
+                if new_sl is None:
+                    # Reconcile tracked SL vs ACTUAL broker SL. The ratchet
+                    # only returns a value when the SL MOVES — if a modify
+                    # failed at the broker (2026-06-10: every SLTP rejected
+                    # with retcode 10014 for hours) or trailing state was
+                    # restored after a restart mid-failure, the manager
+                    # believes the SL is placed while the broker still holds
+                    # the original stop. Re-send whenever the tracked SL is
+                    # strictly more protective than what the broker has.
+                    tracked = self._trailing_manager.get_tracked(ticket)
+                    if tracked is not None and pos.stop_loss:
+                        stale = (
+                            tracked > pos.stop_loss if pos.side == OrderSide.BUY
+                            else tracked < pos.stop_loss
+                        )
+                        if stale:
+                            logger.warning(
+                                "Trailing SL stale at broker: ticket=%d broker=%.5f tracked=%.5f — re-sending",
+                                ticket, pos.stop_loss, tracked,
+                            )
+                            new_sl = tracked
+
                 if new_sl is not None:
                     # Persist trailing stop to DB (survives restart)
                     try:
