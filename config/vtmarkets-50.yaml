@@ -1,0 +1,81 @@
+# ═══════════════════════════════════════════════════════════════════════
+# VT Markets $500 demo (VTMarkets-Demo, account 1122439)
+#
+# 2026-06-12: account topped up $58 -> $500 (verified live via MT5) to clear
+# the min-lot floor for the validated M30 MR edge: gold SL = 2xATR ≈ $10-16
+# at the 0.01 min lot = 2-3.2% risk/trade at $500 (was 20-32% at $50 —
+# unsurvivable; a normal 4-6 losing streak at 70% WR = ruin).
+#
+# UN-PARKED with the single validated leg: m30_rsi2_mean_reversion on XAUUSD
+# (17mo backtest PF 1.17 @ realistic costs; spread only ~2-4% of TP on gold).
+# USDJPY/NZDUSD stay OFF here — they are probation legs on bot-10k; this
+# account runs only what is proven. US30 ORB excluded: DJ30. min lot 0.1
+# risks $120+/trade = 24% of $500.
+#
+# History: M5 scalpers (keltner/vwap/supertrend) parked 2026-06-03 —
+# cost-killed live (-$930 on bot-10k). Do not re-enable without a fresh
+# strict-cost backtest.
+#
+# Symbols are CANONICAL here; SymbolMapper (MT5_BROKER=vtmarkets) translates to
+# the VIP-suffixed VT names (XAUUSD -> XAUUSD-VIP) at the MT5 boundary.
+# ═══════════════════════════════════════════════════════════════════════
+
+account:
+  initial_balance: 500
+  mode: "demo"
+  risk_per_trade_pct: 2.0   # honest: min-lot floor makes $10-16 (~2-3%) the real per-trade risk
+  max_lot_per_trade: 0.50
+  min_lot_size: 0.01
+  balance_adjustments: []
+
+risk:
+  max_open_positions: 3
+  max_positions_per_symbol: 2
+  max_positions_per_direction: 2   # anti-stacking: ≤2 same-direction (was: 5 longs → −$235)
+  max_daily_trades: 30
+  max_daily_loss_pct: 50.0      # raised for demo validation — RESTORE to ~8 before real money
+  max_drawdown_pct: 30.0      # max-DD circuit breaker: auto-flatten+halt at 30% trailing-from-peak (catastrophe cap; strategies normally swing ~35-42%)
+  min_rr_ratio: 1.5             # external (Telegram/manual) junk-signal guard
+  min_rr_ratio_scalping: 0.4    # internal strategies: backtest-validated geometry (M30 MR = R:R 0.5 BY DESIGN, WR carries expectancy)
+
+# Profit-lock (exit management). $50 is min-lot 0.01 (can't split) → breakeven +
+# trail only. Breakeven activates at a +$5 favorable move (SL floored at entry);
+# the trail then gives back 10% of peak (cap $12). Partial profit-book is DISABLED
+# because a 0.01 lot can't be halved.
+trailing_stop:
+  activation_profit_points: 5.0
+  giveback_pct: 0.10
+  max_giveback_points: 12.0
+  partial_book_enabled: false
+
+prop_firm:
+  enabled: false
+
+strategies:
+  scalping:
+    regime_filter_enabled: true   # gate breakout strats out of RANGING (backtested win)
+    risk_per_trade_pct: 2.0
+    profit_growth_factor: 0.50
+    max_total_open_positions: 2   # at 2-3% min-lot risk/trade, cap stacked exposure
+    daily_loss_limit_pct: 50.0
+    instruments: [XAUUSD]
+    strategies_enabled:
+      - m30_rsi2_mean_reversion   # UN-PARKED 2026-06-12 at $500 (min-lot math now survivable)
+    instrument_strategy_overrides:
+      XAUUSD:                     # whitelist: gold trades ONLY the validated M30 MR leg
+        m30_rsi2_mean_reversion: { risk_pct: 2.0 }
+  london_breakout:
+    enabled: false
+  ema_pullback:
+    enabled: false
+
+claude_filter:
+  enabled: false
+
+signal_generator:
+  instruments: [XAUUSD]          # canonical → XAUUSD-VIP via SymbolMapper
+  instrument_overrides: {}
+  allowed_sessions:
+    - london
+    - new_york
+    - london_ny_overlap
