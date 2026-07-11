@@ -13,11 +13,13 @@ import asyncio
 import logging
 import signal
 import sys
+from datetime import UTC
 from pathlib import Path
 
 from dotenv import load_dotenv
 
 from src.analysis.news_filter import NewsEventFilter
+from src.analysis.signal_generator import SignalGenerator
 from src.config.loader import load_config
 from src.config.schema import AppConfig
 from src.core.events import (
@@ -41,7 +43,6 @@ from src.safety.emergency import EmergencyStop
 from src.telegram.channel_config import ChannelRegistry
 from src.telegram.listener import TelegramListener
 from src.telegram.parser import SignalParser
-from src.analysis.signal_generator import SignalGenerator
 from src.tracking.database import TrackingDB
 
 logger = logging.getLogger(__name__)
@@ -82,10 +83,15 @@ class TradingBot:
         # Core
         self._event_bus = EventBus()
 
-        # MT5
+        # MT5 — broker symbol map (env MT5_BROKER, e.g. "vtmarkets"; default = identity)
+        import os
+
+        from src.mt5.symbol_mapper import SymbolMapper
+        symbol_mapper = SymbolMapper.from_config(os.environ.get("MT5_BROKER", "default"))
         self._mt5 = AsyncMT5Client(
             host=config.mt5.rpyc_host,
             port=config.mt5.rpyc_port,
+            symbol_mapper=symbol_mapper,
         )
 
         # Database
@@ -97,6 +103,17 @@ class TradingBot:
         # Notifications
         self._telegram_notifier = TelegramNotifier(config.monitoring.telegram)
         self._slack_notifier = SlackNotifier(config.monitoring.slack)
+        # Discord is opt-in via DISCORD_WEBHOOK_URL env var; auto-disabled
+        # when unset. The MultiNotifier fans out to all enabled channels —
+        # see post-mortem lesson #1: silent failure on a funded account.
+        from src.monitoring.discord import DiscordNotifier
+        from src.monitoring.multi_notifier import MultiNotifier
+        self._discord_notifier = DiscordNotifier()
+        self._notifier = MultiNotifier(
+            self._telegram_notifier,
+            self._slack_notifier,
+            self._discord_notifier,
+        )
 
         # Signal parser
         self._parser = SignalParser(
@@ -149,8 +166,8 @@ class TradingBot:
 
         # Safety
         self._emergency = EmergencyStop(
-            max_daily_loss_usd=config.account.initial_balance * config.risk.max_daily_loss_pct / 100,
-            max_drawdown_usd=config.account.initial_balance * config.risk.max_drawdown_pct / 100,
+            max_daily_loss_pct=config.risk.max_daily_loss_pct,
+            max_drawdown_pct=config.risk.max_drawdown_pct,
         )
 
         # Monitoring
@@ -166,6 +183,8 @@ class TradingBot:
             trailing_stop_config=config.trailing_stop,
             positions_callback=self._update_cached_positions,
             initial_balance=config.account.initial_balance,
+            emergency_daily_loss_pct=config.risk.max_daily_loss_pct,
+            emergency_drawdown_pct=config.risk.max_drawdown_pct,
             prop_firm_guard=self._risk_manager._prop_firm_guard,
             partial_profit_config=config.partial_profit,
             news_filter=self._news_filter,
@@ -256,8 +275,9 @@ class TradingBot:
         """
         if self._cached_account_state is not None:
             return self._cached_account_state
-        from src.core.models import AccountState
         from datetime import datetime
+
+        from src.core.models import AccountState
         return AccountState(
             balance=self._config.account.initial_balance,
             equity=self._config.account.initial_balance,
@@ -325,14 +345,14 @@ class TradingBot:
         every restart cleared the baseline to live equity, masking up
         to a full daily limit's drawdown.
         """
-        from datetime import datetime, timezone
+        from datetime import datetime
         while not self._shutdown_event.is_set():
             await self._refresh_account_cache()
             try:
                 await self._db.save_bot_state(
                     "peak_equity", str(self._risk_manager.peak_equity)
                 )
-                today_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                today_utc = datetime.now(UTC).strftime("%Y-%m-%d")
                 if self._risk_manager.current_date == today_utc:
                     await self._db.save_bot_state(
                         "session_start_equity",
@@ -418,16 +438,7 @@ class TradingBot:
         except Exception:
             logger.debug("Failed to persist bot position", exc_info=True)
 
-        await self._telegram_notifier.send_trade_opened(
-            symbol=order.symbol,
-            side=order.side.value,
-            volume=event.fill_volume,
-            price=event.fill_price,
-            stop_loss=order.stop_loss,
-            take_profit=order.take_profit,
-            source=source,
-        )
-        await self._slack_notifier.send_trade_opened(
+        await self._notifier.send_trade_opened(
             symbol=order.symbol,
             side=order.side.value,
             volume=event.fill_volume,
@@ -449,17 +460,9 @@ class TradingBot:
         pos = event.position
         magic = getattr(pos, "magic", 0)
         account_label = self._config.prop_firm.provider if self._config.prop_firm.enabled else ""
-        await self._slack_notifier.send_foreign_position(
-            ticket=pos.ticket,
-            symbol=pos.symbol,
-            side=pos.side.value,
-            volume=pos.volume,
-            entry_price=pos.open_price,
-            magic=magic,
-            comment=pos.comment or "",
-            account_label=account_label,
-        )
-        await self._telegram_notifier.send_foreign_position(
+        # MultiNotifier fans out to Slack + Telegram + Discord (Discord opt-in).
+        # Foreign positions are always flagged critical=True on Discord.
+        await self._notifier.send_foreign_position(
             ticket=pos.ticket,
             symbol=pos.symbol,
             side=pos.side.value,
@@ -477,22 +480,14 @@ class TradingBot:
         pos = event.position
         duration_h = 0.0
         if pos.open_time:
-            from datetime import datetime, timezone
-            now = datetime.now(timezone.utc)
+            from datetime import datetime
+            now = datetime.now(UTC)
             open_time = pos.open_time
             if open_time.tzinfo is None:
-                open_time = open_time.replace(tzinfo=timezone.utc)
+                open_time = open_time.replace(tzinfo=UTC)
             duration_h = (now - open_time).total_seconds() / 3600
 
-        await self._telegram_notifier.send_trade_closed(
-            symbol=pos.symbol,
-            side=pos.side.value,
-            volume=pos.volume,
-            close_price=event.close_price,
-            pnl=event.pnl,
-            duration_hours=duration_h,
-        )
-        await self._slack_notifier.send_trade_closed(
+        await self._notifier.send_trade_closed(
             symbol=pos.symbol,
             side=pos.side.value,
             volume=pos.volume,
@@ -585,8 +580,8 @@ class TradingBot:
             # Diff 8: persist + restore session_start_equity (daily-loss
             # baseline). Date-stamped so a stale entry from a previous UTC
             # day doesn't keep the wrong baseline alive.
-            from datetime import datetime, timezone
-            today_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            from datetime import datetime
+            today_utc = datetime.now(UTC).strftime("%Y-%m-%d")
             saved_sse = await self._db.get_bot_state("session_start_equity")
             saved_sse_date = await self._db.get_bot_state("session_start_equity_date")
             if saved_sse and saved_sse_date == today_utc:
@@ -634,6 +629,18 @@ class TradingBot:
                             )
             except Exception:
                 logger.warning("Failed to pre-sync MT5 positions", exc_info=True)
+
+            # 5b-2. Surface any open bot position with no broker-side stop loss.
+            # New entries always carry an SL (executor naked-guard + entry sl/tp)
+            # and the emergency/close paths no longer spawn naked orphans, so this
+            # should be empty — a hit means a pre-existing unprotected position.
+            for pos in self._cached_positions:
+                if pos.comment and pos.comment.startswith("tg:") and not pos.stop_loss:
+                    logger.warning(
+                        "Open bot position #%d %s has NO stop loss — unprotected; "
+                        "trailing will attach one once in profit",
+                        pos.ticket, pos.symbol,
+                    )
 
         # 5c. Clean stale DB positions not found in MT5 (e.g. after account reset)
         try:
@@ -693,8 +700,7 @@ class TradingBot:
                 "Fix: (1) start MT5 container (2) run telegram auth script. Exiting."
             )
             logger.critical(msg)
-            await self._slack_notifier.send(f"CRITICAL: {msg}")
-            await self._telegram_notifier.send(f"CRITICAL: {msg}")
+            await self._notifier.send(f"CRITICAL: {msg}", critical=True)
             self._shutdown_event.set()
             self._event_bus.stop()
             await event_bus_task
@@ -703,8 +709,7 @@ class TradingBot:
         if degraded_parts:
             degraded_msg = f"Trading Bot V2 started DEGRADED: {', '.join(degraded_parts)}"
             logger.warning(degraded_msg)
-            await self._slack_notifier.send(f"WARNING: {degraded_msg}")
-            await self._telegram_notifier.send(f"WARNING: {degraded_msg}")
+            await self._notifier.send(f"WARNING: {degraded_msg}")
 
         logger.info("=" * 60)
         logger.info("Trading Bot V2 is LIVE")
@@ -717,8 +722,7 @@ class TradingBot:
         logger.info("=" * 60)
 
         # Notify that we're live
-        await self._telegram_notifier.send("Trading Bot V2 started")
-        await self._slack_notifier.send("Trading Bot V2 started")
+        await self._notifier.send("Trading Bot V2 started")
 
         # Wait for shutdown signal
         await self._shutdown_event.wait()
@@ -740,8 +744,7 @@ class TradingBot:
         await self._mt5.disconnect()
         await self._db.close()
 
-        await self._telegram_notifier.send("Trading Bot V2 stopped")
-        await self._slack_notifier.send("Trading Bot V2 stopped")
+        await self._notifier.send("Trading Bot V2 stopped")
 
         self._shutdown_event.set()
         logger.info("Trading Bot V2 stopped")
