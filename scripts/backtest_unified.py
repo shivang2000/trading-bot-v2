@@ -172,6 +172,12 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--account-size", type=float, default=5000.0, help="Prop firm account size")
     p.add_argument("--leverage", type=float, default=30.0, help="Leverage for metals")
     p.add_argument("--phase", default="step1", choices=["step1", "step2", "master"])
+    p.add_argument("--daily-loss-pct", type=float, default=5.0,
+                   help="Prop firm daily loss limit %% (Flex=4.0)")
+    p.add_argument("--max-dd-pct", type=float, default=10.0,
+                   help="Prop firm max overall drawdown %% (Flex=12.0)")
+    p.add_argument("--profit-target-pct", type=float, default=10.0,
+                   help="Prop firm profit target %% (Flex step1=10, step2=6)")
     return p
 
 
@@ -215,6 +221,9 @@ def main() -> None:
         args.initial_capital = acct_size
         prop_firm_config = PropFirmConfig(
             account_size=acct_size, phase=args.phase, leverage_metals=args.leverage,
+            daily_loss_limit_pct=args.daily_loss_pct,
+            max_overall_dd_pct=args.max_dd_pct,
+            profit_target_pct=args.profit_target_pct,
         )
 
     # Build engine and run

@@ -6,7 +6,9 @@ invalid type, the bot won't start — fail fast, not mid-trade.
 
 from __future__ import annotations
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
+
+from src.youtube.stream_config import YouTubeConfig
 
 
 class MT5Config(BaseModel):
@@ -54,9 +56,21 @@ def get_adjusted_initial_capital(config: AccountConfig) -> float:
 class RiskConfig(BaseModel):
     max_open_positions: int = 3
     max_positions_per_symbol: int = 1
+    # Max simultaneous positions in the SAME (symbol, direction). The real guard
+    # against correlated stacking — e.g. 5 gold longs from one strategy burst all
+    # hitting stop together (−$235, 2026-06-02). 2 = allow up to two same-side.
+    max_positions_per_direction: int = 2
     max_daily_trades: int = 10
     max_daily_loss_pct: float = 5.0
     max_drawdown_pct: float = 15.0
+    # R:R gate. External (Telegram/manual) signals must clear min_rr_ratio —
+    # the junk-signal guard. Internal scalping strategies carry backtest-
+    # validated geometry where expectancy can come from win rate, not R:R
+    # (m30_rsi2 MR runs TP 1xATR / SL 2xATR = R:R 0.5 with 70% WR), so they
+    # only clear the lower sanity floor. A flat 1.5 gate silently rejected
+    # 100% of M30 MR signals on 2026-06-03/04.
+    min_rr_ratio: float = 1.5
+    min_rr_ratio_scalping: float = 0.4
     # When the bot is inside a high-impact news window (NewsEventFilter +/-
     # window minutes), PositionSizer reduces the calculated lot by this
     # percentage. Research: spreads widen 50+ pips on NFP/CPI/FOMC; experienced
@@ -86,6 +100,25 @@ class TrailingStopConfig(BaseModel):
     activation_pct: float = 0.5
     atr_period: int = 14
     atr_timeframe: str = "H1"
+    # Profit-trail — forwarded to TrailingStopManager.
+    # Breakeven activates once the trade is +activation_profit_points in favor;
+    # the SL then trails, giving back giveback_pct of peak profit (capped at
+    # max_giveback_points) and is floored at entry (a winner never reverts to a loss).
+    #
+    # units="price": thresholds are absolute price units (legacy, gold-tuned —
+    #   12 price units is 0.3% on gold but a trade-strangling 0.02% on US30).
+    # units="percent": thresholds are % of entry price, so one config scales
+    #   across gold/indices/crypto (2026-08-13 US30 fix: +$1.32 exit on a
+    #   $34-target ORB trade).
+    units: str = "price"
+    activation_profit_points: float = 5.0
+    giveback_pct: float = 0.10
+    max_giveback_points: float = 10.0
+    # One-time partial profit-book at a fixed favorable move. Only fires when the
+    # lot can be split (volume >= 2x the broker minimum) — e.g. the $10k account.
+    partial_book_enabled: bool = False
+    partial_book_trigger_points: float = 10.0
+    partial_book_fraction: float = 0.5
 
 
 class PositionMonitorConfig(BaseModel):
@@ -219,6 +252,10 @@ class InstrumentStrategyOverride(BaseModel):
 
 class ScalpingConfig(BaseModel):
     enabled: bool = True
+    # Regime gate: run breakout/trend strategies only in trending regimes and
+    # mean-reversion only in ranging; block all in CHOPPY. The #1 win-rate fix —
+    # live losses were breakout strats whipsawing in a RANGING market.
+    regime_filter_enabled: bool = True
     max_trades_per_strategy: int = 1
     max_total_open_positions: int = 10
     max_daily_trades_per_strategy: int = 50
@@ -310,6 +347,49 @@ class XauusdPullbackWindowConfig(BaseModel):
     timeframe: str = "M5"
 
 
+class AITrendRiderV2Config(BaseModel):
+    """Video-derived Trend Rider candidate and paid-source activation gate.
+
+    The numerical defaults below were transcribed from the public video. They
+    are sufficient to implement a candidate, but ``parameters_verified`` must
+    remain false until its trades reproduce the Trader.dev v2 report or the
+    paid Pine source is independently audited.
+    """
+
+    enabled: bool = False
+    parameters_verified: bool = False
+    strategy_id: str = "01KXRP30E3WXTASJV22W8Q5771"
+    backtest_id: str = "01KXRP3JJ5FNRNF3PCQH1FM9NF"
+    symbol: str = "XAUUSD"
+    timeframe: str = "H1"
+    risk_pct: float = Field(default=0.25, gt=0, le=0.5)
+    completed_candle_only: bool = True
+    pyramiding: bool = False
+
+    # Public-video inputs (TradingView settings, 2026-07-13 video).
+    t3_length: int = Field(default=8, ge=1)
+    t3_factor: float = Field(default=0.7, gt=0, le=1)
+    range_filter_sampling_period: int = Field(default=50, ge=2)
+    range_filter_multiplier: float = Field(default=2.5, gt=0)
+    atr_length: int = Field(default=14, ge=1)
+    atr_stop_multiplier: float = Field(default=2.5, gt=0)
+    reward_risk_ratio: float = Field(default=3.8, gt=0)
+    highest_high_lookback: int = Field(default=50, ge=1)
+    lowest_low_lookback: int = Field(default=50, ge=1)
+    entry_mode: str = "flip"
+    trade_direction: str = "long_only"
+
+    @model_validator(mode="after")
+    def require_verified_parameters_before_activation(self) -> AITrendRiderV2Config:
+        if self.enabled and not self.parameters_verified:
+            raise ValueError("parameters_verified must be true before enabling AI Trend Rider v2")
+        if self.entry_mode != "flip":
+            raise ValueError("only the publicly disclosed 'flip' entry mode is implemented")
+        if self.trade_direction != "long_only":
+            raise ValueError("only the publicly disclosed 'long_only' direction is implemented")
+        return self
+
+
 class StrategyHealthConfig(BaseModel):
     """Live-account early-warning thresholds. See StrategyHealthMonitor."""
 
@@ -343,6 +423,9 @@ class StrategiesConfig(BaseModel):
     xauusd_pullback_window: XauusdPullbackWindowConfig = Field(
         default_factory=XauusdPullbackWindowConfig
     )
+    ai_trend_rider_v2: AITrendRiderV2Config = Field(
+        default_factory=AITrendRiderV2Config
+    )
 
 
 class InstrumentOverride(BaseModel):
@@ -371,6 +454,82 @@ class ClaudeFilterConfig(BaseModel):
     timeout_seconds: float = 5.0
 
 
+class AIEndpointConfig(BaseModel):
+    """One OpenAI-compatible API endpoint (Ollama Cloud, Moonshot, ...)."""
+
+    base_url: str
+    api_key_env: str
+
+
+class AIModelRef(BaseModel):
+    """Points a role at (endpoint, model)."""
+
+    endpoint: str
+    model: str
+
+
+class AIModelsConfig(BaseModel):
+    """Role-based model routing: reasoning drives the tool loop, vision
+    reads chart images, heavy (optional) serves deep/scanner analysis."""
+
+    reasoning: AIModelRef = Field(
+        default_factory=lambda: AIModelRef(endpoint="ollama", model="glm-5.2")
+    )
+    vision: AIModelRef | None = Field(
+        default_factory=lambda: AIModelRef(endpoint="ollama", model="minimax-m3")
+    )
+    heavy: AIModelRef | None = None
+
+
+class AIAnalystConfig(BaseModel):
+    """Fail-open pre-trade AI confirmation layer."""
+
+    enabled: bool = False
+    dry_run: bool = True
+    total_timeout_seconds: float = 12.0
+    request_timeout_seconds: float = 8.0
+    max_iterations: int = 4
+    min_confidence_to_veto: float = 0.6
+    allow_downsize: bool = True
+    min_risk_pct: float = 0.1
+    max_calls_per_hour: int = 30
+    cache_ttl_seconds: int = 240
+    circuit_breaker_failures: int = 3
+    circuit_breaker_cooldown_minutes: int = 15
+    # Strategy allowlist; empty list = all strategies
+    strategies: list[str] = Field(
+        default_factory=lambda: ["m30_rsi2_mean_reversion"]
+    )
+
+
+class AIScannerConfig(BaseModel):
+    """Shadow-mode AI market scanner (P1 — no execution)."""
+
+    enabled: bool = False
+    interval_seconds: int = 900
+    instruments: list[str] = Field(default_factory=list)
+    max_scans_per_day: int = 40
+    shadow_ttl_hours: int = 24
+
+
+class AIConfig(BaseModel):
+    """AI layer root config. All AI runs on Ollama Cloud by default."""
+
+    endpoints: dict[str, AIEndpointConfig] = Field(
+        default_factory=lambda: {
+            "ollama": AIEndpointConfig(
+                base_url="https://ollama.com/v1", api_key_env="OLLAMA_API_KEY"
+            ),
+            "kimi": AIEndpointConfig(
+                base_url="https://api.moonshot.ai/v1", api_key_env="KIMI_API_KEY"
+            ),
+        }
+    )
+    models: AIModelsConfig = Field(default_factory=AIModelsConfig)
+    analyst: AIAnalystConfig = Field(default_factory=AIAnalystConfig)
+    scanner: AIScannerConfig = Field(default_factory=AIScannerConfig)
+
+
 class AppConfig(BaseModel):
     """Root configuration model. Everything rolls up here."""
 
@@ -395,4 +554,7 @@ class AppConfig(BaseModel):
     partial_profit: PartialProfitConfig = Field(default_factory=PartialProfitConfig)
     tick_engine: TickEngineConfig = Field(default_factory=TickEngineConfig)
     claude_filter: ClaudeFilterConfig = Field(default_factory=ClaudeFilterConfig)
+    ai: AIConfig = Field(default_factory=AIConfig)
     strategy_health: StrategyHealthConfig = Field(default_factory=StrategyHealthConfig)
+    # YouTube live stream signal source (optional, default disabled)
+    youtube: YouTubeConfig = Field(default_factory=YouTubeConfig)

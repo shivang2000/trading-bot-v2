@@ -50,6 +50,7 @@ _IMPORTS: list[tuple[dict, str, str, str]] = [
     (M5_STRATEGIES, "m5_ema_833", "src.analysis.strategies.m5_ema_833", "M5Ema833Strategy"),
     (M5_STRATEGIES, "m5_liquidity_sweep", "src.analysis.strategies.m5_liquidity_sweep", "M5LiquiditySweepStrategy"),
     (M5_STRATEGIES, "m30_fvg_ema", "src.analysis.strategies.m30_fvg_ema", "M30FvgEmaStrategy"),
+    (M5_STRATEGIES, "m30_rsi2_mean_reversion", "src.analysis.strategies.backtest_adapters", "M30Rsi2BacktestAdapter"),
     (M5_STRATEGIES, "ema_pullback", "src.analysis.strategies.backtest_adapters", "EmaPullbackBacktestAdapter"),
     (M5_STRATEGIES, "london_breakout", "src.analysis.strategies.backtest_adapters", "LondonBreakoutBacktestAdapter"),
     (M1_STRATEGIES, "m1_heikin_ashi_momentum", "src.analysis.strategies.m1_heikin_ashi_momentum", "M1HeikinAshiMomentumStrategy"),
@@ -228,6 +229,12 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--account-size", type=float, default=5000.0, help="Prop firm account size")
     p.add_argument("--leverage", type=float, default=30.0, help="Leverage for metals")
     p.add_argument("--phase", default="step1", choices=["step1", "step2", "master"])
+    p.add_argument("--daily-loss-pct", type=float, default=5.0,
+                   help="Prop firm daily loss limit %% (Flex=4.0)")
+    p.add_argument("--max-dd-pct", type=float, default=10.0,
+                   help="Prop firm max overall drawdown %% (Flex=12.0)")
+    p.add_argument("--profit-target-pct", type=float, default=10.0,
+                   help="Prop firm profit target %% (Flex step1=10, step2=6)")
     p.add_argument("--safety-buffer-daily-usd", type=float, default=7.0,
                    help="Stop trading $N before daily loss hard limit")
     p.add_argument("--safety-buffer-dd-usd", type=float, default=7.0,
@@ -244,6 +251,9 @@ def _run_engine(args, strat_map, primary_data, h1_data, enable_costs, label, m1_
         prop_firm_config = PropFirmConfig(
             account_size=acct_size,
             phase=args.phase,
+            daily_loss_limit_pct=args.daily_loss_pct,
+            max_overall_dd_pct=args.max_dd_pct,
+            profit_target_pct=args.profit_target_pct,
             leverage_metals=args.leverage,
             safety_buffer_daily_usd=args.safety_buffer_daily_usd,
             safety_buffer_dd_usd=args.safety_buffer_dd_usd,

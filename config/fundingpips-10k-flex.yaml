@@ -1,0 +1,117 @@
+# ═══════════════════════════════════════════════════════════════════════
+# FundingPips $10k 2-Step FLEX — US30 AMD Cycle + NY ORB overlay
+#
+# Built from the 2026-08-12 51-run backtest + Monte Carlo campaign
+# (reports/flex_report_2026-08-12.html, scripts/run_flex_matrix.sh,
+#  scripts/analyze_flex_pass.py):
+#   - m5_amd_cycle US30 @1.0%: P(step1)=96.8%, P(both)=94.3%,
+#     ~4.7mo median to funded, 1.8 trades/wk, PF 1.97 / DD 8% raw (2yr).
+#     BACKTEST-ONLY EVIDENCE — no live record yet; do not raise risk
+#     above 1.0% (MC: pass prob collapses to ~20% at 2%).
+#   - m5_ny_orb US30 @0.5%: live-validated spec (PF 1.26, 504 tr/2yr,
+#     3-period [1.27/1.32/1.19], 3x-spread PF 1.19). Diversifier leg.
+#     MC standalone @0.5%: P(both)=85% but slow; run alongside AMD.
+#
+# Flex objectives (verified 2026-08-12): Step1 +10%, Step2 +6%,
+# daily loss 4%, overall loss 12% STATIC, no time limit, no consistency.
+# Operational guards below are deliberately tighter than the hard limits.
+#
+# Symbols CANONICAL; SymbolMapper handles broker names.
+# NOTE: if broker min lot for US30 is 0.10, the ORB leg is min-lot-bound
+# on narrow-range days (effective risk can exceed 0.5%) — verify the
+# platform min lot before go-live and drop the leg if min lot > 0.10.
+# ═══════════════════════════════════════════════════════════════════════
+
+account:
+  initial_balance: 10000
+  mode: "live"
+  risk_per_trade_pct: 1.0
+  max_lot_per_trade: 1.00
+  min_lot_size: 0.01
+  balance_adjustments: []
+
+risk:
+  max_open_positions: 2            # AMD + ORB, one each
+  max_positions_per_symbol: 2      # both legs live on US30
+  max_positions_per_direction: 2
+  max_daily_trades: 4              # target cadence is 1-2/wk (AMD) + ~1/day (ORB)
+  max_daily_loss_pct: 3.0          # operational stop 1% inside the 4% hard breach
+  max_drawdown_pct: 8.0            # operational halt 4% inside the 12% hard breach
+  min_rr_ratio: 1.5                # external/manual junk-signal guard
+  min_rr_ratio_scalping: 0.4       # internal strategies keep backtested geometry
+
+# Profit-lock (same shape as vtmarkets-10k which produced the live wins):
+# breakeven + trail after +$5, one-time partial book of half at +$10 move.
+trailing_stop:
+  activation_profit_points: 5.0
+  giveback_pct: 0.10
+  max_giveback_points: 12.0
+  partial_book_enabled: true
+  partial_book_trigger_points: 10.0
+  partial_book_fraction: 0.5
+
+prop_firm:
+  enabled: true
+  provider: "fundingpips"
+  account_size: 10000
+  phase: "step1"                   # flip to "step2" after passing (target 6%)
+  leverage_metals: 30
+
+  # FundingPips 2-Step Flex hard-breach limits
+  daily_loss_limit_pct: 4.0
+  max_overall_dd_pct: 12.0
+  profit_target_pct: 10.0          # step1=10.0, step2=6.0
+
+  # PropFirmGuard stops trading $100 before the daily limit and
+  # $400 above the DD floor.
+  safety_buffer_daily_usd: 100
+  safety_buffer_dd_usd: 400
+
+  max_risk_per_trade_pct: 1.0
+  friday_auto_close: true
+  friday_close_hour_utc: 21
+  news_filter_enabled: true
+  max_directional_positions: 2
+
+strategies:
+  scalping:
+    enabled: true
+    risk_per_trade_pct: 1.0
+    profit_growth_factor: 0.50
+    max_total_open_positions: 2
+    daily_loss_limit_pct: 3.0
+    instruments: [US30]
+    strategies_enabled:
+      - m5_amd_cycle              # primary: MC P(both)=94.3% @1% (backtest-only — watch first 20 trades)
+      - m5_ny_orb                 # diversifier: live-validated spec, risk capped at 0.5%
+    instrument_strategy_overrides:
+      US30:
+        m5_amd_cycle: { risk_pct: 1.0 }
+        m5_ny_orb: { risk_pct: 0.5 }
+
+  ema_pullback:
+    enabled: false
+  london_breakout:
+    enabled: false
+  ny_momentum:
+    enabled: false
+
+claude_filter:
+  enabled: false
+
+# AI pre-trade confirm layer stays observational until the account has a
+# live baseline; do not let a fail-open AI gate change challenge behavior.
+ai:
+  analyst:
+    enabled: true
+    dry_run: true
+
+signal_generator:
+  enabled: true
+  scan_interval_seconds: 300
+  instruments: [US30]
+  instrument_overrides: {}
+  allowed_sessions:
+    - london
+    - new_york
+    - london_ny_overlap

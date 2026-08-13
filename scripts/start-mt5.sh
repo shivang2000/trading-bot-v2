@@ -14,7 +14,10 @@ metatrader_version="5.0.36"
 mt5server_port="8001"
 MT5_CMD_OPTIONS="${MT5_CMD_OPTIONS:-}"
 mono_url="https://dl.winehq.org/wine/wine-mono/10.3.0/wine-mono-10.3.0-x86.msi"
-python_url="https://www.python.org/ftp/python/3.9.13/python-3.9.13.exe"
+# 64-bit Python required: MetaTrader5 wheels >5.0.37 are win_amd64-only;
+# the old 32-bit 3.9 caps at 5.0.37 which IPC-times-out against 2026 terminals.
+python_url="https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe"
+wine_python='C:\Python311\python.exe'
 mt5setup_url="https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe"
 
 show_message() {
@@ -34,7 +37,7 @@ is_python_package_installed() {
 }
 
 is_wine_python_package_installed() {
-    $wine_executable python -c "import pkg_resources; exit(not pkg_resources.require('$1'))" 2>/dev/null
+    $wine_executable "$wine_python" -c "import pkg_resources; exit(not pkg_resources.require('$1'))" 2>/dev/null
     return $?
 }
 
@@ -75,10 +78,10 @@ else
 fi
 
 # Install Python in Wine if not present
-if ! $wine_executable python --version 2>/dev/null; then
+if ! $wine_executable "$wine_python" --version 2>/dev/null; then
     show_message "[5/7] Installing Python in Wine..."
     curl -L $python_url -o /tmp/python-installer.exe
-    $wine_executable /tmp/python-installer.exe /quiet InstallAllUsers=1 PrependPath=1
+    $wine_executable /tmp/python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 TargetDir='C:\Python311' Include_launcher=0
     rm /tmp/python-installer.exe
     show_message "[5/7] Python installed in Wine."
 else
@@ -87,18 +90,18 @@ fi
 
 # Upgrade pip and install required packages
 show_message "[6/7] Installing Python libraries"
-$wine_executable python -m pip install --upgrade --no-cache-dir pip
+$wine_executable "$wine_python" -m pip install --upgrade --no-cache-dir pip
 show_message "[6/7] Installing MetaTrader5 library in Windows"
-if ! is_wine_python_package_installed "MetaTrader5==$metatrader_version"; then
-    $wine_executable python -m pip install --no-cache-dir MetaTrader5==$metatrader_version
-fi
+# Track latest: an old pinned package (5.0.36) against a current terminal
+# build fails initialize() with (-10005, 'IPC timeout').
+$wine_executable "$wine_python" -m pip install --no-cache-dir --upgrade "MetaTrader5>=$metatrader_version"
 show_message "[6/7] Checking and installing mt5linux library in Windows if necessary"
 if ! is_wine_python_package_installed "mt5linux"; then
-    $wine_executable python -m pip install --no-cache-dir "mt5linux>=0.1.9"
+    $wine_executable "$wine_python" -m pip install --no-cache-dir "mt5linux>=0.1.9"
 fi
 if ! is_wine_python_package_installed "python-dateutil"; then
     show_message "[6/7] Installing python-dateutil library in Windows"
-    $wine_executable python -m pip install --no-cache-dir python-dateutil
+    $wine_executable "$wine_python" -m pip install --no-cache-dir python-dateutil
 fi
 
 show_message "[6/7] Checking and installing mt5linux library in Linux if necessary"
@@ -112,12 +115,14 @@ if ! is_python_package_installed "pyxdg"; then
 fi
 
 # ─── PATCHED STEP 7 ───────────────────────────────────────
-# Fix: numpy 2.x breaks MetaTrader5 imports; downgrade in Wine
+# Fix: numpy 2.x breaks MetaTrader5 imports; downgrade in Wine.
+# Pin rpyc<6 to match the bot + shim clients (pyproject pins rpyc>=5,<6;
+# rpyc 5<->6 wire protocols are incompatible: brine unpack errors).
 show_message "[7/7] Fixing numpy and starting RPyC server..."
-$wine_executable python -m pip install --no-cache-dir 'numpy<2' 2>/dev/null
+$wine_executable "$wine_python" -m pip install --no-cache-dir 'numpy<2' 'rpyc<6' 2>/dev/null
 
 # Start rpyc SlaveService directly in Wine Python (where MetaTrader5 lives)
-$wine_executable python -c "
+$wine_executable "$wine_python" -c "
 from rpyc.utils.server import ThreadedServer
 from rpyc.core import SlaveService
 import sys

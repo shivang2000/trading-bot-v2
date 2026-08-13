@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MetaTrader5"
+version = "5.0.45"
+description = "RPyC-backed shim of the MetaTrader5 API for non-Windows hosts. Forwards to an mt5linux RPyC server (gmag11/metatrader5_vnc container)."
+requires-python = ">=3.10"
+dependencies = ["rpyc>=5.0"]
+
+[tool.setuptools]
+py-modules = ["MetaTrader5"]

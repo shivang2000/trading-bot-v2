@@ -24,9 +24,9 @@ services:
     container_name: metatrader5
     restart: unless-stopped
     ports:
-      - "8001:8001"     # RPyC — MT5 API
-      - "5900:6900"     # VNC (container uses 6900)
-      - "8080:3000"     # noVNC web UI (container uses 3000 via nginx)
+      - "127.0.0.1:8001:8001"   # RPyC — MT5 API (SSH tunnel only)
+      - "127.0.0.1:5900:6900"   # VNC (SSH tunnel only)
+      - "127.0.0.1:8080:3000"   # noVNC web UI (SSH tunnel only)
     environment:
       - VNC_PASSWORD=botpass
       - CUSTOM_PORT=3000
@@ -38,7 +38,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 768M
+          memory: 1400M   # build 6109 needs headroom: 768M starved the terminal
+                          # ("0/1 Gb memory" in journal) -> python API IPC timeouts
 
   trading-bot:
     build: .

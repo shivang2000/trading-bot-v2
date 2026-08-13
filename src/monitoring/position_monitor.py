@@ -151,6 +151,7 @@ class PositionMonitor:
                 activation_profit=getattr(
                     trailing_stop_config, "activation_profit_points", 5.0
                 ),
+                units=getattr(trailing_stop_config, "units", "price"),
             )
         # Partial profit manager (multi-TP partial closes)
         pp_cfg = partial_profit_config
@@ -758,6 +759,8 @@ class PositionMonitor:
             return
 
         trigger = float(getattr(cfg, "partial_book_trigger_points", 10.0))
+        if getattr(cfg, "units", "price") == "percent":
+            trigger = pos.open_price * trigger / 100.0
         fraction = float(getattr(cfg, "partial_book_fraction", 0.5))
         cur = pos.current_price or pos.open_price
         profit = (

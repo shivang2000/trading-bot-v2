@@ -34,6 +34,7 @@ class TrailingStopManager:
         giveback_pct: float = 0.10,
         max_giveback: float = 10.0,
         activation_profit: float = 5.0,
+        units: str = "price",
     ) -> None:
         self._atr_multiplier = atr_multiplier
         self._activation_pct = activation_pct
@@ -41,6 +42,10 @@ class TrailingStopManager:
         self._giveback_pct: float = giveback_pct  # default 0.10
         self._max_giveback: float = max_giveback  # default 10.0
         self._activation_profit: float = activation_profit  # default 5.0
+        # units="percent": activation_profit / max_giveback are % of entry
+        # price instead of absolute price units, so one config scales across
+        # symbols whose prices differ by orders of magnitude.
+        self._units: str = units
         self._peak_prices: dict[int, float] = {}  # ticket → peak price
 
     def get_tracked(self, ticket: int) -> float | None:
@@ -150,12 +155,19 @@ class TrailingStopManager:
             self._peak_prices[ticket] = peak
             peak_profit = open_price - peak
 
+        if self._units == "percent":
+            activation = open_price * self._activation_profit / 100.0
+            max_giveback = open_price * self._max_giveback / 100.0
+        else:
+            activation = self._activation_profit
+            max_giveback = self._max_giveback
+
         # Not enough profit to activate
-        if peak_profit < self._activation_profit:
+        if peak_profit < activation:
             return None
 
         # Max giveback = min(percentage of peak profit, absolute cap)
-        giveback = min(peak_profit * self._giveback_pct, self._max_giveback)
+        giveback = min(peak_profit * self._giveback_pct, max_giveback)
 
         # Calculate new SL with breakeven floor
         if side == OrderSide.BUY:

@@ -1,0 +1,139 @@
+# ═══════════════════════════════════════════════════════════════════════
+# VT $5k demo — live validation of the FundingPips 2-Step FLEX set — US30 AMD Cycle + NY ORB overlay
+#
+# Built from the 2026-08-12 51-run backtest + Monte Carlo campaign
+# (reports/flex_report_2026-08-12.html, scripts/run_flex_matrix.sh,
+#  scripts/analyze_flex_pass.py):
+#   - m5_amd_cycle US30 @1.0%: P(step1)=96.8%, P(both)=94.3%,
+#     ~4.7mo median to funded, 1.8 trades/wk, PF 1.97 / DD 8% raw (2yr).
+#     BACKTEST-ONLY EVIDENCE — no live record yet; do not raise risk
+#     above 1.0% (MC: pass prob collapses to ~20% at 2%).
+#   - m5_ny_orb US30 @0.5%: live-validated spec (PF 1.26, 504 tr/2yr,
+#     3-period [1.27/1.32/1.19], 3x-spread PF 1.19). Diversifier leg.
+#     MC standalone @0.5%: P(both)=85% but slow; run alongside AMD.
+#
+# Flex objectives (verified 2026-08-12): Step1 +10%, Step2 +6%,
+# daily loss 4%, overall loss 12% STATIC, no time limit, no consistency.
+# Operational guards below are deliberately tighter than the hard limits.
+#
+# Symbols CANONICAL; SymbolMapper handles broker names.
+# NOTE: if broker min lot for US30 is 0.10, the ORB leg is min-lot-bound
+# on narrow-range days (effective risk can exceed 0.5%) — verify the
+# platform min lot before go-live and drop the leg if min lot > 0.10.
+# ═══════════════════════════════════════════════════════════════════════
+
+account:
+  initial_balance: 5000
+  mode: "live"
+  risk_per_trade_pct: 1.0
+  max_lot_per_trade: 1.00
+  min_lot_size: 0.01
+  balance_adjustments: []
+
+risk:
+  max_open_positions: 6            # Portfolio V3e: US30×2 + XAU + BTC + ETH×2
+  max_positions_per_symbol: 2
+  max_positions_per_direction: 4
+  max_daily_trades: 8
+  max_daily_loss_pct: 3.0          # operational stop 1% inside the 4% hard breach
+  max_drawdown_pct: 8.0            # operational halt 4% inside the 12% hard breach
+  min_rr_ratio: 1.5                # external/manual junk-signal guard
+  min_rr_ratio_scalping: 0.4       # internal strategies keep backtested geometry
+
+# Profit-lock in PERCENT units (2026-08-13 fix): the legacy price-unit trail
+# was gold-tuned; on US30 it strangled an ORB winner at +$1.32 of a $34
+# target (12 price units = 0.02% of a 53,850 index). Percent mode scales one
+# config across gold/indices/crypto. 0.15%/0.40% ≈ the old $5/$12 gold tuning.
+trailing_stop:
+  units: percent
+  activation_profit_points: 0.15   # % of entry price
+  giveback_pct: 0.10
+  max_giveback_points: 0.40        # % of entry price
+  partial_book_enabled: true
+  partial_book_trigger_points: 0.25  # % of entry price
+  partial_book_fraction: 0.5
+
+prop_firm:
+  enabled: true
+  provider: "fundingpips"
+  account_size: 5000
+  phase: "step1"                   # flip to "step2" after passing (target 6%)
+  leverage_metals: 30
+
+  # FundingPips 2-Step Flex hard-breach limits
+  daily_loss_limit_pct: 4.0
+  max_overall_dd_pct: 12.0
+  profit_target_pct: 10.0          # step1=10.0, step2=6.0
+
+  # PropFirmGuard stops trading $100 before the daily limit and
+  # $400 above the DD floor.
+  safety_buffer_daily_usd: 100
+  safety_buffer_dd_usd: 400
+
+  max_risk_per_trade_pct: 1.0
+  friday_auto_close: true
+  friday_close_hour_utc: 21
+  news_filter_enabled: true
+  max_directional_positions: 2
+
+strategies:
+  scalping:
+    enabled: true
+    risk_per_trade_pct: 1.0
+    profit_growth_factor: 0.50
+    max_total_open_positions: 6
+    daily_loss_limit_pct: 3.0
+    instruments: [US30, XAUUSD, BTCUSD, ETHUSD]
+    # Portfolio V3e (2026-08-13, FRESH data to 2026-08-12, portfolio MC 3000
+    # sims): P(step1)=99.6%, P(both)=99.3%, ~50 cal days, brDaily=0.0%,
+    # ~6 trade-days/wk. Fresh out-of-sample verdicts that shaped this:
+    #   US30 AMD PF 2.40 (124 tr) CONFIRMED · XAU AMD PF 1.96 holds ·
+    #   BTC AMD PF 4.13 · ETH AMD PF 2.06 · ETH MTF PF 1.59 (184 tr) ·
+    #   xau_liquidity_sweep FAILED OOS (PF 0.76) — REMOVED 2026-08-13 ·
+    #   ORB spec decayed mid-2025 (PF 0.52) but recent 6mo PF 1.27 — kept
+    #   at 0.5% on watch. AMD profitable on 4 independent markets = the
+    #   strongest anti-overfit signal in the repo.
+    # Crypto legs half-size until live-validated. ETH MTF on probation
+    # (XAU MTF variant was cost-killed live 2026-06; ETH spread profile differs).
+    strategies_enabled:
+      - m5_amd_cycle              # US30 full + XAU/BTC/ETH half-size
+      - m5_ny_orb                 # US30-only, 0.5%, on watch (regime-sensitive)
+      - m5_mtf_momentum           # ETHUSD-only, half-size, probation
+    instrument_strategy_overrides:
+      US30:
+        m5_amd_cycle: { risk_pct: 1.0 }
+        m5_ny_orb: { risk_pct: 0.5 }
+      XAUUSD:
+        m5_amd_cycle: { risk_pct: 0.5 }
+      BTCUSD:
+        m5_amd_cycle: { risk_pct: 0.5 }
+      ETHUSD:
+        m5_amd_cycle: { risk_pct: 0.5 }
+        m5_mtf_momentum: { risk_pct: 0.5 }
+
+  ema_pullback:
+    enabled: false
+  london_breakout:
+    enabled: false
+  ny_momentum:
+    enabled: false
+
+claude_filter:
+  enabled: false
+
+# AI pre-trade confirm layer stays observational until the account has a
+# live baseline; do not let a fail-open AI gate change challenge behavior.
+ai:
+  analyst:
+    enabled: true
+    dry_run: true
+
+signal_generator:
+  enabled: true
+  scan_interval_seconds: 300
+  instruments: [US30, XAUUSD, BTCUSD, ETHUSD]
+  instrument_overrides: {}
+  allowed_sessions:
+    - london
+    - new_york
+    - london_ny_overlap
